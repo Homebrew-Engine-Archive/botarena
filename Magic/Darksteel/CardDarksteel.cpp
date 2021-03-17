@@ -62,6 +62,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFangrenFirstbornCard);
 		DEFINE_CARD(CFlamebreakCard);
 		DEFINE_CARD(CFurnaceDragonCard);
+		DEFINE_CARD(CGeminiEngineCard);
 		DEFINE_CARD(CGenesisChamberCard);
 		DEFINE_CARD(CGethsGrimoireCard);
 		DEFINE_CARD(CGoblinArchaeologistCard);
@@ -108,6 +109,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRetractCard);
 		DEFINE_CARD(CRitualOfRestorationCard);
 		DEFINE_CARD(CRoaringSlagwurmCard);
+		DEFINE_CARD(CSavageBeatingCard);
 		DEFINE_CARD(CScavengingScarabCard);
 		DEFINE_CARD(CScreamsFromWithinCard);
 		DEFINE_CARD(CSecondSightCard);
@@ -127,6 +129,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSynodArtificerCard);
 		DEFINE_CARD(CTangleGolemCard);
 		DEFINE_CARD(CTanglewalkerCard);
+		DEFINE_CARD(CTearsOfRageCard);
 		DEFINE_CARD(CTelJiladOutriderCard);
 		DEFINE_CARD(CTelJiladWolfCard);
 		DEFINE_CARD(CThoughtDissectorCard);
@@ -1105,7 +1108,7 @@ CGenesisChamberCard::CGenesisChamberCard(CGame* pGame, UINT nID)
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 
-	cpAbility->SetCreateTokenOption(TRUE, _T("Myr"), TOKEN_ID_BY_NAME, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Myr A"), 2795, 1);
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -2377,7 +2380,7 @@ CMyrMatrixCard::CMyrMatrixCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("5"),
-				_T("Myr"), TOKEN_ID_BY_NAME,
+				_T("Myr A"), 2795,
 				1));
 		ATLASSERT(cpAbility);
 		
@@ -2442,7 +2445,7 @@ CInfestedRootholdCard::CInfestedRootholdCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetMonitorOpponentsOnly(TRUE);
 		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("artifact cards")));
 		
-		cpAbility->SetCreateTokenOption(TRUE, _T("Insect B"), 2723, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Insect H"), 62012, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -3480,23 +3483,31 @@ CQuicksilverBehemothCard::CQuicksilverBehemothCard(CGame* pGame, UINT nID)
 	}
 	{
 		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
 								CWhenSelfAttackedBlocked::EventCallback, 
 								&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
 
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
-		cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
-
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CQuicksilverBehemothCard::BeforeResolution));
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+bool CQuicksilverBehemothCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Bounce Effect"), 61040, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -5301,6 +5312,291 @@ bool CMachinateCard::BeforeResolution(CAbilityAction* pAction) const
 		pModifier.ApplyTo(pAction->GetController());
 	}
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CSavageBeatingCard::CSavageBeatingCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Savage Beating"), CardType::Instant, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				   &CSavageBeatingCard::OnResolutionCompleted))
+	, m_EntwineCost(_T("1") RED_MANA_TEXT)
+{
+	{
+		//Creatures you control gain double strike until end of turn.
+		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
+			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
+				_T("3") RED_MANA_TEXT RED_MANA_TEXT,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0), CreatureKeyword::DoubleStrike));
+
+		cpSpell->SetAffectControllerCardsOnly();
+
+		cpSpell->GetCost().AddOptionalManaCost(m_EntwineCost);
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+		cpSpell->SetUseInSpecificNode(NodeId::Null, FALSE, TRUE);
+		counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CSavageBeatingCard::CanPlay)));
+		cpSpell->Add(cpTrait.GetPointer());
+
+		cpSpell->SetAbilityName(_T("Mode 1"));
+		cpSpell->SetAbilityText(_T("Creatures you control gain double strike until end of turn."));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//Untap all creatures you control and after this phase, there is an additional combat phase.
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType:: Instant,
+				_T("3") RED_MANA_TEXT RED_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSavageBeatingCard::BeforeResolution));
+		
+		cpSpell->SetUseInSpecificNode(NodeId::Null, FALSE, TRUE);
+		counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CSavageBeatingCard::CanPlay)));
+		cpSpell->Add(cpTrait.GetPointer());
+
+		cpSpell->SetAbilityName(_T("Mode 2"));
+		cpSpell->SetAbilityText(_T("Untap all creatures you control and after this phase, there is an additional combat phase."));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+BOOL CSavageBeatingCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b ||
+			pCurrentNode->GetNodeId() == NodeId::EndOfCombatStep);
+}
+
+bool CSavageBeatingCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+
+	CZoneCardModifier pModifier1 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+		std::auto_ptr<CCardModifier>(new CCardOrientationModifier(FALSE)));
+	pModifier1.ApplyTo(pController);
+
+	CFastCombatModifier pModifier2 = CFastCombatModifier(m_pGame);
+	pModifier2.ApplyTo(pController);
+
+	return true;
+}
+
+void CSavageBeatingCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (GetLastCastingCostConfigEntry().HasOptionalManaCost(m_EntwineCost) && bResult)
+	{
+		CPlayer* pController = pAbilityAction->GetController();
+
+		CZoneCardModifier pModifier1 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+			std::auto_ptr<CCardModifier>(new CCardOrientationModifier(FALSE)));
+		pModifier1.ApplyTo(pController);
+
+		CFastCombatModifier pModifier2 = CFastCombatModifier(m_pGame);
+		pModifier2.ApplyTo(pController);
+	}
+}
+
+//____________________________________________________________________________
+//
+CTearsOfRageCard::CTearsOfRageCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Tears of Rage"), CardType::Instant, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+			_T("2") RED_MANA_TEXT RED_MANA_TEXT));
+
+	counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+			&CTearsOfRageCard::CanPlay)));
+	cpSpell->Add(cpTrait.GetPointer());
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTearsOfRageCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+BOOL CTearsOfRageCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2);
+}
+
+bool CTearsOfRageCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
+
+	CCountedCardContainer pSubjects;
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new AttackingCreatureComparer);
+	
+	int nAttacking = 0;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		nAttacking += m_CardFilter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
+
+	if (nAttacking > 0)
+	{
+		CPowerModifier pModifier1 = CPowerModifier(Power(+nAttacking));
+
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+
+			if (pCard->GetCardType().IsCreature() && ((CCreatureCard*)pCard)->IsAttacking())
+			{
+				pModifier1.ApplyTo((CCreatureCard*)pCard);
+				pSubjects.AddCard(pCard, CardPlacement::Top);
+			}
+		}
+	}
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier2.ApplyTo(pController);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CGeminiEngineCard::CGeminiEngineCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Gemini Engine"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
+		_T("6"), Power(3), Life(4))
+	, m_SubjectSelection(pGame,CSelectionSupport::SelectionCallback(this, &CGeminiEngineCard::OnSubjectSelected))
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+								CWhenSelfAttackedBlocked::AttackEventCallback,
+								&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGeminiEngineCard::BeforeResolution));
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CGeminiEngineCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CCountedCardContainer pTokens;
+
+	Power nPower;
+	Life nToughness;
+
+	if (IsInplay())
+	{
+		nPower = GetPower();
+		nToughness = GetLife();
+	}
+	else
+	{
+		Power nPower = GetLastKnownPower();
+		Life nToughness = GetLastKnownToughness();
+	}
+
+	int nTokenCount = 1;
+
+	int nMultiplier = 0;
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Twin"), 62047));		
+
+		if (!m_pGame->IsThinking())
+		{ ((CTokenCreature*)cpToken.GetPointer())->SetUID(62047); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(_T("Twin")); }
+
+		pController->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+		
+		CCreatureCard* pCreature = (CCreatureCard*)cpToken.GetPointer();
+
+		pCreature->SetPrintedPower(nPower);
+		pCreature->SetPrintedToughness(nToughness);		
+
+		cpToken->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+
+		pTokens.AddCard(pCreature, CardPlacement::Top);
+	}
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End of Combat Sacrifice Effect"), 61106, &pTokens);
+	pModifier2.ApplyTo(pController);
+
+	CZone* pBattlefield = m_pGame->GetNextPlayer(pAction->GetController())->GetZoneById(ZoneId::Battlefield);
+	
+	std::vector<SelectionEntry> entries;
+	for (int i = 0; i < pBattlefield->GetSize(); ++i)
+	{
+		CCard* pCard = pBattlefield->GetAt(i);
+		if (pCard->GetCardType().IsPlaneswalker())
+		{
+				
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = (DWORD)pCard;
+			selectionEntry.strText.Format(_T("Attack %s"), pCard->GetCardName());
+
+			entries.push_back(selectionEntry);
+		}
+	}
+		
+	{
+	SelectionEntry selectionEntry;
+
+	selectionEntry.dwContext = 0;
+	selectionEntry.strText.Format(_T("Attack player"));
+
+	entries.push_back(selectionEntry);
+	}
+
+	for (int i = 0; i < pTokens.GetSize(); ++i)
+	{
+		CCreatureCard* pCard = (CCreatureCard*)pTokens.GetAt(i);
+		m_SubjectSelection.AddSelectionRequest(entries, 1, 1, NULL, pController, (DWORD)pCard);
+	}
+
+	return true;
+}
+
+void CGeminiEngineCard::OnSubjectSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{	
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCreatureCard* pCard = (CCreatureCard*)dwContext1;
+			
+			if ( pSelectionPlayer != pCard->GetController())
+				return;
+
+			if (!it->dwContext)
+			{								
+				pCard->Attack(m_pGame->GetNextPlayer(pCard->GetController()));
+				return;
+			}
+			else
+			{
+				CPlaneswalkerCard* pAttackedWalker = (CPlaneswalkerCard*)it->dwContext;
+				pCard->Attack(pAttackedWalker);
+			}
+		}
 }
 
 //____________________________________________________________________________

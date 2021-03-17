@@ -21,6 +21,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		// For example:
 			DEFINE_CARD(CAcornCatapultCard);
 			DEFINE_CARD(CAnimarSoulofElementsCard);
+			DEFINE_CARD(CArchangelOfStrifeCard);
 			DEFINE_CARD(CAvatarOfSlaughterCard);
 			DEFINE_CARD(CCelestialForceCard);
 		 	DEFINE_CARD(CChaosWarpCard);
@@ -630,7 +631,7 @@ CCommandTowerCard::CCommandTowerCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
-		{
+	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));
 
@@ -783,7 +784,7 @@ CGhaveGuruOfSporesCard::CGhaveGuruOfSporesCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("1"),
-				_T("Saproling B"), 2712,
+				_T("Saproling J"), 62001,
 				1));
 
 		cpAbility->GetCost().AddAnyCardCounterCost(_T("+1/+1"), -1, 1, CCardFilter::GetFilter(_T("creatures")));
@@ -1275,7 +1276,7 @@ void CAcornCatapultCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 	if (tCreature) pPlayer = tCreature->GetController();
 	else pPlayer = tPlayer;
 
-	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Squirrel"), 2769, 1);
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Squirrel A"), 2769, 1);
 	pModifier.ApplyTo(pPlayer);
 }
 //____________________________________________________________________________
@@ -1626,7 +1627,7 @@ bool CSyphonFleshCard::BeforeResolution(CAbilityAction* pAction) const
 
 	if (Tokens > 0)
 	{
-		CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Zombie"), 2724, Tokens);
+		CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Zombie G"), 2889, Tokens);
 		pModifier2.ApplyTo(pController);
 	}
 
@@ -1817,5 +1818,171 @@ CCrescendoOfWarCard::CCrescendoOfWarCard(CGame* pGame, UINT nID)
 	}
 }
 */
+//____________________________________________________________________________
+//
+CArchangelOfStrifeCard::CArchangelOfStrifeCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Archangel of Strife"), CardType::Creature, CREATURE_TYPE(Angel), nID,
+		_T("5") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(6), Life(6))
+	, m_Selection(pGame,CSelectionSupport::SelectionCallback(this, &CArchangelOfStrifeCard::OnSelectionDone))
+	, m_nChoices(2)
+{
+}
+
+void CArchangelOfStrifeCard::Move(CZone* pToZone,
+							const CPlayer* pByPlayer,
+							MoveType moveType,
+							CardPlacement cardPlacement, BOOL can_dredge)
+{	
+	bool bBattlefield = (GetZoneId() == ZoneId::Battlefield) || (GetZoneId() == ZoneId::_PhasedOut);
+
+	if	(!bBattlefield && (pToZone->GetZoneId() == ZoneId::Battlefield))
+	{
+		CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+
+		int pActivePlayerID;
+		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			if (pActivePlayer == GetGame()->GetPlayer(ip))
+			{
+				pActivePlayerID = ip;
+				break;
+			}
+
+		SelectorFunction(pActivePlayerID);
+
+	}
+
+	if	(GetZoneId() == ZoneId::_PhasedOut && (pToZone->GetZoneId() == ZoneId::Battlefield))
+	{
+		CCountedCardContainer pCreated;
+		CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Archangel of Strife War Effect"), 61038, 1, FALSE, ZoneId::_Effects, &pCreated);
+		CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Archangel of Strife Peace Effect"), 61039, 1, FALSE, ZoneId::_Effects, &pCreated);
+
+		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		{
+			pCreated.RemoveAll();
+
+			if (m_nChoices[ip] == 0)
+				pModifier1.ApplyTo(GetGame()->GetPlayer(ip));
+			else
+				pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
+
+			for (int i = 0; i < pCreated.GetSize(); ++i)
+				Effects.AddCard(pCreated.GetAt(i), CardPlacement::Top);
+		}
+	}
+	
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+	if	(bBattlefield && (pToZone->GetZoneId() != ZoneId::Battlefield))
+	{
+		CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::_Effects, ZoneId::Exile, true, MoveType::Others, GetController());
+
+		for (int i = 0; i < Effects.GetSize(); ++i)
+			pModifier.ApplyTo(Effects.GetAt(i));
+
+		Effects.RemoveAll();
+	}
+}
+
+void CArchangelOfStrifeCard::SelectorFunction(int PlayerID)
+{
+	CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
+	
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Choose war"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 1;
+		selectionEntry.strText.Format(_T("Choose peace"));
+
+		entries.push_back(selectionEntry);
+	}
+	m_Selection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID);
+}
+
+void CArchangelOfStrifeCard::Advance(int PlayerID)
+{
+	int NextPlayer = PlayerID + 1;
+	int PlayerCount = GetGame()->GetPlayerCount();
+	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+
+	if (NextPlayer >= PlayerCount)
+		NextPlayer -= PlayerCount;
+	if (GetGame()->GetPlayer(NextPlayer) != pActivePlayer)
+		SelectorFunction(NextPlayer);
+	else
+	{
+		CCountedCardContainer pCreated;
+		CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Archangel of Strife War Effect"), 61038, 1, FALSE, ZoneId::_Effects, &pCreated);
+		CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Archangel of Strife Peace Effect"), 61039, 1, FALSE, ZoneId::_Effects, &pCreated);
+
+		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		{
+			pCreated.RemoveAll();
+
+			if (m_nChoices[ip] == 0)
+				pModifier1.ApplyTo(GetGame()->GetPlayer(ip));
+			else
+				pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
+
+			for (int i = 0; i < pCreated.GetSize(); ++i)
+				Effects.AddCard(pCreated.GetAt(i), CardPlacement::Top);
+		}
+	}
+}
+
+void CArchangelOfStrifeCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{ 
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int nSelectedIndex = it->dwContext;
+			
+			if (nSelectedIndex == 0)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s chooses war"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				m_nChoices[dwContext1] = 0;
+
+				Advance(dwContext1);
+
+				return;
+			}
+			if (nSelectedIndex == 1)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s chooses peace"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				m_nChoices[dwContext1] = 1;
+
+				Advance(dwContext1);
+
+				return;
+			}
+		}
+}
+
 //____________________________________________________________________________
 //

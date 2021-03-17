@@ -572,11 +572,12 @@ CUncontrolledInfestationCard::CUncontrolledInfestationCard(CGame* pGame, UINT nI
 	counted_ptr<CAbilityEnchant> cpSpell(
 		::CreateObject<CAbilityEnchant>(this,
 			_T("1") RED_MANA_TEXT,
-			new CardTypeComparer(CardType::NonbasicLand, false),
+			new CardTypeComparer(CardType::_Land, false),
 			CAbilityEnchant::CreateAbilityCallback(this,
 				&CUncontrolledInfestationCard::CreateEnchantAbility),
 				CAbilityEnchant::AdditionType::ToEnchantCard));
 
+	cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 
 	AddSpell(cpSpell.GetPointer());
@@ -1102,7 +1103,7 @@ CDecreeOfJusticeCard::CDecreeOfJusticeCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("2") WHITE_MANA_TEXT,
-				_T("Soldier A"), 2713,
+				_T("Soldier E"), 2988,
 				0));
 
 		cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
@@ -3954,6 +3955,7 @@ CDecreeOfPainCard::CDecreeOfPainCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Decree of Pain"), CardType::Sorcery, nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				&CDecreeOfPainCard::OnResolutionCompleted))
+	, m_nCards(0)
 {
 	{
 		counted_ptr<CGlobalMoveCardSpell> cpSpell(

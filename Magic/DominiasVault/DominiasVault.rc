@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -96,6 +97,8 @@ BEGIN
     IDS_STRING4311          "Mana Crypt\n{0}\nArtifact\nDVA,S\nAt the beginning of your upkeep, flip a coin. If you lose the flip, Mana Crypt deals 3 damage to you.\r{T}: Add {2} to your mana pool."
     IDS_STRING4312          "Gem Bazaar\n\nLand\nDVA,R\nWhen Gem Bazaar comes into play, choose a random color.\r{T}: Add to your mana pool one mana of the color last choosen. Then choose a random color."
     IDS_STRING4313          "Perhaps You've Met My Cohort\n\nScheme\nDVA,S\nWhen you set this scheme in motion, search your library for a planeswalker card, put it onto the batllefield, then shuffle your library."
+    IDS_STRING4314          "Drench the Soil in Their Blood\n\nScheme\nDVA,S\nWhen you set this scheme in motion, after the main phase, there is an additional combat phase followed by an additional main phase. Creatures you control gain vigilance until end of turn."
+	IDS_STRING4315          "Shichifukujin Dragon\n{6RRR}\nCreature - Dragon\nDVA,S\nShichifukujin Dragon enters the battlefield with seven +1/+1 counters.\r{RRR}, Remove two +1/+1 counters from Shichifukujin Dragon: Put three +1/+1 counters on Shichifukujin Dragon at the beginning of the next end step. Activate this ability only any time you could cast a sorcery.\n0/0"
 END
 
 #endif    // English (United States) resources
@@ -108,7 +111,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

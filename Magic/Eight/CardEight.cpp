@@ -399,22 +399,32 @@ CCinderWallCard::CCinderWallCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddDefender(FALSE);
 
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-								CWhenSelfAttackedBlocked::BlockEventCallback, 
-								&CWhenSelfAttackedBlocked::SetBlockingEventCallback > TriggeredAbility;
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+							CWhenSelfAttackedBlocked::BlockEventCallback, 
+							&CWhenSelfAttackedBlocked::SetBlockingEventCallback > TriggeredAbility;
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCinderWallCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CCinderWallCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -993,30 +1003,34 @@ CDeathgazerCard::CDeathgazerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Deathgazer"), CardType::Creature, CREATURE_TYPE(Lizard), nID,
 		_T("3") BLACK_MANA_TEXT, Power(2), Life(2))
 {
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-							CWhenSelfAttackedBlocked::BlockEventCallback2, 
-							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
-
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("non-black creatures")));
-
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDeathgazerCard::SetTriggerContext));
-
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDeathgazerCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CDeathgazerCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+bool CDeathgazerCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CDeathgazerCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -2159,7 +2173,7 @@ CGuerrillaTacticsCard::CGuerrillaTacticsCard(CGame* pGame, UINT nID)
 
 	counted_ptr<TriggeredAbility> cpAbility(
 		::CreateObject<TriggeredAbility>(this,
-			ZoneId::Hand, ZoneId::Graveyard));
+			ZoneId::Hand, ZoneId::_AllZones));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 	cpAbility->GetLifeModifier().SetLifeDelta(Life(-4));
@@ -2167,10 +2181,21 @@ CGuerrillaTacticsCard::CGuerrillaTacticsCard(CGame* pGame, UINT nID)
 	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
 	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
 	cpAbility->GetTargeting().SetIncludePlayers(TRUE);
-	cpAbility->GetTrigger().SetReportChangesByOpponentsOnly(TRUE);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGuerrillaTacticsCard::SetTriggerContext));
 	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CGuerrillaTacticsCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+	if (pAction && pAction->GetController() == GetController()) return false;
+	
+	if (moveType != MoveType::Discard) return false;
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -2508,7 +2533,7 @@ CRukhEggCard::CRukhEggCard(CGame* pGame, UINT nID)
 		_T("3") RED_MANA_TEXT, Power(0), Life(3))
 {
 	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, 
+		TTriggeredAbility< CTriggeredAbility<>, 
 			CWhenSelfInplay, CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -2516,14 +2541,19 @@ CRukhEggCard::CRukhEggCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Bird C"), 2711, 1);
-	cpAbility->SetCreationNode(NodeId::EndStep);
 
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
-
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRukhEggCard::BeforeResolution));
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CRukhEggCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Rukh Egg Effect"), 61089, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -3020,8 +3050,10 @@ CBloodMoonCard::CBloodMoonCard(CGame* pGame, UINT nID)
 	counted_ptr<CCardTypeEnchantment> cpSpell(
 		::CreateObject<CCardTypeEnchantment>(this,
 			_T("2") RED_MANA_TEXT,
-			new CardTypeComparer(CardType::NonbasicLand, false),
-			CardType::Mountain | CardType::BasicLand, CardType::_All));
+			new CardTypeComparer(CardType::_Land, false),
+			CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask));
+
+	cpSpell->GetEnchantmentCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 
 	AddSpell(cpSpell.GetPointer());
 }

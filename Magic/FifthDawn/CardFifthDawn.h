@@ -229,9 +229,15 @@ class CTangleAspCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CTangleAspCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-											  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1137,6 +1143,33 @@ protected:
 
 	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
 								CNode* pNode);
+};
+
+//____________________________________________________________________________
+//
+class CGoblinBrawlerCard : public CFirstStrikeCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGoblinBrawlerCard);
+};
+
+//____________________________________________________________________________
+//
+class CChimericCoilsCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CChimericCoilsCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CEndlessWhispersCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CEndlessWhispersCard);
+
+protected:
+	counted_ptr<CAbility> CreateAbility(CCard* pCard);
 };
 
 //____________________________________________________________________________

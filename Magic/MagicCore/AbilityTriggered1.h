@@ -1557,3 +1557,41 @@ protected:
 };
 //____________________________________________________________________________
 //
+class CORE_EXPORT CTriggeredExtraCombatAbility
+	: public CTriggeredAbility<>
+{
+public:
+	void SetAdditionalAttackCount(int nAdditionalAttackCount) { m_nAdditionalAttackCount = nAdditionalAttackCount; }	// Default: 1
+	void SetUntapAttackedThisTurn(BOOL bUntapAttackedThisTurn) { m_bUntapAttackedThisTurn = bUntapAttackedThisTurn; }	// Default: FALSE
+	void SetThisTurnOnly(BOOL bThisTurnOnly) { m_bThisTurnOnly = bThisTurnOnly; }	// Default: TRUE
+	int GetAdditionalAttackCount() const { return m_nAdditionalAttackCount; }
+
+protected:
+	CTriggeredExtraCombatAbility(CCard* pCard);
+
+	OVERRIDE(TriggerContextType, GetTriggerContext)() const { return TriggerContextType(m_nAdditionalAttackCount); }
+	OVERRIDE(BOOL, ResolveSelection)(CPlayer* pTriggeredPlayer, CTriggeredAction* pAction);
+
+	BOOL	m_bUntapAttackedThisTurn;
+	int		m_nAdditionalAttackCount;
+	BOOL	m_bThisTurnOnly;
+};
+
+//____________________________________________________________________________
+//
+class CORE_EXPORT CTriggeredHellkiteChargerAbility
+	: public CTriggeredAbility<>
+{
+
+protected:
+	CTriggeredHellkiteChargerAbility(CCard* pCard);
+
+	OVERRIDE(BOOL, ResolveSelection)(CPlayer* pTriggeredPlayer, CTriggeredAction* pAction);
+
+	BOOL	m_bUntapAttackedThisTurn;
+	int		m_nAdditionalAttackCount;
+	BOOL	m_bThisTurnOnly;
+};
+
+//____________________________________________________________________________
+//

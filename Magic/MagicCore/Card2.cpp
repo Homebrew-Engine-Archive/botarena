@@ -1214,6 +1214,13 @@ void CCreatureCard::ChangeLifeImpl(Damage damage, BOOL bToBase)
 		pTapModifier.ApplyTo(this);
 	}
 
+	if ((damage.m_DamageType & DamageType::AttackEnforceDamage).Any())
+	{
+		// Ref: Aggravate
+
+		CCreatureKeywordModifier pAttackEnforceModifier = CCreatureKeywordModifier(CreatureKeyword::MustAttack, TRUE);
+		pAttackEnforceModifier.ApplyTo(this);
+	}
 
 	if ((damage.m_DamageType & DamageType::ToExileDamage).Any())
 	{
@@ -2189,6 +2196,7 @@ void CCreatureCard::Move(CZone* pToZone,
 {
 	SetLastKnownm11Counters(this->GetCounterContainer()->GetCounter(_T("-1/-1"))->GetCount());
 	SetLastKnownp11Counters(this->GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount());
+	SetLastKnownFungusCounters(this->GetCounterContainer()->GetCounter(FUNGUS_COUNTER)->GetCount());
 
 	if (moveType == MoveType::Destroy || moveType == MoveType::DestroyWithoutRegeneration)
 	{

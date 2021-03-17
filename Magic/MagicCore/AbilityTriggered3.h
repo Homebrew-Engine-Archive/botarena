@@ -466,3 +466,39 @@ protected:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CTriggeredAllAffinityAbility
+	: public CTriggeredAbility<>
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CTriggeredAllAffinityAbility(
+		CCard* pCard,
+		CCardFilter* AffinityFilter);
+	virtual ~CTriggeredAllAffinityAbility() {}
+
+	void SetOptional(BOOL bOptional) {}
+
+	void OnCardMoved(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	void OnZoneChanged(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	void OnCardTypeChanged(CCard* pCard, CardType fromCardType, CardType toCardType);
+
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpCardZoneListener;
+	ListenerPtr<CardTypeEventSource::Listener>		m_cpCardTypeListener;
+	CWhenSelfMoved m_WhenSelfMoved;
+
+	BOOL_	m_bReduced;
+	CCardFilter*	m_AffinityFilter;
+	int_ CurrentAffinity;
+	CManaCostBase::Color m_Color;
+	ZoneId counting_Zone;
+
+public:
+	void SetManaReductionColor(CManaCostBase::Color pColor) {m_Color = pColor;}
+	void SetCountingZone(ZoneId pZone)  {counting_Zone = pZone;}
+
+
+};
+
+//____________________________________________________________________________
+//

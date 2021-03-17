@@ -29,6 +29,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFracturedPowerstoneCard);
 		DEFINE_CARD(CGlenElendraCard);
 		DEFINE_CARD(CGroveOfTheDreampodsCard);
+		DEFINE_CARD(CHedronFieldsOfAgadeemCard);
 		DEFINE_CARD(CIllusoryAngelCard);
 		DEFINE_CARD(CIndrikUmbraCard);
 		DEFINE_CARD(CInterplanarTunnelCard);
@@ -108,7 +109,7 @@ CBeetlebackChiefCard::CBeetlebackChiefCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Goblin C"), 2702, 2);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Goblin K"), 62022, 2);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -175,7 +176,7 @@ CDreampodDruidCard::CDreampodDruidCard(CGame* pGame, UINT nID)
 		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling B"), 2712, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling K"), 62002, 1);
 
     cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDreampodDruidCard::BeforeResolution));
     cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDreampodDruidCard::SetTriggerContext));
@@ -1559,4 +1560,39 @@ CMassMutinyCard::CMassMutinyCard(CGame* pGame, UINT nID)
 	}
 }
 //____________________________________________________________________________
+//
+CHedronFieldsOfAgadeemCard::CHedronFieldsOfAgadeemCard(CGame* pGame, UINT nID)
+	: CPlaneCard(pGame, _T("Hedron Fields of Agadeem"), PlaneType::Zendikar, nID)
+{
+	{
+		counted_ptr<CPlayerEffectEnchantment> cpAbility(
+		::CreateObject<CPlayerEffectEnchantment>(this,
+			PlayerEffectType::HedronFields));
+
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+		TTriggeredAbility< CTriggeredCreateTokenAbility, CSpecialChaosTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHAOS_SYMBOL_TRIGGER_ID);
+		cpAbility->GetTrigger().SetForceTriggerIndex(FORCE_CHAOS_SYMBOL_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new TrueCardComparer());
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::_Effects);
+
+		cpAbility->SetCreateTokenOption(TRUE, _T("Eldrazi"), 62016, 1);
+
+
+		AddAbility(cpAbility.GetPointer());
+	}	
+}
+
+//__________________________________________________________________________
 //

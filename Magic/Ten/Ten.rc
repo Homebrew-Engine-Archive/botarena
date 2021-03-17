@@ -537,6 +537,8 @@ BEGIN
     IDS_STRING3365          "Duct Crawler\n{R}\nCreature - Insect\n10TH,C\n{1R}: Target creature can't block Duct Crawler this turn.\n1/1"
     IDS_STRING3366          "Dreamborn Muse\n{2UU}\nCreature - Spirit\n10TH,R\nAt the beginning of each player's upkeep, that player puts the top X cards of his or her library into his or her graveyard, where X is the number of cards in his or her hand.\n2/2"
     IDS_STRING3367          "Time Stop\n{4UU}\nInstant\n10TH,R\nEnd the turn."
+    IDS_STRING3368          "Midnight Ritual\n{X2B}\nSorcery\n10TH,R\nExile X target creature cards from your graveyard. For each creature card exiled this way, put a 2/2 black Zombie creature token onto the battlefield."
+    IDS_STRING3369          "Chimeric Staff\n{4}\nArtifact\n10TH,R\n{X}: Chimeric Staff becomes an X/X Construct artifact creature until end of turn."
 END
 
 #endif    // English (United States) resources

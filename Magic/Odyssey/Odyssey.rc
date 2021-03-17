@@ -434,7 +434,7 @@ BEGIN
     IDS_STRING13484         "Chance Encounter\n{2RR}\nEnchantment\nODY,R\nWhenever you win a coin flip, put a luck counter on Chance Encounter.\rAt the beginning of your upkeep, if Chance Encounter has ten or more luck counters on it, you win the game."
     IDS_STRING13485         "Laquatus's Creativity\n{4U}\nSorcery\nODY,U\nTarget player draws cards equal to the number of cards in his or her hand, then discards that many cards."
     IDS_STRING13486         "Rites of Initiation\n{R}\nInstant\nODY,C\nDiscard any number of cards at random. Creatures you control get +1/+0 until end of turn for each card discarded this way."
-    IDS_STRING13487         "Rites of Spring\n{1G}\nSorcery\nODY,C\nDiscard any number of cards. Search your library for that many basic land cards, reveal those cards, and put them into your hand. Then shuffle your library."
+    IDS_STRING13487         "Rites of Spring\n{1G}\nSorcery\nODY,C\nDiscard any number of cards. Search your library for up to that many basic land cards, reveal those cards, and put them into your hand. Then shuffle your library."
 END
 
 STRINGTABLE
@@ -447,6 +447,10 @@ BEGIN
     IDS_STRING13493         "Verdant Succession\n{4G}\nSorcery\nODY,R\nWhenever a green nontoken creature dies, that creature's controller may search his or her library for a card with the same name as that creature and put it onto the battlefield. If that player does, he or she shuffles his or her library."
     IDS_STRING13494         "Vivify\n{2G}\nInstant\nODY,U\nTarget land becomes a 3/3 creature until end of turn. It's still a land.\rDraw a card."
     IDS_STRING13495         "Think Tank\n{2U}\nEnchantment\nODY,U\nAt the beginning of your upkeep, look at the top card of your library. You may put that card into your graveyard."
+    IDS_STRING13496         "Seize the Day\n{3R}\nSorcery\nODY,R\nUntap target creature. After this main phase, there is an additional combat phase followed by an additional main phase.\rFlashback {2R}"
+    IDS_STRING13497         "Gravestorm\n{BBB}\nEnchantment\nODY,R\nAt the beginning of your upkeep, target opponent may exile a card from his or her graveyard. If that player doesn't, you may draw a card."
+    IDS_STRING13498         "Testament of Faith\n{W}\nEnchantment\nODY,U\n{X}: Testament of Faith becomes an X/X Wall creature with defender until end of turn. It's still an enchantment."
+    IDS_STRING13499         "Shifty Doppelganger\n{2U}\nEnchantment\nODY,R\n{3U}, Exile Shifty Doppelganger: You may put a creature card from your hand onto the battlefield. If you do, that creature gains haste until end of turn. At the beginning of the next end step, sacrifice that creature. If you do, return Shifty Doppelganger to the battlefield.\n1/1"
 END
 
 #endif    // English (United States) resources

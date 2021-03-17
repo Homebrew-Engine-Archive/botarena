@@ -254,6 +254,7 @@
 #define IDS_STRING8737                  8737
 #define IDS_STRING8738                  8738
 #define IDS_STRING8739                  8739
+#define IDS_STRING8740                  8740
 #define IDI_MODULE                      8749
 #define IDI_LARGE_MODULE                8750
 

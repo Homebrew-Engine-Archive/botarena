@@ -38,6 +38,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 
 	do
 	{
+		DEFINE_TOKEN(CMorphToken);
+
 		DEFINE_TOKEN(CAngelAToken);
 		DEFINE_TOKEN(CAngelBToken);
 		DEFINE_TOKEN(CAngelCToken);
@@ -153,8 +155,13 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CGoatBToken);
 		DEFINE_TOKEN(CGoblinAToken);
 		DEFINE_TOKEN(CGoblinBToken);
+		DEFINE_TOKEN(CGoblinCToken);
+		DEFINE_TOKEN(CGoblinDToken);
+		DEFINE_TOKEN(CGoblinEToken);
+		DEFINE_TOKEN(CGoblinFToken);
 		DEFINE_TOKEN(CGoblinRogueToken);
 		DEFINE_TOKEN(CGoblinScoutToken);
+		DEFINE_TOKEN(CGoblinSoldierAToken);
 		DEFINE_TOKEN(CGoldmeadowHarrierToken);
 		DEFINE_TOKEN(CGolemAToken);
 		DEFINE_TOKEN(CGolemBToken);
@@ -165,79 +172,73 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CGriffinToken);
 		DEFINE_TOKEN(CHellionAToken);
 		DEFINE_TOKEN(CHellionBToken);
+		DEFINE_TOKEN(CHippoAToken);
 		DEFINE_TOKEN(CHomunculusAToken);
 		DEFINE_TOKEN(CHomunculusBToken);
 		DEFINE_TOKEN(CHornetToken);
 		DEFINE_TOKEN(CHorrorAToken);
 		DEFINE_TOKEN(CHorrorBToken);
+		DEFINE_TOKEN(CHumanAToken);
 		DEFINE_TOKEN(CHumanBToken);
 		DEFINE_TOKEN(CHoundToken);
+		DEFINE_TOKEN(CIllusionAToken);
+		DEFINE_TOKEN(CIllusionBToken);
 		DEFINE_TOKEN(CInsectAToken);
+		DEFINE_TOKEN(CInsectBToken);
 		DEFINE_TOKEN(CInsectCToken);
 		DEFINE_TOKEN(CInsectDToken);
 		DEFINE_TOKEN(CInsectEToken);
+		DEFINE_TOKEN(CInsectFToken);
+		DEFINE_TOKEN(CKaldraToken);
+		DEFINE_TOKEN(CKavuToken);
+		DEFINE_TOKEN(CKelpToken);
+		DEFINE_TOKEN(CKithkinSoldierAToken);
 		DEFINE_TOKEN(CKnightAToken);
 		DEFINE_TOKEN(CKnightBToken);
 		DEFINE_TOKEN(CKnightCToken);
 		DEFINE_TOKEN(CKnightDToken);
-		DEFINE_TOKEN(CLlanowarElvesToken);
-		DEFINE_TOKEN(CRatAToken);
-		DEFINE_TOKEN(CRatBToken);
-		DEFINE_TOKEN(CRatCToken);
-		DEFINE_TOKEN(CRatDToken);
-		DEFINE_TOKEN(CSparkElementalToken);
-		DEFINE_TOKEN(CTuktukTheReturnedToken);
-		DEFINE_TOKEN(CUramiToken);
-		DEFINE_TOKEN(CZombieGiantToken);
-		//
-		DEFINE_TOKEN(CGoblinCToken);
-		DEFINE_TOKEN(CGoblinDToken);
-		DEFINE_TOKEN(CGoblinEToken);
-		DEFINE_TOKEN(CGoblinFToken);
-		DEFINE_TOKEN(CGoblinSoldierAToken);
-		DEFINE_TOKEN(CHippoToken);
-		DEFINE_TOKEN(CHumanAToken);
-		DEFINE_TOKEN(CIllusionAToken);
-		DEFINE_TOKEN(CIllusionBToken);
-		DEFINE_TOKEN(CInsectBToken);
-		DEFINE_TOKEN(CJuggernautToken);
-		DEFINE_TOKEN(CKaldraToken);
-		DEFINE_TOKEN(CKavuToken);
-		DEFINE_TOKEN(CKelpToken);
-		DEFINE_TOKEN(CKithkinSoldierToken);
 		DEFINE_TOKEN(CKoboldsOfKherKeepToken);
 		DEFINE_TOKEN(CKorSoldierToken);
+		DEFINE_TOKEN(CLlanowarElvesToken);
 		DEFINE_TOKEN(CMaritLageToken);
 		DEFINE_TOKEN(CMerfolkWizardToken);
 		DEFINE_TOKEN(CMetallicSliverToken);
 		DEFINE_TOKEN(CMinorDemonToken);
-		DEFINE_TOKEN(CMorphToken);
-		DEFINE_TOKEN(CMyrToken);
+		DEFINE_TOKEN(CMyrAToken);
 		DEFINE_TOKEN(COgreToken);
 		DEFINE_TOKEN(COozeAToken);
 		DEFINE_TOKEN(COozeBToken);
 		DEFINE_TOKEN(COozeCToken);
 		DEFINE_TOKEN(COozeDToken);
-		DEFINE_TOKEN(CPegasusToken);
+		DEFINE_TOKEN(COozeEToken);
+		DEFINE_TOKEN(CPegasusAToken);
+		DEFINE_TOKEN(CPegasusBToken);
 		DEFINE_TOKEN(CPentaviteToken);
 		DEFINE_TOKEN(CPestToken);
 		DEFINE_TOKEN(CPincherToken);
 		DEFINE_TOKEN(CPlantToken);
-		DEFINE_TOKEN(CPlantZombieToken);
 		DEFINE_TOKEN(CPrismToken);
+		DEFINE_TOKEN(CRatAToken);
+		DEFINE_TOKEN(CRatBToken);
+		DEFINE_TOKEN(CRatCToken);
+		DEFINE_TOKEN(CRatDToken);
+		DEFINE_TOKEN(CReflectionAToken);
 		DEFINE_TOKEN(CRhinoToken);
-		DEFINE_TOKEN(CReflectionToken);
 		DEFINE_TOKEN(CSandToken);
 		DEFINE_TOKEN(CSaprolingAToken);
 		DEFINE_TOKEN(CSaprolingBToken);
 		DEFINE_TOKEN(CSaprolingCToken);
+		DEFINE_TOKEN(CSaprolingDToken);
+		DEFINE_TOKEN(CSaprolingEToken);
+		DEFINE_TOKEN(CSaprolingFToken);
+		DEFINE_TOKEN(CSaprolingGToken);
+		DEFINE_TOKEN(CSaprolingHToken);
 		DEFINE_TOKEN(CSerfToken);
 		DEFINE_TOKEN(CShapeshifterToken);
-		DEFINE_TOKEN(CShapeshifterAToken);
 		DEFINE_TOKEN(CSheepToken);
 		DEFINE_TOKEN(CSkeletonAToken);
-		DEFINE_TOKEN(CSkeletonBToken);
-		DEFINE_TOKEN(CSliverToken);
+		DEFINE_TOKEN(CSliverAToken);
+		DEFINE_TOKEN(CSliverBToken);
 		DEFINE_TOKEN(CSnakeAToken);
 		DEFINE_TOKEN(CSnakeBToken);
 		DEFINE_TOKEN(CSnakeCToken);
@@ -248,11 +249,21 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSoldierBToken);
 		DEFINE_TOKEN(CSoldierCToken);
 		DEFINE_TOKEN(CSoldierDToken);
+		DEFINE_TOKEN(CSoldierEToken);
+		DEFINE_TOKEN(CSoldierFToken);
+		DEFINE_TOKEN(CSoldierGToken);
+		DEFINE_TOKEN(CSoldierHToken);
+		DEFINE_TOKEN(CSoldierIToken);
+		DEFINE_TOKEN(CSoldierJToken);
+		DEFINE_TOKEN(CSoldierKToken);
+		DEFINE_TOKEN(CSoldierLToken);
+		DEFINE_TOKEN(CSoldierMToken);
 		DEFINE_TOKEN(CSoldierAllyToken);
+		DEFINE_TOKEN(CSparkElementalToken);
 		DEFINE_TOKEN(CSpawnToken);
-		DEFINE_TOKEN(CSpawnwritheToken);
 		DEFINE_TOKEN(CSpiderAToken);
 		DEFINE_TOKEN(CSpiderBToken);
+		DEFINE_TOKEN(CSpiderCToken);
 		DEFINE_TOKEN(CSpikeToken);
 		DEFINE_TOKEN(CSpiritAToken);
 		DEFINE_TOKEN(CSpiritBToken);
@@ -267,35 +278,40 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSpiritKToken);
 		DEFINE_TOKEN(CSpiritLToken);
 		DEFINE_TOKEN(CSpiritMToken);
-		DEFINE_TOKEN(CSquirrelToken);
+		DEFINE_TOKEN(CSpiritNToken);
+		DEFINE_TOKEN(CSquirrelAToken);
 		DEFINE_TOKEN(CSquirrelBToken);
+		DEFINE_TOKEN(CSquirrelCToken);
+		DEFINE_TOKEN(CSquirrelDToken);
 		DEFINE_TOKEN(CStanggTwinToken);
 		DEFINE_TOKEN(CStarfishToken);
 		DEFINE_TOKEN(CSurvivorToken);
 		DEFINE_TOKEN(CThopterAToken);
 		DEFINE_TOKEN(CThopterBToken);
-		DEFINE_TOKEN(CThrullToken);
+		DEFINE_TOKEN(CThopterCToken);
+		DEFINE_TOKEN(CThrullAToken);
 		DEFINE_TOKEN(CThrullBToken);
 		DEFINE_TOKEN(CTombspawnToken);
-		DEFINE_TOKEN(CTreefolkAToken);
-		DEFINE_TOKEN(CTreefolkBToken);
 		DEFINE_TOKEN(CTreefolkShamanToken);
 		DEFINE_TOKEN(CTriskelaviteToken);
-		DEFINE_TOKEN(CTurtleToken);
+		DEFINE_TOKEN(CTuktukTheReturnedToken);
+		DEFINE_TOKEN(CUramiToken);
 		DEFINE_TOKEN(CVampireAToken);
 		DEFINE_TOKEN(CVampireBToken);
 		DEFINE_TOKEN(CVampireCToken);
 		DEFINE_TOKEN(CVojaToken);
-		DEFINE_TOKEN(CWallToken);
-		DEFINE_TOKEN(CWallBToken);
-		DEFINE_TOKEN(CWarriorAToken);
-		DEFINE_TOKEN(CWarriorBToken);
+		DEFINE_TOKEN(CWallAToken);
+		DEFINE_TOKEN(CWarriorToken);
 		DEFINE_TOKEN(CWaspToken);
 		DEFINE_TOKEN(CWireflyToken);
 		DEFINE_TOKEN(CWolfAToken);
 		DEFINE_TOKEN(CWolfBToken);
 		DEFINE_TOKEN(CWolfCToken);
 		DEFINE_TOKEN(CWolfDToken);
+		DEFINE_TOKEN(CWolfEToken);
+		DEFINE_TOKEN(CWolfFToken);
+		DEFINE_TOKEN(CWolfGToken);
+		DEFINE_TOKEN(CWolfHToken);
 		DEFINE_TOKEN(CWoodToken);
 		DEFINE_TOKEN(CWormToken);
 		DEFINE_TOKEN(CWurmAToken);
@@ -304,47 +320,23 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CWurmDToken);
 		DEFINE_TOKEN(CWurmEToken);
 		DEFINE_TOKEN(CWurmFToken);
-		DEFINE_TOKEN(CZombieToken);
+		DEFINE_TOKEN(CWurmGToken);
+		DEFINE_TOKEN(CWurmHToken);
+		DEFINE_TOKEN(CZombieAToken);
+		DEFINE_TOKEN(CZombieBToken);
+		DEFINE_TOKEN(CZombieCToken);
+		DEFINE_TOKEN(CZombieDToken);
+		DEFINE_TOKEN(CZombieEToken);
+		DEFINE_TOKEN(CZombieFToken);
+		DEFINE_TOKEN(CZombieGToken);
+		DEFINE_TOKEN(CZombieHToken);
+		DEFINE_TOKEN(CZombieIToken);
+		DEFINE_TOKEN(CZombieJToken);
+		DEFINE_TOKEN(CZombieKToken);
+		DEFINE_TOKEN(CZombieLToken);
+		DEFINE_TOKEN(CZombieMToken);
+		DEFINE_TOKEN(CZombieGiantToken);
 		DEFINE_TOKEN(CZombieWizardToken);
-
-
-		DEFINE_TOKEN(CInterventionPactEffectToken);
-		DEFINE_TOKEN(CPactofNegationEffectToken);
-		DEFINE_TOKEN(CPactOfTheTitanEffectToken);
-		DEFINE_TOKEN(CSlaughterPactEffectToken);
-		DEFINE_TOKEN(CSummonersPactEffectToken);
-		
-		DEFINE_TOKEN(CCastExileEmblemToken);
-		DEFINE_TOKEN(CDomriRadeEmblemToken);
-		DEFINE_TOKEN(CMountainDamageEmblemToken);
-		DEFINE_TOKEN(CPowerPumpEmblemToken);
-		DEFINE_TOKEN(CTamiyoEmblemToken);
-		DEFINE_TOKEN(CSwampFourManaEmblemToken);
-
-		DEFINE_TOKEN(CAlchemistsRefugeEffectToken);
-		DEFINE_TOKEN(CApproachMyMoltenRealmEffectToken);
-		DEFINE_TOKEN(CArcaneDenialEffectToken);
-		DEFINE_TOKEN(CBubblingMuckEffectToken);
-		DEFINE_TOKEN(CChannelEffectToken);
-		DEFINE_TOKEN(CChandraTheFirebrandEffectToken);
-		DEFINE_TOKEN(CDuskmantleGuildmageEffectToken);
-		DEFINE_TOKEN(CEnterTheInfiniteEffectToken);
-		DEFINE_TOKEN(CFalterEffectToken);
-		DEFINE_TOKEN(CFlashOfDefianceEffectToken);
-		DEFINE_TOKEN(CGlimpseofNatureEffectToken);
-		DEFINE_TOKEN(CHeroOfOxidRidgeEffectToken);
-		DEFINE_TOKEN(CHighTideEffectToken);
-		DEFINE_TOKEN(CJaceArchitectOfThoughtEffectToken);
-		DEFINE_TOKEN(CLatNamsLegacyEffectToken);
-		DEFINE_TOKEN(CPraetorsCounselEffectToken);
-		DEFINE_TOKEN(CQuickenEffectToken);
-		DEFINE_TOKEN(CRuthlessInvasionEffectToken);
-		DEFINE_TOKEN(CScoutsWarningEffectToken);
-		DEFINE_TOKEN(CSlowtripEffectToken);
-		DEFINE_TOKEN(CThePiecesAreComingTogetherEffectToken);
-		DEFINE_TOKEN(CWindingCanyonsEffectToken);
-		DEFINE_TOKEN(CYourPunyMindsCannotFathomEffectToken);
-
 	} while (false);
 
 	return cpCard;	
@@ -561,8 +553,7 @@ CBatAToken::CBatAToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddFlying(FALSE);
 
-// Used by Skeletal Vampire
-// Future use: Belfry Spirit
+// Used by Belfry Spirit, Skeletal Vampire
 }
 
 //____________________________________________________________________________
@@ -602,8 +593,8 @@ CBearAToken::CBearAToken(CGame* pGame, UINT nID)
 {
     AddCardType(CardType::Green, CardType::_ColorMask);
 
-// ONS version; used by Kamahl's Summons
-// Future use: Words of Wilding, Caller of the Claw
+// ONS version; used by Kamahl's Summons, Caller of the Claw
+// Future use: Words of Wilding
 }
 
 //____________________________________________________________________________
@@ -1436,6 +1427,8 @@ CGoblinCToken::CGoblinCToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// ALA version; used by Dragon Fodder, Kathari Bomber
 }
 
 //____________________________________________________________________________
@@ -1475,6 +1468,8 @@ CGoblinSoldierAToken::CGoblinSoldierAToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red | CardType::White, CardType::_ColorMask);
+
+// EVE version; used by Rise of the Hobgoblins
 }
 
 //____________________________________________________________________________
@@ -1639,6 +1634,8 @@ CInsectBToken::CInsectBToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// M10 version; used by Ant Queen, Dragonlair Spider
 }
 
 //____________________________________________________________________________
@@ -1670,22 +1667,13 @@ CInsectDToken::CInsectDToken(CGame* pGame, UINT nID)
 }
 //____________________________________________________________________________
 //
-CJuggernautToken::CJuggernautToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Juggernaut"), CardType::_ArtifactCreature/* | CardType::Token*/,
-		CREATURE_TYPE(Juggernaut), nID,
-		_T("4"),
-		Power(4), Life(4))
-{
-}
-
-//____________________________________________________________________________
-//
 CKaldraToken::CKaldraToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Kaldra"), CardType::_LegendaryCreature | CardType::Token,
 		CREATURE_TYPE(Avatar), nID,
 		_T(""),
 		Power(4), Life(4))
 {	
+// Used by Helm of Kaldra
 }
 
 //____________________________________________________________________________
@@ -1697,6 +1685,8 @@ CKavuToken::CKavuToken(CGame* pGame, UINT nID)
 		Power(3), Life(3))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// Used by Penumbra Kavu
 }
 
 //____________________________________________________________________________
@@ -1710,17 +1700,21 @@ CKelpToken::CKelpToken(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddDefender(FALSE);
 
 	AddCardType(CardType::Blue, CardType::_ColorMask);
+
+// Used by Wall of Kelp
 }
 
 //____________________________________________________________________________
 //
-CKithkinSoldierToken::CKithkinSoldierToken(CGame* pGame, UINT nID)
+CKithkinSoldierAToken::CKithkinSoldierAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Kithkin Soldier"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE2(Kithkin, Soldier), nID,
 		_T(""),
 		Power(1), Life(1))
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
+
+// LRW version; used by Cloudgoat Ranger, Guardian of Cloverdell, Militia's Pride, Kinsbaile Borderguard
 }
 
 //____________________________________________________________________________
@@ -1760,6 +1754,8 @@ CKoboldsOfKherKeepToken::CKoboldsOfKherKeepToken(CGame* pGame, UINT nID)
 		Power(0), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// Used by Kher Keep
 }
 
 //____________________________________________________________________________
@@ -1771,6 +1767,8 @@ CKorSoldierToken::CKorSoldierToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
+
+// Used by Conqueror's Pledge, Nomads' Assembly
 }
 
 //____________________________________________________________________________
@@ -1807,6 +1805,8 @@ CMaritLageToken::CMaritLageToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddFlying(FALSE);
 	GetCardKeyword()->AddIndestructible(FALSE);
+
+// Used by Dark Depths
 }
 
 //____________________________________________________________________________
@@ -1818,6 +1818,8 @@ CMerfolkWizardToken::CMerfolkWizardToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Blue, CardType::_ColorMask);
+
+// Used by Benthicore, Summon the School, Stonybrook Schoolmaster
 }
 
 //____________________________________________________________________________
@@ -1828,6 +1830,7 @@ CMetallicSliverToken::CMetallicSliverToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(1), Life(1))
 {
+// Used by Sliversmith
 }
 
 //____________________________________________________________________________
@@ -1855,12 +1858,13 @@ CMorphToken::CMorphToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CMyrToken::CMyrToken(CGame* pGame, UINT nID)
+CMyrAToken::CMyrAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Myr"), CardType::_ArtifactCreature | CardType::Token,
 		CREATURE_TYPE(Myr), nID,
 		_T(""),
 		Power(1), Life(1))
 {
+// MRD version; used by Myr Incubator, Genesis Chamber, Myr Matrix
 }
 
 //____________________________________________________________________________
@@ -1872,6 +1876,9 @@ COozeAToken::COozeAToken(CGame* pGame, UINT nID)
 		Power(0), Life(0))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ALA version; used by Ooze Garden
+// Future use: Kresh the Bloodbraided Avatar
 }
 
 //____________________________________________________________________________
@@ -1902,6 +1909,8 @@ COozeBToken::COozeBToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+
+// Used by Mitotic Slime
 }
 
 //____________________________________________________________________________
@@ -1913,11 +1922,13 @@ COozeCToken::COozeCToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Mitotic Slime
 }
 
 //____________________________________________________________________________
 //
-CPegasusToken::CPegasusToken(CGame* pGame, UINT nID)
+CPegasusAToken::CPegasusAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Pegasus"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Pegasus), nID,
 		_T(""),
@@ -1926,6 +1937,8 @@ CPegasusToken::CPegasusToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::White, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// GPT version; used by Storm Herd
 }
 
 //____________________________________________________________________________
@@ -1937,6 +1950,8 @@ CPentaviteToken::CPentaviteToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Pentavus
 }
 
 //____________________________________________________________________________
@@ -1947,6 +1962,7 @@ CPestToken::CPestToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(0), Life(1))
 {
+// Used by Nuisance Engine
 }
 
 //____________________________________________________________________________
@@ -1957,6 +1973,7 @@ CPincherToken::CPincherToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(2), Life(2))
 {
+// Used by Summoning Station
 }
 
 //____________________________________________________________________________
@@ -1968,47 +1985,9 @@ CPlantToken::CPlantToken(CGame* pGame, UINT nID)
 		Power(0), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
-}
 
-//____________________________________________________________________________
-//
-CPlantZombieToken::CPlantZombieToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Plant Zombie"), CardType::Creature,
-	CREATURE_TYPE2(Plant, Zombie), nID,
-	_T(""),
-	Power(0), Life(0))
-{
-	AddCardType(CardType::Black | CardType::Green, CardType::_ColorMask);
-
-	{
-		counted_ptr<CTriggeredChgPwrTghWhenCardPlayedAbility> cpAbility(
-			::CreateObject<CTriggeredChgPwrTghWhenCardPlayedAbility>(this,
-			ZoneId::Graveyard,
-			new AnyCreatureComparer));
-
-		//cpAbility->StartListening(GetController()); //causes a crash
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-void CPlantZombieToken::Move(CZone* pToZone,
-					  const CPlayer* pByPlayer,
-					  MoveType moveType,
-					  CardPlacement cardPlacement, BOOL can_dredge)
-{
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-
-	if (pToZone->GetZoneId() != ZoneId::Battlefield) return;
-
-	for (int i = 0; i < GetAbilityCount(); ++i)
-	{
-		CTriggeredChgPwrTghWhenCardPlayedAbility* pCTriggeredChgPwrTghWhenCardPlayedAbility = dynamic_cast<CTriggeredChgPwrTghWhenCardPlayedAbility*>(GetAbility(i));
-		if (!pCTriggeredChgPwrTghWhenCardPlayedAbility) //|| !pSpecialProtectionAbility->GetEnabled())
-			continue;
-
-		pCTriggeredChgPwrTghWhenCardPlayedAbility->ForceStart(TRUE);
-		
-	}
+// Used by Avenger of Zendikar, Khalni Garden
+// Future use: Evil Comes to Fruition, Nature Shields Its Own
 }
 
 //____________________________________________________________________________
@@ -2019,6 +1998,7 @@ CPrismToken::CPrismToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(0), Life(1))
 {
+// Used by Diamond Kaleidoscope
 }
 
 //____________________________________________________________________________
@@ -2036,7 +2016,7 @@ CRatAToken::CRatAToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CReflectionToken::CReflectionToken(CGame* pGame, UINT nID)
+CReflectionAToken::CReflectionAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Reflection"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Reflection), nID,
 		_T(""),
@@ -2053,6 +2033,7 @@ CSandToken::CSandToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(1), Life(1))
 {
+// Used by Dune-Brood Nephilim
 }
 
 //____________________________________________________________________________
@@ -2064,6 +2045,8 @@ CSaprolingAToken::CSaprolingAToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Black | CardType::Green, CardType::_ColorMask);
+
+// Used by Mold Spore
 }
 
 //____________________________________________________________________________
@@ -2075,19 +2058,22 @@ CSaprolingBToken::CSaprolingBToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// FEM version; used by Elvish Farmer, Thallid Devourer
+// Future use: Night Soil
 }
 
 //____________________________________________________________________________
 //
 CSaprolingCToken::CSaprolingCToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+	: CCounterWatchingTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
 	CREATURE_TYPE(Saproling), nID,
 	_T(""),
 	Power(0), Life(0))
 {	
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
 	{
-			
 		counted_ptr<CTriggeredCounterExternalPwrTghAbility> cpAbility(
 		::CreateObject<CTriggeredCounterExternalPwrTghAbility>(this, FADE_COUNTER, this));
 
@@ -2096,7 +2082,10 @@ CSaprolingCToken::CSaprolingCToken(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	
 	}
+
+// Used by Saproling Burst
 }
+
 void CSaprolingCToken::Move(CZone* pToZone,
 					  const CPlayer* pByPlayer,
 					  MoveType moveType,
@@ -2105,24 +2094,38 @@ void CSaprolingCToken::Move(CZone* pToZone,
 	if (GetCardType().IsCreature() && GetZone()->GetZoneId() == ZoneId::_Tokens &&
 		pToZone->GetZoneId() == ZoneId::Battlefield)
 	{
-		// Get currently resolving stack action
-		const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+		pOriginatingCard = NULL;
 
-		CCard* pCard = pAction->GetOriginatingCard();
+		if (IsCopied == 0)
+		{
+			// Get currently resolving stack action
+			const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
 
-		//const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+			CCard* pCard = pAction->GetOriginatingCard();
 
-		m_pAbility->SetListenTo(pCard);
-		if (pCard)
-		m_pAbility->ForceStart(TRUE);
+			//const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+
+			m_pAbility->SetListenTo(pCard);
+			if (pCard)
+			{
+				pOriginatingCard = pCard;
+				m_pAbility->ForceStart(TRUE);
+			}
+		}
+		else
+		{
+			m_pAbility->SetListenTo(pPreviousCard);
+			if (pPreviousCard)
+			{
+				pOriginatingCard = pPreviousCard;
+				m_pAbility->ForceStart(TRUE);
+			}
+		}
 	}
 
 	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
 
 	//if (pToZone->GetZoneId() != ZoneId::Battlefield) return;
-
-	
-	
 }
 
 //____________________________________________________________________________
@@ -2134,22 +2137,13 @@ CSerfToken::CSerfToken(CGame* pGame, UINT nID)
 		Power(0), Life(1))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// Used by Sengir Autocrat
 }
 
 //____________________________________________________________________________
 //
 CShapeshifterToken::CShapeshifterToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Shapeshifter"), CardType::Creature/* | CardType::Token*/,
-		CREATURE_TYPE(Shapeshifter), nID,
-		_T(""),
-		Power(2), Life(2))
-{
-	GetCardKeyword()->AddChangeling(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CShapeshifterAToken::CShapeshifterAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Shapeshifter"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Shapeshifter), nID,
 		_T(""),
@@ -2167,11 +2161,13 @@ CSheepToken::CSheepToken(CGame* pGame, UINT nID)
 		Power(0), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Ovinomancer
 }
 
 //____________________________________________________________________________
 //
-//Skeleton A+B use the same card art: 2718
+//
 CSkeletonAToken::CSkeletonAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Skeleton"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Skeleton), nID,
@@ -2187,36 +2183,19 @@ CSkeletonAToken::CSkeletonAToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+
+// HML version; used by Drudge Spell
 }
 
 //____________________________________________________________________________
 //
-//Skeleton A+B use the same card art: 2718
-CSkeletonBToken::CSkeletonBToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Skeleton"), CardType::Creature/* | CardType::Token*/,
-		CREATURE_TYPE(Skeleton), nID,
-		_T(""),
-		Power(1), Life(1))
-{
-	AddCardType(CardType::Black, CardType::_ColorMask);
-
-	{
-		counted_ptr<CRegenerationAbility> cpAbility(
-			::CreateObject<CRegenerationAbility>(this,
-				BLACK_MANA_TEXT));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
-CSliverToken::CSliverToken(CGame* pGame, UINT nID)
+CSliverAToken::CSliverAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Sliver"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Sliver), nID,
 		_T(""),
 		Power(1), Life(1))
 {
+// STH version; used by Sliver Queen, Sliver Queen, Brood Mother
 }
 
 //____________________________________________________________________________
@@ -2281,6 +2260,8 @@ CSpikeToken::CSpikeToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Spike Breeder
 }
 
 //____________________________________________________________________________
@@ -2292,17 +2273,8 @@ CSoldierAToken::CSoldierAToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
-}
 
-//____________________________________________________________________________
-//
-CSoldierBToken::CSoldierBToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature/* | CardType::Token*/,
-		CREATURE_TYPE(Soldier), nID,
-		_T(""),
-		Power(1), Life(5))
-{
-	AddCardType(CardType::White, CardType::_ColorMask);
+// PLC version; used by Benalish Commander, Stormfront Riders, Even the Odds
 }
 
 //____________________________________________________________________________
@@ -2314,6 +2286,8 @@ CSoldierAllyToken::CSoldierAllyToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
+
+// Used by Join the Ranks
 }
 
 //____________________________________________________________________________
@@ -2356,34 +2330,7 @@ CSpawnToken::CSpawnToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(2), Life(2))
 {
-}
-
-//____________________________________________________________________________
-//
-CSpawnwritheToken::CSpawnwritheToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spawnwrithe"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Elemental), nID,
-		_T("2") GREEN_MANA_TEXT, Power(2), Life(2))
-{
-	GetCreatureKeyword()->AddTrample(FALSE);
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSelfDamageDealt,
-								CWhenSelfDamageDealt::PlayerEventCallback, 
-								&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->GetTrigger().SetCombatDamageOnly();
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Spawnwrithe"), TOKEN_ID_BY_NAME, 1);
-
-		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
-
-		AddAbility(cpAbility.GetPointer());
-	}
+// Used by Spawning Pit
 }
 
 //____________________________________________________________________________
@@ -2397,6 +2344,8 @@ CSpiderAToken::CSpiderAToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Black, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddReach(FALSE);
+
+// Used by Penumbra Spider
 }
 
 //____________________________________________________________________________
@@ -2407,20 +2356,8 @@ CSpiritAToken::CSpiritAToken(CGame* pGame, UINT nID)
 		_T(""),
 		Power(1), Life(1))
 {
-}
-
-//____________________________________________________________________________
-//
-CSpiritBToken::CSpiritBToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::_ArtifactCreature/* | CardType::Token*/,
-		CREATURE_TYPE(Spirit), nID,
-		_T("3"),
-		Power(2), Life(2))
-{
-	AddCardType(CardType::White, CardType::_ColorMask);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
+// Used by Forbidden Orchard, Honden of Life's Web, Baku Altar, Gods' Eye, Gate to the Reikai; Promise of Bunrei, Sekki, Seasons' Guide
+// Future use: Dripping-Tongue Zubera, Spiritual Visit
 }
 
 //____________________________________________________________________________
@@ -2434,6 +2371,8 @@ CSpiritCToken::CSpiritCToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::White | CardType::Black, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Beckon Apparition
 }
 
 //____________________________________________________________________________
@@ -2447,6 +2386,8 @@ CSpiritDToken::CSpiritDToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::White, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// SHM version; used by Spectral Procession
 }
 
 //____________________________________________________________________________
@@ -2460,111 +2401,8 @@ CSpiritEToken::CSpiritEToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::White, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
-}
 
-//____________________________________________________________________________
-//
-CSpiritFToken::CSpiritFToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T("3"),
-		Power(1), Life(5))
-{
-	GetCreatureKeyword()->AddFlying(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CSpiritGToken::CSpiritGToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T(""),
-		Power(4), Life(4))
-{
-	AddCardType(CardType::Green, CardType::_ColorMask);
-}
-
-//____________________________________________________________________________
-//
-CSpiritHToken::CSpiritHToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T(""),
-		Power(3), Life(2))
-{
-	AddCardType(CardType::Blue, CardType::_ColorMask);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CSpiritIToken::CSpiritIToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T(""),
-		Power(2), Life(2))
-{
-	AddCardType(CardType::Black, CardType::_ColorMask);
-
-	counted_ptr<CPumpAbility> cpAbility(
-		::CreateObject<CPumpAbility>(this,
-			BLACK_MANA_TEXT,
-			Power(+1), Life(+1)));
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CSpiritJToken::CSpiritJToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T(""),
-		Power(2), Life(5))
-{
-	AddCardType(CardType::White, CardType::_ColorMask);
-
-	typedef
-		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfDamageDealt, 
-							CWhenSelfDamageDealt::DamageEventCallback, &CWhenSelfDamageDealt::SetDamageEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSpiritJToken::SetTriggerContext));
-
-	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-bool CSpiritJToken::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const
-{
-	triggerContext.m_LifeModifier.SetLifeDelta(Life(-damage.m_nLifeDelta));
-	return true;
-}
-
-//____________________________________________________________________________
-//
-CSpiritKToken::CSpiritKToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T(""),
-		Power(6), Life(1))
-{
-	AddCardType(CardType::Red, CardType::_ColorMask);
-}
-
-//____________________________________________________________________________
-//
-CSpiritLToken::CSpiritLToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Spirit"), CardType::Legendary | CardType::Creature | CardType::Token,
-		CREATURE_TYPE(Spirit), nID,
-		_T(""),
-		Power(8), Life(12))
-{
-	GetCreatureKeyword()->AddTrample(FALSE);
+// Used by Oyobi, Who Split the Heavens
 }
 
 //____________________________________________________________________________
@@ -2578,23 +2416,25 @@ CSpiritMToken::CSpiritMToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Blue, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Geist Snatch
 }
 
 //____________________________________________________________________________
 //
-//Squirrel + Squirrel B use the same card art: 2769
-CSquirrelToken::CSquirrelToken(CGame* pGame, UINT nID)
+CSquirrelAToken::CSquirrelAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Squirrel"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Squirrel), nID,
 		_T(""),
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ODY version; used by Chatter of the Squirrel, Druid's Call, Nantuko Shrine, Nut Collector, Squirrel Nest, Acorn Harvest, Acorn Catapult
 }
 
 //____________________________________________________________________________
 //
-//Squirrel + Squirrel B use the same card art: 2769
 //This token is needed until someone made that "flag target" stuff at "Form of the Squirrel" card.
 CSquirrelBToken::CSquirrelBToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Squirrel"), CardType::Creature | CardType::Token,
@@ -2618,6 +2458,8 @@ CSquirrelBToken::CSquirrelBToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+
+// Used by Form of the Squirrel
 }
 
 //____________________________________________________________________________
@@ -2629,6 +2471,7 @@ CStanggTwinToken::CStanggTwinToken(CGame* pGame, UINT nID)
 		Power(3), Life(4))
 {
 	AddCardType(CardType::Red | CardType::Green, CardType::_ColorMask);
+
 // Used by Stangg
 }
 
@@ -2643,6 +2486,8 @@ CThopterAToken::CThopterAToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Blue, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Sharding Sphinx, Thopter Foundry
 }
 
 //____________________________________________________________________________
@@ -2654,17 +2499,21 @@ CThopterBToken::CThopterBToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Thopter Squadron
 }
 
 //____________________________________________________________________________
 //
-CThrullToken::CThrullToken(CGame* pGame, UINT nID)
+CThrullAToken::CThrullAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Thrull"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Thrull), nID,
 		_T(""),
 		Power(0), Life(1))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// Used by Breeding Pit
 }
 
 //____________________________________________________________________________
@@ -2676,21 +2525,13 @@ CThrullBToken::CThrullBToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// Used by Endrek Sahr, Master Breeder; Sarpadian Empires, Vol. VII
 }
 
 //____________________________________________________________________________
 //
-CTreefolkAToken::CTreefolkAToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Treefolk"), CardType::Creature/* | CardType::Token*/,
-		CREATURE_TYPE(Treefolk), nID,
-		_T(""),
-		Power(5), Life(6))
-{
-	AddCardType(CardType::Green, CardType::_ColorMask);
-}
 
-//____________________________________________________________________________
-//
 CTreefolkShamanToken::CTreefolkShamanToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Treefolk Shaman"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE2(Treefolk, Shaman), nID,
@@ -2698,6 +2539,8 @@ CTreefolkShamanToken::CTreefolkShamanToken(CGame* pGame, UINT nID)
 		Power(2), Life(5))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Reach of Branches
 }
 
 //____________________________________________________________________________
@@ -2723,6 +2566,8 @@ CTriskelaviteToken::CTriskelaviteToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+
+// Used by Triskelavus
 }
 
 //____________________________________________________________________________
@@ -2747,6 +2592,8 @@ CVampireAToken::CVampireAToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Black, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Bloodline Keeper
 }
 
 //____________________________________________________________________________
@@ -2784,6 +2631,8 @@ CVampireCToken::CVampireCToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+
+// Used by Sorin, Lord of Innistrad
 }
 
 //____________________________________________________________________________
@@ -2795,11 +2644,13 @@ CVojaToken::CVojaToken(CGame* pGame, UINT nID)
 		Power(2), Life(2))
 {
 	AddCardType(CardType::Green | CardType::White, CardType::_ColorMask);
+
+// Used by Tolsimir Wolfblood
 }
 
 //____________________________________________________________________________
 //
-CWallToken::CWallToken(CGame* pGame, UINT nID)
+CWallAToken::CWallAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Wall"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Wall), nID,
 		_T(""),
@@ -2809,47 +2660,7 @@ CWallToken::CWallToken(CGame* pGame, UINT nID)
 
 	AddCardType(CardType::Blue, CardType::_ColorMask);
 
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
-CWallBToken::CWallBToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Wall"), CardType::Creature/* | CardType::Token*/,
-		CREATURE_TYPE(Wall), nID,
-		_T(""),
-		Power(2), Life(6))
-{
-	AddCardType(CardType::White, CardType::_ColorMask);
-
-	GetCreatureKeyword()->AddDefender(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CWarriorAToken::CWarriorAToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Warrior"), CardType::Creature/* | CardType::Token*/,
-		CREATURE_TYPE(Warrior), nID,
-		_T(""),
-		Power(2), Life(1))
-{
-	AddCardType(CardType::Red, CardType::_ColorMask);
-
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
+// Used by Tidal Wave
 }
 
 //____________________________________________________________________________
@@ -2861,6 +2672,7 @@ CWaspToken::CWaspToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	GetCreatureKeyword()->AddFlying(FALSE);
+
 // Used by The Hive
 }
 
@@ -2873,6 +2685,8 @@ CWolfAToken::CWolfAToken(CGame* pGame, UINT nID)
 		Power(2), Life(2))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// M10 version; used by Howl of the Night Pack, Master of the Hunt, Master of the Hunt Avatar
 }
 
 //____________________________________________________________________________
@@ -2895,6 +2709,8 @@ CWolfBToken::CWolfBToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+
+// Used by Sound the Call
 }
 
 //____________________________________________________________________________
@@ -2907,6 +2723,8 @@ CWolfCToken::CWolfCToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
 	GetCardKeyword()->AddDeathtouch(FALSE);
+
+// Used by Garruk Relentless
 }
 
 //____________________________________________________________________________
@@ -2920,6 +2738,8 @@ CWoodToken::CWoodToken(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddDefender(FALSE);
 
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Jungle Patrol
 }
 
 //____________________________________________________________________________
@@ -2931,6 +2751,8 @@ CWormToken::CWormToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Black | CardType::Green, CardType::_ColorMask);
+
+// Used by Creakwood Liege, Worm Harvest
 }
 
 //____________________________________________________________________________
@@ -2944,6 +2766,8 @@ CWurmAToken::CWurmAToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Black, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddTrample(FALSE);
+
+// Used by Penumbra Wurm
 }
 
 //____________________________________________________________________________
@@ -2955,6 +2779,8 @@ CWurmBToken::CWurmBToken(CGame* pGame, UINT nID)
 		Power(6), Life(6))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// GPT version; used by Wurmweaver Coil
 }
 
 //____________________________________________________________________________
@@ -2963,28 +2789,11 @@ CWurmCToken::CWurmCToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Wurm"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Wurm), nID,
 		_T(""),
-		Power(1), Life(1))
+		Power(0), Life(0))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
-}
 
-void CWurmCToken::Move(CZone* pToZone,
-					  const CPlayer* pByPlayer,
-					  MoveType moveType,
-					  CardPlacement cardPlacement, BOOL can_dredge)
-{
-	// Boost before moving into battlefield (before calling __super::Move())
-	if (GetCardType().IsCreature() && GetZone()->GetZoneId() == ZoneId::_Tokens &&
-		pToZone->GetZoneId() == ZoneId::Battlefield)
-	{
-		CZone* pSurvey = GetController()->GetZoneById(ZoneId::Battlefield);
-		int nPower = CCardFilter::GetFilter(_T("lands"))->CountIncluded(pSurvey->GetCardContainer());
-
-		SetPrintedPower(Power(nPower));
-		SetPrintedToughness(Life(nPower));
-	}
-
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+// Used by Wurmcalling, Baru, Fist of Krosa
 }
 
 //____________________________________________________________________________
@@ -2996,6 +2805,8 @@ CWurmDToken::CWurmDToken(CGame* pGame, UINT nID)
 		Power(3), Life(3))
 {
 	GetCardKeyword()->AddDeathtouch(FALSE);
+
+// Used by Wurmcoil Engine
 }
 
 //____________________________________________________________________________
@@ -3007,17 +2818,21 @@ CWurmEToken::CWurmEToken(CGame* pGame, UINT nID)
 		Power(3), Life(3))
 {
 	GetCardKeyword()->AddLifelink(FALSE);
+
+// Used by Wurmcoil Engine
 }
 
 //____________________________________________________________________________
 //
-CZombieToken::CZombieToken(CGame* pGame, UINT nID)
+CZombieAToken::CZombieAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Zombie), nID,
 		_T(""),
 		Power(2), Life(2))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// 10TH version; used by Midnight Ritual
 }
 
 //____________________________________________________________________________
@@ -3029,6 +2844,8 @@ CZombieWizardToken::CZombieWizardToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Black | CardType::Blue, CardType::_ColorMask);
+
+// Used by Lich Lord of Unx
 }
 
 //____________________________________________________________________________
@@ -3046,398 +2863,6 @@ CZombieGiantToken::CZombieGiantToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-// Effect cards
-//____________________________________________________________________________
-//
-CInterventionPactEffectToken::CInterventionPactEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Intervention Pact Effect"), CardType::GlobalEnchantment, nID)
-	//, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-		//	&CSlaughterPactEffectToken::OnResolutionCompleted1))	
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTemporaryAbilityAbility, CWhenNodeChanged > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetCreateAbilityCallback(
-		CCreateTempTriggeredAbilityAbility::CreateAbilityCallback2(this,
-			&CInterventionPactEffectToken::CreateTemporaryAbility),
-			_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT,
-		CCreateTempTriggeredAbilityAbility::PreRemoveAbilityCallback(this,
-			&CInterventionPactEffectToken::PreRemoveAbilityCallback));
-
-	//cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CMoveCardModifier(ZoneId::_Effects, ZoneId::_Tokens, TRUE)); // lost of life, not preventable	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CInterventionPactEffectToken::SetTriggerContext));
-	cpAbility->SetPlayableFrom(ZoneId::_Effects);
-	//cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-CCard* CInterventionPactEffectToken::CreateTemporaryAbility()
-{
-	return this;
-}
-
-void CInterventionPactEffectToken::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer)
-{
-	CPlayerLostModifier pModifier;
-	pModifier.ApplyTo(pTriggeredPlayer);
-}
-
-bool  CInterventionPactEffectToken::SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const
-{
-	return (GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-void CInterventionPactEffectToken::Move(CZone* pToZone,
-							const CPlayer* pByPlayer,
-							MoveType moveType,
-							CardPlacement cardPlacement, BOOL can_dredge)
-{
-	
-	if (pToZone->GetZoneId() == ZoneId::Battlefield)
-		__super::Move(GetOwner()->GetZoneById(ZoneId::_Effects), pByPlayer, MoveType::Others);
-
-	else
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}
-
-/*void CSlaughterPactEffectToken::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::_Effects, ZoneId::_Tokens, TRUE);
-	pModifier.ApplyTo((CCard*)this);
-}*/
-
-//____________________________________________________________________________
-//
-CPactofNegationEffectToken::CPactofNegationEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Pact of Negation Effect"), CardType::GlobalEnchantment, nID)
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTemporaryAbilityAbility, CWhenNodeChanged > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetCreateAbilityCallback(
-		CCreateTempTriggeredAbilityAbility::CreateAbilityCallback2(this,
-			&CPactofNegationEffectToken::CreateTemporaryAbility),
-			_T("3") BLUE_MANA_TEXT BLUE_MANA_TEXT,
-		CCreateTempTriggeredAbilityAbility::PreRemoveAbilityCallback(this,
-			&CPactofNegationEffectToken::PreRemoveAbilityCallback));
-
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPactofNegationEffectToken::SetTriggerContext));
-	cpAbility->SetPlayableFrom(ZoneId::_Effects);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-CCard* CPactofNegationEffectToken::CreateTemporaryAbility()
-{
-	return this;
-}
-
-void CPactofNegationEffectToken::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer)
-{
-	CPlayerLostModifier pModifier;
-	pModifier.ApplyTo(pTriggeredPlayer);
-}
-
-bool  CPactofNegationEffectToken::SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const
-{
-	return (GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-void CPactofNegationEffectToken::Move(CZone* pToZone,
-							const CPlayer* pByPlayer,
-							MoveType moveType,
-							CardPlacement cardPlacement, BOOL can_dredge)
-{
-	
-	if (pToZone->GetZoneId() == ZoneId::Battlefield)
-		__super::Move(GetOwner()->GetZoneById(ZoneId::_Effects), pByPlayer, MoveType::Others);
-
-	else
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}
-
-//____________________________________________________________________________
-//
-CPactOfTheTitanEffectToken::CPactOfTheTitanEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Pact of the Titan Effect"), CardType::GlobalEnchantment, nID)	
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTemporaryAbilityAbility, CWhenNodeChanged > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetCreateAbilityCallback(
-		CCreateTempTriggeredAbilityAbility::CreateAbilityCallback2(this,
-			&CPactOfTheTitanEffectToken::CreateTemporaryAbility),
-			_T("4") RED_MANA_TEXT,
-		CCreateTempTriggeredAbilityAbility::PreRemoveAbilityCallback(this,
-			&CPactOfTheTitanEffectToken::PreRemoveAbilityCallback));
-
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPactOfTheTitanEffectToken::SetTriggerContext));
-	cpAbility->SetPlayableFrom(ZoneId::_Effects);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-CCard* CPactOfTheTitanEffectToken::CreateTemporaryAbility()
-{
-	return this;
-}
-
-void CPactOfTheTitanEffectToken::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer)
-{
-	CPlayerLostModifier pModifier;
-	pModifier.ApplyTo(pTriggeredPlayer);
-}
-
-bool  CPactOfTheTitanEffectToken::SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const
-{
-	return (GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-void CPactOfTheTitanEffectToken::Move(CZone* pToZone,
-							const CPlayer* pByPlayer,
-							MoveType moveType,
-							CardPlacement cardPlacement, BOOL can_dredge)
-{
-	
-	if (pToZone->GetZoneId() == ZoneId::Battlefield)
-		__super::Move(GetOwner()->GetZoneById(ZoneId::_Effects), pByPlayer, MoveType::Others);
-
-	else
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}
-
-//____________________________________________________________________________
-//
-CSlaughterPactEffectToken::CSlaughterPactEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Slaughter Pact Effect"), CardType::GlobalEnchantment, nID)	
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTemporaryAbilityAbility, CWhenNodeChanged > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetCreateAbilityCallback(
-		CCreateTempTriggeredAbilityAbility::CreateAbilityCallback2(this,
-			&CSlaughterPactEffectToken::CreateTemporaryAbility),
-			_T("2") BLACK_MANA_TEXT,
-		CCreateTempTriggeredAbilityAbility::PreRemoveAbilityCallback(this,
-			&CSlaughterPactEffectToken::PreRemoveAbilityCallback));
-
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSlaughterPactEffectToken::SetTriggerContext));
-	cpAbility->SetPlayableFrom(ZoneId::_Effects);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-CCard* CSlaughterPactEffectToken::CreateTemporaryAbility()
-{
-	return this;
-}
-
-void CSlaughterPactEffectToken::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer)
-{
-	CPlayerLostModifier pModifier;
-	pModifier.ApplyTo(pTriggeredPlayer);
-}
-
-bool  CSlaughterPactEffectToken::SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const
-{
-	return (GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-void CSlaughterPactEffectToken::Move(CZone* pToZone,
-							const CPlayer* pByPlayer,
-							MoveType moveType,
-							CardPlacement cardPlacement, BOOL can_dredge)
-{
-	
-	if (pToZone->GetZoneId() == ZoneId::Battlefield)
-		__super::Move(GetOwner()->GetZoneById(ZoneId::_Effects), pByPlayer, MoveType::Others);
-
-	else
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}
-
-//____________________________________________________________________________
-//
-CSummonersPactEffectToken::CSummonersPactEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Summoner's Pact Effect"), CardType::GlobalEnchantment, nID)	
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTemporaryAbilityAbility, CWhenNodeChanged > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetCreateAbilityCallback(
-		CCreateTempTriggeredAbilityAbility::CreateAbilityCallback2(this,
-			&CSummonersPactEffectToken::CreateTemporaryAbility),
-			_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT,
-		CCreateTempTriggeredAbilityAbility::PreRemoveAbilityCallback(this,
-			&CSummonersPactEffectToken::PreRemoveAbilityCallback));
-
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSummonersPactEffectToken::SetTriggerContext));
-	cpAbility->SetPlayableFrom(ZoneId::_Effects);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-CCard* CSummonersPactEffectToken::CreateTemporaryAbility()
-{
-	return this;
-}
-
-void CSummonersPactEffectToken::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer)
-{
-	CPlayerLostModifier pModifier;
-	pModifier.ApplyTo(pTriggeredPlayer);
-}
-
-bool  CSummonersPactEffectToken::SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const
-{
-	return (GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-void CSummonersPactEffectToken::Move(CZone* pToZone,
-							const CPlayer* pByPlayer,
-							MoveType moveType,
-							CardPlacement cardPlacement, BOOL can_dredge)
-{
-	
-	if (pToZone->GetZoneId() == ZoneId::Battlefield)
-		__super::Move(GetOwner()->GetZoneById(ZoneId::_Effects), pByPlayer, MoveType::Others);
-
-	else
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}
-
-//____________________________________________________________________________
-//
-CCastExileEmblemToken::CCastExileEmblemToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Cast Exile Emblem"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		typedef
-			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);		
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-
-		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);		
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CCastExileEmblemToken::SetTriggerContext));		
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CCastExileEmblemToken::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-											CCard* pCard) const
-{
-	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-
-
-//____________________________________________________________________________
-//
-CMountainDamageEmblemToken::CMountainDamageEmblemToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Mountain Damage Emblem"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-			new CardTypeComparer(CardType::Mountain, false),	
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
-			CCardAbilityModifier::CreateAbilityCallback(this,
-				&CMountainDamageEmblemToken::CreateAbility)));	
-
-
-		cpAbility->SetAffectControllerCardsOnly();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-counted_ptr<CAbility> CMountainDamageEmblemToken::CreateAbility(CCard* pCard)
-{
-counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
-		::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(pCard,
-			_T(""),
-			new AnyCreatureComparer, TRUE,
-			Life(-1), PreventableType::Preventable));	
-
-	cpAbility->AddTapCost();
-
-	cpAbility->SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
-
-	return counted_ptr<CAbility>(cpAbility.GetPointer());
-}
-//____________________________________________________________________________
-//
-CChannelEffectToken::CChannelEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Channel Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-	counted_ptr<CManaProductionAbility> cpAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
-	ATLASSERT(cpAbility);
-
-		cpAbility->AddPayLifeDeltaCost(Life(-1));
-
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
 CGolemDToken::CGolemDToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Golem"), CardType::_ArtifactCreature | CardType::Token,
 		CREATURE_TYPE(Golem), nID,
@@ -3447,195 +2872,6 @@ CGolemDToken::CGolemDToken(CGame* pGame, UINT nID)
 
 // SOM version; used by Golem Foundry
 // Future use: Precursor Golem
-}
-
-//____________________________________________________________________________
-//
-CGlimpseofNatureEffectToken::CGlimpseofNatureEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Glimpse of Nature Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-	
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-	{
-		typedef
-			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);		
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGlimpseofNatureEffectToken::SetTriggerContext));				
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CGlimpseofNatureEffectToken::SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
-											CCard* pCard) const
-{
-	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-//____________________________________________________________________________
-//
-CScoutsWarningEffectToken::CScoutsWarningEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Scout's Warning Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new CardTypeComparer(CardType::Creature, false),
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Pflash);
-		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->SetAffectCardsInTheseZones(ZoneId::Hand | ZoneId::Stack | ZoneId::Graveyard | ZoneId::Library | ZoneId::Exile | ZoneId::_ExileFaceDown | ZoneId::_Effects);
-
-		cpAbility->SetAffectControllerCardsOnly();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);		
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CScoutsWarningEffectToken::SetTriggerContext));				
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CScoutsWarningEffectToken::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-											CCard* pCard) const
-{
-	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-//____________________________________________________________________________
-//
-CQuickenEffectToken::CQuickenEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Quicken Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new CardTypeComparer(CardType::Sorcery, false),
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Pflash);
-		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->SetAffectCardsInTheseZones(ZoneId::Hand | ZoneId::Stack | ZoneId::Graveyard | ZoneId::Library | ZoneId::Exile | ZoneId::_ExileFaceDown | ZoneId::_Effects);
-
-		cpAbility->SetAffectControllerCardsOnly();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("sorcery cards")));
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);		
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CQuickenEffectToken::SetTriggerContext));				
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CQuickenEffectToken::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-											CCard* pCard) const
-{
-	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
 }
 
 //____________________________________________________________________________
@@ -3714,196 +2950,6 @@ CGolemCToken::CGolemCToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CPraetorsCounselEffectToken::CPraetorsCounselEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Praetor's Counsel Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPlayerEffectEnchantment> cpAbility(
-			::CreateObject<CPlayerEffectEnchantment>(this,
-				PlayerEffectType::NoMaximumHandSize));
-
-		cpAbility->SetAffectControllerOnly();
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
-CFlashOfDefianceEffectToken::CFlashOfDefianceEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Flash of Defiance Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new AnyCreatureComparer,
-				Power(+0), Life(+0), CreatureKeyword::CantBlock));
-
-		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardTypeComparer(CardType::Green | CardType::White, false));
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
-CFalterEffectToken::CFalterEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Falter Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new AnyCreatureComparer,
-				Power(+0), Life(+0), CreatureKeyword::CantBlock));
-
-		cpAbility->GetEnchantmentCardFilter().AddNegateComparer(new CreatureKeywordComparer(CreatureKeyword::Flying, false));
-
-		cpAbility->SetListenToKeyword();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-
-// Used by Falter
-}
-
-//____________________________________________________________________________
-//
-CHeroOfOxidRidgeEffectToken::CHeroOfOxidRidgeEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Hero of Oxid Ridge Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new CreaturePowerComparer<std::less<int>>(2),
-				Power(+0), Life(+0), CreatureKeyword::CantBlock));
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
-CTurtleToken::CTurtleToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Turtle"), CardType::_ArtifactCreature/* | CardType::Token*/,
-		CREATURE_TYPE(Turtle), nID,
-		_T("3"),
-		Power(3), Life(3))
-{
-}
-
-//____________________________________________________________________________
-//
-CThePiecesAreComingTogetherEffectToken::CThePiecesAreComingTogetherEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("The Pieces Are Coming Together Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-		{
-		counted_ptr<CConsLessManaEnchantment> cpAbility(
-		::CreateObject<CConsLessManaEnchantment>(this,
-			new CardTypeComparer(CardType::Artifact, false),
-			_T("2")));
-		ATLASSERT(cpAbility);
-		
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-		cpAbility->SetAffectControllerCardsOnly();
-		
-		AddAbility(cpAbility.GetPointer());
-		}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
 CGolemBToken::CGolemBToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Golem"), CardType::_ArtifactCreature | CardType::Token,
 		CREATURE_TYPE(Golem), nID,
@@ -3911,86 +2957,6 @@ CGolemBToken::CGolemBToken(CGame* pGame, UINT nID)
 		Power(4), Life(6))
 {
 // Used by The Iron Guardian Stirs
-}
-
-//____________________________________________________________________________
-//
-CApproachMyMoltenRealmEffectToken::CApproachMyMoltenRealmEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Approach My Molten Realm Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPlayerEffectEnchantment> cpAbility(
-			::CreateObject<CPlayerEffectEnchantment>(this,
-				PlayerEffectType::MultiplyDamage, 1));
-
-		cpAbility->SetMultipleEffectType(TRUE);
-		
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-		cpAbility->SetAffectControllerOnly();
-		
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
-CYourPunyMindsCannotFathomEffectToken::CYourPunyMindsCannotFathomEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Your Puny Minds Cannot Fathom Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-		{
-		counted_ptr<CPlayerEffectEnchantment> cpAbility(
-			::CreateObject<CPlayerEffectEnchantment>(this,
-				PlayerEffectType::NoMaximumHandSize));
-
-		cpAbility->SetAffectControllerOnly();
-		
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-	//	cpAbility->SetAffectControllerCardsOnly();
-		
-		AddAbility(cpAbility.GetPointer());
-		}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
 }
 
 //____________________________________________________________________________
@@ -4063,6 +3029,8 @@ CSpiderBToken::CSpiderBToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddReach(FALSE);
+
+// ISD version; used by Spider Spawning
 }
 
 //____________________________________________________________________________
@@ -4131,38 +3099,8 @@ CHumanAToken::CHumanAToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
-}
 
-//____________________________________________________________________________
-//
-CPowerPumpEmblemToken::CPowerPumpEmblemToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Power Pump Emblem"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new AnyCreatureComparer,
-				Power(+1), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-		cpAbility->SetAffectControllerCardsOnly();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-void CPowerPumpEmblemToken::Move(CZone* pToZone,
-							const CPlayer* pByPlayer,
-							MoveType moveType,
-							CardPlacement cardPlacement, BOOL can_dredge)
-{
-	
-	if (pToZone->GetZoneId() == ZoneId::Battlefield)
-		__super::Move(GetOwner()->GetZoneById(ZoneId::_Effects), pByPlayer, MoveType::Others);
-
-	else
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+// DKA version; used by Gather the Townsfolk, Increasing Devotion, Thraben Doomsayer
 }
 
 //____________________________________________________________________________
@@ -4182,209 +3120,6 @@ CAngelDToken::CAngelDToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CBubblingMuckEffectToken::CBubblingMuckEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Bubbling Muck Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CProdExtraManaEnchantment> cpAbility(
-		::CreateObject<CProdExtraManaEnchantment>(this,
-			new CardTypeComparer(CardType::Swamp, false),
-			BLACK_MANA_TEXT));
-		
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-		
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
-CHighTideEffectToken::CHighTideEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("High Tide Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CProdExtraManaEnchantment> cpAbility(
-		::CreateObject<CProdExtraManaEnchantment>(this,
-			new CardTypeComparer(CardType::Island, false),
-			BLUE_MANA_TEXT));
-		
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-		
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
-CTamiyoEmblemToken::CTamiyoEmblemToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Tamiyo Emblem"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-	
-	{
-		counted_ptr<CPlayerEffectEnchantment> cpAbility(
-			::CreateObject<CPlayerEffectEnchantment>(this,
-				PlayerEffectType::NoMaximumHandSize));
-
-		cpAbility->SetAffectControllerOnly();
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenCardMoved > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::_AllZones, ZoneId::Graveyard, FALSE, TRUE, FALSE));
-
-		cpAbility->GetTrigger().SetToControllerOnly(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CTamiyoEmblemToken::SetTriggerContext));		
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CTamiyoEmblemToken::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-										 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	triggerContext.m_pCard = pCard;
-
-	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-//____________________________________________________________________________
-//
-CWindingCanyonsEffectToken::CWindingCanyonsEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Winding Canyons Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new CardTypeComparer(CardType::Creature, false),
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Pflash);
-		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->SetAffectCardsInTheseZones(ZoneId::Hand | ZoneId::Stack | ZoneId::Graveyard | ZoneId::Library | ZoneId::Exile | ZoneId::_ExileFaceDown | ZoneId::_Effects);
-
-		cpAbility->SetAffectControllerCardsOnly();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
-CAlchemistsRefugeEffectToken::CAlchemistsRefugeEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Alchemist's Refuge Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)),
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Pflash);
-		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->SetAffectCardsInTheseZones(ZoneId::Hand | ZoneId::Stack | ZoneId::Graveyard | ZoneId::Library | ZoneId::Exile | ZoneId::_ExileFaceDown | ZoneId::_Effects);
-
-		cpAbility->SetAffectControllerCardsOnly();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
 CHumanBToken::CHumanBToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Human"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Human), nID,
@@ -4394,21 +3129,6 @@ CHumanBToken::CHumanBToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Red, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddHaste(FALSE);
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-		AddAbility(cpAbility.GetPointer());
-	}
 
 // Used by Thatcher Revolt
 }
@@ -4443,40 +3163,6 @@ CBoarToken::CBoarToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CSwampFourManaEmblemToken::CSwampFourManaEmblemToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Swamp Four Mana Emblem"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-			new CardTypeComparer(CardType::Swamp, false),	
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
-			CCardAbilityModifier::CreateAbilityCallback(this,
-				&CSwampFourManaEmblemToken::CreateAbility)));	
-
-
-		cpAbility->SetAffectControllerCardsOnly();
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-counted_ptr<CAbility> CSwampFourManaEmblemToken::CreateAbility(CCard* pCard)
-{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(pCard, _T(""), AbilityType::Activated, BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT));
-
-		cpAbility->AddTapCost();
-
-
-	return counted_ptr<CAbility>(cpAbility.GetPointer());
-}
-//____________________________________________________________________________
-//
 CHellionAToken::CHellionAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Hellion"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Hellion), nID,
@@ -4505,13 +3191,15 @@ CHellionBToken::CHellionBToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CHippoToken::CHippoToken(CGame* pGame, UINT nID)
+CHippoAToken::CHippoAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Hippo"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Hippo), nID,
 		_T(""),
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ALL version; used by Phelddagrif
 }
 
 //____________________________________________________________________________
@@ -4553,6 +3241,8 @@ CWireflyToken::CWireflyToken(CGame* pGame, UINT nID)
 		Power(2), Life(2))
 {
 	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Wirefly Hive
 }
 
 //____________________________________________________________________________
@@ -4566,6 +3256,8 @@ CWurmFToken::CWurmFToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddTrample(FALSE);
+
+// Used by Armada Wurm, Worldspine Wurm
 }
 
 //____________________________________________________________________________
@@ -4579,30 +3271,8 @@ CRhinoToken::CRhinoToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddTrample(FALSE);
-}
 
-//____________________________________________________________________________
-//
-CWolfDToken::CWolfDToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Wolf"), CardType::_ArtifactCreature/* | CardType::Token*/,
-		CREATURE_TYPE(Wolf), nID,
-		_T("3"),
-		Power(3), Life(3))
-{
-	AddCardType(CardType::Green | CardType::White, CardType::_ColorMask);
-}
-
-//____________________________________________________________________________
-//
-CTreefolkBToken::CTreefolkBToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Treefolk"), CardType::_ArtifactCreature/* | CardType::Token*/,
-		CREATURE_TYPE(Treefolk), nID,
-		_T("3"),
-		Power(5), Life(3))
-{
-	AddCardType(CardType::Green, CardType::_ColorMask);
-
-	GetCreatureKeyword()->AddTrample(FALSE);
+// Used by Master of the Wild Hunt Avatar, Horncaller's Chant
 }
 
 //____________________________________________________________________________
@@ -4614,6 +3284,8 @@ COgreToken::COgreToken(CGame* pGame, UINT nID)
 		Power(3), Life(3))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// Used by Kazuul, Tyrant of the Cliffs
 }
 
 //____________________________________________________________________________
@@ -4656,104 +3328,6 @@ CAssassinToken::CAssassinToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CJaceArchitectOfThoughtEffectToken::CJaceArchitectOfThoughtEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Jace, Architect of Thought Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenAttackedBlockedAny,
-								CWhenAttackedBlockedAny::PlayerEventCallback, &CWhenAttackedBlockedAny::SetAttackingEventCallback> TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorOpponentsOnly(TRUE);
-
-		cpAbility->GetPowerModifier().SetPowerDelta(Power(-1));
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CJaceArchitectOfThoughtEffectToken::SetTriggerContext));
-
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
-
-		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::_Effects);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-bool CJaceArchitectOfThoughtEffectToken::SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
-										 CCreatureCard* pCreature,
-										 AttackSubject attacked) const
-{
-	triggerContext.m_pCreature = pCreature;
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
-CRuthlessInvasionEffectToken::CRuthlessInvasionEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Ruthless Invasion Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new AnyCreatureComparer,
-				Power(+0), Life(+0), CreatureKeyword::CantBlock));
-
-		cpAbility->GetEnchantmentCardFilter().AddNegateComparer(new CardTypeComparer(CardType::Artifact, false));
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
 CTombspawnToken::CTombspawnToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Tombspawn"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Zombie), nID,
@@ -4763,6 +3337,8 @@ CTombspawnToken::CTombspawnToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Black, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddHaste(FALSE);
+
+// Used by Tombstone Stairwell
 }
 
 //____________________________________________________________________________
@@ -4774,326 +3350,21 @@ CSurvivorToken::CSurvivorToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// Used by Varchild's War-Riders
 }
 
 //____________________________________________________________________________
 //
-CWarriorBToken::CWarriorBToken(CGame* pGame, UINT nID)
+CWarriorToken::CWarriorToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Warrior"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Survivor), nID,
 		_T(""),
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
-}
 
-//____________________________________________________________________________
-//
-CChandraTheFirebrandEffectToken::CChandraTheFirebrandEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Chandra, the Firebrand Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-	bFired = false;
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredCopyCastAbility1, CWhenSpellCastAny > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new CardTypeComparer(CardType::Instant | CardType::Sorcery, false));
-	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CChandraTheFirebrandEffectToken::SetTriggerContext));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-bool CChandraTheFirebrandEffectToken::SetTriggerContext(CTriggeredCopyCastAbility1::TriggerContextType& triggerContext, 
-										 CCard* pCard)
-{
-	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bFired = true;
-
-	triggerContext.m_pCard = pCard;
-
-	const CStack& stack = m_pGame->GetStack();
-
-	for (int l = 0; l < stack.GetStackSize(); ++l)
-	{
-						triggerContext.m_pStackAction = const_cast<CStackAbilityAction*>(stack.GetStackAction(l).GetPointer());
-						if (triggerContext.m_pStackAction->IsSpell() && (triggerContext.m_pStackAction->GetAbility()->GetCard() == pCard))
-						{
-							break;
-						}
-
-	}
-	return true;
-}
-
-//____________________________________________________________________________
-//
-CSlowtripEffectToken::CSlowtripEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Slowtrip Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-	bPrimed = false;
-	bFired = false;
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-		
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSlowtripEffectToken::SetTriggerContext1));
-
-		cpAbility->SetSkipStack(TRUE);
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-		
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSlowtripEffectToken::SetTriggerContext2));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSlowtripEffectToken::SetTriggerContext3));
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-bool CSlowtripEffectToken::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (bPrimed || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bPrimed = true;
-
-	return true;
-}
-
-bool CSlowtripEffectToken::SetTriggerContext2(CTriggeredDrawCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (!bPrimed || bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bFired = true;
-
-	return true;
-}
-
-bool CSlowtripEffectToken::SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (!bPrimed || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
-CArcaneDenialEffectToken::CArcaneDenialEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Arcane Denial Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-	bPrimed = false;
-	bFired = false;
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-		
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CArcaneDenialEffectToken::SetTriggerContext1));
-
-		cpAbility->SetSkipStack(TRUE);
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-		
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CArcaneDenialEffectToken::SetTriggerContext2));
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(0), MaximumValue(2)));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CArcaneDenialEffectToken::SetTriggerContext3));
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-bool CArcaneDenialEffectToken::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (bPrimed || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bPrimed = true;
-
-	return true;
-}
-
-bool CArcaneDenialEffectToken::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (!bPrimed || bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bFired = true;
-
-	return true;
-}
-
-bool CArcaneDenialEffectToken::SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (!bPrimed || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
-CLatNamsLegacyEffectToken::CLatNamsLegacyEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("LatNamsLegacy Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-	bPrimed = false;
-	bFired = false;
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-		
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLatNamsLegacyEffectToken::SetTriggerContext1));
-
-		cpAbility->SetSkipStack(TRUE);
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-		
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
-		cpAbility->SetDrawCount(2);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLatNamsLegacyEffectToken::SetTriggerContext2));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLatNamsLegacyEffectToken::SetTriggerContext3));
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-bool CLatNamsLegacyEffectToken::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (bPrimed || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bPrimed = true;
-
-	return true;
-}
-
-bool CLatNamsLegacyEffectToken::SetTriggerContext2(CTriggeredDrawCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (!bPrimed || bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	bFired = true;
-
-	return true;
-}
-
-bool CLatNamsLegacyEffectToken::SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
-{
-	if (!bPrimed || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
-	return true;
+// Used by Rally the Horde
 }
 
 //____________________________________________________________________________
@@ -5105,6 +3376,8 @@ CStarfishToken::CStarfishToken(CGame* pGame, UINT nID)
 		Power(0), Life(1))
 {
 	AddCardType(CardType::Blue, CardType::_ColorMask);
+
+// Used by Spiny Starfish
 }
 
 //____________________________________________________________________________
@@ -5209,69 +3482,6 @@ void CClericToken::OnCardSelected(const std::vector<SelectionEntry>& selection, 
 
 //____________________________________________________________________________
 //
-CDomriRadeEmblemToken::CDomriRadeEmblemToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Domri Rade Emblem"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new AnyCreatureComparer, 
-				Power(+0), Life(+0),
-				CreatureKeyword::DoubleStrike | CreatureKeyword::Trample | CreatureKeyword::Haste));
-
-		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Hexproof);
-		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-		cpAbility->SetAffectControllerCardsOnly();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
-CEnterTheInfiniteEffectToken::CEnterTheInfiniteEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Enter the Infinite Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		counted_ptr<CPlayerEffectEnchantment> cpAbility(
-			::CreateObject<CPlayerEffectEnchantment>(this,
-				PlayerEffectType::NoMaximumHandSize));
-
-		cpAbility->SetAffectControllerOnly();
-
-		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
 CBirdSoldierToken::CBirdSoldierToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Bird Soldier"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE2(Bird, Soldier), nID,
@@ -5282,70 +3492,6 @@ CBirdSoldierToken::CBirdSoldierToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddFlying(FALSE);
 // USed by Flurry of Wings
-}
-
-//____________________________________________________________________________
-//
-CDuskmantleGuildmageEffectToken::CDuskmantleGuildmageEffectToken(CGame* pGame, UINT nID)
-	: CEffectCard(pGame, _T("Duskmantle Guildmage Effect"), CardType::GlobalEnchantment, nID)	
-{
-	GetCardKeyword()->AddEmblem(FALSE);
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::_AllZones, ZoneId::Graveyard, FALSE, TRUE, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new CardTypeComparer(CardType::Token, false));
-		cpAbility->GetTrigger().SetToOpponentsOnly(TRUE);
-		
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDuskmantleGuildmageEffectToken::SetTriggerContext));
-		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDuskmantleGuildmageEffectToken::BeforeResolveSelection));
-		cpAbility->AddAbilityTag(AbilityTag::LifeLost);
-		
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::BeginningStep, FALSE));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetPlayableFrom(ZoneId::_Effects);
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-    }
-}
-
-bool CDuskmantleGuildmageEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
-												CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
-{
-	triggerContext.nValue1 = (int)pToZone->GetPlayer();
-
-	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
-}
-
-bool CDuskmantleGuildmageEffectToken::BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction) const
-{
-	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
-
-	CLifeModifier pModifier(Life(-1), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-	pModifier.ApplyTo((CPlayer*)triggerContext.nValue1);
-
-	return true;
 }
 
 //____________________________________________________________________________
@@ -5372,19 +3518,8 @@ CSoldierCToken::CSoldierCToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Red | CardType::White, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddHaste(FALSE);
-}
 
-//____________________________________________________________________________
-//
-CSoldierDToken::CSoldierDToken(CGame* pGame, UINT nID)
-	: CTokenCreature(pGame, _T("Soldier"), CardType::_ArtifactCreature/* | CardType::Token*/,
-	CREATURE_TYPE(Soldier), nID,
-		_T("3"),
-		Power(1), Life(1))
-{
-	AddCardType(CardType::Red | CardType::White, CardType::_ColorMask);
-
-	GetCreatureKeyword()->AddDoubleStrike(FALSE);
+// Used by Assemble the Legion, Sunhome Guildmage
 }
 
 //____________________________________________________________________________
@@ -5464,6 +3599,8 @@ CGoblinDToken::CGoblinDToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// USG version; used by Gobblin Offensive, Goblin Marshal
 }
 
 //____________________________________________________________________________
@@ -5475,6 +3612,8 @@ CGoblinEToken::CGoblinEToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// 6TH version; used by Goblin Warrens
 }
 
 //____________________________________________________________________________
@@ -5513,8 +3652,7 @@ CBeastGToken::CBeastGToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
-// ZEN version; used by Rampaging Baloths
-// Future use: Baloth Cage Trap
+// ZEN version; used by Baloth Cage Trap, Rampaging Baloths
 }
 
 //____________________________________________________________________________
@@ -5728,6 +3866,9 @@ COozeDToken::COozeDToken(CGame* pGame, UINT nID)
 		Power(0), Life(0))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// RTR version; used by Slime Molding, Miming Slime
+// Future use: Ooze Flux
 }
 
 //____________________________________________________________________________
@@ -5937,6 +4078,8 @@ CGoblinFToken::CGoblinFToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// NMS version; used by Mogg Alarm
 }
 
 //____________________________________________________________________________
@@ -6026,6 +4169,761 @@ CAngelHToken::CAngelHToken(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddFlying(FALSE);
 
 // GTC version; used by Urbis Protector
+}
+
+//____________________________________________________________________________
+//
+CInsectFToken::CInsectFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Insect"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Insect), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// MMQ version; used by Saber Ants
+}
+
+//____________________________________________________________________________
+//
+CPegasusBToken::CPegasusBToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Pegasus"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Pegasus), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// TMP version; used by Pegasus Refuge, Pegasus Stampede
+}
+
+//____________________________________________________________________________
+//
+COozeEToken::COozeEToken(CGame* pGame, UINT nID)
+	: CCounterWatchingTokenCreature(pGame, _T("Ooze"), CardType::Creature | CardType::Token,
+	CREATURE_TYPE(Ooze), nID,
+	_T(""),
+	Power(0), Life(0))
+{	
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+	{
+		counted_ptr<CTriggeredCounterExternalPwrTghAbility> cpAbility(
+		::CreateObject<CTriggeredCounterExternalPwrTghAbility>(this, SLIME_COUNTER, this));
+
+		m_pAbility = cpAbility.GetPointer();
+
+		AddAbility(cpAbility.GetPointer());
+	
+	}
+
+// Used by Gutter Grime
+}
+
+void COozeEToken::Move(CZone* pToZone,
+					  const CPlayer* pByPlayer,
+					  MoveType moveType,
+					  CardPlacement cardPlacement, BOOL can_dredge)
+{
+	if (GetCardType().IsCreature() && GetZone()->GetZoneId() == ZoneId::_Tokens &&
+		pToZone->GetZoneId() == ZoneId::Battlefield)
+	{
+		pOriginatingCard = NULL;
+
+		if (IsCopied == 0)
+		{
+			// Get currently resolving stack action
+			const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+
+			CCard* pCard = pAction->GetOriginatingCard();
+
+			//const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+
+			m_pAbility->SetListenTo(pCard);
+			if (pCard)
+			{
+				pOriginatingCard = pCard;
+				m_pAbility->ForceStart(TRUE);
+			}
+		}
+		else
+		{
+			m_pAbility->SetListenTo(pPreviousCard);
+			if (pPreviousCard)
+			{
+				pOriginatingCard = pPreviousCard;
+				m_pAbility->ForceStart(TRUE);
+			}
+		}
+	}
+
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+	//if (pToZone->GetZoneId() != ZoneId::Battlefield) return;
+}
+
+//____________________________________________________________________________
+//
+CSoldierBToken::CSoldierBToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// ALL version; used by Kjeldoran Outpost
+}
+
+//____________________________________________________________________________
+//
+CSoldierDToken::CSoldierDToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// MMQ version; used by Security Detail
+}
+
+//____________________________________________________________________________
+//
+CSpiritBToken::CSpiritBToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// TMP version; used by Field of Souls
+}
+
+//____________________________________________________________________________
+//
+CSpiritFToken::CSpiritFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// MMQ version; used by Afterlife
+}
+
+//____________________________________________________________________________
+//
+CSpiritGToken::CSpiritGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// PLS version; used by March of Souls
+}
+
+//____________________________________________________________________________
+//
+CSpiritHToken::CSpiritHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// ODY version; used by Kirtar's Wrath, Funeral Pyre, Spirit Cairn
+}
+
+//____________________________________________________________________________
+//
+CSpiritIToken::CSpiritIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// MRD version; used by Luminous Angel
+}
+
+//____________________________________________________________________________
+//
+CSpiritJToken::CSpiritJToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// RAV version; used by Transluminant, Twilight Drover, Seize the Soul, Teysa, Orzhov Scion
+}
+
+//____________________________________________________________________________
+//
+CSpiritKToken::CSpiritKToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// ISD version; used by Doomed Traveler, Geist-Honored Monk, Mausoleum Guard, Midnight Haunting, Moorland Haunt, Elgaud Inquisitor, Lingering Souls, Requiem Angel
+// Future use: Avacyn's Collar
+}
+
+//____________________________________________________________________________
+//
+CSpiritLToken::CSpiritLToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// AVR version; used by Gallows at Willow Hill
+}
+
+//____________________________________________________________________________
+//
+CThopterCToken::CThopterCToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Thopter"), CardType::_ArtifactCreature | CardType::Token, 
+		CREATURE_TYPE(Thopter), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Thopter Assembly
+}
+
+//____________________________________________________________________________
+//
+CSquirrelCToken::CSquirrelCToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Squirrel"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Squirrel), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ULG version; used by Deranged Hermit
+}
+
+//____________________________________________________________________________
+//
+CSquirrelDToken::CSquirrelDToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Squirrel"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Squirrel), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// PCY version; used by Squirrel Wrangler
+}
+
+//____________________________________________________________________________
+//
+CSpiritNToken::CSpiritNToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(0), Life(0))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// Used by Broken Visage
+}
+
+//____________________________________________________________________________
+//
+CWolfDToken::CWolfDToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// LRW version; used by Wren's Run Packmaster, Wolf-Skull Shaman
+}
+
+//____________________________________________________________________________
+//
+CZombieBToken::CZombieBToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// ALL version; used by Feast or Famine
+}
+
+//____________________________________________________________________________
+//
+CZombieCToken::CZombieCToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// TMP version; used by Sacromancy
+}
+
+//____________________________________________________________________________
+//
+CZombieDToken::CZombieDToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// ONS version; used by Rotlung Reanimator
+}
+
+//____________________________________________________________________________
+//
+CZombieEToken::CZombieEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// ALA version; used by Archdemon of Unx, Grixis Slavedriver, Necromancer's Covenant
+// Future use: Unscythe, Killer of Kings
+}
+
+//____________________________________________________________________________
+//
+CZombieFToken::CZombieFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// M10 version; used by The Fourth Sphere
+// Future use: Rotted Ones, Lay Siege
+}
+
+//____________________________________________________________________________
+//
+CZombieGToken::CZombieGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// MBS version; used by Nested Ghoul, Syphon Flesh
+}
+
+//____________________________________________________________________________
+//
+CZombieHToken::CZombieHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// M12 version; used by Cemetery Reaper, Grave Titan, Zombie Infestation
+}
+
+//____________________________________________________________________________
+//
+CZombieIToken::CZombieIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// ISD version 1; used by Army of the Damned, Cellar Door, Endless Ranks of the Dead, Moan of the Unhallowed, Undead Alchemist, Havengul Runebinder, Reap the Seagraf, Wakedancer
+}
+
+//____________________________________________________________________________
+//
+CZombieJToken::CZombieJToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// ISD version 2; used by Army of the Damned, Cellar Door, Endless Ranks of the Dead, Moan of the Unhallowed, Undead Alchemist, Havengul Runebinder, Reap the Seagraf, Wakedancer
+}
+
+//____________________________________________________________________________
+//
+CZombieKToken::CZombieKToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// ISD version 3; used by Army of the Damned, Cellar Door, Endless Ranks of the Dead, Moan of the Unhallowed, Undead Alchemist, Havengul Runebinder, Reap the Seagraf, Wakedancer
+}
+
+//____________________________________________________________________________
+//
+CZombieLToken::CZombieLToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// AVR version; used by Maalfeld Twins
+// Future use: Lair of the Ashen Idol
+}
+
+//____________________________________________________________________________
+//
+CZombieMToken::CZombieMToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+// M13 version; used by Vile Rebirth
+}
+
+//____________________________________________________________________________
+//
+CWurmGToken::CWurmGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wurm"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wurm), nID,
+		_T(""),
+		Power(6), Life(6))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ODY version; used by Roar of the Wurm, Crush of Wurms
+}
+
+//____________________________________________________________________________
+//
+CWurmHToken::CWurmHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wurm"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wurm), nID,
+		_T(""),
+		Power(6), Life(6))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// M13 version; used by Garruk, Primal Hunter
+}
+
+//____________________________________________________________________________
+//
+CWolfEToken::CWolfEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// SHM version; used by Fable of Wolf and Owl
+}
+
+//____________________________________________________________________________
+//
+CWolfFToken::CWolfFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ZEN version; used by Turntimber Ranger, Bestial Menace, Wolfbriar Elemental
+}
+
+//____________________________________________________________________________
+//
+CWolfGToken::CWolfGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// SOM version; used by Sword of Body and Mind
+}
+
+//____________________________________________________________________________
+//
+CWolfHToken::CWolfHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// ISD version; used by Garruk Relentless, Kessig Cagebreakers, Mayor of Avabruck, Feed the Pack, Huntmaster of the Fells
+}
+
+//____________________________________________________________________________
+//
+CSpiderCToken::CSpiderCToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spider"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spider), nID,
+		_T(""),
+		Power(1), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddReach(FALSE);
+
+// SHM version; used by Gloomwidow's Feast
+}
+
+//____________________________________________________________________________
+//
+CSoldierEToken::CSoldierEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// ONS version; used by Decree of Justice
+}
+
+//____________________________________________________________________________
+//
+CSoldierFToken::CSoldierFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// MRD version; used by Raise the Alarm
+}
+
+//____________________________________________________________________________
+//
+CSoldierGToken::CSoldierGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// CSP version; used by Darien, King of Kjeldor
+}
+
+//____________________________________________________________________________
+//
+CSoldierHToken::CSoldierHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// 10TH version; used by Mobilization
+}
+
+//____________________________________________________________________________
+//
+CSoldierIToken::CSoldierIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// ALA version; used by Elspeth, Knight-Errant, Knight-Captain of Eos, Martial Coup, Bant Sojourners
+}
+
+//____________________________________________________________________________
+//
+CSoldierJToken::CSoldierJToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// SOM version; used by Elspeth Tirel, Hero of Bladehold
+// Future use: Alliance of Arms
+}
+
+//____________________________________________________________________________
+//
+CSoldierKToken::CSoldierKToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// M12 version; used by Throne of Empires, Timely Reinforcements
+}
+
+//____________________________________________________________________________
+//
+CSoldierLToken::CSoldierLToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// M13 version; used by Attended Knight, Captain of the Watch, Captain's Call
+}
+
+//____________________________________________________________________________
+//
+CSoldierMToken::CSoldierMToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// RTR version; used by Precinct Captain, Murder Investigation
+}
+
+//____________________________________________________________________________
+//
+CSliverBToken::CSliverBToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Sliver"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Sliver), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+// LGN version; used by Brood Sliver
+}
+
+//____________________________________________________________________________
+//
+CSaprolingDToken::CSaprolingDToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Saproling), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// USG version; used by Greener Pastures, Sporogenesis
+}
+
+//____________________________________________________________________________
+//
+CSaprolingEToken::CSaprolingEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Saproling), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// MMQ version; used by Spontaneous Generation
+// Future use: Saproling Cluster
+}
+
+//____________________________________________________________________________
+//
+CSaprolingFToken::CSaprolingFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Saproling), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// INV version; used by Artifact Mutation, Aura Mutation, Rith, the Awakener; Saproling Symbiosis, Nemata, Grove Guardian, AEther Mutation, Death Mutation, Last Stand, Erhnam Djinn Avatar
+// Future use: Saproling Infestation, Rith's Charm
+}
+
+//____________________________________________________________________________
+//
+CSaprolingGToken::CSaprolingGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Saproling), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// RAV version; used by Bramble Elemental, Fists of Ironwood, Golgari Germination, Pollenbright Wings, Seed Spark, Selesnya Evangel, Selesnya Guildmage, Vitu-Ghazi, the City-Tree; Supply//Demand
+// Future use: Scatter the Seeds, Flash Foliage
+}
+
+//____________________________________________________________________________
+//
+CSaprolingHToken::CSaprolingHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Saproling), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// TSP version; used by  Deathspore Thallid, Sarpadian Empires, Vol. VII, Savage Thallid, Sporesower Thallid, Sprout, Thallid, Thallid Germinator, Thallid Shell-Dweller, Thelonite Hermit, Verdant Embrace,
+// Mycologist (PLC), Pallid Mycoderm (PLC), Psychotrope Thallid (PLC), Vitaspore Thallid (PLC), Sporoloth Ancient (FUT), Utopia Mycon (FUT)
+// Future use: Verdeloth the Ancient, Sprout Swarm
 }
 
 //____________________________________________________________________________

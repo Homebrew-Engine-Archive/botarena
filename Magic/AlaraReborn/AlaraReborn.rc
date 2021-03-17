@@ -249,6 +249,11 @@ BEGIN
     IDS_STRING9135          "Etherwrought Page\n{1WUB}\nArtifact\nARB,U\nAt the beginning of your upkeep, choose one - You gain 2 life; or look at the top card of your library, then you may put that card into your graveyard; or each opponent loses 1 life."
 END
 
+STRINGTABLE
+BEGIN
+    IDS_STRING9136          "Predatory Advantage\n{3RG}\nEnchantment\nARB,R\nAt the beginning of each opponent's end step, if that player didn't cast a creature spell this turn, put a 2/2 green Lizard creature token onto the battlefield."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

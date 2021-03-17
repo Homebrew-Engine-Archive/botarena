@@ -1067,61 +1067,53 @@ CJandorsRingCard::CJandorsRingCard(CGame* pGame, UINT nID)
 CRocketLauncherCard::CRocketLauncherCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Rocket Launcher"), CardType::Artifact, nID,
 		_T("4"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CRocketLauncherCard::OnResolutionCompleted))
 {
-	{
-		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
-				_T("2"),
-				new AnyCreatureComparer, TRUE, 
-				Life(-1),	// life delta
-				PreventableType::Preventable));
+	counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
+			_T("2"),
+			new AnyCreatureComparer, TRUE, 
+			Life(-1),	// life delta
+			PreventableType::Preventable));
 
-		counted_ptr<CPlayableIfTrait> cpTrait(
-			::CreateObject<CPlayableIfTrait>(
-				m_pUntapAbility,
-				CPlayableIfTrait::PlayableCallback(this,
-				&CRocketLauncherCard::CanPlay)));
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CRocketLauncherCard::CanPlay)));
 
-		cpAbility->Add(cpTrait.GetPointer());
+	cpAbility->Add(cpTrait.GetPointer());
 
-		ATLASSERT(cpAbility);
+	ATLASSERT(cpAbility);
 		
-		cpAbility->SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+	cpAbility->SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		m_pAbility = cpAbility.GetPointer();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRocketLauncherCard::SetTriggerContext));
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
 BOOL CRocketLauncherCard::CanPlay(BOOL bIncludeTricks)
 {
-	if (GetInplayGameTurnNumber() == GetGame()->GetGameTurnNumber() ) return false;
+	int nTurnInControl = GetControllerTurnChanged();
+	if (nTurnInControl < 0)	return false;
+	if (nTurnInControl >= GetController()->GetPlayerTurnNumber()) return false;
 
 	return true;
 }
 
-bool CRocketLauncherCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-										 CNode* pToNode) const
+void CRocketLauncherCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	return m_pAbility->GetTurnUsageCount() > 0;
+	if (!bResult) return;
 
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Destroy Effect"), 61060, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
+
 //____________________________________________________________________________
 //

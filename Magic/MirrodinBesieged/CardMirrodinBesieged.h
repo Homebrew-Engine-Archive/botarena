@@ -466,6 +466,9 @@ class CCreepingCorrosionCard : public CCard
 class CHeroOfOxidRidgeCard : public CHasteCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHeroOfOxidRidgeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -1126,7 +1129,6 @@ class CMelirasKeepersCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-/*
 class CPhyrexianRebirthCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CPhyrexianRebirthCard);
@@ -1135,8 +1137,29 @@ protected:
 	bool BeforeResolution(CAbilityAction* pAction);
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-	int m_nCards;
+	int_ m_nCards;
 };
-*/
+
+//____________________________________________________________________________
+//
+class CVirulentWoundCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CVirulentWoundCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CGruesomeEncoreCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGruesomeEncoreCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
 //____________________________________________________________________________
 //

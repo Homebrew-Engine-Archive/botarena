@@ -986,7 +986,7 @@ CSeasClaimCard::CSeasClaimCard(CGame* pGame, UINT nID)
 			BLUE_MANA_TEXT, 
 			new CardTypeComparer(CardType::_Land, false)));
 
-	cpSpell->AddCardTypeToAdd(CardType::Island | CardType::BasicLand, CardType::_All, _T("Island"));
+	cpSpell->AddCardTypeToAdd(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Island"));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -2103,7 +2103,7 @@ CVerdantForceCard::CVerdantForceCard(CGame* pGame, UINT nID)
 		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling B"), 2712, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling I"), 62000, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 

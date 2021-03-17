@@ -56,6 +56,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGoForTheThroatCard);
 		DEFINE_CARD(CGoreVassalCard);
 		DEFINE_CARD(CGreenSunsZenithCard);
+		DEFINE_CARD(CGruesomeEncoreCard);
 		DEFINE_CARD(CGustSkimmerCard);
 		DEFINE_CARD(CHellkiteIgniterCard);
 		DEFINE_CARD(CHeroOfBladeholdCard);
@@ -92,7 +93,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(COgreResisterCard);
 		DEFINE_CARD(CPeaceStriderCard);
 		DEFINE_CARD(CPhyresisCard);
-		//DEFINE_CARD(CPhyrexianRebirthCard);
+		DEFINE_CARD(CPhyrexianRebirthCard);
 		DEFINE_CARD(CPhyrexianCrusaderCard);
 		DEFINE_CARD(CPhyrexianDigesterCard);
 		DEFINE_CARD(CPhyrexianHydraCard);
@@ -149,6 +150,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CViridianClawCard);
 		DEFINE_CARD(CViridianCorrupterCard);
 		DEFINE_CARD(CViridianEmissaryCard);
+		DEFINE_CARD(CVirulentWoundCard);
 		DEFINE_CARD(CVivisectionCard);
 		DEFINE_CARD(CWhiteSunsZenithCard);
 
@@ -229,7 +231,7 @@ CMirranCrusaderCard::CMirranCrusaderCard(CGame* pGame, UINT nID)
 CThopterAssemblyCard::CThopterAssemblyCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Thopter Assembly"), CardType::_ArtifactCreature, CREATURE_TYPE(Thopter), nID,
 		_T("6"), Power(5), Life(5))
-		, m_CardFilter(_T("thopter card"), _T("thopter cards"), new CreatureTypeComparer(CREATURE_TYPE(Thopter), false))
+		, m_CardFilter(_T("Thopter card"), _T("Thopter cards"), new CreatureTypeComparer(CREATURE_TYPE(Thopter), false))
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
@@ -247,7 +249,7 @@ CThopterAssemblyCard::CThopterAssemblyCard(CGame* pGame, UINT nID)
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CThopterAssemblyCard::SetTriggerContext));
 		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CThopterAssemblyCard::BeforeResolution));
 
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Thopter B"), 2850 , 5));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Thopter C"), 2710 , 5));
 
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));		
 
@@ -333,9 +335,9 @@ CHeroOfBladeholdCard::CHeroOfBladeholdCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->SetTokenName(_T("Soldier A"));
+		cpAbility->SetTokenName(_T("Soldier J"));
 		cpAbility->SetTokenNumber(2);
-		cpAbility->SetTokenuID(2713);
+		cpAbility->SetTokenuID(2976);
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -349,7 +351,7 @@ CMastersCallCard::CMastersCallCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Instant,
 			_T("2") WHITE_MANA_TEXT,
-			_T("Myr"), 2795,
+			_T("Myr B"), 62008,
 			2));
 
 	AddSpell(cpSpell.GetPointer());
@@ -1762,7 +1764,7 @@ CHeroOfOxidRidgeCard::CHeroOfOxidRidgeCard(CGame* pGame, UINT nID)
 	}
 	{
 		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfAttackedBlocked,
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
 									CWhenSelfAttackedBlocked::AttackEventCallback,
 									&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
 
@@ -1770,15 +1772,7 @@ CHeroOfOxidRidgeCard::CHeroOfOxidRidgeCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->SetModifyCreatureOption(TriggeredAbility::ModifyCreatureOption::ModifyAllPlayersCreatures);
-
-		cpAbility->GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetCardFilterHelper().GetCustomFilter().AddComparer(new CreaturePowerComparer<std::less<int>>(2));
-
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::CantBlock);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
-
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHeroOfOxidRidgeCard::BeforeResolution));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -1798,6 +1792,21 @@ CHeroOfOxidRidgeCard::CHeroOfOxidRidgeCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	} */
+}
+
+bool CHeroOfOxidRidgeCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayerEffectModifier* pModifier1 = new CPlayerEffectModifier(PlayerEffectType::Power1OrLessCantBlock);	
+
+	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
+		GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		pModifier1->ApplyTo(GetGame()->GetPlayer(ip));
+		pModifier2->ApplyTo(GetGame()->GetPlayer(ip));
+	}
+	return true;
 }
 
 //____________________________________________________________________________
@@ -2400,7 +2409,7 @@ CPraetorsCounselCard::CPraetorsCounselCard(CGame* pGame, UINT nID)
 	cpSpell->SetAffectControllerCardsOnly();
 	cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Praetor's Counsel Effect"), 2914, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Praetor's Counsel Effect"), 61027, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -2448,7 +2457,7 @@ CMyrTurbineCard::CMyrTurbineCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Myr"), TOKEN_ID_BY_NAME,
+				_T("Myr B"), 62008,
 				1));
 		ATLASSERT(cpAbility);
 
@@ -3079,7 +3088,7 @@ CMyrSireCard::CMyrSireCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Myr"), 2795, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Myr B"), 62008, 1);
 
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 
@@ -3340,7 +3349,7 @@ CNestedGhoulCard::CNestedGhoulCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().GetToCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 	cpAbility->GetTrigger().GetToCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
 
-	cpAbility->SetCreateTokenOption(TRUE, _T("Zombie"), 2724, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Zombie G"), 2889, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -4225,11 +4234,11 @@ CMelirasKeepersCard::CMelirasKeepersCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-/*
 CPhyrexianRebirthCard::CPhyrexianRebirthCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Phyrexian Rebirth"), CardType::Sorcery, nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				&CPhyrexianRebirthCard::OnResolutionCompleted))
+	, m_nCards(0)
 {
 	counted_ptr<CGlobalMoveCardSpell> cpSpell(
 		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Sorcery,
@@ -4261,6 +4270,8 @@ void CPhyrexianRebirthCard::OnResolutionCompleted(const CAbilityAction* pAbility
 {
 	if (!bResult) return;
 
+	CPlayer* pController = pAbilityAction->GetController();
+
 	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
@@ -4268,10 +4279,101 @@ void CPhyrexianRebirthCard::OnResolutionCompleted(const CAbilityAction* pAbility
 		m_nCards -= CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
-	CTokenCreationModifier* pModifier = new CTokenCreationModifier(GetGame(), _T("Spirit C"), 2815, 1);
-	CLifeModifier* pModifier = new CLifeModifier(Life(2 * m_nCards), this, PreventableType::NotPreventable);
-	pModifier->ApplyTo(pAbilityAction->GetController());
+	int nTokenCount = 1;
+
+	int nMultiplier = 0;
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Horror C"), 62027));		
+
+		if (!m_pGame->IsThinking())
+		{ ((CTokenCreature*)cpToken.GetPointer())->SetUID(62027); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(_T("Horror C")); }
+
+		pController->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+		
+		CCreatureCard* pCreature = (CCreatureCard*)cpToken.GetPointer();
+
+		pCreature->SetPrintedPower(Power(m_nCards));
+		pCreature->SetPrintedToughness(Life(m_nCards));		
+
+		cpToken->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+	}
 }
-*/
+
+//____________________________________________________________________________
+//
+CVirulentWoundCard::CVirulentWoundCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Virulent Wound"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			BLACK_MANA_TEXT,
+			new AnyCreatureComparer, false));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CVirulentWoundCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CVirulentWoundCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+	{
+		CCardCounterModifier pModifier1 = CCardCounterModifier(_T("-1/-1"), +1);
+		pModifier1.ApplyTo(pTarget);
+
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+	}
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("Virulent Wound Effect"), 61055, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CGruesomeEncoreCard::CGruesomeEncoreCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Gruesome Encore"), CardType::Sorcery, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				   &CGruesomeEncoreCard::OnResolutionCompleted))
+{
+	counted_ptr<CTargetMoveCardSpell> cpSpell(
+		::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery, 
+			_T("2") BLACK_MANA_TEXT,
+			new AnyCreatureComparer,
+			ZoneId::Graveyard, ZoneId::Battlefield, FALSE, MoveType::Others));
+
+	cpSpell->GetTargeting()->SetIncludeNonControllerCardsOnly();
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+void CGruesomeEncoreCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAbilityAction->GetAssociatedCard();
+
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+	pModifier1.ApplyTo(pTarget);
+
+	CReplacementKeywordModifier pModifier2 = CReplacementKeywordModifier();
+		pModifier2.GetModifier().SetToAdd(ReplacementKeyword::PseudoUnearth);
+		pModifier2.GetModifier().SetOneTurnOnly(FALSE);
+	pModifier2.ApplyTo(pTarget);
+
+	CContainerEffectModifier pModifier3 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier3.ApplyTo(pAbilityAction->GetController());
+}
+
 //____________________________________________________________________________
 //

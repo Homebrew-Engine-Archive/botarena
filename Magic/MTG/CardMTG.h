@@ -664,13 +664,6 @@ class CInsectDToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CJuggernautToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CJuggernautToken);
-};
-
-//____________________________________________________________________________
-//
 class CKaldraToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CKaldraToken);
@@ -692,9 +685,9 @@ class CKelpToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CKithkinSoldierToken : public CTokenCreature
+class CKithkinSoldierAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CKithkinSoldierToken);
+	DECLARE_CARD_CSTOR(CKithkinSoldierAToken);
 };
 
 //____________________________________________________________________________
@@ -762,9 +755,9 @@ class CMinorDemonToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CMyrToken : public CTokenCreature
+class CMyrAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CMyrToken);
+	DECLARE_CARD_CSTOR(CMyrAToken);
 };
 
 //____________________________________________________________________________
@@ -797,9 +790,9 @@ class COozeCToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CPegasusToken : public CTokenCreature
+class CPegasusAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CPegasusToken);
+	DECLARE_CARD_CSTOR(CPegasusAToken);
 };
 
 //____________________________________________________________________________
@@ -832,18 +825,6 @@ class CPlantToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CPlantZombieToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CPlantZombieToken);
-
-	OVERRIDE(void, Move)(CZone* pToZone,
-					    const CPlayer* pByPlayer,	// Card moved by this player (NULL if not applicable)
-						MoveType moveType,
-						CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-};
-
-//____________________________________________________________________________
-//
 class CPrismToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CPrismToken);
@@ -858,9 +839,9 @@ class CRatAToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CReflectionToken : public CTokenCreature
+class CReflectionAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CReflectionToken);
+	DECLARE_CARD_CSTOR(CReflectionAToken);
 };
 
 //____________________________________________________________________________
@@ -886,7 +867,7 @@ class CSaprolingBToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CSaprolingCToken : public CTokenCreature
+class CSaprolingCToken : public CCounterWatchingTokenCreature
 {
 	DECLARE_CARD_CSTOR(CSaprolingCToken);
 
@@ -908,17 +889,9 @@ class CSerfToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-
 class CShapeshifterToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CShapeshifterToken);
-};
-
-//____________________________________________________________________________
-//
-class CShapeshifterAToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CShapeshifterAToken);
 };
 
 //____________________________________________________________________________
@@ -937,16 +910,9 @@ class CSkeletonAToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CSkeletonBToken : public CTokenCreature
+class CSliverAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CSkeletonBToken);
-};
-
-//____________________________________________________________________________
-//
-class CSliverToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSliverToken);
+	DECLARE_CARD_CSTOR(CSliverAToken);
 };
 
 //____________________________________________________________________________
@@ -979,13 +945,6 @@ class CSoldierAToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CSoldierBToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSoldierBToken);
-};
-
-//____________________________________________________________________________
-//
 class CSoldierAllyToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CSoldierAllyToken);
@@ -1003,13 +962,6 @@ class CSparkElementalToken : public CTokenCreature
 class CSpawnToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CSpawnToken);
-};
-
-//____________________________________________________________________________
-//
-class CSpawnwritheToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpawnwritheToken);
 };
 
 //____________________________________________________________________________
@@ -1035,13 +987,6 @@ class CSpiritAToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CSpiritBToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritBToken);
-};
-
-//____________________________________________________________________________
-//
 class CSpiritCToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CSpiritCToken);
@@ -1063,58 +1008,6 @@ class CSpiritEToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CSpiritFToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritFToken);
-};
-
-//____________________________________________________________________________
-//
-class CSpiritGToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritGToken);
-};
-
-//____________________________________________________________________________
-//
-class CSpiritHToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritHToken);
-};
-
-//____________________________________________________________________________
-//
-class CSpiritIToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritIToken);
-};
-
-//____________________________________________________________________________
-//
-class CSpiritJToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritJToken);
-
-protected:
-	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const;
-};
-
-//____________________________________________________________________________
-//
-class CSpiritKToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritKToken);
-};
-
-//____________________________________________________________________________
-//
-class CSpiritLToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSpiritLToken);
-};
-
-//____________________________________________________________________________
-//
 class CSpiritMToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CSpiritMToken);
@@ -1122,9 +1015,9 @@ class CSpiritMToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CSquirrelToken : public CTokenCreature
+class CSquirrelAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CSquirrelToken);
+	DECLARE_CARD_CSTOR(CSquirrelAToken);
 };
 
 //____________________________________________________________________________
@@ -1157,9 +1050,9 @@ class CThopterBToken : public CTokenCreature
 
 //_____________________________________________________________________________
 //
-class CThrullToken : public CTokenCreature
+class CThrullAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CThrullToken);
+	DECLARE_CARD_CSTOR(CThrullAToken);
 };
 
 //____________________________________________________________________________
@@ -1167,13 +1060,6 @@ class CThrullToken : public CTokenCreature
 class CThrullBToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CThrullBToken);
-};
-
-//____________________________________________________________________________
-//
-class CTreefolkAToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CTreefolkAToken);
 };
 
 //____________________________________________________________________________
@@ -1227,23 +1113,9 @@ class CVojaToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CWallToken : public CTokenCreature
+class CWallAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CWallToken);
-};
-
-//____________________________________________________________________________
-//
-class CWallBToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CWallBToken);
-};
-
-//____________________________________________________________________________
-//
-class CWarriorAToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CWarriorAToken);
+	DECLARE_CARD_CSTOR(CWallAToken);
 };
 
 //____________________________________________________________________________
@@ -1307,11 +1179,6 @@ class CWurmBToken : public CTokenCreature
 class CWurmCToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CWurmCToken);
-	
-	OVERRIDE(void, Move)(CZone* pToZone,
-					const CPlayer* pByPlayer,
-					MoveType moveType,
-					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
 };
 
 //____________________________________________________________________________
@@ -1330,9 +1197,9 @@ class CWurmEToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CZombieToken : public CTokenCreature
+class CZombieAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CZombieToken);
+	DECLARE_CARD_CSTOR(CZombieAToken);
 };
 
 //____________________________________________________________________________
@@ -1351,164 +1218,9 @@ class CZombieWizardToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CInterventionPactEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CInterventionPactEffectToken);
-
-private:
-	CCard* CreateTemporaryAbility();
-	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer);
-	bool SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
-public:
-	OVERRIDE(void, Move)(CZone* pToZone,
-					     const CPlayer* pByPlayer,
-						 MoveType moveType,
-					     CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-
-/*	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;*/
-};
-
-//____________________________________________________________________________
-//
-class CPactofNegationEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CPactofNegationEffectToken);
-
-private:
-	CCard* CreateTemporaryAbility();
-	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer);
-	bool SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
-public:
-	OVERRIDE(void, Move)(CZone* pToZone,
-					     const CPlayer* pByPlayer,
-						 MoveType moveType,
-					     CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-};
-
-//____________________________________________________________________________
-//
-class CPactOfTheTitanEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CPactOfTheTitanEffectToken);
-
-private:
-	CCard* CreateTemporaryAbility();
-	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer);
-	bool SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
-public:
-	OVERRIDE(void, Move)(CZone* pToZone,
-					     const CPlayer* pByPlayer,
-						 MoveType moveType,
-					     CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-};
-
-//____________________________________________________________________________
-//
-class CSlaughterPactEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CSlaughterPactEffectToken);
-
-private:
-	CCard* CreateTemporaryAbility();
-	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer);
-	bool SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
-public:
-	OVERRIDE(void, Move)(CZone* pToZone,
-					     const CPlayer* pByPlayer,
-						 MoveType moveType,
-					     CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-};
-
-//____________________________________________________________________________
-//
-class CSummonersPactEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CSummonersPactEffectToken);
-
-private:
-	CCard* CreateTemporaryAbility();
-	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer);
-	bool SetTriggerContext(CTriggeredCreateTemporaryAbilityAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
-public:
-	OVERRIDE(void, Move)(CZone* pToZone,
-					     const CPlayer* pByPlayer,
-						 MoveType moveType,
-					     CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-};
-
-//____________________________________________________________________________
-//
-class CCastExileEmblemToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CCastExileEmblemToken);
-
-protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-							CCard* pCard) const;
-};
-
-//____________________________________________________________________________
-//
-class CMountainDamageEmblemToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CMountainDamageEmblemToken);
-
-protected:
-	counted_ptr<CAbility> CreateAbility(CCard* pCard);
-};
-
-//____________________________________________________________________________
-//
-class CChannelEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CChannelEffectToken);
-};
-
-//____________________________________________________________________________
-//
 class CGolemDToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CGolemDToken);
-};
-
-//____________________________________________________________________________
-//
-class CGlimpseofNatureEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CGlimpseofNatureEffectToken);
-
-	protected:
-	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
-							CCard* pCard) const;
-};
-
-//____________________________________________________________________________
-//
-class CScoutsWarningEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CScoutsWarningEffectToken);
-
-protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-							CCard* pCard) const;
-};
-
-//____________________________________________________________________________
-//
-class CQuickenEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CQuickenEffectToken);
-
-protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-							CCard* pCard) const;
 };
 
 //____________________________________________________________________________
@@ -1538,65 +1250,9 @@ class CGolemCToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CPraetorsCounselEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CPraetorsCounselEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CFlashOfDefianceEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CFlashOfDefianceEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CFalterEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CFalterEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CHeroOfOxidRidgeEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CHeroOfOxidRidgeEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CTurtleToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CTurtleToken);
-};
-
-//____________________________________________________________________________
-//
-class CThePiecesAreComingTogetherEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CThePiecesAreComingTogetherEffectToken);
-};
-
-//____________________________________________________________________________
-//
 class CGolemBToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CGolemBToken);
-};
-
-//____________________________________________________________________________
-//
-class CApproachMyMoltenRealmEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CApproachMyMoltenRealmEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CYourPunyMindsCannotFathomEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CYourPunyMindsCannotFathomEffectToken);
 };
 
 //____________________________________________________________________________
@@ -1671,19 +1327,6 @@ class CHumanAToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CPowerPumpEmblemToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CPowerPumpEmblemToken);
-
-public:
-	OVERRIDE(void, Move)(CZone* pToZone,
-					     const CPlayer* pByPlayer,
-						 MoveType moveType,
-					     CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-};
-
-//____________________________________________________________________________
-//
 class CAngelDToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CAngelDToken);
@@ -1691,58 +1334,9 @@ class CAngelDToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CBubblingMuckEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CBubblingMuckEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CHighTideEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CHighTideEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CTamiyoEmblemToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CTamiyoEmblemToken);
-
-protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-						 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-};
-
-//____________________________________________________________________________
-//
-class CWindingCanyonsEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CWindingCanyonsEffectToken);
-};
-
-//____________________________________________________________________________
-//
-class CAlchemistsRefugeEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CAlchemistsRefugeEffectToken);
-};
-
-//____________________________________________________________________________
-//
 class CHumanBToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CHumanBToken);
-};
-
-//____________________________________________________________________________
-//
-class CSwampFourManaEmblemToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CSwampFourManaEmblemToken);
-
-protected:
-	counted_ptr<CAbility> CreateAbility(CCard* pCard);
 };
 
 //____________________________________________________________________________
@@ -1761,9 +1355,9 @@ class CHellionBToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CHippoToken : public CTokenCreature
+class CHippoAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CHippoToken);
+	DECLARE_CARD_CSTOR(CHippoAToken);
 };
 
 //____________________________________________________________________________
@@ -1803,20 +1397,6 @@ class CRhinoToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CWolfDToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CWolfDToken);
-};
-
-//____________________________________________________________________________
-//
-class CTreefolkBToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CTreefolkBToken);
-};
-
-//____________________________________________________________________________
-//
 class COgreToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(COgreToken);
@@ -1838,25 +1418,6 @@ class CAssassinToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CJaceArchitectOfThoughtEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CJaceArchitectOfThoughtEffectToken);
-
-private:
-	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
-										 CCreatureCard* pCreature,
-										 AttackSubject attacked) const;
-};
-
-//____________________________________________________________________________
-//
-class CRuthlessInvasionEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CRuthlessInvasionEffectToken);
-};
-
-//____________________________________________________________________________
-//
 class CTombspawnToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CTombspawnToken);
@@ -1871,76 +1432,9 @@ class CSurvivorToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CWarriorBToken : public CTokenCreature
+class CWarriorToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CWarriorBToken);
-};
-
-//____________________________________________________________________________
-//
-class CChandraTheFirebrandEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CChandraTheFirebrandEffectToken);
-
-protected:
-	bool bFired;
-
-	bool SetTriggerContext(CTriggeredCopyCastAbility1::TriggerContextType& triggerContext, 
-										 CCard* pCard);
-};
-
-//____________________________________________________________________________
-//
-class CSlowtripEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CSlowtripEffectToken);
-
-protected:
-	bool bPrimed;
-	bool bFired;
-
-	typedef
-		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
-	bool SetTriggerContext2(CTriggeredDrawCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
-	bool SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
-};
-
-//____________________________________________________________________________
-//
-class CArcaneDenialEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CArcaneDenialEffectToken);
-
-protected:
-	bool bPrimed;
-	bool bFired;
-
-	typedef
-		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
-	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
-	bool SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
-};
-
-//____________________________________________________________________________
-//
-class CLatNamsLegacyEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CLatNamsLegacyEffectToken);
-
-protected:
-	bool bPrimed;
-	bool bFired;
-
-	typedef
-		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCastAny > TriggeredAbility;
-
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
-	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
-	bool SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+	DECLARE_CARD_CSTOR(CWarriorToken);
 };
 
 //____________________________________________________________________________
@@ -1971,38 +1465,9 @@ protected:
 
 //______________________________________________________________________________
 //
-class CDomriRadeEmblemToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CDomriRadeEmblemToken);
-};
-
-//____________________________________________________________________________
-//
-class CEnterTheInfiniteEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CEnterTheInfiniteEffectToken);
-};
-
-//____________________________________________________________________________
-//
 class CBirdSoldierToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CBirdSoldierToken);
-};
-
-//____________________________________________________________________________
-//
-class CDuskmantleGuildmageEffectToken : public CEffectCard
-{
-	DECLARE_CARD_CSTOR(CDuskmantleGuildmageEffectToken);
-
-protected:
-	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard,
-							CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
-
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
-	bool BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -2017,13 +1482,6 @@ class CFrogLizardToken : public CTokenCreature
 class CSoldierCToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CSoldierCToken);
-};
-
-//____________________________________________________________________________
-//
-class CSoldierDToken : public CTokenCreature
-{
-	DECLARE_CARD_CSTOR(CSoldierDToken);
 };
 
 //____________________________________________________________________________
@@ -2353,6 +1811,378 @@ class CAngelGToken : public CTokenCreature
 class CAngelHToken : public CTokenCreature
 {
 	DECLARE_CARD_CSTOR(CAngelHToken);
+};
+
+//____________________________________________________________________________
+//
+class CInsectFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CInsectFToken);
+};
+
+//____________________________________________________________________________
+//
+class CPegasusBToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CPegasusBToken);
+};
+
+//____________________________________________________________________________
+//
+class COozeEToken : public CCounterWatchingTokenCreature
+{
+	DECLARE_CARD_CSTOR(COozeEToken);
+
+	OVERRIDE(void, Move)(CZone* pToZone,
+					    const CPlayer* pByPlayer,	// Card moved by this player (NULL if not applicable)
+						MoveType moveType,
+						CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+private:
+	counted_ptr<CTriggeredCounterExternalPwrTghAbility> m_pAbility;
+};
+
+//____________________________________________________________________________
+//
+class CSoldierBToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierBToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierDToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierDToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritBToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritBToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritFToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritGToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritHToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritIToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritJToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritJToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritKToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritKToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritLToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritLToken);
+};
+
+//____________________________________________________________________________
+//
+class CThopterCToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CThopterCToken);
+};
+
+//_____________________________________________________________________________
+//
+class CSquirrelCToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSquirrelCToken);
+};
+
+//____________________________________________________________________________
+//
+class CSquirrelDToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSquirrelDToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritNToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritNToken);
+};
+
+//____________________________________________________________________________
+//
+class CWolfDToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfDToken);
+};
+
+//_____________________________________________________________________________
+//
+class CZombieBToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieBToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieCToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieCToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieDToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieDToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieEToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieFToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieGToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieHToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieIToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieJToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieJToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieKToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieKToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieLToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieLToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieMToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieMToken);
+};
+
+//____________________________________________________________________________
+//
+class CWurmGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWurmGToken);
+};
+
+//____________________________________________________________________________
+//
+class CWurmHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWurmHToken);
+};
+
+//____________________________________________________________________________
+//
+class CWolfEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfEToken);
+};
+
+//_____________________________________________________________________________
+//
+class CWolfFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfFToken);
+};
+
+//_____________________________________________________________________________
+//
+class CWolfGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfGToken);
+};
+
+//_____________________________________________________________________________
+//
+class CWolfHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfHToken);
+};
+
+//_____________________________________________________________________________
+//
+class CSpiderCToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiderCToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierEToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierFToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierGToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierHToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierIToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierJToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierJToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierKToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierKToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierLToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierLToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierMToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierMToken);
+};
+
+//____________________________________________________________________________
+//
+class CSliverBToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSliverBToken);
+};
+
+//____________________________________________________________________________
+//
+class CSaprolingDToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSaprolingDToken);
+};
+
+//____________________________________________________________________________
+//
+class CSaprolingEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSaprolingEToken);
+};
+
+//____________________________________________________________________________
+//
+class CSaprolingFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSaprolingFToken);
+};
+
+//____________________________________________________________________________
+//
+class CSaprolingGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSaprolingGToken);
+};
+
+//____________________________________________________________________________
+//
+class CSaprolingHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSaprolingHToken);
 };
 
 //____________________________________________________________________________

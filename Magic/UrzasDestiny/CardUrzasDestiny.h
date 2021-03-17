@@ -720,7 +720,9 @@ class CApprenticeNecromancerCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CApprenticeNecromancerCard);
 
 protected:
-	CCardFilter m_CardFilter;
+	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
 };
 
 //____________________________________________________________________________

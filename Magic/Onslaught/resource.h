@@ -273,6 +273,10 @@
 #define IDS_STRING14256                 14256
 #define IDS_STRING14257                 14257
 #define IDS_STRING14258                 14258
+#define IDS_STRING14259                 14259
+#define IDS_STRING14260                 14260
+#define IDS_STRING14261                 14261
+#define IDS_STRING14262                 14262
 #define IDI_MODULE                      14350
 #define IDI_LARGE_MODULE                14351
 

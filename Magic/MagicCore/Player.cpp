@@ -34,11 +34,11 @@ CPlayer::CPlayer(CGame* pGame)
 	, m_nLastTurnCastedSpellCount(0)
 	, m_apTriggeredMoveContainer(new CTriggeredActionContainer)
 	, m_nLifeAtBeginningOfTurn(Life(0))
+	, m_nStartingLife(Life(0))
 	, m_nTurnCombatDamageTaken(Life(0))
 	, m_nTurnNoncombatDamageTaken(Life(0))
 	, m_nTurnLifeLossTaken(Life(0))
 	, m_nProwl(FALSE)
-	, m_nRepeatCombatCount(0)
 	, m_DamageRedirectionSelection(pGame,
 		CSelectionSupport::SelectionCallback(
 			this, &CPlayer::OnDamageRedirectionSelected))
@@ -267,6 +267,11 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 	if ((damage.m_DamageType & DamageType::SpellDamage).Any() && GetPlayerEffect().HasPlayerEffect(PlayerEffectType::DamageToTokensReplacement) &&
 		(damage.m_DamageType & DamageType::NonCombatDamage).Any())
 		n=n+1;
+
+	if ((damage.m_pSourceCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ZombieMill)) && (damage.m_DamageType & DamageType::CombatDamage).Any() &&
+		(damage.m_pSourceCard->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)damage.m_pSourceCard)->GetCreatureType().HasType(SingleCreatureType::Zombie)))
+		n=n+1;
+
 	// ----------------------------------------------------------------------------------------------------------------------------
 	
 	if (damage.m_nLifeDelta == Life(0))
@@ -409,6 +414,18 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 		return;
 	}
 
+	if ((damage.m_pSourceCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ZombieMill)) && (damage.m_DamageType & DamageType::CombatDamage).Any() &&
+		(damage.m_pSourceCard->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)damage.m_pSourceCard)->GetCreatureType().HasType(SingleCreatureType::Zombie)))
+	{
+		CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, GET_INTEGER(-damage.m_nLifeDelta), CZoneModifier::RoleType::PrimaryPlayer,
+		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+		pModifier.SetReorderInformation(true, ZoneId::Graveyard);
+
+		pModifier.ApplyTo(this);
+
+		damage.m_nLifeDelta = Life(0);
+	}
+
 	if   (n>1)
 	{
 		std::vector<SelectionEntry> entries;
@@ -511,6 +528,17 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 			SelectionEntry selectionEntry;
 			selectionEntry.dwContext = 9;
 			selectionEntry.strText.Format(_T("selects %s to use Hostility effect"), m_strPlayerName);
+			entries.push_back(selectionEntry);			
+			}
+		}
+
+		if ((damage.m_pSourceCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ZombieMill)) && (damage.m_DamageType & DamageType::CombatDamage).Any() &&
+			(damage.m_pSourceCard->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)damage.m_pSourceCard)->GetCreatureType().HasType(SingleCreatureType::Zombie)))
+		{
+			{			
+			SelectionEntry selectionEntry;
+			selectionEntry.dwContext = 10;
+			selectionEntry.strText.Format(_T("selects %s to use Undead Alchemist effect"), m_strPlayerName);
 			entries.push_back(selectionEntry);			
 			}
 		}
@@ -620,12 +648,23 @@ void CPlayer::OnReplacementSelected(const std::vector<SelectionEntry>& selection
 			{
 				const_cast<CCard*>(damage.m_pSourceCard)->BeforeDealDamage(this, NULL, NULL, damage,3);
 			}
+
 			if (it->dwContext == 9)
 			{
 				CTokenCreationModifier pModifierT = CTokenCreationModifier(GetGame(), _T("Elemental Shaman"), TOKEN_ID_BY_NAME, GET_INTEGER(-damage.m_nLifeDelta));
 				pModifierT.ApplyTo(damage.m_pSourceCard->GetController());
 			}
 
+			if (it->dwContext == 10)
+			{
+				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, GET_INTEGER(-damage.m_nLifeDelta), CZoneModifier::RoleType::PrimaryPlayer,
+					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+				pModifier.SetReorderInformation(true, ZoneId::Graveyard);
+
+				pModifier.ApplyTo(this);
+
+				damage.m_nLifeDelta = Life(0);
+			}
 		}
 
 }
@@ -899,6 +938,16 @@ Life CPlayer::GetLife() const
 Life CPlayer::GetLifeAtBeginningOfTurn() const
 {
 	return m_nLifeAtBeginningOfTurn;
+}
+
+Life CPlayer::GetStartingLife() const
+{
+	return m_nStartingLife;
+}
+
+void CPlayer::SetStartingLife(Life nLife)
+{
+	m_nStartingLife = nLife;
 }
 
 Life CPlayer::GetCombatDamageTakenThisTurn() const
@@ -1519,6 +1568,7 @@ void CPlayer::SetDeck(const CDeck& deck)
 		m_pGame->Log(_T("/// *** SHUFFLING DISABLED ***\n"));
 
 	SetLife(Life(deck.GetStartingLife()) + Life(LifeModifier));
+	SetStartingLife(GetLife());
 
 #ifdef _MY_DEBUG
 	m_pGame->Log(_T("\n/// Library after shuffle:\n"));
@@ -1579,8 +1629,6 @@ void CPlayer::ResetTurnInfo()
 	m_nTurnUntappedCreaturesCount = 0;
 	m_nLastTurnCastedSpellCount = m_nTurnCastedSpellCount;
 	m_nTurnCastedSpellCount = 0;
-	
-	m_nRepeatCombatCount = 0;
 	
 	m_nTurnDrawCount = 0;
 	m_pCardsDrawnThisTurn.RemoveAll();
@@ -1655,6 +1703,17 @@ int CPlayer::GetCertainTypeDiedCount(CardType pType)
 	return count;
 }
 
+int CPlayer::GetCertainTypeDiedCountNonToken(CardType pType)
+{
+	int count=0;
+
+	if (s_hTypes.GetSizeSpecial())
+		for (int i = 0; i < s_hTypes.GetSizeSpecial(); ++i) 
+			if ((s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && !(s_hTypes.GetAtSpecial(i).m_CardType & CardType::Token).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Graveyard
+				&& s_hfromZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) ++count;
+
+	return count;
+}
 
 int CPlayer::GetCertainAntiTypeCastedCount(CardType pType)
 {

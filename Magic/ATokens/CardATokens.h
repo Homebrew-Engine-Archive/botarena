@@ -446,3 +446,172 @@ class CInsectMonkAAToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CJuggernautAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CJuggernautAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CPlantZombieAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CPlantZombieAAToken);
+
+	OVERRIDE(void, Move)(CZone* pToZone,
+					    const CPlayer* pByPlayer,	// Card moved by this player (NULL if not applicable)
+						MoveType moveType,
+						CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+};
+
+//____________________________________________________________________________
+//
+class CShapeshifterAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CShapeshifterAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CSkeletonAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSkeletonAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierABToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritABToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritACToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritACToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritADToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritADToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritAEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritAEToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritAFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritAFToken);
+
+protected:
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const;
+};
+
+//____________________________________________________________________________
+//
+class CSpiritAGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritAGToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritAHToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritAHToken);
+};
+
+//____________________________________________________________________________
+//
+class CTreefolkABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CTreefolkABToken);
+};
+
+//____________________________________________________________________________
+//
+class CTreefolkACToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CTreefolkACToken);
+};
+
+//____________________________________________________________________________
+//
+class CTurtleAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CTurtleAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CWallAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWallAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CWarriorAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWarriorAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CWolfAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CConstructAEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CConstructAEToken);
+};
+
+//____________________________________________________________________________
+//
+class CWallABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWallABToken);
+};
+
+//____________________________________________________________________________
+//
+class CConstructAFToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CConstructAFToken);
+};
+
+//____________________________________________________________________________
+//

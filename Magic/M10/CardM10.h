@@ -1116,11 +1116,12 @@ protected:
 		TTriggeredAbility< CTriggeredAbility<>, CBeforeDamageDealt,
 							CBeforeDamageDealt::CreatureEventCallback, 
 							&CBeforeDamageDealt::SetCreatureEventCallback > TriggeredAbility;
-	bool BeforeResolution(CProteanHydraCard::TriggeredAbility::TriggeredActionType* pAction);
+	bool BeforeResolution1(CProteanHydraCard::TriggeredAbility::TriggeredActionType* pAction);
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard*, CCreatureCard*, Damage damage, int effect_index) const;
 
 	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
 										CCard* pFromCard, LPCTSTR name, int old, int n_value);
+	bool BeforeResolution2(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

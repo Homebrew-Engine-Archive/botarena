@@ -103,6 +103,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTolarianSerpentCard);
 		DEFINE_CARD(CTouchstoneCard);
 		DEFINE_CARD(CUktabiEfreetCard);
+		DEFINE_CARD(CUrborgJusticeCard);
 		DEFINE_CARD(CVeteranExplorerCard);
 		DEFINE_CARD(CWaveOfTerrorCard);
 		DEFINE_CARD(CWindingCanyonsCard);
@@ -1882,7 +1883,7 @@ CWindingCanyonsCard::CWindingCanyonsCard(CGame* pGame, UINT nID)
 		cpAbility->SetToActivatedAbility();
 		cpAbility->AddTapCost();
 		
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Winding Canyons Effect"), 2956, 1, FALSE, ZoneId::_Effects));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Winding Canyons Effect"), 61033, 1, FALSE, ZoneId::_Effects));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -3540,6 +3541,46 @@ void CThranTomeCard::OnCardSelected(const std::vector<SelectionEntry>& selection
 
 			return;
 		}
+}
+
+//____________________________________________________________________________
+//
+CUrborgJusticeCard::CUrborgJusticeCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Urborg Justice"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			BLACK_MANA_TEXT BLACK_MANA_TEXT,
+			FALSE_CARD_COMPARER, true));
+
+	cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CUrborgJusticeCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CUrborgJusticeCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	int nValue = pAction->GetController()->GetCertainTypeDiedCount(CardType::Creature);
+
+	CZoneModifier pModifier = CZoneModifier(GetGame(),
+		ZoneId::Battlefield, SpecialNumber::All,
+		CZoneModifier::RoleType::PrimaryPlayer,
+		CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
+	pModifier.AddSelection(MinimumValue(nValue), MaximumValue(nValue), // select cards to reorder
+		CZoneModifier::RoleType::PrimaryPlayer, // select by 
+		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+		CCardFilter::GetFilter(_T("creatures")), // what cards
+		ZoneId::Graveyard, // if selected, move cards to
+		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+		CardPlacement::Top, // put selected cards on 
+		MoveType::Sacrifice, // move type
+		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+
+	pModifier.ApplyTo(pAction->GetAssociatedPlayer());
+
+	return true;
 }
 
 //____________________________________________________________________________

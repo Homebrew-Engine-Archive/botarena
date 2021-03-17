@@ -425,6 +425,12 @@ class CScuttlingDeathCard : public CCreatureCard
 class CSeizanPerverterOfTruthCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSeizanPerverterOfTruthCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredDrawCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -794,9 +800,13 @@ class CSosukeSonOfSeshiroCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CSosukeSonOfSeshiroCard);
 
 protected:
-	counted_ptr<CAbility> CreateAbility(CCard* pCard);
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CCreatureCard* pToCreature, Damage damage) const;
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenDamageDealt, 
+			CWhenDamageDealt::CreatureEventCallback, &CWhenDamageDealt::SetCreatureEventCallback  > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										  CCard* pCard, CCreatureCard* pToCreature, Damage pDamage);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1111,12 +1121,8 @@ class CHikariTwilightGuardianCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHikariTwilightGuardianCard);
 
-private:
-	CCardFilter m_CardFilter_temp;
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
 
@@ -1301,23 +1307,6 @@ private:
 
 //____________________________________________________________________________
 //
-//class CTatsumasaTheDragonsFangCard : public CInPlaySpellCard
-//{
-//	DECLARE_CARD_CSTOR(CTatsumasaTheDragonsFangCard);
-//
-//private:
-//	CCardFilter m_CardFilter;
-//
-//private:
-//	typedef
-//		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenCardMoved > TriggeredAbility;
-//	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-//							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-//	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
-//};
-//
-////____________________________________________________________________________
-////
 class CStrengthOfCedarsCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CStrengthOfCedarsCard);
@@ -1411,8 +1400,6 @@ class COtherworldlyJourneyCard : public CTargetMoveCardSpellCard
 protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-	CCardFlagModifier m_CardFlagModifier;
-	CCardFilter m_CardFilter;
 };
 
 //____________________________________________________________________________
@@ -1434,6 +1421,9 @@ class CGiftsUngivenCard : public CCard
 class CKikiJikiMirrorBreakerCard : public CHasteCreatureCard
 {
 	DECLARE_CARD_CSTOR(CKikiJikiMirrorBreakerCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1695,7 +1685,8 @@ class CInitiateOfBloodCard : public CFlipCreatureCard
 	DECLARE_CARD_CSTOR(CInitiateOfBloodCard);
 
 private:
-	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard) const;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1879,4 +1870,50 @@ protected:
 };
 
 //______________________________________________________________________________
+//
+class CGodoBanditWarlordCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGodoBanditWarlordCard);
+
+protected:
+	BOOL_ bFirstAttack;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+										  AttackSubject attacked);
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool BeforeResolutionAux(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CWickedAkubaCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CWickedAkubaCard);
+
+protected:
+	std::vector<int> pDamagedPlayers;
+
+	class CWickedAkubaTargeting : public CTargeting
+	{
+	public:
+		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+	};
+
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, CPlayer* pPlayer, Damage damage);
+	bool BeforeResolutionAux(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CTatsumasaTheDragonsFangCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CTatsumasaTheDragonsFangCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
 //

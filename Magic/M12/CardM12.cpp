@@ -32,8 +32,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBelltowerSphinxCard);
 		DEFINE_CARD(CBenalishVeteranCard);
 		DEFINE_CARD(CBloodOgreCard);
-		DEFINE_CARD(CBloodrageVampireCard);
 		DEFINE_CARD(CBloodSeekerCard);
+		DEFINE_CARD(CBloodlordOfVaasgothCard);
+		DEFINE_CARD(CBloodrageVampireCard);
 		DEFINE_CARD(CBonebreakerGiantCard);
 		DEFINE_CARD(CBrinkOfDisasterCard);
 		DEFINE_CARD(CBuriedRuinCard);
@@ -215,9 +216,15 @@ void CBloodrageVampireCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone*
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +1, true);
 		modifier.ApplyTo(this);
@@ -238,9 +245,15 @@ void CDuskhunterBatCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +1, true);
 		modifier.ApplyTo(this);
@@ -263,9 +276,15 @@ void CVampireOutcastsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +2, true);
 		modifier.ApplyTo(this);
@@ -286,9 +305,15 @@ void CFurybornHellkiteCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone*
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +6, true);
 		modifier.ApplyTo(this);
@@ -309,9 +334,15 @@ void CGorehornMinotaursCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +2, true);
 		modifier.ApplyTo(this);
@@ -430,7 +461,7 @@ CGideonJuraCard::CGideonJuraCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T(""),
-				_T("Animated Gideon Jura"), 2877));
+				_T("Animated Gideon Jura"), 64005));
 
 		cpAbility->SetAbilityText(_T("0: Gideon Jura becomes a 6/6 creature. Activates")); 
 
@@ -747,7 +778,7 @@ CZombieInfestationCard::CZombieInfestationCard(CGame* pGame, UINT nID)
 	counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 			_T(""),
-			_T("Zombie"), 2724,
+			_T("Zombie H"), 2987,
 			1));
 
 	cpAbility->GetCost().AddDiscardCardCost(2, CCardFilter::GetFilter(_T("cards")));
@@ -1919,9 +1950,15 @@ void CBloodOgreCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZon
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +1, true);
 		modifier.ApplyTo(this);
@@ -1944,7 +1981,7 @@ CCrimsonMageCard::CCrimsonMageCard(CGame* pGame, UINT nID)
 {
 	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
-			_T("1") RED_MANA_TEXT,
+			RED_MANA_TEXT,
 			Power(+0), Life(+0),
 			CreatureKeyword::Haste, CreatureKeyword::Null,
 			TRUE, PreventableType::NotPreventable,
@@ -1971,9 +2008,15 @@ void CStormbloodBerserkerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZo
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +2, true);
 		modifier.ApplyTo(this);
@@ -2071,9 +2114,15 @@ void CCarnageWurmCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +3, true);
 		modifier.ApplyTo(this);
@@ -2148,7 +2197,7 @@ CJadeMageCard::CJadeMageCard(CGame* pGame, UINT nID)
 	counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 			_T("2") GREEN_MANA_TEXT,
-			_T("Saproling"), 2712,
+			_T("Saproling K"), 62002,
 			1));
 
 	AddAbility(cpAbility.GetPointer());
@@ -2171,9 +2220,15 @@ void CLurkingCrocodileCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone*
 {
 	if (!pFromZone || !pToZone) return;
 
-	int nDamage = GET_INTEGER(GetGame()->GetNextPlayer(GetController())->GetDamageTakenThisTurn());
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
 
-	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nDamage > 0)
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
 	{
 		CCardCounterModifier modifier(_T("+1/+1"), +1, true);
 		modifier.ApplyTo(this);
@@ -2248,24 +2303,34 @@ CCrumblingColossusCard::CCrumblingColossusCard(CGame* pGame, UINT nID)
 		_T("5"), Power(7), Life(4))
 {
 	GetCreatureKeyword()->AddTrample(FALSE);
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked,
-				CWhenSelfAttackedBlocked::AttackEventCallback, &CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+								CWhenSelfAttackedBlocked::AttackEventCallback,
+								&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-		cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCrumblingColossusCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
 }
 
+bool CCrumblingColossusCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Sacrifice Effect"), 61106, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
 //____________________________________________________________________________
 //
 CGarrukPrimalHunterCard::CGarrukPrimalHunterCard(CGame* pGame, UINT nID)
@@ -2279,7 +2344,7 @@ CGarrukPrimalHunterCard::CGarrukPrimalHunterCard(CGame* pGame, UINT nID)
 				_T(""),
 				new CardTypeComparer(CardType::_Land, false),
 				FALSE, FALSE,
-				_T("Wurm B"), 2767, 1));
+				_T("Wurm H"), 2922, 1));
 
 		cpAbility->GetCost().AddCounterCost(GetLoyaltyCounter(), -6);
 
@@ -2627,7 +2692,7 @@ bool CTimelyReinforcementsCard::BeforeResolution(CAbilityAction* pAction) const
 		}
 	if (bFound)
 	{
-		CTokenCreationModifier* pModifier= new CTokenCreationModifier(GetGame(), _T("Soldier A"), 2713, 3);
+		CTokenCreationModifier* pModifier= new CTokenCreationModifier(GetGame(), _T("Soldier K"), 2983, 3);
 		pModifier->ApplyTo(pAction->GetController());
 	}
 
@@ -2830,7 +2895,7 @@ CThroneOfEmpiresCard::CThroneOfEmpiresCard(CGame* pGame, UINT nID)
 	counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 			_T("1"),
-			_T("Soldier A"), 2713, 1));
+			_T("Soldier K"), 2983, 1));
 	ATLASSERT(cpAbility);
 
 	cpAbility->AddTapCost();
@@ -3313,7 +3378,7 @@ void CDruidicSatchelCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 	if (pLibrary->GetTopCard()->GetCardType().IsCreature())
 	{
-		CTokenCreationModifier* pModifier1 = new CTokenCreationModifier(GetGame(), _T("Saproling B"), 2712, 1);
+		CTokenCreationModifier* pModifier1 = new CTokenCreationModifier(GetGame(), _T("Saproling K"), 62002, 1);
 		pModifier1->ApplyTo(pController);
 	}
 	if (pLibrary->GetTopCard()->GetCardType().IsLand())
@@ -3556,7 +3621,7 @@ CChandraTheFirebrandCard::CChandraTheFirebrandCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
 				_T("")));
 
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Chandra, the Firebrand Effect"), 2837, 1, FALSE, ZoneId::_Effects));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Chandra, the Firebrand Effect"), 61018, 1, FALSE, ZoneId::_Effects));
 
 		cpAbility->GetCost().AddCounterCost(GetLoyaltyCounter(), -2);
 
@@ -3952,6 +4017,69 @@ void CMindUnboundCard::OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, i
 {
 	if ((pFromCard != this) || ((CString)name != LORE_COUNTER)) return;
 	m_nCounterCount = n_value;
+}
+
+//____________________________________________________________________________
+//
+CBloodlordOfVaasgothCard::CBloodlordOfVaasgothCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Bloodlord of Vaasgoth"), CardType::Creature, CREATURE_TYPE2(Vampire, Warrior), nID,
+		_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(3), Life(3))
+	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CBloodlordOfVaasgothCard::OnZoneChanged))
+{
+	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBloodlordOfVaasgothCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CBloodlordOfVaasgothCard::BeforeResolution));
+
+	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Vampire), false));
+	cpAbility->AddAbilityTag(AbilityTag::CardChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+void CBloodlordOfVaasgothCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pFromZone || !pToZone) return;
+
+	bool bBloodthirst = false;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+		{
+			bBloodthirst = true;
+			break;
+		}
+
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && bBloodthirst)
+	{
+		CCardCounterModifier modifier(_T("+1/+1"), +3, true);
+		modifier.ApplyTo(this);
+	}
+}
+
+bool CBloodlordOfVaasgothCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard) const
+{
+	triggerContext.nValue1 = (DWORD)pCard;
+
+	return true;
+}
+
+bool CBloodlordOfVaasgothCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->GetZoneId() == ZoneId::Stack)
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Bloodlord of Vaasgoth Effect"), 61062, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

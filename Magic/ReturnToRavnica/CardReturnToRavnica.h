@@ -2095,3 +2095,17 @@ protected:
 
 //____________________________________________________________________________
 //
+class CGraveBetrayalCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CGraveBetrayalCard);
+
+protected:
+	typedef 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//

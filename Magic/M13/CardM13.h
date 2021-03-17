@@ -355,6 +355,13 @@ class CFaerieInvadersCard : public CFlyingCreatureCard
 
 //____________________________________________________________________________
 //
+class CFaithsRewardCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CFaithsRewardCard);
+};
+
+//____________________________________________________________________________
+//
 class CFarseekCard : public CSearchLibrarySpellCard
 {
 	DECLARE_CARD_CSTOR(CFarseekCard);

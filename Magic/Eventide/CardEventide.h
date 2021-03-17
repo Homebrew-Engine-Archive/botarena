@@ -1179,12 +1179,8 @@ class CFlickerwispCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CFlickerwispCard);
 
-private:
-	CCardFilter m_CardFilter_temp;
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
 

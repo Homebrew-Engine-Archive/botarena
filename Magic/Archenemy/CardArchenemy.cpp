@@ -16,10 +16,13 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
+		//DEFINE_CARD(CADisplayOfMyDarkPowerCard);
 		DEFINE_CARD(CApproachMyMoltenRealmCard);
 		DEFINE_CARD(CDancePatheticMarionetteCard);
+		DEFINE_CARD(CEvilComesToFruitionCard);
 		DEFINE_CARD(CIDelightInYourConvulsionsCard);
 		DEFINE_CARD(CIKnowAllISeeAllCard);
+		DEFINE_CARD(CIntroductionsAreInOrderCard);
 		DEFINE_CARD(CKnowNaughtbutFireCard);
 		DEFINE_CARD(CLookSkywardandDespairCard);
 		DEFINE_CARD(CRealmsBefittingMyMajestyCard);
@@ -51,7 +54,7 @@ CThePiecesAreComingTogetherCard::CThePiecesAreComingTogetherCard(CGame* pGame, U
 		
 	//cpAbility->SetSkipStack(TRUE);
 	cpAbility->SetDrawCount(2);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("The Pieces Are Coming Together Effect"), 2920, 1, FALSE, ZoneId::_Effects));
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("The Pieces Are Coming Together Effect"), 61032, 1, FALSE, ZoneId::_Effects));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -113,7 +116,7 @@ CRootsofAllEvilCard::CRootsofAllEvilCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling B"), 2712, 5);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling J"), 62001, 5);
 	
 	
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
@@ -235,7 +238,7 @@ CApproachMyMoltenRealmCard::CApproachMyMoltenRealmCard(CGame* pGame, UINT nID)
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		
 	//cpAbility->SetSkipStack(TRUE);		
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Approach My Molten Realm Effect"), 2922, 1, FALSE, ZoneId::_Effects));
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Approach My Molten Realm Effect"), 61014, 1, FALSE, ZoneId::_Effects));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -288,7 +291,7 @@ CYourPunyMindsCannotFathomCard::CYourPunyMindsCannotFathomCard(CGame* pGame, UIN
 		
 	//cpAbility->SetSkipStack(TRUE);
 	cpAbility->SetDrawCount(4);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Your Puny Minds Cannot Fathom Effect"), 2923, 1, FALSE, ZoneId::_Effects));
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Your Puny Minds Cannot Fathom Effect"), 61034, 1, FALSE, ZoneId::_Effects));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -535,5 +538,208 @@ void CDancePatheticMarionetteCard::OnCardSelected(const std::vector<SelectionEnt
 		}
 }
 
+//____________________________________________________________________________
+//
+CIntroductionsAreInOrderCard::CIntroductionsAreInOrderCard(CGame* pGame, UINT nID)
+	: CSchemeCard(pGame, _T("Introductions Are in Order"), nID)
+	, m_ModeSelection(pGame, CSelectionSupport::SelectionCallback(this, &CIntroductionsAreInOrderCard::OnModeSelected))
+{
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::_Schemes, ZoneId::_Effects));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CIntroductionsAreInOrderCard::SetTriggerContextAux));
+
+		cpAbility->SetSkipStack(TRUE);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredSearchLibraryAbility, CSpecialTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHOICE_1_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::_Schemes);
+
+		cpAbility->GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+
+		cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
+		cpAbility->SetToZone(ZoneId::Hand);
+		cpAbility->SetRevealCardsToOthers(TRUE);
+
+		cpAbility->SetAbilityName(_T("Mode 1 - search for a creature"));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
+		AddAbility(cpAbility.GetPointer());
+	}	
+	{
+		typedef
+			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CSpecialTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHOICE_2_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::_Schemes);
+
+		cpAbility->GetGatherer().GetSubjectCardFilter().SetThisCardsControllerOnly(this);
+
+		cpAbility->GetGatherer().SetSubjectZoneId(ZoneId::Hand);
+		cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Hand);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Battlefield);
+		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
+		
+		cpAbility->SetAbilityName(_T("Mode 2 - put a creature onto the battlefield"));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Hand, ZoneId::Battlefield));
+		AddAbility(cpAbility.GetPointer());
+	}	
+}
+
+bool CIntroductionsAreInOrderCard::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType)
+{
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 1;
+		selectionEntry.strText.Format(_T("%s: Search your library for a creature card, reveal it, put it into your hand, then shuffle your library"), GetCardName(TRUE));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 2;
+		selectionEntry.strText.Format(_T("%s: You may put a creature card from your hand onto the battlefield"), GetCardName(TRUE));
+
+		entries.push_back(selectionEntry);
+	}
+	
+	m_ModeSelection.AddSelectionRequest(entries, 1, 1, NULL, GetController());
+
+	return false;
+}
+
+void CIntroductionsAreInOrderCard::OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 1)
+			{
+				if (!m_pGame->IsThinking())
+				{
+
+					CString strMessage;
+					strMessage.Format(_T("%s chooses first mode"), pSelectionPlayer->GetPlayerName());
+
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+
+				}
+				
+				CSpecialEffectModifier pModifier = CSpecialEffectModifier(this, CHOICE_1_TRIGGER_ID);
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			if ((int)it->dwContext == 2)
+			{
+				if (!m_pGame->IsThinking())
+				{
+
+					CString strMessage;
+					strMessage.Format(_T("%s chooses second mode"), pSelectionPlayer->GetPlayerName());
+
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				
+				CSpecialEffectModifier pModifier = CSpecialEffectModifier(this, CHOICE_2_TRIGGER_ID);
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CEvilComesToFruitionCard::CEvilComesToFruitionCard(CGame* pGame, UINT nID)
+	: CSchemeCard(pGame, _T("Evil Comes to Fruition"), nID)
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::_Schemes, ZoneId::_Effects));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CEvilComesToFruitionCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CEvilComesToFruitionCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+
+	if (CCardFilter::GetFilter(_T("lands"))->CountIncluded(pController->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) > 9)
+	{
+		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Elemental Q"), 62015, 7);
+		pModifier.ApplyTo(pController);
+	}
+	else
+	{
+		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Plant"), 2831, 7);
+		pModifier.ApplyTo(pController);
+	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+/*
+CADisplayOfMyDarkPowerCard::CADisplayOfMyDarkPowerCard(CGame* pGame, UINT nID)
+	: CSchemeCard(pGame, _T("A Display of My Dark Power"), nID)
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::_Schemes, ZoneId::_Effects));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("A Display of My Dark Power Effect"), 61014, 1, FALSE, ZoneId::_Effects));
+
+	AddAbility(cpAbility.GetPointer());
+}
+*/
 //____________________________________________________________________________
 //

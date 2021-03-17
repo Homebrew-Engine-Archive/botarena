@@ -62,7 +62,7 @@ STRINGTABLE
 BEGIN
     IDS_EXPANSION           "Guildpact"
     IDS_EXPANSION_ABBREV    "GPT"
-    IDS_FIRST_CARD          "16778"
+    IDS_FIRST_CARD          "16766"
     IDS_TOTAL_CARD          "165"
     IDS_WHITE_BORDER        "0"
     IDS_MODULE_ICON_ID      "16965"
@@ -180,7 +180,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING16880         "Glint-Eye Nephilim\n{UBRG}\nCreature - Nephilim\nGPT,R\nWhenever Glint-Eye Nephilim deals combat damage to a player, draw that many cards.\r{1}, Discard a card: Glint-Eye Nephilim gets +1/+1 until end of turn.\n2/2"
-    IDS_STRING16881         "Dune-Brood Nephilim\n{WBRG}\nCreature - Nephilim\nGPT,R\nWhenever Dune-Brood Nephilim deals combat damage to a player, put a 1/1 colorless Sand creature token onto the battlefield for each land you control.\n3/3"
+    IDS_STRING16881         "Dune-Brood Nephilim\n{BRGW}\nCreature - Nephilim\nGPT,R\nWhenever Dune-Brood Nephilim deals combat damage to a player, put a 1/1 colorless Sand creature token onto the battlefield for each land you control.\n3/3"
     IDS_STRING16882         "Bloodscale Prowler\n{2R}\nCreature - Viashino Warrior\nGPT,C\nBloodthirst 1\n3/1"
     IDS_STRING16883         "Ghor-Clan Savage\n{3GG}\nCreature - Centaur Berserker\nGPT,C\nBloodthirst 3\n2/3"
     IDS_STRING16884         "Scab-Clan Mauler\n{RG}\nCreature - Human Berserker\nGPT,C\nBloodthirst 2\rTrample\n1/1"
@@ -227,13 +227,28 @@ END
 
 STRINGTABLE
 BEGIN
-    //IDS_STRING16781         "Blind Hunter\n{2WB}\nCreature - Bat\nGPT,C\nFlying\rHaunt\rWhen Blind Hunter enters the battlefield or the creature it haunts dies, target player loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING16768         "Seize the Soul\n{2BB}\nInstant\nGPT,R\nDestroy target nonwhite, nonblack creature. Put a 1/1 white Spirit creature token with flying onto the battlefield.\rHaunt\rWhen the creature Seize the Soul haunts dies, destroy target nonwhite, nonblack creature. Put a 1/1 white Spirit creature token with flying onto the battlefield."
+    IDS_STRING16769         "Orzhov Pontiff\n{1WB}\nCreature - Human Cleric\nGPT,R\nHaunt\rWhen Orzhov Pontiff enters the battlefield or the creature it haunts dies, choose one - Creatures you control get +1/+1 until end of turn; or creatures you don't control get -1/-1 until end of turn.\n1/1"
+    IDS_STRING16770         "Orzhov Euthanist\n{2B}\nCreature - Human Assassin\nGPT,C\nHaunt\rWhen Orzhov Euthanist enters the battlefield or the creature it haunts dies, destroy target creature that was dealt damage this turn.\n2/2"
+    IDS_STRING16771         "Graven Dominator\n{4WW}\nCreature - Gargoyle\nGPT,R\nFlying\rHaunt\rWhen Graven Dominator enters the battlefield or the creature it haunts dies, each other creature becomes 1/1 until end of turn.\n4/4"
+    IDS_STRING16772         "Benediction of Moons\n{W}\nSorcery\nGPT,C\nYou gain 1 life for each player.\rHaunt\rWhen the creature Benediction of Moons haunts dies, you gain 1 life for each player."
+    IDS_STRING16773         "Belfry Spirit\n{3WW}\nCreature - Spirit\nGPT,U\nFlying\rHaunt\rWhen Belfry Spirit enters the battlefield or the creature it haunts dies, put two 1/1 black Bat creature tokens with flying onto the battlefield.\n1/1"
+    IDS_STRING16774         "Absolver Thrull\n{3W}\nCreature - Thrull\nGPT,C\nHaunt\rWhen Absolver Thrull enters the battlefield or the creature it haunts dies, destroy target enchantment.\n2/3"
+    IDS_STRING16775         "Exhumer Thrull\n{5B}\nCreature - Thrull\nGPT,U\nHaunt\rWhen Exhumer Thrull enters the battlefield or the creature it haunts dies, return target creature card from your graveyard to your hand.\n3/3"
+    IDS_STRING16776         "Cry of Contrition\n{B}\nSorcery\nGPT,C\nTarget player discards a card.\rHaunt\rWhen the creature Cry of Contrition haunts dies, target player discards a card."
+    IDS_STRING16777         "Blind Hunter\n{2WB}\nCreature - Bat\nGPT,C\nFlying\rHaunt\rWhen Blind Hunter enters the battlefield or the creature it haunts dies, target player loses 2 life and you gain 2 life.\n2/2"
     IDS_STRING16778         "Moratorium Stone\n{1}\nArtifact\nGPT,R\n{2}, {T}: Exile target card from a graveyard.\r{2WB}, {T}, Sacrifice Moratorium Stone: Exile target nonland card from a graveyard, all other cards from graveyards with the same name as that card, and all permanents with that name."
     IDS_STRING16779         "Silhana Starfletcher\n{2G}\nCreature - Elf Druid Archer\nGPT,C\nReach\rAs Silhana Starfletcher enters the battlefield, choose a color.\r{T}: Add one mana of the chosen color to your mana pool.\n1/3"
     IDS_STRING16780         "Cerebral Vortex\n{1UR}\nInstant\nGPT,R\nTarget player draws two cards, then Cerebral Vortex deals damage to that player equal to the number of cards he or she has drawn this turn."
     IDS_STRING16781         "Stitch in Time\n{1UR}\nSorcery\nGPT,R\nFlip a coin. If you win the flip, take an extra turn after this one."
     IDS_STRING16782         "Izzet Guildmage\n{II}\nCreature - Human Wizard\nGPT,U\n{2U}: Copy target instant spell you control with converted mana cost 2 or less. You may choose new targets for the copy.\r{2R}: Copy target sorcery spell you control with converted mana cost 2 or less. You may choose new targets for the copy.\n2/2"
     IDS_STRING16783         "Battering Wurm\n{6G}\nCreature - Wurm\nGPT,U\nBloodthirst 1\rCreatures with power less than Battering Wurm's power can't block it.\n4/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16766         "Killer Instinct\n{4RG}\nEnchantment\nGPT,R\nAt the beginning of your upkeep, reveal the top card of your library. If it's a creature card, put it onto the battlefield. That creature gains haste until end of turn. Sacrifice it at the beginning of the next end step."
+    IDS_STRING16767         "Ghostway\n{2W}\nInstant\nGPT,R\nExile each creature you control. Return those cards to the battlefield under their owner's control at the beginning of the next end step."
 END
 
 #endif    // English (United States) resources

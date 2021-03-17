@@ -100,6 +100,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CScaledHulkCard);
 		DEFINE_CARD(CScourgeOfNumaiCard);
 		DEFINE_CARD(CShinkaGatekeeperCard);
+		DEFINE_CARD(CShireiShizosCaretakerCard);
 		DEFINE_CARD(CShukoCard);
 		DEFINE_CARD(CSickeningShoalCard);
 		DEFINE_CARD(CSilverstormSamuraiCard);
@@ -559,20 +560,11 @@ CKaijinOfTheVanishingTouchCard::CKaijinOfTheVanishingTouchCard(CGame* pGame, UIN
 	GetCreatureKeyword()->AddDefender(FALSE);
 
 	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked,
-				CWhenSelfAttackedBlocked::BlockEventCallback2,
-				&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
-
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
-		cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKaijinOfTheVanishingTouchCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CKaijinOfTheVanishingTouchCard::BeforeResolution));
 
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
 
@@ -580,11 +572,25 @@ CKaijinOfTheVanishingTouchCard::CKaijinOfTheVanishingTouchCard(CGame* pGame, UIN
 	}
 }
 
-bool CKaijinOfTheVanishingTouchCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+bool CKaijinOfTheVanishingTouchCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+
 	return (IsBlocking() == TRUE);
+}
+
+bool CKaijinOfTheVanishingTouchCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Bounce Effect"), 61040, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -3947,7 +3953,7 @@ counted_ptr<CAbility> CGenjuOfTheCedarsCard::CreateEnchantAbility(CCard* pEnchan
 	counted_ptr<CIsAlsoAAbility> cpAbility(
 		::CreateObject<CIsAlsoAAbility>(pEnchantCard,
 			_T("2"),
-			_T("Spirit G"), 2941,
+			_T("Spirit AC"), 64070,
 			pEnchantedCard));
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
@@ -3997,7 +4003,7 @@ counted_ptr<CAbility> CGenjuOfTheFallsCard::CreateEnchantAbility(CCard* pEnchant
 	counted_ptr<CIsAlsoAAbility> cpAbility(
 		::CreateObject<CIsAlsoAAbility>(pEnchantCard,
 			_T("2"),
-			_T("Spirit H"), 2942,
+			_T("Spirit AD"), 64071,
 			pEnchantedCard));
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
@@ -4047,7 +4053,7 @@ counted_ptr<CAbility> CGenjuOfTheFensCard::CreateEnchantAbility(CCard* pEnchante
 	counted_ptr<CIsAlsoAAbility> cpAbility(
 		::CreateObject<CIsAlsoAAbility>(pEnchantCard,
 			_T("2"),
-			_T("Spirit I"), 2943,
+			_T("Spirit AE"), 64072,
 			pEnchantedCard));
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
@@ -4097,7 +4103,7 @@ counted_ptr<CAbility> CGenjuOfTheFieldsCard::CreateEnchantAbility(CCard* pEnchan
 	counted_ptr<CIsAlsoAAbility> cpAbility(
 		::CreateObject<CIsAlsoAAbility>(pEnchantCard,
 			_T("2"),
-			_T("Spirit J"), 2944,
+			_T("Spirit AF"), 64073,
 			pEnchantedCard));
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
@@ -4147,7 +4153,7 @@ counted_ptr<CAbility> CGenjuOfTheSpiresCard::CreateEnchantAbility(CCard* pEnchan
 	counted_ptr<CIsAlsoAAbility> cpAbility(
 		::CreateObject<CIsAlsoAAbility>(pEnchantCard,
 			_T("2"),
-			_T("Spirit K"), 2945,
+			_T("Spirit AG"), 64074,
 			pEnchantedCard));
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
@@ -4620,6 +4626,55 @@ bool CMinamoSightbenderCard::BeforeResolution(CAbilityAction* pAction)
 	
 	CCreatureKeywordModifier pModifier = CCreatureKeywordModifier(CreatureKeyword::Unblockable, TRUE);
 	pModifier.ApplyTo(pTarget);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CShireiShizosCaretakerCard::CShireiShizosCaretakerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Shirei, Shizo's Caretaker"), CardType::_LegendaryCreature, CREATURE_TYPE(Spirit), nID,
+		_T("4") BLACK_MANA_TEXT, Power(2), Life(2))
+{
+	counted_ptr<TriggeredAbility> cpAbility(
+		::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard));
+
+	cpAbility->GetTrigger().SetToControllerOnly(TRUE);
+	
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CShireiShizosCaretakerCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CShireiShizosCaretakerCard::BeforeResolution));
+	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new CreaturePowerComparer<std::less_equal<int>>(1));
+
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CShireiShizosCaretakerCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+										 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
+{
+	triggerContext.nValue1 = (DWORD)pCard;
+
+	return true;
+}
+
+bool CShireiShizosCaretakerCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInGraveyard())
+		pSubjects1.AddCard(pSubject, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Shirei, Shizo's Caretaker Effect"), 61077, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }

@@ -178,6 +178,23 @@ struct CORE_EXPORT LeylineCardNameComparer : public CardComparer
 
 //____________________________________________________________________________
 //
+struct CORE_EXPORT ChancellorCardNameComparer : public CardComparer
+{
+	ChancellorCardNameComparer()
+	{
+	}
+
+	virtual bool operator()(const CCard* pCard) const;
+
+	virtual ChancellorCardNameComparer* Clone() const
+	{
+		return new ChancellorCardNameComparer();
+	}
+
+};
+
+//____________________________________________________________________________
+//
 struct CORE_EXPORT PhasingCardNameComparer : public CardComparer
 {
 	PhasingCardNameComparer()

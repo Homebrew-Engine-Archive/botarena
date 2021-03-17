@@ -146,6 +146,7 @@
 #define IDS_STRING9929                  9929
 #define IDS_STRING9930                  9930
 #define IDS_STRING9931                  9931
+#define IDS_STRING9932                  9932
 #define IDI_MODULE                      9967
 #define IDI_LARGE_MODULE                9968
 

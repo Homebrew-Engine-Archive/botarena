@@ -36,11 +36,13 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCemeteryGateCard);
 		DEFINE_CARD(CChandlerCard);
 		DEFINE_CARD(CClockworkGnomesCard);
+		DEFINE_CARD(CClockworkSwarmCard);
 		DEFINE_CARD(CCoralReefCard);
 		DEFINE_CARD(CDaughterOfAutumnCard);
 		DEFINE_CARD(CDidgeridooCard);
 		DEFINE_CARD(CDrudgeSpellCard);
 		DEFINE_CARD(CDwarvenPonyCard);
+		DEFINE_CARD(CDwarvenSeaClanCard);
 		DEFINE_CARD(CDwarvenTraderCard);
 		DEFINE_CARD(CEbonyRhinoCard);
 		DEFINE_CARD(CEronTheRelentlessCard);
@@ -50,6 +52,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGhostHoundsCard);
 		DEFINE_CARD(CGrandmotherSengirCard);
 		DEFINE_CARD(CHeadstoneCard);
+		DEFINE_CARD(CHeartWolfCard);
 		DEFINE_CARD(CIhsansShadeCard);
 		DEFINE_CARD(CIriniSengirCard);
 		DEFINE_CARD(CJinxCard);
@@ -1266,7 +1269,7 @@ CHeadstoneCard::CHeadstoneCard(CGame* pGame, UINT nID)
 		new TrueCardComparer,
 		ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others)
 {
-	m_pTargetMoveCardSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	m_pTargetMoveCardSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 }
 
 //____________________________________________________________________________
@@ -1279,13 +1282,13 @@ CJinxCard::CJinxCard(CGame* pGame, UINT nID)
 			_T("1") BLUE_MANA_TEXT,
 			new CardTypeComparer(CardType::_Land, false)));
 
-	cpSpell->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
-	cpSpell->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
-	cpSpell->AddCardTypeToSelection(CardType::Mountain | CardType::BasicLand, CardType::_All, TRUE, _T("Mountain"));	
-	cpSpell->AddCardTypeToSelection(CardType::Plains | CardType::BasicLand, CardType::_All, TRUE, _T("Plains"));
-	cpSpell->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
+	cpSpell->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
+	cpSpell->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
+	cpSpell->AddCardTypeToSelection(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Mountain"));	
+	cpSpell->AddCardTypeToSelection(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Plains"));
+	cpSpell->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -1302,7 +1305,7 @@ CRenewalCard::CRenewalCard(CGame* pGame, UINT nID)
 
 	m_pSearchLibrarySpell->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("lands")));
 
-	m_pSearchLibrarySpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	m_pSearchLibrarySpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 }
 
 //____________________________________________________________________________
@@ -1734,7 +1737,7 @@ void CProphecyCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, 
 			lib->Shuffle();
 		}
 		
-		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects);
+		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects);
 		pModifier.ApplyTo(pAbilityAction->GetController());
 	}
 }
@@ -2181,6 +2184,313 @@ void CAnZerrinRuinsCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 
 			break;
 		}
+}
+
+//____________________________________________________________________________
+//
+CClockworkSwarmCard::CClockworkSwarmCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Clockwork Swarm"), CardType::_ArtifactCreature, CREATURE_TYPE(Insect), nID,
+		_T("4"), Power(0), Life(3))
+	, bAttackedOrBlocked(FALSE)
+	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkSwarmCard::OnNumberSelected))
+{
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCreatureKeyword()->AddUnblockable(FALSE, CCardFilter::GetFilter(_T("non-Walls")));
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::EndOfCombatStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkSwarmCard::SetTriggerContext));
+		cpAbility->GetCardModifiers().push_back(new CCardCounterModifier(_T("+1/+0"), -1));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("")));
+
+		cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, FALSE, FALSE);
+		cpAbility->AddTapCost();
+		
+		cpAbility->SetUseInSpecificNode(NodeId::UpkeepStep, FALSE, TRUE);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CClockworkSwarmCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+										CWhenSelfAttackedBlocked::EventCallback, 
+										&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkSwarmCard::SetTriggerContextAux1));
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->AddAbilityTag(AbilityTag::CardChange);
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::BeginningOfCombatStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkSwarmCard::SetTriggerContextAux2));
+		cpAbility->SetSkipStack(TRUE);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkSwarmCard::SetTriggerContextAux3));
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CClockworkSwarmCard::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard)
+{
+	bAttackedOrBlocked = TRUE;
+
+	return false;
+}
+
+bool CClockworkSwarmCard::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CClockworkSwarmCard::SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CClockworkSwarmCard::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return bAttackedOrBlocked == TRUE;
+}
+
+bool CClockworkSwarmCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nCounters = GetCounterContainer()->GetCounter(_T("+1/+0"))->GetCount();
+	int nValue = pAction->GetCostConfigEntry().GetExtraValue();
+
+	if (!IsInplay() || GetCardKeyword()->HasCantGetCounters() || (nCounters >= 4) || (nValue == 0))
+		return true;
+	
+	int nCount = 1;
+	int nMultiplier = 0;
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+		nCount <<= nMultiplier;
+	bool bMaxReached = false;
+
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Don't add counters"));
+
+		entries.push_back(selectionEntry);
+	}
+	for (int i = 1; i <= nValue; i++)
+	{
+		int nToPut = i * nCount;
+		if (nCounters + nToPut >= 4)
+		{
+			nToPut = 4 - nCounters;
+			bMaxReached = true;
+		}
+
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = nToPut;
+		if (nToPut == 1)
+			selectionEntry.strText.Format(_T("Put %d +1/+0 counter on %s"), nToPut, GetCardName(TRUE));
+		else
+			selectionEntry.strText.Format(_T("Put %d +1/+0 counters on %s"), nToPut, GetCardName(TRUE));
+
+		entries.push_back(selectionEntry);
+
+		if (bMaxReached) break;
+	}
+	m_NumberSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	
+	return true;
+}
+
+void CClockworkSwarmCard::OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext;
+			
+			if (n > 0)
+			{
+				CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+0"), +n);
+				pModifier.SetDoubling(false);
+				pModifier.ApplyTo(this);
+			}
+		}
+}
+
+//____________________________________________________________________________
+//
+CHeartWolfCard::CHeartWolfCard(CGame* pGame, UINT nID)
+	: CFirstStrikeCreatureCard(pGame, _T("Heart Wolf"), CardType::Creature, CREATURE_TYPE(Wolf), nID,
+		_T("3") RED_MANA_TEXT, Power(2), Life(2))
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CHeartWolfCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T(""),
+			Power(+2), Life(+0),
+			CreatureKeyword::FirstStrike, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable,
+			new CreatureTypeComparer(CREATURE_TYPE(Dwarf), false)));
+
+	cpAbility->GetTargeting()->GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
+
+	cpAbility->AddTapCost();
+
+	counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+			&CHeartWolfCard::CanPlay)));
+	cpAbility->Add(cpTrait.GetPointer());
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CHeartWolfCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b ||
+			pCurrentNode->GetNodeId() == NodeId::EndOfCombatStep);
+}
+
+void CHeartWolfCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Heart Wolf Effect"), 61097, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CDwarvenSeaClanCard::CDwarvenSeaClanCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Dwarven Sea Clan"), CardType::Creature, CREATURE_TYPE(Dwarf), nID,
+		_T("2") RED_MANA_TEXT, Power(1), Life(1))
+{
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+			_T(""),
+			new AnyCreatureComparer, false, new CDwarvenSeaClanTargeting));
+
+	cpAbility->AddTapCost();
+
+	counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+			&CDwarvenSeaClanCard::CanPlay)));
+	cpAbility->Add(cpTrait.GetPointer());
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDwarvenSeaClanCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+
+BOOL CDwarvenSeaClanCard::CDwarvenSeaClanTargeting::TargetAllowed(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const
+{
+	return FALSE;
+}
+
+BOOL CDwarvenSeaClanCard::CDwarvenSeaClanTargeting::TargetAllowed(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const
+{
+	if (!__super::TargetAllowed(pCard, bIncludeTricks, bTrick))
+		return FALSE;
+
+	if (!pCard->GetCardType().IsCreature()) return FALSE;
+	if (CCardFilter::GetFilter(_T("Islands"))->CountIncluded(pCard->GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) == 0)
+		return FALSE;
+	
+	CCreatureCard* pCreature = (CCreatureCard*)pCard;
+
+	if (!pCreature->IsAttacking() && !pCreature->IsBlocking()) return FALSE;	
+
+	return TRUE;
+}
+
+BOOL CDwarvenSeaClanCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b);
+}
+
+bool CDwarvenSeaClanCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Dwarven Sea Clan Effect"), 61108, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

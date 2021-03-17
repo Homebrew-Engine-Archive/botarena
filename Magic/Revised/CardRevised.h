@@ -297,9 +297,8 @@ class CRocketLauncherCard : public CInPlaySpellCard
 protected:
 	BOOL CanPlay(BOOL bIncludeTricks);
 
-	CAbility* m_pAbility;
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-						   CNode* pToNode) const;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

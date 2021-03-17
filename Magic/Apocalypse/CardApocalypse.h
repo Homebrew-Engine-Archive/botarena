@@ -1111,17 +1111,6 @@ protected:
 
 //____________________________________________________________________________
 //
-/*
-class CDeadRingersCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CDeadRingersCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction) const;
-};
-*/
-//____________________________________________________________________________
-//
 class CEvasiveActionCard: public CCard
 {
 	DECLARE_CARD_CSTOR(CEvasiveActionCard);
@@ -1138,6 +1127,54 @@ protected:
 		CEvasiveActionAbility(CCard* pCard, LPCTSTR strManaCost);
 		virtual ~CEvasiveActionAbility() {}
 	};
+};
+
+//____________________________________________________________________________
+//
+class CPutridWarriorCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CPutridWarriorCard);
+
+protected:
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								Damage damage);
+};
+
+//____________________________________________________________________________
+//
+class CDodecapodCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CDodecapodCard);
+
+public:
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Bottom, BOOL can_dredge = TRUE);
+
+};
+
+//____________________________________________________________________________
+//
+class CDeadRingersCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CDeadRingersCard);
+
+protected:
+	CTargetSpell* m_cSpell;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CZombieBoaCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CZombieBoaCard);
+
+protected:
+	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ColorSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

@@ -390,6 +390,13 @@ BEGIN
     IDS_STRING19548         "Pyromancer Ascension\n{1R}\nEnchantment\nZEN,R\nWhenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.\rWhenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy."
     IDS_STRING19549         "Chandra Ablaze\n{4RR}\nPlaneswalker - Chandra\nZEN,MR\n[+1] Discard a card. If a red card is discarded this way, Chandra Ablaze deals 4 damage to target creature or player.\r[-2] Each player discards his or her hand, then draws three cards.\r[-7] Cast any number of red instant and/or sorcery cards from your graveyard without paying their mana costs.\n5"
     IDS_STRING19550         "Gomazoa\n{2U}\nCreature - Jellyfish\nZEN,U\nDefender, flying\r{T}: Put Gomazoa and each creature it's blocking on top of their owners' libraries, then those players shuffle their libraries.\n0/3"
+    IDS_STRING19551         "Baloth Cage Trap\n{3GG}\nInstant - Trap\nZEN,U\nIf an opponent had an artifact enter the battlefield under his or her control this turn, you may pay {1}{G} rather than pay Baloth Cage Trap's mana cost.\rPut a 4/4 green Beast creature token onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19552         "Lavaball Trap\n{6RR}\nInstant - Trap\nZEN,R\nIf an opponent had two or more lands enter the battlefield under his or her control this turn, you may pay {3}{R}{R} rather than pay Lavaball Trap's mana cost.\rDestroy two target lands. Lavaball Trap deals 4 damage to each creature."
+    IDS_STRING19553         "Whiplash Trap\n{3UU}\nInstant - Trap\nZEN,C\nIf an opponent had two or more creatures enter the battlefield under his or her control this turn, you may pay {U} rather than pay Whiplash Trap's mana cost.\rReturn two target creatures to their owners' hands."
 END
 
 #endif    // English (United States) resources

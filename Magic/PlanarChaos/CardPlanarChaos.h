@@ -362,8 +362,14 @@ class CAEtherMembraneCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CAEtherMembraneCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 							CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -433,6 +439,10 @@ class CMirriTheCursedCard : public CHasteCreatureCard
 class CMoltenFirebirdCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMoltenFirebirdCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -795,6 +805,10 @@ private:
 class CFatalFrenzyCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CFatalFrenzyCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1362,6 +1376,18 @@ private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;	
 	CManaCost m_KickerCost;
+};
+
+//____________________________________________________________________________
+//
+class CTreacherousUrgeCard : public CCard
+{
+    DECLARE_CARD_CSTOR(CTreacherousUrgeCard);
+
+protected:
+	CSelectionSupport m_CardSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

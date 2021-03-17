@@ -154,6 +154,37 @@ BEGIN
 	IDS_STRING64059          "Elemental (AM)\n{1}\nCreature - Elemental\nToken\nFlying\n3/3"
 	IDS_STRING64060          "Insect (AA)\n{1BG}\nArtifact Creature - Insect\nToken\nDeathtouch\n2/2"
 	IDS_STRING64061          "Insect Monk (AA)\n{GW}\nCreature - Insect Monk\nToken\nFirst strike\n4/4"
+	IDS_STRING64062          "Juggernaut (AA)\n{4}\nArtifact Creature - Juggernaut\nToken\n\n4/4"
+	IDS_STRING64063          "Plant Zombie (AA)\n{BG}\nCreature - Plant Zombie\nToken\nThis creature's power and toughness are each equal to the number of creature cards in your graveyard.\n*/*"
+END    
+
+STRINGTABLE
+BEGIN
+	IDS_STRING64064          "Shapeshifter (AA)\n{1}\nCreature - Shapeshifter\nToken\nThis creature is every creature type.\n2/2"
+    IDS_STRING64065          "Skeleton (AA)\n{B}\nCreature - Skeleton\nToken\n{B}: Regenerate this creature.\n1/1"
+	IDS_STRING64066          "Soldier (AA)\n{W}\nCreature - Soldier\nToken\n\n1/5"
+    IDS_STRING64067          "Soldier (AB)\n{1RW}\nArtifact Creature - Soldier\nToken\nDouble strike\n1/1"
+	IDS_STRING64068          "Spirit (AA)\n{1WW}\nArtifact Creature - Spirit\nToken\nFlying, first strike\n2/2"
+	IDS_STRING64069          "Spirit (AB)\n{3}\nArtifact Creature - Spirit\nToken\nFlying\n1/5"
+    IDS_STRING64070          "Spirit (AC)\n{G}\nCreature - Spirit\nToken\n\n4/4"
+	IDS_STRING64071          "Spirit (AD)\n{U}\nCreature - Spirit\nToken\nFlying\n3/2"
+	IDS_STRING64072          "Spirit (AE)\n{B}\nCreature - Spirit\nToken\n{B}: This creature gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING64073          "Spirit (AF)\n{W}\nCreature - Spirit\nToken\nWhenever this creature deals damage, its controller gains that much life.\n2/5"
+	IDS_STRING64074          "Spirit (AG)\n{R}\nCreature - Spirit\nToken\n\n6/1"
+	IDS_STRING64075          "Spirit (AH)\n{1}\nLegendary Creature - Spirit\nToken\nTrample\n8/12"
+	IDS_STRING64076          "Treefolk (AB)\n{G}\nCreature - Treefolk\nToken\n\n5/6"
+    IDS_STRING64077          "Treefolk (AC)\n{2G}\nArtifact Creature - Treefolk\nToken\nTrample\n5/3"
+    IDS_STRING64078          "Turtle (AA)\n{3}\nArtifact Creature - Turtle\nToken\n\n3/3"
+    IDS_STRING64079          "Wall (AA)\n{W}\nCreature - Wall\nToken\nDefender\n2/6"
+END    
+
+STRINGTABLE
+BEGIN
+    IDS_STRING64080          "Warrior (AA)\n{R}\nCreature - Warrior\nToken\nFirst strike\n2/1"
+    IDS_STRING64081          "Wolf (AA)\n{1GW}\nArtifact Creature - Wolf\nToken\n\n3/3"
+    IDS_STRING64082          "Construct (AE)\n{4}\nArtifact Creature - Construct\nToken\n\n*/*"
+    IDS_STRING64083          "Wall (AB)\n{W}\nCreature - Wall\nToken\nDefender\n*/*"
+    IDS_STRING64084          "Construct (AF)\n{1}\nArtifact Creature - Construct\nToken\n\n*/*"
 END    
 
 

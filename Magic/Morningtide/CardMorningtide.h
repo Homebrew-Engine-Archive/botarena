@@ -278,6 +278,9 @@ class CStonybrookSchoolmasterCard : public CCreatureCard
 class CSwellOfCourageCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSwellOfCourageCard);
+
+protected:
+	bool BeforeResolution (CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1408,4 +1411,14 @@ class CFendeepSummonerCard : public CCreatureCard
 };
 
 //______________________________________________________________________________
+//
+class CGracefulReprieveCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGracefulReprieveCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
 //

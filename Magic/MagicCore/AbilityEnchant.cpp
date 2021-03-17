@@ -2371,6 +2371,8 @@ void CEnchant::OnEnchantedCardChanged()
 	BOOL bTrick;
 	if (GetTargeting()->SubjectAllowed(m_pOnCard, TRUE, bTrick))
 		return;
+	if (m_pOnCard->GetCardKeyword()->HasCantBeEnchanted())
+		return;
 
 	m_cpACardListener->RemoveAllEventSources();
 	m_cpAListener->RemoveAllEventSources();

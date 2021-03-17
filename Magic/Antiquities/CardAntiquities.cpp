@@ -367,6 +367,8 @@ CDampingFieldCard::CDampingFieldCard(CGame* pGame, UINT nID)
 CRakaliteCard::CRakaliteCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Rakalite"), CardType::Artifact, nID,
 		_T("6"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CRakaliteCard::OnResolutionCompleted))
 {
 	counted_ptr<CActivatedAbility<CTargetDamagePreventionSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetDamagePreventionSpell>>(this,
@@ -374,15 +376,23 @@ CRakaliteCard::CRakaliteCard(CGame* pGame, UINT nID)
 			new AnyCreatureComparer, TRUE,
 			Life(1), SourceColor::Null));
 
-	cpAbility->GetResolutionModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-		TurnNumberDelta(-1),
-		NodeId::EndStep,
-		true, // in-play only
-		CScheduledCardModifier::Operation::ApplyToLater));
-	
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
 	AddAbility(cpAbility.GetPointer()); 
 }
 
+void CRakaliteCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
 
+	CCountedCardContainer pSubjects;
 
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//

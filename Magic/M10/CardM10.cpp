@@ -366,7 +366,7 @@ CCaptainOfTheWatchCard::CCaptainOfTheWatchCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Soldier A"), 2713, 3);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Soldier L"), 2914, 3);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -658,11 +658,11 @@ CConvincingMirageCard::CConvincingMirageCard(CGame* pGame, UINT nID)
 			_T("1") BLUE_MANA_TEXT,
 			new CardTypeComparer(CardType::_Land, false)));
 
-	cpSpell->AddCardTypeToAdd(CardType::Forest | CardType::BasicLand, CardType::_All, _T("Forest"));
-	cpSpell->AddCardTypeToAdd(CardType::Island | CardType::BasicLand, CardType::_All, _T("Island"));
-	cpSpell->AddCardTypeToAdd(CardType::Mountain | CardType::BasicLand, CardType::_All, _T("Mountain"));
-	cpSpell->AddCardTypeToAdd(CardType::Plains | CardType::BasicLand, CardType::_All, _T("Plains"));
-	cpSpell->AddCardTypeToAdd(CardType::Swamp | CardType::BasicLand, CardType::_All, _T("Swamp"));
+	cpSpell->AddCardTypeToAdd(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Forest"));
+	cpSpell->AddCardTypeToAdd(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Island"));
+	cpSpell->AddCardTypeToAdd(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Mountain"));
+	cpSpell->AddCardTypeToAdd(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Plains"));
+	cpSpell->AddCardTypeToAdd(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Swamp"));
 
 	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 
@@ -2129,7 +2129,7 @@ CCemeteryReaperCard::CCemeteryReaperCard(CGame* pGame, UINT nID)
 
 		cpAbility->AddTapCost();
 
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Zombie"), 2724, 1));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Zombie H"), 2987, 1));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -3404,7 +3404,7 @@ CProteanHydraCard::CProteanHydraCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().GetToCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
 
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CProteanHydraCard::SetTriggerContext));
-		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CProteanHydraCard::BeforeResolution));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CProteanHydraCard::BeforeResolution1));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		cpAbility->SetAbilityName(_T("Hidden. Self damage replacement"));
@@ -3423,17 +3423,13 @@ CProteanHydraCard::CProteanHydraCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		CMoveCardModifier* pModifier2 = new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice);
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(pModifier2);
-
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CProteanHydraCard::SetTriggerContextAux));
-		cpAbility->AddAbilityTag(AbilityTag::MoveCard);
 
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
 		typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CSpecialTrigger > TriggeredAbility;
+			TTriggeredAbility< CTriggeredAbility<>, CSpecialTrigger > TriggeredAbility;
 
         counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
@@ -3444,13 +3440,7 @@ CProteanHydraCard::CProteanHydraCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
 		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::Battlefield);
 
-		CCardCounterModifier* pModifier1 = new CCardCounterModifier(_T("+1/+1"), +2);
-
-		CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(
-			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCardModifier::Operation::ApplyToLater);
-
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(pModifier2);
-
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CProteanHydraCard::BeforeResolution2));
 		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
 		AddAbility(cpAbility.GetPointer());
@@ -3479,7 +3469,7 @@ bool CProteanHydraCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextTyp
 	return (effect_index==1);
 }
 
-bool CProteanHydraCard::BeforeResolution(CProteanHydraCard::TriggeredAbility::TriggeredActionType* pAction)
+bool CProteanHydraCard::BeforeResolution1(CProteanHydraCard::TriggeredAbility::TriggeredActionType* pAction)
 {
 	int nValue = pAction->GetTriggerContext().nValue1;
 
@@ -3503,6 +3493,18 @@ bool CProteanHydraCard::SetTriggerContextAux(CTriggeredAbility<>::TriggerContext
 		pModifier.ApplyTo(this);
 	
 	return false;
+}
+
+bool CProteanHydraCard::BeforeResolution2(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Protean Hydra Effect"), 61086, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

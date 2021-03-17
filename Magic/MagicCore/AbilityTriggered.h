@@ -558,7 +558,7 @@ protected:
 				pPlayer));
 		cpRemoveAbility->SetPlayableFrom(ZoneId::_AllZones);
 
-		cpRemoveAbility->GetResolutionModifier().CCardModifiers::push_back(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice));
+		cpRemoveAbility->GetResolutionModifier().CCardModifiers::push_back(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pPlayer));
 
 		counted_ptr<CCreateTempTriggeredAbilityTrait> cpCreateTemporaryAbilityTrait(
 			::CreateObject<CCreateTempTriggeredAbilityTrait>(cpRemoveAbility.GetPointer(), 

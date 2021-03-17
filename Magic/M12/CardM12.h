@@ -692,6 +692,9 @@ class CStingerflingSpiderCard : public CCreatureCard
 class CCrumblingColossusCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCrumblingColossusCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1030,6 +1033,23 @@ protected:
 	int_ m_nCounterCount;
 	ListenerPtr<CounterMovedEventSource::Listener>	m_cpAListener;
 	void OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);
+};
+
+//____________________________________________________________________________
+//
+class CBloodlordOfVaasgothCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBloodlordOfVaasgothCard);
+
+protected:
+	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpAListener;	// Listen to this card's zone changes
+
+	typedef 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSpellCast >  TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________

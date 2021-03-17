@@ -61,6 +61,18 @@ bool LeylineCardNameComparer::operator()(const CCard* pCard) const
 
 //____________________________________________________________________________
 //
+bool ChancellorCardNameComparer::operator()(const CCard* pCard) const
+{
+	return (_T("Chancellor of the Annex") == pCard->GetPrintedCardName() ||
+		   _T("Chancellor of the Dross") == pCard->GetPrintedCardName() ||
+		   _T("Chancellor of the Forge") == pCard->GetPrintedCardName() ||
+		   _T("Chancellor of the Spires") == pCard->GetPrintedCardName() ||
+		   _T("Chancellor of the Tangle") == pCard->GetPrintedCardName())
+		;
+}
+
+//____________________________________________________________________________
+//
 bool PhasingCardNameComparer::operator()(const CCard* pCard) const
 {
 	return (_T("Breezekeeper") == pCard->GetPrintedCardName() ||
@@ -672,6 +684,7 @@ AuraFitComparer::AuraFitComparer(const CCard* pCard1)
 bool AuraFitComparer::operator()(const CCard* pCard) const
 {
 	if (m_pCard1->HasProtectionFrom(pCard, FALSE)) return false;
+	if (m_pCard1->GetCardKeyword()->HasCantBeEnchanted()) return false;
 
 	for (int i = 0; i < pCard->GetSpells().GetSize(); ++i)
 	{
@@ -696,6 +709,8 @@ EquipFitComparer::EquipFitComparer(const CCard* pCard1)
 bool EquipFitComparer::operator()(const CCard* pCard) const
 {
  	if (pCard->HasProtectionFrom(m_pCard1, FALSE)) return false;
+	if (!pCard->GetCardType().IsCreature()) return false;
+	if (((CCreatureCard*)pCard)->GetCreatureKeyword()->CantBeEquipped()) return false;
 
 	for (int i = 0; i < m_pCard1->GetAbilityCount(); ++i)
 	{
@@ -720,6 +735,7 @@ EnchantableComparer::EnchantableComparer(const CCard* pCard1)
 bool EnchantableComparer::operator()(const CCard* pCard) const
 {
 	if (pCard->HasProtectionFrom(m_pCard1, FALSE)) return false;
+	if (pCard->GetCardKeyword()->HasCantBeEnchanted()) return false;
 
 	for (int i = 0; i < m_pCard1->GetSpells().GetSize(); ++i)
 	{

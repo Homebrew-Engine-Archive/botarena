@@ -238,6 +238,8 @@
 #define IDS_STRING21621                 21621
 #define IDS_STRING21622                 21622
 #define IDS_STRING21623                 21623
+#define IDS_STRING21624                 21624
+#define IDS_STRING21625                 21625
 #define IDI_MODULE                      21649
 #define IDI_LARGE_MODULE                21650
 

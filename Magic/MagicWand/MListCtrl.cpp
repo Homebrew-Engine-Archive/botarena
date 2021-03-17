@@ -187,6 +187,7 @@ CMListCtrl::CMListCtrl()
 	// Initialization of Block and Expansions map
 	std::set<CString> Expansions;
 
+	Expansions.insert("GTC");
 	Expansions.insert("RTR");
 	Expansions.insert("M13");
 	Expansions.insert("AVR");
@@ -202,12 +203,12 @@ CMListCtrl::CMListCtrl()
 	Expansions.insert("WWK");
 	Expansions.insert("ZEN");
 	Expansions.insert("M11");
+	m_Blocks.insert( std::pair<CString, std::set<CString>>("extended", Expansions));
+
 	Expansions.insert("ARB");
 	Expansions.insert("CON");
 	Expansions.insert("ALA");
 	Expansions.insert("M10");
-	m_Blocks.insert( std::pair<CString, std::set<CString>>("extended", Expansions));
-
 	Expansions.insert("EVE");
 	Expansions.insert("SHM");
 	Expansions.insert("MOR");
@@ -230,6 +231,7 @@ CMListCtrl::CMListCtrl()
 	m_Blocks.insert( std::pair<CString, std::set<CString>>("modern", Expansions));
 	Expansions.clear();
 
+	Expansions.insert("GTC");
 	Expansions.insert("RTR");
 	m_Blocks.insert( std::pair<CString, std::set<CString>>("return to ravnica", Expansions));
 	Expansions.clear();
@@ -828,7 +830,7 @@ BOOL CMListCtrl::IsCardFilteredBy(FILTERS filter, CCardEntry* pCardEntry)
 
 BOOL CMListCtrl::IsCardFiltered(CCardEntry* pCardEntry, FILTERS exceptFromFilter, FILTERS exceptToFilter)
 {
-	if (pCardEntry->GetExpansionName() == _T("Token"))
+	if (pCardEntry->GetExpansionName() == _T("Tokens"))
 		return TRUE;
 
 	for (int filter = FT_WHITE; filter <= FT_BLOCK; ++filter)

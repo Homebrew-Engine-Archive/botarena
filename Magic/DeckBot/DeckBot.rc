@@ -51,8 +51,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,43,1,0
- PRODUCTVERSION 1,43,1,0
+ FILEVERSION 1,45,1,0
+ PRODUCTVERSION 1,45,1,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -69,13 +69,13 @@ BEGIN
         BEGIN
             VALUE "Comments", "This application is not published or endorsed by Wizards of the Coast LLC."
             VALUE "FileDescription", "DeckBot Application"
-            VALUE "FileVersion", "1.43.1.0"
+            VALUE "FileVersion", "1.45.1.0"
             VALUE "InternalName", "DeckBot"
             VALUE "LegalCopyright", "This application is not published or endorsed by Wizards of the Coast LLC."
             VALUE "LegalTrademarks", "This application is not published or endorsed by Wizards of the Coast LLC."
             VALUE "OriginalFilename", "DeckBot.exe"
             VALUE "ProductName", " DeckBot Application"
-            VALUE "ProductVersion", "1.43.0"
+            VALUE "ProductVersion", "1.45.0"
         END
     END
     BLOCK "VarFileInfo"

@@ -155,83 +155,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 
 //____________________________________________________________________________
 //
-/*CSporeBurstCard::CSporeBurstCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Spore Burst"), CardType::Sorcery, nID)
-{
-	{
-		counted_ptr<CChgLifeSpell> cpSpell(
-			::CreateObject<CChgLifeSpell>(this, AbilityType::Sorcery,
-				_T("3") GREEN_MANA_TEXT,
-				Life(+0), PreventableType::NotPreventable));
-		
-		cpSpell->SetToZoneIfSuccess(ZoneId::_Tokens, TRUE);
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		typedef
-            TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
-
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-            ZoneId::Stack, ZoneId::_Tokens));
-
-        cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Tokens);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->SetSkipStack(TRUE);
-
-        AddAbility(cpAbility.GetPointer());
-    }
-	{
-	    counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-            ZoneId::Stack, ZoneId::_Tokens));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSporeBurstCard::SetTriggerContext));
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
-
-		m_pTriggeredAbility = cpAbility.GetPointer();
-
-		AddAbility(m_pTriggeredAbility);
-	}
-}
-
-bool CSporeBurstCard::SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext, 
-									 	CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield);
-
-	int nIslandCheck = 0;
-	int nForestCheck = 0;
-	int nPlainsCheck = 0;
-	int nMountainCheck = 0;
-	int nSwampCheck = 0;
-
-	for (int i = 0; i < pInplay->GetSize(); ++i)
-	{
-		CCard* pCard = pInplay->GetAt(i);
-		if ((pCard->GetCardType() & CardType::Island).Any())
-			nIslandCheck = 1;
-		if ((pCard->GetCardType() & CardType::Forest).Any())
-			nForestCheck = 1;
-		if ((pCard->GetCardType() & CardType::Plains).Any())
-			nPlainsCheck = 1;
-		if ((pCard->GetCardType() & CardType::Mountain).Any())
-			nMountainCheck = 1;
-		if ((pCard->GetCardType() & CardType::Swamp).Any())
-			nSwampCheck = 1;
-}
-
-	int nDomainCount = nIslandCheck + nForestCheck + nPlainsCheck + nMountainCheck + nSwampCheck;
-
-	m_pTriggeredAbility->SetCreateTokenOption(TRUE, _T("Saproling"), nDomainCount);
-
-	return true;
-}
-*/
-//____________________________________________________________________________
-//
 CFontOfMythosCard::CFontOfMythosCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Font of Mythos"), CardType::Artifact, nID,
 		_T("4"), AbilityType::Artifact)
@@ -404,11 +327,11 @@ CGrixisIllusionistCard::CGrixisIllusionistCard(CGame* pGame, UINT nID)
 
 	cpAbility->AddTapCost();
 
-	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
-	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
-	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
-	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::BasicLand, CardType::_All, TRUE, _T("Mountain"));	
-	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::BasicLand, CardType::_All, TRUE, _T("Plains"));
+	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
+	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
+	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
+	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Mountain"));	
+	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Plains"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -749,7 +672,7 @@ CTukatongueThallidCard::CTukatongueThallidCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling B"), 2712, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling J"), 62001, 1);
 
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 
@@ -1050,11 +973,11 @@ CUnstableFrontierCard::CUnstableFrontierCard(CGame* pGame, UINT nID)
 
 		cpAbility->AddTapCost();
 
-		cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
-		cpAbility->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
-		cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::BasicLand, CardType::_All, TRUE, _T("Mountain"));	
-		cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::BasicLand, CardType::_All, TRUE, _T("Plains"));
-		cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
+		cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
+		cpAbility->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
+		cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Mountain"));	
+		cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Plains"));
+		cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2268,7 +2191,7 @@ void CMartialCoupCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 	
 	CCountedCardContainer pTokens;
 
-	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Soldier A"), 2713, n, FALSE, ZoneId::Battlefield, &pTokens);
+	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Soldier I"), 2953, n, FALSE, ZoneId::Battlefield, &pTokens);
 
 	pModifier1.ApplyTo(pAbilityAction->GetController());
 
@@ -2571,7 +2494,7 @@ CGrixisSlavedriverCard::CGrixisSlavedriverCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie"), 2724, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie E"), 2879, 1);
 
 		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 
@@ -2581,90 +2504,48 @@ CGrixisSlavedriverCard::CGrixisSlavedriverCard(CGame* pGame, UINT nID)
 	}
 	{
 		//Unearth ability
-		counted_ptr<CTargetMoveCardSpell> cpAbility(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
-				BLACK_MANA_TEXT,
-				new SpecificCardComparer(this),
-				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("3") BLACK_MANA_TEXT));
 
-		cpAbility->SetToActivatedAbility();
 		cpAbility->SetGraveyardOnly();
 		cpAbility->SetAbilityText(_T("Unearth"));
 
-		CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier;
-			pModifier1->GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier1);
-
-//		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
-	//		pModifier2->GetModifier().SetToAdd(CardKeyword::Flash);
-		//	pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		CReplacementKeywordModifier* pModifier2 = new CReplacementKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(ReplacementKeyword::Unearth);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier2);
-
-		CCardKeywordModifier* pModifier3 = new CCardKeywordModifier;
-			pModifier3->GetModifier().SetToAdd(CardKeyword::CantBeCountered);
-			pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier3);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGrixisSlavedriverCard::SetTriggerContextU));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-									CWhenSelfInplay::EventCallback,
-									&CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		//cpAbility->GetCardKeywordMod().GetModifier().SetToRemove(CardKeyword::Flash);
-		//cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToRemove(CreatureKeyword::Haste);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGrixisSlavedriverCard::BeforeResolution));
+		cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+		
 		AddAbility(cpAbility.GetPointer());
 	}
 }
 
-bool CGrixisSlavedriverCard::SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CNode* pToNode) const
+bool CGrixisSlavedriverCard::BeforeResolution(CAbilityAction* pAction)
 {
-	return GetCardKeyword()->CantBeCountered() == TRUE;
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Unearth, pAction->GetController());
+		pModifier1.ApplyTo(this);
+
+		if (IsInplay())
+		{
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+			pModifier2.ApplyTo(this);
+
+			CReplacementKeywordModifier pModifier3 = CReplacementKeywordModifier();
+				pModifier3.GetModifier().SetToAdd(ReplacementKeyword::Unearth);
+				pModifier3.GetModifier().SetOneTurnOnly(FALSE);
+			pModifier3.ApplyTo(this);
+		}
+	}
+
+	CContainerEffectModifier pModifier4 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier4.ApplyTo(pAction->GetController());
+
+	return true;
 }
-
-/*void CGrixisSlavedriverCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-{
-	if ((GetZoneId() == ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Exile) &&
-		(GetCardKeyword()->HasFlash() == TRUE))
-		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
-
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}*/
 
 //____________________________________________________________________________
 //
@@ -2746,90 +2627,48 @@ CHellsparkElementalCard::CHellsparkElementalCard(CGame* pGame, UINT nID)
 	}
 	{
 		//Unearth ability
-		counted_ptr<CTargetMoveCardSpell> cpAbility(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
-				_T("1") RED_MANA_TEXT,
-				new SpecificCardComparer(this),
-				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("1") RED_MANA_TEXT));
 
-		cpAbility->SetToActivatedAbility();
 		cpAbility->SetGraveyardOnly();
 		cpAbility->SetAbilityText(_T("Unearth"));
 
-		CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier;
-			pModifier1->GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier1);
-
-//		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
-	//		pModifier2->GetModifier().SetToAdd(CardKeyword::Flash);
-		//	pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		CReplacementKeywordModifier* pModifier2 = new CReplacementKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(ReplacementKeyword::Unearth);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier2);
-
-		CCardKeywordModifier* pModifier3 = new CCardKeywordModifier;
-			pModifier3->GetModifier().SetToAdd(CardKeyword::CantBeCountered);
-			pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier3);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CHellsparkElementalCard::SetTriggerContextU));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-									CWhenSelfInplay::EventCallback,
-									&CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		//cpAbility->GetCardKeywordMod().GetModifier().SetToRemove(CardKeyword::Flash);
-		//cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToRemove(CreatureKeyword::Haste);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHellsparkElementalCard::BeforeResolution));
+		cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+		
 		AddAbility(cpAbility.GetPointer());
 	}
 }
 
-bool CHellsparkElementalCard::SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CNode* pToNode) const
+bool CHellsparkElementalCard::BeforeResolution(CAbilityAction* pAction)
 {
-	return GetCardKeyword()->CantBeCountered() == TRUE;
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Unearth, pAction->GetController());
+		pModifier1.ApplyTo(this);
+
+		if (IsInplay())
+		{
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+			pModifier2.ApplyTo(this);
+
+			CReplacementKeywordModifier pModifier3 = CReplacementKeywordModifier();
+				pModifier3.GetModifier().SetToAdd(ReplacementKeyword::Unearth);
+				pModifier3.GetModifier().SetOneTurnOnly(FALSE);
+			pModifier3.ApplyTo(this);
+		}
+	}
+
+	CContainerEffectModifier pModifier4 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier4.ApplyTo(pAction->GetController());
+
+	return true;
 }
-
-/*void CHellsparkElementalCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-{
-	if ((GetZoneId() == ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Exile) &&
-		(GetCardKeyword()->HasFlash() == TRUE))
-		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
-
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}*/
 
 //____________________________________________________________________________
 //
@@ -2869,90 +2708,48 @@ CRottingRatsCard::CRottingRatsCard(CGame* pGame, UINT nID)
 	}
 	{
 		//Unearth ability
-		counted_ptr<CTargetMoveCardSpell> cpAbility(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
-				_T("1") BLACK_MANA_TEXT,
-				new SpecificCardComparer(this),
-				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("1") BLACK_MANA_TEXT));
 
-		cpAbility->SetToActivatedAbility();
 		cpAbility->SetGraveyardOnly();
 		cpAbility->SetAbilityText(_T("Unearth"));
 
-		CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier;
-			pModifier1->GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier1);
-
-//		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
-	//		pModifier2->GetModifier().SetToAdd(CardKeyword::Flash);
-		//	pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		CReplacementKeywordModifier* pModifier2 = new CReplacementKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(ReplacementKeyword::Unearth);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier2);
-
-		CCardKeywordModifier* pModifier3 = new CCardKeywordModifier;
-			pModifier3->GetModifier().SetToAdd(CardKeyword::CantBeCountered);
-			pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier3);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRottingRatsCard::SetTriggerContextU));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-									CWhenSelfInplay::EventCallback,
-									&CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		//cpAbility->GetCardKeywordMod().GetModifier().SetToRemove(CardKeyword::Flash);
-		//cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToRemove(CreatureKeyword::Haste);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRottingRatsCard::BeforeResolution));
+		cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+		
 		AddAbility(cpAbility.GetPointer());
 	}
 }
 
-bool CRottingRatsCard::SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CNode* pToNode) const
+bool CRottingRatsCard::BeforeResolution(CAbilityAction* pAction)
 {
-	return GetCardKeyword()->CantBeCountered() == TRUE;
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Unearth, pAction->GetController());
+		pModifier1.ApplyTo(this);
+
+		if (IsInplay())
+		{
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+			pModifier2.ApplyTo(this);
+
+			CReplacementKeywordModifier pModifier3 = CReplacementKeywordModifier();
+				pModifier3.GetModifier().SetToAdd(ReplacementKeyword::Unearth);
+				pModifier3.GetModifier().SetOneTurnOnly(FALSE);
+			pModifier3.ApplyTo(this);
+		}
+	}
+
+	CContainerEffectModifier pModifier4 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier4.ApplyTo(pAction->GetController());
+
+	return true;
 }
-
-/*void CRottingRatsCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-{
-	if ((GetZoneId() == ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Exile) &&
-		(GetCardKeyword()->HasFlash() == TRUE))
-		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
-
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}*/
 
 //____________________________________________________________________________
 //
@@ -2962,92 +2759,48 @@ CShamblingRemainsCard::CShamblingRemainsCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddCantBlock(FALSE);
 
-	{
-		//Unearth ability
-		counted_ptr<CTargetMoveCardSpell> cpAbility(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
-				RED_MANA_TEXT BLACK_MANA_TEXT,
-				new SpecificCardComparer(this),
-				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+	//Unearth ability
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			BLACK_MANA_TEXT RED_MANA_TEXT));
 
-		cpAbility->SetToActivatedAbility();
-		cpAbility->SetGraveyardOnly();
-		cpAbility->SetAbilityText(_T("Unearth"));
+	cpAbility->SetGraveyardOnly();
+	cpAbility->SetAbilityText(_T("Unearth"));
 
-		CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier;
-			pModifier1->GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier1);
-
-//		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
-	//		pModifier2->GetModifier().SetToAdd(CardKeyword::Flash);
-		//	pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		CReplacementKeywordModifier* pModifier2 = new CReplacementKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(ReplacementKeyword::Unearth);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier2);
-
-		CCardKeywordModifier* pModifier3 = new CCardKeywordModifier;
-			pModifier3->GetModifier().SetToAdd(CardKeyword::CantBeCountered);
-			pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier3);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CShamblingRemainsCard::SetTriggerContextU));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-									CWhenSelfInplay::EventCallback,
-									&CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		//cpAbility->GetCardKeywordMod().GetModifier().SetToRemove(CardKeyword::Flash);
-		//cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToRemove(CreatureKeyword::Haste);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CShamblingRemainsCard::BeforeResolution));
+	cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+		
+	AddAbility(cpAbility.GetPointer());
 }
 
-bool CShamblingRemainsCard::SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CNode* pToNode) const
+bool CShamblingRemainsCard::BeforeResolution(CAbilityAction* pAction)
 {
-	return GetCardKeyword()->CantBeCountered() == TRUE;
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Unearth, pAction->GetController());
+		pModifier1.ApplyTo(this);
+
+		if (IsInplay())
+		{
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+			pModifier2.ApplyTo(this);
+
+			CReplacementKeywordModifier pModifier3 = CReplacementKeywordModifier();
+				pModifier3.GetModifier().SetToAdd(ReplacementKeyword::Unearth);
+				pModifier3.GetModifier().SetOneTurnOnly(FALSE);
+			pModifier3.ApplyTo(this);
+		}
+	}
+
+	CContainerEffectModifier pModifier4 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier4.ApplyTo(pAction->GetController());
+
+	return true;
 }
-
-/*void CShamblingRemainsCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-{
-	if ((GetZoneId() == ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Exile) &&
-		(GetCardKeyword()->HasFlash() == TRUE))
-		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
-
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}*/
 
 //____________________________________________________________________________
 //
@@ -3166,123 +2919,75 @@ CBrackwaterElementalCard::CBrackwaterElementalCard(CGame* pGame, UINT nID)
 {
 	{
 		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
 								CWhenSelfAttackedBlocked::EventCallback, 
 								&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-		cpAbility->SetScheduledNode(NodeId::EndStep);
 
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBrackwaterElementalCard::BeforeResolution1));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
 
 		AddAbility(cpAbility.GetPointer());
 	}
-	//{
-	//	//It doesn't become sacrificed when it has blocked, so I disabled this and added the triggered ability Fog Elemental is using, with NodeId::EndStep.
-	//	typedef
-	//		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-	//	counted_ptr<TriggeredAbility> cpAbility(
-	//		::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-	//	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	//	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-	//	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-	//	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBrackwaterElementalCard::SetTriggerContext));
-	//	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-	//	AddAbility(cpAbility.GetPointer());
-	//}
 	{
 		//Unearth ability
-		counted_ptr<CTargetMoveCardSpell> cpAbility(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
-				_T("2") BLUE_MANA_TEXT,
-				new SpecificCardComparer(this),
-				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("2") BLUE_MANA_TEXT));
 
-		cpAbility->SetToActivatedAbility();
 		cpAbility->SetGraveyardOnly();
 		cpAbility->SetAbilityText(_T("Unearth"));
 
-		CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier;
-			pModifier1->GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier1);
-
-//		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
-	//		pModifier2->GetModifier().SetToAdd(CardKeyword::Flash);
-		//	pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		CReplacementKeywordModifier* pModifier2 = new CReplacementKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(ReplacementKeyword::Unearth);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier2);
-
-		CCardKeywordModifier* pModifier3 = new CCardKeywordModifier;
-			pModifier3->GetModifier().SetToAdd(CardKeyword::CantBeCountered);
-			pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier3);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBrackwaterElementalCard::SetTriggerContextU));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-									CWhenSelfInplay::EventCallback,
-									&CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		//cpAbility->GetCardKeywordMod().GetModifier().SetToRemove(CardKeyword::Flash);
-		//cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToRemove(CreatureKeyword::Haste);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CBrackwaterElementalCard::SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												  CNode* pToNode) const
-{
-	return GetCardKeyword()->CantBeCountered() == TRUE;
-}
-
-/*void CBrackwaterElementalCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-{
-	if ((GetZoneId() == ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Exile) &&
-		(GetCardKeyword()->HasFlash() == TRUE))
-		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBrackwaterElementalCard::BeforeResolution2));
+		cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
 		
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}*/
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CBrackwaterElementalCard::BeforeResolution1(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+bool CBrackwaterElementalCard::BeforeResolution2(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Unearth, pAction->GetController());
+		pModifier1.ApplyTo(this);
+
+		if (IsInplay())
+		{
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+			pModifier2.ApplyTo(this);
+
+			CReplacementKeywordModifier pModifier3 = CReplacementKeywordModifier();
+				pModifier3.GetModifier().SetToAdd(ReplacementKeyword::Unearth);
+				pModifier3.GetModifier().SetOneTurnOnly(FALSE);
+			pModifier3.ApplyTo(this);
+		}
+	}
+
+	CContainerEffectModifier pModifier4 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier4.ApplyTo(pAction->GetController());
+
+	return true;
+}
 
 //____________________________________________________________________________
 //
@@ -3409,86 +3114,48 @@ CExtractorDemonCard::CExtractorDemonCard(CGame* pGame, UINT nID)
 	}
 	{
 		//Unearth ability
-		counted_ptr<CTargetMoveCardSpell> cpAbility(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
-				_T("2") BLACK_MANA_TEXT,
-				new SpecificCardComparer(this),
-				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("2") BLACK_MANA_TEXT));
 
-		cpAbility->SetToActivatedAbility();
 		cpAbility->SetGraveyardOnly();
 		cpAbility->SetAbilityText(_T("Unearth"));
 
-		CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier;
-			pModifier1->GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier1);
-
-		CReplacementKeywordModifier* pModifier2 = new CReplacementKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(ReplacementKeyword::Unearth);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier2);
-
-		CCardKeywordModifier* pModifier3 = new CCardKeywordModifier;
-			pModifier3->GetModifier().SetToAdd(CardKeyword::CantBeCountered);
-			pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(pModifier3);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CExtractorDemonCard::SetTriggerContextU));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-									CWhenSelfInplay::EventCallback,
-									&CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		//cpAbility->GetCardKeywordMod().GetModifier().SetToRemove(CardKeyword::Flash);
-		//cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToRemove(CreatureKeyword::Haste);
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-		cpAbility->SetSkipStack(TRUE);
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CExtractorDemonCard::BeforeResolution));
+		cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+		
 		AddAbility(cpAbility.GetPointer());
 	}
 }
 
-bool CExtractorDemonCard::SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-											 CNode* pToNode) const
+bool CExtractorDemonCard::BeforeResolution(CAbilityAction* pAction)
 {
-	return GetCardKeyword()->CantBeCountered() == TRUE;
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Unearth, pAction->GetController());
+		pModifier1.ApplyTo(this);
+
+		if (IsInplay())
+		{
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE, FALSE);
+			pModifier2.ApplyTo(this);
+
+			CReplacementKeywordModifier pModifier3 = CReplacementKeywordModifier();
+				pModifier3.GetModifier().SetToAdd(ReplacementKeyword::Unearth);
+				pModifier3.GetModifier().SetOneTurnOnly(FALSE);
+			pModifier3.ApplyTo(this);
+		}
+	}
+
+	CContainerEffectModifier pModifier4 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier4.ApplyTo(pAction->GetController());
+
+	return true;
 }
-
-/*void CExtractorDemonCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-{
-	if ((GetZoneId() == ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Battlefield) &&
-		(pToZone->GetZoneId() != ZoneId::Exile) &&
-		(GetCardKeyword()->HasFlash() == TRUE))
-		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
-
-	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}*/
 
 //____________________________________________________________________________
 //
@@ -4257,7 +3924,7 @@ CSporeBurstCard::CSporeBurstCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 			_T("3") GREEN_MANA_TEXT,
-			_T("Saproling B"), 2712,
+			_T("Saproling J"), 62001,
 			0));
 
 	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSporeBurstCard::BeforeResolution));

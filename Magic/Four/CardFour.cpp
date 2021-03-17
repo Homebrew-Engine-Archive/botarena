@@ -37,6 +37,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCarrionAntsCard);
 		DEFINE_CARD(CCavePeopleCard);
 		DEFINE_CARD(CClayStatueCard);
+		DEFINE_CARD(CClockworkAvianCard);
 		DEFINE_CARD(CColossusOfSardiaCard);
 		DEFINE_CARD(CCosmicHorrorCard);
 		DEFINE_CARD(CCrimsonManticoreCard);
@@ -86,6 +87,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRadjanSpiritCard);
 		DEFINE_CARD(CRagManCard);
 		DEFINE_CARD(CRedManaBatteryCard);
+		DEFINE_CARD(CRelicBindCard);
 		DEFINE_CARD(CSandstormCard);
 		DEFINE_CARD(CSeekerCard);
 		DEFINE_CARD(CSegovianLeviathanCard);
@@ -98,6 +100,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSunkenCityCard);
 		DEFINE_CARD(CSylvanLibraryCard);
 		DEFINE_CARD(CTawnossWandCard);
+		DEFINE_CARD(CTetravusCard);
 		DEFINE_CARD(CTimeElementalCard);
 		DEFINE_CARD(CTheBruteCard);
 		DEFINE_CARD(CTriskelionCard);
@@ -376,28 +379,35 @@ CAbominationCard::CAbominationCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddComparer(new CardTypeComparer(CardType::Green | CardType::White, false));
 
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked,
-			CWhenSelfAttackedBlocked::BlockEventCallback2,
-			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
-
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(&m_CardFilter);
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CAbominationCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CAbominationCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CAbominationCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-										CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+bool CAbominationCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CAbominationCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
 	return true;
 }
 
@@ -2521,16 +2531,10 @@ void CVisionsCard::OnShuffleSelected(const std::vector<SelectionEntry>& selectio
 			{
 				((CPlayer*)dwContext1)->GetZoneById(ZoneId::Library)->Shuffle();
 
-				CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects);
-				pModifier.ApplyTo(pSelectionPlayer);
-
 				return;
 			}
 			if ((int)it->dwContext == 2)
 			{
-				CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects);
-				pModifier.ApplyTo(pSelectionPlayer);
-
 				return;
 			}
 		return;
@@ -2924,6 +2928,604 @@ bool CXenicPoltergeistCard::BeforeResolution(CAbilityAction* pAction) const
 	pCreature->SetPrintedToughness(nCMC);
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CRelicBindCard::CRelicBindCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Relic Bind"), CardType::EnchantArtifact, nID)
+	, m_ModeSelection(pGame, CSelectionSupport::SelectionCallback(this, &CRelicBindCard::OnModeSelected))
+{
+	{
+		counted_ptr<CAbilityEnchant> cpSpell(
+			::CreateObject<CAbilityEnchant>(this,
+				_T("2") BLUE_MANA_TEXT,
+				new CardTypeComparer(CardType::Artifact, false),
+				CAbilityEnchant::CreateAbilityCallback(this,
+					&CRelicBindCard::CreateEnchantAbility),
+				CAbilityEnchant::AdditionType::ToEnchantCard));
+
+		cpSpell->GetTargeting()->SetIncludeNonControllerCardsOnly();
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHOICE_1_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::Battlefield);
+
+		cpAbility->GetTargeting().SetIncludePlayers(TRUE);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(-1));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::Preventable);
+		cpAbility->GetLifeModifier().SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+
+		cpAbility->SetAbilityName(_T("Mode 1 - deal 1 damage to target player"));
+		cpAbility->AddAbilityTag(AbilityTag::DamageSource);
+		AddAbility(cpAbility.GetPointer());
+	}	
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHOICE_2_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::Battlefield);
+
+		cpAbility->GetTargeting().SetIncludePlayers(TRUE);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+
+		cpAbility->SetAbilityName(_T("Mode 2 - target player gains 1 life"));
+		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+		AddAbility(cpAbility.GetPointer());
+	}	
+}
+
+counted_ptr<CAbility> CRelicBindCard::CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue)
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfOrientationChanged, 
+							CWhenSelfOrientationChanged::EventCallback, 
+							&CWhenSelfOrientationChanged::SetTapEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(pEnchantCard, pEnchantedCard));
+	
+	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRelicBindCard::SetTriggerContextAux));
+
+	cpAbility->SetSkipStack(TRUE);
+	
+	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+BOOL CRelicBindCard::TargetCheckPlayer(CPlayer* pPlayer)
+{
+	const CPlayerEffect_& playerEffect = pPlayer->GetPlayerEffect();
+
+	if (playerEffect.HasPlayerEffect(PlayerEffectType::CantBeTargetedByAbilities))
+		return FALSE;
+
+	if ( GetController() != pPlayer && playerEffect.HasPlayerEffect(PlayerEffectType::CantBeTargetedByOpponentsAbilities))
+            return FALSE;
+
+	std::set<const CCardFilter*> cardFilters;
+	if (playerEffect.HasPlayerEffect(PlayerEffectType::Protection, cardFilters))
+	{
+		if (!cardFilters.size())
+			return FALSE; // no card filter, prevent all spells
+
+		for (std::set<const CCardFilter*>::const_iterator i = cardFilters.begin(); i != cardFilters.end(); ++i)
+			if ((*i)->IsCardIncluded(this))
+				return FALSE;
+	}
+
+	return TRUE;
+}
+
+bool CRelicBindCard::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+													CCard* pCard)
+{
+	bool bTargetingAllowed = false;
+		
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		if (TargetCheckPlayer(pPlayer))
+		{
+			bTargetingAllowed = true;
+			break;
+		}
+
+		if (bTargetingAllowed) break;
+	}
+
+	if (bTargetingAllowed)
+	{
+		std::vector<SelectionEntry> entries;
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("%s: Relic Bind deals 1 damage to target player"), GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 2;
+			selectionEntry.strText.Format(_T("%s: Target player gains 1 life"), GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+	
+		m_ModeSelection.AddSelectionRequest(entries, 1, 1, NULL, GetController());
+	}
+
+	return false;
+}
+
+void CRelicBindCard::OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 1)
+			{
+				if (!m_pGame->IsThinking())
+				{
+
+					CString strMessage;
+					strMessage.Format(_T("%s chooses first mode"), pSelectionPlayer->GetPlayerName());
+
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+
+				}
+				
+				CSpecialEffectModifier pModifier = CSpecialEffectModifier(this, CHOICE_1_TRIGGER_ID);
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			if ((int)it->dwContext == 2)
+			{
+				if (!m_pGame->IsThinking())
+				{
+
+					CString strMessage;
+					strMessage.Format(_T("%s chooses second mode"), pSelectionPlayer->GetPlayerName());
+
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				
+				CSpecialEffectModifier pModifier = CSpecialEffectModifier(this, CHOICE_2_TRIGGER_ID);
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CTetravusCard::CTetravusCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Tetravus"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
+		_T("6"), Power(1), Life(1))
+	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CTetravusCard::OnNumberSelected))
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CTetravusCard::OnCardSelected))
+{
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged> TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTetravusCard::BeforeResolution1));
+		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+
+		cpAbility->SetAbilityName(_T("Tetravite emission"));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged> TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTetravusCard::BeforeResolution2));
+		cpAbility->AddAbilityTag(AbilityTag::CardChange);
+
+		cpAbility->SetAbilityName(_T("Tetravite absorption"));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+void CTetravusCard::Move(CZone* pToZone,
+							const CPlayer* pByPlayer,
+							MoveType moveType,
+							CardPlacement cardPlacement, BOOL can_dredge)
+{	
+	bool bBattlefield = (GetZoneId() == ZoneId::Battlefield) || (GetZoneId() == ZoneId::_PhasedOut);
+
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+
+	if	(!bBattlefield && (pToZone->GetZoneId() == ZoneId::Battlefield))
+		pTokens.RemoveAll();
+}
+
+bool CTetravusCard::BeforeResolution1(CAbilityAction* pAction)
+{
+	int nCounters = GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount();
+
+	int nCount = 1;
+	int nMultiplier = 0;
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE));
+		nCount <<= nMultiplier;
+	
+	if (nCounters > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 0;
+			selectionEntry.strText.Format(_T("Don't remove counters"));
+
+			entries.push_back(selectionEntry);
+		}
+		for (int i = 1; i <= nCounters; i++)
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = i;
+			if (i * nCount == 1)
+				selectionEntry.strText.Format(_T("Remove %d +1/+1 counters and make %d Tetravite"), i, i * nCount);
+			else
+				selectionEntry.strText.Format(_T("Remove %d +1/+1 counters and make %d Tetravites"), i, i * nCount);
+
+			entries.push_back(selectionEntry);
+		}
+		m_NumberSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	}
+
+	return true;
+}
+
+void CTetravusCard::OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext;
+			
+			if (n > 0)
+			{
+				CCardCounterModifier pModifier1 = CCardCounterModifier(_T("+1/+1"), -n);
+				pModifier1.ApplyTo(this);
+
+				CCountedCardContainer pCreatedTokens;
+
+				CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Tetravite"), 62031, n, false, ZoneId::Battlefield, &pCreatedTokens);
+				pModifier2.ApplyTo(pSelectionPlayer);
+
+				for (int i = 0; i < pCreatedTokens.GetSize(); ++i)
+					pTokens.AddCard(pCreatedTokens.GetAt(i), CardPlacement::Top);
+			}
+		}
+}
+
+bool CTetravusCard::BeforeResolution2(CAbilityAction* pAction)
+{
+	pSelectedTokens.RemoveAll();
+	ExileTetravites(pAction->GetController());
+
+	return true;
+}
+
+void CTetravusCard::ExileTetravites(CPlayer* pController)
+{
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Stop selecting Tetravites (%d selected so far)"), pSelectedTokens.GetSize());
+
+		entries.push_back(selectionEntry);
+	}
+	for (int i = 0; i < pTokens.GetSize(); i++)
+	{
+		CCard* pCard = pTokens.GetAt(i);
+
+		if (pCard && pCard->IsInplay())
+		{
+			SelectionEntry entry;
+
+			entry.dwContext = (DWORD)pCard;
+			entry.cpAssociatedCard = pCard;
+									
+			entry.strText.Format(_T("Exile %s"),
+				pCard->GetCardName(TRUE));
+
+			entries.push_back(entry);
+		}
+	}
+	m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pController);
+}
+
+void CTetravusCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 0)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s stops exiling Tetravites"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				if (pSelectedTokens.GetSize() > 0)
+				{
+					CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, true, MoveType::Others, pSelectionPlayer);
+					int nValue = pSelectedTokens.GetSize();
+
+					for (int i = 0; i < pSelectedTokens.GetSize(); ++i)
+						pModifier1.ApplyTo(pSelectedTokens.GetAt(i));
+
+					CCardCounterModifier pModifier2 = CCardCounterModifier(_T("+1/+1"), +nValue);
+					pModifier2.ApplyTo(this);
+				}
+
+				return;
+			}
+			else
+			{
+				CCard* pCard = (CCard*)it->dwContext;
+
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				pTokens.RemoveCard(pCard);
+				pSelectedTokens.AddCard(pCard, CardPlacement::Top);
+
+				ExileTetravites(pSelectionPlayer);
+				
+				return;
+			}
+		}
+}
+
+//____________________________________________________________________________
+//
+CClockworkAvianCard::CClockworkAvianCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Clockwork Avian"), CardType::_ArtifactCreature, CREATURE_TYPE(Bird), nID,
+		_T("5"), Power(0), Life(4))
+	, bAttackedOrBlocked(FALSE)
+	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkAvianCard::OnNumberSelected))
+{
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::EndOfCombatStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkAvianCard::SetTriggerContext));
+		cpAbility->GetCardModifiers().push_back(new CCardCounterModifier(_T("+1/+0"), -1));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("")));
+
+		cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, FALSE, FALSE);
+		cpAbility->AddTapCost();
+		
+		cpAbility->SetUseInSpecificNode(NodeId::UpkeepStep, FALSE, TRUE);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CClockworkAvianCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+										CWhenSelfAttackedBlocked::EventCallback, 
+										&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkAvianCard::SetTriggerContextAux1));
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->AddAbilityTag(AbilityTag::CardChange);
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::BeginningOfCombatStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkAvianCard::SetTriggerContextAux2));
+		cpAbility->SetSkipStack(TRUE);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkAvianCard::SetTriggerContextAux3));
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CClockworkAvianCard::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard)
+{
+	bAttackedOrBlocked = TRUE;
+
+	return false;
+}
+
+bool CClockworkAvianCard::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CClockworkAvianCard::SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CClockworkAvianCard::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return bAttackedOrBlocked == TRUE;
+}
+
+bool CClockworkAvianCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nCounters = GetCounterContainer()->GetCounter(_T("+1/+0"))->GetCount();
+	int nValue = pAction->GetCostConfigEntry().GetExtraValue();
+
+	if (!IsInplay() || GetCardKeyword()->HasCantGetCounters() || (nCounters >= 4) || (nValue == 0))
+		return true;
+	
+	int nCount = 1;
+	int nMultiplier = 0;
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+		nCount <<= nMultiplier;
+	bool bMaxReached = false;
+
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Don't add counters"));
+
+		entries.push_back(selectionEntry);
+	}
+	for (int i = 1; i <= nValue; i++)
+	{
+		int nToPut = i * nCount;
+		if (nCounters + nToPut >= 4)
+		{
+			nToPut = 4 - nCounters;
+			bMaxReached = true;
+		}
+
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = nToPut;
+		if (nToPut == 1)
+			selectionEntry.strText.Format(_T("Put %d +1/+0 counter on %s"), nToPut, GetCardName(TRUE));
+		else
+			selectionEntry.strText.Format(_T("Put %d +1/+0 counters on %s"), nToPut, GetCardName(TRUE));
+
+		entries.push_back(selectionEntry);
+
+		if (bMaxReached) break;
+	}
+	m_NumberSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	
+	return true;
+}
+
+void CClockworkAvianCard::OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext;
+			
+			if (n > 0)
+			{
+				CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+0"), +n);
+				pModifier.SetDoubling(false);
+				pModifier.ApplyTo(this);
+			}
+		}
 }
 
 //____________________________________________________________________________

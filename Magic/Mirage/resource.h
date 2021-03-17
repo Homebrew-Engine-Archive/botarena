@@ -290,6 +290,13 @@
 #define IDS_STRING9473                  9473
 #define IDS_STRING9474                  9474
 #define IDS_STRING9475                  9475
+#define IDS_STRING9476                  9476
+#define IDS_STRING9477                  9477
+#define IDS_STRING9478                  9478
+#define IDS_STRING9479                  9479
+#define IDS_STRING9480                  9480
+#define IDS_STRING9481                  9481
+#define IDS_STRING9482                  9482
 #define IDI_MODULE                      9550
 #define IDI_LARGE_MODULE                9551
 

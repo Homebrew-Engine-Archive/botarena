@@ -1271,8 +1271,31 @@ class CTimeStopCard : public CCard
 
 protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CMidnightRitualCard : public CTargetMoveCardSpellCard
+{
+	DECLARE_CARD_CSTOR(CMidnightRitualCard);
+
+protected:
+	int_ nGraveyard;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CChimericStaffCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CChimericStaffCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

@@ -6675,7 +6675,7 @@ void CEquipAbility::Unequip(bool phase_out)
 
 void CEquipAbility::Equip(CCreatureCard* pCreature)
 {
-	if (pCreature == m_pEquippedCreature)
+	if ((pCreature == m_pEquippedCreature) || pCreature->GetCreatureKeyword()->CantBeEquipped())
 		return;	// No-op
 
 	Unequip();
@@ -11593,7 +11593,7 @@ void CForeshadowSpell::DiscardCards(CPlayer* pCaster, CPlayer* pDiscarder, const
 		pModifier1.ApplyTo(pCaster);
 	}
 
-	CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects);
+	CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects);
 	pModifier2.ApplyTo(pCaster);
 }
 //____________________________________________________________________________

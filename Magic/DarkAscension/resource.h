@@ -152,6 +152,15 @@
 #define IDS_STRING23733                 23733
 #define IDS_STRING23734                 23734
 #define IDS_STRING23735                 23735
+#define IDS_STRING23736                 23736
+#define IDS_STRING23737                 23737
+#define IDS_STRING23738                 23738
+#define IDS_STRING23739                 23739
+#define IDS_STRING23740                 23740
+#define IDS_STRING23741                 23741
+#define IDS_STRING23742                 23742
+#define IDS_STRING23743                 23743
+#define IDS_STRING23744                 23744
 
 // Next default values for new objects
 // 

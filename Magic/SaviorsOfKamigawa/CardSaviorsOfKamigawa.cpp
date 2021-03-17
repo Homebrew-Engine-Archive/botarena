@@ -119,6 +119,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPresenceOfTheWiseCard);
 		DEFINE_CARD(CPromisedKannushiCard);
 		DEFINE_CARD(CPromiseOfBunreiCard);
+		DEFINE_CARD(CPureIntentionsCard);
 		DEFINE_CARD(CRallyTheHordeCard);
 		DEFINE_CARD(CRavingOniSlaveCard);
 		DEFINE_CARD(CRazorjawOniCard);
@@ -305,6 +306,8 @@ CArashiTheSkyAsunderCard::CArashiTheSkyAsunderCard(CGame* pGame, UINT nID)
 CDeathknellKamiCard::CDeathknellKamiCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Deathknell Kami"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
 		_T("1") BLACK_MANA_TEXT, Power(0), Life(1))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CDeathknellKamiCard::OnResolutionCompleted))
 {
 	{
 		counted_ptr<CPumpAbility> cpAbility(
@@ -312,13 +315,7 @@ CDeathknellKamiCard::CDeathknellKamiCard(CGame* pGame, UINT nID)
 				_T("2"),
 				Power(+1), Life(+1), CreatureKeyword::Null));
 
-		cpAbility->GetOtherCardModifiers().push_back(
-			new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice),
-				TurnNumberDelta(-1),
-				NodeId::EndStep, 
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater));
-
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
@@ -345,6 +342,19 @@ CDeathknellKamiCard::CDeathknellKamiCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+void CDeathknellKamiCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -1644,15 +1654,8 @@ bool CFeralLightningCard::BeforeResolution(CAbilityAction* pAction) const
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Elemental J"), 2739, 3, false, ZoneId::Battlefield, &pTokens);
 	pModifier1.ApplyTo(pAction->GetController());
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(GetGame(),
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater);
-
-	for (int i = 0; i < pTokens.GetSize(); ++i)
-		pModifier2->ApplyTo(pTokens.GetAt(i));
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier2.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -2038,6 +2041,8 @@ bool CMagaTraitortoMortalsCard::BeforeResolution(TriggeredAbility1::TriggeredAct
 CWineOfBloodAndIronCard::CWineOfBloodAndIronCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Wine of Blood and Iron"), CardType::Artifact, nID,
 		_T("3"), AbilityType::Artifact)
+    , m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CWineOfBloodAndIronCard::OnResolutionCompleted))
 {
 	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
@@ -2048,22 +2053,27 @@ CWineOfBloodAndIronCard::CWineOfBloodAndIronCard(CGame* pGame, UINT nID)
 	
 	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
 
-	//Sacrifice this at the beginning of the next end step.
-	cpAbility->GetResolutionModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame,
-			new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice),
-			TurnNumberDelta(-1),
-			NodeId::EndStep,
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater));
-
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 	AddAbility(cpAbility.GetPointer());
+}
+
+void CWineOfBloodAndIronCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
 //
 CFootstepsOfTheGoryoCard::CFootstepsOfTheGoryoCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Footsteps of the Goryo"), CardType::Sorcery | CardType::Arcane, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				   &CFootstepsOfTheGoryoCard::OnResolutionCompleted))
 {
 	counted_ptr<CTargetMoveCardSpell> cpSpell(
 		::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery, 
@@ -2072,23 +2082,21 @@ CFootstepsOfTheGoryoCard::CFootstepsOfTheGoryoCard(CGame* pGame, UINT nID)
 			ZoneId::Graveyard, ZoneId::Battlefield, FALSE, MoveType::Others));
 
 	cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-
-	cpSpell->FlagTargets(TRUE,  // flag targets
-						TRUE); // until end of turn
-
-	m_CardFilter.AddComparer(new CardAbilityFlagComparer(cpSpell.GetPointer())); // flagged by this spell
-
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Battlefield, &m_CardFilter, //move the targeted and flagged creature
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(
-			ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice)));
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(pModifier2);
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddSpell(cpSpell.GetPointer());
+}
+
+void CFootstepsOfTheGoryoCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2412,11 +2420,11 @@ CMoonbowIllusionistCard::CMoonbowIllusionistCard(CGame* pGame, UINT nID)
 			_T("2"),
 			new CardTypeComparer(CardType::_Land, false)));
 
-	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
-	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
-	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::BasicLand, CardType::_All, TRUE, _T("Mountain"));	
-	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::BasicLand, CardType::_All, TRUE, _T("Plains"));
-	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
+	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
+	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
+	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Mountain"));	
+	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Plains"));
+	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
 
 	cpAbility->GetCost().AddReturnFromPlayCardCost(1, CCardFilter::GetFilter(_T("lands")));
 
@@ -3965,30 +3973,25 @@ CCutTheEarthlyBondCard::CCutTheEarthlyBondCard(CGame* pGame, UINT nID)
 //
 CIdeasUnboundCard::CIdeasUnboundCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Ideas Unbound"), CardType::Sorcery | CardType::Arcane, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CIdeasUnboundCard::OnResolutionCompleted))
 {
 	counted_ptr<CDrawCardSpell> cpSpell(
 		::CreateObject<CDrawCardSpell>(this, AbilityType::Sorcery,
 			BLUE_MANA_TEXT BLUE_MANA_TEXT, 3));
 	ATLASSERT(cpSpell);
 
-	CZoneModifier* pModifier = new CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All,
-		CZoneModifier::RoleType::PrimaryPlayer,
-		CardPlacement::Top, CZoneModifier::RoleType::None);
-	pModifier->AddSelection(MinimumValue(SpecialNumber::Any), MaximumValue(3), // select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::None, // reveal to
-		CCardFilter::GetFilter(_T("cards")), // what cards
-		ZoneId::Graveyard, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on 
-		MoveType::Discard, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-	CScheduledPlayerModifier* pSModifier = new CScheduledPlayerModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep,
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-	cpSpell->GetResolutionModifier().CPlayerModifiers::Add(pSModifier);
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddSpell(cpSpell.GetPointer());
+}
+
+void CIdeasUnboundCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Ideas Unbound Effect"), 61070, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -5077,7 +5080,7 @@ bool CRallyTheHordeCard::BeforeResolution(CAbilityAction* pAction)
 			bEnd = true;
 	}
 
-	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Warrior B"), 2980, nExiledNonLand);
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Warrior"), 2980, nExiledNonLand);
 	pModifier.ApplyTo(pController);
 
 	return true;
@@ -5462,6 +5465,11 @@ bool CSekkiSeasonsGuideCard::SetTriggerContext(CTriggeredAbility<>::TriggerConte
 {
 	triggerContext.nValue1 = GET_INTEGER(damage.m_nLifeDelta);
 
+	if ((damage.m_DamageType & DamageType::CombatDamage).Any())
+		triggerContext.nValue2 = 1;
+	else
+		triggerContext.nValue2 = 0;
+
 	return (effect_index==1);
 }
 
@@ -5473,7 +5481,79 @@ bool CSekkiSeasonsGuideCard::BeforeResolution(CSekkiSeasonsGuideCard::TriggeredA
 	pModifier1.ApplyTo(this);
 
 	CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Spirit A"), 2800, -nValue);
+
+	if (pAction->GetTriggerContext().nValue2 == 1)
+		pModifier2.SetDoubling(false);
+
 	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CPureIntentionsCard::CPureIntentionsCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Pure Intentions"), CardType::Instant | CardType::Arcane, nID)
+{
+	{
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+				WHITE_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPureIntentionsCard::BeforeResolution1));
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, ZoneId::Hand, ZoneId::_AllZones));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPureIntentionsCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CPureIntentionsCard::BeforeResolution2));
+
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CPureIntentionsCard::BeforeResolution1(CAbilityAction* pAction)
+{
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Pure Intentions Effect"), 61087, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+bool CPureIntentionsCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	const CStackAbilityAction* pAction = GetGame()->GetStack().GetCurrentStackAction();
+	if (pAction && pAction->GetController() == GetController()) return false;
+	
+	if (moveType != MoveType::Discard) return false;
+
+	if (pToZone->GetZoneId() == ZoneId::Graveyard)
+		triggerContext.nValue1 = 1;
+	else
+		triggerContext.nValue1 = 0;
+
+	return true;
+}
+
+bool CPureIntentionsCard::BeforeResolution2(TriggeredAbility::TriggeredActionType* pAction)
+{
+	if (pAction->GetTriggerContext().nValue1 == 1)
+	{
+		CCountedCardContainer pSubjects;
+		if (IsInGraveyard())
+			pSubjects.AddCard(this, CardPlacement::Top);
+
+		CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Raise Effect"), 61082, &pSubjects);
+		pModifier.ApplyTo(pAction->GetController());
+
+		return true;
+	}
 
 	return true;
 }

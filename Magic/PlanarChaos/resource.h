@@ -150,6 +150,7 @@
 #define IDS_STRING2633                  2633
 #define IDS_STRING2634                  2634
 #define IDS_STRING2635                  2635
+#define IDS_STRING2636                  2636
 #define IDI_MODULE                      2665
 #define IDI_LARGE_MODULE                2666
 

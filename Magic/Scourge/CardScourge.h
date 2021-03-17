@@ -940,7 +940,7 @@ protected:
 	bool BeforeResolution(CAbilityAction* pAction);
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-	int m_nCards;
+	int_ m_nCards;
 };
 
 //____________________________________________________________________________

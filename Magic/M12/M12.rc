@@ -370,7 +370,8 @@ BEGIN
     IDS_STRING22332         "Doubling Chant\n{5G}\nSorcery\nM12,R\nFor each creature you control, you may search your library for a creature card with the same name as that creature. Put those cards onto the battlefield, then shuffle your library."
     IDS_STRING22333         "Sundial of the Infinite\n{2}\nArtifact\nM12,R\n{1}, {T}: End the turn. Activate this ability only during your turn."
     IDS_STRING22334         "Mind Unbound\n{4UU}\nArtifact\nM12,R\nAt the beginning of your upkeep, put a lore counter on Mind Unbound, then draw a card for each lore counter on Mind Unbound."
-    IDS_STRING22335         "Autumn's Veil\n{G}\nInstant\nM12,U\nSpells you control can't be countered by blue or black spells this turn, and creatures you control can't be the targets of blue or black spells this turn."
+    IDS_STRING22335         "Bloodlord of Vaasgoth\n{3BB}\nCreature - Vampire Warrior\nM12,MR\nBloodthirst 3\rFlying\rWhenever you cast a Vampire creature spell, it gains bloodthirst 3.\n3/3"
+//    IDS_STRING22335         "Autumn's Veil\n{G}\nInstant\nM12,U\nSpells you control can't be countered by blue or black spells this turn, and creatures you control can't be the targets of blue or black spells this turn."
 END
 
 #endif    // English (United States) resources

@@ -70,6 +70,7 @@ protected:
 
 private:
 	friend CFaceTransformModifier;
+	friend CGraveyardFaceTransformModifier;
 	void FirstFace();
 	void SecondFace();
 

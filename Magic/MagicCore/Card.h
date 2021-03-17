@@ -344,9 +344,11 @@ public:
 
 	void SetLastKnownp11Counters(int nCounters)	            {  m_nLastKnownp11Counters = nCounters; }
 	void SetLastKnownm11Counters(int nCounters)	            {  m_nLastKnownm11Counters = nCounters; }
+	void SetLastKnownFungusCounters(int nCounters)	        {  m_nLastKnownFungusCounters = nCounters; }
 
 	int GetLastKnownp11Counters() const                     { return m_nLastKnownp11Counters; }
 	int GetLastKnownm11Counters() const                     { return m_nLastKnownm11Counters; }
+	int GetLastKnownFungusCounters() const                  { return m_nLastKnownFungusCounters; }
 
 	void IncreaseTargetedNumber()                           { m_nTargetedNumber = m_nTargetedNumber + 1;}
 	int GetTargetedNumber() const                           { return m_nTargetedNumber; }
@@ -611,6 +613,7 @@ protected:
 	int_									m_nLastCastingExtraValue;
 	int_                                    m_nLastKnownp11Counters;
 	int_                                    m_nLastKnownm11Counters;
+	int_                                    m_nLastKnownFungusCounters;
 	int_                                    m_nTargetedNumber;
 
 	counted_ptr<DamageDealEventSource>		m_cpDamageDealEventSource;

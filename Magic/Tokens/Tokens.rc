@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -75,6 +76,66 @@ BEGIN
     IDS_MWS_FOLDER          "MWS\\TK\\"
 END
 
+STRINGTABLE
+BEGIN
+	IDS_STRING62000         "Saproling (I)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+	IDS_STRING62001         "Saproling (J)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+	IDS_STRING62002         "Saproling (K)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+	IDS_STRING62003         "Saproling (L)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+	IDS_STRING62004         "Saproling (M)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62005         "Reflection (B)\n{W}\nCreature - Reflection\nToken\n\n*/*"
+    IDS_STRING62006         "Sand Warrior\n{RGW}\nCreature - Sand Warrior\nToken\n\n1/1"
+    IDS_STRING62007         "Pegasus (C)\n{W}\nCreature - Pegasus\nToken\nFlying\n1/1"
+    IDS_STRING62008         "Myr (B)\n{1}\nArtifact Creature - Myr\nToken\n\n1/1"
+    IDS_STRING62009         "Myr (C)\n{1}\nArtifact Creature - Myr\nToken\n\n1/1"
+    IDS_STRING62010         "Kithkin Soldier (B)\n{W}\nCreature - Kithkin Soldier\nToken\n\n1/1"
+    IDS_STRING62011         "Insect (G)\n{G}\nCreature - Insect\nToken\n\n1/1"
+    IDS_STRING62012         "Insect (H)\n{G}\nCreature - Insect\nToken\n\n1/1"
+    IDS_STRING62013         "Human (C)\n{W}\nCreature - Human\nToken\n\n1/1"
+    IDS_STRING62014         "Hippo (B)\n{G}\nCreature - Hippo\nToken\n\n1/1"
+    IDS_STRING62015         "Elemental (Q)\n{G}\nCreature - Elemental\nToken\n\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING62016         "Eldrazi\n{1}\nCreature - Eldrazi\nToken\nAnnihilator 1\n7/7"
+    IDS_STRING62017         "Ooze (F)\n{G}\nCreature - Ooze\nToken\n\n*/*"
+    IDS_STRING62018         "Goblin (G)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62019         "Goblin (H)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62020         "Goblin (I)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62021         "Goblin (J)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62022         "Goblin (K)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62023         "Goblin (L)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62024         "Goblin (M)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING62025         "Goblin Soldier (B)\n{RW}\nCreature - Goblin Soldier\nToken\n\n1/1"
+    IDS_STRING62026         "Orb\n{U}\nCreature - Orb\nToken\nFlying\n*/*"
+    IDS_STRING62027         "Horror (C)\n{1}\nCreature - Horror\nToken\n\n*/*"
+    IDS_STRING62028         "Minion (A)\n{B}\nCreature - Minion\nToken\n\n*/*"
+    IDS_STRING62029         "Minion (B)\n{B}\nCreature - Minion\nToken\n\n1/1"
+    IDS_STRING62030         "Lizard\n{G}\nCreature - Lizard\nToken\n\n2/2"
+    IDS_STRING62031         "Tetravite\n{1}\nCreature - Tetravite\nToken\nFlying\rThis creature can't be enchanted.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING62032         "Blank (A)\n{W}\nCreature\nToken\n\n2/2"
+    IDS_STRING62033         "Blank (B)\n{U}\nCreature\nToken\n\n2/2"
+    IDS_STRING62034         "Blank (C)\n{B}\nCreature\nToken\n\n2/2"
+    IDS_STRING62035         "Blank (D)\n{R}\nCreature\nToken\n\n2/2"
+    IDS_STRING62036         "Blank (E)\n{G}\nCreature\nToken\n\n2/2"
+    IDS_STRING62037         "Blank (F)\n{1}\nCreature\nToken\n\n2/2"
+    IDS_STRING62038         "Blank (G)\n{W}\nCreature\nToken\n\n*/*"
+    IDS_STRING62039         "Blank (H)\n{U}\nCreature\nToken\n\n*/*"
+    IDS_STRING62040         "Blank (I)\n{B}\nCreature\nToken\n\n*/*"
+    IDS_STRING62041         "Blank (J)\n{R}\nCreature\nToken\n\n*/*"
+    IDS_STRING62042         "Blank (K)\n{G}\nCreature\nToken\n\n*/*"
+    IDS_STRING62043         "Blank (L)\n{1}\nCreature\nToken\n\n*/*"
+	IDS_STRING62044         "Skeleton (B)\n{B}\nCreature - Skeleton\nToken\n{B}: Regenerate this creature.\n1/1"
+	IDS_STRING62045         "Dragon Spirit\n{U}\nCreature - Dragon Spirit\nToken\nFlying\n5/5"
+	IDS_STRING62046         "Wall (B)\n{1}\nArtifact Creature - Wall\nToken\nDefender\n0/2"
+	IDS_STRING62047         "Twin\n{1}\nArtifact Creature - Construct\nToken\n\n*/*"
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -85,7 +146,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

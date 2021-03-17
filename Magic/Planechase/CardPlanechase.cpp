@@ -29,7 +29,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 			DEFINE_CARD(CPoolsofBecomingCard);
 			DEFINE_CARD(CShivCard);
 			DEFINE_CARD(CSkybreenCard);
+			DEFINE_CARD(CSokenzanCard);
 			DEFINE_CARD(CTheAEtherFluesCard);
+			DEFINE_CARD(CTheFourthSphereCard);
 			DEFINE_CARD(CTheGreatForestCard);
 			DEFINE_CARD(CTheHippodromeCard);
 			DEFINE_CARD(CVelisVelCard);
@@ -322,6 +324,7 @@ CGoldmeadowCard::CGoldmeadowCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}	
 }
+
 bool CGoldmeadowCard::SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
 											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
 {
@@ -1363,6 +1366,99 @@ bool CMurasaCard::BeforeResolution(CAbilityAction* pAction) const
 	pModifier.ApplyTo(pCard);
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CTheFourthSphereCard::CTheFourthSphereCard(CGame* pGame, UINT nID)
+	: CPlaneCard(pGame, _T("The Fourth Sphere"), PlaneType::Phyrexia, nID)
+{
+	{
+		typedef
+			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
+		cpAbility->GetGatherer().GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::Black, false));
+		cpAbility->GetGatherer().SetDefaultCharacteristic(Characteristic::Negative);
+		cpAbility->GetGatherer().SetIncludeControllerCardsOnly();
+
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
+		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CTheFourthSphereCard::SetTriggerContext));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+		TTriggeredAbility< CTriggeredCreateTokenAbility, CSpecialChaosTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHAOS_SYMBOL_TRIGGER_ID);
+		cpAbility->GetTrigger().SetForceTriggerIndex(FORCE_CHAOS_SYMBOL_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new TrueCardComparer());
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::_Effects);
+
+		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie F"), 2883, 1);
+
+
+		AddAbility(cpAbility.GetPointer());
+	}	
+}
+
+bool CTheFourthSphereCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return (GetZone()->GetZoneId() == ZoneId::_Effects);
+}
+
+//____________________________________________________________________________
+//
+CSokenzanCard::CSokenzanCard(CGame* pGame, UINT nID)
+	: CPlaneCard(pGame, _T("Sokenzan"), PlaneType::Kamigawa, nID)
+{
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new CardTypeComparer(CardType::Creature, false),
+				Power(+1), Life(+1), CreatureKeyword::Haste));
+
+		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+		TTriggeredAbility< CTriggeredExtraCombatAbility, CSpecialChaosTrigger > TriggeredAbility;
+
+        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
+
+		cpAbility->GetTrigger().SetTriggerIndex(CHAOS_SYMBOL_TRIGGER_ID);
+		cpAbility->GetTrigger().SetForceTriggerIndex(FORCE_CHAOS_SYMBOL_TRIGGER_ID);
+
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new TrueCardComparer());
+		cpAbility->GetTrigger().SetTriggerinZone(ZoneId::_Effects);
+
+		cpAbility->SetUntapAttackedThisTurn(TRUE);
+
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}	
 }
 
 //____________________________________________________________________________

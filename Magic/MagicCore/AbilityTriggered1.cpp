@@ -3586,3 +3586,72 @@ BOOL CTriggeredCipherCastAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CT
 
 //____________________________________________________________________________
 //
+CTriggeredExtraCombatAbility::CTriggeredExtraCombatAbility(CCard* pCard)
+	: CTriggeredAbility(pCard)
+	, m_nAdditionalAttackCount(1)
+	, m_bThisTurnOnly(TRUE)
+	, m_bUntapAttackedThisTurn(FALSE)
+{
+	//SetOptionalIsTrick(TRUE);
+}
+
+BOOL CTriggeredExtraCombatAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTriggeredAction* pAction)
+{
+	if (!__super::ResolveSelection(pTriggeredPlayer, pAction))
+		return FALSE;
+
+	const CPlayer* pCaster = pAction->GetController();
+	const CMainNode* pMainNode = (CMainNode*)pCaster->GetGraph()->GetNodeById(NodeId::MainPhaseStep);
+	const_cast<CMainNode*>(pMainNode)->IncreaseMaxCombatCount(m_nAdditionalAttackCount, m_bThisTurnOnly);
+
+	if (m_bUntapAttackedThisTurn)
+	{
+		const CZone* pInplay = pCaster->GetZoneById(ZoneId::Battlefield);
+		for (int i = 0; i < pInplay->GetSize(); ++i)
+		{
+			const CCard* pCard = pInplay->GetAt(i);
+			if ((pCard->GetCardType() & CardType::Creature).Any())
+			{
+				const CCreatureCard* pCreatureCard = static_cast<const CCreatureCard*>(pCard);
+				if (pCreatureCard->AttackedThisTurn())
+					const_cast<CCreatureCard*>(pCreatureCard)->GetOrientation()->Untap();
+			}
+		}
+	}
+
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+CTriggeredHellkiteChargerAbility::CTriggeredHellkiteChargerAbility(CCard* pCard)
+	: CTriggeredAbility(pCard)
+{
+	//SetOptionalIsTrick(TRUE);
+}
+
+BOOL CTriggeredHellkiteChargerAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTriggeredAction* pAction)
+{
+	if (!__super::ResolveSelection(pTriggeredPlayer, pAction))
+		return FALSE;
+
+	CPlayer* pController = pAction->GetController();
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new AttackingCreatureComparer);
+
+	CZoneCardModifier pModifier1 = CZoneCardModifier(ZoneId::Battlefield, &m_CardFilter,
+		std::auto_ptr<CCardModifier>(new CCardOrientationModifier(FALSE)));
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		pModifier1.ApplyTo(GetGame()->GetPlayer(ip));
+
+	CFastCombatModifier pModifier2 = CFastCombatModifier(m_pGame);
+
+	pModifier2.ApplyTo(pController);
+	
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//

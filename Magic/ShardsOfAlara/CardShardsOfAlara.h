@@ -994,12 +994,8 @@ class CDregscapeZombieCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDregscapeZombieCard);
 
-//public:
-	//OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1217,12 +1213,8 @@ class CFatestitcherCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CFatestitcherCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1231,12 +1223,8 @@ class CKathariScreecherCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CKathariScreecherCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1245,12 +1233,8 @@ class CKederektLeviathanCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CKederektLeviathanCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1259,12 +1243,8 @@ class CCorpseConnoisseurCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCorpseConnoisseurCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1273,12 +1253,8 @@ class CUndeadLeotauCard : public CPumpCreatureCard
 {
 	DECLARE_CARD_CSTOR(CUndeadLeotauCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1287,12 +1263,8 @@ class CVisceraDraggerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVisceraDraggerCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1301,12 +1273,8 @@ class CHellsThunderCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHellsThunderCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1328,12 +1296,8 @@ class CScourgeDevilCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CScourgeDevilCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1355,26 +1319,18 @@ class CVithianStingerCard : public CTargetChgLifeTCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVithianStingerCard);
 
-public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
 //
-class CFirefieldOgreCard : public CFirstStrikeCreatureCard
+class CFireFieldOgreCard : public CFirstStrikeCreatureCard
 {
-	DECLARE_CARD_CSTOR(CFirefieldOgreCard);
+	DECLARE_CARD_CSTOR(CFireFieldOgreCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1383,12 +1339,8 @@ class CSedraxisSpecterCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSedraxisSpecterCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1792,14 +1744,8 @@ class CBranchingBoltCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CBranchingBoltCard);
 
-private:
-	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
-						   CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
 protected:
-	BOOL CanPlay1(BOOL bIncludeTricks);
-	BOOL CanPlay2(BOOL bIncludeTricks);
-	BOOL CanPlay3(BOOL bIncludeTricks);
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -2132,6 +2078,16 @@ protected:
 	void LibrarySearchQuery(CPlayer* pController);
 	void OnQuerySelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	void LibrarySearch(CPlayer* pController);
+};
+
+//____________________________________________________________________________
+//
+class CSkeletonizeCard : public CTargetChgLifeSpellCard
+{
+	DECLARE_CARD_CSTOR(CSkeletonizeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

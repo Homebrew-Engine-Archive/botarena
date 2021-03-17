@@ -342,6 +342,12 @@
 #define IDS_STRING7925                  7925
 #define IDS_STRING7926                  7926
 #define IDS_STRING7927                  7927
+#define IDS_STRING7928                  7928
+#define IDS_STRING7929                  7929
+#define IDS_STRING7930                  7930
+#define IDS_STRING7931                  7931
+#define IDS_STRING7932                  7932
+#define IDS_STRING7933                  7933
 #define IDI_MODULE                      7978
 #define IDI_LARGE_MODULE                7979
 

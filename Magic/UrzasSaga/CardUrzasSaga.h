@@ -449,6 +449,9 @@ class CMobileFortCard : public CPumpCreatureCard
 class CWallOfJunkCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWallOfJunkCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -547,6 +550,10 @@ class CDragonBloodCard : public CInPlaySpellCard
 class CMetrognomeCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CMetrognomeCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________
@@ -1259,24 +1266,15 @@ protected:
 class CSneakAttackCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CSneakAttackCard);
+
+protected:
+	CSelectionSupport m_CardSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________
 //
-//class CElectryteCard : public CCreatureCard
-//{
-//	DECLARE_CARD_CSTOR(CElectryteCard);
-//
-//protected:
-//	typedef
-//		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfDamageDealt,
-//							CWhenSelfDamageDealt::PlayerEventCallback, 
-//							&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
-//	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
-//};
-//
-////____________________________________________________________________________
-////
 class CVampiricEmbraceCard : public CChgPwrTghAttrEnchantCard
 {
 	DECLARE_CARD_CSTOR(CVampiricEmbraceCard);
@@ -1762,5 +1760,115 @@ protected:
 	};
 };
 */
+//____________________________________________________________________________
+//
+class CBarrinsCodexCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CBarrinsCodexCard);
+
+protected:
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	int_ m_nCounterCount;
+	ListenerPtr<CounterMovedEventSource::Listener>	m_cpAListener;
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+	void OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);
+};
+
+//____________________________________________________________________________
+//
+class CLotusBlossomCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CLotusBlossomCard);
+
+protected:
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	int_ m_nCounterCount;
+	ListenerPtr<CounterMovedEventSource::Listener>	m_cpAListener;
+
+	BOOL CanPlay1(BOOL bIncludeTricks);
+	BOOL CanPlay2(BOOL bIncludeTricks);
+
+	bool BeforeResolution1(CAbilityAction* pAction) const;
+	bool BeforeResolution2(CAbilityAction* pAction) const;
+	bool BeforeResolution3(CAbilityAction* pAction) const;
+	bool BeforeResolution4(CAbilityAction* pAction) const;
+	bool BeforeResolution5(CAbilityAction* pAction) const;
+	void OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);
+};
+
+//____________________________________________________________________________
+//
+class CGreenerPasturesCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CGreenerPasturesCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CSporogenesisCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CSporogenesisCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
+												CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CPhyrexianProcessorCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CPhyrexianProcessorCard);
+
+protected:
+	VIRTUAL(void, OnSelectionDone)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_Selection;
+	
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	int_ m_nLifePaid;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CElectryteCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CElectryteCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::PlayerEventCallback, 
+							&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CLifelineCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CLifelineCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
 //____________________________________________________________________________
 //

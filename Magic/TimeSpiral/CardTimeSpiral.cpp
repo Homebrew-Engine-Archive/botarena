@@ -133,6 +133,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLotusBloomCard);
 		DEFINE_CARD(CMagusOfTheCandelabraCard);
 		DEFINE_CARD(CMagusOfTheDiskCard);
+		DEFINE_CARD(CMagusOfTheJarCard);
 		DEFINE_CARD(CMagusOfTheMirrorCard);
 		DEFINE_CARD(CMagusoftheScrollCard);
 		DEFINE_CARD(CManaSkimmerCard);
@@ -178,6 +179,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CReturnToDustCard);
 		DEFINE_CARD(CRiftBoltCard);
 		DEFINE_CARD(CRiftwingCloudskateCard);
+		DEFINE_CARD(CSaffiEriksdotterCard);
 		DEFINE_CARD(CSageOfEpityrCard);
 		DEFINE_CARD(CSaltcrustedSteppeCard);
 		DEFINE_CARD(CSangrophageCard);
@@ -251,6 +253,8 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CWipeAwayCard);
 		DEFINE_CARD(CWordOfSeizingCard);
 		DEFINE_CARD(CWormwoodDryadCard);
+		DEFINE_CARD(CWurmcallingCard);
+		DEFINE_CARD(CYavimayaDryadCard);
 
 	} while (false);
 
@@ -1349,12 +1353,10 @@ CFlowstoneChannelerCard::CFlowstoneChannelerCard(CGame* pGame, UINT nID)
 CMightOfOldKrosaCard::CMightOfOldKrosaCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Might of Old Krosa"), CardType::Instant, nID)
 {
-	counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant,
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
 			GREEN_MANA_TEXT,
-			Power(+2), Life(+2),
-			CreatureKeyword::Null, CreatureKeyword::Null,
-			TRUE, PreventableType::NotPreventable));
+			new AnyCreatureComparer, false));
 
 	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMightOfOldKrosaCard::BeforeResolution));
 
@@ -1363,13 +1365,16 @@ CMightOfOldKrosaCard::CMightOfOldKrosaCard(CGame* pGame, UINT nID)
 
 bool CMightOfOldKrosaCard::BeforeResolution(CAbilityAction* pAction) const
 {
+	int nValue = 2;
+
 	if (GetGame()->GetCurrentNode()->GetNodeId() == NodeId::MainPhaseStep && GetGame()->GetActivePlayer() == pAction->GetController())
-	{
-		ContextValue context(pAction->GetValue());
-		context.nValue1 = +4;
-		context.nValue2 = +4;
-		pAction->SetValue(context);
-	}
+		nValue = 4;
+
+	CPowerModifier pModifier1 = CPowerModifier(Power(nValue));
+	CLifeModifier pModifier2 = CLifeModifier(Life(nValue), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+
+	pModifier1.ApplyTo((CCreatureCard*)pAction->GetAssociatedCard());
+	pModifier2.ApplyTo((CCreatureCard*)pAction->GetAssociatedCard());
 
 	return true;
 }
@@ -1941,7 +1946,7 @@ CMoggWarMarshalCard::CMoggWarMarshalCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Goblin C"), 2702, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Goblin I"), 62020, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -1957,7 +1962,7 @@ CMoggWarMarshalCard::CMoggWarMarshalCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Goblin C"), 2702, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Goblin I"), 62020, 1);
 
 		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 
@@ -3146,7 +3151,7 @@ CThunderTotemCard::CThunderTotemCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT,
-				_T("Spirit B"), 2810));
+				_T("Spirit AA"), 64068));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -3489,7 +3494,7 @@ CSproutCard::CSproutCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Instant,
 			GREEN_MANA_TEXT,
-			_T("Saproling B"), 2712,
+			_T("Saproling H"), 2923,
 			1));
 
 	AddSpell(cpSpell.GetPointer());
@@ -3771,7 +3776,7 @@ CDeathsporeThallidCard::CDeathsporeThallidCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Saproling B"), 2712,
+				_T("Saproling H"), 2923,
 				1));
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
@@ -3818,7 +3823,7 @@ CSavageThallidCard::CSavageThallidCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Saproling B"), 2712,
+				_T("Saproling H"), 2923,
 				1));
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
@@ -3863,7 +3868,7 @@ CThallidGerminatorCard::CThallidGerminatorCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Saproling B"), 2712,
+				_T("Saproling H"), 2923,
 				1));
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
@@ -3910,7 +3915,7 @@ CThallidShellDwellerCard::CThallidShellDwellerCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Saproling B"), 2712, 1));
+				_T("Saproling H"), 2923, 1));
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
 
@@ -4490,7 +4495,7 @@ counted_ptr<CAbility> CVerdantEmbraceCard::CreateAdditionalAbility(CCard* pCard)
 		::CreateObject<TriggeredAbility>(pCard, NodeId::UpkeepStep));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling B"), 2712, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling H"), 2923, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -4548,29 +4553,12 @@ CNorinTheWaryCard::CNorinTheWaryCard(CGame* pGame, UINT nID)
 
 void CNorinTheWaryCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target = (CCard*)this;
-	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
-	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
-	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
+	CCountedCardContainer pSubjects;
+	if (GetZoneId() == ZoneId::Exile)
+		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
-	m_CardFlagModifier1.ApplyTo(target);
-
-	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
-	pComparer->SetData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	
-	m_CardFilter_temp.SetComparer(new TrueCardComparer);
-	m_CardFilter_temp.AddComparer(pComparer);
-
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Exile, &m_CardFilter_temp,
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, TRUE, MoveType::Others)));
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame() , pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
-	pModifier2->ApplyTo(target->GetOwner());
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -4606,7 +4594,7 @@ CSporesowerThallidCard::CSporesowerThallidCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Saproling B"), 2712,
+				_T("Saproling H"), 2923,
 				1));
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
@@ -5073,7 +5061,7 @@ CIbHalfheartGoblinTacticianCard::CIbHalfheartGoblinTacticianCard(CGame* pGame, U
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Goblin C"), 2702,
+				_T("Goblin I"), 62020,
 				2));
 
 		cpAbility->GetCost().AddSacrificeCardCost(2, CCardFilter::GetFilter(_T("Mountains")));
@@ -6171,7 +6159,7 @@ CEmptyTheWarrensCard::CEmptyTheWarrensCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("3") RED_MANA_TEXT,
-				_T("Goblin C"), 2702,
+				_T("Goblin I"), 62020,
 				2));
 
 		AddSpell(cpSpell.GetPointer());
@@ -7983,31 +7971,36 @@ CGorgonRecluseCard::CGorgonRecluseCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-							CWhenSelfAttackedBlocked::BlockEventCallback2, 
-							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
+		cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("non-black creatures")));
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGorgonRecluseCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CGorgonRecluseCard::BeforeResolution));
 
-	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("non-black creatures")));
-
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGorgonRecluseCard::SetTriggerContext));
-
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 }
 
-bool CGorgonRecluseCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+bool CGorgonRecluseCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CGorgonRecluseCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
 	return true;
 }
 
@@ -8258,7 +8251,7 @@ CTheloniteHermitCard::CTheloniteHermitCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling B"), 2712, 4);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling H"), 2923, 4);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -9381,7 +9374,7 @@ CSarpadianEmpiresVolVIICard::CSarpadianEmpiresVolVIICard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("3"),
-				_T("Goblin C"), 2702,
+				_T("Goblin I"), 62020,
 				1));
 
 		cpAbility->AddTapCost();
@@ -9400,7 +9393,7 @@ CSarpadianEmpiresVolVIICard::CSarpadianEmpiresVolVIICard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("3"),
-				_T("Saproling B"), 2712,
+				_T("Saproling H"), 2923,
 				1));
 
 		cpAbility->AddTapCost();
@@ -11176,4 +11169,197 @@ bool CSpikeTillerCard::BeforeResolution(CAbilityAction* pAction) const
 }
 
 //____________________________________________________________________________
+//
+CWurmcallingCard::CWurmcallingCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Wurmcalling"), CardType::Sorcery, nID)
+	, m_BuybackCost(_T("2") GREEN_MANA_TEXT)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			GREEN_MANA_TEXT));
+
+
+	cpSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
+	cpSpell->GetCost().AddOptionalManaCost(m_BuybackCost);
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CWurmcallingCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+void CWurmcallingCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
+{
+	if ((GetZoneId() == ZoneId::Stack) &&
+		(pToZone->GetZoneId() == ZoneId::Graveyard) &&
+		(moveType == MoveType::Cast) &&
+		(GetLastCastingCostConfigEntry().HasOptionalManaCost(m_BuybackCost)))
+	{
+		cardPlacement = CardPlacement::Top;
+		pToZone = GetOwner()->GetZoneById(ZoneId::Hand);
+	}
+
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+}
+
+bool CWurmcallingCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+
+	int n = pAction->GetCostConfigEntry().GetExtraValue();
+
+	int nTokenCount = 1;
+
+	int nMultiplier = 0;
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Wurm C"), 2845));		
+		
+		if (!m_pGame->IsThinking())
+		{ ((CTokenCreature*)cpToken.GetPointer())->SetUID(2845); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(_T("Wurm C")); }
+
+		pController->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+		
+		CCreatureCard* pCreature = (CCreatureCard*)cpToken.GetPointer();
+
+		pCreature->SetPrintedPower(Power(n));
+		pCreature->SetPrintedToughness(Life(n));		
+
+		cpToken->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+	}
+
+	return true;
+}
+
+//________________________________________________________________________________
+//
+CMagusOfTheJarCard::CMagusOfTheJarCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Magus of the Jar"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
+		_T("3") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(3), Life(3))
+{
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("")));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddTapCost();
+	cpAbility->AddSacrificeCost();
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMagusOfTheJarCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());	
+}
+
+bool CMagusOfTheJarCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+
+	CCountedCardContainer pSubjects;
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Hand, ZoneId::_ExileFaceDown, true, MoveType::Others, pController);
+	CDrawCardModifier pModifier2 = CDrawCardModifier(GetGame(), MinimumValue(7), MaximumValue(7));
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CZone* pHand = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Hand);
+
+		for (int i = pHand->GetSize() - 1; i >= 0; --i)
+		{
+			CCard* pCard = pHand->GetAt(i);
+			pModifier1.ApplyTo(pCard);
+
+			if (pCard->GetZoneId() == ZoneId::_ExileFaceDown)
+				pSubjects.AddCard(pCard, CardPlacement::Top);
+		}
+	}
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
+
+	CContainerEffectModifier pModifier3 = CContainerEffectModifier(GetGame(), _T("Magus of the Jar Effect"), 61081, &pSubjects);
+	pModifier3.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CSaffiEriksdotterCard::CSaffiEriksdotterCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Saffi Eriksdotter"), CardType::_LegendaryCreature, CREATURE_TYPE2(Human, Scout), nID,
+		GREEN_MANA_TEXT WHITE_MANA_TEXT, Power(2), Life(2))
+{
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+			_T(""),
+			new AnyCreatureComparer, false));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddSacrificeCost();
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSaffiEriksdotterCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());	
+}
+
+bool CSaffiEriksdotterCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Saffi Eriksdotter Effect"), 61101, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CYavimayaDryadCard::CYavimayaDryadCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Yavimaya Dryad"), CardType::Creature, CREATURE_TYPE(Dryad), nID,
+		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(1))
+{
+	GetCreatureKeyword()->AddLandwalk(CreatureKeyword::Forestwalk, FALSE);
+
+	typedef
+		TTriggeredTargetAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
+
+	cpAbility->GetTargeting().SetIncludePlayers(TRUE);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CYavimayaDryadCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Battlefield));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CYavimayaDryadCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pTarget = pAction->GetAssociatedPlayer();
+
+	CCountedCardContainer pCards;
+	CPlayerSearchModifier pModifier = CPlayerSearchModifier(GetController(),
+		MinimumValue(0), MaximumValue(1),
+		GetController(), ZoneId::Library,
+		CCardFilter::GetFilter(_T("Forests")),
+		ZoneId::Library, FALSE, CardPlacement::Top, TRUE, FALSE, FALSE, &pCards);
+
+	pModifier.ApplyTo(pAction->GetController());
+	
+	if (pCards.GetSize() > 0)
+	{
+		CCard* pCard = pCards.GetAt(0);
+
+		pCard->GetOrientation()->Tap();
+		pCard->Move(pTarget->GetZoneById(ZoneId::Battlefield), pTarget, MoveType::Others);
+	}
+
+	return true;
+}
+
+//_____________________________________________________________________________
 //

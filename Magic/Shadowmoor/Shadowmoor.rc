@@ -410,6 +410,13 @@ BEGIN
     IDS_STRING18764         "Sinking Feeling\n{2U}\nEnchantment - Aura\nSHM,C\nEnchanted creature doesn't untap during its controller's untap step.\rEnchanted creature has ""{1}, Put a -1/-1 counter on this creature: Untap this creature."""
     IDS_STRING18765         "Spell Syphon\n{1U}\nInstant\nSHM,C\nCounter target spell unless its controller pays {1} for each blue permanent you control."
     IDS_STRING18766         "Flourishing Defenses\n{4G}\nEnchantment\nSHM,U\nWhenever a -1/-1 counter is placed on a creature, you may put a 1/1 green Elf Warrior creature token onto the battlefield."
+    IDS_STRING18767         "Repel Intruders\n{3A}\nInstant\nSHM,U\nPut two 1/1 white Kithkin Soldier creature tokens onto the battlefield if {W} was spent to cast Repel Intruders. Counter up to one target creature spell if {U} was spent to cast Repel Intruders."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18768         "Cragganwick Cremator\n{2RR}\nCreature - Giant Shaman\nSHM,R\nWhen Cragganwick Cremator enters the battlefield, discard a card at random. If you discard a creature card this way, Cragganwick Cremator deals damage equal to that card's power to target player.\n5/4"
+    IDS_STRING18769         "Elsewhere Flask\n{2}\nArtifact\nSHM,C\nWhen Elsewhere Flask enters the battlefield, draw a card.\rSacrifice Elsewhere Flask: Choose a basic land type. Each land you control becomes that type until end of turn."
 END
 
 #endif    // English (United States) resources

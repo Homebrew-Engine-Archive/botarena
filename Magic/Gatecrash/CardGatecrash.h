@@ -970,21 +970,6 @@ private:
 
 //____________________________________________________________________________
 //
-/*
-class CAureliaTheWarleaderCard : public CFlyingCreatureCard
-{
-	DECLARE_CARD_CSTOR(CAureliaTheWarleaderCard);
-
-protected:
-	BOOL bFirstAttack;
-	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
-										  AttackSubject attacked);
-	bool BeforeResolution(CAbilityAction* pAction);
-	bool BeforeResolutionAux(CAbilityAction* pAction);
-};
-*/
-//____________________________________________________________________________
-//
 class COgreSlumlordCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(COgreSlumlordCard);
@@ -2336,6 +2321,49 @@ class CWreckingOgreCard : public CCreatureCard
 class CZarichiTigerCard : public CCreatureCard
 {
     DECLARE_CARD_CSTOR(CZarichiTigerCard);
+};
+
+//____________________________________________________________________________
+//
+class CIncursionSpecialistCard : public CCreatureCard
+{
+    DECLARE_CARD_CSTOR(CIncursionSpecialistCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+class CAureliaTheWarleaderCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CAureliaTheWarleaderCard);
+
+protected:
+	BOOL_ bFirstAttack;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+										  AttackSubject attacked);
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool BeforeResolutionAux(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CObzedatGhostCouncilCard : public CCreatureCard
+{
+    DECLARE_CARD_CSTOR(CObzedatGhostCouncilCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) ;
+	CCardFlagModifier* m_CardFlagModifier1;
+
+	CWhenSelfMoved m_WhenSelfMoved;
+	void OnZoneChanged(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

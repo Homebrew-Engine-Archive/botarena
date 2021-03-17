@@ -58,6 +58,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFrogtosserBanneretCard);
 		DEFINE_CARD(CGameTrailChangelingCard);
         DEFINE_CARD(CGiltLeafArchdruidCard);
+		DEFINE_CARD(CGracefulReprieveCard);
 		DEFINE_CARD(CGreatbowDoyenCard);
 		DEFINE_CARD(CHeritageDruidCard);
 		DEFINE_CARD(CHostileRealmCard);
@@ -953,23 +954,30 @@ CSwellOfCourageCard::CSwellOfCourageCard(CGame* pGame, UINT nID)
 	}
 	{
 		//Reinforce ability
-		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetSpell>>(this,
 				WHITE_MANA_TEXT WHITE_MANA_TEXT,
-				Power(+0), Life(+0),
-				CreatureKeyword::Null, CreatureKeyword::Null,
-				TRUE, PreventableType::NotPreventable));
+				new AnyCreatureComparer, false));
 
 		cpAbility->SetHandOnly();
 
 		cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
 		cpAbility->AddDiscardCost();
-		cpAbility->SetExtraActionValueVector(ContextValue(1, 1));
 
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSwellOfCourageCard::BeforeResolution));
 		cpAbility->SetAbilityText(_T("Reinforce -"));
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+bool CSwellOfCourageCard::BeforeResolution (CAbilityAction* pAction)
+{
+	int nExtra = pAction->GetCostConfigEntry().GetExtraValue();
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), nExtra);
+	pModifier.ApplyTo(pAction->GetAssociatedCard());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -1976,7 +1984,7 @@ CFloodchaserCard::CFloodchaserCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("+1/+1")), -1);
 
-		cpAbility->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
+		cpAbility->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2624,7 +2632,7 @@ CMutavaultCard::CMutavaultCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("1"),
-				_T("Shapeshifter"), 2857));
+				_T("Shapeshifter AA"), 64064));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -3871,7 +3879,7 @@ void CWolfSkullShamanCard::OnKinshipSelected(const std::vector<SelectionEntry>& 
 		{
 			if ((int)it->dwContext == 1)
 			{
-				CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Wolf A"), 2725, 1);
+				CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Wolf D"), 2840, 1);
 				CZoneModifier pModifier2 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 				pModifier2.ApplyTo(GetController());
@@ -6291,7 +6299,7 @@ CKinsbaileBorderguardCard::CKinsbaileBorderguardCard(CGame* pGame, UINT nID)
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKinsbaileBorderguardCard::SetTriggerContext));
 
-		cpAbility->SetCreateTokenOption(TRUE, _T("Kithkin Soldier"), 2742, 0);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Kithkin Soldier A"), 2742, 0);
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -6390,6 +6398,34 @@ CFendeepSummonerCard::CFendeepSummonerCard(CGame* pGame, UINT nID)
 			GetGame(), pModifier, TurnNumberDelta(-1), NodeId::CleanupStep2, true,  CScheduledCardModifier::Operation::ApplyToNowRemoveLater));
 
 	AddAbility(cpAbility.GetPointer());	
+}
+
+//____________________________________________________________________________
+//
+CGracefulReprieveCard::CGracefulReprieveCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Graceful Reprieve"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+			::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+				_T("1") WHITE_MANA_TEXT,
+				new AnyCreatureComparer, false));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGracefulReprieveCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CGracefulReprieveCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Graceful Reprieve Effect"), 61050, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

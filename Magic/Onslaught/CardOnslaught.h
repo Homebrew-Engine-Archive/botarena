@@ -1063,12 +1063,9 @@ class CLightningRiftCard : public CInPlaySpellCard
 class CAstralSlideCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CAstralSlideCard);
-	private:
-	CCardFilter m_CardFilter_temp;
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 
+protected:
+	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
 
@@ -1395,8 +1392,13 @@ class CSerpentineBasiliskCard : public CMorphCreatureCard
 	DECLARE_CARD_CSTOR(CSerpentineBasiliskCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 							CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1881,6 +1883,85 @@ protected:
 class CBlatantThieveryCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CBlatantThieveryCard);
+};
+
+//____________________________________________________________________________
+//
+class CAggravatedAssaultCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CAggravatedAssaultCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CRiptideReplicatorCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CRiptideReplicatorCard);
+
+protected:
+	VIRTUAL(void, OnColorSelected)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ColorSelection;
+
+	VIRTUAL(void, OnCreatureTypeSelected)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_CreatureTypeSelection;
+	
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	bool cWhite;
+	bool cBlue;
+	bool cBlack;
+	bool cRed;
+	bool cGreen;
+
+	SingleCreatureType SelectedType;
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpAListener1;	// Listen to this card's zone changes
+
+	int_ m_nCounterCount;
+	ListenerPtr<CounterMovedEventSource::Listener>	m_cpAListener2;
+	void OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);
+};
+
+//____________________________________________________________________________
+//
+class CAnimalMagnetismCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CAnimalMagnetismCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_OpponentSelection;
+	void OnOpponentSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	CCountedCardContainer_ pCreatures;
+};
+
+//____________________________________________________________________________
+//
+class CManaEchoesCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CManaEchoesCard);
+
+private:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+
+	CSelectionSupport m_Selection;
+	void OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

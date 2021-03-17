@@ -258,6 +258,18 @@ BEGIN
     IDS_STRING22040         "Glistening Oil\n{BB}\nEnchantment - Aura\nNPH,R\nEnchanted creature has infect.\rAt the beginning of your upkeep, put a -1/-1 counter on enchanted creature.\rWhen Glistening Oil is put into a graveyard from the battlefield, return Glistening Oil to its owner's hand."
     IDS_STRING22041         "Brutalizer Exarch\n{5G}\nCreature - Cleric\nNPH,U\nWhen Brutalizer Exarch enters the battlefield, choose one - Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it; or put target noncreature permanent on the bottom of its owner's library.\n3/3"
     IDS_STRING22042         "Entomber Exarch\n{2BB}\nCreature - Cleric\nNPH,U\nWhen Entomber Exarch enters the battlefield, choose one - Return target creature card from your graveyard to your hand; or target opponent reveals his or her hand, you choose a noncreature card from it, then that player discards that card.\n2/2"
+    IDS_STRING22043         "Inquisitor Exarch\n{WW}\nCreature - Cleric\nNPH,U\nWhen Inquisitor Exarch enters the battlefield, choose one - You gain 2 life; or target opponent loses 2 life.\n2/2"
+    IDS_STRING22044         "Tormentor Exarch\n{3R}\nCreature - Cleric\nNPH,U\nWhen Tormentor Exarch enters the battlefield, choose one - Target creature gets +2/+0 until end of turn; or target creature gets -0/-2 until end of turn.\n2/2"
+    IDS_STRING22045         "Parasitic Implant\n{3B}\nEnchantment - Aura\nNPH,C\nEnchant creature\rAt the beginning of your upkeep, enchanted creature's controller sacrifices it and you put a 1/1 colorless Myr artifact creature token onto the battlefield."
+    IDS_STRING22046         "Reaper of Sheoldred\n{4B}\nCreature - Horror\nNPH,U\nInfect\rWhenever a source deals damage to Reaper of Sheoldred, that source's controller gets a poison counter.\n2/5"
+    IDS_STRING22047         "Gremlin Mine\n{1}\nArtifact\nNPH,C\n{1}, {T}, Sacrifice Gremlin Mine: Gremlin Mine deals 4 damage to target artifact creature.\r{1}, {T}, Sacrifice Gremlin Mine: Remove up to four charge counters from target noncreature artifact."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING22048         "Whispering Specter\n{1BB}\nCreature - Specter\nNPH,C\nFlying\rInfect\rWhenever Whispering Specter deals combat damage to a player, you may sacrifice it. If you do, that player discards a card for each poison counter he or she has.\n1/1"
+    IDS_STRING22049         "Postmortem Lunge\n{X%}\nSorcery\nNPH,U\nReturn target creature card with converted mana cost X from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step."
+    //IDS_STRING22047         "Chancellor of the Annex\n{4WWW}\nCreature - Angel\nNPH,R\nYou may reveal this card from your opening hand. If you do, when each opponent casts his or her first spell of the game, counter that spell unless that player pays {1}.\rFlying\rWhenever an opponent casts a spell, counter it unless that player pays {1}.\n5/6"
 END
 
 #endif    // English (United States) resources

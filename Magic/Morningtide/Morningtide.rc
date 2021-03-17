@@ -169,7 +169,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING18368         "Mutavault\n\nLand\nMOR,R\n{T}: Add {1} to your mana pool.\r{1}: Mutavault becomes a 2/2 creature with all creature types until end of turn. It's still a land."
     IDS_STRING18369         "Vendilion Clique\n{1UU}\nLegendary creature - Faerie Wizard\nMOR,R\nFlash\rFlying\rWhen Vendilion Clique enters the battlefield, look at target player's hand. You may choose a nonland card from it. If you do, that player reveals the chosen card, puts it on the bottom of his or her library, then draws a card.\n3/1"
-    IDS_STRING18370         "Everbark Shaman\n{4G}\nCreature - Treefolk Shaman\nMOR,C\n{T}, Exile a Treefolk card from your graveyard: Search your library for two Forest cards and put them onto the battlefield tapped. Then shuffle your library.\n3/5"
+    IDS_STRING18370         "Everbark Shaman\n{4G}\nCreature - Treefolk Shaman\nMOR,C\n{T}, Exile a Treefolk card from your graveyard: Search your library for up to two Forest cards and put them onto the battlefield tapped. Then shuffle your library.\n3/5"
     IDS_STRING18371         "Scarblade Elite\n{BB}\nCreature - Elf Assassin\nMOR,R\n{T}, Exile an Assassin card from your graveyard: Destroy target creature.\n2/2"
     IDS_STRING18372         "Vengeful Firebrand\n{3R}\nCreature - Elemental Warrior\nMOR,R\nVengeful Firebrand has haste as long as a Warrior card is in your graveyard.\r{R}: Vengeful Firebrand gets +1/+0 until end of turn.\n5/2"
     IDS_STRING18373         "Rustic Clachan\n\nLand\nMOR,R\nAs Rustic Clachan enters the battlefield, you may reveal a Kithkin card from your hand. If you don't, Rustic Clachan enters the battlefield tapped.\r{T}: Add {W} to your mana pool.\rReinforce 1-{1W}"
@@ -252,6 +252,7 @@ BEGIN
     IDS_STRING18434         "Kinsbaile Borderguard\n{1WW}\nCreature - Kithkin Soldier\nMOR,R\nKinsbaile Borderguard enters the battlefield with a +1/+1 counter on it for each other Kithkin you control.\rWhen Kinsbaile Borderguard dies, put a 1/1 white Kithkin Soldier creature token onto the battlefield for each counter on it."
     IDS_STRING18435         "Feudkiller's Verdict\n{4WW}\nTribal Sorcery - Giant\nMOR,R\nYou gain 10 life. Then if you have more life than an opponent, put a 5/5 white Giant Warrior creature token onto the battlefield."
     IDS_STRING18436         "Fendeep Summoner\n{4B}\nCreature - Treefolk Shaman\nMOR,R\n{T}: Up to two target Swamps each become 3/5 Treefolk Warrior creatures in addition to their other types until end of turn.\n3/5"
+    IDS_STRING18437         "Graceful Reprieve\n{1W}\nInstant\nMOR,U\nWhen target creature dies this turn, return that card to the battlefield under its owner's control."
 //    IDS_STRING18433         "Door of Destinies\n{4}\nArtifact\nMOR,R\nAs Door of Destinies enters the battlefield, choose a creature type.\rWhenever you cast a spell of the chosen type, put a charge counter on Door of Destinies.\rCreatures you control of the chosen type get +1/+1 for each charge counter on Door of Destinies."
 END
 

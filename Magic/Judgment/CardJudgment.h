@@ -555,9 +555,7 @@ class CAnuridBrushhopperCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAnuridBrushhopperCard);
 
-private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
+protected:
 	CCardFilter m_CardFilter_temp;
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 

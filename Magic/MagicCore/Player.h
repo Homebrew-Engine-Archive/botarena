@@ -327,6 +327,8 @@ public:
 	void ChangeLife(Damage damage, int prev_index = 0);
 
 	Life GetLifeAtBeginningOfTurn() const;
+	Life GetStartingLife() const;
+	void SetStartingLife(Life nLife);
 	Life GetCombatDamageTakenThisTurn() const;
 	Life GetNoncombatDamageTakenThisTurn() const;
 	Life GetLifeLossTakenThisTurn() const;
@@ -459,10 +461,6 @@ public:
 	int GetLastTurnCastedSpellCount() const				{ return m_nLastTurnCastedSpellCount; }
 	void IncreaseTurnCastedSpellCount()				{ m_nTurnCastedSpellCount += 1; }
 
-	int GetRepeatCombatCount() const				{ return m_nRepeatCombatCount; }
-	void IncreaseRepeatCombatCount()				{ m_nRepeatCombatCount += 1; }
-	void DecreaseRepeatCombatCount()				{ m_nRepeatCombatCount -= 1; }
-
 	void AddTurnCastedSpell(CCard* pCard, CardType pTypes, ZoneId fromZone, ZoneId toZone)							{ s_hCard.AddCard(pCard, CardPlacement::Top);
 																													  s_hTypes.AddCardType(pTypes);
 																													  s_hfromZones.AddZoneId(fromZone);
@@ -471,10 +469,13 @@ public:
 	
 	//void AddTurnCastedSpellTypes(CardType pTypes)				    { s_hTypes.AddCardType(pTypes); }	
 
-	void AddTurnMovementHistory(CCard* pCard, CardType pTypes, ZoneId fromZone, ZoneId toZone)				    {  s_hCard.AddCard(pCard, CardPlacement::Top);
-																													  s_hTypes.AddCardType(pTypes);
-																													  s_hfromZones.AddZoneId(fromZone);
-																													   s_htoZones.AddZoneId(toZone);  }	
+	void AddTurnMovementHistory(CCard* pCard, CardType pTypes, ZoneId fromZone, ZoneId toZone)
+	{
+		s_hCard.AddCard(pCard, CardPlacement::Top);
+		s_hTypes.AddCardType(pTypes);
+		s_hfromZones.AddZoneId(fromZone);
+		s_htoZones.AddZoneId(toZone);  
+	}	
 
 	CCountedCardContainer DredgeCards();
 
@@ -485,6 +486,7 @@ public:
 	int GetCertainTypeEnteredBattlefieldCount(CardType pType);
 	int GetCertainAntiTypeEnteredBattlefieldCount(CardType pType);
 	int GetCertainTypeDiedCount(CardType pType);
+	int GetCertainTypeDiedCountNonToken(CardType pType);	// for Caller of the Claw
 	int GetDetainedCount()                  {return detainedCard.GetSize();}
 	bool IsCertainCardPresentInHistory(CCard* pCard, ZoneId toZone, ZoneId fromZone);
 	bool IsCertainCardDetained(CCard* pCard);
@@ -573,7 +575,6 @@ protected:
 	int_	m_nInPlayBonus;
 	int_	m_nInHandBonus;
 	int_	m_nMiscBonus;
-	int_	m_nRepeatCombatCount;
 	int_	m_nTurnUntappedCount;	// Untapped cards count during the untap step
 	int_	m_nTurnUntappedLandsCount;
 	int_	m_nTurnUntappedCreaturesCount;
@@ -581,6 +582,7 @@ protected:
 	int_	m_nLastTurnCastedSpellCount;
 	int_    m_nPoisonCounters;
 	Life_	m_nLifeAtBeginningOfTurn;
+	Life_	m_nStartingLife;
 	Life_	m_nTurnCombatDamageTaken;
 	Life_	m_nTurnNoncombatDamageTaken;
 	Life_	m_nTurnLifeLossTaken;

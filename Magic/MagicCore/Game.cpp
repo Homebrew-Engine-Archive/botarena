@@ -192,6 +192,7 @@ CGame::CGame()
 	, m_bStopping(false)
 	, m_pThread(NULL)
 	, m_nUniqueId(0)
+	//, m_nDeadZuberas(0)
 	, m_bDeveloper(To_bool(g_pCoreApp->GetDeveloper()))
 	, m_bVerboseLog(To_bool(g_pCoreApp->GetVerboseLog()))
 	, m_bConsoleGame(false)
@@ -204,7 +205,9 @@ CGame::CGame()
 	, m_cpMulliganSelectionListener(VAR_NAME(m_cpMulliganSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CGame::OnMulliganSelectionDone))
 	//, m_cpStartWithSelectionListener(VAR_NAME(m_cpMulliganSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CGame::OnStartWithSelectionDone))
 	, m_StartWithSelection(this, CSelectionSupport::SelectionCallback(this, &CGame::OnStartWithSelectionDone))
+	//, m_GemstoneCavernsSelection(this, CSelectionSupport::SelectionCallback(this, &CGame::OnGemstoneCavernsSelectionDone))
 	, m_cpTargetSubjectEventSource(::CreateObject<TargetSubjectEventSource>(VAR_NAME(m_cpTargetSubjectEventSource)))
+	//, m_bAfterUpkeep(FALSE)
 	, m_Stack(this)
 	, m_Selection(this)
 {
@@ -335,11 +338,20 @@ CPlayerContainer CGame::GetPlayersInNormalizedOrder() const
 	return players;
 }
 
+/*void CGame::IncreaseDeadZuberas(CCard* pCard)
+{ 
+	if	((pCard->GetCardType().IsCreature() && (pCard->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)pCard)->GetCreatureType().HasType(SingleCreatureType::Zubera))) ||
+		(pCard->GetCardType().IsTribal() && (pCard->GetCardKeyword()->HasChangeling() || ((CTribalCard*)pCard)->GetCreatureType().HasType(SingleCreatureType::Zubera))))
+		m_nDeadZuberas += 1;
+};
+*/
+
 void CGame::SetCurrentNode(CNode* pNode)
 {
 	*m_cpCurrentNode = pNode;
 }
 
+// IsMainPhase(true) returns true if combat can be declared later in turn.
 bool CGame::IsMainPhase(bool bPrecombat) const
 {	
 	if (GetCurrentNode()->GetNodeId() != NodeId::MainPhaseStep)
@@ -351,6 +363,16 @@ bool CGame::IsMainPhase(bool bPrecombat) const
 		return To_bool(pMainNode->IsPreCombat());
 
 	return !pMainNode->IsPreCombat();
+}
+
+bool CGame::IsFirstMainPhase() const
+{	
+	if (GetCurrentNode()->GetNodeId() != NodeId::MainPhaseStep)
+		return false;
+
+	CMainNode* pMainNode = (CMainNode*)GetCurrentNode();
+
+	return (pMainNode->GetCombatCount() == 0);
 }
 
 int CGame::GetHumanPlayerCount() const
@@ -848,6 +870,8 @@ void CGame::StartWith()
 	}
 	if (m_bStartWith && m_pStartWithPlayer && !m_pMulliganPlayer )
 	{
+		StartWithAsk();
+		/*
 		CCardFilter temp;
 		temp.AddComparer(new LeylineCardNameComparer());
 		if (temp.CountIncluded(m_pStartWithPlayer->GetZoneById(ZoneId::Hand)->GetCardContainer())>0)
@@ -865,7 +889,7 @@ void CGame::StartWith()
 			m_pStartWithPlayer = pNextStartWithPlayer;
 			StartWithAsk();
 			}
-		}
+		}*/
 	}
 }
 
@@ -873,7 +897,7 @@ void CGame::MulliganAsk()
 {
 	if (!m_pMulliganPlayer->IsComputer())
 	{
-		// Ask current milligan player for the selections: shuffles all cards and draws X cards to hand; or keeps current cards in hand
+		// Ask current mulligan player for the selections: shuffles all cards and draws X cards to hand; or keeps current cards in hand
 
 		std::vector<SelectionEntry> entries;
 
@@ -1069,39 +1093,78 @@ void CGame::OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection
 }
 void CGame::StartWithAsk()
 {
+	/*
 	CCardFilter temp;
 	temp.AddComparer(new LeylineCardNameComparer());
-
+	
 	if (!m_pStartWithPlayer->IsComputer())
 	{
+	*/
 	std::vector<SelectionEntry> entries;		
 
-		{
-			// Choose player
-			SelectionEntry selectionEntry;
-			selectionEntry.dwContext = 0; // player
-			selectionEntry.strText.Format(_T("%s doesn't put any cards into battlefield"), m_pStartWithPlayer->GetPlayerName());
-			entries.push_back(selectionEntry);
-		}
+	{
+		// Choose player
+		SelectionEntry selectionEntry;
+		selectionEntry.dwContext = 0; // player
+		selectionEntry.strText.Format(_T("don't use any beginning-of-game effects"));
+		entries.push_back(selectionEntry);
+	}
 
-		CCountedCardContainer pCards;
+	CZone* pHand = m_pStartWithPlayer->GetZoneById(ZoneId::Hand);
+		
+	for (int i = 0; i < pHand->GetSize(); ++i)
+	{						
+		const CCard* pCard =  pHand->GetAt(i);
 
-		if (temp.GetIncluded(*m_pStartWithPlayer->GetZoneById(ZoneId::Hand), pCards))			
+		if ((pCard->GetPrintedCardName() == _T("Leyline of Anticipation")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of Lifeforce")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of Lightning")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of Punishment")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of Sanctity")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of Singularity")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of Vitality")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of the Meek")) ||
+			(pCard->GetPrintedCardName() == _T("Leyline of the Void")))
 		{
-			for (int i = 0; i < pCards.GetSize(); ++i)
-			{						
-			const CCard* pCard =  pCards.GetAt(i);		
 			SelectionEntry selectionEntry;
 
 			selectionEntry.dwContext = (DWORD)pCard;
-			selectionEntry.strText.Format(_T("put %s card onto battlefield"), pCard->GetCardName());
+			selectionEntry.strText.Format(_T("put %s onto battlefield"), pCard->GetCardName(TRUE));
 
 			entries.push_back(selectionEntry);
-			}
-			
-			m_StartWithSelection.AddSelectionRequest(entries, 1, 1, NULL, m_pStartWithPlayer);
 		}
+
+		if (((pCard->GetPrintedCardName() == _T("Chancellor of the Annex")) ||
+			(pCard->GetPrintedCardName() == _T("Chancellor of the Dross")) ||
+			(pCard->GetPrintedCardName() == _T("Chancellor of the Forge")) ||
+			(pCard->GetPrintedCardName() == _T("Chancellor of the Spires")) ||
+			(pCard->GetPrintedCardName() == _T("Chancellor of the Tangle"))) &&
+			(((CChancellorCreatureCard*)pCard)->bIsRevealed == FALSE))
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = (DWORD)pCard;
+			selectionEntry.strText.Format(_T("reveal %s for an effect"), pCard->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		/*
+		if ((pCard->GetPrintedCardName() == _T("Gemstone Caverns")) &&
+			(pHand->GetSize() > 1) && (m_pStartWithPlayer->GetStartingPlayer() == FALSE))
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = (DWORD)pCard;
+			selectionEntry.strText.Format(_T("exile a card from your hand and put %s on the battlefield with a luck counter"), pCard->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		*/
+	}
+			
+	m_StartWithSelection.AddSelectionRequest(entries, 1, 1, NULL, m_pStartWithPlayer);
 		
+	/*
 	}
 	else
 	{
@@ -1125,21 +1188,75 @@ void CGame::StartWithAsk()
 		m_pStartWithPlayer = pNextStartWithPlayer;
 		StartWithAsk();
 	}
+	*/
 }
+
+
 void CGame::OnStartWithSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {	
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
-			if (it->dwContext) // 0 -> redraw
+			if (it->dwContext) // 0 -> pass to next player
 			{
 				CCard* pCard = (CCard*)(it->dwContext);
 				//CMoveCardModifier pModifier = CMoveCardModifier (ZoneId::Hand, ZoneId::Battlefield, TRUE, MoveType::Others, pSelectionPlayer);
 				//pModifier.ApplyTo(pCard);
 
-				CZone* pBattlefield = pSelectionPlayer->GetZoneById(ZoneId::Battlefield);
-				pBattlefield->AddCard( pCard, pSelectionPlayer);
+				if ((pCard->GetPrintedCardName() == _T("Leyline of Anticipation")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of Lifeforce")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of Lightning")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of Punishment")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of Sanctity")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of Singularity")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of Vitality")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of the Meek")) ||
+					(pCard->GetPrintedCardName() == _T("Leyline of the Void")))
+				{
+					CZone* pBattlefield = pSelectionPlayer->GetZoneById(ZoneId::Battlefield);
+					pBattlefield->AddCard(pCard, pSelectionPlayer);
 
+					return;
+				}
+
+				if ((pCard->GetPrintedCardName() == _T("Chancellor of the Annex")) ||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Dross")) ||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Forge")) ||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Spires")) ||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Tangle")))
+				{
+					((CChancellorCreatureCard*)pCard)->RevealAtBeginning();
+
+					return;
+				}
+				/*
+				if (pCard->GetPrintedCardName() == _T("Gemstone Caverns"))
+				{
+					std::vector<SelectionEntry> entries;		
+
+					CZone* pHand = m_pStartWithPlayer->GetZoneById(ZoneId::Hand);
+		
+					for (int i = 0; i < pHand->GetSize(); ++i)
+					{						
+						const CCard* pCard2 =  pHand->GetAt(i);
+						
+						if (pCard != pCard2)
+						{
+							SelectionEntry selectionEntry;
+
+							selectionEntry.dwContext = (DWORD)pCard;
+							selectionEntry.strText.Format(_T("exile %s"), pCard2->GetCardName(TRUE));
+
+							entries.push_back(selectionEntry);
+						}
+					}
+					m_GemstoneCavernsSelection.AddSelectionRequest(entries, 1, 1, NULL, m_pStartWithPlayer, (DWORD)pCard);
+
+					return;
+				}
+				*/
+
+				/*
 				CCardFilter temp;
 				temp.AddComparer(new CardNameComparer(_T("Leyline of Punishment")));
 
@@ -1157,22 +1274,68 @@ void CGame::OnStartWithSelectionDone(const std::vector<SelectionEntry>& selectio
 
 					break;
 				}
+				*/
 			}	
 			else
 			{
-			CPlayer* pNextStartWithPlayer = GetNextPlayer(m_pStartWithPlayer);
-			if (pNextStartWithPlayer->GetStartingPlayer())
-			{
-				m_pStartWithPlayer = NULL;
-				return; // done
-			}
-			m_pStartWithPlayer = pNextStartWithPlayer;
+				CPlayer* pNextStartWithPlayer = GetNextPlayer(m_pStartWithPlayer);
+				if (pNextStartWithPlayer->GetStartingPlayer())
+				{
+					m_pStartWithPlayer = NULL;
 
-			break;
-			}
+					for (int ip = 0; ip < GetPlayerCount(); ++ip)
+					{
+						CZone* pPHand = GetPlayer(ip)->GetZoneById(ZoneId::Hand);
+						for (int i = 0; i < pPHand->GetSize(); ++i)
+						{
+							CCard* pCard = pPHand->GetAt(i);
+							if ((pCard->GetPrintedCardName() == _T("Chancellor of the Annex")) ||
+								(pCard->GetPrintedCardName() == _T("Chancellor of the Dross")) ||
+								(pCard->GetPrintedCardName() == _T("Chancellor of the Forge")) ||
+								(pCard->GetPrintedCardName() == _T("Chancellor of the Spires")) ||
+								(pCard->GetPrintedCardName() == _T("Chancellor of the Tangle")))
+								((CChancellorCreatureCard*)pCard)->bIsRevealed = FALSE;
+						}
+					}
+					// this resets Chancellors in case of game restart
 
+					return; // done
+				}
+				else
+				{
+					m_pStartWithPlayer = pNextStartWithPlayer;
+
+					break;
+				}
+			}
 		}
 }
+/*
+void CGame::OnGemstoneCavernsSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)(it->dwContext);
+			CCard* pCaverns = (CCard*)dwContext1;
+
+			int nCounters = 1;
+
+			int nMultiplier = 0;
+			if (pSelectionPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
+				nCounters <<= nMultiplier;
+
+			CCardCounterModifier pModifier1(LUCK_COUNTER, +nCounters, true);
+			pModifier1.ApplyTo(pCaverns);
+
+			CZone* pBattlefield = pSelectionPlayer->GetZoneById(ZoneId::Battlefield);
+			pBattlefield->AddCard(pCaverns, pSelectionPlayer);
+
+			CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Hand, ZoneId::Exile, true, MoveType::Others, pSelectionPlayer);
+			pModifier2.ApplyTo(pCard);
+		}
+}
+*/
 void CGame::StatebasedCheck()
 {
 	if (GetSelection().Pending() ||		// wait until all selections are gone to support Primal Plasma
@@ -1656,7 +1819,8 @@ void CGame::CheckOrphanedAuras(CCountedCardContainer& orphanedAuras)
 					// Added this check to support removing auras that can only
 					// enchant permanents from specific controller : 3/4/2011
 					if (!pEnchantAbility->GetTargeting()->SubjectAllowed(
-						pEnchantAbility->GetEnchantedOnCard(), TRUE, bTrick))
+						pEnchantAbility->GetEnchantedOnCard(), TRUE, bTrick) ||
+						pEnchantAbility->GetEnchantedOnCard()->GetCardKeyword()->HasCantBeEnchanted())
 						orphanedAuras.AddCard(pCard, CardPlacement::Top);
 					continue;
 				}

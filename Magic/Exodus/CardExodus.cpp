@@ -234,15 +234,14 @@ CCityOfTraitorsCard::CCityOfTraitorsCard(CGame* pGame, UINT nID)
 	//, m_CardFilter(_T("No Itself"), _T("No Themselves"), new NegateCardComparer(new SpecificCardComparer(this)))
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonBasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("2")));
 
-		cpAbility->AddTapCost();
+		cpNonBasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonBasicLandManaAbility.GetPointer());
 	}
 	{
-		//Regular play from hand
 		typedef
 			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -573,7 +572,8 @@ CRavenousBaboonsCard::CRavenousBaboonsCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::NonbasicLand, false));
+	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::_Land, false));
+	cpAbility->GetTargeting().GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
 
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
@@ -990,7 +990,7 @@ CPegasusStampedeCard::CPegasusStampedeCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("1") WHITE_MANA_TEXT,
-				_T("Pegasus"), TOKEN_ID_BY_NAME,
+				_T("Pegasus B"), 2896,
 				1));
 
 		AddSpell(cpSpell.GetPointer());
@@ -1000,7 +1000,7 @@ CPegasusStampedeCard::CPegasusStampedeCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("1") WHITE_MANA_TEXT,
-				_T("Pegasus"), TOKEN_ID_BY_NAME,
+				_T("Pegasus B"), 2896,
 				1));
 
 		cpSpell->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("lands"))); // sacrifice card Buyback cost
@@ -1086,10 +1086,14 @@ CPriceOfProgressCard::CPriceOfProgressCard(CGame* pGame, UINT nID)
 
 bool CPriceOfProgressCard::BeforeResolution(CAbilityAction* pAction) const
 {
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::_Land, false));
+	m_CardFilter.AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
+
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
 		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
-		Life nDelta = Life(-2 * CCardFilter::GetFilter(_T("nonbasic lands"))->CountIncluded(pZone->GetCardContainer()));
+		Life nDelta = Life(-2 * m_CardFilter.CountIncluded(pZone->GetCardContainer()));
 		CLifeModifier modifier(nDelta, this, PreventableType::Preventable, DamageType::NonCombatDamage | DamageType::SpellDamage);
 		modifier.ApplyTo(GetGame()->GetPlayer(ip));
 	}
@@ -1276,8 +1280,9 @@ CSkyshroudEliteCard::CSkyshroudEliteCard(CGame* pGame, UINT nID)
 	counted_ptr<CTriggeredChgPwrTghWhenCardPlayedAbility> cpAbility(
 		::CreateObject<CTriggeredChgPwrTghWhenCardPlayedAbility>(this,
 			ZoneId::Battlefield,
-			new CardTypeComparer(CardType::NonbasicLand, false)));
+			new CardTypeComparer(CardType::_Land, false)));
 
+	cpAbility->GetSurveyCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false)); //"nonbasic lands"
 	cpAbility->GetSurveyCardFilter().AddNegateComparer(new CardControllerComparer(this)); //"your opponents control"
 
 	cpAbility->SetMaximumAddedPower(Power(1));
@@ -1565,8 +1570,9 @@ CSkyshroudWarBeastCard::CSkyshroudWarBeastCard(CGame* pGame, UINT nID)
 		counted_ptr<CTriggeredChgPwrTghWhenCardPlayedAbility> cpAbility(
 			::CreateObject<CTriggeredChgPwrTghWhenCardPlayedAbility>(this,
 				ZoneId::Battlefield,
-				new CardTypeComparer(CardType::NonbasicLand, false))); //"Nonbasic Lands"
+				new CardTypeComparer(CardType::NonbasicLand, false)));
 
+		cpAbility->GetSurveyCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false)); //"Nonbasic Lands"
 		cpAbility->GetSurveyCardFilter().AddNegateComparer(new CardControllerComparer(this)); //"your opponents control"
 
 		cpAbility->SetListenToAllPlayersZones(); //necessary to check both sides

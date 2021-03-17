@@ -730,12 +730,8 @@ class CGhostCouncilOfOrzhovaCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGhostCouncilOfOrzhovaCard);
 
-private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	CCardFilter m_CardFilter_temp;
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
 };
 
@@ -904,22 +900,6 @@ protected:
 
 //____________________________________________________________________________
 //
-//class CKillerInstinctCard : public CInPlaySpellCard
-//{
-//	DECLARE_CARD_CSTOR(CKillerInstinctCard);
-//
-//protected:
-//	typedef 
-//		TTriggeredAbility< CTriggeredRevealLibraryAbility, CWhenNodeChanged > TriggeredAbility;
-//	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
-//	TriggeredAbility* m_pTriggeredAbility;
-//};
-//
-////____________________________________________________________________________
-////
-
-////____________________________________________________________________________
-////
 class CRepealCard : public CCard 
 {
 	DECLARE_CARD_CSTOR(CRepealCard);
@@ -986,6 +966,9 @@ class CVedalkenPlotterCard : public CCreatureCard
 class CDryadSophisticateCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDryadSophisticateCard);
+
+protected:
+	CCardFilter m_CardFilter;
 };
 
 //____________________________________________________________________________
@@ -1090,29 +1073,206 @@ protected:
 
 //____________________________________________________________________________
 //
-/*
 class CBlindHunterCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBlindHunterCard);
 
 protected:
-	CCard* pHaunting;
-	typedef
-		TTriggeredTargetAbility< CTriggeredMoveCardAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility1;
+	CCountedCardContainer_ pHaunting;
 
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenCardMoved > TriggeredAbility3;
-
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility4;
-
-	bool BeforeResolution(TriggeredAbility1::TriggeredActionType* pAction);
+	bool BeforeResolution(CAbilityAction* pAction);
 	bool SetTriggerContext1(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
 		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
-}
-*/
+};
+
+//____________________________________________________________________________
+//
+class CCryOfContritionCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CCryOfContritionCard);
+
+protected:
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredDiscardCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CExhumerThrullCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CExhumerThrullCard);
+
+protected:
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CAbsolverThrullCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CAbsolverThrullCard);
+
+protected:
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CBelfrySpiritCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBelfrySpiritCard);
+
+protected:
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CBenedictionOfMoonsCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBenedictionOfMoonsCard);
+
+protected:
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution2(CAbilityAction* pAction);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CGravenDominatorCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGravenDominatorCard);
+
+protected:
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool BeforeResolution2(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution3(CAbilityAction* pAction);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class COrzhovEuthanistCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(COrzhovEuthanistCard);
+
+protected:
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class COrzhovPontiffCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(COrzhovPontiffCard);
+
+protected:
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool BeforeResolution2(CAbilityAction* pAction);
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+};
+
+//____________________________________________________________________________
+//
+class CSeizeTheSoulCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSeizeTheSoulCard);
+
+protected:
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener2;
+
+	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
+	void OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	CCountedCardContainer_ pHaunting;
+
+	bool BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext1(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CGhostwayCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGhostwayCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CKillerInstinctCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CKillerInstinctCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
 //____________________________________________________________________________
 //

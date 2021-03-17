@@ -423,6 +423,10 @@ class CLeafGilderCard : public CManaProductionTCreatureCard
 class CLowlandOafCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CLowlandOafCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //___________________________________________________________________________
@@ -1230,8 +1234,10 @@ class CIncandescentSoulstokeCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CIncandescentSoulstokeCard);
 
-protected:    
-	CCardFilter m_CardFilter;
+protected:
+	CSelectionSupport m_CardSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________
@@ -1952,8 +1958,6 @@ class CGalepowderMageCard : public CFlyingCreatureCard
 	DECLARE_CARD_CSTOR(CGalepowderMageCard);
 
 private:
-	CCardFilter m_CardFilter;
-	CCardFlagModifier m_CardFlagModifier;
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };

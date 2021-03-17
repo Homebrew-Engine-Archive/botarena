@@ -199,6 +199,8 @@ BEGIN
     IDS_STRING12293         "Copper-Leaf Angel\n{5}\nArtifact Creature - Angel\nPCY,R\nFlying\r{T}, Sacrifice X lands: Put X +1/+1 counters on Copper-Leaf Angel.\n2/2"
     IDS_STRING12294         "Elephant Resurgence\n{1G}\nSorcery\nPCY,R\nEach player puts a green Elephant creature token onto the battlefield. Those creatures have ""This creature's power and toughness are each equal to the number of creature cards in its controller's graveyard."""
     IDS_STRING12295         "Jolrael, Empress of Beasts\n{3GG}\nLegendary Creature - Human Spellshaper\nPCY,R\n{2G}, {T}, Discard two cards: All lands target player controls become 3/3 creatures until end of turn. They're still lands.\n3/3"
+    IDS_STRING12296         "Infernal Genesis\n{4BB}\nLegendary Creature - Human Spellshaper\nPCY,R\n{2G}, {T}, Discard two cards: All lands target player controls become 3/3 creatures until end of turn. They're still lands.\n3/3"
+    IDS_STRING12297         "Fickle Efreet\n{3R}\nCreature - Efreet\nPCY,R\nWhenever Fickle Efreet attacks or blocks, flip a coin at end of combat. If you lose the flip, an opponent gains control of Fickle Efreet.\n5/2"
 END
 
 #endif    // English (United States) resources

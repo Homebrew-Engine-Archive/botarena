@@ -227,7 +227,7 @@ class CEndlessRanksOfTheDeadCard : public CInPlaySpellCard
 
 protected:
 	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenNodeChanged > TriggeredAbility;
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 	CCardFilter m_CardFilter;
@@ -245,6 +245,9 @@ class CSkirsdagCultistCard : public CCreatureCard
 class CMoanOfTheUnhallowedCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMoanOfTheUnhallowedCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //_____________________________________________________________________________
@@ -278,9 +281,7 @@ class CArmyOfTheDamnedCard : public CCard
 	DECLARE_CARD_CSTOR(CArmyOfTheDamnedCard);
 
 protected:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-	CCardFilter m_CardFilter;
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //_____________________________________________________________________________
@@ -2101,6 +2102,81 @@ class CDearlyDepartedCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDearlyDepartedCard);
 };
+//______________________________________________________________________________
+//
+/*
+class CBlasphemousActCard : public CGlobalChgLifeSpellCard
+{
+	DECLARE_CARD_CSTOR(CBlasphemousActCard);
+
+protected:
+	CCardFilter m_CardFilter;
+};
+*/
+//____________________________________________________________________________
+//
+class CGutterGrimeCard : public CInPlaySpellCard 
+{
+	DECLARE_CARD_CSTOR(CGutterGrimeCard);
+
+private:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CUndeadAlchemistCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CUndeadAlchemistCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+										CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
 
 //______________________________________________________________________________
+//
+class CCivilizedScholarCard : public CDoubleFacedCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCivilizedScholarCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+	bool BeforeResolution1(CAbilityAction* pAction);
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution2(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CHomicidalBruteCard : public CDoubleFacedCreatureCard
+{
+	DECLARE_CARD_CSTOR(CHomicidalBruteCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+	bool BeforeResolution1(CAbilityAction* pAction);
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution2(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CMoonmistCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CMoonmistCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
 //

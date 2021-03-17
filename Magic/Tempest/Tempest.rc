@@ -453,6 +453,8 @@ BEGIN
     IDS_STRING10299         "Phyrexian Grimoire\n{3}\nArtifact\nTMP,R\n{4}, {T}: Target opponent chooses one of the top two cards of your graveyard. Exile that card and put the other one into your hand."
     IDS_STRING10300         "Cold Storage\n{4}\nArtifact\nTMP,R\n{3}: Exile target creature you control.\rSacrifice Cold Storage: Return each creature card exiled with Cold Storage to the battlefield under your control."
     IDS_STRING10301         "Scroll Rack\n{2}\nArtifact\nTMP,R\n{1}, {T}: Exile any number of cards from your hand face down. Put that many cards from the top of your library into your hand. Then look at the exiled cards and put them on top of your library in any order."
+	IDS_STRING10302         "Maddening Imp\n{2B}\nCreature - Imp\nTMP,R\nFlying\r{T}: Non-Wall creatures the active player controls attack this turn if able. At the beginning of the next end step, destroy each of those creatures that didn't attack this turn. Activate this ability only during an opponent's turn and only before combat.\n1/1"
+	IDS_STRING10303         "Magmasaur\n{3RR}\nCreature - Elemental Lizard\nTMP,R\nMagmasaur enters the battlefield with five +1/+1 counters on it.\rAt the beginning of your upkeep, you may remove a +1/+1 counter from Magmasaur. If you don't, sacrifice Magmasaur and it deals damage equal to the number of +1/+1 counters on it to each creature without flying and each player.\n0/0"
 END
 
 #endif    // English (United States) resources

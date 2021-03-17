@@ -377,6 +377,7 @@ BEGIN
     IDS_STRING8737          "Sigil of Distinction\n{X}\nArtifact - Equipment\nALA,R\nSigil of Distinction enters the battlefield with X charge counters on it.\rEquipped creature gets +1/+1 for each charge counter on Sigil of Distinction.\rEquip-Remove a charge counter from Sigil of Distinction."
 	IDS_STRING8738          "Brilliant Ultimatum\n{WWUUUBB}\nSorcery\nALA,R\nExile the top five cards of your library. An opponent separates those cards into two piles. You may play any number of cards from one of those piles without paying their mana costs."
 	IDS_STRING8739          "Clarion Ultimatum\n{GGWWWUU}\nSorcery\nALA,R\nChoose five permanents you control. For each of those permanents, you may search your library for a card with the same name as that permanent. Put those cards onto the battlefield tapped, then shuffle your library."
+	IDS_STRING8740          "Skeletonize\n{4R}\nInstant\nALA,U\nSkeletonize deals 3 damage to target creature. When a creature dealt damage this way dies this turn, put a 1/1 black Skeleton creature token onto the battlefield with ""{B}: Regenerate this creature."""
 END
 
 #endif    // English (United States) resources

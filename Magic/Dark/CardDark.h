@@ -352,3 +352,56 @@ protected:
 
 //____________________________________________________________________________
 //
+class CNamelessRaceCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNamelessRaceCard);
+
+protected:
+	VIRTUAL(void, OnSelectionDone)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_Selection;
+	
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	int_ m_nLifePaid;
+};
+
+//____________________________________________________________________________
+//
+class CTheFallenCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CTheFallenCard);
+
+protected:
+	std::vector<int> pDamagedPlayers;
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, CPlayer* pPlayer, Damage damage);
+	bool BeforeResolutionAux(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CWarBargeCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CWarBargeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CRuneswordCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CRuneswordCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//

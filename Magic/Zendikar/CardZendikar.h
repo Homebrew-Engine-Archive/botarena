@@ -1002,41 +1002,6 @@ protected:
 class CHellkiteChargerCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHellkiteChargerCard);
-
-protected:
-	class TriggeredAbility :
-		public TTriggeredAbility< CTriggeredAbility<>, 
-								  CWhenSelfAttackedBlocked, 
-								  CWhenSelfAttackedBlocked::AttackEventCallback, 
-								  &CWhenSelfAttackedBlocked::SetAttackingEventCallback > 
-	{
-		DEFINE_CREATE_TO_CPTR_ONLY;
-
-	protected:
-		TriggeredAbility(CCard* pCard)
-			: TTriggeredAbility(pCard)
-		{
-		}
-		OVERRIDE(BOOL, ResolveSelection)(CPlayer* pPlayer, CTriggeredAction* pAction) 
-		{
-			if (!__super::ResolveSelection(pPlayer, pAction))
-				return FALSE;
-
-			// Create a temporary ability to reuse the resolution code
-			counted_ptr<CActivatedAbility<CExtraCombatSpell>> // must be an ability here, spells cannot resolve correctly in here because of stack requirement
-				cpAbility(CreateResolutionAbility<CActivatedAbility<CExtraCombatSpell>>(
-				pPlayer, // to be generated actions' controller
-				TRUE, 1, true)); // parameters into the ability's constructor after the card and mana cost parameters
-
-			// Get all actions from the ability
-			std::auto_ptr<CActionContainer> apActions(cpAbility->GetAbilityActions(TRUE, FALSE));
-			if (!apActions->GetSize())
-				return FALSE;
-
-			// For this ability, we only care about the first action so just resolve that
-			return cpAbility->Resolve((CAbilityAction*)(apActions->GetAt(0).GetPointer()));
-		}
-	};
 };
 
 //____________________________________________________________________________
@@ -1538,6 +1503,9 @@ protected:
 class CTrailblazersBootsCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CTrailblazersBootsCard);
+
+protected:
+	CCardFilter m_CardFilter;
 };
 
 //____________________________________________________________________________
@@ -2018,6 +1986,39 @@ class CGomazoaCard : public CFlyingCreatureCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CBalothCageTrapCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBalothCageTrapCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//____________________________________________________________________________
+//
+class CLavaballTrapCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CLavaballTrapCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CWhiplashTrapCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CWhiplashTrapCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________

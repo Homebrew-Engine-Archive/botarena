@@ -922,6 +922,22 @@ public:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CGraveyardFaceTransformModifier 
+	: public CCardModifier
+{
+public:
+	virtual void ApplyTo(CCard* pCard) const;
+
+	virtual CGraveyardFaceTransformModifier* CloneCardModifier() const
+	{
+		CGraveyardFaceTransformModifier* pModifier = new CGraveyardFaceTransformModifier;
+		*pModifier = *this;
+		return pModifier;
+	}
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CCardMorphModifier 
 	: public CCardModifier
 {
@@ -2057,6 +2073,76 @@ protected:
 	bool m_bDoubling;
 
 };
+//____________________________________________________________________________
+//
+class CORE_EXPORT CContainerEffectModifier 
+	: public CPlayerModifier
+{
+public:
+	CContainerEffectModifier(CGame* pGame, LPCTSTR strTokenName,
+						  UINT uID, CCountedCardContainer* Passed = NULL, CCountedCardContainer* pCreatedCards = NULL)
+	    : m_pGame(pGame)
+		, m_strTokenName(strTokenName)
+		, m_uID(uID)
+		, m_pPassed(Passed)
+		, m_pCreatedCards(pCreatedCards)
+	{}
+
+	virtual void ApplyTo(CPlayer* pPlayer) const;	
+
+	virtual CPlayerModifier* ClonePlayerModifier() const
+	{
+		CContainerEffectModifier * pModifier = new CContainerEffectModifier (m_pGame, m_strTokenName, m_uID, m_pPassed, m_pCreatedCards);
+		*pModifier = *this;
+		return pModifier;
+	}
+
+protected:
+	CGame* m_pGame;
+	LPCTSTR m_strTokenName;
+
+	UINT		m_uID;
+	int m_TokenCount;
+	CCountedCardContainer* m_pPassed;
+	CCountedCardContainer* m_pCreatedCards;
+};
+
+//____________________________________________________________________________
+//
+class CORE_EXPORT CDoubleContainerEffectModifier 
+	: public CPlayerModifier
+{
+public:
+	CDoubleContainerEffectModifier(CGame* pGame, LPCTSTR strTokenName,
+						  UINT uID, CCountedCardContainer* Passed1 = NULL, CCountedCardContainer* Passed2 = NULL, CCountedCardContainer* pCreatedCards = NULL)
+	    : m_pGame(pGame)
+		, m_strTokenName(strTokenName)
+		, m_uID(uID)
+		, m_pPassed1(Passed1)
+		, m_pPassed2(Passed2)
+		, m_pCreatedCards(pCreatedCards)
+	{}
+
+	virtual void ApplyTo(CPlayer* pPlayer) const;	
+
+	virtual CPlayerModifier* ClonePlayerModifier() const
+	{
+		CDoubleContainerEffectModifier * pModifier = new CDoubleContainerEffectModifier (m_pGame, m_strTokenName, m_uID, m_pPassed1, m_pPassed2, m_pCreatedCards);
+		*pModifier = *this;
+		return pModifier;
+	}
+
+protected:
+	CGame* m_pGame;
+	LPCTSTR m_strTokenName;
+
+	UINT		m_uID;
+	int m_TokenCount;
+	CCountedCardContainer* m_pPassed1;
+	CCountedCardContainer* m_pPassed2;
+	CCountedCardContainer* m_pCreatedCards;
+};
+
 //____________________________________________________________________________
 //
 class CORE_EXPORT CPoisonModifier 
@@ -3221,3 +3307,49 @@ protected:
 
 //____________________________________________________________________________
 //*/
+class CORE_EXPORT CFastCombatModifier 
+	: public CPlayerModifier
+{
+public:
+	CFastCombatModifier (CGame* pGame)
+		: m_pGame(pGame)
+		
+	{}
+
+	virtual void ApplyTo(CPlayer* pPlayer) const;	
+
+	virtual CPlayerModifier* ClonePlayerModifier() const
+	{
+		CFastCombatModifier  * pModifier = new CFastCombatModifier  (m_pGame);
+		*pModifier = *this;
+		return pModifier;
+	}
+
+protected:	
+	CGame* m_pGame;
+};
+//____________________________________________________________________________
+//
+class CORE_EXPORT CExtraCombatModifier 
+	: public CPlayerModifier
+{
+public:
+	CExtraCombatModifier (CGame* pGame)
+		: m_pGame(pGame)
+		
+	{}
+
+	virtual void ApplyTo(CPlayer* pPlayer) const;	
+
+	virtual CPlayerModifier* ClonePlayerModifier() const
+	{
+		CExtraCombatModifier  * pModifier = new CExtraCombatModifier  (m_pGame);
+		*pModifier = *this;
+		return pModifier;
+	}
+
+protected:	
+	CGame* m_pGame;
+};
+//____________________________________________________________________________
+//

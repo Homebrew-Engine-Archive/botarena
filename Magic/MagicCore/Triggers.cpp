@@ -1084,8 +1084,7 @@ void CWhenCardDiscarded::OnCardDiscarded(CCard* pCard, CZone* pFromZone, CZone* 
 	if (!pFromZone || !pToZone)
 		return;
 
-	if ((pFromZone->GetZoneId() != ZoneId::Hand) || (pToZone->GetZoneId() != ZoneId::Graveyard) ||
-		(moveType != MoveType::Discard && moveType != MoveType::NormalDiscard))
+	if ((pFromZone->GetZoneId() != ZoneId::Hand) || (moveType != MoveType::Discard && moveType != MoveType::NormalDiscard))
 		return;
 
 	m_Callback(pFromZone->GetPlayer(), pCard, pByPlayer);

@@ -192,6 +192,9 @@ public:
 	// Global information
 
 	int GetCertainTypeDiedCount(CardType pType) const;
+	//int GetDeadZuberas() const { return m_nDeadZuberas; };
+	//void IncreaseDeadZuberas(CCard* pCard);
+	//void ResetDeadZuberas() { m_nDeadZuberas = 0; };
 	int GetTurnCastedSpellCount() const;
 	int GetLastTurnCastedSpellCount() const;
 
@@ -202,6 +205,10 @@ public:
 	void SetCurrentNode(CNode* pNode);
 
 	bool IsMainPhase(bool bPrecombat) const;
+	bool IsFirstMainPhase() const;
+
+	//BOOL IsAfterUpkeep() const								{ return m_bAfterUpkeep; } // needed for Reset to work correctly with upkeep-skipping effects
+	//void SetAfterUpkeep(BOOL bAfterUpkeep)					{ m_bAfterUpkeep = bAfterUpkeep; } // needed for Reset to work correctly with upkeep-skipping effects
 
 	const CSelection& GetSelection() const					{ return m_Selection; }
 	CSelection& GetSelection()								{ return m_Selection; }
@@ -725,6 +732,7 @@ protected:
 	void StartWithAsk();
 	void OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	void OnStartWithSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	//void OnGemstoneCavernsSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 
 	void UpdateGame() const;
 
@@ -864,6 +872,9 @@ protected:
 	CStateSupportCountedPtrType<const CAction> m_cpLastPerformedAction;
 	//BOOL_					m_bSuspendAllCreatures;
 	int_					m_nUniqueId;
+	//int_					m_nDeadZuberas;
+	
+	//BOOL_					m_bAfterUpkeep; // needed for Reset
 	
 	CSubjectGroupContainer_	m_CombatDamageAssignment;			// changed to CSubjectGroupContainer
 	CStack					m_Stack;
@@ -880,6 +891,7 @@ protected:
 	ListenerPtr<SelectionEventSource::Listener>	m_cpMulliganSelectionListener;
 	//ListenerPtr<SelectionEventSource::Listener>	m_cpStartWithSelectionListener;
 	CSelectionSupport		m_StartWithSelection;
+	//CSelectionSupport		m_GemstoneCavernsSelection;
 
 	counted_ptr<TargetSubjectEventSource>	m_cpTargetSubjectEventSource;
 

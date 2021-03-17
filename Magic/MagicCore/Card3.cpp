@@ -161,6 +161,23 @@ int CDevourCreatureCard::GetDevouredCount() const
 
 //____________________________________________________________________________
 //
+CChancellorCreatureCard::CChancellorCreatureCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, const CreatureType& creatureType, UINT uID,
+										 LPCTSTR strCostText, Power nPower, Life nToughness)
+	: CCreatureCard(pGame, strCardName, cardType, creatureType, uID, strCostText, nPower, nToughness)
+	, bIsRevealed(FALSE)
+{
+}
+
+void CChancellorCreatureCard::RevealAtBeginning()
+{
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), EffectName, EffectUID, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(GetController());
+
+	bIsRevealed = TRUE;
+}
+
+//____________________________________________________________________________
+//
 CFlipCreatureCard::CFlipCreatureCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, const CreatureType& creatureType, UINT uID,
 									 LPCTSTR strCostText, Power nPower, Life nToughness,
 									 Power nPower2, Life nToughness2, LPCTSTR nFlipCardName)

@@ -43,6 +43,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBringerOfTheWhiteDawnCard);
 		DEFINE_CARD(CCacklingImpCard);
 		DEFINE_CARD(CChannelTheSunsCard);
+		DEFINE_CARD(CChimericCoilsCard);
 		DEFINE_CARD(CClearwaterGobletCard);
 		DEFINE_CARD(CCondescendCard);
 		DEFINE_CARD(CConjurersBaubleCard);
@@ -66,6 +67,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFillWithFrightCard);
 		DEFINE_CARD(CFleshgrafterCard);
 		DEFINE_CARD(CGemstoneArrayCard);
+		DEFINE_CARD(CGoblinBrawlerCard);
 		DEFINE_CARD(CGoblinCannonCard);
 		DEFINE_CARD(CGraftedWargearCard);
 		DEFINE_CARD(CGranulateCard);
@@ -878,30 +880,34 @@ CTangleAspCard::CTangleAspCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Tangle Asp"), CardType::Creature, CREATURE_TYPE(Snake), nID,
 		_T("1") GREEN_MANA_TEXT, Power(1), Life(2))
 {
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-							CWhenSelfAttackedBlocked::BlockEventCallback2, 
-							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
-
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
-
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CTangleAspCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CTangleAspCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CTangleAspCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+bool CTangleAspCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CTangleAspCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -2103,7 +2109,7 @@ CBeaconOfCreationCard::CBeaconOfCreationCard(CGame* pGame, UINT nID)
 			_T("3") GREEN_MANA_TEXT,
 			new CardTypeComparer(CardType::Forest, false),
 			FALSE, FALSE,
-			_T("Insect B"), 2723, 1));
+			_T("Insect H"), 62012, 1));
 
 	cpSpell->SetToZoneIfSuccess(ZoneId::Library, 
 		TRUE,	// owner's zone?
@@ -3705,7 +3711,7 @@ CEnsouledScimitarCard::CEnsouledScimitarCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("3"),
-				_T("Spirit F"),2903));
+				_T("Spirit AB"), 64069));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -4819,6 +4825,55 @@ void CEnergyChamberCard::OnModeSelected(const std::vector<SelectionEntry>& selec
 			}
 			return;
 		}
+}
+
+//____________________________________________________________________________
+//
+CGoblinBrawlerCard::CGoblinBrawlerCard(CGame* pGame, UINT nID)
+	: CFirstStrikeCreatureCard(pGame, _T("Goblin Brawler"), CardType::Creature, CREATURE_TYPE2(Goblin, Warrior), nID,
+		_T("2") RED_MANA_TEXT, Power(2), Life(2))
+{
+	GetCreatureKeyword()->AddCantBeEquipped(FALSE);
+}
+
+//____________________________________________________________________________
+//
+CChimericCoilsCard::CChimericCoilsCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Chimeric Coils"), CardType::Artifact, nID, 
+		_T("1"), AbilityType::Artifact)
+{
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("1")));
+
+	cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, FALSE, FALSE);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CChimericCoilsCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CChimericCoilsCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nValue = pAction->GetCostConfigEntry().GetExtraValue();
+
+	CCardIsAlsoAModifier* pModifier1 = new CCardIsAlsoAModifier( _T("Construct AF"), 64084, pAction->GetController());
+
+	pModifier1->ApplyTo(this);
+
+	CCreatureCard* pCreature = (CCreatureCard*)GetIsAlsoA();
+
+	pCreature->SetPrintedPower(nValue);
+	pCreature->SetPrintedToughness(nValue);
+
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

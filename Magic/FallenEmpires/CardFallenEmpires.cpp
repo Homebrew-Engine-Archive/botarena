@@ -35,6 +35,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFeralThallidCard);
 		DEFINE_CARD(CFungalBloomCard);
 		DEFINE_CARD(CGoblinChirurgeonCard);
+		DEFINE_CARD(CGoblinKitesCard);
 		DEFINE_CARD(CHandOfJusticeCard);
 		DEFINE_CARD(CHighTideCard);
 		DEFINE_CARD(CHomaridCard);
@@ -429,7 +430,7 @@ CHighTideCard::CHighTideCard(CGame* pGame, UINT nID)
 		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
 			BLUE_MANA_TEXT));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("High Tide Effect"), 2953, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("High Tide Effect"), 61024, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -698,7 +699,7 @@ CThallidCard::CThallidCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T(""),
-				_T("Saproling B"), 2712,
+				_T("Saproling H"), 2923,
 				1));
 
 		cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
@@ -981,7 +982,7 @@ CTheloniteMonkCard::CTheloniteMonkCard(CGame* pGame, UINT nID)
 	cpAbility->AddTapCost();
 	cpAbility->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("green creatures")));
 
-	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, FALSE, _T("Forest"));
+	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, FALSE, _T("Forest"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -1059,138 +1060,96 @@ CElvishHunterCard::CElvishHunterCard(CGame* pGame, UINT nID)
 CFarrelitePriestCard::CFarrelitePriestCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Farrelite Priest"), CardType::Creature, CREATURE_TYPE2(Human, Cleric), nID,
 		_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(1), Life(3))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CFarrelitePriestCard::OnResolutionCompleted))
 {
-	{
-		counted_ptr<CManaFilterAbility> cpAbility(
-			::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT, _T("1")));
+	counted_ptr<CManaFilterAbility> cpAbility(
+		::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT, _T("1")));
 
-		m_pAbility = cpAbility.GetPointer();
+	m_pAbility = cpAbility.GetPointer();
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(m_pAbility);
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CFarrelitePriestCard::SetTriggerContext));
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(m_pAbility);
 }
 
-bool CFarrelitePriestCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-										 CNode* pToNode) const
+void CFarrelitePriestCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-		return m_pAbility->GetTurnUsageCount() > 3;
+	if (!bResult || (m_pAbility->GetTurnUsageCount() < 4)) return;
+
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
 //
 CRainbowValeCard::CRainbowValeCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Rainbow Vale"), nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CRainbowValeCard::OnResolutionCompleted))
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonBasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetResolutionModifier().CCardModifiers::Add(
-			new CScheduledCardModifier(pGame,
-				new CSpecialEffectModifier((CCard*)this, 1),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true,
-				CScheduledCardModifier::Operation::ApplyToLater));
+		cpNonBasicLandManaAbility->AddTapCost();
+		cpNonBasicLandManaAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonBasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonBasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetResolutionModifier().CCardModifiers::Add(
-			new CScheduledCardModifier(pGame,
-				new CSpecialEffectModifier((CCard*)this, 1),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true,
-				CScheduledCardModifier::Operation::ApplyToLater));
+		cpNonBasicLandManaAbility->AddTapCost();
+		cpNonBasicLandManaAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonBasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonBasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetResolutionModifier().CCardModifiers::Add(
-			new CScheduledCardModifier(pGame,
-				new CSpecialEffectModifier((CCard*)this, 1),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true,
-				CScheduledCardModifier::Operation::ApplyToLater));
+		cpNonBasicLandManaAbility->AddTapCost();
+		cpNonBasicLandManaAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonBasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonBasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetResolutionModifier().CCardModifiers::Add(
-			new CScheduledCardModifier(pGame,
-				new CSpecialEffectModifier((CCard*)this, 1),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true,
-				CScheduledCardModifier::Operation::ApplyToLater));
+		cpNonBasicLandManaAbility->AddTapCost();
+		cpNonBasicLandManaAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonBasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonBasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetResolutionModifier().CCardModifiers::Add(
-			new CScheduledCardModifier(pGame,
-				new CSpecialEffectModifier((CCard*)this, 1),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true,
-				CScheduledCardModifier::Operation::ApplyToLater));
+		cpNonBasicLandManaAbility->AddTapCost();
+		cpNonBasicLandManaAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonBasicLandManaAbility.GetPointer());
 	}
-	{
-		typedef
-			TTriggeredSubjectAbility< CTriggeredAbility<>, CSpecialTrigger > TriggeredAbility;
+}
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+void CRainbowValeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	CCountedCardContainer pSubjects;
 
-		cpAbility->GetTrigger().SetTriggerIndex(1);
-		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
 
-		cpAbility->GetGatherer().SetIncludeOpponentPlayersOnly();
-		cpAbility->GetTriggeredPlayerModifiers().Add(new CTransferControlModifier(GetGame(), (CCard*)this, (CCard*)this));
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Battlefield));
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Rainbow Vale Effect"), 61088, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -1717,6 +1676,39 @@ BOOL CEbonPraetorCard::CanPlay(BOOL bIncludeTricks)
 	if (m_pAbility1->GetTurnUsageCount() + m_pAbility2->GetTurnUsageCount() > 0) return FALSE;
 
 	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+CGoblinKitesCard::CGoblinKitesCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Goblin Kites"), CardType::GlobalEnchantment, nID,
+		_T("1") RED_MANA_TEXT, AbilityType::Enchantment)
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CGoblinKitesCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			RED_MANA_TEXT,
+			Power(+0), Life(+0),
+			CreatureKeyword::Flying, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable));
+
+	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
+	cpAbility->GetTargeting()->GetSubjectCardFilter().AddComparer(new CreatureToughnessComparer<std::less_equal<int>>(2));
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+	AddAbility(cpAbility.GetPointer()); 
+}
+
+void CGoblinKitesCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Goblin Kites Effect"), 61068, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

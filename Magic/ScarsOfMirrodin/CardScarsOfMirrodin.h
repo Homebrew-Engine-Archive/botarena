@@ -37,9 +37,6 @@ class CVensertheSojournerCard : public CPlaneswalkerCard
 	DECLARE_CARD_CSTOR(CVensertheSojournerCard);
 
 protected:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	CCardFilter m_CardFilter_temp;
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
@@ -509,15 +506,13 @@ class CArgentSphinxCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CArgentSphinxCard);
 
-private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
+protected:
+    BOOL CanPlay(BOOL bIncludeTricks);
+
 	CCardFilter m_CardFilter_temp;
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
-protected:
-	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1099,20 +1094,26 @@ class CMimicVatCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CMimicVatCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CCard* pCard,
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard,
 							CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenCardMoved > TriggeredAbility;
 	bool BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction);
 
 	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 	ListenerPtr<CardMovementEventSource::Listener> m_cpAListener;
 
 	bool BeforeResolution(CAbilityAction* pAction) const;
-	
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
+
+	CCountedCardContainer_ pExiled;
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+										CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+
+	CSelectionSupport m_Selection;
+	void OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 //____________________________________________________________________________
 //
@@ -1430,12 +1431,8 @@ class CGlimmerpointStagCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGlimmerpointStagCard);
 
-private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	CCardFilter m_CardFilter_temp;
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
 };
 
@@ -1677,6 +1674,37 @@ protected:
 	bool BeforeResolutionAux(CAbilityAction* pAction);
 
 	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CCullingDaisCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CCullingDaisCard);
+
+protected:
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	int_ m_nCounterCount;
+	ListenerPtr<CounterMovedEventSource::Listener>	m_cpAListener;
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+	void OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);
+};
+
+//____________________________________________________________________________
+//
+class CSteelHellkiteCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSteelHellkiteCard);
+
+protected:
+	std::vector<int> pDamagedPlayers;
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, CPlayer* pPlayer, Damage damage);
+	bool BeforeResolutionAux(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

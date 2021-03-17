@@ -98,7 +98,9 @@ public:
 
 	void ResetCombatCount();
 	int GetMaxCombatCount() const;
+	int GetTurnMaxCombatCount() const;
 	void SetMaxCombatCount(int nMaxCombatCount, BOOL bThisTurnOnly);
+	void IncreaseMaxCombatCount(int nAdditionalCombats, BOOL bThisTurnOnly);
 
 	void IncreaseLandCount();
 	BOOL IsLandActionValid() const;
@@ -169,6 +171,7 @@ public:
 		AbilityType validAbilityType, NodeId nextNodeId);
 	
 	void DealCombatDamage();
+	int GetCombatCount();
 
 protected:
 	BOOL RequireCombatDamageAssignment(BOOL bCheckAttackers, BOOL bCheckBlockers) const;
@@ -350,4 +353,15 @@ public:
 
 	OVERRIDE(void, GetNodeActions)(CActionContainer& MoveContainer);
 	OVERRIDE(BOOL, OnBeforeExit)();
+
+	void IncreaseFastCombatCount();
+	int GetFastCombatCount() const;
+
+	void ResetFastCombatCount();
+	int GetMaxFastCombatCount() const;
+	void SetMaxFastCombatCount(int nMaxCombatCount);
+
+protected:
+	// State managed
+	int_	m_nMaxCombatCount;
 };

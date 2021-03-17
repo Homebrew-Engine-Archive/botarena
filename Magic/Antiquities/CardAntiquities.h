@@ -118,6 +118,10 @@ class CDampingFieldCard : public CInPlaySpellCard
 class CRakaliteCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CRakaliteCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

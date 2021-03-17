@@ -124,8 +124,14 @@ class CKaijinOfTheVanishingTouchCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CKaijinOfTheVanishingTouchCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 							CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1046,6 +1052,21 @@ class CMinamoSightbenderCard : public CCreatureCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CShireiShizosCaretakerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CShireiShizosCaretakerCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________

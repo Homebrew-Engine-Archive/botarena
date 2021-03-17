@@ -942,3 +942,33 @@ protected:
 
 //____________________________________________________________________________
 //
+class CCallerOfTheClawCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCallerOfTheClawCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CPlanarGuideCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CPlanarGuideCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CSkirkAlarmistCard : public CHasteCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSkirkAlarmistCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//

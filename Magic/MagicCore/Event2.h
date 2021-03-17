@@ -532,6 +532,10 @@ public:
 	void RemoveUnpreventableDamage(BOOL bThisTurnOnly);
 	BOOL HasUnpreventableDamage() const;
 
+	void AddCantBeEnchanted(BOOL bThisTurnOnly);
+	void RemoveCantBeEnchanted(BOOL bThisTurnOnly);
+	BOOL HasCantBeEnchanted() const;
+
 	void AddFlash(BOOL bThisTurnOnly);
 	void RemoveFlash(BOOL bThisTurnOnly);
 	BOOL HasFlash() const;
@@ -648,6 +652,7 @@ public:
 	BOOL HasCommanderFlag() const;
 
 	BOOL HasUnearth() const;
+	BOOL HasPseudoUnearth() const;
 
 	void AddFlashback(BOOL bThisTurnOnly);
 	BOOL HasFlashback() const;
@@ -727,6 +732,7 @@ public:
 	BOOL Trample() const;
 	BOOL MustAttack() const;
 	BOOL CantRegenerate() const;
+	BOOL CantBeEquipped() const;
 	
 	BOOL Devour() const;
 	BOOL Amplify() const;
@@ -764,6 +770,7 @@ public:
 	void AddCantAttack(BOOL bThisTurnOnly);
 	void AddDefender(BOOL bThisTurnOnly);
 	void AddCantBlock(BOOL bThisTurnOnly, const CCardFilter* pExceptionFilter = NULL);
+	void AddCantBeEquipped(BOOL bThisTurnOnly);
 
 	void AddCanAssignDamageToPlayer(BOOL bThisTurnOnly);
 
@@ -828,6 +835,7 @@ public:
 	void RemoveCantAttack(BOOL bThisTurnOnly);
 	void RemoveDefender(BOOL bThisTurnOnly);
 	void RemoveCantBlock(BOOL bThisTurnOnly, const CCardFilter* pExceptionFilter);
+	void RemoveCantBeEquipped(BOOL bThisTurnOnly);
 
 	void RemoveCanAssignDamageToPlayer(BOOL bThisTurnOnly);
 

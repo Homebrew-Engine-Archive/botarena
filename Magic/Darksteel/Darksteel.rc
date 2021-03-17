@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -246,6 +247,9 @@ BEGIN
     IDS_STRING15333         "Arcbound Fiend\n{6}\nArtifact Creature - Horror\nDST,U\nFear\rAt the beginning of your upkeep, you may move a +1/+1 counter from target creature onto Arcbound Fiend.\rModular 3\n0/0"
     IDS_STRING15334         "Thought Dissector\n{4}\nArtifact\nDST,R\n{X}, {T}: Target opponent reveals cards from the top of his or her library until an artifact card or X cards are revealed, whichever comes first. If an artifact card is revealed this way, put it onto the battlefield under your control and sacrifice Thought Dissector. Put the rest of the revealed cards into that player's graveyard."
     IDS_STRING15335         "Machinate\n{1UU}\nInstant\nDST,C\nLook at the top X cards of your library, where X is the number of artifacts you control. Put one of those cards into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING15336         "Savage Beating\n{3RR}\nInstant\nDST,R\nCast Savage Beating only during your turn and only during combat.\rChoose one - Creatures you control gain double strike until end of turn; or untap all creatures you control and after this phase, there is an additional combat phase.\rEntwine {1R}"
+    IDS_STRING15337         "Tears of Rage\n{2RR}\nInstant\nDST,U\nCast Tears of Rage only during the declare attackers step.\rAttacking creatures you control get +X/+0 until end of turn, where X is the number of attacking creatures. Sacrifice those creatures at the beginning of the next end step."
+    IDS_STRING15338         "Gemini Engine\n{6}\nArtifact Creature - Construct\nDST,R\nWhenever Gemini Engine attacks, put a colorless Construct artifact creature token named Twin onto the battlefield attacking. Its power is equal to Gemini Engine's power and its toughness is equal to Gemini Engine's toughness. Sacrifice the token at end of combat.\n3/4"
 END
 
 #endif    // English (United States) resources
@@ -258,7 +262,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

@@ -93,9 +93,16 @@ class CAbominationCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAbominationCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+
 	CCardFilter m_CardFilter;
 };
 
@@ -826,6 +833,67 @@ class CXenicPoltergeistCard : public CCreatureCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CRelicBindCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CRelicBindCard);
+
+protected:
+	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
+
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+
+	BOOL TargetCheckPlayer(CPlayer* pPlayer);
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								CCard* pCard);
+};
+
+//____________________________________________________________________________
+//
+class CTetravusCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CTetravusCard);
+
+protected:
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+	CCountedCardContainer_ pTokens;
+	CCountedCardContainer_ pSelectedTokens;
+
+	CSelectionSupport m_NumberSelection;
+	void OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool BeforeResolution2(CAbilityAction* pAction);
+	void ExileTetravites(CPlayer* pController);
+};
+
+//____________________________________________________________________________
+//
+class CClockworkAvianCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CClockworkAvianCard);
+
+protected:
+	BOOL_ bAttackedOrBlocked;
+	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_NumberSelection;
+	void OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard);
+	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________

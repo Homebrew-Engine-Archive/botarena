@@ -1372,3 +1372,24 @@ class CRiotSpikesCard : public CChgPwrTghAttrEnchantCard
 
 //____________________________________________________________________________
 //
+class CTwinstrikeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CTwinstrikeCard);
+
+protected:
+	CTargetSpell* m_cSpell;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CIgnorantBlissCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CIgnorantBlissCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

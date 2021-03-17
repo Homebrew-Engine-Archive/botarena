@@ -240,6 +240,7 @@
 #define IDS_STRING21023                 21023
 #define IDS_STRING21024                 21024
 #define IDS_STRING21025                 21025
+#define IDS_STRING21026                 21026
 #define IDI_MODULE                      21048
 #define IDI_LARGE_MODULE                21049
 

@@ -271,9 +271,15 @@ class CCockatriceCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCockatriceCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-						   CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1146,7 +1152,7 @@ class CKarmaCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CKarmaCard);
 
 private:
-	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1465,9 +1471,15 @@ class CThicketBasiliskCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CThicketBasiliskCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-											  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1620,8 +1632,6 @@ class CBerserkCard : public CCard
 	DECLARE_CARD_CSTOR(CBerserkCard);
 
 protected:
-	CCardFilter m_CardFilter;
-	CSpell* pSpell;
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 
 	BOOL CanPlay(BOOL bIncludeTricks);
@@ -1636,8 +1646,9 @@ class CDragonWhelpCard : public CFlyingCreatureCard
 
 protected:
 	CAbility* m_pAbility;
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-						   CNode* pToNode) const;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1912,7 +1923,72 @@ protected:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
 		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //___________________________________________________________________________
+//
+class CVolcanicEruptionCard : public CTargetMoveCardSpellCard
+{
+	DECLARE_CARD_CSTOR(CVolcanicEruptionCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	int_ m_nCards;
+};
+
+//____________________________________________________________________________
+//
+class CClockworkBeastCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CClockworkBeastCard);
+
+protected:
+	BOOL_ bAttackedOrBlocked;
+	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_NumberSelection;
+	void OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard);
+	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CNettlingImpCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNettlingImpCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution (CAbilityAction* pAction);
+
+	class CNettlingImpTargeting : public CTargeting
+	{
+	public:
+		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+	};
+};
+
+//____________________________________________________________________________
+//
+class CSirensCallCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSirensCallCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
 //

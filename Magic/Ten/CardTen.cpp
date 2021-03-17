@@ -38,6 +38,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBogardanFirefiendCard);
 		DEFINE_CARD(CCancelCard);
 		DEFINE_CARD(CCephalidConstableCard);
+		DEFINE_CARD(CChimericStaffCard);
 		DEFINE_CARD(CChomannoRevolutionaryCard);
 		DEFINE_CARD(CChromaticStarCard);
 		DEFINE_CARD(CCitanulFluteCard);
@@ -90,6 +91,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLoyalSentryCard);
 		DEFINE_CARD(CMantisEngineCard);
 		DEFINE_CARD(CMassOfGhoulsCard);
+		DEFINE_CARD(CMidnightRitualCard);
 		DEFINE_CARD(CMightWeaverCard);
 		DEFINE_CARD(CMindStoneCard);
 		DEFINE_CARD(CMirriCatWarriorCard);
@@ -568,7 +570,7 @@ CMobilizationCard::CMobilizationCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("2") WHITE_MANA_TEXT,
-				_T("Soldier A"), 2713,
+				_T("Soldier H"), 2906,
 				1));
 
 		AddAbility(cpAbility.GetPointer());
@@ -1859,7 +1861,7 @@ CForbiddingWatchtowerCard::CForbiddingWatchtowerCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("1") WHITE_MANA_TEXT,
-				_T("Soldier B"), 2716));
+				_T("Soldier AA"), 64066));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -1909,7 +1911,7 @@ CGhituEncampmentCard::CGhituEncampmentCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("1") RED_MANA_TEXT,
-				_T("Warrior A"), 2717));
+				_T("Warrior AA"), 64080));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2292,7 +2294,7 @@ CSiegeGangCommanderCard::CSiegeGangCommanderCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Goblin C"), 2702, 3);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Goblin J"), 62021, 3);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -3266,7 +3268,6 @@ CVoiceOfAllCard::CVoiceOfAllCard(CGame* pGame, UINT nID)
 		_T("2") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(2), Life(2))
 	, m_Selection(pGame,CSelectionSupport::SelectionCallback(this, &CVoiceOfAllCard::OnSelectionDone))
 {
-	GetCreatureKeyword()->AddDefender(FALSE);
 }
 
 void CVoiceOfAllCard::Move(CZone* pToZone,
@@ -3754,10 +3755,81 @@ void CTimeStopCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, 
 		((CCreatureCard*)creatures.GetAt(ic))->RemoveFromCombat(TRUE);
 	}
 
-
-
 	m_pGame->GetCurrentNode()->GetGraph()->SetNode(m_pGame->GetCurrentNode()->GetGraph(), m_pGame->GetCurrentNode()->GetGraph(), NodeId::CleanupStep1);
 
+}
+
+//____________________________________________________________________________
+//
+CMidnightRitualCard::CMidnightRitualCard(CGame* pGame, UINT nID)
+	: CTargetMoveCardSpellCard(pGame, _T("MidnightRitual"), CardType::Sorcery, nID,
+		_T("2") BLACK_MANA_TEXT, AbilityType::Sorcery,
+		new AnyCreatureComparer,
+		ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others)
+	, nGraveyard(0)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CMidnightRitualCard::OnResolutionCompleted))
+{
+	m_pTargetMoveCardSpell->GetCost().SetExtraManaCost();
+	m_pTargetMoveCardSpell->AdjustTargetCountWithExtraCostValue();
+	m_pTargetMoveCardSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+	m_pTargetMoveCardSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMidnightRitualCard::BeforeResolution));
+	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+}
+
+bool CMidnightRitualCard::BeforeResolution(CAbilityAction* pAction)
+{
+	nGraveyard = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pAction->GetController()->GetZoneById(ZoneId::Graveyard)->GetCardContainer());
+
+	return true;
+}
+
+void CMidnightRitualCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	int nNewGraveyard = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pAbilityAction->GetController()->GetZoneById(ZoneId::Graveyard)->GetCardContainer());
+
+	if (nGraveyard > nNewGraveyard)
+	{
+		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Zombie A"), 2724, nGraveyard - nNewGraveyard);
+		pModifier.ApplyTo(pAbilityAction->GetController());
+	}
+}
+
+//____________________________________________________________________________
+//
+CChimericStaffCard::CChimericStaffCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Chimeric Staff"), CardType::Artifact, nID, 
+		_T("4"), AbilityType::Artifact)
+{
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("")));
+
+	cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, FALSE, FALSE);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CChimericStaffCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CChimericStaffCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nValue = pAction->GetCostConfigEntry().GetExtraValue();
+
+	CCardIsAlsoAModifier* pModifier1 = new CCardIsAlsoAModifier( _T("Construct AE"), 64082, pAction->GetController());
+	CScheduledCardModifier pModifier2 =  CScheduledCardModifier(
+			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, true,  CScheduledCardModifier::Operation::RemoveFromLater);
+
+	pModifier1->ApplyTo(this);
+	pModifier2.ApplyTo(this);
+
+	CCreatureCard* pCreature = (CCreatureCard*)GetIsAlsoA();
+
+	pCreature->SetPrintedPower(nValue);
+	pCreature->SetPrintedToughness(nValue);
+
+	return true;
 }
 
 //____________________________________________________________________________

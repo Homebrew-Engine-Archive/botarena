@@ -3113,7 +3113,7 @@ bool CRustingGolemCard::BeforeResolution(CAbilityAction* pAction)
 //
 CSaprolingBurstCard::CSaprolingBurstCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Saproling Burst"), CardType::GlobalEnchantment, nID,
-		_T("4") GREEN_MANA_TEXT, AbilityType::Artifact)
+		_T("4") GREEN_MANA_TEXT, AbilityType::Enchantment)
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 		&CSaprolingBurstCard::OnResolutionCompleted1))
 {

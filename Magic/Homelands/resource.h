@@ -130,6 +130,12 @@
 #define IDS_STRING6213                  6213
 #define IDS_STRING6214                  6214
 #define IDS_STRING6215                  6215
+#define IDS_STRING6216                  6216
+#define IDS_STRING6217                  6217
+#define IDS_STRING6218                  6218
+#define IDS_STRING6219                  6219
+#define IDS_STRING6220                  6220
+#define IDS_STRING6221                  6221
 #define IDI_MODULE                      6240
 #define IDI_LARGE_MODULE                6241
 

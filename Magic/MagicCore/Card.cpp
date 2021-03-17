@@ -163,6 +163,7 @@ CCard::CCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, UINT uImageID
 			this, &CCard::OnToDiscardSelected))
 	, m_nLastKnownp11Counters(0)
 	, m_nLastKnownm11Counters(0)
+	, m_nLastKnownFungusCounters(0)
 	, m_LastCastingCostConfigEntry()
 	, m_nTargetedNumber(0)
 	, m_nDoubleCardName(FALSE)
@@ -303,8 +304,8 @@ void CCard::OnCardTypeChanged(CardType fromCardType)
 	// Special consideration for change of land types
 	// TODO: implement real "IS A" function for cards, may need to consider double feature cards also
 
-	bool bFromBasicLand = (fromCardType & CardType::BasicLand).Any();
-	bool bToBasicLand = (m_CardType & CardType::BasicLand).Any();
+	bool bFromBasicLand = (fromCardType & (CardType::BasicLand | CardType::PseudoBasicLand)).Any();
+	bool bToBasicLand = (m_CardType & (CardType::BasicLand | CardType::PseudoBasicLand)).Any();
 	bool bFromNonbasicLand = (fromCardType & CardType::NonbasicLand).Any();
 	bool bToNonbasicLand = (m_CardType & CardType::NonbasicLand).Any();
 	bool TypeAdded = (((fromCardType & CardType::Plains).Any() && (m_CardType & CardType::Plains).Any()) ||
@@ -892,6 +893,9 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		m_pGoingToZone = pToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
 	}
 
+	if ((moveType == MoveType::Sacrifice) && pByPlayer && (pByPlayer != GetController()))
+		return;
+
 	if (GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::GrafdiggersCage) && GetCardType().IsCreature() &&
 		pToZone->GetZoneId() == ZoneId::Battlefield && (pPreviousZone->GetZoneId() == ZoneId::Library || pPreviousZone->GetZoneId() == ZoneId::Graveyard))
 			return;
@@ -916,6 +920,7 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 
 		if (pPreviousZone->GetZoneId() == ZoneId::Battlefield && (GetReplacementKeyword()->HasGraveyardToExile() ||
 				GetReplacementKeyword()->HasUnearth() ||
+				GetReplacementKeyword()->HasPseudoUnearth() ||
 				GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PermanentsExileInsteadGraveyard)))
 		{
 			m_pGoingToZone = m_pGoingToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
@@ -1101,7 +1106,7 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 	}
 	else
 	{	
-		if (GetReplacementKeyword()->HasUnearth() && (m_pGoingToZone->GetZoneId() == ZoneId::Hand || m_pGoingToZone->GetZoneId() == ZoneId::Library))
+		if ((GetReplacementKeyword()->HasUnearth() || GetReplacementKeyword()->HasPseudoUnearth()) && (m_pGoingToZone->GetZoneId() == ZoneId::Hand || m_pGoingToZone->GetZoneId() == ZoneId::Library))
 		{
 			m_pGoingToZone = m_pGoingToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
 		}
@@ -1117,8 +1122,8 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		{
 			int nExtraCount = 0;
 			CZone* pBattlefield = this->GetController()->GetZoneById(ZoneId::Battlefield);
-			
 			CZone* pGraveyard = this->GetController()->GetZoneById(ZoneId::Graveyard);
+			CZone* pEffects = this->GetController()->GetZoneById(ZoneId::_Effects);
 			
 			for (int i = 0; i < pBattlefield->GetSize(); ++i)
 			{
@@ -1130,7 +1135,9 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 						nExtraCount += 1;
 					else if (pCard->GetPrintedCardName() == _T("Master Biomancer"))
 					{
-						nExtraCount += GET_INTEGER(((CCreatureCard*)pCard)->GetLastKnownPower());
+						int nPower = GET_INTEGER(((CCreatureCard*)pCard)->GetLastKnownPower());
+						if (nPower > 0)
+							nExtraCount += nPower;
 
 						CCreatureTypeModifier* pModifier = new CCreatureTypeModifier(SingleCreatureType::Mutant, true);
 						pModifier->ApplyTo((CCreatureCard*)this);
@@ -1150,6 +1157,28 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 					nExtraCount += 1;
 			}
 			
+			bool bBloodthirst = false;
+			for (int ip = 0; ip < m_pGame->GetPlayerCount(); ++ip)
+				if ((m_pGame->GetPlayer(ip) != GetController()) && (m_pGame->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
+				{
+					bBloodthirst = true;
+					break;
+				}
+
+			if (bBloodthirst)
+			{
+				CCard* pBloodlordCard;
+				for (int i = 0; i < pEffects->GetSize(); ++i)
+				{
+					if (pEffects->GetAt(i)->GetPrintedCardName() == _T("Bloodlord of Vaasgoth Effect"))
+					{
+						pBloodlordCard = ((CContainerEffectCard*)pEffects->GetAt(i))->GetCard();
+						if (pBloodlordCard == this)
+							nExtraCount += 3;
+					}
+				}
+			}
+
 			int nZameck = 0;
 
 			if (this->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Extrap11Counter, nZameck, FALSE))

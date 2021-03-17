@@ -249,7 +249,7 @@ CAcornHarvestCard::CAcornHarvestCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("3") GREEN_MANA_TEXT,
-				_T("Squirrel"), TOKEN_ID_BY_NAME,
+				_T("Squirrel A"), 2769,
 				2));
 
 		AddSpell(cpSpell.GetPointer());
@@ -259,7 +259,7 @@ CAcornHarvestCard::CAcornHarvestCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("1") GREEN_MANA_TEXT,
-				_T("Squirrel"), TOKEN_ID_BY_NAME,
+				_T("Squirrel A"), 2769,
 				2));
 
 		cpSpell->AddPayLifeDeltaCost(Life(-3));
@@ -712,7 +712,7 @@ CZombieTrailblazerCard::CZombieTrailblazerCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetCost().AddTapCardCost(1, &m_CardFilter);
 
-		cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
+		cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -1167,7 +1167,7 @@ CFlashOfDefianceCard::CFlashOfDefianceCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
 				_T("1") RED_MANA_TEXT));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Flash of Defiance Effect"), 2915, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Flash of Defiance Effect"), 61022, 1, FALSE, ZoneId::_Effects));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -1177,7 +1177,7 @@ CFlashOfDefianceCard::CFlashOfDefianceCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
 				_T("1") RED_MANA_TEXT));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Flash of Defiance Effect"), 2915, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Flash of Defiance Effect"), 61022, 1, FALSE, ZoneId::_Effects));
 
 		cpSpell->AddPayLifeDeltaCost(Life(-3));
 		
@@ -2386,6 +2386,7 @@ CDawnOfTheDeadCard::CDawnOfTheDeadCard(CGame* pGame, UINT nID)
 		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
 
 		cpAbility->AddAbilityTag(AbilityTag::LifeLost);
+		cpAbility->SetAbilityName(_T("Life loss ability"));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2408,6 +2409,7 @@ CDawnOfTheDeadCard::CDawnOfTheDeadCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Battlefield));
+		cpAbility->SetAbilityName(_T("Reanimate ability"));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2415,31 +2417,29 @@ CDawnOfTheDeadCard::CDawnOfTheDeadCard(CGame* pGame, UINT nID)
 
 void CDawnOfTheDeadCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target = pAbilityAction->GetAssociatedCard();
-	CCreatureCard* pCreature = (CCreatureCard*)target;
+	CCreatureCard* pCreature = (CCreatureCard*)pAbilityAction->GetAssociatedCard();
 
-	if (target->GetCardType().IsCreature())
-	{
-		CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier();
-			pModifier1.GetModifier().SetToAdd(CreatureKeyword::Haste);
-			pModifier1.GetModifier().SetOneTurnOnly(TRUE);
+	CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier();
+		pModifier1.GetModifier().SetToAdd(CreatureKeyword::Haste);
+		pModifier1.GetModifier().SetOneTurnOnly(TRUE);
 
-		CScheduledCardModifier pModifier2 = CScheduledCardModifier(GetGame(),
-			new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-			TurnNumberDelta(-1),
-			NodeId::EndStep, 
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater);
+	pModifier1.ApplyTo(pCreature);
 
-		pModifier1.ApplyTo(pCreature);
-		pModifier2.ApplyTo(pCreature);
-	}
+	CCountedCardContainer pSubjects;
+
+	if (pCreature->IsInplay())
+		pSubjects.AddCard(pCreature, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
 //
 CFalseMemoriesCard::CFalseMemoriesCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("False Memories"), CardType::Instant, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CFalseMemoriesCard::OnResolutionCompleted))
 {
 	counted_ptr<CRevealLibraryCardSpell> cpSpell(
 	::CreateObject<CRevealLibraryCardSpell>(this, AbilityType::Instant,
@@ -2448,26 +2448,17 @@ CFalseMemoriesCard::CFalseMemoriesCard(CGame* pGame, UINT nID)
 
 	cpSpell->SetRevealCardsToOthers(TRUE, FALSE);
 	cpSpell->SetReorder(TRUE, ZoneId::Graveyard);
-
-	CZoneModifier* pModifier = new CZoneModifier(GetGame(),
-		ZoneId::Graveyard, SpecialNumber::All,
-		CZoneModifier::RoleType::PrimaryPlayer,
-		CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-	pModifier->AddSelection(MinimumValue(SpecialNumber::Any), MaximumValue(7), // select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		CCardFilter::GetFilter(_T("cards")), // what cards
-		ZoneId::Exile, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on 
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-	CScheduledPlayerModifier* pSModifier = new CScheduledPlayerModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep,
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-	cpSpell->GetResolutionModifier().CPlayerModifiers::Add(pSModifier);
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddSpell(cpSpell.GetPointer());
+}
+
+void CFalseMemoriesCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("False Memories Effect"), 61065, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

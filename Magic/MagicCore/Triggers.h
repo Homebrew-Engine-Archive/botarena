@@ -1419,6 +1419,7 @@ public:
 	// 2 - Vigor effect
 	// 3 - Szadek, Lord of Secrets effect
 	// 4 - Hostility effect
+	// 5 - Undead Alchemist effect
 	
 	CBeforeDamageDealt(CCard* pCard);
 	virtual ~CBeforeDamageDealt() {}

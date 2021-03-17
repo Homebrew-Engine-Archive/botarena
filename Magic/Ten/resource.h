@@ -381,6 +381,8 @@
 #define IDS_STRING3365                  3365
 #define IDS_STRING3366                  3366
 #define IDS_STRING3367                  3367
+#define IDS_STRING3368                  3368
+#define IDS_STRING3369                  3369
 #define IDI_MODULE                      3384
 #define IDI_LARGE_MODULE                3385
 

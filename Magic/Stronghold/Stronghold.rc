@@ -226,6 +226,9 @@ BEGIN
     IDS_STRING10516         "Dream Halls\n{3UU}\nEnchantment\nSTH,R\nRather than pay the mana cost for a spell, its controller may discard a card that shares a color with that spell."
     IDS_STRING10517         "Mask of the Mimic\n{U}\nInstant\nSTH,U\nAs an additional cost to cast Mask of the Mimic, sacrifice a creature.\rSearch your library for a card with the same name as target nontoken creature and put that card onto the battlefield. Then shuffle your library."
     IDS_STRING10518         "Verdant Touch\n{1G}\nSorcery\nSTH,R\nBuyback {3}\rTarget land becomes a 2/2 creature that's still a land."
+    IDS_STRING10519         "Mogg Infestation\n{3RR}\nSorcery\nSTH,R\nDestroy all creatures target player controls. For each creature that died this way, put two 1/1 red Goblin creature tokens onto the battlefield under that player's control."
+    IDS_STRING10520         "Volrath's Laboratory\n{5}\nArtifact\nSTH,R\nAs Volrath's Laboratory enters the battlefield, choose a color and a creature type.\r{5}, {T}: Put a 2/2 creature token of the chosen color and type onto the battlefield."
+    IDS_STRING10521         "Contempt\n{1U}\nEnchantment - Aura\nSTH,C\nEnchant creature\rWhenever enchanted creature attacks, return it and Contempt to their owners' hands at end of combat."
 END
 
 #endif    // English (United States) resources

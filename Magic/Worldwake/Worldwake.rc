@@ -231,6 +231,9 @@ BEGIN
 	IDS_STRING19721         "Mire's Toll\n{B}\nSorcery\nWWK,C\nTarget player reveals a number of cards from his or her hand equal to the number of Swamps you control. You choose one of them. That player discards that card."
 	IDS_STRING19722         "Mordant Dragon\n{3RRR}\nCreature - Dragon\nWWK,R\nFlying\r{1}{R}: Mordant Dragon gets +1/+0 until end of turn.\rWhenever Mordant Dragon deals combat damage to a player, you may have it deal that much damage to target creature that player controls.\n5/5"
 	IDS_STRING19723         "Vastwood Animist\n{2G}\nCreature - Elf Shaman Ally\nWWK,U\n{T}: Target land you control becomes an X/X Elemental creature until end of turn, where X is the number of Allies you control. It's still a land.\n1/1"
+	IDS_STRING19724         "Tuktuk Scrapper\n{3R}\nCreature - Goblin Artificer Ally\nWWK,U\nWhenever Tuktuk Scrapper or another Ally enters the battlefield under your control, you may destroy target artifact. If that artifact is put into a graveyard this way, Tuktuk Scrapper deals damage to that artifact's controller equal to the number of Allies you control.\n2/2"
+	IDS_STRING19725         "Nemesis Trap\n{4BB}\nInstant - Trap\nWWK,U\nIf a white creature is attacking, you may pay {BB} rather than pay Nemesis Trap's mana cost.\rExile target attacking creature. Put a token that's a copy of that creature onto the battlefield. Exile it at the beginning of the next end step."
+	IDS_STRING19726         "Slingbow Trap\n{3G}\nInstant - Trap\nWWK,U\nIf a black creature with flying is attacking, you may pay {G} rather than pay Slingbow Trap's mana cost.\rDestroy target attacking creature with flying."
 END
 
 #endif    // English (United States) resources

@@ -1383,7 +1383,7 @@ CBubblingMuckCard::CBubblingMuckCard(CGame* pGame, UINT nID)
 		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
 			BLACK_MANA_TEXT));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Bubbling Muck Effect"), 2952, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Bubbling Muck Effect"), 61016, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -1392,9 +1392,10 @@ CBubblingMuckCard::CBubblingMuckCard(CGame* pGame, UINT nID)
 //
 CEncroachCard::CEncroachCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Encroach"), CardType::Sorcery, nID)
-
-	, m_CardFilter(new CardTypeComparer(CardType::NonbasicLand, false))
 {
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::_Land, false));
+	m_CardFilter.AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
+
 	counted_ptr<CTargetPlayerDiscardCardSpell> cpSpell(
 		::CreateObject<CTargetPlayerDiscardCardSpell>(this, AbilityType::Sorcery,
 			BLACK_MANA_TEXT,
@@ -2338,12 +2339,13 @@ void CScourCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOO
 CSowingSaltCard::CSowingSaltCard(CGame* pGame, UINT nID)
 	: CTargetMoveCardSpellCard(pGame, _T("Sowing Salt"), CardType::Sorcery, nID,
 		_T("2") RED_MANA_TEXT RED_MANA_TEXT, AbilityType::Sorcery,
-		new CardTypeComparer(CardType::NonbasicLand, false),
+		new CardTypeComparer(CardType::_Land, false),
 		ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others)
 
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 					   &CSowingSaltCard::OnResolutionCompleted))
 {
+	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 	m_pTargetMoveCardSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 }
@@ -2490,6 +2492,8 @@ CGamekeeperCard::CGamekeeperCard(CGame* pGame, UINT nID)
 CApprenticeNecromancerCard::CApprenticeNecromancerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Apprentice Necromancer"), CardType::Creature, CREATURE_TYPE2(Zombie, Wizard), nID,
 		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
+	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CApprenticeNecromancerCard::OnResolutionCompleted1))
 {
 	counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
@@ -2506,23 +2510,20 @@ CApprenticeNecromancerCard::CApprenticeNecromancerCard(CGame* pGame, UINT nID)
 	pModifier3->GetModifier().SetOneTurnOnly(TRUE);
 
 	cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pModifier3);
-
-	cpAbility->FlagTargets(TRUE,  // flag targets
-							TRUE); // until end of turn
-
-	m_CardFilter.AddComparer(new CardAbilityFlagComparer(cpAbility.GetPointer())); // flagged by this spell
-
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Battlefield, &m_CardFilter, //move the targeted and flagged creature
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(
-			ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice)));
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep,
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier2);
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+void CApprenticeNecromancerCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

@@ -377,6 +377,12 @@
 #define IDS_STRING17560                 17560
 #define IDS_STRING17561                 17561
 #define IDS_STRING17562                 17562
+#define IDS_STRING17563                 17563
+#define IDS_STRING17564                 17564
+#define IDS_STRING17565                 17565
+#define IDS_STRING17566                 17566
+#define IDS_STRING17567                 17567
+#define IDS_STRING17568                 17568
 #define IDI_MODULE                      17622
 #define IDI_LARGE_MODULE                17623
 

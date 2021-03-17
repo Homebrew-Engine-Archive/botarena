@@ -238,6 +238,12 @@
 #define IDS_STRING5520                  5520
 #define IDS_STRING5521                  5521
 #define IDS_STRING5522                  5522
+#define IDS_STRING5523                  5523
+#define IDS_STRING5524                  5524
+#define IDS_STRING5525                  5525
+#define IDS_STRING5526                  5526
+#define IDS_STRING5527                  5527
+#define IDS_STRING5528                  5528
 #define IDI_MODULE                      6610
 #define IDI_LARGE_MODULE                6611
 

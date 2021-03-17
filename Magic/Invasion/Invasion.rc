@@ -443,6 +443,10 @@ BEGIN
     IDS_STRING12689         "Skizzik\n{3R}\nCreature - Elemental\nINV,R\nKicker {R}\rTrample, haste\rAt the beginning of the end step, sacrifice Skizzik unless it was kicked.\n5/3"
     IDS_STRING12690         "Phyrexian Delver\n{3BB}\nCreature - Zombie\nINV,R\nWhen Phyrexian Delver enters the battlefield, return target creature card from your graveyard to the battlefield. You lose life equal to that card's converted mana cost.\n3/2"
     IDS_STRING12691         "AEther Rift\n{1RG}\nEnchantment\nINV,R\nAt the beginning of your upkeep, discard a card at random. If you discard a creature card this way, return it from your graveyard to the battlefield unless any player pays 5 life."
+    IDS_STRING12692         "Pure Reflection\n{2W}\nEnchantment\nINV,R\nWhenever a player casts a creature spell, destroy all Reflections. Then that player puts an X/X white Reflection creature token onto the battlefield, where X is the converted mana cost of that spell."
+    IDS_STRING12693         "Scorching Lava\n{1R}\nInstant\nINV,C\nKicker {R}\rScorching Lava deals 2 damage to target creature or player. If Scorching Lava was kicked, that creature can't be regenerated this turn and if it would die this turn, exile it instead."
+    IDS_STRING12694         "Cauldron Dance\n{4BR}\nInstant\nINV,U\nCast Cauldron Dance only during combat.\rReturn target creature card from your graveyard to the battlefield. That creature gains haste. Return it to your hand at the beginning of the next end step.\rYou may put a creature card from your hand onto the battlefield. That creature gains haste. Its controller sacrifices it at the beginning of the next end step."
+    IDS_STRING12695         "Spinal Embrace\n{3UUB}\nInstant\nINV,R\nCast Spinal Embrace only during combat.\rUntap target creature you don't control and gain control of it. It gains haste until end of turn. At the beginning of the next end step, sacrifice it. If you do, you gain life equal to its toughness."
 END
 
 #endif    // English (United States) resources

@@ -259,6 +259,9 @@ BEGIN
     IDS_STRING21843         "Metallic Mastery\n{2R}\nSorcery\nMBS,U\nGain control of target artifact until end of turn. Untap that artifact. It gains haste until end of turn."
 	IDS_STRING21844         "Spin Engine\n{3}\nArtifact Creature - Construct\nMBS,C\n{R}: Target creature can't block Spin Engine this turn.\n3/1"
 	IDS_STRING21845         "Melira's Keepers\n{4G}\nCreature - Human Warrior\nMBS,U\nMelira's Keepers can't have counters placed on it.\n4/4"
+	IDS_STRING21846         "Phyrexian Rebirth\n{4WW}\nSorcery\nMBS,R\nDestroy all creatures, then put an X/X colorless Horror artifact creature token onto the battlefield, where X is the number of creatures destroyed this way."
+	IDS_STRING21847         "Virulent Wound\n{B}\nInstant\nMBS,C\nPut a -1/-1 counter on target creature. When that creature dies this turn, its controller gets a poison counter."
+	IDS_STRING21848         "Gruesome Encore\n{2B}\nSorcery\nMBS,U\nPut target creature card from an opponent's graveyard onto the battlefield under your control. It gains haste. Exile it at the beginning of the next end step. If that creature would leave the battlefield, exile it instead of putting it anywhere else."
 END
 
 #endif    // English (United States) resources

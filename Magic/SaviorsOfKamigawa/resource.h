@@ -153,6 +153,7 @@
 #define IDS_STRING16336                 16336
 #define IDS_STRING16337                 16337
 #define IDS_STRING16338                 16338
+#define IDS_STRING16339                 16339
 #define IDI_MODULE                      16365
 #define IDI_LARGE_MODULE                16366
 

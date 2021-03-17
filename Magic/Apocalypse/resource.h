@@ -142,6 +142,10 @@
 #define IDS_STRING13125                 13125
 #define IDS_STRING13126                 13126
 #define IDS_STRING13127                 13127
+#define IDS_STRING13128                 13128
+#define IDS_STRING13129                 13129
+#define IDS_STRING13130                 13130
+#define IDS_STRING13131                 13131
 #define IDI_MODULE                      13143
 #define IDI_LARGE_MODULE                13144
 

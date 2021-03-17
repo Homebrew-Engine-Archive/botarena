@@ -528,7 +528,7 @@ void CGlobalChgLifeSpell3::OnSelectionDone(const std::vector<SelectionEntry>& se
 		if (it->bSelected)
 		{
 			CCard* pCard = (CCard*)(it->dwContext);
-			pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), NULL, MoveType::Sacrifice);
+			pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), pCard->GetController(), MoveType::Sacrifice);
 		}
 }
 

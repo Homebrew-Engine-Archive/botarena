@@ -67,6 +67,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMagnigothTreefolkCard);
 		DEFINE_CARD(CMaliciousAdviceCard);
 		DEFINE_CARD(CManaCylixCard);
+		DEFINE_CARD(CMarchOfSoulsCard);
 		DEFINE_CARD(CMarshCrocodileCard);
 		DEFINE_CARD(CMeddlingMageCard);
 		DEFINE_CARD(CMeteorCraterCard);
@@ -116,6 +117,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CStrafeCard);
 		DEFINE_CARD(CSunscapeBattlemageCard);
 		DEFINE_CARD(CSunscapeFamiliarCard);
+		DEFINE_CARD(CSurpriseDeploymentCard);
 		DEFINE_CARD(CTahngarthTalruumHeroCard);
 		DEFINE_CARD(CTerminalMoraineCard);
 		DEFINE_CARD(CTerminateCard);
@@ -572,7 +574,7 @@ CKavuRecluseCard::CKavuRecluseCard(CGame* pGame, UINT nID)
 
 	cpAbility->AddTapCost();
 
-	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
+	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -714,7 +716,7 @@ CNemataGroveGuardianCard::CNemataGroveGuardianCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("2") GREEN_MANA_TEXT,
-				_T("Saproling B"), 2712,
+				_T("Saproling F"), 2920,
 				1));
 
 		AddAbility(cpAbility.GetPointer());
@@ -966,11 +968,11 @@ CSeaSniddCard::CSeaSniddCard(CGame* pGame, UINT nID)
 
 	cpAbility->AddTapCost();
 
-	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
-	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
-	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::BasicLand, CardType::_All, TRUE, _T("Mountain"));	
-	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::BasicLand, CardType::_All, TRUE, _T("Plains"));
-	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
+	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
+	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
+	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Mountain"));	
+	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Plains"));
+	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -1264,7 +1266,8 @@ CDestructiveFlowCard::CDestructiveFlowCard(CGame* pGame, UINT nID)
 
 	cpAbility->GetGatherer().SetIncludeControllerCardsOnly();
 	cpAbility->GetGatherer().SetSubjectZoneId(ZoneId::Battlefield);
-	cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(	new CardTypeComparer(CardType::NonbasicLand, false));
+	cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::_Land, false));
+	cpAbility->GetGatherer().GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 
 	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
 	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
@@ -3460,7 +3463,7 @@ bool CQuestingPhelddagrifCard::BeforeResolution1(CAbilityAction* pAction) const
 	CLifeModifier* pModifier2 = new CLifeModifier(Life(+1), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	pModifier2->ApplyTo((CCreatureCard*)this);
 
-	CTokenCreationModifier* pModifier3 = new CTokenCreationModifier(GetGame(), _T("Hippo"), 2965, 1);
+	CTokenCreationModifier* pModifier3 = new CTokenCreationModifier(GetGame(), _T("Hippo B"), 62014, 1);
 	pModifier3->ApplyTo(pTarget);
 
 	return true;
@@ -4374,6 +4377,181 @@ BOOL CMeteorCraterCard::CanPlay5(BOOL bIncludeTricks)
 		return true;
 
 	return false;
+}
+
+//____________________________________________________________________________
+//
+CMarchOfSoulsCard::CMarchOfSoulsCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("March of Souls"), CardType::Sorcery, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CMarchOfSoulsCard::OnResolutionCompleted))
+	, m_nCards(2)
+{
+	counted_ptr<CGlobalMoveCardSpell> cpSpell(
+		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Sorcery,
+			_T("4") WHITE_MANA_TEXT,
+			new AnyCreatureComparer,
+			ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration));
+	ATLASSERT(cpSpell);
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMarchOfSoulsCard::BeforeResolution));
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CMarchOfSoulsCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CZone* pInplay;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		m_nCards[ip] = (CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer()));
+	}
+
+	return true;
+}
+
+void CMarchOfSoulsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CZone* pInplay;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+
+		int OldValue = m_nCards[ip];
+		int NewValue = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
+
+		if (NewValue < OldValue)
+		{
+			CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Spirit G"), 2941, OldValue - NewValue);
+			pModifier.ApplyTo(GetGame()->GetPlayer(ip));
+		}
+	}
+}
+
+//____________________________________________________________________________
+//
+CSurpriseDeploymentCard::CSurpriseDeploymentCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Surprise Deployment"), CardType::Instant, nID)
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CSurpriseDeploymentCard::OnCardSelected))
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+			_T("3") WHITE_MANA_TEXT));
+
+	counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+			&CSurpriseDeploymentCard::CanPlay)));
+	cpSpell->Add(cpTrait.GetPointer());
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSurpriseDeploymentCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+BOOL CSurpriseDeploymentCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b ||
+			pCurrentNode->GetNodeId() == NodeId::EndOfCombatStep);
+}
+
+bool CSurpriseDeploymentCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CZone* pHand = pController->GetZoneById(ZoneId::Hand);
+	
+	if (pHand->GetSize() > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 0;
+			selectionEntry.strText.Format(_T("Don't put anything onto the battlefield"));
+
+			entries.push_back(selectionEntry);
+		}
+		for (int i = 0; i < pHand->GetSize(); ++i)
+		{
+			CCard* pCard = pHand->GetAt(i);
+
+			if (pCard->GetCardType().IsCreature() && !pCard->IsColor(CManaPoolBase::Color::White))
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Put %s onto the battlefield"),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pController);
+	}
+	return true;
+}
+
+void CSurpriseDeploymentCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 0)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s doesn't put anything onto the battlefield"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+
+				return;
+			}
+			else
+			{
+				CCard* pCard = (CCard*)it->dwContext;
+
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s puts %s onto the battlefield"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Hand, ZoneId::Battlefield, TRUE, MoveType::Others, pSelectionPlayer);
+				pModifier1.ApplyTo(pCard);
+				
+				CCountedCardContainer pSubjects;
+
+				if (pCard->IsInplay())
+					pSubjects.AddCard(pCard, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
+				pModifier2.ApplyTo(pSelectionPlayer);
+				
+				return;
+			}
+		}
 }
 
 //____________________________________________________________________________

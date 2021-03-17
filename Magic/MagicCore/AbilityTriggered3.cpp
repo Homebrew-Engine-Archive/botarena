@@ -1405,3 +1405,194 @@ BOOL CTriggeredSoulbondAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTri
 }
 //____________________________________________________________________________
 //
+CTriggeredAllAffinityAbility::CTriggeredAllAffinityAbility(
+	CCard* pCard,
+	CCardFilter* AffinityFilter)
+	: CTriggeredAbility(pCard)
+	, m_cpCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CTriggeredAllAffinityAbility::OnCardMoved))
+	, m_cpCardTypeListener(VAR_NAME(m_cpCardTypeListener), CardTypeEventSource::Listener::EventCallback(this, &CTriggeredAllAffinityAbility::OnCardTypeChanged))
+	, m_WhenSelfMoved(pCard)
+	, m_bReduced(FALSE)
+	, m_AffinityFilter(AffinityFilter)
+	, CurrentAffinity(0)
+	, m_Color(CManaCost::Color::Generic)
+	, counting_Zone(ZoneId::Battlefield)
+{
+	__super::SetOptionalType(OptionalType::Required);	
+
+	m_WhenSelfMoved.SetEventCallback(
+		CWhenSelfMoved::EventCallback(this, &CTriggeredAllAffinityAbility::OnZoneChanged));
+}
+
+void CTriggeredAllAffinityAbility::OnCardMoved(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!__super::IsTriggerable())
+		return;
+
+	if (pFromZone->GetZoneId() != counting_Zone && pToZone->GetZoneId() == counting_Zone)
+		pCard->GetCardTypeEventSource()->AddListener(m_cpCardTypeListener.GetPointer());
+
+	if (pFromZone->GetZoneId() == counting_Zone && pToZone->GetZoneId() != counting_Zone)
+		pCard->GetCardTypeEventSource()->RemoveListener(m_cpCardTypeListener.GetPointer());
+
+	int m_ExtraManaCost;
+	int affinitynumber = 0;
+	
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		affinitynumber += m_AffinityFilter->CountIncluded(m_pCard->GetController()->GetZoneById(counting_Zone)->GetCardContainer());
+
+	if ( CurrentAffinity == 0 && affinitynumber != 0)
+	{
+		m_ExtraManaCost =affinitynumber;
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+			spells.GetAt(i)->GetCost().AddReductionCost( m_Color, m_ExtraManaCost);
+		CurrentAffinity = affinitynumber;
+		return;
+	}
+
+	if ( CurrentAffinity != 0 &&  CurrentAffinity > affinitynumber ) 
+	{
+		m_ExtraManaCost =(CurrentAffinity-affinitynumber);
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+			spells.GetAt(i)->GetCost().RemoveReductionCost( m_Color, m_ExtraManaCost);
+		CurrentAffinity = affinitynumber;
+		return;
+	}
+
+	if ( CurrentAffinity != 0 &&  CurrentAffinity < affinitynumber ) 
+	{
+		m_ExtraManaCost =(affinitynumber-CurrentAffinity);
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+			spells.GetAt(i)->GetCost().AddReductionCost( m_Color, m_ExtraManaCost);
+		CurrentAffinity = affinitynumber;
+		return;
+	}
+
+}
+
+void CTriggeredAllAffinityAbility::OnCardTypeChanged(CCard* pCard, CardType fromCardType, CardType toCardType)
+{
+	if (!__super::IsTriggerable())
+		return;
+
+	int m_ExtraManaCost;
+	int affinitynumber = 0;
+	
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		affinitynumber += m_AffinityFilter->CountIncluded(m_pCard->GetController()->GetZoneById(counting_Zone)->GetCardContainer());
+
+	if ( CurrentAffinity == 0 && affinitynumber != 0)
+	{
+		m_ExtraManaCost =affinitynumber;
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+			spells.GetAt(i)->GetCost().AddReductionCost( m_Color, m_ExtraManaCost);
+		CurrentAffinity = affinitynumber;
+		return;
+	}
+
+	if ( CurrentAffinity != 0 &&  CurrentAffinity > affinitynumber ) 
+	{
+		m_ExtraManaCost =(CurrentAffinity-affinitynumber);
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+			spells.GetAt(i)->GetCost().RemoveReductionCost( m_Color, m_ExtraManaCost);
+		CurrentAffinity = affinitynumber;
+		return;
+	}
+
+	if ( CurrentAffinity != 0 &&  CurrentAffinity < affinitynumber ) 
+	{
+		m_ExtraManaCost =(affinitynumber-CurrentAffinity);
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+			spells.GetAt(i)->GetCost().AddReductionCost( m_Color, m_ExtraManaCost);
+		CurrentAffinity = affinitynumber;
+		return;
+	}
+}
+void CTriggeredAllAffinityAbility::OnZoneChanged(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	//int affinitynumber = m_AffinityFilter->CountIncluded(pFromZone->GetPlayer()->GetZoneById(counting_Zone)->GetCardContainer());
+
+	/*if (pFromZone && pFromZone->GetZoneId() == ZoneId::Hand && pToZone->GetZoneId() != ZoneId::Hand)
+	m_pCard->GetController()->GetZoneById(ZoneId::Battlefield)->GetCardMovedEventSource()->RemoveListener(m_cpCardZoneListener.GetPointer());*/
+
+	if (!pFromZone && pToZone)
+	{
+		m_pCard->GetController()->GetZoneById(counting_Zone)->GetCardMovedEventSource()->AddListener(m_cpCardZoneListener.GetPointer());
+	}
+	else
+		if (pFromZone && pFromZone->GetPlayer() !=  pToZone->GetPlayer())
+		{
+			pFromZone->GetPlayer()->GetZoneById(counting_Zone)->GetCardMovedEventSource()->RemoveListener(m_cpCardZoneListener.GetPointer());
+
+			for (int i = 0; i < pFromZone->GetPlayer()->GetZoneById(counting_Zone)->GetSize() ; ++i)
+				pFromZone->GetPlayer()->GetZoneById(counting_Zone)->GetAt(i)->GetCardTypeEventSource()->RemoveListener(m_cpCardTypeListener.GetPointer());
+
+			pToZone->GetPlayer()->GetZoneById(counting_Zone)->GetCardMovedEventSource()->AddListener(m_cpCardZoneListener.GetPointer());
+
+			for (int i = 0; i < pToZone->GetPlayer()->GetZoneById(counting_Zone)->GetSize() ; ++i)
+				pToZone->GetPlayer()->GetZoneById(counting_Zone)->GetAt(i)->GetCardTypeEventSource()->AddListener(m_cpCardTypeListener.GetPointer());
+
+			int m_ExtraManaCost;
+			int affinitynumber = 0;
+	
+			for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+				affinitynumber += m_AffinityFilter->CountIncluded(m_pCard->GetController()->GetZoneById(counting_Zone)->GetCardContainer());
+
+			if ( CurrentAffinity == 0 && affinitynumber != 0)
+			{
+				m_ExtraManaCost =affinitynumber;
+				const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+				for (int i = 0; i < spells.GetSize(); ++i)
+					spells.GetAt(i)->GetCost().AddReductionCost( m_Color, m_ExtraManaCost);
+				CurrentAffinity = affinitynumber;
+				return;
+			}
+
+			if ( CurrentAffinity != 0 &&  CurrentAffinity > affinitynumber ) 
+			{
+				m_ExtraManaCost =(CurrentAffinity-affinitynumber);
+				const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+				for (int i = 0; i < spells.GetSize(); ++i)
+					spells.GetAt(i)->GetCost().RemoveReductionCost( m_Color, m_ExtraManaCost);
+				CurrentAffinity = affinitynumber;
+				return;
+			}
+
+			if ( CurrentAffinity != 0 &&  CurrentAffinity < affinitynumber ) 
+			{
+				m_ExtraManaCost =(affinitynumber-CurrentAffinity);
+				const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+				for (int i = 0; i < spells.GetSize(); ++i)
+					spells.GetAt(i)->GetCost().AddReductionCost( m_Color, m_ExtraManaCost);
+				CurrentAffinity = affinitynumber;
+				return;
+			}
+		}
+
+		/*	if (pFromZone && pFromZone->GetZoneId() == ZoneId::Hand)
+		{
+		const CPtrContainer_<CSpell>& spells(m_pCard->GetSpells());
+
+		for (int i = 0; i < spells.GetSize(); ++i)
+		spells.GetAt(i)->GetCost().RemoveReductionCost( m_Color, CurrentAffinity);
+		CurrentAffinity = 0;
+		return;
+		}*/
+}
+//____________________________________________________________________________
+//

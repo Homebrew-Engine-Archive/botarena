@@ -357,8 +357,9 @@ class CFrostwebSpiderCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CFrostwebSpiderCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 		CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -382,8 +383,13 @@ class COhranViperCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(COhranViperCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 							CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1047,4 +1053,24 @@ protected:
 };
 
 //____________________________________________________________________________
+//
+class CBroodingSaurianCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBroodingSaurianCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//
+class CAdarkarValkyrieCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CAdarkarValkyrieCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
 //

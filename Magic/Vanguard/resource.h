@@ -34,6 +34,14 @@
 #define IDS_STRING60517                 60517
 #define IDS_STRING60518                 60518
 #define IDS_STRING60519                 60519
+#define IDS_STRING60520                 60520
+#define IDS_STRING60521                 60521
+#define IDS_STRING60522                 60522
+#define IDS_STRING60523                 60523
+#define IDS_STRING60524                 60524
+#define IDS_STRING60525                 60525
+#define IDS_STRING60526                 60526
+#define IDS_STRING60527                 60527
 #define IDI_MODULE                      60500
 #define IDS_STRING207                   60698
 #define IDI_LARGE_MODULE                60699

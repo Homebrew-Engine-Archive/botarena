@@ -24,6 +24,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAridMesaCard);
 		DEFINE_CARD(CArrowVolleyTrapCard);
 		DEFINE_CARD(CBalaGedThiefCard);
+		DEFINE_CARD(CBalothCageTrapCard);
 		DEFINE_CARD(CBalothWoodcrasherCard);
 		DEFINE_CARD(CBeastHuntCard);
 		DEFINE_CARD(CBeastmasterAscensionCard);
@@ -103,6 +104,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKorSanctifiersCard);
 		DEFINE_CARD(CKorSkyfisherCard);
 		DEFINE_CARD(CLandbindRitualCard);
+		DEFINE_CARD(CLavaballTrapCard);
 		DEFINE_CARD(CLethargyTrapCard);
 		DEFINE_CARD(CLivingTsunamiCard);
 		DEFINE_CARD(CLorthostheTidemakerCard);
@@ -207,6 +209,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CVerdantCatacombsCard);
 		DEFINE_CARD(CVinesOfVastwoodCard);
 		DEFINE_CARD(CWarrenInstigatorCard);
+		DEFINE_CARD(CWhiplashTrapCard);
 		DEFINE_CARD(CWindborneChargeCard);
 		DEFINE_CARD(CWindriderEelCard);
 		DEFINE_CARD(CWorldQuellerCard);
@@ -550,15 +553,8 @@ void CElementalAppealCard::OnResolutionCompleted(const CAbilityAction* pAbilityA
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Elemental B"), 2759, 1, false, ZoneId::Battlefield, &pTokens);
 	pModifier1.ApplyTo(pAbilityAction->GetController());
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(GetGame(),
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater);
-
-	for (int i = 0; i < pTokens.GetSize(); ++i)
-		pModifier2->ApplyTo(pTokens.GetAt(i));
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier2.ApplyTo(pAbilityAction->GetController());
 
 	if (pAbilityAction->GetCostConfigEntry().HasOptionalManaCost(m_KickerCost)) // kicked?
 		for (int i = 0; i < pTokens.GetSize(); ++i)
@@ -2101,7 +2097,7 @@ CSpreadingSeasCard::CSpreadingSeasCard(CGame* pGame, UINT nID)
 			::CreateObject<CCardTypeEnchant>(this, _T("1") BLUE_MANA_TEXT, 
 				new CardTypeComparer(CardType::_Land, false)));
 
-		cpSpell->AddCardTypeToAdd(CardType::Island | CardType::BasicLand, CardType::_All, _T("Island"));
+		cpSpell->AddCardTypeToAdd(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Island"));
 		cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 	
 
@@ -3369,15 +3365,20 @@ CHellkiteChargerCard::CHellkiteChargerCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddHaste(FALSE);
 
-	{
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+	typedef 
+		TTriggeredAbility< CTriggeredHellkiteChargerAbility, CWhenSelfAttackedBlocked,
+						CWhenSelfAttackedBlocked::AttackEventCallback,
+						&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetResolutionCost(_T("5") RED_MANA_TEXT RED_MANA_TEXT);
-		
-		AddAbility(cpAbility.GetPointer());
-	}
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetResolutionCost(_T("5") RED_MANA_TEXT RED_MANA_TEXT);
+
+	AddAbility(cpAbility.GetPointer());
 }
+
 
 //____________________________________________________________________________
 //
@@ -5198,7 +5199,7 @@ CTurntimberRangerCard::CTurntimberRangerCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(&m_CardFilter);
 	cpAbility->GetTrigger().SetToControllerOnly(TRUE);
 
-	cpAbility->SetCreateTokenOption(TRUE, _T("Wolf A"), 2725, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Wolf F"), 2952, 1);
 
 	cpAbility->GetResolutionModifier().CCardModifiers::Add(new CCardCounterModifier(_T("+1/+1"), +1));
 
@@ -5211,13 +5212,16 @@ CTrailblazersBootsCard::CTrailblazersBootsCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Trailblazer's Boots"), CardType::Artifact | CardType::Equipment, nID, 
 		_T("2"), AbilityType::Artifact)
 {
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::_Land, false));
+	m_CardFilter.AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
+
 	counted_ptr<CEquipAbility> cpAbility(
 		::CreateObject<CEquipAbility>(this, _T("2")));
 
 	CCreatureKeywordModifier* pModifier = new CCreatureKeywordModifier;
 	pModifier->GetModifier().SetToAdd(CreatureKeyword::NonBasicWalk);
 	pModifier->GetModifier().SetOneTurnOnly(FALSE);
-	pModifier->GetModifier().SetAdditionData((DWORD)CCardFilter::GetFilter(_T("nonbasic lands")));
+	pModifier->GetModifier().SetAdditionData((DWORD)&m_CardFilter);
 	cpAbility->AddCreatureModifier(pModifier);
 
 	AddAbility(cpAbility.GetPointer());
@@ -5577,15 +5581,8 @@ bool CZektarShrineExpeditionCard::BeforeResolution(CAbilityAction* pAction) cons
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Elemental B"), 2759, 1, false, ZoneId::Battlefield, &pTokens);
 	pModifier1.ApplyTo(pAction->GetController());
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(GetGame(),
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater);
-
-	for (int i = 0; i < pTokens.GetSize(); ++i)
-		pModifier2->ApplyTo(pTokens.GetAt(i));
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier2.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -7332,6 +7329,181 @@ bool CGomazoaCard::BeforeResolution(CAbilityAction* pAction) const
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CBalothCageTrapCard::CBalothCageTrapCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Baloth Cage Trap"), CardType::Instant | CardType::Trap, nID)
+{
+	{
+		counted_ptr<CTokenProductionSpell> cpSpell(
+			::CreateObject<CTokenProductionSpell>(this, AbilityType::Instant,
+				_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT,
+				_T("Beast G"), 2864,
+				1));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		counted_ptr<CTokenProductionSpell> cpSpell(
+			::CreateObject<CTokenProductionSpell>(this, AbilityType::Instant,
+				_T("1") GREEN_MANA_TEXT,
+				_T("Beast G"), 2864,
+				1));
+
+		counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CBalothCageTrapCard::CanPlay)));
+		cpSpell->Add(cpTrait.GetPointer());
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+BOOL CBalothCageTrapCard::CanPlay(BOOL bIncludeTricks)
+{
+	if (GetCardKeyword()->HasFreecast()) return false;
+
+	bool bFound = false;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		if (pPlayer != GetController() && (pPlayer->GetCertainTypeEnteredBattlefieldCount(CardType::Artifact) > 0))
+		{
+			bFound = true;
+			break;
+		}
+	}
+
+	return bFound;
+}
+
+//____________________________________________________________________________
+//
+CLavaballTrapCard::CLavaballTrapCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Lavaball Trap"), CardType::Instant | CardType::Trap, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CLavaballTrapCard::OnResolutionCompleted))
+{
+	{
+		counted_ptr<CTargetMoveCardSpell> cpSpell(
+			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant, 
+				_T("6") RED_MANA_TEXT RED_MANA_TEXT,
+				new CardTypeComparer(CardType::_Land, false), 
+				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy));
+
+		cpSpell->GetTargeting()->SetSubjectCount(2, 2);
+
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+		
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		counted_ptr<CTargetMoveCardSpell> cpSpell(
+			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant, 
+				_T("3") RED_MANA_TEXT RED_MANA_TEXT,
+				new CardTypeComparer(CardType::_Land, false), 
+				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy));
+
+		cpSpell->GetTargeting()->SetSubjectCount(2, 2);
+
+		counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CLavaballTrapCard::CanPlay)));
+		cpSpell->Add(cpTrait.GetPointer());
+
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+BOOL CLavaballTrapCard::CanPlay(BOOL bIncludeTricks)
+{
+	if (GetCardKeyword()->HasFreecast()) return false;
+
+	bool bFound = false;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		if (pPlayer != GetController() && (pPlayer->GetCertainTypeEnteredBattlefieldCount(CardType::_Land) > 1))
+		{
+			bFound = true;
+			break;
+		}
+	}
+
+	return bFound;
+}
+
+void CLavaballTrapCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CZoneCreatureModifier pModifier = CZoneCreatureModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+		std::auto_ptr<CCreatureModifier>(new CLifeModifier(Life(-4), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage)));
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		pModifier.ApplyTo(GetGame()->GetPlayer(ip));
+}
+
+//____________________________________________________________________________
+//
+CWhiplashTrapCard::CWhiplashTrapCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Whiplash Trap"), CardType::Instant | CardType::Trap, nID)
+{
+	{
+		counted_ptr<CTargetMoveCardSpell> cpSpell(
+			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant, 
+				_T("3") BLUE_MANA_TEXT BLUE_MANA_TEXT,
+				new CardTypeComparer(CardType::Creature, false), 
+				ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others));
+
+		cpSpell->GetTargeting()->SetSubjectCount(2, 2);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		counted_ptr<CTargetMoveCardSpell> cpSpell(
+			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant, 
+				BLUE_MANA_TEXT,
+				new CardTypeComparer(CardType::Creature, false), 
+				ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others));
+
+		cpSpell->GetTargeting()->SetSubjectCount(2, 2);
+
+		counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CWhiplashTrapCard::CanPlay)));
+		cpSpell->Add(cpTrait.GetPointer());
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+BOOL CWhiplashTrapCard::CanPlay(BOOL bIncludeTricks)
+{
+	if (GetCardKeyword()->HasFreecast()) return false;
+
+	bool bFound = false;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		if (pPlayer != GetController() && (pPlayer->GetCertainTypeEnteredBattlefieldCount(CardType::Creature) > 1))
+		{
+			bFound = true;
+			break;
+		}
+	}
+
+	return bFound;
 }
 
 //____________________________________________________________________________

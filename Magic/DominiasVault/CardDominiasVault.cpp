@@ -18,6 +18,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	{
 
 		DEFINE_CARD(CBlackerLotusCard);
+		DEFINE_CARD(CDrenchTheSoilInTheirBloodCard);
 		DEFINE_CARD(CFormOfTheSquirrelCard);
 		DEFINE_CARD(CGemBazaarCard);
 		DEFINE_CARD(CIncomingCard);
@@ -26,6 +27,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPaperTigerCard);
 		DEFINE_CARD(CPerhapsYouveMetMyCohortCard);
 		DEFINE_CARD(CRockLobsterCard);
+		DEFINE_CARD(CShichifukujinDragonCard);
 		DEFINE_CARD(CScissorsLizardCard);
 		DEFINE_CARD(CUktabiKongCard);
 		DEFINE_CARD(CWhoWhatWhenWhereWhyCard);
@@ -549,7 +551,7 @@ CManaPool::Color CGemBazaarCard::ChooseRandomColor(void)
 CPerhapsYouveMetMyCohortCard::CPerhapsYouveMetMyCohortCard(CGame* pGame, UINT nID)
 	: CSchemeCard(pGame, _T("Perhaps You've Met My Cohort"), nID)
 {
-		{
+	{
 		typedef
 			TTriggeredAbility< CTriggeredSearchLibraryAbility, CWhenSelfMoved > TriggeredAbility;
 
@@ -566,7 +568,67 @@ CPerhapsYouveMetMyCohortCard::CPerhapsYouveMetMyCohortCard(CGame* pGame, UINT nI
 		cpAbility->SetToOwnersZone(FALSE);
 
 		AddAbility(cpAbility.GetPointer());
-		}
+	}
+}
+
+//____________________________________________________________________________
+//
+CDrenchTheSoilInTheirBloodCard::CDrenchTheSoilInTheirBloodCard(CGame* pGame, UINT nID)
+	: CSchemeCard(pGame, _T("Drench the Soil in Their Blood"), nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CDrenchTheSoilInTheirBloodCard::OnResolutionCompleted))
+{
+	{
+		typedef
+			TTriggeredAbility< CTriggeredExtraCombatAbility, CWhenSelfMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::_Schemes, ZoneId::_Effects));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+void CDrenchTheSoilInTheirBloodCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CZoneCreatureModifier pModifier = CZoneCreatureModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+		std::auto_ptr<CCreatureModifier>(new CCreatureKeywordModifier(CreatureKeyword::Vigilance, true, true)));
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CShichifukujinDragonCard::CShichifukujinDragonCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Shichifukujin Dragon"), CardType::Creature, CREATURE_TYPE(Dragon), nID,
+		_T("6") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, Power(0), Life(0))
+{
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT));
+
+	cpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("+1/+1")), -2);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CShichifukujinDragonCard::BeforeResolution));
+
+	cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CShichifukujinDragonCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Shichifukujin Dragon Effect"), 61078, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

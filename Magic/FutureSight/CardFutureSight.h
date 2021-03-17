@@ -328,8 +328,13 @@ class CQuagnothCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CQuagnothCard);
 
-	/* public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Bottom, BOOL can_dredge = TRUE); */
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //___________________________________________________________________________
@@ -591,12 +596,13 @@ class CLlanowarEmpathCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CBaruFistofKrosaCard : public CCreatureCard
+class CBaruFistOfKrosaCard : public CCreatureCard
 {
-	DECLARE_CARD_CSTOR(CBaruFistofKrosaCard);
+	DECLARE_CARD_CSTOR(CBaruFistOfKrosaCard);
 
 protected:
 	CCardFilter m_CardFilter;
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -671,11 +677,7 @@ class CSaltskitterCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSaltskitterCard);
 
-private:
-	CCardFilter m_CardFilter_temp;
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
@@ -1389,9 +1391,57 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
 class CCentaurOmenreaderCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCentaurOmenreaderCard);
+};
+*/
+//____________________________________________________________________________
+//
+class CQuietDisrepairCard : public CEnchantCard
+{
+	DECLARE_CARD_CSTOR(CQuietDisrepairCard);
+
+protected:
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								CNode* pNode);
+
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard, int nValue) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CBitterOrdealCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBitterOrdealCard);
+
+private: 
+	typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+									 	  CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	counted_ptr<CAbility> CreateAbility1(CCard* pCard);
+};
+
+//____________________________________________________________________________
+//
+class CSehtsTigerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSehtsTigerCard);
+
+protected:
+	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ColorSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

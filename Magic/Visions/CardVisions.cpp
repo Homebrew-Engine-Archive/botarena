@@ -1120,13 +1120,26 @@ CHopeCharmCard::CHopeCharmCard(CGame* pGame, UINT nID)
 //____________________________________________________________________________
 //
 CSimoonCard::CSimoonCard(CGame* pGame, UINT nID)
-	: CGlobalChgLifeSpellCard(pGame, _T("Simoon"), CardType::Instant, nID, AbilityType::Instant,
-		RED_MANA_TEXT GREEN_MANA_TEXT,
-		Life(-1),
-		new AnyCreatureComparer, FALSE,
-		PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage)
+	: CCard(pGame, _T("Simoon"), CardType::Instant, nID)
 {
-	m_pGlobalChgLifeSpell->SetAffectOpponentCardsOnly();
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			RED_MANA_TEXT GREEN_MANA_TEXT,
+			FALSE_CARD_COMPARER, true));
+
+	cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSimoonCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CSimoonCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CZoneCreatureModifier pModifier = CZoneCreatureModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+		std::auto_ptr<CCreatureModifier>(new CLifeModifier(Life(-1), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage)));
+	pModifier.ApplyTo(pAction->GetAssociatedPlayer());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -1400,7 +1413,7 @@ CVampirismCard::CVampirismCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -1457,7 +1470,7 @@ CFeralInstinctCard::CFeralInstinctCard(CGame* pGame, UINT nID)
 		CreatureKeyword::Null, CreatureKeyword::Null,
 		TRUE, PreventableType::NotPreventable)
 {
-	m_pTargetChgPwrTghAttrSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	m_pTargetChgPwrTghAttrSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 }
 
 //____________________________________________________________________________
@@ -1738,33 +1751,40 @@ CBroodOfCockroachesCard::CBroodOfCockroachesCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfInplay,
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay,
 			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndStep);
 
 	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
-	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Graveyard);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
-	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
-
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
-
-	CLifeModifier* pModifier = new CLifeModifier(Life(-1), this, PreventableType::NotPreventable, DamageType::NotDealingDamage); // lost of life, not preventable
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier2);
+	cpAbility->AddAbilityTag(AbilityTag::LifeLost);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBroodOfCockroachesCard::SetTriggerContext));
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBroodOfCockroachesCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
+
+bool CBroodOfCockroachesCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	return (GetController() == GetOwner());
+}
+
+bool CBroodOfCockroachesCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInGraveyard())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Brood of Cockroaches Effect"), 61063, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
 
 //____________________________________________________________________________
 //
@@ -2102,12 +2122,7 @@ CGiantCaterpillarCard::CGiantCaterpillarCard(CGame* pGame, UINT nID)
 
 void CGiantCaterpillarCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CScheduledPlayerModifier pModifier = CScheduledPlayerModifier(GetGame(),
-		new CTokenCreationModifier(GetGame(), _T("Butterfly"), TOKEN_ID_BY_NAME, 1),
-		TurnNumberDelta(-1),
-		NodeId::EndStep,
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Giant Caterpillar Pupa"), 61067, 1, FALSE, ZoneId::_Effects);
 	pModifier.ApplyTo(GetController());
 }
 

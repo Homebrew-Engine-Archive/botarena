@@ -77,6 +77,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFleetingDistractionCard);
 		DEFINE_CARD(CForkedBoltCard);
 		DEFINE_CARD(CFrostwindInvokerCard);
+		DEFINE_CARD(CGelatinousGenesisCard);
 		DEFINE_CARD(CGigantomancerCard);
 		DEFINE_CARD(CGloomhunterCard);
 		DEFINE_CARD(CGravitationalShiftCard);
@@ -2380,61 +2381,42 @@ CFissureVentCard::CFissureVentCard(CGame* pGame, UINT nID)
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
-		//Destroy target land.
+		//Destroy target nonbasic land.
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
 			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
 				_T("3") RED_MANA_TEXT RED_MANA_TEXT,
-				new CardTypeComparer(CardType::NonbasicLand, false),
+				new CardTypeComparer(CardType::_Land, false),
 				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy));
 
+		cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
 		//Choose both.
-		counted_ptr<CTargetMoveCardSpell> cpSpell(
-			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
+		counted_ptr<CDoubleTargetSpell> cpSpell(
+			::CreateObject<CDoubleTargetSpell>(this, AbilityType::Sorcery,
 				_T("3") RED_MANA_TEXT RED_MANA_TEXT,
-				new CardTypeComparer(CardType::Artifact, false),
-				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy));
+				new CardTypeComparer(CardType::Artifact, false), false, 
+				new CardTypeComparer(CardType::_Land, false), false, _T("")));
 
-		cpSpell->SetToZoneIfSuccess(ZoneId::_Tokens, TRUE);
-
-		cpSpell->SetAbilityText(_T("Choose both. Casts"));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFissureVentCard::BeforeResolution));
+		cpSpell->GetTargeting2()->GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		typedef
-            TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
+}
 
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::Stack, ZoneId::_Tokens));
+bool CFissureVentCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CDoubleTargetSpellAction* pDoubleTargetAction = dynamic_cast<CDoubleTargetSpellAction*>(pAction);
+	CCard* pTarget1 = (CCard*)pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject();
+	CCard* pTarget2 = (CCard*)pDoubleTargetAction->GetTargetGroup2().GetFirstPlayerSubject();
 
-        cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Tokens);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->SetSkipStack(TRUE);
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy, pAction->GetController());
+	pModifier.ApplyTo(pTarget1);
+	pModifier.ApplyTo(pTarget2);
 
-        AddAbility(cpAbility.GetPointer());
-    }
-	{
-		typedef
-			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
-
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::Stack, ZoneId::_Tokens));
-
-        cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::NonbasicLand, false));
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-		cpAbility->SetSkipStack(TRUE);
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	return true;
 }
 
 //____________________________________________________________________________
@@ -7156,27 +7138,36 @@ CArrogantBloodlordCard::CArrogantBloodlordCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arrogant Bloodlord"), CardType::Creature, CREATURE_TYPE2(Vampire, Knight), nID,
 		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(4), Life(4))
 		, m_CardFilter(_T("a creature with power 1 or less"), _T("creatures with power 1 or less"), new CreaturePowerComparer<std::less_equal<int>>(1))
-
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
 							CWhenSelfAttackedBlocked::BlockEventCallback2, 
 							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
 
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(&m_CardFilter);
 	
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CArrogantBloodlordCard::BeforeResolution));
 	AddAbility(cpAbility.GetPointer());
 }
 
+bool CArrogantBloodlordCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
 
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
 
 //____________________________________________________________________________
 //
@@ -7339,19 +7330,24 @@ counted_ptr<CAbility> CSplinterTwinCard::CreateEnchantAbility(CCard* pEnchantedC
 	ATLASSERT(cpEnchantAbility);
 
 	cpEnchantAbility->AddTapCost();
-	
-	CMoveCardModifier* pModifier1 = new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE,MoveType::Sacrifice);
-
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(
-			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCardModifier::Operation::ApplyToLater);
-
-	CCreatureKeywordModifier* pModifier3 = new CCreatureKeywordModifier();
-		pModifier3->GetModifier().SetOneTurnOnly(TRUE);
-		pModifier3->GetModifier().SetToAdd(CreatureKeyword::Haste);
-
-		cpEnchantAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCopyModifier(GetGame(), this, pModifier2, pModifier3));
+	cpEnchantAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSplinterTwinCard::BeforeResolution));
 
 	return counted_ptr<CAbility>(cpEnchantAbility.GetPointer());
+}
+
+bool CSplinterTwinCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pTokens;
+
+	CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE);
+
+	CCardCopyModifier pModifier2 = CCardCopyModifier(GetGame(), GetEnchantedOn(), NULL, pModifier1, &pTokens);
+	pModifier2.ApplyTo(GetEnchantedOn());
+
+	CContainerEffectModifier pModifier3 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier3.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -8830,7 +8826,7 @@ CContaminatedGroundCard::CContaminatedGroundCard(CGame* pGame, UINT nID)
 				_T("1") BLACK_MANA_TEXT,
 				new CardTypeComparer(CardType::_Land, false)));
 
-		cpSpell->AddCardTypeToAdd(CardType::Swamp | CardType::BasicLand, CardType::_All, _T("Swamp"));
+		cpSpell->AddCardTypeToAdd(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Swamp"));
 
 		cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 		m_pEnchantSpell = cpSpell.GetPointer();
@@ -8871,6 +8867,53 @@ bool CContaminatedGroundCard::BeforeResolution(TriggeredAbility::TriggeredAction
 	CLifeModifier pModifier = CLifeModifier(Life(-2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	pModifier.ApplyTo(pCard->GetController());
 	
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CGelatinousGenesisCard::CGelatinousGenesisCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Gelatinous Genesis"), CardType::Sorcery, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			GREEN_MANA_TEXT));
+
+	cpSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, TRUE);
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGelatinousGenesisCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CGelatinousGenesisCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+
+	int n = pAction->GetCostConfigEntry().GetExtraValue();
+
+	int nTokenCount = n;
+
+	int nMultiplier = 0;
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Ooze F"), 62017));		
+
+		if (!m_pGame->IsThinking())
+		{ ((CTokenCreature*)cpToken.GetPointer())->SetUID(62017); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(_T("Ooze F")); }
+
+		pController->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+		
+		CCreatureCard* pCreature = (CCreatureCard*)cpToken.GetPointer();
+
+		pCreature->SetPrintedPower(Power(n));
+		pCreature->SetPrintedToughness(Life(n));		
+
+		cpToken->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+	}
+
 	return true;
 }
 

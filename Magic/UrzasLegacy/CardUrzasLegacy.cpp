@@ -18,6 +18,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	{
 
 		DEFINE_CARD(CAboutFaceCard);
+		DEFINE_CARD(CAngelsTrumpetCard);
 		DEFINE_CARD(CAngelicCuratorCard);
 		DEFINE_CARD(CAnthroplasmCard);
 		DEFINE_CARD(CAuraFluxCard);
@@ -56,6 +57,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKingCrabCard);
 		DEFINE_CARD(CLastDitchEffortCard);
 		DEFINE_CARD(CMartyrsCauseCard);
+		DEFINE_CARD(CMemoryJarCard);
 		DEFINE_CARD(CMiscalculationCard);
 		DEFINE_CARD(CMoltenHydraCard);
 		DEFINE_CARD(CMultaniMaroSorcererCard);
@@ -1709,7 +1711,7 @@ CDerangedHermitCard::CDerangedHermitCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Squirrel"), TOKEN_ID_BY_NAME, 4);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Squirrel C"), 2972, 4);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -3793,6 +3795,108 @@ void CLastDitchEffortCard::OnNumberSelected(const std::vector<SelectionEntry>& s
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CAngelsTrumpetCard::CAngelsTrumpetCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Angel's Trumpet"), CardType::Artifact, nID,
+		_T("3"), AbilityType::Artifact)
+{
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0),
+				CreatureKeyword::Vigilance));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef 
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
+
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CAngelsTrumpetCard::BeforeResolution));
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CAngelsTrumpetCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pPlayer = GetGame()->GetActivePlayer();
+	CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+
+	int nDamage = 0;
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier(TRUE);
+
+	for (int i = 0; i < pBattlefield->GetSize(); ++i)
+	{
+		CCard* pCard = pBattlefield->GetAt(i);
+		if (pCard->GetCardType().IsCreature() && pCard->GetOrientation()->IsUntapped() && !((CCreatureCard*)pCard)->GetCreatureFlag()->HasAttacked())
+		{
+			pModifier1.ApplyTo(pCard);
+			nDamage++;
+		}
+	}
+
+	CLifeModifier pModifier2 = CLifeModifier(Life(-nDamage), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+	pModifier2.ApplyTo(pPlayer);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CMemoryJarCard::CMemoryJarCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Memory Jar"), CardType::Artifact, nID,
+		_T("5"), AbilityType::Artifact)
+{
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("")));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddTapCost();
+	cpAbility->AddSacrificeCost();
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMemoryJarCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());	
+}
+
+bool CMemoryJarCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+
+	CCountedCardContainer pSubjects;
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Hand, ZoneId::_ExileFaceDown, true, MoveType::Others, pController);
+	CDrawCardModifier pModifier2 = CDrawCardModifier(GetGame(), MinimumValue(7), MaximumValue(7));
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CZone* pHand = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Hand);
+
+		for (int i = pHand->GetSize() - 1; i >= 0; --i)
+		{
+			CCard* pCard = pHand->GetAt(i);
+			pModifier1.ApplyTo(pCard);
+
+			if (pCard->GetZoneId() == ZoneId::_ExileFaceDown)
+				pSubjects.AddCard(pCard, CardPlacement::Top);
+		}
+	}
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
+
+	CContainerEffectModifier pModifier3 = CContainerEffectModifier(GetGame(), _T("Memory Jar Effect"), 61080, &pSubjects);
+	pModifier3.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

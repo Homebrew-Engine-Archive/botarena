@@ -47,10 +47,18 @@ void CBeginningNode::OnAfterEntry()
 
 	m_pGame->GetActivePlayer()->IncreasePlayerTurnNumber();	// 50/30/2002, moved from CNodeAction::PerformAction()
 	m_pGame->IncreaseGameTurnNumber();						// 50/30/2002, moved from CNodeAction::PerformAction()
+//	m_pGame->ResetDeadZuberas();
+	//m_pGame->SetAfterUpkeep(FALSE);
+
+	CEndOfCombatNode* pCombatNode = (CEndOfCombatNode*)(GetGraph()->GetNodeById(NodeId::EndOfCombatStep));
+	pCombatNode->ResetFastCombatCount();
 
 	CMainNode* pMainNode = (CMainNode*)(GetGraph()->GetNodeById(NodeId::MainPhaseStep));
 	pMainNode->ResetCombatCount();
 	pMainNode->ResetLandCount();
+
+	
+
 
 	for (int i = 0; i < m_pGame->GetPlayerCount(); ++i)
 	{
@@ -260,6 +268,7 @@ BOOL CUpkeepNode::OnBeforeExit()
 	m_pGame->GetActivePlayer()->GetPlayerEffect().RemovePlayerEffect(PlayerEffectType::SkipNextDrawStep, FALSE);
 	
 	CZone* pZone = GetGraph()->GetPlayer()->GetZoneById(ZoneId::_Effects);
+	//m_pGame->SetAfterUpkeep(TRUE);
 
 	if (pZone->GetSize()>0)
 	{
@@ -510,11 +519,25 @@ int CMainNode::GetMaxCombatCount() const
 	return m_nMaxCombatCount;
 }
 
+int CMainNode::GetTurnMaxCombatCount() const
+{
+	return m_nTurnMaxCombatCount;
+}
+
 void CMainNode::SetMaxCombatCount(int nMaxCombatCount, BOOL bThisTurnOnly)
 {
 	if (!bThisTurnOnly)
 		m_nMaxCombatCount = nMaxCombatCount;
 	m_nTurnMaxCombatCount = nMaxCombatCount;
+}
+
+void CMainNode::IncreaseMaxCombatCount(int nAdditionalCombatCount, BOOL bThisTurnOnly)
+{
+	if (nAdditionalCombatCount <= 0) return;
+
+	if (!bThisTurnOnly)
+		m_nMaxCombatCount += nAdditionalCombatCount;
+	m_nTurnMaxCombatCount += nAdditionalCombatCount;
 }
 
 void CMainNode::ResetLandCount()
@@ -959,6 +982,13 @@ BOOL CCombatNode::AllBlockerDamageAssignmentOrdered()
 	return TRUE;
 }
 #endif
+
+int CCombatNode::GetCombatCount()
+{
+	CMainNode* pMainNode = (CMainNode*)GetGraph()->GetNodeById(NodeId::MainPhaseStep);
+	
+	return pMainNode->GetCombatCount();
+}
 
 //____________________________________________________________________________
 //
@@ -1666,19 +1696,43 @@ void CCombatDamageNode2b::OnAfterEntry()
 CEndOfCombatNode::CEndOfCombatNode(CGraph* pGraph)
 	: CCombatNode(pGraph, NodeId::EndOfCombatStep,
 			      AbilityType::_FastestOkay | AbilityType::_FastOkay, NodeId::MainPhaseStep)
+	,m_nMaxCombatCount(0)
 {
 }
 
 void CEndOfCombatNode::GetNodeActions(CActionContainer& actionContainer)
 {
-	if (m_pGame->GetActivePlayer()->GetRepeatCombatCount() > 0)
-	{
-		m_pGame->GetActivePlayer()->DecreaseRepeatCombatCount();
+	if (!IsTransitValid())
+		return;
+	
+	BOOL bTransitAllowed = TRUE;
 
-		m_NextNodeId = NodeId::BeginningOfCombatStep;
+	if (m_pGame->GetActivePlayer()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::SkipNextCombatPhase))
+	{
+		if (m_nMaxCombatCount > 0)
+			--m_nMaxCombatCount;
+		m_pGame->GetActivePlayer()->GetPlayerEffect().RemovePlayerEffect(PlayerEffectType::SkipNextCombatPhase, FALSE);
 	}
-	else
-		m_NextNodeId = NodeId::MainPhaseStep;
+	if (m_pGame->GetActivePlayer()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::SkipAllCombatPhases))
+	{
+		m_nMaxCombatCount = 0;
+	}
+
+	if ((m_nMaxCombatCount > 0) &&
+		(m_pGame->GetActivePlayer() == m_pGame->GetPriorityPlayer()))
+	{
+		
+			counted_ptr<CFastCombatNodeAction> cpNodeMove = ::CreateObject<CFastCombatNodeAction>(m_pGame);
+			ATLASSERT(cpNodeMove);
+
+			cpNodeMove->SetTransitInfo(TRUE, GetGraph(), this, NodeId::BeginningOfCombatStep);
+
+			actionContainer.Add(cpNodeMove.GetPointer());
+			return;
+	}
+
+	//if (bTransitAllowed)
+		//AddTransitMove(&actionContainer);
 
 	return __super::GetNodeActions(actionContainer);
 }
@@ -1687,5 +1741,40 @@ BOOL CEndOfCombatNode::OnBeforeExit()
 {
 	ResetCombatStatus();		// 5/30/2002, moved from CMainNode::OnAfterEntry()
 
+	if (m_nMaxCombatCount>0)
+	{
+		m_nMaxCombatCount = m_nMaxCombatCount-1;
+		SetNextNodeId(NodeId::BeginningOfCombatStep);
+
+	}
+	else
+	{
+		SetNextNodeId(NodeId::MainPhaseStep);
+	}
+
 	return CNode::OnBeforeExit();
+}
+void CEndOfCombatNode::ResetFastCombatCount()
+{
+	m_nMaxCombatCount = 0;
+	SetNextNodeId(NodeId::MainPhaseStep);
+}
+
+int CEndOfCombatNode::GetFastCombatCount() const
+{
+	return m_nMaxCombatCount;
+}
+
+void CEndOfCombatNode::IncreaseFastCombatCount()
+{
+	++m_nMaxCombatCount;
+}
+
+int CEndOfCombatNode::GetMaxFastCombatCount() const
+{
+	return m_nMaxCombatCount;
+}
+void CEndOfCombatNode::SetMaxFastCombatCount(int nMaxCombatCount)
+{
+		m_nMaxCombatCount = nMaxCombatCount;
 }

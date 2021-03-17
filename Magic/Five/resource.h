@@ -408,6 +408,11 @@
 #define IDS_STRING8391                  8391
 #define IDS_STRING8392                  8392
 #define IDS_STRING8393                  8393
+#define IDS_STRING8394                  8394
+#define IDS_STRING8395                  8395
+#define IDS_STRING8396                  8396
+#define IDS_STRING8397                  8397
+#define IDS_STRING8398                  8398
 #define IDI_MODULE                      8449
 #define IDI_LARGE_MODULE                8450
 

@@ -107,6 +107,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGolgariKeyruneCard);
 		DEFINE_CARD(CGolgariLonglegsCard);
 		DEFINE_CARD(CGoreHouseChainwalkerCard);
+		DEFINE_CARD(CGraveBetrayalCard);
 		DEFINE_CARD(CGrimRoustaboutCard);
 		DEFINE_CARD(CGrislySalvageCard);
 		DEFINE_CARD(CGroveOfTheGuardianCard);
@@ -458,7 +459,7 @@ CKorozdaGuildmageCard::CKorozdaGuildmageCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("2") BLACK_MANA_TEXT GREEN_MANA_TEXT,
-				_T("Saproling B"), 2712, 0));
+				_T("Saproling M"), 62004, 0));
 		ATLASSERT(cpAbility);
 
 		cpAbility->GetCost().AddSacrificeCardCost(1, &m_CardFilter);
@@ -2740,7 +2741,7 @@ CPrecinctCaptainCard::CPrecinctCaptainCard(CGame* pGame, UINT nID)
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 	cpAbility->GetTrigger().SetCombatDamageOnly();
-	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier A"), 2713, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier M"), 2908, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -3806,7 +3807,7 @@ CGoblinRallyCard::CGoblinRallyCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 			_T("3") RED_MANA_TEXT RED_MANA_TEXT,
-			_T("Goblin C"), 2702,
+			_T("Goblin M"), 62024,
 			4));
 
 	AddSpell(cpSpell.GetPointer());
@@ -5454,7 +5455,7 @@ CTeleportalCard::CTeleportalCard(CGame* pGame, UINT nID)
 			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Sorcery,
 				_T("3") BLUE_MANA_TEXT RED_MANA_TEXT,
 				new AnyCreatureComparer,
-				Power(+1), Life(0), CreatureKeyword::Unblockable));
+				Power(+1), Life(0)));
 		ATLASSERT(cpSpell);
 
 		cpSpell->SetAffectControllerCardsOnly();
@@ -5463,6 +5464,14 @@ CTeleportalCard::CTeleportalCard(CGame* pGame, UINT nID)
 		
 		cpSpell->SetAbilityName(_T("Overload"));
 		cpSpell->SetAbilityText(_T("Overload. Casts"));
+
+		CPlayerEffectModifier* pModifier1 = new CPlayerEffectModifier(PlayerEffectType::UnblockableCreatures);	
+
+		CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
+			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+
+		pModifier1->LinkPlayerModifier(pModifier2);
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(pModifier1);		
 
 		cpSpell->SetMainSpell(FALSE);
 		AddSpell(cpSpell.GetPointer());
@@ -5664,7 +5673,7 @@ CSelesnyaKeyruneCard::CSelesnyaKeyruneCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				GREEN_MANA_TEXT WHITE_MANA_TEXT,
-				_T("Wolf D"), 2840));
+				_T("Wolf AA"), 64081));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -6265,7 +6274,7 @@ CSurveyTheWreckageCard::CSurveyTheWreckageCard(CGame* pGame, UINT nID)
 		new CardTypeComparer(CardType::_Land, false),
 		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
 {
-	m_pTargetMoveCardSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Goblin C"), 2702, 1));
+	m_pTargetMoveCardSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Goblin M"), 62024, 1));
 }
 
 //____________________________________________________________________________
@@ -7804,7 +7813,7 @@ CJaceArchitectOfThoughtCard::CJaceArchitectOfThoughtCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
 				_T("")));
 
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Jace, Architect of Thought Effect"), 2976, 1, FALSE, ZoneId::_Effects));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Jace, Architect of Thought Effect"), 61025, 1, FALSE, ZoneId::_Effects));
 
 		cpAbility->GetCost().AddCounterCost(GetLoyaltyCounter(), +1);
 
@@ -8875,6 +8884,46 @@ bool CStabWoundCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerConte
 {
 	if (!m_pEnchantSpell->GetEnchantedOnCard()) return false;
 	return pToNode->GetGraph()->GetPlayer() == m_pEnchantSpell->GetEnchantedOnCard()->GetController();
+}
+
+//____________________________________________________________________________
+//
+CGraveBetrayalCard::CGraveBetrayalCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Grave Betrayal"), CardType::GlobalEnchantment, nID,
+		_T("5") BLACK_MANA_TEXT BLACK_MANA_TEXT, AbilityType::Enchantment)
+{
+	counted_ptr<TriggeredAbility> cpAbility(
+		::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard));
+
+	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+	cpAbility->GetTrigger().SetFromOpponentsOnly(TRUE);
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGraveBetrayalCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CGraveBetrayalCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag::CardChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CGraveBetrayalCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
+{
+	triggerContext.nValue1 = (DWORD)pCard;
+	return true;
+}
+
+bool CGraveBetrayalCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInGraveyard())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Grave Betrayal Effect"), 61069, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

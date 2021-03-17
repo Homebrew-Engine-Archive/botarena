@@ -220,3 +220,20 @@ private:
 
 //____________________________________________________________________________
 //
+class CTheFourthSphereCard : public CPlaneCard 
+{
+	DECLARE_CARD_CSTOR(CTheFourthSphereCard);
+
+private:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+};
+
+//____________________________________________________________________________
+//
+class CSokenzanCard : public CPlaneCard 
+{
+	DECLARE_CARD_CSTOR(CSokenzanCard);
+};
+
+//____________________________________________________________________________
+//

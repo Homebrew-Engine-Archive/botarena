@@ -275,6 +275,11 @@
 #define IDS_STRING23576                 23576
 #define IDS_STRING23577                 23577
 #define IDS_STRING23578                 23578
+#define IDS_STRING23579                 23579
+#define IDS_STRING23580                 23580
+#define IDS_STRING23581                 23581
+#define IDS_STRING23582                 23582
+#define IDS_STRING23583                 23583
 
 // Next default values for new objects
 // 

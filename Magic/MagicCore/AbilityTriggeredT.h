@@ -1840,7 +1840,7 @@ protected:
 
 	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pTriggeredPlayer)
 	{
-		m_pCard->Move(m_pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), NULL, MoveType::Sacrifice);
+		m_pCard->Move(m_pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), pTriggeredPlayer, MoveType::Sacrifice);
 	}
 };
 //____________________________________________________________________________

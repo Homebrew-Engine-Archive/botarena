@@ -239,6 +239,10 @@ BEGIN
     IDS_STRING13125         "Orim's Thunder\n{2W}\nInstant\nAPC,C\nKicker {R}\rDestroy target artifact or enchantment. If Orim's Thunder was kicked, it deals damage equal to that permanent's converted mana cost to target creature."
     IDS_STRING13126         "Tahngarth's Glare\n{R}\nSorcery\nAPC,C\nLook at the top three cards of target opponent's library, then put them back in any order. That player looks at the top three cards of your library, then puts them back in any order."
     IDS_STRING13127         "Evasive Action\n{1U}\nInstant\nAPC,U\nDomain — Counter target spell unless its controller pays {1} for each basic land type among lands you control."
+    IDS_STRING13128         "Putrid Warrior\n{WB}\nCreature - Zombie Soldier Warrior\nAPC,C\nWhenever Putrid Warrior deals damage, choose one - Each player loses 1 life; or each player gains 1 life.\n2/2"
+    IDS_STRING13129         "Dodecapod\n{4}\nArtifact Creature - Golem\nAPC,U\nIf a spell or ability an opponent controls causes you to discard Dodecapod, put it onto the battlefield with two +1/+1 counters on it instead of putting it into your graveyard.\n3/3"
+    IDS_STRING13130         "Dead Ringers\n{4B}\nSorcery\nAPC,C\nDestroy two target nonblack creatures unless either one is a color the other isn't. They can't be regenerated."
+    IDS_STRING13131         "Zombie Boa\n{4B}\nCreature - Zombie Snake\nAPC,C\n{1B}: Choose a color. Whenever Zombie Boa becomes blocked by a creature of that color this turn, destroy that creature. Activate this ability only any time you could cast a sorcery.\n3/3"
 END
 
 #endif    // English (United States) resources

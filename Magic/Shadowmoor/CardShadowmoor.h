@@ -1205,8 +1205,6 @@ class CMistmeadowWitchCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CMistmeadowWitchCard);
 
 private:
-	CCardFlagModifier m_CardFlagModifier;
-	CCardFilter m_CardFilter;
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
@@ -1350,9 +1348,6 @@ class CTurnToMistCard : public CCard
 	DECLARE_CARD_CSTOR(CTurnToMistCard);
 
 private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	CCardFilter m_CardFilter_temp;
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
@@ -2189,6 +2184,40 @@ protected:
 								CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType);
 	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 								CCard* pFromCard, LPCTSTR name, int old, int n_value);
+};
+
+//____________________________________________________________________________
+//
+class CRepelIntrudersCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CRepelIntrudersCard);
+
+protected:
+	bool BeforeResolution1(CAbilityAction* pAction) const;
+	bool BeforeResolution2(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CCragganwickCrematorCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCragganwickCrematorCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CElsewhereFlaskCard : public CInPlaySpellCard 
+{
+	DECLARE_CARD_CSTOR(CElsewhereFlaskCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	void OnLandTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_LandTypeSelection;
 };
 
 //____________________________________________________________________________

@@ -438,7 +438,7 @@ BEGIN
     CONTROL         "",IDC_EXTENSION,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,32,118,148,8
     LTEXT           "Loading",IDC_STATIC,3,118,26,8
     CONTROL         175,IDB_LOGO,"Static",SS_BITMAP,0,0,233,117
-    LTEXT           "© 2000-2013 BotArena 1.43.1 (Open Source - Revision 127)",IDC_STATIC,3,127,228,8
+    LTEXT           "© 2000-2013 BotArena 1.44.1 (Open Source - Revision 247)",IDC_STATIC,3,127,228,8
 END
 
 IDD_GRAPH DIALOGEX 0, 0, 218, 77

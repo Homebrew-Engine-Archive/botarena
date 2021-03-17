@@ -850,3 +850,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CUrborgJusticeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CUrborgJusticeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//

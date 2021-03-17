@@ -2106,20 +2106,30 @@ CFogElementalCard::CFogElementalCard(CGame* pGame, UINT nID)
 		_T("2") BLUE_MANA_TEXT, Power(4), Life(4))
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
 							CWhenSelfAttackedBlocked::EventCallback, 
 							&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
 
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFogElementalCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CFogElementalCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Sacrifice Effect"), 61106, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -2148,6 +2158,8 @@ CLeadGolemCard::CLeadGolemCard(CGame* pGame, UINT nID)
 CDragonMaskCard::CDragonMaskCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Dragon Mask"), CardType::Artifact, nID,
 		_T("3"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CDragonMaskCard::OnResolutionCompleted))
 {
 	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
@@ -2156,17 +2168,25 @@ CDragonMaskCard::CDragonMaskCard(CGame* pGame, UINT nID)
 			CreatureKeyword::Null, CreatureKeyword::Null,
 			TRUE, PreventableType::NotPreventable));
 
-	cpAbility->GetTargetModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-		TurnNumberDelta(-1),
-		NodeId::EndStep,
-		true, // in-play only
-		CScheduledCardModifier::Operation::ApplyToLater));
-
 	cpAbility->AddTapCost();
 	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+void CDragonMaskCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2452,11 +2472,11 @@ CMysticCompassCard::CMysticCompassCard(CGame* pGame, UINT nID)
 
 	cpAbility->AddTapCost();
 
-	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::BasicLand, CardType::_All, TRUE, _T("Forest"));
-	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::BasicLand, CardType::_All, TRUE, _T("Island"));
-	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::BasicLand, CardType::_All, TRUE, _T("Mountain"));	
-	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::BasicLand, CardType::_All, TRUE, _T("Plains"));
-	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::BasicLand, CardType::_All, TRUE, _T("Swamp"));
+	cpAbility->AddCardTypeToSelection(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Forest"));
+	cpAbility->AddCardTypeToSelection(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Island"));
+	cpAbility->AddCardTypeToSelection(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Mountain"));	
+	cpAbility->AddCardTypeToSelection(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Plains"));
+	cpAbility->AddCardTypeToSelection(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, TRUE, _T("Swamp"));
 
 	AddAbility(cpAbility.GetPointer());
 }

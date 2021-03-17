@@ -57,6 +57,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CEraseCard);
 		DEFINE_CARD(CEvolvingWildsCard);
 		DEFINE_CARD(CFaerieInvadersCard);
+		DEFINE_CARD(CFaithsRewardCard);
 		DEFINE_CARD(CFarseekCard);
 		DEFINE_CARD(CFirewingPhoenixCard);
 		DEFINE_CARD(CFlamesOfTheFirebrandCard);
@@ -344,7 +345,7 @@ CAttendedKnightCard::CAttendedKnightCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier A"), 2713, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier L"), 2914, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -938,7 +939,7 @@ CKrenkosCommandCard::CKrenkosCommandCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 			_T("1") RED_MANA_TEXT,
-			_T("Goblin C"), 2702,
+			_T("Goblin L"), 62023,
 			2));
 
 	AddSpell(cpSpell.GetPointer());
@@ -1408,7 +1409,7 @@ CKrenkoMobBossCard::CKrenkoMobBossCard(CGame* pGame, UINT nID)
 	counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 			_T(""),
-			_T("Goblin C"), 2702,
+			_T("Goblin L"), 62023,
 			0));
 	ATLASSERT(cpAbility);
 
@@ -1769,7 +1770,7 @@ CCaptainsCallCard::CCaptainsCallCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 			_T("3") WHITE_MANA_TEXT,
-			_T("Soldier A"), 2713,
+			_T("Soldier L"), 2914,
 			3));
 
 	AddSpell(cpSpell.GetPointer());
@@ -2367,7 +2368,7 @@ CFungalSproutingCard::CFungalSproutingCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 			_T("3") GREEN_MANA_TEXT,
-			_T("Saproling B"), 2712,
+			_T("Saproling L"), 62003,
 			0));
 
 	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFungalSproutingCard::BeforeResolution));
@@ -2429,7 +2430,7 @@ CLilianaoftheDarkRealmsCard::CLilianaoftheDarkRealmsCard(CGame* pGame, UINT nID)
 		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
 			_T("")));
 
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Swamp Four Mana Emblem"), 2962, 1, FALSE, ZoneId::_Effects));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Liliana of the Dark Realms Emblem"), 61012, 1, FALSE, ZoneId::_Effects));
 
 		cpAbility->SetAbilityName(_T("You get an emblem with - Swamps you control have 'T: Add BBBB to your mana pools."));
 		cpAbility->SetAbilityText(_T("You get an emblem with - Swamps you control have 'T: Add BBBB to your mana pools."));
@@ -2806,7 +2807,7 @@ CVileRebirthCard::CVileRebirthCard(CGame* pGame, UINT nID)
 				new AnyCreatureComparer,
 				ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Zombie"), 2724, 1));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Zombie M"), 2917, 1));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -4164,6 +4165,23 @@ bool CPublicExecutionCard::BeforeResolution(CAbilityAction* pAction) const
 	pModifier2->ApplyTo(pTargetController);
 	
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CFaithsRewardCard::CFaithsRewardCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Faith's Reward"), CardType::Instant, nID)
+{
+	counted_ptr<CGlobalMoveCardSpell> cpSpell(
+		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Instant,
+			_T("3") WHITE_MANA_TEXT,
+			new CardPresentinHistoryComparer(ZoneId::Graveyard, ZoneId::Battlefield),
+			ZoneId::Battlefield, TRUE, MoveType::Destroy, ZoneId::Graveyard));
+
+	cpSpell->GetGlobalCardFilter().AddComparer(new CardTypeComparer(CardType::_Permanent, false));
+	cpSpell->SetAffectControllerCardsOnly();
+
+	AddSpell(cpSpell.GetPointer());
 }
 
 //____________________________________________________________________________

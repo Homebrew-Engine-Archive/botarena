@@ -282,9 +282,12 @@ class CHopeCharmCard : public CTargetChgLifeSpellCard
 
 //____________________________________________________________________________
 //
-class CSimoonCard : public CGlobalChgLifeSpellCard
+class CSimoonCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSimoonCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -457,6 +460,10 @@ private:
 class CBroodOfCockroachesCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBroodOfCockroachesCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

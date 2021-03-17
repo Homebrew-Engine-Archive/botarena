@@ -919,6 +919,9 @@ class CFatalBlowCard : public CTargetMoveCardSpellCard
 class CFogElementalCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CFogElementalCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -933,6 +936,10 @@ class CLeadGolemCard : public CCreatureCard
 class CDragonMaskCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CDragonMaskCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

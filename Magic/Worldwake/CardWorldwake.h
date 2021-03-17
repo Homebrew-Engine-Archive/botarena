@@ -339,15 +339,19 @@ protected:
 	CCountedCardContainer_ pExiled;
 	
 	bool BeforeResolution1(CAbilityAction* pAction);
-	bool BeforeResolution2(CAbilityAction* pAction);
+
+	typedef
+		TTriggeredAbility < CTriggeredAbility<>, CWhenSelfInplay, 
+									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+										CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution2(TriggeredAbility::TriggeredActionType* pAction);
 	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 	ListenerPtr<CardMovementEventSource::Listener> m_cpAListener;
 
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbilityAux;
 	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, 
-										CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-	bool BeforeResolutionAux(TriggeredAbilityAux::TriggeredActionType* pAction);
+										CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________
@@ -1264,4 +1268,36 @@ protected:
 };
 
 //______________________________________________________________________________
+//
+class CTuktukScrapperCard : public CCreatureCard
+{
+    DECLARE_CARD_CSTOR(CTuktukScrapperCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CNemesisTrapCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CNemesisTrapCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CSlingbowTrapCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSlingbowTrapCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//____________________________________________________________________________
 //

@@ -168,7 +168,7 @@ BEGIN
     IDS_STRING12870         "Treva's Charm\n{GWU}\nInstant\nPLS,U\nChoose one - Destroy target enchantment; or exile target attacking creature; or draw a card, then discard a card."
     IDS_STRING12871         "Bog Down\n{2B}\nSorcery\nPLS,C\nKicker-Sacrifice two lands.\rTarget player discards two cards. If Bog Down was kicked, that player discards three cards instead."
     IDS_STRING12872         "Implode\n{4R}\nSorcery\nPLS,U\nDestroy target land.\rDraw a card."
-    IDS_STRING12873         "Primal Growth\n{2G}\nSorcery\nPLS,C\nKicker-Sacrifice a creature.\rSearch your library for a basic land card, put that card onto the battlefield, then shuffle your library. If Primal Growth was kicked, instead search your library for two basic land cards, put them onto the battlefield, then shuffle your library."
+    IDS_STRING12873         "Primal Growth\n{2G}\nSorcery\nPLS,C\nKicker-Sacrifice a creature.\rSearch your library for a basic land card, put that card onto the battlefield, then shuffle your library. If Primal Growth was kicked, instead search your library for up to two basic land cards, put them onto the battlefield, then shuffle your library."
     IDS_STRING12874         "Strafe\n{R}\nSorcery\nPLS,U\nStrafe deals 3 damage to target nonred creature."
     IDS_STRING12875         "Urza's Guilt\n{2UB}\nSorcery\nPLS,R\nEach player draws two cards, then discards three cards, then loses 4 life."
     IDS_STRING12876         "Radiant Kavu\n{RGW}\nCreature - Kavu\nPLS,R\n{RGW}: Prevent all combat damage blue creatures and black creatures would deal this turn.\n3/3"
@@ -229,6 +229,8 @@ BEGIN
     IDS_STRING12919         "Magnigoth Treefolk\n{4G}\nCreature - Treefolk\nPLS,R\nDomain - For each basic land type among lands you control, Magnigoth Treefolk has landwalk of that type.\n2/6"
     IDS_STRING12920         "Dominaria's Judgment\n{2W}\nInstant\nPLS,R\nUntil end of turn, creatures you control gain protection from white if you control a Plains, from blue if you control an Island, from black if you control a Swamp, from red if you control a Mountain, and from green if you control a Forest."
     IDS_STRING12921         "Meteor Crater\n\nLand\nPLS,R\n{T}: Choose a color of a permanent you control. Add one mana of that color to your mana pool."
+	IDS_STRING12922         "March of Souls\n{4W}\nSorcery\nPLS,R\nDestroy all creatures. They can't be regenerated. For each creature destroyed this way, its controller puts a 1/1 white Spirit creature token with flying onto the battlefield."
+	IDS_STRING12923         "Surprise Deployment\n{3W}\nInstant\nPLS,U\nCast Surprise Deployment only during combat.\rYou may put a nonwhite creature card from your hand onto the battlefield. At the beginning of the next end step, return that creature to your hand."
 END
 
 #endif    // English (United States) resources

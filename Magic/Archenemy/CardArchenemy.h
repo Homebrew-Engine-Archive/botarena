@@ -129,3 +129,37 @@ protected:
 
 //____________________________________________________________________________
 //
+class CIntroductionsAreInOrderCard : public CSchemeCard
+{
+	DECLARE_CARD_CSTOR(CIntroductionsAreInOrderCard);
+
+protected:
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+
+	BOOL TargetCheckPlayer(CPlayer* pPlayer);
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType);
+};
+
+//____________________________________________________________________________
+//
+class CEvilComesToFruitionCard : public CSchemeCard
+{
+	DECLARE_CARD_CSTOR(CEvilComesToFruitionCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+/*
+class CADisplayOfMyDarkPowerCard : public CSchemeCard 
+{
+	DECLARE_CARD_CSTOR(CADisplayOfMyDarkPowerCard);
+};
+*/
+//____________________________________________________________________________
+//

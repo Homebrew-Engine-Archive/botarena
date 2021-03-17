@@ -392,6 +392,23 @@ bool CNodeAction::Equals(const CAction* pAction) const
 
 //____________________________________________________________________________
 //
+CFastCombatNodeAction::CFastCombatNodeAction(CGame* pGame)
+	: CNodeAction(pGame)
+{
+}
+BOOL CFastCombatNodeAction::PerformActionImpl() const
+{
+	
+	const CEndOfCombatNode* pMainNode = (CEndOfCombatNode*)m_pGame->GetActivePlayer()->GetGraph()->GetNodeById(NodeId::EndOfCombatStep);
+	const_cast<CEndOfCombatNode*>(pMainNode)->SetMaxFastCombatCount(const_cast<CEndOfCombatNode*>(pMainNode)->GetMaxFastCombatCount() - 1);
+
+	if (!__super::PerformActionImpl())
+		return FALSE;
+
+	return TRUE;
+}
+//____________________________________________________________________________
+//
 CDrawAction::CDrawAction(CGame* pGame)
 	: CAction(pGame)
 	, m_pPlayer(NULL)

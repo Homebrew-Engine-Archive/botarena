@@ -1222,10 +1222,65 @@ void CFaceTransformModifier::ApplyTo(CCard* pCard) const
 		return;
 	}
 
+	CDoubleFacedInPlaySpellCard* pDFInPlaySpell = dynamic_cast<CDoubleFacedInPlaySpellCard*>(pCard);
+	if (pDFInPlaySpell)
+	{
+		if (pDFInPlaySpell->GetOrientation()->IsSecondFaced() && pDFInPlaySpell->GetZoneId() == ZoneId::Battlefield)
+			pDFInPlaySpell->FirstFace();
+		else
+			pDFInPlaySpell->SecondFace();
+
+		return;
+	}
+
 	CDoubleFacedPlaneswalkerCard* pDFPlaneswalker = dynamic_cast<CDoubleFacedPlaneswalkerCard*>(pCard);
 	if (pDFPlaneswalker)
 	{
 		if (pDFPlaneswalker->GetOrientation()->IsSecondFaced() && pDFPlaneswalker->GetZoneId() == ZoneId::Battlefield)
+			pDFPlaneswalker->FirstFace();
+		else			
+			pDFPlaneswalker->SecondFace();
+
+		return;
+	}
+}
+
+//____________________________________________________________________________
+//
+void CGraveyardFaceTransformModifier::ApplyTo(CCard* pCard) const
+{
+	__super::ApplyTo(pCard);
+
+	if (pCard->GetCardType().IsToken()) return;
+	if (pCard->GetZoneId() != ZoneId::Graveyard) return;
+	if ((pCard->GetCardFlag()->Get() & CardFlag::CantTransform).Any()) return;
+
+	CDoubleFacedCreatureCard* pDFCreature = dynamic_cast<CDoubleFacedCreatureCard*>(pCard);
+	if (pDFCreature)
+	{
+		if (pDFCreature->GetOrientation()->IsSecondFaced())
+			pDFCreature->FirstFace();
+		else
+			pDFCreature->SecondFace();
+
+		return;
+	}
+
+	CDoubleFacedInPlaySpellCard* pDFInPlaySpell = dynamic_cast<CDoubleFacedInPlaySpellCard*>(pCard);
+	if (pDFCreature)
+	{
+		if (pDFInPlaySpell->GetOrientation()->IsSecondFaced())
+			pDFInPlaySpell->FirstFace();
+		else
+			pDFInPlaySpell->SecondFace();
+
+		return;
+	}
+
+	CDoubleFacedPlaneswalkerCard* pDFPlaneswalker = dynamic_cast<CDoubleFacedPlaneswalkerCard*>(pCard);
+	if (pDFPlaneswalker)
+	{
+		if (pDFPlaneswalker->GetOrientation()->IsSecondFaced())
 			pDFPlaneswalker->FirstFace();
 		else			
 			pDFPlaneswalker->SecondFace();
@@ -3068,6 +3123,60 @@ void CTokenCreationModifier::ApplyTo(CPlayer* pPlayer) const
 }
 //____________________________________________________________________________
 //
+void CContainerEffectModifier::ApplyTo(CPlayer* pPlayer) const
+{
+	__super::ApplyTo(pPlayer);	
+
+	CPlayer* target = pPlayer;
+
+	int nTokenCount = 1;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
+
+		if (!m_pGame->IsThinking())
+		{
+			((CContainerEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
+			((CContainerEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
+			((CContainerEffectCard*)cpToken.GetPointer())->ReadData(m_pPassed);
+		}
+
+			target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+			cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
+			if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
+	}
+}
+
+//____________________________________________________________________________
+//
+void CDoubleContainerEffectModifier::ApplyTo(CPlayer* pPlayer) const
+{
+	__super::ApplyTo(pPlayer);	
+
+	CPlayer* target = pPlayer;
+
+	int nTokenCount = 1;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
+
+		if (!m_pGame->IsThinking())
+		{
+			((CDoubleContainerEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
+			((CDoubleContainerEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
+			((CDoubleContainerEffectCard*)cpToken.GetPointer())->ReadData(m_pPassed1, m_pPassed2);
+		}
+
+			target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+			cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
+			if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
+	}
+}
+
+//____________________________________________________________________________
+//
 void CPoisonModifier::ApplyTo(CPlayer* pPlayer) const
 {
 	__super::ApplyTo(pPlayer);	
@@ -3101,6 +3210,27 @@ void CPoisonModifier::ApplyTo(CPlayer* pPlayer) const
 					MessageImportance::High
 					);
 	}
+}
+//____________________________________________________________________________
+//
+void CFastCombatModifier::ApplyTo(CPlayer* pPlayer) const
+{
+	__super::ApplyTo(pPlayer);	
+
+	const CEndOfCombatNode* pMainNode = (CEndOfCombatNode*)pPlayer->GetGraph()->GetNodeById(NodeId::EndOfCombatStep);
+	const_cast<CEndOfCombatNode*>(pMainNode)->SetMaxFastCombatCount(pMainNode->GetMaxFastCombatCount() + 1);
+}
+//____________________________________________________________________________
+//
+void CExtraCombatModifier::ApplyTo(CPlayer* pPlayer) const
+{
+	__super::ApplyTo(pPlayer);	
+
+	if (m_pGame->GetCurrentNode()->GetNodeId() != NodeId::MainPhaseStep)
+		return;
+
+	const CMainNode* pMainNode = (CMainNode*)pPlayer->GetGraph()->GetNodeById(NodeId::MainPhaseStep);
+	const_cast<CMainNode*>(pMainNode)->IncreaseMaxCombatCount(1, TRUE);
 }
 //____________________________________________________________________________
 //
@@ -3395,31 +3525,55 @@ void CCardCopyModifier ::ApplyTo(CCard* pCard) const
 	}
 	else
 	if (pCard->GetCardType().IsToken() && !pCard->GetCardType().IsCopy() && (CTokenCreature*)pcCard)
-	{		
-		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame,((CTokenCreature*)pcCard)->GetTokenFullName(), ((CTokenCreature*)pcCard)->GetUID()));
+	{
+		CTokenCreature* pcToken = (CTokenCreature*)pcCard;
+
+		CString strTokenFullName;
+
+		if (pcToken->IsVariable())
+			strTokenFullName = pcToken->strVariableName;
+		else
+			strTokenFullName = ((CTokenCreature*)pcCard)->GetTokenFullName();
+
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, strTokenFullName, (pcToken->GetUID())));
 
 		if (cpToken.GetPointer())
 		{
-		((CTokenCreature*)cpToken.GetPointer())->SetUID(((CTokenCreature*)pcCard)->GetUID()); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(((CTokenCreature*)pcCard)->GetTokenFullName());
-		m_pController->GetController()->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+			((CTokenCreature*)cpToken.GetPointer())->SetUID(pcToken->GetUID()); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(strTokenFullName);
+			m_pController->GetController()->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
 
-		if (pCard->GetCardType().IsCreature())
-		{
-			CCreatureCard* pOriginalCreature = (CCreatureCard*)pCard;
-			CCreatureCard* pCopyCreature = (CCreatureCard*)cpToken.GetPointer();
+			CTokenCreature* pCopyToken = (CTokenCreature*)cpToken.GetPointer();
 			
-			Power pPrintedPower = pOriginalCreature->GetPrintedPower();
-			Life pPrintedToughness = pOriginalCreature->GetPrintedToughness();
+			Power pPrintedPower = pcToken->GetPrintedPower();
+			Life pPrintedToughness = pcToken->GetPrintedToughness();
 
-			if (pPrintedPower != pCopyCreature->GetPrintedPower())
-				pCopyCreature->SetPrintedPower(pPrintedPower);
+			if (pPrintedPower != pCopyToken->GetPrintedPower())
+				pCopyToken->SetPrintedPower(pPrintedPower);
 
-			if (pPrintedToughness != pCopyCreature->GetPrintedToughness())
-				pCopyCreature->SetPrintedToughness(pPrintedToughness);
-		}
+			if (pPrintedToughness != pCopyToken->GetPrintedToughness())
+				pCopyToken->SetPrintedToughness(pPrintedToughness);
+			
+			if (pcToken->IsVariable())
+			{
+				SingleCreatureType CT = pcToken->pCreatureType;
 
-		cpToken->Move(m_pController->GetController()->GetZoneById(ZoneId::Battlefield), m_pController->GetController(), MoveType::Others);		
-		pcCard = cpToken.GetPointer();
+				if (CT != SingleCreatureType::Null)
+				{
+					pCopyToken->SetPrintedCardName(CT.ToString());
+					pCopyToken->pCreatureType = CT;
+					CCreatureTypeModifier pModifier = CCreatureTypeModifier(CT, true);
+					pModifier.ApplyTo(pCopyToken);
+				}
+			}
+			
+			if (pcToken->IsCounterWatching())
+			{
+				pCopyToken->IsCopied = 1;
+				pCopyToken->pPreviousCard = pcToken->pOriginatingCard;
+			}
+
+			cpToken->Move(m_pController->GetController()->GetZoneById(ZoneId::Battlefield), m_pController->GetController(), MoveType::Others);		
+			pcCard = cpToken.GetPointer();
 		}
 		else
 		{
@@ -3433,7 +3587,6 @@ void CCardCopyModifier ::ApplyTo(CCard* pCard) const
 	}
 	else
 	{
-	
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateCard(m_pGame,pcCard->GetOriginalPrintedCardName(), pcCard->GetImageID()));
 
 		m_pController->GetController()->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());

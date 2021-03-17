@@ -392,6 +392,9 @@ class CWolfirAvengerCard : public CRegenerationCreatureCard
 class CThatcherRevoltCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CThatcherRevoltCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -1920,6 +1923,51 @@ class CBurnAtTheStakeCard : public CCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CAbundantGrowthCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CAbundantGrowthCard);
+
+protected:
+	counted_ptr<CAbility> CreateAdditionalAbility(CCard* pCard);
+	counted_ptr<CAbility> CreateAdditionalAbility1(CCard* pCard);
+	counted_ptr<CAbility> CreateAdditionalAbility2(CCard* pCard);
+	counted_ptr<CAbility> CreateAdditionalAbility3(CCard* pCard);
+	counted_ptr<CAbility> CreateAdditionalAbility4(CCard* pCard);
+};
+
+//____________________________________________________________________________
+//
+class CGhostlyFlickerCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGhostlyFlickerCard);
+
+protected:	
+	counted_ptr<CTargetSpell> m_pTargetSpell;
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CChampionOfLambholtCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CChampionOfLambholtCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CAggravateCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CAggravateCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________

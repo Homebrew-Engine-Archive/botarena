@@ -827,6 +827,8 @@ class CQuicksilverBehemothCard : public CCreatureCard
 
 protected:
 	CCardFilter m_CardFilter;
+
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1156,6 +1158,48 @@ class CMachinateCard : public CCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CSavageBeatingCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSavageBeatingCard);
+
+private: 
+	CManaCost	m_EntwineCost;
+
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CTearsOfRageCard : public CCard
+{
+    DECLARE_CARD_CSTOR(CTearsOfRageCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CGeminiEngineCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGeminiEngineCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	void OnSubjectSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_SubjectSelection;
 };
 
 //____________________________________________________________________________

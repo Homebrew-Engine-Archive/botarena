@@ -882,3 +882,23 @@ protected:
 
 //____________________________________________________________________________
 //
+class CAngelsTrumpetCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CAngelsTrumpetCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//_____________________________________________________________________________
+//
+class CMemoryJarCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CMemoryJarCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//

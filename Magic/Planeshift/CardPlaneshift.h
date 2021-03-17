@@ -935,3 +935,30 @@ protected:
 
 //____________________________________________________________________________
 //
+class CMarchOfSoulsCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CMarchOfSoulsCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	std::vector<int> m_nCards;
+};
+
+//____________________________________________________________________________
+//
+class CSurpriseDeploymentCard : public CCard
+{
+    DECLARE_CARD_CSTOR(CSurpriseDeploymentCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	CSelectionSupport m_CardSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//

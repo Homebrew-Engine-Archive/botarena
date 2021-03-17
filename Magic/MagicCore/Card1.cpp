@@ -85,6 +85,215 @@ CInPlaySpellCard::CInPlaySpellCard(CGame* pGame, LPCTSTR strCardName, CardType c
 
 //____________________________________________________________________________
 //
+CDoubleFacedInPlaySpellCard::CDoubleFacedInPlaySpellCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, UINT uID,
+									 LPCTSTR strCostText, LPCTSTR nFlipCardName, AbilityType abilityType)
+	: CInPlaySpellCard(pGame, strCardName, cardType, uID, strCostText, abilityType)
+	, m_strDFCardName(nFlipCardName)
+{
+	SetDoubleNamed(TRUE);
+}
+
+void CDoubleFacedInPlaySpellCard::Transform()
+{
+	GetOrientation()->IsSecondFaced() ? FirstFace() : SecondFace();
+}
+
+void CDoubleFacedInPlaySpellCard::SecondFace()
+{
+	GetOrientation()->SecondFace();
+
+	m_CardModifiers.ApplyTo(this);
+
+	for (int i = 0; i < GetAbilityCount(); ++i)
+	{
+		CAbility* pAbility = GetAbility(i);
+
+		CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
+		if (!pEnchantmentAbility) 
+			continue;
+		if ( pEnchantmentAbility->GetAbilityName() == _T("First Face Enchantment"))
+			pEnchantmentAbility->EndEnchantment();
+
+		if ( pEnchantmentAbility->GetAbilityName() == _T("Second Face Enchantment"))
+			pEnchantmentAbility->StartEnchantment();
+	}
+
+	CSpecialEffectModifier modifier(this, TRANSFORM_TRIGGER_ID);
+	modifier.ApplyTo(this);
+}
+
+void CDoubleFacedInPlaySpellCard::FirstFace()
+{
+	GetOrientation()->FirstFace();
+
+	m_CardModifiers.RemoveFrom(this);
+
+	for (int i = 0; i < GetAbilityCount(); ++i)
+	{
+		CAbility* pAbility = GetAbility(i);
+
+		CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
+		if (!pEnchantmentAbility) 
+			continue;
+		if ( pEnchantmentAbility->GetAbilityName() == _T("First Face Enchantment"))
+			pEnchantmentAbility->StartEnchantment();
+
+		if ( pEnchantmentAbility->GetAbilityName() == _T("Second Face Enchantment"))
+			pEnchantmentAbility->EndEnchantment();
+	}
+
+	CSpecialEffectModifier modifier(this, TRANSFORM_TRIGGER_ID);
+	modifier.ApplyTo(this);
+}
+
+CString CDoubleFacedInPlaySpellCard::GetCardName(BOOL bIncludeDetails) const
+{
+	if (GetOrientation()->IsSecondFaced()) return this->GetPrintedCardName() + __super::GetCardName(bIncludeDetails).Mid(__super::GetOriginalPrintedCardName().GetLength());
+	return __super::GetCardName(bIncludeDetails);
+}
+
+void CDoubleFacedInPlaySpellCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
+{
+	ZoneId fromZoneId = GetZoneId();
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+
+	if (fromZoneId == ZoneId::Battlefield && pToZone->GetZoneId() != ZoneId::Battlefield)
+	{
+		m_CardModifiers.RemoveFrom(this);
+	}
+
+	if (fromZoneId != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && GetOrientation()->IsSecondFaced())
+	{
+		for (int i = 0; i < GetAbilityCount(); ++i)
+		{
+			CAbility* pAbility = GetAbility(i);
+
+			CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
+			if (!pEnchantmentAbility) 
+				continue;
+			if ( pEnchantmentAbility->GetAbilityName() == _T("First Face Enchantment"))
+				pEnchantmentAbility->EndEnchantment();
+
+			if ( pEnchantmentAbility->GetAbilityName() == _T("Second Face Enchantment"))
+				pEnchantmentAbility->StartEnchantment();
+		}
+	}
+
+	if (fromZoneId != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && !GetOrientation()->IsSecondFaced())
+	{
+		for (int i = 0; i < GetAbilityCount(); ++i)
+		{
+			CAbility* pAbility = GetAbility(i);
+
+			CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
+			if (!pEnchantmentAbility) 
+				continue;
+			if ( pEnchantmentAbility->GetAbilityName() == _T("First Face Enchantment"))
+				pEnchantmentAbility->StartEnchantment();
+
+			if ( pEnchantmentAbility->GetAbilityName() == _T("Second Face Enchantment"))
+				pEnchantmentAbility->EndEnchantment();
+		}
+	}
+}
+
+BOOL CDoubleFacedInPlaySpellCard::CanPlaySecondFace(BOOL bIncludeTricks) const
+{
+	return (GetOrientation()->IsSecondFaced());
+}
+
+BOOL CDoubleFacedInPlaySpellCard::CanPlayFirstFace(BOOL bIncludeTricks) const
+{
+	return (!GetOrientation()->IsSecondFaced());
+}
+
+CString CDoubleFacedInPlaySpellCard::GetPrintedCardName() const
+{
+	if (GetOrientation()->IsSecondFaced()) return m_strDFCardName; 
+	return __super::GetPrintedCardName();
+}
+
+CString CDoubleFacedInPlaySpellCard::GetSecondPrintedCardName() const
+{
+	return m_strDFCardName; 
+}
+
+DWORD CDoubleFacedInPlaySpellCard::GetConvertedManaCost() const
+{
+	if (GetOrientation()->IsSecondFaced())
+		return 0;
+	return __super::GetConvertedManaCost();
+}
+
+DWORD CDoubleFacedInPlaySpellCard::GetManaCost(CManaCostBase::Color manaCost, BOOL bMax)
+{
+	if (GetOrientation()->IsSecondFaced())
+		return 0;
+	return __super::GetManaCost(manaCost, bMax);
+}
+
+//____________________________________________________________________________
+//
+/*
+CString CContainerEffectCard::GetCardName(BOOL bIncludeDetails) const
+{
+	if (pCards.GetSize() > 0)
+	{
+		CString pExtra = _T("(") + pCards.GetAt(0)->GetCardName(TRUE);
+
+		for (int i = 1; i < pCards.GetSize(); ++i)
+			pExtra = pExtra + _T(", ") + pCards.GetAt(i)->GetCardName(TRUE);
+
+		pExtra = pExtra + _T(")");
+
+		return __super::GetCardName(bIncludeDetails) + pExtra;
+	}
+	else return __super::GetCardName(bIncludeDetails);
+}
+
+//____________________________________________________________________________
+//
+CString CDoubleContainerEffectCard::GetCardName(BOOL bIncludeDetails) const
+{
+	if (pCards1.GetSize() > 0)
+	{
+		CString pExtra1 = _T("(") + pCards1.GetAt(0)->GetCardName(TRUE);
+
+		for (int i = 1; i < pCards1.GetSize(); ++i)
+			pExtra1 = pExtra1 + _T(", ") + pCards1.GetAt(i)->GetCardName(TRUE);
+
+		pExtra1 = pExtra1 + _T(")");
+
+		if (pCards2.GetSize() > 0)
+		{
+			CString pExtra2 = _T(", (") + pCards2.GetAt(0)->GetCardName(TRUE);
+
+			for (int i = 1; i < pCards2.GetSize(); ++i)
+				pExtra2 = pExtra2 + _T(", ") + pCards2.GetAt(i)->GetCardName(TRUE);
+
+			pExtra2 = pExtra2 + _T(")");
+
+			return __super::GetCardName(bIncludeDetails) + pExtra1 + pExtra2;
+		}
+		else
+			return __super::GetCardName(bIncludeDetails) + pExtra1;
+	}
+	else if (pCards2.GetSize() > 0)
+	{
+		CString pExtra2 = _T("(), (") + pCards2.GetAt(0)->GetCardName(TRUE);
+
+		for (int i = 1; i < pCards2.GetSize(); ++i)
+			pExtra2 = pExtra2 + _T(", ") + pCards2.GetAt(i)->GetCardName(TRUE);
+
+		pExtra2 = pExtra2 + _T(")");
+
+		return __super::GetCardName(bIncludeDetails) + pExtra2;
+	}
+	else return __super::GetCardName(bIncludeDetails);
+}
+*/
+//____________________________________________________________________________
+//
 CBasicLandCard::CBasicLandCard(CGame* pGame, LPCTSTR strCardName, UINT uID,
 							   LPCTSTR strPoolText, CardType landType)
 	: CCard(pGame, strCardName, landType, uID)

@@ -256,6 +256,8 @@ BEGIN
     IDS_STRING15540         "Ferropede\n{3}\nArtifact Creature - Insect\n5DN,U\nFerropede is unblockable.\rWhenever Ferropede deals combat damage to a player, you may remove a counter from target permanent."
     IDS_STRING15541         "Rude Awakening\n{4G}\nSorcery\n5DN,U\nChoose one - Untap all lands you control; or until end of turn, lands you control become 2/2 creatures that are still lands.\rEntwine {2G}"
     IDS_STRING15542         "Energy Chamber\n{2}\nArtifact\n5DN,U\nAt the beginning of your upkeep, choose one - Put a +1/+1 counter on target artifact creature; or put a charge counter on target noncreature artifact."
+    IDS_STRING15543         "Goblin Brawler\n{2R}\nCreature - Goblin Warrior\n5DN,C\nFirst strike\rGoblin Brawler can't be equipped.\n2/2"
+    IDS_STRING15544         "Chimeric Coils\n{1}\nArtifact\n5DN,U\n{X1}: Chimeric Coils becomes an X/X Construct artifact creature. Sacrifice it at the beginning of the next end step."
     //IDS_STRING15538         "Mephidross Vampire\n{4BB}\nCreature - Vampire\n5DN,R\nFlying\rEach creature you control is a Vampire in addition to its other creature types and has ""Whenever this creature deals damage to a creature, put a +1/+1 counter on this creature.""\n3/4"
 END
 

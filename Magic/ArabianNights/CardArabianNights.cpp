@@ -35,6 +35,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLibraryOfAlexandriaCard);
 		DEFINE_CARD(CMerchantShipCard);
 		DEFINE_CARD(CMoorishCavalryCard);
+		DEFINE_CARD(CSandalsOfAbdallahCard);
 		DEFINE_CARD(CSerendibDjinnCard);
 		DEFINE_CARD(CSingingTreeCard);
 		DEFINE_CARD(CStoneThrowingDevilsCard);
@@ -878,6 +879,43 @@ bool CSerendibDjinnCard::SetTriggerContext2(CTriggeredMoveCardAbility::TriggerCo
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CSandalsOfAbdallahCard::CSandalsOfAbdallahCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Sandals of Abdallah"), CardType::Artifact, nID,
+		_T("4"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CSandalsOfAbdallahCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T("2"),
+			Power(+0), Life(+0),
+			CreatureKeyword::Islandwalk, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable,
+			new AnyCreatureComparer));
+
+	cpAbility->AddTapCost();
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+	AddAbility(cpAbility.GetPointer());
+}
+
+void CSandalsOfAbdallahCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{	
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Sandals of Abdallah Effect"), 61053, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

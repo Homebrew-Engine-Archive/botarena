@@ -271,6 +271,9 @@ BEGIN
     IDS_STRING60451         "I Delight in Your Convulsions\n\nScheme\nARC,S\nWhen you set this scheme in motion, each opponent loses 3 life. You gain life equal to the life lost this way."
     IDS_STRING60452         "Dance, Pathetic Marionette\n\nScheme\nARC,S\nWhen you set this scheme in motion, each opponent reveals cards from the top of his or her library until he or she reveals a creature card. Choose one of the revealed creature cards and put it onto the battlefield under your control. Put all other cards revealed this way into their owners' graveyards."
     IDS_STRING60453         "Kamahl, Fist of Krosa\n{4GG}\nLegendary Creature - Human Druid\nARC,R\n{G}: Target land becomes a 1/1 creature until end of turn. It's still a land.\r{2GGG}: Creatures you control get +3/+3 and gain trample until end of turn.\n4/3"
+    IDS_STRING60454         "Introductions Are in Order\n\nScheme\nARC,S\nWhen you set this scheme in motion, choose one - Search your library for a creature card, reveal it, put it into your hand, then shuffle your library; or you may put a creature card from your hand onto the battlefield."
+    IDS_STRING60455         "Evil Comes to Fruition\n\nScheme\nARC,S\nWhen you set this scheme in motion, put seven 0/1 green Plant creature tokens onto the battlefield. If you control ten or more lands, put seven 3/3 green Elemental creature tokens onto the battlefield instead."
+	IDS_STRING60456         "Yavimaya Dryad\n{1GG}\nCreature - Dryad\nARC,U\nForestwalk\rWhen Yavimaya Dryad enters the battlefield, you may search your library for a Forest card and put it onto the battlefield tapped under target player's control. If you do, shuffle your library.\n2/1"
 END
 
 #endif    // English (United States) resources

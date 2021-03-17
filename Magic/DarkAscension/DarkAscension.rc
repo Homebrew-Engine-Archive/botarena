@@ -231,7 +231,7 @@ BEGIN
     IDS_STRING23721         "Withengar Unbound\n{}\nLegendary Creature - Demon\nDKA,MR\nFlying, intimidate, trample\rWhenever a player loses the game, put thirteen +1/+1 counters on Withengar Unbound.\n13/13"
     IDS_STRING23722         "Alpha Brawl\n{6RR}\nSorcery\nDKA,R\nTarget creature an opponent controls deals damage equal to its power to each other creature that player controls, then each of those creatures deals damage equal to its power to that creature."
     IDS_STRING23723         "Blood Feud\n{4RR}\nSorcery\nDKA,U\nTarget creature fights another target creature."
-    IDS_STRING23724         "Immerwolf\n{1RG}\nCreature - Wolf\nDKA,U\nIntimidate\rOther Wolf and Werewolf creatures you control get +1/+1.\rNon-Human Werewolves you control can't transform.\n2/2"
+    IDS_STRING23724         "Immerwolf\n{1RG}\nCreature - Wolf\nDKA,U\nIntimidate\rEach other creature you control that's a Wolf or a Werewolf gets +1/+1.\rNon-Human Werewolves you control can't transform.\n2/2"
     IDS_STRING23725         "Huntmaster of the Fells\n{2RG}\nCreature - Human Werewolf\nDKA,MR\nWhenever this creature enters the battlefield or transforms into Huntmaster of the Fells, put a 2/2 green Wolf creature token onto the battlefield and you gain 2 life.\rAt the beginning of each upkeep, if no spells were cast last turn, transform Huntmaster of the Fells.\n2/2"
     IDS_STRING23726         "Ravager of the Fells\n{RG}\nCreature - Werewolf\nDKA,MR\nTrample\rWhenever this creature transforms into Ravager of the Fells, it deals 2 damage to target opponent and 2 damage to up to one target creature that player controls.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Ravager of the Fells.\n4/4"
     IDS_STRING23727         "Grafdigger's Cage\n{1}\nArtifact\nDKA,R\nCreature cards can't enter the battlefield from graveyards or libraries.\rPlayers can't cast cards in graveyards or libraries."
@@ -247,6 +247,19 @@ BEGIN
     IDS_STRING23733         "Lost in the Woods\n{3GG}\nEnchantment\nDKA,R\nWhenever a creature attacks you or a planeswalker you control, reveal the top card of your library. If it's a Forest card, remove that creature from combat. Then put the revealed card on the bottom of your library."
     IDS_STRING23734         "Jar of Eyeballs\n{3}\nArtifact\nDKA,R\nWhenever a creature you control dies, put two eyeball counters on Jar of Eyeballs.\r{3}, {T}, Remove all eyeball counters from Jar of Eyeballs: Look at the top X cards of your library, where X is the number of eyeball counters removed this way. Put one of them into your hand and the rest on the bottom of your library in any order."
     IDS_STRING23735         "Helvault\n{3}\nLegendary Artifact\nDKA,MR\n{1}, {T}: Exile target creature you control.\r{7}, {T}: Exile target creature you don't control.\rWhen Helvault is put into a graveyard from the battlefield, return all cards exiled with it to the battlefield under their owners' control."
+    IDS_STRING23736         "Afflicted Deserter\n{3R}\nCreature - Human Werewolf\nDKA,U\nAt the beginning of each upkeep, if no spells were cast last turn, transform Afflicted Deserter.\n3/2"
+    IDS_STRING23737         "Werewolf Ransacker\n{R}\nCreature - Werewolf\nDKA,U\nWhenever this creature transforms into Werewolf Ransacker, you may destroy target artifact. If that artifact is put into a graveyard this way, Werewolf Ransacker deals 3 damage to that artifact's controller.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Werewolf Ransacker.\n5/4"
+    IDS_STRING23738         "Loyal Cathar\n{WW}\nCreature - Human Soldier\nDKA,C\nVigilance\rWhen Loyal Cathar dies, return it to the battlefield transformed under your control at the beginning of the next end step.\n2/2"
+    IDS_STRING23739         "Unhallowed Cathar\n{B}\nCreature - Zombie Soldier\nDKA,C\nUnhallowed Cathar can't block.\n2/1"
+    IDS_STRING23740         "Chalice of Life\n{3}\nArtifact\nDKA,U\n{T}: You gain 1 life. Then if you have at least 10 life more than your starting life total, transform Chalice of Life."
+    IDS_STRING23741         "Chalice of Death\n\nArtifact\nDKA,U\n{T}: Target player loses 5 life."
+	IDS_STRING23742         "Faith's Shield\n{W}\nInstant\nDKA,U\nTarget permanent you control gains protection from the color of your choice until end of turn.\rFateful hour - If you have 5 or less life, instead you and each permanent you control gain protection from the color of your choice until end of turn."
+	IDS_STRING23743         "Seance\n{2WW}\nEnchantment\nDKA,R\nAt the beginning of each upkeep, you may exile target creature card from your graveyard. If you do, put a token onto the battlefield that's a copy of that card except it's a Spirit in addition to its other types. Exile it at the beginning of the next end step."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING23744         "Sudden Disappearance\n{5W}\nSorcery\nDKA,R\nExile all nonland permanents target player controls. Return the exiled cards to the battlefield under their owner's control at the beginning of the next end step."
 END
 
 #endif    // English (United States) resources

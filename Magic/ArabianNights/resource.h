@@ -81,6 +81,7 @@
 #define IDS_STRING5063                  5063
 #define IDS_STRING5064                  5064
 #define IDS_STRING5065                  5065
+#define IDS_STRING5066                  5066
 #define IDI_MODULE                      5092
 #define IDI_LARGE_MODULE                5093
 

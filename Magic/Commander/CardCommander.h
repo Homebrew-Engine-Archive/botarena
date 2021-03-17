@@ -400,3 +400,24 @@ class CCrescendoOfWarCard : public CInPlaySpellCard
 */
 //____________________________________________________________________________
 //
+class CArchangelOfStrifeCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CArchangelOfStrifeCard);
+
+protected:
+	VIRTUAL(void, OnSelectionDone)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_Selection;
+	
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	void SelectorFunction(int PlayerID);
+	void Advance(int PlayerID);
+
+	std::vector<int> m_nChoices;
+	
+	CCountedCardContainer_ Effects;
+};
+
+//____________________________________________________________________________
+//

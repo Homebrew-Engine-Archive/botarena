@@ -142,7 +142,6 @@ class CDarkConfidantCard : public CCreatureCard
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 //
 //	----------------------------- Old variant below -------------------------------
@@ -470,6 +469,10 @@ class CHammerfistGiantCard : public CCreatureCard
 class CHelldozerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHelldozerCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1246,12 +1249,8 @@ class CVoyagerStaffCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CVoyagerStaffCard);
 
-private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	CCardFilter m_CardFilter_temp;
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
 };
 
@@ -1920,6 +1919,29 @@ protected:
 
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	bool CFollowedFootstepsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CFlickerformCard : public CEnchantCard
+{
+	DECLARE_CARD_CSTOR(CFlickerformCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//___________________________________________________________________________
+//
+class CTerraformerCard : public CCreatureCard 
+{
+	DECLARE_CARD_CSTOR(CTerraformerCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	void OnLandTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_LandTypeSelection;
 };
 
 //____________________________________________________________________________

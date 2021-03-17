@@ -68,6 +68,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CHellholeRatsCard);
 		DEFINE_CARD(CHideSeekCard);
 		DEFINE_CARD(CHitRunCard);
+		DEFINE_CARD(CIgnorantBlissCard);
 		DEFINE_CARD(CIndrikStomphowlerCard);
 		DEFINE_CARD(CInfernalTutorCard);
 		DEFINE_CARD(CIsperiaTheInscrutableCard);
@@ -137,6 +138,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTransguildCourierCard);
 		DEFINE_CARD(CTrialErrorCard);
 		DEFINE_CARD(CTrygonPredatorCard);
+		DEFINE_CARD(CTwinstrikeCard);
 		DEFINE_CARD(CUnlivingPsychopathCard);
 		DEFINE_CARD(CUtvaraScalperCard);
 		DEFINE_CARD(CVerdantEidolonCard);
@@ -1175,16 +1177,9 @@ bool CRakdosGuildmageCard::BeforeResolution(CAbilityAction* pAction) const
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Goblin B"), 2805, 1, false, ZoneId::Battlefield, &pTokens);
 	pModifier1.ApplyTo(pAction->GetController());
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(GetGame(),
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater);
-
-	for (int i = 0; i < pTokens.GetSize(); ++i)
-		pModifier2->ApplyTo(pTokens.GetAt(i));
-
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier2.ApplyTo(pAction->GetController());
+	
 	return true;
 }
 
@@ -1791,7 +1786,7 @@ CSupplyDemandCard::CSupplyDemandCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				GREEN_MANA_TEXT WHITE_MANA_TEXT,
-				_T("Saproling B"), 2712,
+				_T("Saproling G"), 2956,
 				0));
 
 		cpSpell->SetAbilityText(_T("Supply. Casts"));
@@ -6610,6 +6605,94 @@ CRiotSpikesCard::CRiotSpikesCard(CGame* pGame, UINT nID)
 	cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
 
 	AddSpell(cpSpell.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CTwinstrikeCard::CTwinstrikeCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Twinstrike"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			_T("3") BLACK_MANA_TEXT RED_MANA_TEXT,
+			new AnyCreatureComparer, false));
+
+	cpSpell->GetTargeting()->SetSubjectCount(2, 2);
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTwinstrikeCard::BeforeResolution));
+
+	m_cSpell = cpSpell.GetPointer();
+	AddSpell(m_cSpell);
+}
+
+bool CTwinstrikeCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CTargetActionCommon* pTargetAction = dynamic_cast<CTargetActionCommon*>(pAction);
+
+	CCountedCardContainer pTargets;
+	pTargetAction->GetTargetGroup().GetCardSubjects(pTargets);
+
+	BOOL bTrick;
+	CCountedCardContainer cards;
+	pTargetAction->GetTargetGroup().GetCardSubjects(cards);
+
+	// Remove invalid targets
+	for (int ic = cards.GetSize() - 1; ic >= 0; --ic)
+		if (!m_cSpell->GetTargeting()->TargetAllowed(cards.GetAt(ic), true, bTrick))
+			cards.RemoveAt(ic);
+
+	if (!cards.GetSize()) return false;
+
+	if (pAction->GetController()->GetZoneById(ZoneId::Hand)->GetSize() == 0)
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy, pAction->GetController());
+		for (int i = 0; i < cards.GetSize(); ++i)
+			pModifier1.ApplyTo(cards.GetAt(i));
+	}
+	else
+	{
+		CLifeModifier pModifier2 = CLifeModifier(Life(-2), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+		for (int i = 0; i < cards.GetSize(); ++i)
+			pModifier2.ApplyTo((CCreatureCard*)cards.GetAt(i));
+	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CIgnorantBlissCard::CIgnorantBlissCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Ignorant Bliss"), CardType::Instant, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+			_T("1") RED_MANA_TEXT));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CIgnorantBlissCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CIgnorantBlissCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CZone* pHand = pController->GetZoneById(ZoneId::Hand);
+
+	CCountedCardContainer pSubjects;
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Hand, ZoneId::_ExileFaceDown, true, MoveType::Others, pController);
+
+	for (int i = pHand->GetSize() - 1; i >= 0; --i)
+	{
+		CCard* pCard = pHand->GetAt(i);
+		pModifier1.ApplyTo(pCard);
+
+		if (pCard->GetZoneId() == ZoneId::_ExileFaceDown)
+			pSubjects.AddCard(pCard, CardPlacement::Top);
+	}
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("Ignorant Bliss Effect"), 61071, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

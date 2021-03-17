@@ -48,6 +48,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CConstructABToken);
 		DEFINE_TOKEN(CConstructACToken);
 		DEFINE_TOKEN(CConstructADToken);
+		DEFINE_TOKEN(CConstructAEToken);
+		DEFINE_TOKEN(CConstructAFToken);
 		DEFINE_TOKEN(CCrabAAToken);
 		DEFINE_TOKEN(CDevilAAToken);
 		DEFINE_TOKEN(CElementalAAToken);
@@ -75,11 +77,32 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CHorrorABToken);
 		DEFINE_TOKEN(CInsectAAToken);
 		DEFINE_TOKEN(CInsectMonkAAToken);
+		DEFINE_TOKEN(CJuggernautAAToken);
 		DEFINE_TOKEN(COozeAAToken);
+		DEFINE_TOKEN(CPlantZombieAAToken);
+		DEFINE_TOKEN(CShapeshifterAAToken);
+		DEFINE_TOKEN(CSkeletonAAToken);
+		DEFINE_TOKEN(CSoldierAAToken);
+		DEFINE_TOKEN(CSoldierABToken);
+		DEFINE_TOKEN(CSpiritAAToken);
+		DEFINE_TOKEN(CSpiritABToken);
+		DEFINE_TOKEN(CSpiritACToken);
+		DEFINE_TOKEN(CSpiritADToken);
+		DEFINE_TOKEN(CSpiritAEToken);
+		DEFINE_TOKEN(CSpiritAFToken);
+		DEFINE_TOKEN(CSpiritAGToken);
+		DEFINE_TOKEN(CSpiritAHToken);
 		DEFINE_TOKEN(CThrullAAToken);
 		DEFINE_TOKEN(CTreefolkAAToken);
+		DEFINE_TOKEN(CTreefolkABToken);
+		DEFINE_TOKEN(CTreefolkACToken);
 		DEFINE_TOKEN(CTreefolkWarriorAAToken);
-				
+		DEFINE_TOKEN(CTurtleAAToken);
+		DEFINE_TOKEN(CWallAAToken);
+		DEFINE_TOKEN(CWallABToken);
+		DEFINE_TOKEN(CWarriorAAToken);
+		DEFINE_TOKEN(CWolfAAToken);
+						
 	} while (false);
 
 	return cpCard;
@@ -949,6 +972,375 @@ CInsectMonkAAToken::CInsectMonkAAToken(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddFirstStrike(FALSE);
 
 // Animation of Nantuko Monastery
+}
+
+//____________________________________________________________________________
+//
+CJuggernautAAToken::CJuggernautAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Juggernaut"), CardType::_ArtifactCreature/* | CardType::Token*/,
+		CREATURE_TYPE(Juggernaut), nID,
+		_T("4"),
+		Power(4), Life(4))
+{
+// Animation of Gruul War Plow
+}
+
+//____________________________________________________________________________
+//
+CPlantZombieAAToken::CPlantZombieAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Plant Zombie"), CardType::Creature,
+	CREATURE_TYPE2(Plant, Zombie), nID,
+	_T(""),
+	Power(0), Life(0))
+{
+	AddCardType(CardType::Black | CardType::Green, CardType::_ColorMask);
+
+	{
+		counted_ptr<CTriggeredChgPwrTghWhenCardPlayedAbility> cpAbility(
+			::CreateObject<CTriggeredChgPwrTghWhenCardPlayedAbility>(this,
+			ZoneId::Graveyard,
+			new AnyCreatureComparer));
+
+		//cpAbility->StartListening(GetController()); //causes a crash
+
+		AddAbility(cpAbility.GetPointer());
+	}
+
+// Animation of Svogthos, the Restless Tomb
+}
+
+void CPlantZombieAAToken::Move(CZone* pToZone,
+					  const CPlayer* pByPlayer,
+					  MoveType moveType,
+					  CardPlacement cardPlacement, BOOL can_dredge)
+{
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+
+	if (pToZone->GetZoneId() != ZoneId::Battlefield) return;
+
+	for (int i = 0; i < GetAbilityCount(); ++i)
+	{
+		CTriggeredChgPwrTghWhenCardPlayedAbility* pCTriggeredChgPwrTghWhenCardPlayedAbility = dynamic_cast<CTriggeredChgPwrTghWhenCardPlayedAbility*>(GetAbility(i));
+		if (!pCTriggeredChgPwrTghWhenCardPlayedAbility) //|| !pSpecialProtectionAbility->GetEnabled())
+			continue;
+
+		pCTriggeredChgPwrTghWhenCardPlayedAbility->ForceStart(TRUE);
+		
+	}
+}
+
+//____________________________________________________________________________
+//
+CShapeshifterAAToken::CShapeshifterAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Shapeshifter"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Shapeshifter), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	GetCardKeyword()->AddChangeling(FALSE);
+
+// Animation of Mutavault
+}
+
+//____________________________________________________________________________
+//
+CSkeletonAAToken::CSkeletonAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Skeleton"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Skeleton), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+	{
+		counted_ptr<CRegenerationAbility> cpAbility(
+			::CreateObject<CRegenerationAbility>(this,
+				BLACK_MANA_TEXT));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+
+// Animation of Spawning Pool
+}
+
+//____________________________________________________________________________
+//
+CSoldierAAToken::CSoldierAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(5))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// Animation of Forbidding Watchtower
+}
+
+//____________________________________________________________________________
+//
+CSoldierABToken::CSoldierABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::_ArtifactCreature/* | CardType::Token*/,
+	CREATURE_TYPE(Soldier), nID,
+		_T("3"),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Red | CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddDoubleStrike(FALSE);
+
+// Animation of Boros Keyrune
+}
+
+//____________________________________________________________________________
+//
+CSpiritAAToken::CSpiritAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::_ArtifactCreature/* | CardType::Token*/,
+		CREATURE_TYPE(Spirit), nID,
+		_T("3"),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+	GetCreatureKeyword()->AddFirstStrike(FALSE);
+
+// Animation of Thunder Totem
+}
+
+//____________________________________________________________________________
+//
+CSpiritABToken::CSpiritABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T("3"),
+		Power(1), Life(5))
+{
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Animation of Ensouled Scimitar
+}
+
+//____________________________________________________________________________
+//
+CSpiritACToken::CSpiritACToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(4), Life(4))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Genju of the Cedars
+}
+
+//____________________________________________________________________________
+//
+CSpiritADToken::CSpiritADToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(3), Life(2))
+{
+	AddCardType(CardType::Blue, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Genju of the Falls
+}
+
+//____________________________________________________________________________
+//
+CSpiritAEToken::CSpiritAEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+	counted_ptr<CPumpAbility> cpAbility(
+		::CreateObject<CPumpAbility>(this,
+			BLACK_MANA_TEXT,
+			Power(+1), Life(+1)));
+
+	AddAbility(cpAbility.GetPointer());
+
+// Used by Genju of the Fens
+}
+
+//____________________________________________________________________________
+//
+CSpiritAFToken::CSpiritAFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(2), Life(5))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	typedef
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfDamageDealt, 
+							CWhenSelfDamageDealt::DamageEventCallback, &CWhenSelfDamageDealt::SetDamageEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSpiritAFToken::SetTriggerContext));
+
+	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+	AddAbility(cpAbility.GetPointer());
+
+// Used by Genju of the Fields
+}
+
+bool CSpiritAFToken::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const
+{
+	triggerContext.m_LifeModifier.SetLifeDelta(Life(-damage.m_nLifeDelta));
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CSpiritAGToken::CSpiritAGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(6), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// Used by Genju of the Spires
+}
+
+//____________________________________________________________________________
+//
+CSpiritAHToken::CSpiritAHToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Legendary | CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T(""),
+		Power(8), Life(12))
+{
+	GetCreatureKeyword()->AddTrample(FALSE);
+}
+
+//____________________________________________________________________________
+//
+CTreefolkABToken::CTreefolkABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Treefolk"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Treefolk), nID,
+		_T(""),
+		Power(5), Life(6))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Living Terrain
+}
+
+//____________________________________________________________________________
+//
+CTreefolkACToken::CTreefolkACToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Treefolk"), CardType::_ArtifactCreature/* | CardType::Token*/,
+		CREATURE_TYPE(Treefolk), nID,
+		_T("3"),
+		Power(5), Life(3))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddTrample(FALSE);
+
+// Animation of Weatherseed Totem
+}
+
+//____________________________________________________________________________
+//
+CTurtleAAToken::CTurtleAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Turtle"), CardType::_ArtifactCreature/* | CardType::Token*/,
+		CREATURE_TYPE(Turtle), nID,
+		_T("3"),
+		Power(3), Life(3))
+{
+// Animation of Chimeric Idol
+}
+
+//____________________________________________________________________________
+//
+CWallAAToken::CWallAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wall"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Wall), nID,
+		_T(""),
+		Power(2), Life(6))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddDefender(FALSE);
+
+// Used by Guardian Zendikon
+}
+
+//____________________________________________________________________________
+//
+CWarriorAAToken::CWarriorAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Warrior"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Warrior), nID,
+		_T(""),
+		Power(2), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFirstStrike(FALSE);
+
+// Animation of Ghitu Encampment
+}
+
+//____________________________________________________________________________
+//
+CWolfAAToken::CWolfAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::_ArtifactCreature/* | CardType::Token*/,
+		CREATURE_TYPE(Wolf), nID,
+		_T("3"),
+		Power(3), Life(3))
+{
+	AddCardType(CardType::Green | CardType::White, CardType::_ColorMask);
+
+// Animation of Selesnya Keyrune
+}
+
+//____________________________________________________________________________
+//
+CConstructAEToken::CConstructAEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Construct"), CardType::_ArtifactCreature/* | CardType::Token*/, 
+		CREATURE_TYPE(Construct), nID,
+		_T("4"),
+		Power(0), Life(0))
+{
+// Animation of Chimeric Staff
+}
+
+//____________________________________________________________________________
+//
+CWallABToken::CWallABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wall"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Wall), nID,
+		_T(""),
+		Power(0), Life(0))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddDefender(FALSE);
+
+// Animation of Testament of Faith
+}
+
+//____________________________________________________________________________
+//
+CConstructAFToken::CConstructAFToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Construct"), CardType::_ArtifactCreature/* | CardType::Token*/, 
+		CREATURE_TYPE(Construct), nID,
+		_T("1"),
+		Power(0), Life(0))
+{
+// Animation of Chimeric Coils
 }
 
 //____________________________________________________________________________

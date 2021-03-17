@@ -732,6 +732,9 @@ class CEssenceFeedCard : public CTargetChgLifeSpellCard
 class CFissureVentCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CFissureVentCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1498,6 +1501,8 @@ class CArrogantBloodlordCard : public CCreatureCard
 
 protected:
 	CCardFilter m_CardFilter;
+
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1538,6 +1543,8 @@ class CSplinterTwinCard : public CCard
 
 private:
 	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
+
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1886,4 +1893,14 @@ protected:
 };
 
 //____________________________________________________________________________
+//
+class CGelatinousGenesisCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGelatinousGenesisCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
 //

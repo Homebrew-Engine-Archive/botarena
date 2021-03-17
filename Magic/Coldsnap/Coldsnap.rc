@@ -94,7 +94,7 @@ BEGIN
     IDS_STRING7008          "Kjeldoran Outrider\n{1W}\nCreature - Human Soldier\nCSP,C\n{W}: Kjeldoran Outrider gets +0/+1 until end of turn.\n2/2"
     IDS_STRING7009          "Krovikan Mist\n{1U}\nCreature - Illusion\nCSP,C\nFlying\rKrovikan Mist's power and toughness are each equal to the number of Illusions on the battlefield.\n*/*"
     IDS_STRING7010          "Krovikan Scoundrel\n{1B}\nCreature - Human Rogue\nCSP,C\n\n2/1"
-    IDS_STRING7011          "Lovisa Coldeyes\n{3RR}\nLegendary Creature - Human Barbarian\nCSP,R\nWarrior, Berserker, and/or other Barbarian creatures get +2/+2 and have haste.\n3/3"
+    IDS_STRING7011          "Lovisa Coldeyes\n{3RR}\nLegendary Creature - Human\nCSP,R\nEach creature that's a Barbarian, a Warrior, or a Berserker gets +2/+2 and has haste.\n3/3"
     IDS_STRING7012          "Orcish Bloodpainter\n{2R}\nCreature - Orc Shaman\nCSP,C\n{T}, Sacrifice a creature: Orcish Bloodpainter deals 1 damage to target creature or player.\n2/1"
     IDS_STRING7013          "Ronom Unicorn\n{1W}\nCreature - Unicorn\nCSP,C\nSacrifice Ronom Unicorn: Destroy target enchantment.\n2/2"
     IDS_STRING7014          "Simian Brawler\n{3G}\nCreature - Ape Warrior\nCSP,C\nDiscard a land card: Simian Brawler gets +1/+1 until end of turn.\n3/3"
@@ -206,6 +206,8 @@ BEGIN
     IDS_STRING7100          "Phyrexian Etchings\n{BBB}\nEnchantment\nCSP,R\nCumulative upkeep {B}\rAt the beginning of your end step, draw a card for each age counter on Phyrexian Etchings.\rWhen Phyrexian Etchings is put into a graveyard from the battlefield, you lose 2 life for each age counter on it."
     IDS_STRING7101          "Balduvian Frostwaker\n{2U}\nCreature - Human Wizard\nCSP,U\n{U}, {T}: Target snow land becomes a 2/2 blue Elemental creature with flying. It's still a land.\n1/1"
     IDS_STRING7102          "Blizzard Specter\n{2UB}\nSnow Creature - Specter\nCSP,U\nFlying\rWhenever Blizzard Specter deals combat damage to a player, choose one - That player returns a permanent he or she controls to its owner's hand; or that player discards a card.\n2/3"
+    IDS_STRING7103          "Brooding Saurian\n{2GG}\nCreature - Lizard\nCSP,R\nAt the beginning of each end step, each player gains control of all nontoken permanents he or she owns.\n4/4"
+    IDS_STRING7104          "Adarkar Valkyrie\n{4WW}\nSnow Creature - Angel\nCSP,R\nFlying, vigilance\r{T}: When target creature other than Adarkar Valkyrie dies this turn, return that card to the battlefield under your control.\n4/5"
 END
 
 #endif    // English (United States) resources

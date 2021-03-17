@@ -147,7 +147,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING25152         "Hypersonic Dragon\n{3UR}\nCreature - Dragon\nRTR,R\nFlying, haste\rYou may cast sorcery spells as though they had flash.\n4/4"
+    IDS_STRING25152         "Hypersonic Dragon\n{3UR}\nCreature - Dragon\nRTR,R\nFlying, haste\rYou may cast sorcery cards as though they had flash.\n4/4"
     IDS_STRING25153         "Judge's Familiar\n{A}\nCreature - Bird\nRTR,U\nFlying\rSacrifice Judge's Familiar: Counter target instant or sorcery spell unless its controller pays {1}.\n1/1"
     IDS_STRING25154         "Mizzium Mortars\n{1R}\nSorcery\nRTR,R\nMizzium Mortars deals 4 damage to target creature you don't control.\rOverload {3RRR}"
     IDS_STRING25155         "Nivix Guildmage\n{UR}\nCreature - Human Wizard\nRTR,U\n{1UR}: Draw a card, then discard a card.\r{2UR}: Copy target instant or sorcery spell you control. You may choose new targets for the copy.\n2/2"
@@ -410,6 +410,7 @@ BEGIN
     IDS_STRING25360         "Slime Molding\n{XG}\nSorcery\nRTR,U\nPut an X/X green Ooze creature token onto the battlefield."
     IDS_STRING25361         "Avenging Arrow\n{2W}\nInstant\nRTR,C\nDestroy target creature that dealt damage this turn."
     IDS_STRING25362         "Stab Wound\n{2B}\nEnchantment - Aura\nRTR,C\nEnchant creature\rEnchanted creature gets -2/-2.\rAt the beginning of the upkeep of enchanted creature's controller, that player loses 2 life."
+    IDS_STRING25363         "Grave Betrayal\n{5BB}\nEnchantment\nRTR,R\nWhenever a creature you don't control dies, return it to the battlefield under your control with an additional +1/+1 counter on it at the beginning of the next end step. That creature is a black Zombie in addition to its other colors and types."
 END
 
 #endif    // English (United States) resources

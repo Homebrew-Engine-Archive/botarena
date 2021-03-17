@@ -709,11 +709,8 @@ class CGrixisSlavedriverCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGrixisSlavedriverCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -735,11 +732,8 @@ class CHellsparkElementalCard : public CHasteCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHellsparkElementalCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -755,11 +749,8 @@ class CRottingRatsCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CRottingRatsCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -768,11 +759,8 @@ class CShamblingRemainsCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CShamblingRemainsCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-	*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -808,12 +796,9 @@ class CBrackwaterElementalCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBrackwaterElementalCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
 private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool BeforeResolution2(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -844,11 +829,8 @@ class CExtractorDemonCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CExtractorDemonCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

@@ -2339,9 +2339,13 @@ BOOL CExtraCombatSpell::ResolveImpl(const CAbilityAction* pAction)
 
 	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
 
-	const CPlayer* pCaster = pAction1->GetController();
+	const CPlayer* pCaster = GetGame()->GetActivePlayer();
+
+	if (GetGame()->GetCurrentNode()->GetNodeId() != NodeId::MainPhaseStep)
+		return FALSE;
+
 	const CMainNode* pMainNode = (CMainNode*)pCaster->GetGraph()->GetNodeById(NodeId::MainPhaseStep);
-	const_cast<CMainNode*>(pMainNode)->SetMaxCombatCount(pMainNode->GetMaxCombatCount() + pAction1->GetValue().nValue1, m_bThisTurnOnly);
+	const_cast<CMainNode*>(pMainNode)->IncreaseMaxCombatCount(pAction1->GetValue().nValue1, m_bThisTurnOnly);
 
 	if (m_bUntapAttackedThisTurn)
 	{
@@ -3528,7 +3532,7 @@ void CDiscardCardSpell2::OnDiscardCards(const CManaConsumptionAbilityAction* pAc
 
 void CDiscardCardSpell2::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pPlayer)
 {
-	CMoveCardModifier modifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice);
+	CMoveCardModifier modifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pPlayer);
 	modifier.ApplyTo(pCard);
 }
 
@@ -3567,7 +3571,7 @@ void CRepayManaCostSpell::RepayManaCost(CCard* pCard, CPlayer* pCaster)
 
 void CRepayManaCostSpell::PreRemoveAbilityCallback(CCard* pCard, CPlayer* pPlayer)
 {
-	CMoveCardModifier modifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice);
+	CMoveCardModifier modifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pPlayer);
 	modifier.ApplyTo(pCard);
 }
 
@@ -4361,6 +4365,7 @@ BOOL CIsAlsoAAbility::ResolveImpl(const CAbilityAction* pAction)
 }
 //____________________________________________________________________________
 //
+/*
 CSneakAttackSpell::CSneakAttackSpell(CCard* pCard, AbilityType abilityType,
 								       LPCTSTR strManaCost,
 									   MoveType discardMoveType,
@@ -4379,22 +4384,20 @@ void CSneakAttackSpell::OnDiscardCards(const CManaConsumptionAbilityAction* pAct
 
 	CCard* pDiscardedCard = pDiscardedCards->GetAt(0);
 
-	CScheduledCardModifier sacrifice = CScheduledCardModifier(GetGame(),
-		new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice),
-		TurnNumberDelta(-1),
-		NodeId::EndStep,
-		true, // in-play only
-		CScheduledCardModifier::Operation::ApplyToLater);
-	
 	CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 	pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::Haste);
 	pmodifierUp->GetModifier().SetOneTurnOnly(TRUE);
 	
-	sacrifice.ApplyTo(pDiscardedCard);
 	pmodifierUp->ApplyTo((CCreatureCard*) pDiscardedCard);
-	
 
+	CCountedCardContainer pSubjects;
+	if (pDiscardedCard->IsInplay())
+		pSubjects.AddCard(pDiscardedCard, CardPlacement::Top);
+
+	CContainerEffectModifier pSacrificeModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pSacrificeModifier.ApplyTo(GetController());
 }
+*/
 //____________________________________________________________________________
 //
 CSpellstutterSpriteSpell::CSpellstutterSpriteSpell(CCard* pCard, AbilityType abilityType,
@@ -6767,7 +6770,7 @@ BOOL CMyrIncubatorSearchLibrarySpell::ResolveImpl(const CAbilityAction* pAction)
 
 	if (amount)
 	{
-		CTokenCreationModifier pModifier= CTokenCreationModifier(m_pGame, _T("Myr"),	2795, amount);
+		CTokenCreationModifier pModifier= CTokenCreationModifier(m_pGame, _T("Myr A"),	2795, amount);
 		pModifier.ApplyTo(pAction1->GetController());
 	}
 	return TRUE;

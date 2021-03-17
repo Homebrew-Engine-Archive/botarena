@@ -138,6 +138,9 @@
 #define IDS_STRING19721                 19721
 #define IDS_STRING19722                 19722
 #define IDS_STRING19723                 19723
+#define IDS_STRING19724                 19724
+#define IDS_STRING19725                 19725
+#define IDS_STRING19726                 19726
 #define IDI_MODULE                      19745
 #define IDI_LARGE_MODULE                19746
 

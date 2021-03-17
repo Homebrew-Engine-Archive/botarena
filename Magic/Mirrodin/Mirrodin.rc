@@ -403,6 +403,8 @@ BEGIN
     IDS_STRING15057         "Detonate\n{XR}\nSorcery\nMRD,U\nDestroy target artifact with converted mana cost X. It can't be regenerated. Detonate deals X damage to that artifact's controller."
     IDS_STRING15058         "Lifespark Spellbomb\n{1}\nArtifact\nMRD,C\n{G}, Sacrifice Lifespark Spellbomb: Until end of turn, target land becomes a 3/3 creature that's still a land.\r{1}, Sacrifice Lifespark Spellbomb: Draw a card."
     IDS_STRING15059         "Override\n{2U}\nInstant\nMRD,C\nCounter target spell unless its controller pays {1} for each artifact you control."
+    IDS_STRING15060         "Wrench Mind\n{BB}\nSorcery\nMRD,C\nTarget player discards two cards unless he or she discards an artifact card."
+    IDS_STRING15061         "Second Sunrise\n{1WW}\nInstant\nMRD,R\nEach player returns to the battlefield all artifact, creature, enchantment, and land cards in his or her graveyard that were put there from the battlefield this turn."
 END
 
 #endif    // English (United States) resources

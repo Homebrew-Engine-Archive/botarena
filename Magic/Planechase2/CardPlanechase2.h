@@ -338,3 +338,10 @@ class CMassMutinyCard : public CCard
 
 //____________________________________________________________________________
 //
+class CHedronFieldsOfAgadeemCard : public CPlaneCard 
+{
+	DECLARE_CARD_CSTOR(CHedronFieldsOfAgadeemCard);
+};
+
+//____________________________________________________________________________
+//

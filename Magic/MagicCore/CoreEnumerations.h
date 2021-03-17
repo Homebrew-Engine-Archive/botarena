@@ -263,6 +263,7 @@ struct DamageType
 
 		CreatureTapDamage		= 0x0040,	// creature dealt this type of damage will be tapped
 		CreatureSpellOnlyDamage	= 0x0080,   // player dealt this type of damage won't be able to cast noncreature spels for the rest of turn
+		AttackEnforceDamage		= 0x0100,	// creature dealt this type of damage must attack this turn if able
 
 		_NonLoopDamage		= 0x1000,	// Special flag to avoid looping, eg. Pyromancer's Swath
 
@@ -553,8 +554,8 @@ struct PlayerEffectType
 		CantBeTargetedBySpells,		// Player can't be the targets of spells. ref: Ivory Mask
 		CantBeTargetedByAbilities,	// Player can't be the targets of abilities. ref: Ivory Mask
 		CantBeTargeted,				// Known as 'shroud' in 10TH; Note: can only be used in AddPlayerEffect or RemovePlayerEffect and none of the other APIs
-		CantBeTargetedByOpponentsSpells, //Same as Ivory Mask, but applied on Leyline of Leyline of Sanctity
-		CantBeTargetedByOpponentsAbilities, //Same as Ivory Mask, but applied on Leyline of Leyline of Sanctity
+		CantBeTargetedByOpponentsSpells, //Same as Ivory Mask, but applied on Leyline of Sanctity
+		CantBeTargetedByOpponentsAbilities, //Same as Ivory Mask, but applied on Leyline of Sanctity
 
 		CantPlayActivatedAbilities,	// Players can't play activated abilities (mana abilities not okay) (Parameter is card filter pointer)
 		CantPlayActivatedAbilities2,// Players can't play activated abilities (mana abilities okay) (Parameter is card filter pointer)
@@ -587,11 +588,15 @@ struct PlayerEffectType
 		Extrap11Counter,            // Creatures enter the battlefield with an extra +1/+1 counter
 		CreaturesCantBeTargetedBySpells,	// Creatures cannot be targeted by spells with certain characteristic (Autumn's Veil)
 		SpellsCantBeCounteredBySpells,	// Spells cannot be countered by spells with certain characteristic (Autumn's Veil)
+		ZombieMill,					// Zombies mill instead of combat damage (Undead Alchemist)
+		Power1OrLessCantBlock,		// Hero of Oxid Ridge
+		ChampionOfLambholtEffect,	// Champion of Lambholt
+		HedronFields,				// Hedron Fields of Agadeem -- creatures with power 7 or more can't attack or block.
 
-		CounterCastReplacement,      // If a spell or ability you control would counter a spell, instead exile that spell and you may play that card without paying its mana cost.
+		CounterCastReplacement,     // If a spell or ability you control would counter a spell, instead exile that spell and you may play that card without paying its mana cost.
 	
 		WinterOrb,					//Player can only untap one land
-		Smoke						//PLayer can only untap one creature
+		Smoke						//Player can only untap one creature
 	};
 
 	DEFINE_DISTINCT_ENUM_OPS(PlayerEffectType);
@@ -735,6 +740,7 @@ struct CardKeyword
 		PhyrexianMana					= 0x0000000020000000,	// for Rage Extractor
 		UnpreventableDamage				= 0x0000000040000000,
 		Deathtouch						= 0x0000000080000000,
+		CantBeEnchanted					= 0x0000000100000000,
 		
 		ProtectionSpecial				= 0x0400000000000000,
 		ProtectionFromWhite				= 0x0800000000000000,
@@ -837,13 +843,14 @@ struct CreatureKeyword
 
 		Fear								= 0x0000800000000000,
 		Intimidate							= 0x0001000000000000,
+		CantBeEquipped                      = 0x0002000000000000,
 		
 		Paired								= 0x0004000000000000,
 		Soulbond							= 0x0008000000000000,	// For use with Flowering Lumberknot
 
 		_All								= 0xffffffffffffffff,
 
-		_NegativeCreatureKeywords			= (CantAttack | Defender | CantBlock | CowardAttacker | CowardBlocker | DealNoCombatDamage | DealNoNoncombatDamage | MustAttack | CantRegenerate | OnlyBlockFlying),
+		_NegativeCreatureKeywords			= (CantAttack | Defender | CantBlock | CowardAttacker | CowardBlocker | DealNoCombatDamage | DealNoNoncombatDamage | MustAttack | CantRegenerate | OnlyBlockFlying | CantBeEquipped),
 		_PositiveCreatureKeywords			= (unsigned __int64)(~_NegativeCreatureKeywords),
 
 		// For usage patterns. These are the attributes which will affect a creature's ability to declare attack.
@@ -880,6 +887,7 @@ struct ReplacementKeyword
 		Commander							= 0x0000000000000004,              // Commander General Movement replacement
 
 		Flashback							= 0x0000000000000008,              // Flashback
+		PseudoUnearth						= 0x0000000000000010,              // like unearth, but doesn't set off Malfegor Avatar; used by Gruesome Encore
 
 		/*
 		GraveyardToShuffle                  = 0x0000000000000010,              // Shuffle into library instead of going to graveyard from anywhere
@@ -1141,8 +1149,6 @@ struct CardType
 		NonbasicLand		= 0x0000000000000020,
 		BasicLand			= 0x0000000000000040,
 
-		_Land				= BasicLand | NonbasicLand,
-
 		EnchantCreature		= 0x0000000000000080,
 		EnchantArtifact		= 0x0000000000000100,
 		EnchantPermanent	= 0x0000000000000200,
@@ -1173,7 +1179,6 @@ struct CardType
 		_LegendaryCreature	= Legendary | Creature,
 		_LegendaryGlobalEnchantment	= Legendary | GlobalEnchantment,
 		_SnowCreature		= Snow | Creature,
-		_SnowLand			= Snow | _Land,
 		_WorldEnchantment	= World | GlobalEnchantment,
 
 		Token				= 0x0000000002000000,
@@ -1198,6 +1203,10 @@ struct CardType
 		PowerPlant          = 0x0000040000000000,
 		Tower               = 0x0000080000000000,
 		Desert              = 0x0000100000000000,
+		PseudoBasicLand     = 0x0000200000000000, // This is to improve land type changing abilities
+
+		_Land				= BasicLand | NonbasicLand | PseudoBasicLand,
+		_SnowLand			= Snow | _Land,
 
 		_LocusLand			= NonbasicLand | Locus,
 		_LairLand			= NonbasicLand | Lair,
@@ -1214,6 +1223,7 @@ struct CardType
 
 		_ColorMask			= White | Blue | Black | Red | Green,
 		_LandTypeMask       = Desert | Forest | Gate | Island | Lair | Locus | Mine | Mountain | Plains | PowerPlant | Swamp | Tower | Urzas,
+		_LandTypeChangeMask = NonbasicLand | Desert | Forest | Gate | Island | Lair | Locus | Mine | Mountain | Plains | PowerPlant | Swamp | Tower | Urzas, // This is to improve land type changing abilities
 
 		_AllOfficial		= Artifact | Creature | _Enchantment | Instant | _Land | Planeswalker | Scheme | Sorcery | Tribal | Vanguard, // Rule 300.1
 		_Permanent          = Artifact | Creature | _Enchantment | _Land | Planeswalker,
@@ -1661,6 +1671,7 @@ struct MoveType
 		Suspend,
 		Play,
 		Phasing,
+		Unearth,
 	};
 
 	DEFINE_DISTINCT_ENUM_OPS(MoveType);

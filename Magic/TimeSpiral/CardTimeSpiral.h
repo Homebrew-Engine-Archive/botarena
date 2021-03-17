@@ -1165,12 +1165,8 @@ class CNorinTheWaryCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CNorinTheWaryCard);
 
-private:
-	CCardFilter m_CardFilter_temp;
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
+protected:
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
 
@@ -1997,9 +1993,16 @@ class CGorgonRecluseCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CGorgonRecluseCard);
 
 private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-											  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;	
 	BOOL CanPlay1(BOOL bIncludeTricks);
+
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -2467,6 +2470,49 @@ protected:
 class CSpikeTillerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSpikeTillerCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//
+class CWurmcallingCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CWurmcallingCard);
+
+public:
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+protected:
+	CManaCost	m_BuybackCost;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CMagusOfTheJarCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMagusOfTheJarCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//
+class CSaffiEriksdotterCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSaffiEriksdotterCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//
+class CYavimayaDryadCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CYavimayaDryadCard);
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;

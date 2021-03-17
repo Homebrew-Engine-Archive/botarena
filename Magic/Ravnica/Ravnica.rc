@@ -387,6 +387,8 @@ BEGIN
     IDS_STRING16645         "Bottled Cloister\n{4}\nArtifact\nRAV,R\nAt the beginning of each opponent's upkeep, exile all cards from your hand face down.\rAt the beginning of your upkeep, return all cards you own exiled with Bottled Cloister to your hand, then draw a card."
     IDS_STRING16646         "Woodwraith Corrupter\n{3BBG}\nCreature - Elemental Horror\nRAV,R\n{1BG}, {T}: Target Forest becomes a 4/4 black and green Elemental Horror creature. It's still a land.\n3/6"
     IDS_STRING16647         "Followed Footsteps\n{3UU}\nEnchantment - Aura\nRAV,R\nEnchant creature\rAt the beginning of your upkeep, put a token that's a copy of enchanted creature onto the battlefield."
+    IDS_STRING16648         "Flickerform\n{1W}\nEnchantment - Aura\nRAV,R\nEnchant creature\r{2WW}: Exile enchanted creature and all Auras attached to it. At the beginning of the next end step, return that card to the battlefield under its owner's control. If you do, return those Auras to the battlefield under their owners' control attached to that creature."
+    IDS_STRING16649         "Terraformer\n{2U}\nCreature - Human Wizard\nRAV,C\n{1}: Choose a basic land type. Each land you control becomes that type until end of turn."
     //IDS_STRING16627         "Crown of Convergence\n{2}\nArtifact\nRAV,R\nPlay with the top card of your library revealed.\rAs long as the top card of your library is a creature card, creatures you control that share a color with that card get +1/+1.\r{GW}: Put the top card of your library on the bottom of your library."
 END
 

@@ -157,6 +157,8 @@
 #define IDS_STRING15540                 15540
 #define IDS_STRING15541                 15541
 #define IDS_STRING15542                 15542
+#define IDS_STRING15543                 15543
+#define IDS_STRING15544                 15544
 #define IDI_MODULE                      15565
 #define IDI_LARGE_MODULE                15566
 

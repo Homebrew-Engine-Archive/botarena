@@ -30,6 +30,8 @@
 #define IDS_STRING4311                  4311
 #define IDS_STRING4312                  4312
 #define IDS_STRING4313                  4313
+#define IDS_STRING4314                  4314
+#define IDS_STRING4315                  4315
 #define IDI_MODULE                      4998
 #define IDI_LARGE_MODULE                4999
 

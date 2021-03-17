@@ -363,72 +363,72 @@ CCascadeBluffsCard::CCascadeBluffsCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Cascade Bluffs"), nID)
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(RED_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(RED_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpAbcpNonbasicLandManaAbilityility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(RED_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	/*{
 		counted_ptr<CManaFilterAbility> cpAbility(
@@ -609,72 +609,72 @@ CFetidHeathCard::CFetidHeathCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Fetid Heath"), nID)
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	/*{
 		counted_ptr<CManaFilterAbility> cpAbility(
@@ -805,72 +805,72 @@ CFloodedGroveCard::CFloodedGroveCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Flooded Grove"), nID)
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT GREEN_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT GREEN_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpAbicpNonbasicLandManaAbilitylity);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	/*{
 		counted_ptr<CManaFilterAbility> cpAbility(
@@ -1100,71 +1100,71 @@ CRuggedPrairieCard::CRuggedPrairieCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Rugged Prairie"), nID)
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(RED_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(RED_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(RED_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT WHITE_MANA_TEXT));
 		ATLASSERT(cpAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	/*{
 		counted_ptr<CManaFilterAbility> cpAbility(
@@ -1389,72 +1389,72 @@ CTwilightMireCard::CTwilightMireCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Twilight Mire"), nID)
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT GREEN_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(GREEN_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT GREEN_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLACK_MANA_TEXT);
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	/*{
 		counted_ptr<CManaFilterAbility> cpAbility(
@@ -3051,7 +3051,7 @@ CFableOfWolfAndOwlCard::CFableOfWolfAndOwlCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("green cards")));
 
-		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf A"), 2725, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf E"), 2982, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -3238,7 +3238,7 @@ CCennsEnlistmentCard::CCennsEnlistmentCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("3") WHITE_MANA_TEXT,
-				_T("Kithkin Soldier"), TOKEN_ID_BY_NAME,
+				_T("Kithkin Soldier B"), 62010,
 				2));
 
 		AddSpell(cpSpell.GetPointer());
@@ -3248,7 +3248,7 @@ CCennsEnlistmentCard::CCennsEnlistmentCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("3") WHITE_MANA_TEXT,
-				_T("Kithkin Soldier"), TOKEN_ID_BY_NAME,
+				_T("Kithkin Soldier B"), 62010,
 				2));
 
         cpSpell->SetGraveyardOnly();     
@@ -3815,7 +3815,7 @@ CGwyllionHedgeMageCard::CGwyllionHedgeMageCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility1> cpAbility(::CreateObject<TriggeredAbility1>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility1::OptionalType::Optional);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Kithkin Soldier"), TOKEN_ID_BY_NAME, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Kithkin Soldier B"), 62010, 1);
 
 		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility1::BeforeResolveSelectionCallback(this, &CGwyllionHedgeMageCard::BeforeResolution1));
 		cpAbility->SetContextFunction(TriggeredAbility1::ContextFunction(this, &CGwyllionHedgeMageCard::SetTriggerContext1));
@@ -4059,11 +4059,11 @@ CBattlegateMimicCard::CBattlegateMimicCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier1,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier2,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -4115,11 +4115,11 @@ CNightskyMimicCard::CNightskyMimicCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier1,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier2,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -4171,11 +4171,11 @@ CRiverfallMimicCard::CRiverfallMimicCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier1,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier2,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -4227,11 +4227,11 @@ CShorecrasherMimicCard::CShorecrasherMimicCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier1,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier2,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -6895,7 +6895,7 @@ CPatrolSignalerCard::CPatrolSignalerCard(CGame* pGame, UINT nID)
 	counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 			_T("1") WHITE_MANA_TEXT,
-			_T("Kithkin Soldier"), TOKEN_ID_BY_NAME,
+			_T("Kithkin Soldier B"), 62010,
 			1));
 
 	cpAbility->AddUntapCost();
@@ -7092,29 +7092,13 @@ CFlickerwispCard::CFlickerwispCard(CGame* pGame, UINT nID)
 
 void CFlickerwispCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target = pAbilityAction->GetAssociatedCard();
-	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
-	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
-	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->GetZoneId() == ZoneId::Exile)
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
 
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
-	m_CardFlagModifier1.ApplyTo(target);
-
-	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
-	pComparer->SetData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	
-	m_CardFilter_temp.SetComparer(new TrueCardComparer);
-	m_CardFilter_temp.AddComparer(pComparer);
-
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Exile, &m_CardFilter_temp,
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, TRUE, MoveType::Others)));
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame() , pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
-	pModifier2->ApplyTo(target->GetOwner());
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -7443,13 +7427,12 @@ CEdgeoftheDivinityCard::CEdgeoftheDivinityCard(CGame* pGame, UINT nID)
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
-		//hybrid mana cost
 		counted_ptr<CTargetChgLifeSpell> cpSpell(
-			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
 				BLACK_MANA_TEXT,
 				new AnyCreatureComparer,
 				FALSE,
-				Life(0), PreventableType::NotPreventable));
+				Life(0), PreventableType::NotPreventable));			
 
 		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
 
@@ -7765,11 +7748,11 @@ CWoodlurkerMimicCard::CWoodlurkerMimicCard(CGame* pGame, UINT nID)
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier1,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		cpAbility->GetResolutionModifier().CCreatureModifiers::Add(
 			new CScheduledCreatureModifier(GetGame(), pModifier2,
-				TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCreatureModifier::Operation::ApplyToLater));
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCreatureModifier::Operation::ApplyToLater));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -9110,12 +9093,12 @@ CSpringjackPastureCard::CSpringjackPastureCard(CGame* pGame, UINT nID)
 	, m_CardFilter(_T("a Goat"), _T("Goats"), new CreatureTypeComparer(CREATURE_TYPE(Goat), false))
 {
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
@@ -9130,74 +9113,74 @@ CSpringjackPastureCard::CSpringjackPastureCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("")));
 
-		cpAbility->AddTapCost();
+		cpNonbasicLandManaAbility->AddTapCost();
 		
-		cpAbility->SetAbilityText(_T("Get no mana. Activates"));
+		cpNonbasicLandManaAbility->SetAbilityText(_T("Get no mana. Activates"));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("")));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution1));
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpNonbasicLandManaAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution1));
 
-		cpAbility->SetAbilityText(_T("Get white mana. Activates"));
+		cpNonbasicLandManaAbility->SetAbilityText(_T("Get white mana. Activates"));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("")));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution2));
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpNonbasicLandManaAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution2));
 
-		cpAbility->SetAbilityText(_T("Get blue mana. Activates"));
+		cpNonbasicLandManaAbility->SetAbilityText(_T("Get blue mana. Activates"));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("")));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution3));
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpNonbasicLandManaAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution3));
 
-		cpAbility->SetAbilityText(_T("Get black mana. Activates"));
+		cpNonbasicLandManaAbility->SetAbilityText(_T("Get black mana. Activates"));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("")));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution4));
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpNonbasicLandManaAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution4));
 
-		cpAbility->SetAbilityText(_T("Get red mana. Activates"));
+		cpNonbasicLandManaAbility->SetAbilityText(_T("Get red mana. Activates"));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 	{
-		counted_ptr<CManaProductionAbility> cpAbility(
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("")));
 
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution5));
+		cpNonbasicLandManaAbility->AddTapCost();
+		cpNonbasicLandManaAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpNonbasicLandManaAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpringjackPastureCard::BeforeResolution5));
 
-		cpAbility->SetAbilityText(_T("Get green mana. Activates"));
+		cpNonbasicLandManaAbility->SetAbilityText(_T("Get green mana. Activates"));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
 	}
 }
 

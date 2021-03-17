@@ -278,6 +278,10 @@
 #define IDS_STRING7460                  7460
 #define IDS_STRING7461                  7461
 #define IDS_STRING7462                  7462
+#define IDS_STRING7463                  7463
+#define IDS_STRING7464                  7464
+#define IDS_STRING7465                  7465
+#define IDS_STRING7466                  7466
 #define IDI_MODULE                      7506
 #define IDI_LARGE_MODULE                7507
 

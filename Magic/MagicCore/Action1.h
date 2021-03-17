@@ -185,6 +185,17 @@ protected:
 
 //____________________________________________________________________________
 //
+class CFastCombatNodeAction : public CNodeAction
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CFastCombatNodeAction(CGame* pGame);
+	OVERRIDE(BOOL, PerformActionImpl)() const;
+};
+
+//____________________________________________________________________________
+//
 class CDrawAction : public CAction
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;

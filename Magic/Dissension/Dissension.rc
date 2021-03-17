@@ -254,6 +254,8 @@ BEGIN
 	IDS_STRING23936         "BoundDetermined\n{3BG} // {GU}\nInstant // Instant\nDIS,R\nBOUND: Sacrifice a creature. Return up to X cards from your graveyard to your hand, where X is the number of colors that creature was. Exile this card.\rDETERMINED: Other spells you control can't be countered by spells or abilities this turn.\rDraw a card."
 	IDS_STRING23937         "AEthermage's Touch\n{2WU}\nInstant\nDIS,R\nReveal the top four cards of your library. You may put a creature card from among them onto the battlefield. It has ""At the beginning of your end step, return this creature to its owner's hand."" Then put the rest of the cards revealed this way on the bottom of your library in any order."
 	IDS_STRING23938         "Riot Spikes\n{D}\nEnchantment - Aura\nDIS,C\nEnchant creature\rEnchanted creature gets +2/-1."
+	IDS_STRING23939         "Twinstrike\n{3BR}\nInstant\nDIS,U\nTwinstrike deals 2 damage to each of two target creatures.\rHellbent - Destroy those creatures instead if you have no cards in hand."
+	IDS_STRING23940         "Ignorant Bliss\n{1R}\nInstant\nDIS,U\nExile all cards from your hand face down. At the beginning of the next end step, return those cards to your hand, then draw a card."
 END
 
 #endif    // English (United States) resources

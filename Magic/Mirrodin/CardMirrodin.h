@@ -1089,6 +1089,9 @@ class CBarterInBloodCard : public CCard
 class CClockworkBeetleCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CClockworkBeetleCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1096,6 +1099,9 @@ class CClockworkBeetleCard : public CCreatureCard
 class CClockworkCondorCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CClockworkCondorCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1103,6 +1109,9 @@ class CClockworkCondorCard : public CFlyingCreatureCard
 class CClockworkDragonCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CClockworkDragonCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1110,6 +1119,9 @@ class CClockworkDragonCard : public CFlyingCreatureCard
 class CClockworkVorracCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CClockworkVorracCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1661,6 +1673,7 @@ class CKrarksThumbCard : public CInPlaySpellCard
 class CFieryGambitCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CFieryGambitCard);
+
 protected:
 	CSelectionSupport m_FlipSelection;
 	CSelectionSupport m_Continue;
@@ -1782,6 +1795,25 @@ protected:
 		COverrideAbility(CCard* pCard, LPCTSTR strManaCost);
 		virtual ~COverrideAbility() {}
 	};
+};
+
+//____________________________________________________________________________
+//
+class CWrenchMindCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CWrenchMindCard);
+
+protected:
+	CSelectionSupport m_Selection;
+	bool BeforeResolution (CAbilityAction* pAction);
+	void OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CSecondSunriseCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSecondSunriseCard);
 };
 
 //____________________________________________________________________________

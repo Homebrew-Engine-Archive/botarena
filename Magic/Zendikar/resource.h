@@ -265,6 +265,9 @@
 #define IDS_STRING19548                 19548
 #define IDS_STRING19549                 19549
 #define IDS_STRING19550                 19550
+#define IDS_STRING19551                 19551
+#define IDS_STRING19552                 19552
+#define IDS_STRING19553                 19553
 #define IDI_MODULE                      19569
 #define IDI_LARGE_MODULE                19570
 

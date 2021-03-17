@@ -243,6 +243,7 @@ BEGIN
     IDS_STRING9929          "Betrothed of Fire\n{1R}\nEnchantment - Aura\nWTH,C\nSacrifice an untapped creature: Enchanted creature gets +2/+0 until end of turn.\rSacrifice enchanted creature: Creatures you control get +2/+0 until end of turn. "
     IDS_STRING9930          "Flux\n{2U}\nSorcery\nWTH,C\nEach player discards any number of cards, then draws that many cards.\rDraw a card."
     IDS_STRING9931          "Thran Tome\n{4}\nArtifact\nWTH,R\n{5}, {T}: Reveal the top three cards of your library. Target opponent chooses one of those cards. Put that card into your graveyard, then draw two cards."
+    IDS_STRING9932          "Urborg Justice\n{BB}\nInstant\nWTH,R\nTarget opponent sacrifices a creature for each creature put into your graveyard from the battlefield this turn."
 END
 
 #endif    // English (United States) resources

@@ -267,6 +267,10 @@
 #define IDS_STRING1352                  1352
 #define IDS_STRING1353                  1353
 #define IDS_STRING1354                  1354
+#define IDS_STRING1355                  1355
+#define IDS_STRING1356                  1356
+#define IDS_STRING1357                  1357
+#define IDS_STRING1358                  1358
 #define IDI_MODULE                      1402
 #define IDI_LARGE_MODULE                1403
 

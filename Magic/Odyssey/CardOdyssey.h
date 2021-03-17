@@ -820,6 +820,9 @@ protected:
 class CPhantomWhelpCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CPhantomWhelpCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1467,9 +1470,8 @@ class CKirtarsWrathCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CKirtarsWrathCard);
 
-private:
+protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
@@ -1519,8 +1521,13 @@ class CStoneTongueBasiliskCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CStoneTongueBasiliskCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 							CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -2036,6 +2043,53 @@ class CThinkTankCard : public CInPlaySpellCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CSeizeTheDayCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSeizeTheDayCard);
+
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CGravestormCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CGravestormCard);
+
+protected:
+	CSelectionSupport m_CardSelection;
+	CSelectionSupport m_DrawSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void OnDrawSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CTestamentOfFaithCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CTestamentOfFaithCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CShiftyDoppelgangerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CShiftyDoppelgangerCard);
+
+protected:
+	CSelectionSupport m_CardSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

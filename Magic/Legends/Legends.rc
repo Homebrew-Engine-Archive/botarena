@@ -358,6 +358,12 @@ BEGIN
     IDS_STRING5520          "Wall of Tombstones\n{1B}\nCreature - Wall\nLEG,U\nDefender\rAt the beginning of your upkeep, Wall of Tombstones's toughness becomes 1 plus the number of creature cards in your graveyard.\n0/1"
     IDS_STRING5521          "Whirling Dervish\n{GG}\nCreature - Human Monk\nLEG,U\nProtection from black\rAt the beginning of each end step, if Whirling Dervish dealt damage to an opponent this turn, put a +1/+1 counter on it.\n1/1"
     IDS_STRING5522          "Gabriel Angelfire\n{3GGWW}\nLegendary Creature - Angel\nLEG,R\nAt the beginning of your upkeep, choose flying, first strike, trample, or rampage 3. Gabriel Angelfire gains that ability until your next upkeep.\n4/4"
+	IDS_STRING5523          "Relic Bind\n{2U}\nEnchantment - Aura\nLEG,U\nEnchant artifact an opponent controls\rWhenever enchanted artifact becomes tapped, choose one - Relic Bind deals 1 damage to target player; or target player gains 1 life."
+	IDS_STRING5524          "Hazezon Tamar\n{4RGW}\nLegendary Creature - Human Warrior\nLEG,R\nWhen Hazezon Tamar enters the battlefield, put X 1/1 Sand Warrior creature tokens that are red, green, and white onto the battlefield at the beginning of your next upkeep, where X is the number of lands you control at that time.\rWhen Hazezon leaves the battlefield, exile all Sand Warriors.\n2/4"
+	IDS_STRING5525          "Hellfire\n{2BBB}\nSorcery\nLEG,R\nDestroy all nonblack creatures. Hellfire deals X plus 3 damage to you, where X is the number of creatures that died this way."
+	IDS_STRING5526          "Reincarnation\n{1GG}\nInstant\nLEG,U\nChoose target creature. When that creature dies this turn, return a creature card from its owner's graveyard to the battlefield under the control of that creature's owner."
+	IDS_STRING5527          "Reset\n{UU}\nInstant\nLEG,U\nCast Reset only during an opponent's turn after his or her upkeep step.\rUntap all lands you control."
+	IDS_STRING5528          "Glyph of Life\n{W}\nInstant\nLEG,C\nUntil end of turn, whenever an attacking creature deals damage to target Wall creature, you gain that much life."
 END
 
 #endif    // English (United States) resources

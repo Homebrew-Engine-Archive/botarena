@@ -608,21 +608,6 @@ class CInspiredChargeCard : public CCard
 
 //____________________________________________________________________________
 //
-//class CMystifyingMazeCard : public CNonbasicLandCard
-//{
-//	DECLARE_CARD_CSTOR(CMystifyingMazeCard);
-//
-//private:
-//	CCardFlagModifier m_CardFlagModifier1;
-//	CCardFlagModifier m_CardFlagModifier2;
-//	CCardFilter m_CardFilter_temp;
-//	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-//
-//	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
-//};
-//
-////____________________________________________________________________________
-////
 class CManicVandalCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CManicVandalCard);
@@ -1003,12 +988,24 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
 class CAutumnsVeilCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CAutumnsVeilCard);
 
 protected:
 	CCardFilter m_CardFilter;
+};
+*/
+//____________________________________________________________________________
+//
+class CMystifyingMazeCard : public CNonbasicLandCard
+{
+	DECLARE_CARD_CSTOR(CMystifyingMazeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

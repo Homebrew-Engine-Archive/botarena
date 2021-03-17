@@ -39,21 +39,25 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMarshGoblinsCard);
 		DEFINE_CARD(CMazeOfIthCard);
 		DEFINE_CARD(CMerfolkAssassinCard);
+		DEFINE_CARD(CNamelessRaceCard);
 		DEFINE_CARD(CNecropolisCard);
 		DEFINE_CARD(CNiallSilvainCard);
 		DEFINE_CARD(COrcGeneralCard);
 		DEFINE_CARD(CPeopleOfTheWoodsCard);
 		DEFINE_CARD(CPsychicAllergyCard);
 		DEFINE_CARD(CRiptideCard);
+		DEFINE_CARD(CRuneswordCard);
 		DEFINE_CARD(CSavaenElvesCard);
 		DEFINE_CARD(CScarwoodGoblinsCard);
 		DEFINE_CARD(CScarwoodHagCard);
 		DEFINE_CARD(CSquireCard);
 		DEFINE_CARD(CStandingStonesCard);
+		DEFINE_CARD(CTheFallenCard);
 		DEFINE_CARD(CTivadarSCrusadeCard);
 		DEFINE_CARD(CTowerOfCoireallCard);
 		DEFINE_CARD(CTrackerCard);
 		DEFINE_CARD(CWandOfIthCard);
+		DEFINE_CARD(CWarBargeCard);
 		DEFINE_CARD(CWaterWurmCard);
 		DEFINE_CARD(CWitchHunterCard);
 		DEFINE_CARD(CWormwoodTreefolkCard);
@@ -1433,6 +1437,242 @@ bool CNecropolisCard::BeforeResolution(CAbilityAction* pAction)
 	pModifier.ApplyTo(this);
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CNamelessRaceCard::CNamelessRaceCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Nameless Race"), CardType::Creature, CREATURE_TYPE(Null), nID,
+		_T("3") BLACK_MANA_TEXT, Power(0), Life(0))
+	, m_Selection(pGame,CSelectionSupport::SelectionCallback(this, &CNamelessRaceCard::OnSelectionDone))
+	, m_nLifePaid(0)
+{
+	GetCreatureKeyword()->AddTrample(false);
+}
+
+void CNamelessRaceCard::Move(CZone* pToZone,
+							const CPlayer* pByPlayer,
+							MoveType moveType,
+							CardPlacement cardPlacement, BOOL can_dredge)
+{	
+	bool bBattlefield = (GetZoneId() == ZoneId::Battlefield) || (GetZoneId() == ZoneId::_PhasedOut);
+
+	if	(!bBattlefield && (pToZone->GetZoneId() == ZoneId::Battlefield))
+	{
+		m_nLifePaid = 0;
+
+		int n = GET_INTEGER(GetController()->GetLife());
+		int nWhite = 0;
+		CCardFilter m_CardFilter;
+		m_CardFilter.AddComparer(new CardTypeComparer(CardType::White, false));
+		m_CardFilter.AddNegateComparer(new CardTypeComparer(CardType::Token, false));
+
+		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		{
+			CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+
+			if (pPlayer != GetController())
+			{
+				CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+				CZone* pGraveyard = pPlayer->GetZoneById(ZoneId::Graveyard);
+
+				nWhite += m_CardFilter.CountIncluded(pBattlefield->GetCardContainer());
+				nWhite += m_CardFilter.CountIncluded(pGraveyard->GetCardContainer());
+			}
+		}
+
+		if (n > nWhite) n = nWhite;
+
+		if ((n > 0) && !GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantChangeLife))
+		{
+			std::vector<SelectionEntry> entries;
+			for (int i = 0; i <= n; ++i)
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)i;
+			
+				entry.strText.Format(_T("Pay %d life"),
+						i);
+
+				entries.push_back(entry);
+			}
+			m_Selection.AddSelectionRequest(entries, 1, 1, NULL, GetController());
+		}
+	}
+	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+}
+
+void CNamelessRaceCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{ 
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			m_nLifePaid = it->dwContext;
+
+			CLifeModifier pModifier = CLifeModifier(Life(-m_nLifePaid), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+			pModifier.ApplyTo(pSelectionPlayer);
+
+			this->SetPower(Power(m_nLifePaid), true);
+			this->SetPermanentPower(Power(m_nLifePaid), true);
+			this->SetLife(this, Life(m_nLifePaid));
+			this->SetPermanentLife(Life(m_nLifePaid), true);
+
+			return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CTheFallenCard::CTheFallenCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("The Fallen"), CardType::Creature, CREATURE_TYPE(Zombie), nID,
+		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(2), Life(3))
+	, pDamagedPlayers(2)
+{
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTheFallenCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>,  CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::PlayerEventCallback, 
+							&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CTheFallenCard::SetTriggerContextAux));
+
+		cpAbility->SetSkipStack(TRUE);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTheFallenCard::BeforeResolutionAux));
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CTheFallenCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CLifeModifier pModifier = CLifeModifier(Life(-1), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((pDamagedPlayers[ip] == 1) && (GetGame()->GetPlayer(ip) != pAction->GetController()))
+			pModifier.ApplyTo(GetGame()->GetPlayer(ip));
+	
+	return true;
+}
+
+bool CTheFallenCard::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, CPlayer* pPlayer, Damage damage)
+{
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (GetGame()->GetPlayer(ip) == pPlayer)
+		{
+			pDamagedPlayers[ip] = 1;
+			break;
+		}
+
+	return false;
+}
+
+bool CTheFallenCard::BeforeResolutionAux(CAbilityAction* pAction)
+{
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		pDamagedPlayers[ip] = 0;
+
+	return false;
+}
+
+//____________________________________________________________________________
+//
+CWarBargeCard::CWarBargeCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("War Barge"), CardType::Artifact, nID,
+		_T("4"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CWarBargeCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T("3"),
+			Power(+0), Life(0),
+			CreatureKeyword::Islandwalk, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable));
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+void CWarBargeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (IsInplay())
+		pSubjects1.AddCard(this, CardPlacement::Top);
+	if (pTarget->IsInplay())
+		pSubjects2.AddCard(pTarget, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("War Barge Effect"), 61102, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CRuneswordCard::CRuneswordCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Runesword"), CardType::Artifact, nID,
+		_T("6"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CRuneswordCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T("3"),
+			Power(+2), Life(0),
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable));
+
+	cpAbility->AddTapCost();
+	cpAbility->GetTargeting()->GetSubjectCardFilter().AddComparer(new AttackingCreatureComparer);
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+void CRuneswordCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Runesword Effect"), 61107, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

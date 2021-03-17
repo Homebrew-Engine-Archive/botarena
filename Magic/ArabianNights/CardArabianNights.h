@@ -199,3 +199,14 @@ protected:
 
 //____________________________________________________________________________
 //
+class CSandalsOfAbdallahCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CSandalsOfAbdallahCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//

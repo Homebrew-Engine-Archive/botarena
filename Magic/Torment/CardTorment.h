@@ -574,6 +574,10 @@ private:
 class CFalseMemoriesCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CFalseMemoriesCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

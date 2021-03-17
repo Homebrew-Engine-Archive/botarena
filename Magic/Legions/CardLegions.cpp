@@ -29,6 +29,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBloodstokeHowlerCard);
 		DEFINE_CARD(CBranchsnapLorianCard);
 		DEFINE_CARD(CBroodSliverCard);
+		DEFINE_CARD(CCallerOfTheClawCard);
 		DEFINE_CARD(CCanopyCrawlerCard);
 		DEFINE_CARD(CCelestialGatekeeperCard);
 		DEFINE_CARD(CCephalidPathmageCard);
@@ -83,6 +84,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CNeedleshotGournaCard);
 		DEFINE_CARD(CNoxiousGhoulCard);
 		DEFINE_CARD(CPatronOfTheWildCard);
+		DEFINE_CARD(CPlanarGuideCard);
 		DEFINE_CARD(CPlatedSliverCard);
 		DEFINE_CARD(CPrimocEscapeeCard);
 		DEFINE_CARD(CQuickSliverCard);
@@ -95,6 +97,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CShaleskinPlowerCard);
 		DEFINE_CARD(CShiftingSliverCard);
 		DEFINE_CARD(CSkinthinnerCard);
+		DEFINE_CARD(CSkirkAlarmistCard);
 		DEFINE_CARD(CSkirkDrillSergeantCard);
 		DEFINE_CARD(CSkirkMarauderCard);
 		DEFINE_CARD(CSkirkOutriderCard);
@@ -234,7 +237,7 @@ CBroodSliverCard::CBroodSliverCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().GetFromCardFilterHelper().SetPredefinedFilter(&m_CardFilter);
 	cpAbility->GetTrigger().SetCombatDamageOnly(TRUE);	
 
-	cpAbility->SetCreateTokenOption(TRUE, _T("Sliver"), TOKEN_ID_BY_NAME, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Sliver B"), 2977, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -1232,7 +1235,7 @@ CWirewoodHivemasterCard::CWirewoodHivemasterCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new CardTypeComparer(CardType::Token, false));
 	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Elf), false));
 
-	cpAbility->SetCreateTokenOption(TRUE, _T("Insect B"), 2723, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Insect G"), 62011, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -3427,7 +3430,6 @@ void CGoblinAssassinCard::OnFlipSelected(const std::vector<SelectionEntry>& sele
 CVileDeaconCard::CVileDeaconCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Vile Deacon"), CardType::Creature, CREATURE_TYPE2(Human, Cleric), nID,
 		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(2), Life(2))
-
 	, m_CardFilter(_T("a Cleric"), _T("Clerics"), new CreatureTypeComparer(CREATURE_TYPE(Cleric), false))
 {
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -3703,6 +3705,122 @@ void CWardSliverCard::OnSelectionDone(const std::vector<SelectionEntry>& selecti
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CCallerOfTheClawCard::CCallerOfTheClawCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Caller of the Claw"), CardType::Creature, CREATURE_TYPE(Elf), nID,
+		_T("2") GREEN_MANA_TEXT, Power(2), Life(2))
+{
+	GetCardKeyword()->AddFlash(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCallerOfTheClawCard::BeforeResolution));
+		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CCallerOfTheClawCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	int nCount = pAction->GetController()->GetCertainTypeDiedCountNonToken(CardType::Creature);
+
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Bear A"), 2830, nCount);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CPlanarGuideCard::CPlanarGuideCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Planar Guide"), CardType::Creature, CREATURE_TYPE2(Human, Cleric), nID,
+		WHITE_MANA_TEXT, Power(1), Life(1))
+{
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("3") WHITE_MANA_TEXT));
+
+	cpAbility->AddExileCost();
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPlanarGuideCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CPlanarGuideCard::BeforeResolution(CAbilityAction* pAction) const
+{	
+	CPlayer* pController = pAction->GetController();
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, true, MoveType::Others, pController);
+	CCountedCardContainer pSubjects;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CZone* pBattlefield = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+
+		for (int i = pBattlefield->GetSize() - 1; i >= 0; --i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+			if (pCard->GetCardType().IsCreature())
+			{
+				pModifier1.ApplyTo(pCard);
+				if (pCard->GetZoneId() == ZoneId::Exile)
+					pSubjects.AddCard(pCard, CardPlacement::Top);
+			}
+		}
+	}
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier.ApplyTo(pController);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CSkirkAlarmistCard::CSkirkAlarmistCard(CGame* pGame, UINT nID)
+	: CHasteCreatureCard(pGame, _T("Skirk Alarmist"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
+		_T("1") RED_MANA_TEXT, Power(1), Life(2))
+{
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+			_T(""),
+			new AnyCreatureComparer, false));
+
+	cpAbility->GetTargeting()->GetSubjectCardFilter().AddComparer(new FaceDownMorphComparer);
+	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
+	cpAbility->AddTapCost();
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSkirkAlarmistCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CSkirkAlarmistCard::BeforeResolution(CAbilityAction* pAction) const
+{	
+	CCard* pTarget = pAction->GetAssociatedCard();
+
+	CCardMorphModifier pModifier1 = CCardMorphModifier(FALSE);
+	pModifier1.ApplyTo(pTarget);
+
+	CCountedCardContainer pSubjects;
+
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

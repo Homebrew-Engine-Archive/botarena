@@ -266,6 +266,9 @@ class CWhipstitchedZombieCard : public CCreatureCard
 class CWindscouterCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWindscouterCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -737,6 +740,29 @@ class CJolraelEmpressOfBeastsCard : public CCreatureCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CInfernalGenesisCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CInfernalGenesisCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+	bool BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//______________________________________________________________________________
+//
+class CFickleEfreetCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CFickleEfreetCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

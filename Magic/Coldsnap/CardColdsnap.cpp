@@ -17,6 +17,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	do
 	{
 
+		DEFINE_CARD(CAdarkarValkyrieCard);
 		DEFINE_CARD(CAllosaurusRiderCard);
 		DEFINE_CARD(CArcticFlatsCard);
 		DEFINE_CARD(CArcumDagssonCard);
@@ -27,6 +28,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBorealDruidCard);
 		DEFINE_CARD(CBorealShelfCard);
 		DEFINE_CARD(CBraidOfFireCard);
+		DEFINE_CARD(CBroodingSaurianCard);
 		DEFINE_CARD(CBullAurochsCard);
 		DEFINE_CARD(CChillToTheBoneCard);
 		DEFINE_CARD(CColdsteelHeartCard);
@@ -244,16 +246,15 @@ CKrovikanScoundrelCard::CKrovikanScoundrelCard(CGame* pGame, UINT nID)
 //____________________________________________________________________________
 //
 CLovisaColdeyesCard::CLovisaColdeyesCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Lovisa Coldeyes"), CardType::_LegendaryCreature, CREATURE_TYPE2(Human, Barbarian), nID,
+	: CCreatureCard(pGame, _T("Lovisa Coldeyes"), CardType::_LegendaryCreature, CREATURE_TYPE(Human), nID,
 		_T("3") RED_MANA_TEXT RED_MANA_TEXT, Power(3), Life(3))
 {
 	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 		::CreateObject<CPwrTghAttrEnchantment>(this,
-			new NegateCardComparer(new SpecificCardComparer(this)), // Not this card
+			new AnyCreatureComparer, // Not this card
 			Power(+2), Life(+2), CreatureKeyword::Haste));
 
 	cpAbility->GetEnchantmentCardFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Warrior) | CREATURE_TYPE(Berserker) | CREATURE_TYPE(Barbarian), false));
-	cpAbility->GetEnchantmentCardFilter().AddComparer(new AnyCreatureComparer);
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -800,10 +801,11 @@ CWildernessElementalCard::CWildernessElementalCard(CGame* pGame, UINT nID)
 		counted_ptr<CTriggeredChgPwrTghWhenCardPlayedAbility> cpAbility(
 			::CreateObject<CTriggeredChgPwrTghWhenCardPlayedAbility>(this,
 				ZoneId::Battlefield,
-				new CardTypeComparer(CardType::NonbasicLand, false))); //"Nonbasic Lands"
+				new CardTypeComparer(CardType::_Land, false)));
 
 		cpAbility->SetChangePowerOnly();
 
+		cpAbility->GetSurveyCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false)); //"Nonbasic Lands"
 		cpAbility->GetSurveyCardFilter().AddNegateComparer(new CardControllerComparer(this)); //"your opponents control"
 
 		cpAbility->SetListenToAllPlayersZones(); //necessary to check both sides
@@ -1180,7 +1182,7 @@ CMishrasBaubleCard::CMishrasBaubleCard(CGame* pGame, UINT nID)
 	cpAbility->AddTapCost();
 	cpAbility->AddSacrificeCost();
 
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddAbility(cpAbility.GetPointer());	
 }
@@ -1198,7 +1200,7 @@ CBalduvianRageCard::CBalduvianRageCard(CGame* pGame, UINT nID)
 	m_pTargetChgPwrTghAttrSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
 	m_pTargetChgPwrTghAttrSpell->SetExtraActionValueVector(ContextValue(0, 1 /*power*/));
 
-	m_pTargetChgPwrTghAttrSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	m_pTargetChgPwrTghAttrSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 }
 
 //____________________________________________________________________________
@@ -1209,7 +1211,7 @@ CMysticMeltingCard::CMysticMeltingCard(CGame* pGame, UINT nID)
 		new CardTypeComparer(CardType::Artifact | CardType::_Enchantment, false),
 		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
 {
-	m_pTargetMoveCardSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	m_pTargetMoveCardSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 }
 
 //____________________________________________________________________________
@@ -1223,7 +1225,7 @@ CSwiftManeuverCard::CSwiftManeuverCard(CGame* pGame, UINT nID)
 			new AnyCreatureComparer, TRUE,
 			Life(2), SourceColor::Null));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -1245,36 +1247,40 @@ CFrostwebSpiderCard::CFrostwebSpiderCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddReach(FALSE);
 
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfAttackedBlocked,
-							CWhenSelfAttackedBlocked::BlockEventCallback2, 
-							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+						CWhenSelfAttackedBlocked::BlockEventCallback2, 
+						&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("flying creatures")));
+	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("flying creatures")));
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CFrostwebSpiderCard::SetTriggerContext));
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CFrostwebSpiderCard::SetTriggerContext));
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFrostwebSpiderCard::BeforeResolution));
 
-		CCardCounterModifier* pModifier = new CCardCounterModifier(_T("+1/+1"), +1);
+	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-		CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(
-			GetGame(), pModifier, TurnNumberDelta(+0), NodeId::EndOfCombatStep, true, CScheduledCardModifier::Operation::ApplyToLater, CScheduledCardModifier::DeltaOption::ActivePlayerTurn);
-
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(pModifier2);
-
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
-bool CFrostwebSpiderCard::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
+bool CFrostwebSpiderCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 		CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
 	return (IsBlocking() == TRUE);
+}
+
+bool CFrostwebSpiderCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Frostweb Spider Effect"), 61110, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -1326,19 +1332,13 @@ COhranViperCard::COhranViperCard(CGame* pGame, UINT nID)
 		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(1), Life(3))
 {
 	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfDamageDealt,
-								CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
-
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		cpAbility->GetTrigger().SetCombatDamageOnly();
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &COhranViperCard::SetTriggerContext));
-		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-		cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &COhranViperCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &COhranViperCard::BeforeResolution));
 
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
@@ -1358,10 +1358,23 @@ COhranViperCard::COhranViperCard(CGame* pGame, UINT nID)
 	}
 }
 
-bool COhranViperCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+bool COhranViperCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 													CCreatureCard* pToCreature, Damage damage) const
 {
-	triggerContext.m_pCard = pToCreature;
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool COhranViperCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
 	return true;
 }
 
@@ -1501,7 +1514,7 @@ CThermalFluxCard::CThermalFluxCard(CGame* pGame, UINT nID)
 
 		cpSpell->SetAbilityText(_T("Target nonsnow permanent becomes snow until end of turn. Casts"));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -1515,7 +1528,7 @@ CThermalFluxCard::CThermalFluxCard(CGame* pGame, UINT nID)
 
 		cpSpell->SetAbilityText(_T("Target snow permanent isn't snow until end of turn. Casts"));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -2510,7 +2523,7 @@ CDarienKingOfKjeldorCard::CDarienKingOfKjeldorCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDarienKingOfKjeldorCard::SetTriggerContext));
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier A"), 2713, 0);	
+	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier G"), 2915, 0);	
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -4869,6 +4882,76 @@ bool CBlizzardSpecterCard::BeforeResolution2(TriggeredAbility2::TriggeredActionT
 		MoveType::Discard, // move type
 		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
 	pModifier.ApplyTo(pPlayer);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CBroodingSaurianCard::CBroodingSaurianCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Brooding Saurian"), CardType::Creature, CREATURE_TYPE(Lizard), nID,
+		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(4))
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBroodingSaurianCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());	
+}
+
+bool CBroodingSaurianCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+			if (!pCard->GetCardType().IsToken() && (pCard->GetOwner() != pPlayer))
+				pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Battlefield), pCard->GetOwner(), MoveType::Others);
+		}
+	}
+
+	return true;
+}
+//____________________________________________________________________________
+//
+CAdarkarValkyrieCard::CAdarkarValkyrieCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Adarkar Valkyrie"), CardType::Snow | CardType::Creature, CREATURE_TYPE(Angel), nID,
+		_T("4") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(4), Life(5))
+{
+	GetCreatureKeyword()->AddVigilance(FALSE);
+
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+			_T(""),
+			new AnyCreatureComparer, false));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddTapCost();
+	cpAbility->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new SpecificCardComparer(this));
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CAdarkarValkyrieCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());	
+}
+
+bool CAdarkarValkyrieCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Adarkar Valkyrie Effect"), 61049, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }

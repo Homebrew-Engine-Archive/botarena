@@ -178,6 +178,10 @@ BOOL CZone::AddCard(CCard* pCard, const CPlayer* pByPlayer, MoveType moveType, C
 		pOrientation->RemoveListener(pFromZone->m_cpOListener.GetPointer());
 		pFromZone->Remove(pCard);
 		GetPlayer()->AddTurnMovementHistory(pCard, pCard->GetCardType(), pFromZone->GetZoneId(), GetZoneId());
+
+//		if ((pFromZone->GetZoneId() == ZoneId::Battlefield) && (GetZoneId() == ZoneId::Graveyard))
+//			m_pGame->IncreaseDeadZuberas(pCard);
+
 	}
 
 	__super::AddCard(pCard, placement);

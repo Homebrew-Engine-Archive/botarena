@@ -129,7 +129,10 @@ BOOL CAttackAbility::CanAttackImpl() const
 		return FALSE;
 
 	if (m_pCard->GetCardKeyword()->HasDetain())
-			return FALSE;
+		return FALSE;
+
+	if (m_pCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HedronFields) && (pCard->GetLastKnownPower() > 6))
+		return FALSE;
 
 	if (pCard->IsAttacking())	// Some creature can attack without tap
 		return FALSE;
@@ -460,6 +463,9 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
 	if (pAttackerKeyword->Shadow() && !pBlockerKeyword->Shadow() && !pBlockerKeyword->ShadowReach())
 		return FALSE;
 
+	if (pAttackerKeyword->Shadow() && pBlockerKeyword->Shadow() && pBlockerKeyword->ShadowReach())
+		return FALSE;
+
 	if (!pAttackerKeyword->Shadow() && pBlockerKeyword->Shadow())
 		return FALSE;
 
@@ -479,6 +485,37 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
 		return FALSE;
 
 	if (pBlockerKeyword->Unleash() && (pBlocker->GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount() > 0))
+		return FALSE;
+
+	if (pBlocker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::Power1OrLessCantBlock) && (pBlocker->GetLastKnownPower() < 2))
+		return FALSE;
+
+	if (pAttacker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ChampionOfLambholtEffect))
+	{
+		CZone* pBattlefield = pAttacker->GetController()->GetZoneById(ZoneId::Battlefield);
+
+		Power nMaxPower = 0;
+		bool bFound = false;
+
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+			if (pCard->GetCardType().IsCreature() && pCard->GetPrintedCardName() == _T("Champion of Lambholt"))
+			{
+				CCreatureCard* pChampion = (CCreatureCard*)pCard;
+				if (!bFound || (pChampion->GetLastKnownPower() > nMaxPower))
+				{
+					nMaxPower = pChampion->GetLastKnownPower();
+					bFound = true;
+				}
+			}
+		}
+
+		if (pBlocker->GetLastKnownPower() < nMaxPower)
+			return FALSE;
+	}
+	
+	if (pBlocker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HedronFields) && (pBlocker->GetLastKnownPower() > 6))
 		return FALSE;
 
 	if (pBlockerKeyword->CantBlock(pAttacker))

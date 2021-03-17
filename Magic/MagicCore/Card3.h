@@ -151,12 +151,34 @@ protected:
 };
 //____________________________________________________________________________
 //
+class CORE_EXPORT CChancellorCreatureCard : public CCreatureCard
+{
+protected:
+	CChancellorCreatureCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, const CreatureType& creatureType, UINT uID,
+						LPCTSTR strCostText, Power nPower, Life nToughness);
+
+	virtual ~CChancellorCreatureCard() {}
+
+public:
+	BOOL_ bIsRevealed;
+	void RevealAtBeginning();
+
+protected:
+	int EffectUID;
+	CString EffectName;
+};
+
+//____________________________________________________________________________
+//
 class CTokenCreature : public CCreatureCard
 {
 protected:
 	CTokenCreature(CGame* pGame, LPCTSTR strCardName, CardType cardType, const CreatureType& creatureType, UINT uID,
 				   LPCTSTR strCostText, Power nPower, Life nToughness)
 		: CCreatureCard(pGame, strCardName, cardType, creatureType, uID, strCostText, nPower, nToughness)
+	, bCounterWatching(FALSE)
+	, bVariable(FALSE)
+	, IsCopied(0)
 	{
 	}
 
@@ -168,11 +190,55 @@ public:
 	void SetTokenFullName(LPCTSTR pName) {m_strCardName = pName;}
 	LPCTSTR GetTokenFullName() {return m_strCardName;}
 
+	bool IsCounterWatching() {return bCounterWatching == TRUE;}
+	bool IsVariable() {return bVariable == TRUE;}
+
 	OVERRIDE (void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+	// values for special tokens
+	int_ IsCopied;
+	CCard* pPreviousCard;
+	CCard* pOriginatingCard;
+
+	SingleCreatureType pCreatureType;
+	void SetPrintedCardName(LPCTSTR PrintedCardName) { m_strPrintedCardName = PrintedCardName; };
+	CString strVariableName;
 
 protected:
 	UINT	m_uID;
 	LPCTSTR m_strCardName;
+
+	BOOL bCounterWatching;
+	BOOL bVariable;
+};
+
+//____________________________________________________________________________
+//
+class CCounterWatchingTokenCreature : public CTokenCreature
+{
+protected:
+	CCounterWatchingTokenCreature(CGame* pGame, LPCTSTR strCardName, CardType cardType, const CreatureType& creatureType, UINT uID,
+				   LPCTSTR strCostText, Power nPower, Life nToughness)
+		: CTokenCreature(pGame, strCardName, cardType, creatureType, uID, strCostText, nPower, nToughness)
+	{
+		bCounterWatching = TRUE;
+	}
+
+	virtual ~CCounterWatchingTokenCreature() {}
+};
+
+//____________________________________________________________________________
+//
+class CVariableTokenCreature : public CTokenCreature
+{
+protected:
+	CVariableTokenCreature(CGame* pGame, LPCTSTR strCardName, CardType cardType, const CreatureType& creatureType, UINT uID,
+				   LPCTSTR strCostText, Power nPower, Life nToughness)
+		: CTokenCreature(pGame, strCardName, cardType, creatureType, uID, strCostText, nPower, nToughness)
+	{
+		bVariable = TRUE;
+	}
+
+	virtual ~CVariableTokenCreature() {}
 };
 
 //____________________________________________________________________________
@@ -247,6 +313,7 @@ protected:
 
 private:
 	friend CFaceTransformModifier;
+	friend CGraveyardFaceTransformModifier;
 	void FirstFace();
 	void SecondFace();
 

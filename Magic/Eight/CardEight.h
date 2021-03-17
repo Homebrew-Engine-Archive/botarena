@@ -150,6 +150,9 @@ class CSpittingSpiderCard : public CCreatureCard
 class CCinderWallCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCinderWallCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -389,9 +392,15 @@ class CDeathgazerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDeathgazerCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-											  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -831,6 +840,10 @@ class CFecundityCard : public CInPlaySpellCard
 class CGuerrillaTacticsCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CGuerrillaTacticsCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________
@@ -930,6 +943,9 @@ class CPhyrexianArenaCard : public CInPlaySpellCard
 class CRukhEggCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CRukhEggCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________

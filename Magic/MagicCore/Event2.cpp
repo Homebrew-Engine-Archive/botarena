@@ -228,6 +228,11 @@ BOOL CCreatureKeyword::HasteTap() const
 {
 	return (m_Bitflag & CreatureKeyword::HasteTap).Any();
 }
+BOOL CCreatureKeyword::CantBeEquipped() const
+{
+	return (m_Bitflag & CreatureKeyword::CantBeEquipped).Any();
+}
+
 
 BOOL CCreatureKeyword::Unblockable(const CCreatureCard* pCard) const
 {
@@ -545,6 +550,11 @@ void CCreatureKeyword::AddCantBlock(BOOL bThisTurnOnly, const CCardFilter* pExce
 	AddEntry(BitflagEntry(CreatureKeyword::CantBlock, bThisTurnOnly, EntryType::Addition, (DWORD)pExceptionFilter));
 }
 
+void CCreatureKeyword::AddCantBeEquipped(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::CantBeEquipped, bThisTurnOnly));
+}
+
 void CCreatureKeyword::AddCanAssignDamageToPlayer(BOOL bThisTurnOnly)
 {
 	AddEntry(BitflagEntry(CreatureKeyword::CanAssignCombatDamageToDefPlayer, bThisTurnOnly));
@@ -780,6 +790,11 @@ void CCreatureKeyword::RemoveDefender(BOOL bThisTurnOnly)
 void CCreatureKeyword::RemoveCantBlock(BOOL bThisTurnOnly, const CCardFilter* pExceptionFilter)
 {
 	AddEntry(BitflagEntry(CreatureKeyword::CantBlock, bThisTurnOnly, EntryType::Removal));
+}
+
+void CCreatureKeyword::RemoveCantBeEquipped(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::CantBeEquipped, bThisTurnOnly, EntryType::Removal));
 }
 
 void CCreatureKeyword::RemoveCanAssignDamageToPlayer(BOOL bThisTurnOnly)
@@ -1234,6 +1249,21 @@ BOOL CCardKeyword::HasUnpreventableDamage() const
 	return (m_Bitflag & CardKeyword::UnpreventableDamage).Any();
 }
 
+void CCardKeyword::AddCantBeEnchanted(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CardKeyword::CantBeEnchanted, bThisTurnOnly));
+}
+
+void CCardKeyword::RemoveCantBeEnchanted(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CardKeyword::CantBeEnchanted, bThisTurnOnly, EntryType::Removal));
+}
+
+BOOL CCardKeyword::HasCantBeEnchanted() const
+{
+	return (m_Bitflag & CardKeyword::CantBeEnchanted).Any();
+}
+
 void CCardKeyword::AddFlash(BOOL bThisTurnOnly)
 {
 	AddEntry(BitflagEntry(CardKeyword::Flash, bThisTurnOnly));
@@ -1631,6 +1661,11 @@ BOOL CReplacementKeyword::HasCommanderFlag() const
 BOOL CReplacementKeyword::HasUnearth() const
 {
 	return (m_Bitflag & ReplacementKeyword::Unearth).Any();
+}
+
+BOOL CReplacementKeyword::HasPseudoUnearth() const
+{
+	return (m_Bitflag & ReplacementKeyword::PseudoUnearth).Any();
 }
 
 void CReplacementKeyword::AddFlashback(BOOL bThisTurnOnly)

@@ -161,6 +161,7 @@ BEGIN
     IDS_STRING5063          "Mijae Djinn\n{RRR}\nCreature - Djinn\nARN,R\nWhenever Mijae Djinn attacks, flip a coin. If you lose the flip, remove Mijae Djinn from combat and tap it.\n6/3"
     IDS_STRING5064          "Jandor's Ring\n{6}\nArtifact\nARN,R\n{2}, {T}, Discard the last card you drew this turn: Draw a card."
     IDS_STRING5065          "Serendib Djinn\n{2UU}\nCreature - Djinn\nARN,R\nFlying\rAt the beginning of your upkeep, sacrifice a land. If you sacrifice an Island this way, Serendib Djinn deals 3 damage to you.\rWhen you control no lands, sacrifice Serendib Djinn.\n5/6"
+    IDS_STRING5066          "Sandals of Abdallah\n{4}\nArtifact\nARN,U\n{2}, {T}: Target creature gains islandwalk until end of turn. When that creature dies this turn, destroy Sandals of Abdallah."
 END
 
 #endif    // English (United States) resources

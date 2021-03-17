@@ -45,6 +45,10 @@ class CArashiTheSkyAsunderCard : public CCreatureCard
 class CDeathknellKamiCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDeathknellKamiCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -528,6 +532,10 @@ protected:
 class CWineOfBloodAndIronCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CWineOfBloodAndIronCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -537,7 +545,8 @@ class CFootstepsOfTheGoryoCard : public CCard
 	DECLARE_CARD_CSTOR(CFootstepsOfTheGoryoCard);
 
 protected:
-	CCardFilter m_CardFilter;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -995,6 +1004,10 @@ class CCutTheEarthlyBondCard : public CTargetMoveCardSpellCard
 class CIdeasUnboundCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CIdeasUnboundCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1271,6 +1284,23 @@ protected:
 							&CBeforeDamageDealt::SetCreatureEventCallback > TriggeredAbility;
 	bool BeforeResolution(CSekkiSeasonsGuideCard::TriggeredAbility::TriggeredActionType* pAction);
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard*, CCreatureCard*, Damage damage, int effect_index) const;
+};
+
+//____________________________________________________________________________
+//
+class CPureIntentionsCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CPureIntentionsCard);
+
+protected:
+	bool BeforeResolution1(CAbilityAction* pAction);
+
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution2(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________

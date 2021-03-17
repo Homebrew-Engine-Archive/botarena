@@ -298,6 +298,9 @@ BEGIN
     IDS_STRING24772         "The AEther Flues\n\nPlane - Iquatana\nHOP,S\nWhen you planeswalk to The AEther Flues or at the beginning of your upkeep, you may sacrifice a creature. If you do, reveal cards from the top of your library until you reveal a creature card, put that card onto the battlefield, then shuffle all other cards revealed this way into your library.\rWhenever you roll {C}, you may put a creature card from your hand onto the battlefield."
     IDS_STRING24773         "Isle of Vesuva\n\nPlane - Dominaria\nHOP,S\nWhenever a nontoken creature enters the battlefield, its controller puts a token onto the battlefield that's a copy of that creature.\rWhenever you roll {C}, destroy target creature and all other creatures with the same name as that creature."
     IDS_STRING24774         "Murasa\n\nPlane - Zendikar\nHOP,S\nWhenever a nontoken creature enters the battlefield, its controller may search his or her library for a basic land card, put it onto the battlefield tapped, then shuffle his or her library.\rWhenever you roll {C}, target land becomes a 4/4 creature that's still a land."
+    IDS_STRING24775         "The Fourth Sphere\n\nPlane - Phyrexia\nHOP,S\nAt the beginning of your upkeep, sacrifice a nonblack creature.\rWhenever you roll {C}, put a 2/2 black Zombie creature token onto the battlefield."
+    IDS_STRING24776         "Sokenzan\n\nPlane - Kamigawa\nHOP,S\nAll creatures get +1/+1 and have haste.\rWhenever you roll {C}, untap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING24777         "Whiplash Trap\n{3UU}\nInstant - Trap\nHOP,C\nIf an opponent had two or more creatures enter the battlefield under his or her control this turn, you may pay {U} rather than pay Whiplash Trap's mana cost.\rReturn two target creatures to their owners' hands."
 END
 
 #endif    // English (United States) resources

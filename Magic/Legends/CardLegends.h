@@ -200,16 +200,23 @@ class CInfernalMedusaCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CInfernalMedusaCard);
 
 protected:
-	bool SetTriggerContext1(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility1;
+
+	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
 		CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction);
 
-private:
-	bool SetTriggerContext2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+							CWhenSelfAttackedBlocked::BlockEventCallback, 
+							&CWhenSelfAttackedBlocked::SetBlockedEachTimeEventCallback > TriggeredAbility2;
+
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 											  CCreatureCard* pCreature, CCreatureCard* pCreature2, int nCount, int nIndex) const;
-
-//private:
-//	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-//											  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution2(TriggeredAbility2::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -371,6 +378,14 @@ class CPrincessLucreziaCard : public CManaProductionTCreatureCard
 class CPsychicPurgeCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CPsychicPurgeCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -790,6 +805,10 @@ protected:
 class CGlyphOfDestructionCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CGlyphOfDestructionCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1241,6 +1260,56 @@ protected:
 	bool BeforeResolutionRampage(TriggeredAbility::TriggeredActionType* pAction) const;
 
 	int_ Rampage;
+};
+
+//____________________________________________________________________________
+//
+class CHazezonTamarCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CHazezonTamarCard);
+};
+
+//____________________________________________________________________________
+//
+class CHellfireCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CHellfireCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	int_ m_nCards;
+};
+
+//____________________________________________________________________________
+//
+class CReincarnationCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CReincarnationCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CResetCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CResetCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//____________________________________________________________________________
+//
+class CGlyphOfLifeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGlyphOfLifeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________

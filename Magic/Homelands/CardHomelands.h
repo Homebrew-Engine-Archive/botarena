@@ -535,3 +535,55 @@ protected:
 
 //____________________________________________________________________________
 //
+class CClockworkSwarmCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CClockworkSwarmCard);
+
+protected:
+	BOOL_ bAttackedOrBlocked;
+	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_NumberSelection;
+	void OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard);
+	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CHeartWolfCard : public CFirstStrikeCreatureCard
+{
+	DECLARE_CARD_CSTOR(CHeartWolfCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CDwarvenSeaClanCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CDwarvenSeaClanCard);
+
+protected:
+	class CDwarvenSeaClanTargeting : public CTargeting
+	{
+	public:
+		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+	};
+
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

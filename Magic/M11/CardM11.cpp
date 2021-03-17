@@ -26,7 +26,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CArmoredCancrixCard);
 		DEFINE_CARD(CAssaultGriffinCard);
 		DEFINE_CARD(CAuguryOwlCard);
-		DEFINE_CARD(CAutumnsVeilCard);
+//		DEFINE_CARD(CAutumnsVeilCard);
 		DEFINE_CARD(CBackToNatureCard);
 		DEFINE_CARD(CBaronyVampireCard);
 		DEFINE_CARD(CBloodcrazedGoblinCard);
@@ -91,7 +91,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMerfolkSpyCard);
 		DEFINE_CARD(CMightyLeapCard);
 		DEFINE_CARD(CMitoticSlimeCard);
-		//DEFINE_CARD(CMystifyingMazeCard);
+		DEFINE_CARD(CMystifyingMazeCard);
 		DEFINE_CARD(CNantukoShadeCard);
 		DEFINE_CARD(CNecroticPlagueCard);
 		DEFINE_CARD(CNetherHorrorCard);
@@ -1219,7 +1219,7 @@ CGraveTitanCard::CGraveTitanCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie"), 2724, 2);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie H"), 2987, 2);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -1914,72 +1914,6 @@ CInspiredChargeCard::CInspiredChargeCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-//"Mystifying Maze\n\nLand\nM11,R\n{T}: Add {1} to your mana pool.\r{4}, {T}: Exile target attacking creature an opponent controls. At the beginning of the next end step, return it to the battlefield tapped under its owner's control."
-//Crashes in opponent's turn before you could get use of Mystifying Maze's second ability for unknown reasons.
-//CMystifyingMazeCard::CMystifyingMazeCard(CGame* pGame, UINT nID)
-//	: CNonbasicLandCard(pGame, _T("Mystifying Maze"), nID)
-//
-//    , m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-//			&CMystifyingMazeCard::OnResolutionCompleted1))
-//{
-//	{
-//		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
-//			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
-//
-//		cpNonbasicLandManaAbility->AddTapCost();
-//
-//		AddAbility(cpNonbasicLandManaAbility.GetPointer());
-//	}
-//	{
-//		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
-//			::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
-//				_T("4"),
-//				new AttackingCreatureComparer,
-//				ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others));
-//
-//		cpAbility->GetTargeting()->SetIncludeNonControllerCardsOnly();
-//
-//		cpAbility->AddTapCost();
-//
-//		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-//
-//		AddAbility(cpAbility.GetPointer());
-//	}
-//}
-//
-//void CMystifyingMazeCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
-//{
-//	CCard* target = pAbilityAction->GetAssociatedCard();
-//	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
-//	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
-//	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-//
-//	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-//
-//	m_CardFlagModifier1.ApplyTo(target);
-//
-//	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
-//	pComparer->SetData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-//
-//	//CCardFilter m_CardFilter_temp;
-//	m_CardFilter_temp.SetComparer(new TrueCardComparer);
-//	m_CardFilter_temp.AddComparer(pComparer);
-//
-//	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Exile, &m_CardFilter_temp,
-//		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, TRUE, MoveType::Others)));
-//
-//	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-//		GetGame() , pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-//		CScheduledPlayerModifier::Operation::ApplyToLater);
-//
-//	CCardOrientationModifier* pModifier3 = new CCardOrientationModifier(TRUE);
-//
-//	pModifier2->ApplyTo(target->GetOwner());
-//	pModifier3->ApplyTo(target);
-//}
-//
-////____________________________________________________________________________
-////
 CManicVandalCard::CManicVandalCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Manic Vandal"), CardType::Creature, CREATURE_TYPE2(Human, Warrior), nID,
 		_T("2") RED_MANA_TEXT, Power(2), Life(2))
@@ -3693,6 +3627,7 @@ bool CMerfolkSpyCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pA
 
 //____________________________________________________________________________
 //
+/*
 CAutumnsVeilCard::CAutumnsVeilCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Autumn's Veil"), CardType::Instant, nID)
 {
@@ -3716,3 +3651,49 @@ CAutumnsVeilCard::CAutumnsVeilCard(CGame* pGame, UINT nID)
 
 	AddSpell(cpSpell.GetPointer());
 }
+*/
+//____________________________________________________________________________
+//
+CMystifyingMazeCard::CMystifyingMazeCard(CGame* pGame, UINT nID)
+	: CNonbasicLandCard(pGame, _T("Mystifying Maze"), nID)
+    , m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CMystifyingMazeCard::OnResolutionCompleted))
+{
+	{
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
+
+		cpNonbasicLandManaAbility->AddTapCost();
+
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
+				_T("4"),
+				new AttackingCreatureComparer,
+				ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others));
+
+		cpAbility->GetTargeting()->SetIncludeNonControllerCardsOnly();
+
+		cpAbility->AddTapCost();
+
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+void CMystifyingMazeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->GetZoneId() == ZoneId::Exile)
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Mystifying Maze Effect"), 61083, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//

@@ -178,7 +178,7 @@ BEGIN
     IDS_STRING25477         "Orzhov Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {W} or {B} to your mana pool.\r{WB}: Orzhov Keyrune becomes a 1/4 white and black Thrull artifact creature with lifelink until end of turn."
     IDS_STRING25478         "Call of the Nightwing\n{2UB}\nSorcery\nGTC,U\nPut a 1/1/ blue and black Horror creature token with flying onto the battlefield.\rCipher"
     IDS_STRING25479         "Gruul Charm\n{RG}\nSorcery\nGTC,U\nChoose one - Creatures without flying can't block this turn; or gain control of all permanents you own; or Gruul Charm deals 3 damage to each creature with flying."
-    IDS_STRING25480         "Hands of Binding\n{1U}\nSorcery\nGTC,C\nTap target creature an opponent controle. That creature doesn't untap during its controller's next untap step.\rCipher"
+    IDS_STRING25480         "Hands of Binding\n{1U}\nSorcery\nGTC,C\nTap target creature an opponent control. That creature doesn't untap during its controller's next untap step.\rCipher"
     IDS_STRING25481         "Stolen Identity\n{4UU}\nSorcery\nGTC,R\nPut a token onto the battlefield that's a copy of target artifact or creature.\rCipher"
     IDS_STRING25482         "Undercity Plague\n{4BB}\nSorcery\nGTC,R\nTarget player loses 1 life, discards a card, then sacrifices a permanent.\rCipher"
     IDS_STRING25483         "Whispering Madness\n{2UB}\nSorcery\nGTC,R\nEach player discards his or her hand, then draws cards equal to the greatest number of cards a player discarded this way."
@@ -363,6 +363,9 @@ BEGIN
     IDS_STRING25626         "Wrecking Ogre\n{4R}\nCreature - Ogre Warrior\nGTC,R\nDouble strike\rBloodrush - {3RR}, Discard Wrecking Ogre: Target attacking creature gets +3/+3 and gains double strike until end of turn.\n3/3"
     IDS_STRING25627         "Zarichi Tiger\n{3W}\nCreature - Car\nGTC,C\n{1W}, {T}: You gain 2 life.\n2/3"
     IDS_STRING25628         "Unexpected Results\n{2UG}\nSorcery\nGTC,R\nShuffle your library, then reveal the top card. If it's a nonland card, you may cast it without paying its mana cost. If it's a land card, you may put it onto the battlefield and return Unexpected Results to its owner's hand."
+    IDS_STRING25629         "Incursion Specialist\n{1U}\nCreature - Human Wizard\nGTC,U\nWhenever you cast your second spell each turn, Incursion Specialist gets +2/+0 until end of turn and is unblockable this turn.\n1/3"
+    IDS_STRING25630         "Obzedat, Ghost Council\n{1WWBB}\nLegendary Creature - Spirit Advisor\nGTC,MR\nWhen Obzedat, Ghost Council enters the battlefield, target opponent loses 2 life and you gain 2 life.\rAt the beginning of your end step, you may exile Obzedat. If you do, return it to the battlefield under its owner's control at the beginning of your next upkeep. It gains haste.\n5/5"
+    IDS_STRING25631         "Aurelia, the Warleader\n{2WWRR}\nLegendary Creature - Angel\nGTC,MR\nFlying, vigilance, haste\rWhenever Aurelia, the Warleader attacks for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.\n3/4"
 END
 
 #endif    // English (United States) resources

@@ -80,6 +80,142 @@ STRINGTABLE
 BEGIN
     IDS_STRING61000          "Gruul Charm Effect\n\nEffect\nToken\nCreatures without flying can't block."
     IDS_STRING61001          "Vizkopa Guildmage Effect\n\nEffect\nToken\nWhenever you gain life, each opponent loses that much life."
+    IDS_STRING61002          "Intervention Pact Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {1WW}. If you don't, you lose the game."
+    IDS_STRING61003          "Pact of Negation Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {3UU}. If you don't, you lose the game."
+    IDS_STRING61004          "Pact of the Titan Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {4R}. If you don't, you lose the game."
+    IDS_STRING61005          "Slaughter Pact Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {2B}. If you don't, you lose the game."
+	IDS_STRING61006          "Summoner's Pact Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {2GG}. If you don't, you lose the game."
+    IDS_STRING61007          "Venser, the Sojourner	Emblem\n\nEmblem\nToken\nWhenever you cast a spell, exile target permanent."
+    IDS_STRING61008          "Domri Rade Emblem\n\nEmblem\nToken\nCreatures you control have double strike, trample, hexproof, and haste."
+    IDS_STRING61009          "Koth of the Hammer Emblem\n\nEmblem\nToken\nMountains you control have ""{T}: This land deals 1 damage to target creature or player."""
+    IDS_STRING61010          "Sorin, Lord of Innistrad Emblem\n\nEmblem\nToken\nCreatures you control get +1/+0."
+    IDS_STRING61011          "Tamiyo, the Moon Sage Emblem\n\nEmblem\nToken\nYou have no maximum hand size.\rWhenever a card is put into your graveyard from anywhere, you may return it to your hand."
+    IDS_STRING61012          "Liliana of the Dark Realms Emblem\n\nEmblem\nToken\nSwamps you control have '{T}: Add {BBBB} to your mana pool.'"""
+    IDS_STRING61013          "Alchemist's Refuge Effect\n\nEffect\nToken\nYou may cast nonland cards this turn as though they had flash."
+    IDS_STRING61014          "Approach My Molten Realm Effect\n\nEffect\nToken\nIf a source would deal damage, it deals double that damage instead."
+    IDS_STRING61015          "Arcane Denial Effect\n\nEffect\nToken\nDraw up to two cards at the beginning of the next turn's upkeep."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING61016          "Bubbling Muck Effect\n\nEffect\nToken\nWhen a Swamp is tapped for mana, add an additional {B} to your mana pool."
+    IDS_STRING61017          "Channel Effect\n\nEffect\nToken\nUntil end of turn, any time you could activate a mana ability, you may pay 1 life. If you do, add {1} to your mana pool."
+    IDS_STRING61018          "Chandra, the Firebrand Effect\n\nEffect\nToken\nWhen you cast your next instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy."
+    IDS_STRING61019          "Duskmantle Guildmage Effect\n\nEffect\nToken\nWhenever a card is put into an opponent's graveyard from anywhere, that player loses 1 life."
+	IDS_STRING61020          "Enter the Infinite Effect\n\nEmblem\nToken\nYou have no maximum hand size until your next turn."
+    IDS_STRING61021          "Falter Effect\n\nEffect\nToken\nCreatures without flying can't block."
+    IDS_STRING61022          "Flash of Defiance Effect\n\nEffect\nToken\nGreen creatures and white creatures can't block."
+    IDS_STRING61023          "Glimpse of Nature Effect\n\nEffect\nToken\nWhenever you cast a creature spell this turn, draw a card."
+	IDS_STRING61024          "High Tide Effect\n\nEffect\nToken\nWhen an Island is tapped for mana, add an additional {U} to your mana pool."
+    IDS_STRING61025          "Jace, Architect of Thought Effect\n\nEffect\nToken\nWhenever a creature an opponent controls attacks, it gets -1/-0 until end of turn."
+	IDS_STRING61026          "Lat-Nam's Legacy Effect\n\nEffect\nToken\nDraw two cards at the beginning of the next turn's upkeep."
+    IDS_STRING61027          "Praetor's Counsel Effect\n\nEffect\nToken\nYou have no maximum hand size."
+    IDS_STRING61028          "Quicken Effect\n\nEffect\nToken\nThe next sorcery card you cast this turn can be cast as though it had flash."
+	IDS_STRING61029          "Ruthless Invasion Effect\n\nEffect\nToken\nNonartifact creatures can't block."
+	IDS_STRING61030          "Scout's Warning Effect\n\nEffect\nToken\nThe next creature card you play this turn can be played as though it had flash."
+    IDS_STRING61031          "Slowtrip Effect\n\nEffect\nToken\nDraw a card at the beginning of the next turn's upkeep."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING61032          "The Pieces Are Coming Together Effect\n\nEffect\nToken\nArtifact spells you cast this turn cost {2} less to cast. "
+	IDS_STRING61033          "Winding Canyons Effect\n\nEmblem\nToken\nUntil end of turn, you may play creature cards as though they had flash."
+	IDS_STRING61034          "Your Puny Minds Cannot Fathom Effect\n\nEffect\nToken\nYou have no maximum hand size until your next turn."
+	IDS_STRING61035          "Hazezon Tamar Effect\n\nEffect\nToken\nAt the beginning of your next upkeep, put X 1/1 Sand Warrior creature tokens that are red, green, and whitep, where X is the number of lands you control."
+	IDS_STRING61036          "Moonmist Effect\n\nEffect\nToken\nPrevent all combat damage that would be dealt this turn by creatures other than Werewolves and Wolves."
+	IDS_STRING61037          "Ethersworn Shieldmage Effect\n\nEffect\nToken\nPrevent all damage that would be dealt to artifact creatures this turn."
+	IDS_STRING61038          "Archangel of Strife War Effect\n\nEffect\nToken\nCreatures you control get +3/+0."
+	IDS_STRING61039          "Archangel of Strife Peace Effect\n\nEffect\nToken\nCreatures you control get +0/+3."
+	IDS_STRING61040          "End of Combat Bounce Effect\n\nEffect\nToken\nAt end of combat, return the subject to their owner's hand."
+	IDS_STRING61041          "End of Combat Destroy Effect\n\nEffect\nToken\nAt end of combat, destroy the subject."
+	IDS_STRING61042          "Acidic Dagger Effect\n\nEffect\nToken\nWhenever target creature deals combat damage to a non-Wall creature this turn, destroy that non-Wall creature.\rWhen the targeted creature leaves the battlefield this turn, sacrifice Acidic Dagger."
+	IDS_STRING61043          "Berserk Effect\n\nEffect\nToken\nAt the beginning of the next end step, destroy the subject if it attacked this turn."
+	IDS_STRING61044          "Zombie Boa White Effect\n\nEffect\nToken\nWhenever Zombie Boa becomes blocked by a white creature this turn, destroy that creature."
+	IDS_STRING61045          "Zombie Boa Blue Effect\n\nEffect\nToken\nWhenever Zombie Boa becomes blocked by a blue creature this turn, destroy that creature."
+	IDS_STRING61046          "Zombie Boa Black Effect\n\nEffect\nToken\nWhenever Zombie Boa becomes blocked by a black creature this turn, destroy that creature."
+	IDS_STRING61047          "Zombie Boa Red Effect\n\nEffect\nToken\nWhenever Zombie Boa becomes blocked by a red creature this turn, destroy that creature."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING61048          "Zombie Boa Green Effect\n\nEffect\nToken\nWhenever Zombie Boa becomes blocked by a green creature this turn, destroy that creature."
+	IDS_STRING61049          "Adarkar Valkyrie Effect\n\nEffect\nToken\nWhen the subject dies this turn, return that card to the battlefield under your control."
+	IDS_STRING61050          "Graceful Reprieve Effect\n\nEffect\nToken\nWhen the subject dies this turn, return that card to the battlefield under its owner's control."
+	IDS_STRING61051          "Initiate of Blood Effect\n\nEffect\nToken\nWhen the subject dies this turn, flip Initiate of Blood."
+	IDS_STRING61052          "Reincarnation Effect\n\nEffect\nToken\nWhen the subject dies this turn, return a creature card from its owner's graveyard to the battlefield under the control of its owner."
+	IDS_STRING61053          "Sandals of Abdallah Effect\n\nEffect\nToken\nWhen the subject dies this turn, destroy Sandals of Abdallah."
+	IDS_STRING61054          "Skeletonize Effect\n\nEffect\nToken\nWhen a creature damaged by the subject dies this turn, put a 1/1 black Skeleton creature token onto the battlefield with ""{B}: Regenerate this creature."""
+	IDS_STRING61055          "Virulent Wound Effect\n\nEffect\nToken\nWhen the subject dies this turn, its controller gets a poison counter."
+	IDS_STRING61056          "Generic Container\n\nEffect\nToken\nThis effect stores cards for another card's ability."
+	IDS_STRING61057          "End Step Return from Exile Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects from exile to the battlefield under their owners' control."
+	IDS_STRING61058          "End Step Sacrifice Effect\n\nEffect\nToken\nAt the beginning of the next end step, sacrifice the subjects."
+	IDS_STRING61059          "End Step Bounce Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects to their owner's hand."
+	IDS_STRING61060          "End Step Destroy Effect\n\nEffect\nToken\nAt the beginning of the next end step, destroy the subjects."
+	IDS_STRING61061          "End Step Exile Effect\n\nEffect\nToken\nAt the beginning of the next end step, exile the subjects."
+	IDS_STRING61062          "Bloodlord of Vaasgoth Effect\n\nEffect\nToken\nThe subject has bloodthirst 3."
+	IDS_STRING61063          "Brood of Cockroaches Effect\n\nEffect\nToken\nAt the beginning of the next end step, you lose 1 life and return Brood of Cockroaches to your hand."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING61064          "End Step Sure Sacrifice Effect\n\nEffect\nToken\nAt the beginning of the next end step, controller of the subjects sacrifices them."
+	IDS_STRING61065          "False Memories Effect\n\nEffect\nToken\nAt the beginning of the next end step, exile seven cards from your graveyard."
+	IDS_STRING61066          "Flickerform Effect\n\nEffect\nToken\nAt the beginning of the next end step, return that card to the battlefield under its owner's control. If you do, return those Auras to the battlefield under their owners' control attached to that creature."
+	IDS_STRING61067          "Giant Caterpillar Pupa\n\nEffect\nToken\nAt the beginning of the next end step, put a 1/1 green Insect creature token with flying named Butterfly onto the battlefield."
+	IDS_STRING61068          "Goblin Kites Effect\n\nEffect\nToken\nAt the beginning of the next end step, flip a coin. If you lose the flip, sacrifice the subject."
+	IDS_STRING61069          "Grave Betrayal Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subject to the battlefield under your control with an additional +1/+1 counter on it. That creature is a black Zombie in addition to its other colors and types."
+	IDS_STRING61070          "Ideas Unbound Effect\n\nEffect\nToken\nAt the beginning of the next end step, discard three cards."
+	IDS_STRING61071          "Ignorant Bliss Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects to your hand, then draw a card."
+	IDS_STRING61072          "End Step Reanimate Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects to the battlefield under their owner's control."
+	IDS_STRING61073          "Tatsumasa, the Dragon's Fang Effect\n\nEffect\nToken\nWhen the Dragon Spirit token dies, return Tatsumasa, the Dragon's Fang onto the battlefield under its owner's control."
+	IDS_STRING61074          "Loyal Cathar Effect\n\nEffect\nToken\nAt the beginning of the next end step, return Loyal Cathar onto the battlefield transformed under your control."
+	IDS_STRING61075          "End Step Destroy Pacifists Effect\n\nEffect\nToken\nAt the beginning of the next end step, destroy each subject that hasn't attacked this turn."
+	IDS_STRING61076          "Maddening Imp Effect\n\nEffect\nToken\nAt the beginning of the next end step, destroy each non-Wall creature controlled by the active player that didn't attack this turn."
+	IDS_STRING61077          "Shirei, Shizo's Caretaker Effect\n\nEffect\nToken\nAt the beginning of the next end step, you may return the subject to the battlefield under your control if Shirei, Shizo's Caretaker is still on the battlefield."
+	IDS_STRING61078          "Shichifukujin Dragon Effect\n\nEffect\nToken\nAt the beginning of the next end step, put three +1/+1 counters on Shichifukujin Dragon."
+	IDS_STRING61079          "Siren's Call Effect\n\nEffect\nToken\nAt the beginning of the next end step, destroy all non-Wall creatures that player controls that didn't attack this turn. Ignore this effect for each creature the player didn't control continuously since the beginning of the turn."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING61080          "Memory Jar Effect\n\nEffect\nToken\nAt the beginning of the next end step, each player discards his or her hand and returns to his or her hand each card he or she exiled this way."
+	IDS_STRING61081          "Magus of the Jar Effect\n\nEffect\nToken\nAt the beginning of the next end step, each player discards his or her hand and returns to his or her hand each card he or she exiled this way."
+	IDS_STRING61082          "End Step Raise Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects from the graveyard to their owner's hand."
+	IDS_STRING61083          "Mystifying Maze Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subject onto the battlefield tapped and under its owner's control."
+	IDS_STRING61084          "Necropotence Effect\n\nEffect\nToken\nAt the beginning of your next end step, put the subjects into your hand."
+	IDS_STRING61085          "Otherworldly Journey Effect\n\nEffect\nToken\nAt the beginning of your next end step, return the subject onto the battlefield under its owner's control with a +1/+1 counter."
+	IDS_STRING61086          "Protean Hydra Effect\n\nEffect\nToken\nAt the beginning of the next end step, put two +1/+1 counters on Protean Hydra."
+	IDS_STRING61087          "Pure Intentions Effect\n\nEffect\nToken\nWhenever a spell or ability an opponent controls causes you to discard cards this turn, return those cards from your graveyard to your hand."
+	IDS_STRING61088          "Rainbow Vale Effect\n\nEffect\nToken\nAt the beginning of the next end step, an opponent gains control of Rainbow Vale."
+	IDS_STRING61089          "Rukh Egg Effect\n\nEffect\nToken\nAt the beginning of the next end step, put a 4/4 red Bird creature token with flying onto the battlefield."
+	IDS_STRING61090          "Sand Golem Effect\n\nEffect\nToken\nAt the beginning of the next end step, return Sand Golem onto the battlefield with a +1/+1 counter."
+	IDS_STRING61091          "Seraph First Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subject onto the battlefield under your control. Sacrifice it when you lose control of Seraph."
+	IDS_STRING61092          "Seraph Second Effect\n\nEffect\nToken\nWhen you lose control of Seraph, sacrifice the subject."
+	IDS_STRING61093          "Shifty Doppelganger Effect\n\nEffect\nToken\nAt the beginning of the next end step, sacrifice that creature. If you do, return Shifty Doppelganger to the battlefield."
+	IDS_STRING61094          "Spinal Embrace Effect\n\nEffect\nToken\nAt the beginning of the next end step, sacrifice that creature. If you do, you gain life equal to its toughness."
+	IDS_STRING61095          "Transluminant Effect\n\nEffect\nToken\nAt the beginning of the next end step, put a 1/1 white Spirit creature token with flying onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING61096          "Battle Cry Effect\n\nEffect\nToken\nWhenever a creature blocks this turn, it gets +0/+1 until end of turn."
+	IDS_STRING61097          "Heart Wolf Effect\n\nEffect\nToken\nWhen the subject leaves the battlefield this turn, sacrifice Heart Wolf."
+	IDS_STRING61098          "Kjeldoran Elite Guard Effect\n\nEffect\nToken\nWhen the subject leaves the battlefield this turn, sacrifice Kjeldoran Elite Guard."
+	IDS_STRING61099          "Kjeldoran Guard Effect\n\nEffect\nToken\nWhen the subject leaves the battlefield this turn, sacrifice Kjeldoran Guard."
+	IDS_STRING61100          "Phantasmal Mount Effect\n\nEffect\nToken\nWhen Phantasmal Mount leaves the battlefield this turn, sacrifice the subject.\rWhen the subject leaves the battlefield this turn, sacrifice Phantasmal Mount."
+	IDS_STRING61101          "Saffi Eriksdotter Effect\n\nEffect\nToken\nWhen the subject is put into your graveyard from the battlefield this turn, return that card to the battlefield."
+	IDS_STRING61102          "War Barge Effect\n\nEffect\nToken\nWhen War Barge leaves the battlefield this turn, destroy the subject. It can't be regenerated."
+	IDS_STRING61103          "Basalt Golem Effect\n\nEffect\nToken\nAt end of combat, the subject's controller sacrifices it. If the player does, he or she puts a 0/2 colorless Wall artifact creature token with defender onto the battlefield."
+	IDS_STRING61104          "End of Combat Remove Plus Counter Effect\n\nEffect\nToken\nAt end of combat, remove a +1/+1 counter from the subject."
+	IDS_STRING61105          "Contempt Effect\n\nEffect\nToken\nAt end of combat, return the subject and Contempt to their owners' hands."
+	IDS_STRING61106          "End of Combat Sacrifice Effect\n\nEffect\nToken\nAt end of combat, sacrifice the subjects."
+	IDS_STRING61107          "Runesword Effect\n\nEffect\nToken\nWhen the subject leaves the battlefield this turn, sacrifice Runesword. If the subject deals damage to a creature this turn, the creature dealt damage can't be regenerated this turn. If a creature dealt damage by the subject would die this turn, exile that creature instead."
+	IDS_STRING61108          "Dwarven Sea Clan Effect\n\nEffect\nToken\nAt end of combat, Dwarven Sea Clan deals 2 damage to the subject."
+	IDS_STRING61109          "Fickle Efreet Effect\n\nEffect\nToken\nAt end of combat, flip a coin. If you lose the flip, an opponent gains control of Fickle Efreet."
+	IDS_STRING61110          "Frostweb Spider Effect\n\nEffect\nToken\nAt end of combat, put a +1/+1 counter on Frostweb Spider."
+	IDS_STRING61111          "End of Combat Exile Effect\n\nEffect\nToken\nAt end of combat, exile the subjects."
+	IDS_STRING61112          "Glyph of Life Effect\n\nEffect\nToken\nWhenever an attacking creature deals damage to the subject this turn, you gain that much life."
+//	IDS_STRING61040          "Chancellor of the Annex Effect\n\nEffect\nToken\nWhen each opponent casts his or her first spell of the game, counter that spell unless that player pays {1}."
 END
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////

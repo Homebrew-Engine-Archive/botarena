@@ -234,6 +234,7 @@ BEGIN
     IDS_STRING19220         "Petalmane Baku\n{1G}\nCreature - Spirit\nBOK,C\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Petalmane Baku.\r{1}, Remove X ki counters from Petalmane Baku: Add X mana of any one color to your mana pool.\n1/2"
     IDS_STRING19221         "Chisei, Heart of Oceans\n{2UU}\nLegendary Creature - Spirit\nBOK,R\nFlying\rAt the beginning of your upkeep, sacrifice Chisei, Heart of Oceans unless you remove a counter from a permanent you control.\n4/4"
     IDS_STRING19222         "Minamo Sightbender\n{1U}\nCreature - Human Wizard\nBOK,U\n{X}, {T}: Target creature with power X or less is unblockable this turn.\n1/2"
+    IDS_STRING19223         "Shirei, Shizo's Caretaker\n{4B}\nLegendary Creature - Spirit\nBOK,R\nWhenever a creature with power 1 or less is put into your graveyard from the battlefield, you may return that card to the battlefield under your control at the beginning of the next end step if Shirei, Shizo's Caretaker is still on the battlefield.\n2/2"
 END
 
 #endif    // English (United States) resources

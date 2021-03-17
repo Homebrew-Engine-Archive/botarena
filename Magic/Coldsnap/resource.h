@@ -117,6 +117,8 @@
 #define IDS_STRING7100                  7100
 #define IDS_STRING7101                  7101
 #define IDS_STRING7102                  7102
+#define IDS_STRING7103                  7103
+#define IDS_STRING7104                  7104
 #define IDI_MODULE                      7155
 #define IDI_LARGE_MODULE                7156
 

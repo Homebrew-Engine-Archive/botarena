@@ -270,7 +270,7 @@ BEGIN
     IDS_STRING19052         "Spitting Image\n{4LL}\nSorcery\nEVE,R\nPut a token that's a copy of target creature onto the battlefield.\rRetrace\n"
     IDS_STRING19053         "Thunderblust\n{2RRR}\nCreature - Elemental\nEVE,R\nHaste\rThunderblust has trample as long as it has a -1/-1 counter on it.\rPersist\n7/2"
     IDS_STRING19054         "Necroskitter\n{1BB}\nCreature - Elemental\nEVE,R\nWither\rWhenever a creature an opponent controls with a -1/-1 counter on it dies, you may return that card to the battlefield under your control.\n1/4"
-    IDS_STRING19055         "Crackleburr\n{1II}\nCreature - Elemental\nEVE,R\n{II}, {T}, Tap two untapped red creatures you control: Crackleburr deals 3 damage to target creature or player.\r{II}, {untap}, Untap two tapped blue creatures you control: Return target creature to its owner's hand.\n2/2"
+    IDS_STRING19055         "Crackleburr\n{1II}\nCreature - Elemental\nEVE,R\n{II}, {T}, Tap two untapped red creatures you control: Crackleburr deals 3 damage to target creature or player.\r{II}, {Q}, Untap two tapped blue creatures you control: Return target creature to its owner's hand.\n2/2"
 END
 
 STRINGTABLE

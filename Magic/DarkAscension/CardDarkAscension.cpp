@@ -17,6 +17,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	do
 	{
 
+		DEFINE_CARD(CAfflictedDeserterCard);
 		DEFINE_CARD(CAlphaBrawlCard);
 		DEFINE_CARD(CArchangelsLightCard);
 		DEFINE_CARD(CArchdemonOfGreedCard);
@@ -29,6 +30,8 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBriarpackAlphaCard);
 		DEFINE_CARD(CBurdenOfGuiltCard);
 		DEFINE_CARD(CBurningOilCard);
+		DEFINE_CARD(CChaliceOfDeathCard);
+		DEFINE_CARD(CChaliceOfLifeCard);
 		DEFINE_CARD(CChantOfTheSkifsangCard);
 		DEFINE_CARD(CChillOfForebodingCard);
 		DEFINE_CARD(CChosenOfMarkovCard);
@@ -45,6 +48,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CErdwalRipperCard);
 		DEFINE_CARD(CExecutionersHoodCard);
 		DEFINE_CARD(CFaithlessLootingCard);
+		DEFINE_CARD(CFaithsShieldCard);
 		DEFINE_CARD(CFalkenrathAristocratCard);
 		DEFINE_CARD(CFalkenrathTorturerCard);
 		DEFINE_CARD(CFarbogBoneflingerCard);
@@ -87,6 +91,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLambholtElderCard);
 		DEFINE_CARD(CLingeringSoulsCard);
 		DEFINE_CARD(CLostInTheWoodsCard);
+		DEFINE_CARD(CLoyalCatharCard);
 		DEFINE_CARD(CMarkovBlademasterCard);
 		DEFINE_CARD(CMarkovsServantCard);
 		DEFINE_CARD(CMarkovWarlordCard);
@@ -114,6 +119,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CScorchTheFieldsCard);
 		DEFINE_CARD(CScornedVillagerCard);
 		DEFINE_CARD(CScreechingSkaabCard);
+		DEFINE_CARD(CSeanceCard);
 		DEFINE_CARD(CSecretsOfTheDeadCard);
 		DEFINE_CARD(CShatteredPerceptionCard);
 		DEFINE_CARD(CShriekgeistCard);
@@ -127,6 +133,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CStormboundGeistCard);
 		DEFINE_CARD(CStranglerootGeistCard);
 		DEFINE_CARD(CStromkirkCaptainCard);
+		DEFINE_CARD(CSuddenDisappearanceCard);
 		DEFINE_CARD(CTalonsOfFalkenrathCard);
 		DEFINE_CARD(CThaliaGuardianOfThrabenCard);
 		DEFINE_CARD(CThoughtScourCard);
@@ -137,11 +144,13 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTrackersInstinctsCard);
 		DEFINE_CARD(CTragicSlipCard);
 		DEFINE_CARD(CUndyingEvilCard);
+		DEFINE_CARD(CUnhallowedCatharCard);
 		DEFINE_CARD(CVaultOfTheArchangelCard);
 		DEFINE_CARD(CVengefulVampireCard);
 		DEFINE_CARD(CVillageSurvivorsCard);
 		DEFINE_CARD(CVorapedeCard);
 		DEFINE_CARD(CWakedancerCard);
+		DEFINE_CARD(CWerewolfRansackerCard);
 		DEFINE_CARD(CWildHungerCard);
 		DEFINE_CARD(CWithengarUnboundCard);
 		DEFINE_CARD(CWolfbittenCaptiveCard);
@@ -1348,7 +1357,7 @@ CLingeringSoulsCard::CLingeringSoulsCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("2") WHITE_MANA_TEXT,
-				_T("Spirit D"), 2752,
+				_T("Spirit K"), 2945,
 				2));
 
 		AddSpell(cpSpell.GetPointer());
@@ -1358,7 +1367,7 @@ CLingeringSoulsCard::CLingeringSoulsCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("1") BLACK_MANA_TEXT,
-				_T("Spirit D"), 2752,
+				_T("Spirit K"), 2945,
 				2));
 
 		cpSpell->SetAbilityName(_T("Flashback"));
@@ -1749,11 +1758,9 @@ CHavengulRunebinderCard::CHavengulRunebinderCard(CGame* pGame, UINT nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CHavengulRunebinderCard::OnResolutionCompleted))
 {
-	counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
-			_T("2") BLUE_MANA_TEXT,
-			_T("Zombie"), 2724,
-			1));
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("2") BLUE_MANA_TEXT));
 	ATLASSERT(cpAbility);
 
 	cpAbility->AddTapCost();
@@ -1766,21 +1773,41 @@ CHavengulRunebinderCard::CHavengulRunebinderCard(CGame* pGame, UINT nID)
 
 void CHavengulRunebinderCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CZone* pBattle =  pAbilityAction->GetController()->GetZoneById(ZoneId::Battlefield);
+	int nRand = 0;
+	int nUID = 0;
+	CString name = _T("");
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
-	for (int i = 0; i < pBattle->GetSize(); ++i)
+	if (!m_pGame->IsThinking())
 	{
-		CCard* pCard = pBattle->GetAt(i);
-
-		if ((pCard->GetCardType() & CardType::Creature).Any())
-		{
-			CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
-
-			if (pCreatureCard->GetCreatureType().HasType(SingleCreatureType::Zombie) || pCreatureCard->GetCardKeyword()->HasChangeling())
-			pModifier.ApplyTo(pCard);
-		}
+		nRand = pAbilityAction->GetController()->GetRand() % 3;
 	}
+		
+	if (nRand == 0)
+	{
+		nUID = 2891;
+		name = _T("Zombie I");
+	}
+	else if (nRand == 1)
+	{
+		nUID = 2951;
+		name = _T("Zombie J");
+	}
+	else
+	{
+		nUID = 2955;
+		name = _T("Zombie K");
+	}
+
+	CTokenCreationModifier* pModifier1 = new CTokenCreationModifier(GetGame(), name, nUID, 1, false);
+	pModifier1->ApplyTo(pAbilityAction->GetController());
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new AnyCreatureComparer);
+	m_CardFilter.AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Zombie), false));
+
+	CZoneCardModifier* pModifier2 = new CZoneCardModifier(ZoneId::Battlefield, &m_CardFilter,
+		std::auto_ptr<CCardModifier>(new CCardCounterModifier(_T("+1/+1"), +1)));
+	pModifier2->ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2543,7 +2570,7 @@ CElgaudInquisitorCard::CElgaudInquisitorCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Spirit D"), 2752, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Spirit K"), 2945, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -2637,7 +2664,7 @@ CRequiemAngelCard::CRequiemAngelCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().SetFromControllerOnly(TRUE);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Spirit D"), 2752, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Spirit K"), 2945, 1);
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -3180,22 +3207,20 @@ CReapTheSeagrafCard::CReapTheSeagrafCard(CGame* pGame, UINT nID)
 {
 	{
 		//Regular mana cost
-		counted_ptr<CTokenProductionSpell> cpSpell(
-			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
-				_T("2") BLACK_MANA_TEXT,
-				_T("Zombie"), 2724,
-				1));
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("2") BLACK_MANA_TEXT));
 		ATLASSERT(cpSpell);
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CReapTheSeagrafCard::BeforeResolution));
 
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
 		//Flashback cost
-		counted_ptr<CTokenProductionSpell> cpSpell(
-			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
-				_T("4") BLUE_MANA_TEXT,
-				_T("Zombie"), 2724,
-				1));
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("4") BLUE_MANA_TEXT));
 		ATLASSERT(cpSpell);
 		
 		cpSpell->SetAbilityName(_T("Flashback"));
@@ -3203,11 +3228,46 @@ CReapTheSeagrafCard::CReapTheSeagrafCard(CGame* pGame, UINT nID)
 
 		cpSpell->SetGraveyardOnly();
 
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CReapTheSeagrafCard::BeforeResolution));
+
 		cpSpell->SetMainSpell(FALSE);
 		AddSpell(cpSpell.GetPointer());
 
 		AddCardType(CardType::Black, CardType::_ColorMask); //to fix the color of this card.
 	}
+}
+
+bool CReapTheSeagrafCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	int nRand = 0;
+	int nUID = 0;
+	CString name = _T("");
+
+	if (!m_pGame->IsThinking())
+	{
+		nRand = pAction->GetController()->GetRand() % 3;
+	}
+		
+	if (nRand == 0)
+	{
+		nUID = 2891;
+		name = _T("Zombie I");
+	}
+	else if (nRand == 1)
+	{
+		nUID = 2951;
+		name = _T("Zombie J");
+	}
+	else
+	{
+		nUID = 2955;
+		name = _T("Zombie K");
+	}
+
+	CTokenCreationModifier* pModifier = new CTokenCreationModifier(GetGame(), name, nUID, 1, false);
+	pModifier->ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -3286,7 +3346,7 @@ CWakedancerCard::CWakedancerCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT, Power(2), Life(2))
 {
 	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSelfInplay, 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
 							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -3294,17 +3354,50 @@ CWakedancerCard::CWakedancerCard(CGame* pGame, UINT nID)
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CWakedancerCard::SetTriggerContext));
-	cpAbility->SetCreateTokenOption(TRUE, _T("Zombie"), 2724, 1);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CWakedancerCard::BeforeResolution));
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CWakedancerCard::SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext, 
+bool CWakedancerCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
 {
 	return (GetGame()->GetCertainTypeDiedCount(CardType::Creature) > 0);
+}
+
+bool CWakedancerCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	int nRand = 0;
+	int nUID = 0;
+	CString name = _T("");
+
+	if (!m_pGame->IsThinking())
+	{
+		nRand = pAction->GetController()->GetRand() % 3;
+	}
+		
+	if (nRand == 0)
+	{
+		nUID = 2891;
+		name = _T("Zombie I");
+	}
+	else if (nRand == 1)
+	{
+		nUID = 2951;
+		name = _T("Zombie J");
+	}
+	else
+	{
+		nUID = 2955;
+		name = _T("Zombie K");
+	}
+
+	CTokenCreationModifier* pModifier = new CTokenCreationModifier(GetGame(), name, nUID, 1, false);
+	pModifier->ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -3822,16 +3915,15 @@ CSorinLordofInnistradCard::CSorinLordofInnistradCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());			
 	}*/
 	{
-		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
-			_T(""),
-			_T("Power Pump Emblem"), 2951,
-			1));
-	ATLASSERT(cpAbility);
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("")));
+		ATLASSERT(cpAbility);
 
-	cpAbility->GetCost().AddCounterCost(GetLoyaltyCounter(), -2);
+		cpAbility->GetCost().AddCounterCost(GetLoyaltyCounter(), -2);
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Sorin, Lord of Innistrad Emblem"), 61010, 1, FALSE, ZoneId::_Effects));
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 	{
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility( 
@@ -4208,7 +4300,7 @@ CHuntmasteroftheFellsCard::CHuntmasteroftheFellsCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf A"), 2725, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf H"), 2837, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(+2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage));
@@ -4227,7 +4319,7 @@ CHuntmasteroftheFellsCard::CHuntmasteroftheFellsCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf A"), 2725, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf H"), 2837, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -4357,7 +4449,7 @@ CRavageroftheFellsCard::CRavageroftheFellsCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf A"), 2725, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf H"), 2837, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(+2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage));
@@ -4375,7 +4467,7 @@ CRavageroftheFellsCard::CRavageroftheFellsCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf A"), 2725, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Wolf H"), 2837, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -4613,7 +4705,7 @@ bool CFeedThePackCard::BeforeResolveSelection(TriggeredAbility::TriggeredActionT
 	  n = pCreature->GetLastKnownToughness();
 	}
 	
-	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Wolf A"), 2725, n);
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Wolf H"), 2837, n);
 	
 	pModifier.ApplyTo(GetController());
 	
@@ -5058,6 +5150,737 @@ void CHelvaultCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone
 	{
 		pExiled.RemoveAll();
 	}
+}
+
+//____________________________________________________________________________
+//
+CAfflictedDeserterCard::CAfflictedDeserterCard(CGame* pGame, UINT nID)
+	: CDoubleFacedCreatureCard(pGame, _T("Afflicted Deserter"), CardType::Creature, CREATURE_TYPE2(Human, Werewolf), nID,
+		_T("3") RED_MANA_TEXT, Power(3), Life(2), Power(5), Life(4), _T("Werewolf Ransacker"))
+{	
+	CCreatureTypeModifier* pModifier = new CCreatureTypeModifier(SingleCreatureType::Human, FALSE);	
+	
+	AddCreatureModifier(pModifier);	
+
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredAbility<>, CSpecialTrigger > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::Artifact, false));
+
+		cpAbility->GetTrigger().SetTriggerIndex(TRANSFORM_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CAfflictedDeserterCard::SetTriggerContext3));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CAfflictedDeserterCard::BeforeResolution));
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+
+	{
+		typedef TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged> TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CAfflictedDeserterCard::SetTriggerContext1));
+		
+		cpAbility->GetResolutionModifier().CCardModifiers::Add(new CFaceTransformModifier);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged> TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+				cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CAfflictedDeserterCard::SetTriggerContext2));
+		
+		cpAbility->GetResolutionModifier().CCardModifiers::Add(new CFaceTransformModifier);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CAfflictedDeserterCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return (!GetOrientation()->IsSecondFaced() && GetGame()->GetLastTurnCastedSpellCount() == 0);
+}
+
+bool CAfflictedDeserterCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	if (!GetOrientation()->IsSecondFaced()) return false;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (GetGame()->GetPlayer(ip)->GetLastTurnCastedSpellCount() >= 2)
+			return true;
+
+	return false;
+}
+
+bool CAfflictedDeserterCard::SetTriggerContext3(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+												CCard* pCard, int pId) const
+{
+	if (GetZoneId() != ZoneId::Battlefield) return false;
+	return GetOrientation()->IsSecondFaced() == TRUE;
+}
+
+bool CAfflictedDeserterCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCard* pTarget = pAction->GetAssociatedCard();
+	CPlayer* pTargetController = pTarget->GetController();
+
+	int nBefore = GetGame()->GetCertainTypeDiedCount(CardType::Artifact);
+	BOOL bTotemArmor = pTarget->GetCardKeyword()->HasTotemArmor();
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy, pAction->GetController());
+	pModifier1.ApplyTo(pTarget);
+	
+	if (!bTotemArmor)
+	{
+		int nAfter = GetGame()->GetCertainTypeDiedCount(CardType::Artifact);
+
+		if (nAfter > nBefore)
+		{
+			CLifeModifier pModifier2 = CLifeModifier(Life(-3), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+			pModifier2.ApplyTo(pTargetController);
+		}
+	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CWerewolfRansackerCard::CWerewolfRansackerCard(CGame* pGame, UINT nID)
+	: CDoubleFacedCreatureCard(pGame, _T("Werewolf Ransacker"), CardType::Creature, CREATURE_TYPE(Werewolf), nID,
+		_T(""), Power(5), Life(4), Power(3), Life(2), _T("Afflicted Deserter"))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+	CCreatureTypeModifier* pModifier1 = new CCreatureTypeModifier(SingleCreatureType::Human, TRUE);	
+
+	AddCreatureModifier(pModifier1);	
+
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredAbility<>, CSpecialTrigger > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::Artifact, false));
+
+		cpAbility->GetTrigger().SetTriggerIndex(TRANSFORM_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CWerewolfRansackerCard::SetTriggerContext3));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CWerewolfRansackerCard::BeforeResolution));
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+
+	{
+		typedef TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged> TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CWerewolfRansackerCard::SetTriggerContext1));
+
+		cpAbility->GetResolutionModifier().CCardModifiers::Add(new CFaceTransformModifier);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged> TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CWerewolfRansackerCard::SetTriggerContext2));
+
+		cpAbility->GetResolutionModifier().CCardModifiers::Add(new CFaceTransformModifier);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CWerewolfRansackerCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return (GetOrientation()->IsSecondFaced() && GetGame()->GetLastTurnCastedSpellCount() == 0);
+}
+
+bool CWerewolfRansackerCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	if (GetOrientation()->IsSecondFaced()) return false;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (GetGame()->GetPlayer(ip)->GetLastTurnCastedSpellCount() >= 2)
+			return true;
+
+	return false;
+}
+
+bool CWerewolfRansackerCard::SetTriggerContext3(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+												CCard* pCard, int pId) const
+{
+	if (GetZoneId() != ZoneId::Battlefield) return false;
+	return GetOrientation()->IsSecondFaced() == FALSE;
+}
+
+bool CWerewolfRansackerCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCard* pTarget = pAction->GetAssociatedCard();
+	CPlayer* pTargetController = pTarget->GetController();
+
+	int nBefore = GetGame()->GetCertainTypeDiedCount(CardType::Artifact);
+	BOOL bTotemArmor = pTarget->GetCardKeyword()->HasTotemArmor();
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy, pAction->GetController());
+	pModifier1.ApplyTo(pTarget);
+	
+	if (!bTotemArmor)
+	{
+		int nAfter = GetGame()->GetCertainTypeDiedCount(CardType::Artifact);
+
+		if (nAfter > nBefore)
+		{
+			CLifeModifier pModifier2 = CLifeModifier(Life(-3), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+			pModifier2.ApplyTo(pTargetController);
+		}
+	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CLoyalCatharCard::CLoyalCatharCard(CGame* pGame, UINT nID)
+	: CDoubleFacedCreatureCard(pGame, _T("Loyal Cathar"), CardType::Creature, CREATURE_TYPE2(Human, Soldier), nID,
+		WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(2), Life(2), Power(2), Life(1), _T("Unhallowed Cathar"))
+	, bDyingAsHimself(TRUE)
+{
+	GetCreatureKeyword()->AddVigilance(FALSE);
+
+	CCreatureTypeModifier* pModifier1 = new CCreatureTypeModifier(SingleCreatureType::Human, FALSE);
+	CCreatureTypeModifier* pModifier2 = new CCreatureTypeModifier(SingleCreatureType::Zombie, TRUE);
+	CCreatureKeywordModifier* pModifier3 = new CCreatureKeywordModifier();
+		pModifier3->GetModifier().SetToAdd(CreatureKeyword::CantBlock);
+		pModifier3->GetModifier().SetToRemove(CreatureKeyword::Vigilance);
+		pModifier3->GetModifier().SetOneTurnOnly(FALSE);
+	CCardTypeModifier* pModifier4 = new CCardTypeModifier(CardType::Black, FALSE, CardType::White);
+
+	AddCreatureModifier(pModifier1);
+	AddCreatureModifier(pModifier2);
+	AddCreatureModifier(pModifier3);
+	AddCardModifier(pModifier4);
+
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLoyalCatharCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CLoyalCatharCard::BeforeResolveSelection));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Battlefield));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLoyalCatharCard::SetTriggerContextAux1));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CSpecialTrigger > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->GetTrigger().SetTriggerIndex(TRANSFORM_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLoyalCatharCard::SetTriggerContextAux2));
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CLoyalCatharCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	return bDyingAsHimself == TRUE;
+}
+
+bool CLoyalCatharCard::BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInGraveyard())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Loyal Cathar Effect"), 61074, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+bool CLoyalCatharCard::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (GetOrientation()->IsSecondFaced())
+		bDyingAsHimself = FALSE;
+	else
+		bDyingAsHimself = TRUE;
+
+	return false;
+}
+
+bool CLoyalCatharCard::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+												CCard* pCard, int pId)
+{
+	if (GetZoneId() != ZoneId::Battlefield) return false;
+
+	if (GetOrientation()->IsSecondFaced())
+		bDyingAsHimself = FALSE;
+	else
+		bDyingAsHimself = TRUE;
+
+	return false;
+}
+
+
+//____________________________________________________________________________
+//
+CUnhallowedCatharCard::CUnhallowedCatharCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Unhallowed Cathar"), CardType::Creature, CREATURE_TYPE2(Zombie, Soldier), nID,
+		_T(""), Power(2), Life(1))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddCantBlock(FALSE);
+}
+
+//____________________________________________________________________________
+//
+CChaliceOfLifeCard::CChaliceOfLifeCard(CGame* pGame, UINT nID)
+	: CDoubleFacedInPlaySpellCard(pGame, _T("Chalice of Life"), CardType::Artifact, nID,
+		_T("3"), _T("Chalice of Death"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CChaliceOfLifeCard::OnResolutionCompleted))
+{
+	{
+		counted_ptr<CActivatedAbility<CChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CChgLifeSpell>>(this,
+				_T(""),
+				Life(+1), PreventableType::NotPreventable));
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+				::CreateObject<CPlayableIfTrait>(
+					m_pUntapAbility,
+					CPlayableIfTrait::PlayableCallback(this,
+					&CChaliceOfLifeCard::CanPlayFirstFace)));
+		cpAbility->Add(cpTrait.GetPointer());
+
+		cpAbility->AddTapCost();
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
+				_T(""),
+				FALSE_CARD_COMPARER, TRUE,
+				Life(-5), PreventableType::NotPreventable));
+
+		cpAbility->AddTapCost();
+
+		cpAbility->SetDamageType(DamageType::NotDealingDamage);
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+				::CreateObject<CPlayableIfTrait>(
+					m_pUntapAbility,
+					CPlayableIfTrait::PlayableCallback(this,
+					&CChaliceOfLifeCard::CanPlaySecondFace)));
+		cpAbility->Add(cpTrait.GetPointer());
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+void CChaliceOfLifeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CPlayer* pController = pAbilityAction->GetController();
+
+	if (pController->GetLife() - pController->GetStartingLife() >= Life(10))
+	{
+		CFaceTransformModifier pModifier = CFaceTransformModifier();
+		pModifier.ApplyTo(this);
+	}
+}
+
+//____________________________________________________________________________
+//
+CChaliceOfDeathCard::CChaliceOfDeathCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Chalice of Death"), CardType::Artifact, nID,
+		_T(""), AbilityType::Artifact)
+{
+	counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
+			_T(""),
+			FALSE_CARD_COMPARER, TRUE,
+			Life(-5), PreventableType::NotPreventable));
+
+	cpAbility->AddTapCost();
+
+	cpAbility->SetDamageType(DamageType::NotDealingDamage);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CFaithsShieldCard::CFaithsShieldCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Faith's Shield"), CardType::Instant, nID)
+	, m_ColorSelection(pGame,CSelectionSupport::SelectionCallback(this, &CFaithsShieldCard::OnColorSelected))
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant, 
+			WHITE_MANA_TEXT,
+			new TrueCardComparer, false));
+
+	cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFaithsShieldCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CFaithsShieldCard::BeforeResolution(CAbilityAction* pAction)
+{
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 1;
+		selectionEntry.strText.Format(_T("white"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 2;
+		selectionEntry.strText.Format(_T("blue"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 3;
+		selectionEntry.strText.Format(_T("black"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 4;
+		selectionEntry.strText.Format(_T("red"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 5;
+		selectionEntry.strText.Format(_T("green"));
+
+		entries.push_back(selectionEntry);
+	}
+	
+	m_ColorSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController(), (DWORD)pAction->GetAssociatedCard());
+
+	return true;
+}
+
+void CFaithsShieldCard::OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	int nPermanents = 0;
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 1)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects white"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CCardKeywordModifier* pModifier1 = new CCardKeywordModifier(CardKeyword::ProtectionFromWhite, TRUE);
+
+				if (pSelectionPlayer->GetLife() > Life(5))
+					pModifier1->ApplyTo((CCard*)dwContext1);
+				else
+				{
+					CPlayerEffectModifier* pModifier2 = new CPlayerEffectModifier(PlayerEffectType::Protection, (DWORD)CCardFilter::GetFilter(_T("white cards")));
+					CScheduledPlayerModifier* pModifier3 = new CScheduledPlayerModifier(
+						GetGame(), pModifier2, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+					CZoneCardModifier pModifier4 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("cards")),
+						std::auto_ptr<CCardModifier>(pModifier1));
+
+					pModifier2->ApplyTo(pSelectionPlayer);
+					pModifier3->ApplyTo(pSelectionPlayer);
+					pModifier4.ApplyTo(pSelectionPlayer);
+				}
+
+				return;
+			}
+			
+			if ((int)it->dwContext == 2)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects blue"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CCardKeywordModifier* pModifier1 = new CCardKeywordModifier(CardKeyword::ProtectionFromBlue, TRUE);
+
+				if (pSelectionPlayer->GetLife() > Life(5))
+					pModifier1->ApplyTo((CCard*)dwContext1);
+				else
+				{
+					CPlayerEffectModifier* pModifier2 = new CPlayerEffectModifier(PlayerEffectType::Protection, (DWORD)CCardFilter::GetFilter(_T("blue cards")));
+					CScheduledPlayerModifier* pModifier3 = new CScheduledPlayerModifier(
+						GetGame(), pModifier2, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+					CZoneCardModifier pModifier4 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("cards")),
+						std::auto_ptr<CCardModifier>(pModifier1));
+
+					pModifier2->ApplyTo(pSelectionPlayer);
+					pModifier3->ApplyTo(pSelectionPlayer);
+					pModifier4.ApplyTo(pSelectionPlayer);
+				}
+
+				return;
+			}
+
+			if ((int)it->dwContext == 3)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects black"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CCardKeywordModifier* pModifier1 = new CCardKeywordModifier(CardKeyword::ProtectionFromBlack, TRUE);
+
+				if (pSelectionPlayer->GetLife() > Life(5))
+					pModifier1->ApplyTo((CCard*)dwContext1);
+				else
+				{
+					CPlayerEffectModifier* pModifier2 = new CPlayerEffectModifier(PlayerEffectType::Protection, (DWORD)CCardFilter::GetFilter(_T("black cards")));
+					CScheduledPlayerModifier* pModifier3 = new CScheduledPlayerModifier(
+						GetGame(), pModifier2, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+					CZoneCardModifier pModifier4 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("cards")),
+						std::auto_ptr<CCardModifier>(pModifier1));
+
+					pModifier2->ApplyTo(pSelectionPlayer);
+					pModifier3->ApplyTo(pSelectionPlayer);
+					pModifier4.ApplyTo(pSelectionPlayer);
+				}
+
+				return;
+			}
+
+			if ((int)it->dwContext == 4)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects red"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CCardKeywordModifier* pModifier1 = new CCardKeywordModifier(CardKeyword::ProtectionFromRed, TRUE);
+
+				if (pSelectionPlayer->GetLife() > Life(5))
+					pModifier1->ApplyTo((CCard*)dwContext1);
+				else
+				{
+					CPlayerEffectModifier* pModifier2 = new CPlayerEffectModifier(PlayerEffectType::Protection, (DWORD)CCardFilter::GetFilter(_T("red cards")));
+					CScheduledPlayerModifier* pModifier3 = new CScheduledPlayerModifier(
+						GetGame(), pModifier2, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+					CZoneCardModifier pModifier4 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("cards")),
+						std::auto_ptr<CCardModifier>(pModifier1));
+
+					pModifier2->ApplyTo(pSelectionPlayer);
+					pModifier3->ApplyTo(pSelectionPlayer);
+					pModifier4.ApplyTo(pSelectionPlayer);
+				}
+
+				return;
+			}
+
+			if ((int)it->dwContext == 5)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects green"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CCardKeywordModifier* pModifier1 = new CCardKeywordModifier(CardKeyword::ProtectionFromGreen, TRUE);
+
+				if (pSelectionPlayer->GetLife() > Life(5))
+					pModifier1->ApplyTo((CCard*)dwContext1);
+				else
+				{
+					CPlayerEffectModifier* pModifier2 = new CPlayerEffectModifier(PlayerEffectType::Protection, (DWORD)CCardFilter::GetFilter(_T("green cards")));
+					CScheduledPlayerModifier* pModifier3 = new CScheduledPlayerModifier(
+						GetGame(), pModifier2, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
+					CZoneCardModifier pModifier4 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("cards")),
+						std::auto_ptr<CCardModifier>(pModifier1));
+
+					pModifier2->ApplyTo(pSelectionPlayer);
+					pModifier3->ApplyTo(pSelectionPlayer);
+					pModifier4.ApplyTo(pSelectionPlayer);
+				}
+
+				return;
+			}
+		}
+}
+
+//____________________________________________________________________________
+//
+CSeanceCard::CSeanceCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Seance"), CardType::GlobalEnchantment, nID,
+		_T("2") WHITE_MANA_TEXT WHITE_MANA_TEXT, AbilityType::Enchantment)
+{
+	typedef
+		TTriggeredTargetAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(
+		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
+
+	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTargeting().SetIncludeControllerCardsOnly();
+	cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Graveyard);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSeanceCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Exile));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CSeanceCard::BeforeResolution (CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+	CCard* pTarget = pAction->GetAssociatedCard();
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Exile, true, MoveType::Others, pController);
+	pModifier1.ApplyTo(pTarget);
+
+	CCountedCardContainer pTokens;
+
+	CCardCopyModifier pModifier2 = CCardCopyModifier(GetGame(), pTarget, NULL, NULL, &pTokens, ZoneId::_Tokens);
+	pModifier2.ApplyTo(pTarget);
+
+	CCreatureTypeModifier pModifier3 = CCreatureTypeModifier(SingleCreatureType::Spirit);
+	CMoveCardModifier pModifier4 = CMoveCardModifier(ZoneId::_Tokens, ZoneId::Battlefield, true, MoveType::Others, pController);
+
+	for (int i = 0; i < pTokens.GetSize(); ++i)
+	{
+		pModifier3.ApplyTo((CCreatureCard*)pTokens.GetAt(i));
+		pModifier4.ApplyTo(pTokens.GetAt(i));
+	}
+
+	CContainerEffectModifier pModifier5 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier5.ApplyTo(pController);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CSuddenDisappearanceCard::CSuddenDisappearanceCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Sudden Disappearance"), CardType::Sorcery, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+			_T("5") WHITE_MANA_TEXT,
+			FALSE_CARD_COMPARER, true));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSuddenDisappearanceCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CSuddenDisappearanceCard::BeforeResolution(CAbilityAction* pAction) const
+{	
+	CPlayer* pController = pAction->GetController();
+	CPlayer* pPlayer = pAction->GetAssociatedPlayer();
+	CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, true, MoveType::Others, pController);
+	CCountedCardContainer pSubjects;
+
+	for (int i = pBattlefield->GetSize() - 1; i >= 0; --i)
+	{
+		CCard* pCard = pBattlefield->GetAt(i);
+		if (!pCard->GetCardType().IsLand())
+		{
+			pModifier1.ApplyTo(pCard);
+			if (pCard->GetZoneId() == ZoneId::Exile)
+				pSubjects.AddCard(pCard, CardPlacement::Top);
+		}
+	}
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier2.ApplyTo(pController);
+
+	return true;
 }
 
 //____________________________________________________________________________

@@ -379,7 +379,8 @@ BEGIN
 	IDS_STRING21337         "Hoarding Dragon\n{3RR}\nCreature - Dragon\nM11,R\nFlying\rWhen Hoarding Dragon enters the battlefield, you may search your library for an artifact card, exile it, then shuffle your library.\rWhen Hoarding Dragon dies, you may put the exiled card into its owner's hand.\n4/4"
 	IDS_STRING21338         "Merfolk Spy\n{U}\nCreature - Merfolk Rogue\nM11,C\nIslandwalk\rWhenever Merfolk Spy deals combat damage to a player, that player reveals a card at random from his or her hand.\n1/1"
     IDS_STRING21339         "Protean Hydra\n{XG}\nCreature - Hydra\nM11,R\nProtean Hydra enters the battlefield with X +1/+1 counters on it.\rIf damage would be dealt to Protean Hydra, prevent that damage and remove that many +1/+1 counters from it.\rWhenever a +1/+1 counter is removed from Protean Hydra, put two +1/+1 counters on it at the beginning of the next end step.\n0/0"
-    IDS_STRING21340         "Autumn's Veil\n{G}\nInstant\nM11,U\nSpells you control can't be countered by blue or black spells this turn, and creatures you control can't be the targets of blue or black spells this turn."
+    IDS_STRING21340         "Mystifying Maze\n\nLand\nM11,R\n{T}: Add {1} to your mana pool.\r{4}, {T}: Exile target attacking creature an opponent controls. At the beginning of the next end step, return it to the battlefield tapped under its owner's control."
+//    IDS_STRING21340         "Autumn's Veil\n{G}\nInstant\nM11,U\nSpells you control can't be countered by blue or black spells this turn, and creatures you control can't be the targets of blue or black spells this turn."
 END
 
 #endif    // English (United States) resources

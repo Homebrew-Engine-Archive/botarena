@@ -96,6 +96,9 @@ class CMentalMisstepCard : public CCounterSpellCard
 class CMindcullingCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMindcullingCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1293,6 +1296,121 @@ protected:
 
 	CSelectionSupport m_CardSelection;
 	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CInquisitorExarchCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CInquisitorExarchCard);
+
+protected:
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+
+	BOOL TargetCheckPlayer(CPlayer* pPlayer);
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType);
+};
+
+//____________________________________________________________________________
+//
+class CTormentorExarchCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CTormentorExarchCard);
+
+protected:
+	void OnModeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ModeSelection;
+
+	BOOL TargetCheck(CCard* pCard);
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType);
+};
+
+//____________________________________________________________________________
+//
+class CParasiticImplantCard : public CEnchantCard
+{
+	DECLARE_CARD_CSTOR(CParasiticImplantCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool CParasiticImplantCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CReaperOfSheoldredCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CReaperOfSheoldredCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenDamageDealt,
+								  CWhenDamageDealt::CreatureEventCallback,
+								  &CWhenDamageDealt::SetCreatureEventCallback > TriggeredAbility;
+
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+/*
+class CChancellorOfTheAnnexCard : public CChancellorCreatureCard
+{
+	DECLARE_CARD_CSTOR(CChancellorOfTheAnnexCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredAllCounterSpellAbility::TriggerContextType& triggerContext, CCard* pCard);
+};
+*/
+//____________________________________________________________________________
+//
+class CGremlinMineCard : public CInPlaySpellCard 
+{
+	DECLARE_CARD_CSTOR(CGremlinMineCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_NumberSelection;
+	void OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CWhisperingSpecterCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CWhisperingSpecterCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt, 
+							CWhenSelfDamageDealt::PlayerEventCallback, 
+							&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+
+    CCardFilter m_CardFilter;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+		CPlayer* pPlayer, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CPostmortemLungeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CPostmortemLungeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

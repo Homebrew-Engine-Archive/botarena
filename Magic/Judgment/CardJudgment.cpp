@@ -287,7 +287,7 @@ CCrushOfWurmsCard::CCrushOfWurmsCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("6") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT,
-				_T("Wurm B"), 2767,
+				_T("Wurm G"), 2957,
 				3));
 
 		AddSpell(cpSpell.GetPointer());
@@ -297,7 +297,7 @@ CCrushOfWurmsCard::CCrushOfWurmsCard(CGame* pGame, UINT nID)
 		counted_ptr<CTokenProductionSpell> cpSpell(
 			::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 				_T("9") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT,
-				_T("Wurm B"), 2767,
+				_T("Wurm G"), 2957,
 				3));
 		
 		cpSpell->SetAbilityName(_T("Flashback"));
@@ -976,7 +976,7 @@ CSpiritCairnCard::CSpiritCairnCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Spirit D"), 2752, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Spirit H"), 2942, 1);
 
 	cpAbility->SetResolutionCost(WHITE_MANA_TEXT);
 
@@ -1948,30 +1948,12 @@ CAnuridBrushhopperCard::CAnuridBrushhopperCard(CGame* pGame, UINT nID)
 
 void CAnuridBrushhopperCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target = (CCard*)this;
-	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
-	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
-	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
+	CCountedCardContainer pSubjects;
+	if (GetZoneId() == ZoneId::Exile)
+		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
-	m_CardFlagModifier1.ApplyTo(target);
-
-	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
-	pComparer->SetData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-
-	//CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.SetComparer(new TrueCardComparer);
-	m_CardFilter_temp.AddComparer(pComparer);
-
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Exile, &m_CardFilter_temp,
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, TRUE, MoveType::Others)));
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame() , pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-
-	pModifier2->ApplyTo(target->GetOwner());
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2023,7 +2005,7 @@ CFuneralPyreCard::CFuneralPyreCard(CGame* pGame, UINT nID)
 				ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others));
 
 		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Spirit D"), 2752, 1));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Spirit H"), 2942, 1));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -2035,7 +2017,7 @@ CFuneralPyreCard::CFuneralPyreCard(CGame* pGame, UINT nID)
 				ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others));
 
 		cpSpell->GetTargeting()->SetIncludeNonControllerCardsOnly();
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Spirit D"), 2752, 1, TRUE));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Spirit H"), 2942, 1, TRUE));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -3261,15 +3243,8 @@ bool CFirecatBlitzCard::BeforeResolution1(CAbilityAction* pAction) const
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Elemental Cat"), 2937, nValue, false, ZoneId::Battlefield, &pTokens);
 	pModifier1.ApplyTo(pAction->GetController());
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(GetGame(),
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater);
-
-	for (int i = 0; i < pTokens.GetSize(); ++i)
-		pModifier2->ApplyTo(pTokens.GetAt(i));
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier2.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -3283,15 +3258,8 @@ bool CFirecatBlitzCard::BeforeResolution2(CAbilityAction* pAction) const
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Elemental Cat"), 2937, nValue, false, ZoneId::Battlefield, &pTokens);
 	pModifier1.ApplyTo(pAction->GetController());
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(GetGame(),
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others),
-				TurnNumberDelta(-1),
-				NodeId::EndStep,
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater);
-
-	for (int i = 0; i < pTokens.GetSize(); ++i)
-		pModifier2->ApplyTo(pTokens.GetAt(i));
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Exile Effect"), 61061, &pTokens);
+	pModifier2.ApplyTo(pAction->GetController());
 
 	return true;
 }

@@ -157,6 +157,10 @@ class CNaturesWrathCard : public CInPlaySpellCard
 class CIvoryGargoyleCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CIvoryGargoyleCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -164,6 +168,10 @@ class CIvoryGargoyleCard : public CFlyingCreatureCard
 class CVarchildsCrusaderCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVarchildsCrusaderCard);
+
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -825,6 +833,21 @@ class CHelmOfObedienceCard : public CInPlaySpellCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CPhantasmalSphereCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CPhantasmalSphereCard);
+
+protected:
+	typedef
+			TTriggeredAbility< CTriggeredAbility<>,  CSpecialTrigger  > TriggeredAbility;
+		TriggeredAbility* m_pTriggeredAbility;
+	
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool BeforeResolution2(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

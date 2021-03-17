@@ -224,6 +224,10 @@ class CWalkingWallCard : public CPumpCreatureCard
 class CCelestialSwordCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CCelestialSwordCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -481,6 +485,10 @@ class CElementalAuguryCard : public CInPlaySpellCard
 class CKrovikanElementalistCard : public CCreatureCard
 {
     DECLARE_CARD_CSTOR(CKrovikanElementalistCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -616,6 +624,13 @@ class CFieryJusticeCard : public CTargetChgLifeSpellCard
 class CGoblinSappersCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGoblinSappersCard);
+
+protected:
+	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
+
+	void OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener2;
 };
 
 //____________________________________________________________________________
@@ -691,6 +706,9 @@ class CGoblinSkiPatrolCard : public CCreatureCard
 protected:
 	BOOL CanPlay(BOOL bIncludeTricks);
     CCardFilter m_CardFilter;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1579,4 +1597,72 @@ protected:
 };
 
 //______________________________________________________________________________
+//
+class CNorrittCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNorrittCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution (CAbilityAction* pAction);
+
+	class CNorrittTargeting : public CTargeting
+	{
+	public:
+		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+	};
+};
+
+//____________________________________________________________________________
+//
+/*
+class CBattleCryCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBattleCryCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+*/
+//____________________________________________________________________________
+//
+class CKjeldoranEliteGuardCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKjeldoranEliteGuardCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CKjeldoranGuardCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKjeldoranGuardCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CPhantasmalMountCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CPhantasmalMountCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
 //

@@ -389,19 +389,12 @@ class CAnathemancerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAnathemancerCard);
 
-/*public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-*/
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-							CNode* pToNode) const;
-
 protected:
-	CCardFilter m_CardFilter;
 	typedef 
 		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
 								 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool BeforeResolution1(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool BeforeResolution2(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -430,8 +423,8 @@ class CEtheriumAbominationCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CEtheriumAbominationCard);
 
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -440,8 +433,8 @@ class CKathariBomberCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CKathariBomberCard);
 
-private:
-	bool SetTriggerContextU(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -648,6 +641,10 @@ class CSoulquakeCard : public CCard
 class CSlaveOfBolasCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSlaveOfBolasCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -698,50 +695,16 @@ class CFinestHourCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CFinestHourCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
 		CCreatureCard* pCreature,
 		AttackSubject attacked) const;	
+	bool SetTriggerContext2(CTriggeredTapCardAbility::TriggerContextType& triggerContext, 
+										CCreatureCard* pCreature,
+										AttackSubject attacked) const;
 
-protected:
-	typedef 
-		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenAttackedBlocked,
-							CWhenAttackedBlocked::PlayerEventCallback, &CWhenAttackedBlocked::SetAttackingAloneEventCallback> TriggeredAbility2;
-	bool BeforeResolution(TriggeredAbility2::TriggeredActionType* pAction);
-
-	class TriggeredAbility :
-		public TTriggeredAbility< CTriggeredAbility<>, 
-		CWhenAttackedBlocked,
-		CWhenAttackedBlocked::PlayerEventCallback,
-		&CWhenAttackedBlocked::SetAttackingAloneEventCallback > 
-	{
-		DEFINE_CREATE_TO_CPTR_ONLY;
-
-	protected:
-		TriggeredAbility(CCard* pCard)
-			: TTriggeredAbility(pCard)
-		{ 
-		}
-
-		OVERRIDE(BOOL, ResolveSelection)(CPlayer* pPlayer, CTriggeredAction* pAction) 
-		{
-			if (!__super::ResolveSelection(pPlayer, pAction))
-				return FALSE;
-
-			counted_ptr<CActivatedAbility<CExtraCombatSpell>>
-				cpAbility(CreateResolutionAbility<CActivatedAbility<CExtraCombatSpell>>(
-				pPlayer, 
-				false, 1, true));
-
-
-			std::auto_ptr<CActionContainer> apActions(cpAbility->GetAbilityActions(TRUE, FALSE));
-			if (!apActions->GetSize())
-				return FALSE;
-		
-			return cpAbility->Resolve((CAbilityAction*)(apActions->GetAt(0).GetPointer()));
-		//	return cpAbility->Resolve(apActions->GetAt(0).GetPointer());
-		}
-	};
+	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
 
 //_____________________________________________________________________________
@@ -1249,5 +1212,16 @@ protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
+//____________________________________________________________________________
+//
+class CPredatoryAdvantageCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CPredatoryAdvantageCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+	
 //____________________________________________________________________________
 //

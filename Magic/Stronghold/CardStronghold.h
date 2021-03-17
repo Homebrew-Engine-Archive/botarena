@@ -192,8 +192,14 @@ class CWallOfTearsCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CWallOfTearsCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 							CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -253,6 +259,10 @@ class CBottomlessPitCard : public CInPlaySpellCard
 class CBurgeoningCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CBurgeoningCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+										 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 };
 
 //____________________________________________________________________________
@@ -493,8 +503,13 @@ class CLowlandBasiliskCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CLowlandBasiliskCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 							CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -776,6 +791,60 @@ protected:
 
 	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
 	CManaCost	m_BuybackCost;
+};
+
+//____________________________________________________________________________
+//
+class CMoggInfestationCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CMoggInfestationCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CVolrathsLaboratoryCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CVolrathsLaboratoryCard);
+
+protected:
+	VIRTUAL(void, OnColorSelected)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ColorSelection;
+
+	VIRTUAL(void, OnCreatureTypeSelected)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_CreatureTypeSelection;
+	
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	bool cWhite;
+	bool cBlue;
+	bool cBlack;
+	bool cRed;
+	bool cGreen;
+
+	SingleCreatureType SelectedType;
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CContemptCard : public CEnchantCard
+{
+	DECLARE_CARD_CSTOR(CContemptCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenAttackedBlocked,
+							CWhenAttackedBlocked::PlayerEventCallback, &CWhenAttackedBlocked::SetAttackingEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+										 CCreatureCard* pCreature,
+										 AttackSubject attacked) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________

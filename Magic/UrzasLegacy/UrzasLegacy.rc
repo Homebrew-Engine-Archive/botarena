@@ -237,6 +237,12 @@ BEGIN
     IDS_STRING11327         "Last-Ditch Effort\n{R}\nInstant\nULG,U\nSacrifice any number of creatures. Last-Ditch Effort deals that much damage to target creature or player."
 END
 
+STRINGTABLE
+BEGIN
+    IDS_STRING11328         "Angel's Trumpet\n{3}\nArtifact\nULG,U\nAll creatures have vigilance.\rAt the beginning of each player's end step, tap all untapped creatures that player controls that didn't attack this turn. Angel's Trumpet deals damage to the player equal to the number of creatures tapped this way."
+    IDS_STRING11329         "Memory Jar\n{5}\nArtifact\nULG,R\n{T}, Sacrifice Memory Jar: Each player exiles all cards from his or her hand face down and draws seven cards. At the beginning of the next end step, each player discards his or her hand and returns to his or her hand each card he or she exiled this way."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -245,7 +246,10 @@ BEGIN
     IDS_STRING17832         "Shimian Specter\n{2BB}\nCreature - Specter\nFUT,R\nFlying\rWhenever Shimian Specter deals combat damage to a player, that player reveals his or her hand. You choose a nonland card from it. Search that player's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library.\n2/2"
     IDS_STRING17833         "Cloud Key\n{3}\nArtifact\nFUT,R\nFlying\rAs Cloud Key enters the battlefield, choose artifact, creature, enchantment, instant, or sorcery.\rSpells you cast of the chosen type cost {1} less to cast."
     IDS_STRING17834         "Phosphorescent Feast\n{2GGG}\nSorcery\nFUT,U\nChroma - Reveal any number of cards in your hand. You gain 2 life for each green mana symbol in those cards' mana costs."
-    IDS_STRING17835         "Centaur Omenreader\n{3G}\nSnow Creature - Centaur Shaman\nFUT,U\nAs long as Centaur Omenreader is tapped, creature spells you cast cost {2} less to cast.\n3/3"
+    IDS_STRING17835         "Quiet Disrepair\n{1G}\nEnchanment - Aura\nFUT,C\nEnchant artifact or enchantment\rAt the beginning of your upkeep, choose one - Destroy enchanted permanent; or you gain 2 life."
+    IDS_STRING17836         "Bitter Ordeal\n{2B}\nSorcery\nFUT,R\nSearch target player's library for a card and exile it. Then that player shuffles his or her library.\rGravestorm"
+    IDS_STRING17837         "Seht's Tiger\n{2WW}\nCreature - Cat\nFUT,R\nFlash\rWhen Seht's Tiger enters the battlefield, you gain protection from the color of your choice until end of turn.\n3/3"
+    //IDS_STRING17835         "Centaur Omenreader\n{3G}\nSnow Creature - Centaur Shaman\nFUT,U\nAs long as Centaur Omenreader is tapped, creature spells you cast cost {2} less to cast.\n3/3"
 END
 
 #endif    // English (United States) resources
@@ -258,7 +262,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

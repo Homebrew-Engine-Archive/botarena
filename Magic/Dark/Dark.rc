@@ -176,7 +176,11 @@ END
 STRINGTABLE
 BEGIN
 	IDS_STRING5776          "Necropolis\n{5}\nArtifact Creature - Wall\nDRK,U\nDefender\rExile a creature card from your graveyard: Put X +0/+1 counters on Necropolis, where X is the exiled card's converted mana cost.\n0/1"
-    //IDS_STRING5776          "Goblin Rock Sled\n{1R}\nCreature - Goblin\nDRK,C\nTrample\rGoblin Rock Sled doesn't untap during your untap step if it attacked during your last turn.\rGoblin Rock Sled can't attack unless defending player controls a Mountain.\n3/1"
+	IDS_STRING5777          "Nameless Race\n{3B}\nCreature\nDRK,R\nTrample\rAs Nameless Race enters the battlefield, pay any amount of life. The amount you pay can't be more than the total number of white nontoken permanents your opponents control plus the total number of white cards in their graveyards.\rNameless Race's power and toughness are each equal to the life paid as it entered the battlefield.\n*/*"
+	IDS_STRING5778          "Goblin Rock Sled\n{1R}\nCreature - Goblin\nDRK,C\nTrample\rGoblin Rock Sled doesn't untap during your untap step if it attacked during your last turn.\rGoblin Rock Sled can't attack unless defending player controls a Mountain.\n3/1"
+	IDS_STRING5779          "The Fallen\n{1BBB}\nCreature - Zombie\nDRK,U\nAt the beginning of your upkeep, The Fallen deals 1 damage to each opponent it has dealt damage to this game.\n2/3"
+	IDS_STRING5780          "War Barge\n{4}\nArtifact\nDRK,U\n{3}: Target creature gains islandwalk until end of turn. When War Barge leaves the battlefield this turn, destroy that creature. A creature destroyed this way can't be regenerated."
+	IDS_STRING5781          "Runesword\n{6}\nArtifact\nDRK,U\n{3}, {T}: Target attacking creature gets +2/+0 until end of turn. When that creature leaves the battlefield this turn, sacrifice Runesword. If the creature deals damage to a creature this turn, the creature dealt damage can't be regenerated this turn. If a creature dealt damage by the targeted creature would die this turn, exile that creature instead."
 END
 
 #endif    // English (United States) resources

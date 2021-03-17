@@ -156,6 +156,7 @@
 #define IDS_STRING6837                  6837
 #define IDS_STRING6838                  6838
 #define IDS_STRING6839                  6839
+#define IDS_STRING6840                  6840
 #define IDI_MODULE                      6899
 #define IDI_LARGE_MODULE                6900
 

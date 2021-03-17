@@ -238,6 +238,9 @@ class CCavernCrawlerCard : public CPumpCreatureCard
 class CCeremonialGuardCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCeremonialGuardCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -756,9 +759,15 @@ class CVenomousDragonflyCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVenomousDragonflyCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-											  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -847,6 +856,10 @@ class CPowerMatrixCard : public CInPlaySpellCard
 class CPufferExtractCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CPufferExtractCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1988,6 +2001,36 @@ class CToymakerCard : public CCreatureCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CCragSaurianCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCragSaurianCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenDamageDealt,
+								  CWhenDamageDealt::CreatureEventCallback,
+								  &CWhenDamageDealt::SetCreatureEventCallback > TriggeredAbility;
+
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritualFocusCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CSpiritualFocusCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution (CAbilityAction* pAction);
+
+	CSelectionSupport m_DrawSelection;
+	void OnDrawSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

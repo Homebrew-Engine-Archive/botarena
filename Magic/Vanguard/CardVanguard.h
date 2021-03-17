@@ -195,12 +195,97 @@ protected:
 
 //____________________________________________________________________________
 //
-class CArcanisTheOmnipotentAvatarCard : public CVanguardCard 
+class CProdigalSorcererAvatarCard : public CVanguardCard 
 {
-	DECLARE_CARD_CSTOR(CArcanisTheOmnipotentAvatarCard);
+	DECLARE_CARD_CSTOR(CProdigalSorcererAvatarCard);
 
 protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const	;
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CSliverQueenBroodMotherCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CSliverQueenBroodMotherCard);
+};
+
+//____________________________________________________________________________
+//
+class CSliverQueenAvatarCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CSliverQueenAvatarCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSpellCastAny > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CReaperKingAvatarCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CReaperKingAvatarCard);
+};
+
+//____________________________________________________________________________
+//
+class CStonehewerGiantAvatarCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CStonehewerGiantAvatarCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CErhnamDjinnAvatarCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CErhnamDjinnAvatarCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
+											CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+class CAkromaAngelOfWrathAvatarCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CAkromaAngelOfWrathAvatarCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CMalfegorAvatarCard : public CVanguardCard 
+{
+	DECLARE_CARD_CSTOR(CMalfegorAvatarCard);
+
+protected:
+	bool SetTriggerContext1(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
+							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________

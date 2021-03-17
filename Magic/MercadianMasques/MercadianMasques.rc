@@ -452,6 +452,9 @@ BEGIN
     IDS_STRING11898         "Monkey Cage\n{5}\nArtifact\nMMQ,R\nWhen a creature enters the battlefield, sacrifice Monkey Cage and put X 2/2 green Ape creature tokens onto the battlefield, where X is that creature's converted mana cost."
     IDS_STRING11899         "Karn's Touch\n{UU}\nInstant\nMMQ,R\nTarget noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost until end of turn."
     IDS_STRING11900         "Toymaker\n{2}\nArtifact Creature - Spellshaper\nMMQ,U\n{1}, {T}, Discard a card: Target noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost until end of turn.\n1/1"
+    IDS_STRING11901         "Midnight Ritual\n{X2B}\nSorcery\nMMQ,R\nExile X target creature cards from your graveyard. For each creature card exiled this way, put a 2/2 black Zombie creature token onto the battlefield."
+    IDS_STRING11902         "Crag Saurian\n{RRR}\nCreature - Lizard\nMMQ,R\nWhenever a source deals damage to Crag Saurian, that source's controller gains control of Crag Saurian.\n4/4"
+    IDS_STRING11903         "Spiritual Focus\n{1W}\nEnchantment\nMMQ,R\nWhenever a spell or ability an opponent controls causes you to discard a card, you gain 2 life and you may draw a card."
 END
 
 #endif    // English (United States) resources

@@ -402,6 +402,10 @@ BEGIN
     IDS_STRING14256         "Kamahl, Fist of Krosa\n{4GG}\nLegendary Creature - Human Druid\nONS,R\n{G}: Target land becomes a 1/1 creature until end of turn. It's still a land.\r{2GGG}: Creatures you control get +3/+3 and gain trample until end of turn.\n4/3"
     IDS_STRING14257         "Ixidor's Will\n{2U}\nInstant\nONS,C\nCounter target spell unless its controller pays {2} for each Wizard on the battlefield."
     IDS_STRING14258         "Blatant Thievery\n{4UUU}\nSorcery\nONS,R\nFor each opponent, gain control of target permanent that player controls."
+    IDS_STRING14259         "Aggravated Assault\n{2R}\nEnchantment\nONS,R\n{3RR}: Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING14260         "Riptide Replicator\n{X4}\nArtifact\nONS,R\nAs Riptide Replicator enters the battlefield, choose a color and a creature type.\rRiptide Replicator enters the battlefield with X charge counters on it.\r{4}, {T}: Put an X/X creature token of the chosen color and type onto the battlefield, where X is the number of charge counters on Riptide Replicator."
+    IDS_STRING14261         "Animal Magnetism\n{4G}\nSorcery\nONS,R\nReveal the top five cards of your library. An opponent chooses a creature card from among them. Put that card onto the battlefield and the rest into your graveyard."
+    IDS_STRING14262         "Mana Echoes\n{2RR}\nEnchantment\nONS,R\nWhenever a creature enters the battlefield, you may add {X} to your mana pool, where X is the number of creatures you control that share a creature type with it."
 END
 
 #endif    // English (United States) resources

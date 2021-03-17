@@ -245,6 +245,9 @@
 #define IDS_STRING25626                 25626
 #define IDS_STRING25627                 25627
 #define IDS_STRING25628                 25628
+#define IDS_STRING25629                 25629
+#define IDS_STRING25630                 25630
+#define IDS_STRING25631                 25631
 
 // Next default values for new objects
 // 

@@ -217,6 +217,13 @@ BEGIN
     IDS_STRING14511         "Ward Sliver\n{4W}\nCreature - Sliver\nLGN,U\nAs Ward Sliver enters the battlefield, choose a color.\rAll Slivers have protection from the chosen color.\n2/2"
 END
 
+STRINGTABLE
+BEGIN
+    IDS_STRING14512         "Caller of the Claw\n{2G}\nCreature - Elf\nLGN,R\nFlash\rWhen Caller of the Claw enters the battlefield, put a 2/2 green Bear creature token onto the battlefield for each nontoken creature put into your graveyard from the battlefield this turn.\n2/2"
+    IDS_STRING14513         "Planar Guide\n{2G}\nCreature - Human Cleric\nLGN,R\n{3W}, Exile Planar Guide: Exile all creatures. At the beginning of the next end step, return those cards to the battlefield under their owners' control."
+    IDS_STRING14514         "Skirk Alarmist\n{1R}\nCreature - Human Wizard\nLGN,R\nHaste\r{T}: Turn target face-down creature you control face up. At the beginning of the next end step, sacrifice it.\n1/2"
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

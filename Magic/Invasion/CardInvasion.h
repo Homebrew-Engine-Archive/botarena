@@ -1456,13 +1456,9 @@ class CLiberateCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CLiberateCard);
 
-private:
-	CCardFlagModifier m_CardFlagModifier1;
-	CCardFlagModifier m_CardFlagModifier2;
-	CCardFilter m_CardFilter_temp;
-	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -1766,7 +1762,8 @@ class CBacklashCard : public CCard
 	DECLARE_CARD_CSTOR(CBacklashCard);
 
 protected:
-	bool BeforeResolution1(CAbilityAction* pAction) const;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -2059,6 +2056,70 @@ protected:
 	void Advance(int PlayerID, CCard* pCard, CPlayer* pController);
 	void OnPunisherSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	int_ bSomeonePaid;
+};
+
+//____________________________________________________________________________
+//
+class CPureReflectionCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CPureReflectionCard);
+
+protected:
+	typedef 
+		TTriggeredAbility < CTriggeredAbility<>, CWhenSpellCast,
+								 CWhenSpellCast::EventCallback, &CWhenSpellCast::SetEventCallback > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+							CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+/*
+class CScorchingLavaCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CScorchingLavaCard);
+};
+*/
+//____________________________________________________________________________
+//
+class CScorchingLavaCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CScorchingLavaCard);
+
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+	CManaCost	m_KickerCost;
+};
+
+//____________________________________________________________________________
+//
+class CCauldronDanceCard : public CTargetMoveCardSpellCard
+{
+	DECLARE_CARD_CSTOR(CCauldronDanceCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CSpinalEmbraceCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSpinalEmbraceCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________

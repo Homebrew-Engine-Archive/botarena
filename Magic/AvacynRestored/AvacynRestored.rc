@@ -192,7 +192,7 @@ BEGIN
     IDS_STRING24090         "Devout Chaplain\n{2W}\nCreature - Human Cleric\nAVR,U\n{T}, Tap two untapped Humans you control: Exile target artifact or enchantment.\n2/2"
     IDS_STRING24091         "Goldnight Commander\n{3W}\nCreature - Human Soldier\nAVR,U\nWhenever another creature enters the battlefield under your control, creatures you control get +1/+1 until end of turn.\n2/2"
     IDS_STRING24092         "Holy Justiciar\n{3W}\nCreature - Human Cleric\nAVR,U\n{2W}, {T}: Tap target creature. If that creature is a Zombie, exile it.\n2/1"
-    IDS_STRING24093         "Midnight Duelist\n{W}\nCreature - Human Soldier\nAVR,C\nProtection from Vampires\n2/1"
+    IDS_STRING24093         "Midnight Duelist\n{W}\nCreature - Human Soldier\nAVR,C\nProtection from Vampires\n1/2"
     IDS_STRING24094         "Midvast Protector\n{3W}\nCreature - Human Wizard\nAVR,C\nWhen Midvast Protector enters the battlefield, target creature you control gains protection from the color of your choice until end of turn.\n2/3"
     IDS_STRING24095         "Moonlight Geist\n{2W}\nCreature - Spirit\nAVR,C\nFlying\r{3W}: Prevent all combat damage that would be dealt to and by Moonlight Geist this turn.\n2/1"
 END
@@ -333,6 +333,14 @@ BEGIN
     IDS_STRING24203         "Malignus\n{3RR}\nCreature - Elemental Spirit\nAVR,MR\nMalignus's power and toughness are each equal to half the highest life total among your opponents, rounded up.\rDamage that would be dealt by Malignus can't be prevented.\n*/*"
     IDS_STRING24204         "Descent into Madness\n{3BB}\nEnchantment\nAVR,MR\nAt the beginning of your upkeep, put a despair counter on Descent into Madness, then each player exiles X permanents he or she controls and/or cards from his or her hand, where X is the number of despair counters on Descent into Madness."
     IDS_STRING24205         "Burn at the Stake\n{2RRR}\nSorcery\nAVR,R\nAs an additional cost to cast Burn at the Stake, tap any number of untapped creatures you control.\rBurn at the Stake deals damage to target creature or player equal to three times the number of creatures tapped this way."
+    IDS_STRING24206         "Abundant Growth\n{G}\nEnchantment - Aura\nAVR,C\nEnchant land\rWhen Abundant Growth enters the battlefield, draw a card.\rEnchanted land has ""{T}: Add one mana of any color to your mana pool."""
+    IDS_STRING24207         "Ghostly Flicker\n{2U}\nInstant\nAVR,C\nExile two target artifacts, creatures, and/or lands you control, then return those cards to the battlefield under your control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24208         "Champion of Lambholt\n{1GG}\nCreature - Human Warrior\nAVR,R\nCreatures with power less than Champion of Lambholt's power can't block creatures you control.\rWhenever another creature enters the battlefield under your control, put a +1/+1 counter on Champion of Lambholt.\n1/1"
+    IDS_STRING24209         "Aggravate\n{3RR}\nInstant\nAVR,U\nAggravate deals 1 damage to each creature target player controls. Each creature dealt damage this way attacks this turn if able."
 END
 
 #endif    // English (United States) resources

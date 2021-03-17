@@ -262,6 +262,8 @@
 #define IDS_STRING16645                 16645
 #define IDS_STRING16646                 16646
 #define IDS_STRING16647                 16647
+#define IDS_STRING16648                 16648
+#define IDS_STRING16649                 16649
 #define IDI_MODULE                      16706
 #define IDI_LARGE_MODULE                16707
 

@@ -255,6 +255,7 @@
 #define IDS_STRING21338                 21338
 #define IDS_STRING21339                 21339
 #define IDS_STRING21340                 21340
+#define IDS_STRING21341                 21341
 #define IDI_MODULE                      21349
 #define IDI_LARGE_MODULE                21350
 

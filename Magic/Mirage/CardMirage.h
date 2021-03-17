@@ -88,9 +88,15 @@ class CDreadSpecterCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDreadSpecterCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-	  CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -376,9 +382,15 @@ class CRockBasiliskCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CRockBasiliskCard);
 
-private:
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-	CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+			CWhenSelfAttackedBlocked::BlockEventCallback2,
+			&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -689,6 +701,9 @@ class CSeaScryerCard : public CManaProductionTCreatureCard
 class CTidalWaveCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CTidalWaveCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -777,6 +792,10 @@ class CPurrajOfUrborgCard : public CCreatureCard
 class CPyricSalamanderCard : public CPumpCreatureCard
 {
 	DECLARE_CARD_CSTOR(CPyricSalamanderCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -982,6 +1001,14 @@ class CChariotOfTheSunCard : public CInPlaySpellCard
 class CMangarasBlessingCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMangarasBlessingCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1190,6 +1217,10 @@ protected:
 class CChokingSandsCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CChokingSandsCard);
+
+protected:
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 };
 
 //____________________________________________________________________________
@@ -1386,6 +1417,7 @@ protected:
 class CAleatoryCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CAleatoryCard);
+
 protected:
 	CSelectionSupport m_FlipSelection;
 	BOOL CanPlay(BOOL bIncludeTricks);
@@ -1657,8 +1689,6 @@ class CSoulshriekCard : public CCard
 	DECLARE_CARD_CSTOR(CSoulshriekCard);
 
 protected:
-	CCardFilter m_CardFilter;
-
 	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
@@ -1668,13 +1698,13 @@ class CSandGolemCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSandGolemCard);
 
-public:
-	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Bottom, BOOL can_dredge = TRUE);
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfMoved > TriggeredAbility;
 
-/*private:
-
-	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
-						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;*/
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________
@@ -1710,6 +1740,104 @@ class CDiscordantSpiritCard : public CCreatureCard
 protected:
 	bool BeforeResolution1(CAbilityAction* pAction) const;
 	bool BeforeResolution2(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CReignOfTerrorCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CReignOfTerrorCard);
+
+protected:
+	CSelectionSupport m_ColorSelection;
+	bool BeforeResolution (CAbilityAction* pAction);
+	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CCinderCloudCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CCinderCloudCard);
+
+protected:
+	bool BeforeResolution (CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CKaerveksPurgeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CKaerveksPurgeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	int_ m_nCards;
+	int_ nPower;
+	int_ pTargetController;
+};
+
+//____________________________________________________________________________
+//
+class CAcidicDaggerCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CAcidicDaggerCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CDeliriumCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CDeliriumCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+
+	class CDeliriumTargeting : public CTargeting
+	{
+	public:
+		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+	};
+
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//____________________________________________________________________________
+//
+class CZirilanOfTheClawCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CZirilanOfTheClawCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//______________________________________________________________________________
+//
+class CBasaltGolemCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBasaltGolemCard);
+
+protected:
+	CCardFilter m_CardFilter;
+
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+							CWhenSelfAttackedBlocked::BlockEventCallback, 
+							&CWhenSelfAttackedBlocked::SetBlockedEachTimeEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+											  CCreatureCard* pCreature, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+
 };
 
 //____________________________________________________________________________

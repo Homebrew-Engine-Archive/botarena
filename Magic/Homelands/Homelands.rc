@@ -215,14 +215,20 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING6208          "Carapace\n{G}\nEnchantment - Aura\nHML\nEnchant creature\rEnchanted creature gets +0/+2.\rSacrifice Carapace: Regenerate enchanted creature."
-    IDS_STRING6209          "Carapace\n{G}\nEnchantment - Aura\nHML\nEnchant creature\rEnchanted creature gets +0/+2.\rSacrifice Carapace: Regenerate enchanted creature."
+    IDS_STRING6208          "Carapace\n{G}\nEnchantment - Aura\nHML,C\nEnchant creature\rEnchanted creature gets +0/+2.\rSacrifice Carapace: Regenerate enchanted creature."
+    IDS_STRING6209          "Carapace\n{G}\nEnchantment - Aura\nHML,C\nEnchant creature\rEnchanted creature gets +0/+2.\rSacrifice Carapace: Regenerate enchanted creature."
     IDS_STRING6210          "Roots\n{3G}\nEnchantment - Aura\nHML,U\nEnchant creature without flying\rWhen Roots enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step."
     IDS_STRING6211          "Koskun Falls\n{2BB}\nWorld Enchantment\nHML,R\nAt the beginning of your upkeep, sacrifice Koskun Falls unless you tap an untapped creature you control.\rCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
     IDS_STRING6212          "Baki's Curse\n{2UU}\nSorcery\nHML,R\nBaki's Curse deals 2 damage to each creature for each Aura attached to that creature."
     IDS_STRING6213          "Funeral March\n{1BB}\nEnchantment - Aura\nHML,C\nEnchant creature\rWhen enchanted creature leaves the battlefield, its controller sacrifices a creature."
     IDS_STRING6214          "Winter Sky\n{R}\nSorcery\nHML,R\nFlip a coin. If you win the flip, Winter Sky deals 1 damage to each creature and each player. If you lose the flip, each player draws a card."
     IDS_STRING6215          "An-Zerrin Ruins\n{2RR}\nEnchantment\nHML,R\nAs An-Zerrin Ruins enters the battlefield, choose a creature type.\rCreatures of the chosen type don't untap during their controllers' untap steps."
+    IDS_STRING6216          "Broken Visage\n{4B}\nInstant\nHML,R\nDestroy target nonartifact attacking creature. It can't be regenerated. Put a black Spirit creature token with that creature's power and toughness onto the battlefield. Sacrifice the token at the beginning of the next end step."
+    IDS_STRING6217          "Clockwork Steed\n{4}\nArtifact Creature - Horse\nHML,C\nClockwork Steed enters the battlefield with four +1/+0 counters on it.\rClockwork Steed can't be blocked by artifact creatures.\rAt end of combat, if Clockwork Steed attacked or blocked this combat, remove a +1/+0 counter from it.\r{X}, {T}: Put up to X +1/+0 counters on Clockwork Steed. This ability can't cause the total number of +1/+0 counters on Clockwork Steed to be greater than four. Activate this ability only during your upkeep.\n0/3"
+    IDS_STRING6218          "Clockwork Swarm\n{4}\nArtifact Creature - Insect\nHML,C\nClockwork Swarm enters the battlefield with four +1/+0 counters on it.\rClockwork Swarm can't be blocked by Walls.\rAt end of combat, if Clockwork Swarm attacked or blocked this combat, remove a +1/+0 counter from it.\r{X}, {T}: Put up to X +1/+0 counters on Clockwork Swarm. This ability can't cause the total number of +1/+0 counters on Clockwork Swarm to be greater than four. Activate this ability only during your upkeep.\n0/3"
+    IDS_STRING6219          "Heart Wolf\n{3R}\nCreature - Wolf\nHML,R\nFirst strike\r{T}: Target Dwarf creature gets +2/+0 and gains first strike until end of turn. When that creature leaves the battlefield this turn, sacrifice Heart Wolf. Activate this ability only during combat.\n2/2"
+    IDS_STRING6220          "Dwarven Sea Clan\n{2R}\nCreature - Dwarf\nHML,R\n{T}: Choose target attacking or blocking creature whose controller controls an Island. Dwarven Sea Clan deals 2 damage to that creature at end of combat. Activate this ability only before the end of combat step."
+    IDS_STRING6221          "Greater Werewolf\n{4B}\nCreature - Werewolf\nHML,C\nAt end of combat, put a -0/-2 counter on each creature blocking or blocked by Greater Werewolf.\n2/4"
 END
 
 #endif    // English (United States) resources

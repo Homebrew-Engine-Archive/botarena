@@ -376,6 +376,7 @@ BEGIN
 	IDS_STRING24534         "Shimian Specter\n{2BB}\nCreature - Specter\nM13,R\nFlying\rWhenever Shimian Specter deals combat damage to a player, that player reveals his or her hand. You choose a nonland card from it. Search that player's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library.\n2/2"
 	IDS_STRING24535         "Magmaquake\n{XRR}\nInstant\nM13,R\nMagmaquake deals X damage to each creature without flying and each planeswalker."
 	IDS_STRING24536         "Public Execution\n{5B}\nInstant\nM13,U\nDestroy target creature an opponent controls. Each other creature that player controls gets -2/-0 until end of turn."
+	IDS_STRING24537         "Faith's Reward\n{3W}\nInstant\nM13,R\nReturn to the battlefield all permanent cards in your graveyard that were put there from the battlefield this turn."
 END
 
 #endif    // English (United States) resources

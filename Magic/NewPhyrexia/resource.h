@@ -158,6 +158,13 @@
 #define IDS_STRING22040                 22040
 #define IDS_STRING22041                 22041
 #define IDS_STRING22042                 22042
+#define IDS_STRING22043                 22043
+#define IDS_STRING22044                 22044
+#define IDS_STRING22045                 22045
+#define IDS_STRING22046                 22046
+#define IDS_STRING22047                 22047
+#define IDS_STRING22048                 22048
+#define IDS_STRING22049                 22049
 #define IDI_MODULE                      22075
 #define IDI_LARGE_MODULE                22076
 

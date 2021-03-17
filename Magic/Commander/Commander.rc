@@ -429,6 +429,12 @@ BEGIN
     IDS_STRING23279         "Fungal Reaches\n\nLand\nCMD,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Put a storage counter on Fungal Reaches.\r{1}, Remove X storage counters from Fungal Reaches: Add X mana in any combination of {R} and/or {G} to your mana pool."
 END
 
+STRINGTABLE
+BEGIN
+	IDS_STRING23280         "Archangel of Strife\n{5WW}\nCreature - Angel\nCMD,R\nFlying\rAs Archangel of Strife enters the battlefield, each player chooses war or peace.\rCreatures controlled by players who chose war get +3/+0.\rCreatures controlled by players who chose peace get +0/+3.\n6/6"
+	IDS_STRING23281         "Nemesis Trap\n{4BB}\nInstant - Trap\nCMD,U\nIf a white creature is attacking, you may pay {B}{B} rather than pay Nemesis Trap's mana cost.\rExile target attacking creature. Put a token that's a copy of that creature onto the battlefield. Exile it at the beginning of the next end step."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

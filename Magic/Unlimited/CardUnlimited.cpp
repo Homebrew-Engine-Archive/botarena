@@ -49,6 +49,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCircleOfProtectionGreenCard);
 		DEFINE_CARD(CCircleOfProtectionRedCard);
 		DEFINE_CARD(CCircleOfProtectionWhiteCard);
+		DEFINE_CARD(CClockworkBeastCard);
 		DEFINE_CARD(CCockatriceCard);
 		DEFINE_CARD(CConservatorCard);
 		DEFINE_CARD(CControlMagicCard);
@@ -156,6 +157,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMoxSapphireCard);
 		DEFINE_CARD(CNaturalSelectionCard);
 		DEFINE_CARD(CNetherShadowCard);
+		DEFINE_CARD(CNettlingImpCard);
 		DEFINE_CARD(CNevinyrralsDiskCard);
 		DEFINE_CARD(CNightmareCard);
 		DEFINE_CARD(CNorthernPaladinCard);
@@ -203,6 +205,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CShatterCard);
 		DEFINE_CARD(CShivanDragonCard);
 		DEFINE_CARD(CSinkholeCard);
+		DEFINE_CARD(CSirensCallCard);
 		DEFINE_CARD(CSmokeCard);
 		DEFINE_CARD(CSolRingCard);
 		DEFINE_CARD(CSoulNetCard);
@@ -235,6 +238,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CUthdenTrollCard);
 		DEFINE_CARD(CVerduranEnchantressCard);
 		//DEFINE_CARD(CVeteranBodyguardCard);
+		DEFINE_CARD(CVolcanicEruptionCard);
 		DEFINE_CARD(CVolcanicIslandCard);
 		DEFINE_CARD(CWallOfAirCard);
 		DEFINE_CARD(CWallOfBoneCard);
@@ -814,30 +818,34 @@ CCockatriceCard::CCockatriceCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Cockatrice"), CardType::Creature, CREATURE_TYPE(Cockatrice), nID,
 		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(4))
 {
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-							CWhenSelfAttackedBlocked::BlockEventCallback2, 
-							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
-
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("non-Wall creatures")));
-
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CCockatriceCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CCockatriceCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CCockatriceCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-										CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+bool CCockatriceCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CCockatriceCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -2967,31 +2975,26 @@ CKarmaCard::CKarmaCard(CGame* pGame, UINT nID)
 		_T("2")	WHITE_MANA_TEXT WHITE_MANA_TEXT, AbilityType::Enchantment)
 {
 	typedef
-		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKarmaCard::SetTriggerContext));
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKarmaCard::BeforeResolution));
 	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CKarmaCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CNode* pToNode) const
+bool CKarmaCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay = pToNode->GetGraph()->GetPlayer()->GetZoneById(ZoneId::Battlefield);
+	CZone* pInplay = GetGame()->GetActivePlayer()->GetZoneById(ZoneId::Battlefield);
 
-	int nCount = 0;
-	for (int i = 0; i < pInplay->GetSize(); ++i)
-	{
-		CCard* pCard = pInplay->GetAt(i);
-		if (CCardFilter::GetFilter(_T("Swamps"))->IsCardIncluded(pCard))
-			++nCount;
-	}
+	int nCount = CCardFilter::GetFilter(_T("Swamps"))->CountIncluded(pInplay->GetCardContainer());
 
-	triggerContext.m_LifeModifier.SetLifeDelta(-Life(nCount));
+	CLifeModifier pModifier1 = CLifeModifier(Life(-nCount), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+	pModifier1.ApplyTo(GetGame()->GetActivePlayer());
 
 	return true;
 }
@@ -3310,11 +3313,11 @@ CPhantasmalTerrainCard::CPhantasmalTerrainCard(CGame* pGame, UINT nID)
 			BLUE_MANA_TEXT BLUE_MANA_TEXT, 
 			new CardTypeComparer(CardType::_Land, false)));
 
-	cpSpell->AddCardTypeToAdd(CardType::Swamp | CardType::BasicLand, CardType::_All, _T("Swamp"));
-	cpSpell->AddCardTypeToAdd(CardType::Plains | CardType::BasicLand, CardType::_All, _T("Plains"));
-	cpSpell->AddCardTypeToAdd(CardType::Forest | CardType::BasicLand, CardType::_All, _T("Forest"));
-	cpSpell->AddCardTypeToAdd(CardType::Mountain | CardType::BasicLand, CardType::_All, _T("Mountain"));
-	cpSpell->AddCardTypeToAdd(CardType::Island | CardType::BasicLand, CardType::_All, _T("Island"));
+	cpSpell->AddCardTypeToAdd(CardType::Swamp | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Swamp"));
+	cpSpell->AddCardTypeToAdd(CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Plains"));
+	cpSpell->AddCardTypeToAdd(CardType::Forest | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Forest"));
+	cpSpell->AddCardTypeToAdd(CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Mountain"));
+	cpSpell->AddCardTypeToAdd(CardType::Island | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask, _T("Island"));
 
 	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 
@@ -3701,30 +3704,34 @@ CThicketBasiliskCard::CThicketBasiliskCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Thicket Basilisk"), CardType::Creature, CREATURE_TYPE(Basilisk), nID,
 		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(4))
 {
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-							CWhenSelfAttackedBlocked::BlockEventCallback2, 
-							&CWhenSelfAttackedBlocked::SetBlockingOrBlockedEachTimeEventCallback > TriggeredAbility;
-
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("non-Wall creatures")));
-
 	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CThicketBasiliskCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CThicketBasiliskCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CThicketBasiliskCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-												CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+bool CThicketBasiliskCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
-	triggerContext.m_pCard = pCreature2;
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CThicketBasiliskCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects.AddCard(pSubject, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }
@@ -4038,13 +4045,9 @@ CBerserkCard::CBerserkCard(CGame* pGame, UINT nID)
 		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this, &CBerserkCard::CanPlay)));
 	cpSpell->Add(cpTrait1.GetPointer());
 
-	cpSpell->FlagTargets(TRUE,  // flag targets
-						 TRUE); // until end of turn
-
 	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-	pSpell = cpSpell.GetPointer(); 
-	AddSpell(pSpell);
+	AddSpell(cpSpell.GetPointer());
 }
 
 BOOL CBerserkCard::CanPlay(BOOL bIncludeTricks)
@@ -4061,19 +4064,13 @@ BOOL CBerserkCard::CanPlay(BOOL bIncludeTricks)
 
 void CBerserkCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	m_CardFilter.AddComparer(new CreatureFlagComparer(CreatureFlag::Attacked, FALSE));
-	m_CardFilter.AddComparer(new CardAbilityFlagComparer(pSpell)); // flagged by this spell
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
 
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Battlefield, &m_CardFilter, // move all creatures attacked and marked by this spell 
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(
-			ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)));
-
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater);
-	
-	CPlayer* pPlayer = pAbilityAction->GetAssociatedCard()->GetController();
-	if (bResult) pModifier2->ApplyTo(pPlayer);
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Berserk Effect"), 61043, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -4081,40 +4078,31 @@ void CBerserkCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, B
 CDragonWhelpCard::CDragonWhelpCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Dragon Whelp"), CardType::Creature, CREATURE_TYPE(Dragon), nID,
 		_T("2") RED_MANA_TEXT RED_MANA_TEXT, Power(2), Life(3))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CDragonWhelpCard::OnResolutionCompleted))
 {
-	{
-		counted_ptr<CPumpAbility> cpAbility(
-			::CreateObject<CPumpAbility>(this,
-				RED_MANA_TEXT,
-				Power(+1), Life(+0)));
+	counted_ptr<CPumpAbility> cpAbility(
+		::CreateObject<CPumpAbility>(this,
+			RED_MANA_TEXT,
+			Power(+1), Life(+0)));
 
-		m_pAbility = cpAbility.GetPointer();
+	m_pAbility = cpAbility.GetPointer();
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		AddAbility(m_pAbility);
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(
-			::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDragonWhelpCard::SetTriggerContext));
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(m_pAbility);
 }
 
-bool CDragonWhelpCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-										 CNode* pToNode) const
+void CDragonWhelpCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	return m_pAbility->GetTurnUsageCount() > 3;
+	if (!bResult || (m_pAbility->GetTurnUsageCount() < 4)) return;
 
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -4129,7 +4117,7 @@ CConversionCard::CConversionCard(CGame* pGame, UINT nID)
 			::CreateObject<CCardTypeEnchantment>(this,
 				_T("2") WHITE_MANA_TEXT WHITE_MANA_TEXT,
 				new CardTypeComparer(CardType::Mountain, false),
-				CardType::Plains | CardType::BasicLand, CardType::_All));
+				CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -4611,7 +4599,7 @@ CChannelCard::CChannelCard(CGame* pGame, UINT nID)
 		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
 			GREEN_MANA_TEXT GREEN_MANA_TEXT));
 
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Channel Effect"), 2900, 1, FALSE, ZoneId::_Effects));
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Channel Effect"), 61017, 1, FALSE, ZoneId::_Effects));
 
 
 	AddSpell(cpSpell.GetPointer());
@@ -5257,17 +5245,8 @@ CStoneGiantCard::CStoneGiantCard(CGame* pGame, UINT nID)
 			_T(""),
 			new TrueCardComparer, false, new CStoneGiantTargeting));
 
-	cpAbility->GetTargetModifier().CCreatureModifiers::push_back(
-		new CCreatureKeywordModifier(CreatureKeyword::Flying, TRUE));
-	cpAbility->GetTargetModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame,
-			new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy),
-			TurnNumberDelta(-1),
-			NodeId::EndStep, 
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater));
-
 	cpAbility->AddTapCost();
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CStoneGiantCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -5293,6 +5272,362 @@ BOOL CStoneGiantCard::CStoneGiantTargeting::TargetAllowed(const CCard* pCard, BO
 	if (nToughness >= nPower) return FALSE;
 
 	return TRUE;
+}
+
+bool CStoneGiantCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier(CreatureKeyword::Flying, TRUE);
+	pModifier1.ApplyTo(pTarget);
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Destroy Effect"), 61060, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CVolcanicEruptionCard::CVolcanicEruptionCard(CGame* pGame, UINT nID)
+	: CTargetMoveCardSpellCard(pGame, _T("Volcanic Eruption"), CardType::Sorcery, nID,
+		BLUE_MANA_TEXT BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Sorcery,
+		new CardTypeComparer(CardType::Mountain, false),
+		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CVolcanicEruptionCard::OnResolutionCompleted))
+	, m_nCards(0)
+{
+	m_pTargetMoveCardSpell->GetCost().SetExtraManaCost();
+	m_pTargetMoveCardSpell->AdjustTargetCountWithExtraCostValue();
+	m_pTargetMoveCardSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CVolcanicEruptionCard::BeforeResolution));
+	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+}
+
+bool CVolcanicEruptionCard::BeforeResolution(CAbilityAction* pAction)
+{
+	m_nCards = GetGame()->GetCertainTypeDiedCount(CardType::Mountain);
+
+	return true;
+}
+
+void CVolcanicEruptionCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	m_nCards -= GetGame()->GetCertainTypeDiedCount(CardType::Mountain);
+	
+	if (m_nCards < 0)
+	{
+		CLifeModifier* pModifier1 = new CLifeModifier(Life(m_nCards), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+
+		CZoneCreatureModifier pModifier2 = CZoneCreatureModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+			std::auto_ptr<CCreatureModifier>(pModifier1));
+		
+		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
+
+		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			pModifier1->ApplyTo(GetGame()->GetPlayer(ip));
+	}
+}
+
+//____________________________________________________________________________
+//
+CClockworkBeastCard::CClockworkBeastCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Clockwork Beast"), CardType::_ArtifactCreature, CREATURE_TYPE(Beast), nID,
+		_T("6"), Power(0), Life(4))
+	, bAttackedOrBlocked(FALSE)
+	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkBeastCard::OnNumberSelected))
+{
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 7, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::EndOfCombatStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkBeastCard::SetTriggerContext));
+		cpAbility->GetCardModifiers().push_back(new CCardCounterModifier(_T("+1/+0"), -1));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("")));
+
+		cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, FALSE, FALSE);
+		cpAbility->AddTapCost();
+		
+		cpAbility->SetUseInSpecificNode(NodeId::UpkeepStep, FALSE, TRUE);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CClockworkBeastCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+										CWhenSelfAttackedBlocked::EventCallback, 
+										&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkBeastCard::SetTriggerContextAux1));
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->AddAbilityTag(AbilityTag::CardChange);
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::BeginningOfCombatStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkBeastCard::SetTriggerContextAux2));
+		cpAbility->SetSkipStack(TRUE);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CClockworkBeastCard::SetTriggerContextAux3));
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CClockworkBeastCard::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard)
+{
+	bAttackedOrBlocked = TRUE;
+
+	return false;
+}
+
+bool CClockworkBeastCard::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CClockworkBeastCard::SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CClockworkBeastCard::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return bAttackedOrBlocked == TRUE;
+}
+
+bool CClockworkBeastCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nCounters = GetCounterContainer()->GetCounter(_T("+1/+0"))->GetCount();
+	int nValue = pAction->GetCostConfigEntry().GetExtraValue();
+
+	if (!IsInplay() || GetCardKeyword()->HasCantGetCounters() || (nCounters >= 7) || (nValue == 0))
+		return true;
+	
+	int nCount = 1;
+	int nMultiplier = 0;
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+		nCount <<= nMultiplier;
+	bool bMaxReached = false;
+
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Don't add counters"));
+
+		entries.push_back(selectionEntry);
+	}
+	for (int i = 1; i <= nValue; i++)
+	{
+		int nToPut = i * nCount;
+		if (nCounters + nToPut >= 7)
+		{
+			nToPut = 7 - nCounters;
+			bMaxReached = true;
+		}
+
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = nToPut;
+		if (nToPut == 1)
+			selectionEntry.strText.Format(_T("Put %d +1/+0 counter on %s"), nToPut, GetCardName(TRUE));
+		else
+			selectionEntry.strText.Format(_T("Put %d +1/+0 counters on %s"), nToPut, GetCardName(TRUE));
+
+		entries.push_back(selectionEntry);
+
+		if (bMaxReached) break;
+	}
+	m_NumberSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	
+	return true;
+}
+
+void CClockworkBeastCard::OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext;
+			
+			if (n > 0)
+			{
+				CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+0"), +n);
+				pModifier.SetDoubling(false);
+				pModifier.ApplyTo(this);
+			}
+		}
+}
+
+//____________________________________________________________________________
+//
+CNettlingImpCard::CNettlingImpCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Nettling Imp"), CardType::Creature, CREATURE_TYPE(Imp), nID,
+		_T("2") BLACK_MANA_TEXT, Power(1), Life(1))
+{
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+			_T(""),
+			new AnyCreatureComparer, false, new CNettlingImpTargeting));
+
+	cpAbility->AddTapCost();
+
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CNettlingImpCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CNettlingImpCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CNettlingImpCard::CanPlay(BOOL bIncludeTricks)
+{
+	if (GetGame()->GetActivePlayer() == GetController()) return false;
+
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::UpkeepStep ||
+			pCurrentNode->GetNodeId() == NodeId::DrawStep2 ||
+			m_pGame->IsMainPhase(TRUE) == TRUE ||
+			pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep);
+}
+
+bool CNettlingImpCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier(CreatureKeyword::MustAttack, TRUE);
+	pModifier1.ApplyTo(pTarget);
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Destroy Pacifists Effect"), 61075, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+BOOL CNettlingImpCard::CNettlingImpTargeting::TargetAllowed(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const
+{
+	return FALSE;
+}
+
+BOOL CNettlingImpCard::CNettlingImpTargeting::TargetAllowed(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const
+{
+	if (!__super::TargetAllowed(pCard, bIncludeTricks, bTrick))
+		return FALSE;
+
+	if (!pCard->GetCardType().IsCreature()) return FALSE;
+	if (pCard->GetCardKeyword()->HasChangeling()) return FALSE;
+	if (((CCreatureCard*)pCard)->GetCreatureType().HasType(SingleCreatureType::Wall)) return FALSE;
+	if (pCard->GetController() != GetSourceCard()->GetGame()->GetActivePlayer()) return FALSE;
+	
+	int nTurnInControl = pCard->GetControllerTurnChanged();
+	if (nTurnInControl < 0)	return FALSE;
+	if (nTurnInControl >= pCard->GetController()->GetPlayerTurnNumber()) return FALSE;
+
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+CSirensCallCard::CSirensCallCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Siren's Call"), CardType::Instant, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+			BLUE_MANA_TEXT));
+
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CSirensCallCard::CanPlay)));
+
+	cpSpell->Add(cpTrait.GetPointer());
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSirensCallCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+BOOL CSirensCallCard::CanPlay(BOOL bIncludeTricks)
+{
+	if (GetGame()->GetActivePlayer() == GetController()) return false;
+
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::UpkeepStep ||
+			pCurrentNode->GetNodeId() == NodeId::DrawStep2 ||
+			m_pGame->IsMainPhase(TRUE) == TRUE ||
+			pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep);
+}
+
+bool CSirensCallCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Siren's Call Effect"), 61079, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

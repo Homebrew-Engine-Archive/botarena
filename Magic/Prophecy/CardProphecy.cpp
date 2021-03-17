@@ -44,6 +44,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CElephantResurgenceCard);
 		DEFINE_CARD(CFaultRidersCard);
 		DEFINE_CARD(CFenStalkerCard);
+		DEFINE_CARD(CFickleEfreetCard);
 		DEFINE_CARD(CFlameshotCard);
 		DEFINE_CARD(CFloweringFieldCard);
 		DEFINE_CARD(CFoilCard);
@@ -52,6 +53,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGreelsCaressCard);
 		DEFINE_CARD(CHazyHomunculusCard);
 		DEFINE_CARD(CHeightenedAwarenessCard);
+		DEFINE_CARD(CInfernalGenesisCard);
 		DEFINE_CARD(CInflameCard);
 		DEFINE_CARD(CJeweledSpiritCard);
 		DEFINE_CARD(CJolraelsFavorCard);
@@ -700,7 +702,7 @@ CSquirrelWranglerCard::CSquirrelWranglerCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTokenProductionSpell>>(this,
 				_T("1") GREEN_MANA_TEXT,
-				_T("Squirrel"), TOKEN_ID_BY_NAME,
+				_T("Squirrel D"), 2918,
 				2));
 
 		cpAbility->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("lands")));
@@ -833,22 +835,30 @@ CWindscouterCard::CWindscouterCard(CGame* pGame, UINT nID)
 		_T("3") BLUE_MANA_TEXT, Power(3), Life(3))
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
 							CWhenSelfAttackedBlocked::EventCallback, 
 							&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
 
-	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
-	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
-
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CWindscouterCard::BeforeResolution));
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CWindscouterCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Bounce Effect"), 61040, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -1984,7 +1994,7 @@ CChimericIdolCard::CChimericIdolCard(CGame* pGame, UINT nID)
 	counted_ptr<CIsAlsoAAbility> cpAbility(
 		::CreateObject<CIsAlsoAAbility>(this,
 			_T("0"),
-			_T("Turtle"), 2918));
+			_T("Turtle AA"), 64078));
 	cpAbility->SetAbilityText(_T("Chimeric Idol becomes a 3/3 Turtle artifact creature. Activates"));
 
 	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("lands")),
@@ -2746,4 +2756,79 @@ bool CJolraelEmpressOfBeastsCard::BeforeResolution(CAbilityAction* pAction) cons
 
 //____________________________________________________________________________
 //
+CInfernalGenesisCard::CInfernalGenesisCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Infernal Genesis"), CardType::GlobalEnchantment, nID,
+		_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT, AbilityType::Enchantment)
+{
+	counted_ptr<TriggeredAbility> cpAbility(
+		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CInfernalGenesisCard::BeforeResolveSelection));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CInfernalGenesisCard::BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CPlayer* pPlayer = pAction->GetTriggeredPlayer();
+	CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
+	
+	if (pLibrary->GetSize() > 0)
+	{
+		CCard* pCard = pLibrary->GetTopCard();
+
+		int nCMC = 0;
+
+		if (!pCard->GetCardType().IsLand())
+			nCMC = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Library, ZoneId::Graveyard, true, MoveType::Others, pPlayer);
+		pModifier1.ApplyTo(pCard);
+
+		CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Minion B"), 62029, nCMC);
+		pModifier2.ApplyTo(pPlayer);
+	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CFickleEfreetCard::CFickleEfreetCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Fickle Efreet"), CardType::Creature, CREATURE_TYPE(Efreet), nID,
+		_T("3") RED_MANA_TEXT, Power(5), Life(2))
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+							CWhenSelfAttackedBlocked::EventCallback, 
+							&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFickleEfreetCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CFickleEfreetCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Fickle Efreet Effect"), 61109, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//

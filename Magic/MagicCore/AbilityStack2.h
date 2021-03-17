@@ -1015,6 +1015,7 @@ protected:
 };
 //____________________________________________________________________________
 //
+/*
 class CORE_EXPORT CSneakAttackSpell : public CDiscardCardSpell	
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;
@@ -1030,6 +1031,7 @@ protected:
 	void PreRemoveAbilityCallback(CCard* pCard, CPlayer* pPlayer);
 	
 };
+*/
 //____________________________________________________________________________
 //
 class CORE_EXPORT CSpellstutterSpriteSpell : public CSpell

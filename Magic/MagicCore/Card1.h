@@ -70,6 +70,43 @@ protected:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CDoubleFacedInPlaySpellCard : public CInPlaySpellCard
+{
+protected:
+	CDoubleFacedInPlaySpellCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, UINT uID,
+					  LPCTSTR strCostText, LPCTSTR nFlipCardName, AbilityType abilityType);	
+
+public:
+	void Transform();
+	BOOL CanPlaySecondFace(BOOL bIncludeTricks) const;
+	BOOL CanPlayFirstFace(BOOL bIncludeTricks) const;
+
+	void AddCardModifier(CCardModifier* pModifier) { m_CardModifiers.Add(pModifier); }
+
+	CCardModifiers		GetCardModifiers()  {return m_CardModifiers;}
+
+	OVERRIDE (DWORD, GetConvertedManaCost)() const;
+	OVERRIDE (DWORD, GetManaCost)(CManaCostBase::Color manaCost, BOOL bMax = TRUE);
+	OVERRIDE (CString, GetCardName)(BOOL bIncludeDetails = TRUE) const;
+	OVERRIDE (void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+protected:
+	LPCTSTR m_strDFCardName;
+
+	CCardModifiers		m_CardModifiers;
+
+private:
+	friend CFaceTransformModifier;
+	friend CGraveyardFaceTransformModifier;
+	void FirstFace();
+	void SecondFace();
+
+	OVERRIDE (CString, GetPrintedCardName)() const;
+	OVERRIDE (CString, GetSecondPrintedCardName)() const;
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CBasicLandCard : public CCard
 {
 protected:
@@ -249,7 +286,6 @@ public:
 
 //____________________________________________________________________________
 //
-
 class CEffectCard : public CCard
 {
 protected:
@@ -271,6 +307,103 @@ public:
 protected:
 	UINT	m_uID;
 	LPCTSTR m_strCardName;
+};
+
+//____________________________________________________________________________
+//
+class CContainerEffectCard : public CEffectCard
+{
+protected:
+	 CContainerEffectCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, UINT uID)
+		: CEffectCard(pGame, strCardName, cardType, uID)
+	{
+	}
+
+	virtual ~CContainerEffectCard() {}
+
+	CCountedCardContainer_ pCards;
+
+public:
+	void ReadData(CCountedCardContainer* Passed)
+	{
+		pCards.RemoveAll();
+		for (int i = 0; i < Passed->GetSize(); ++i)
+			pCards.AddCard(Passed->GetAt(i), CardPlacement::Top);
+	}
+
+	void WriteData(CCountedCardContainer* pOutput)
+	{
+		pOutput->RemoveAll();
+		for (int i = 0; i < pCards.GetSize(); ++i)
+			pOutput->AddCard(pCards.GetAt(i), CardPlacement::Top);
+	}
+
+	CCard* GetCard()
+	{
+		if (pCards.GetSize() == 0)
+			return NULL;
+		else
+			return pCards.GetAt(0);
+	}
+
+//	OVERRIDE (CString, GetCardName)(BOOL bIncludeDetails = TRUE) const;
+};
+
+//____________________________________________________________________________
+//
+class CDoubleContainerEffectCard : public CEffectCard
+{
+protected:
+	 CDoubleContainerEffectCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, UINT uID)
+		: CEffectCard(pGame, strCardName, cardType, uID)
+	{
+	}
+
+	virtual ~CDoubleContainerEffectCard() {}
+
+	CCountedCardContainer_ pCards1;
+	CCountedCardContainer_ pCards2;
+
+public:
+	void ReadData(CCountedCardContainer* Passed1, CCountedCardContainer* Passed2)
+	{
+		pCards1.RemoveAll();
+		for (int i = 0; i < Passed1->GetSize(); ++i)
+			pCards1.AddCard(Passed1->GetAt(i), CardPlacement::Top);
+
+		pCards2.RemoveAll();
+		for (int i = 0; i < Passed2->GetSize(); ++i)
+			pCards2.AddCard(Passed2->GetAt(i), CardPlacement::Top);
+	}
+
+	void WriteData(CCountedCardContainer* pOutput1, CCountedCardContainer* pOutput2)
+	{
+		pOutput1->RemoveAll();
+		for (int i = 0; i < pCards1.GetSize(); ++i)
+			pOutput1->AddCard(pCards1.GetAt(i), CardPlacement::Top);
+
+		pOutput2->RemoveAll();
+		for (int i = 0; i < pCards2.GetSize(); ++i)
+			pOutput2->AddCard(pCards2.GetAt(i), CardPlacement::Top);
+	}
+
+	CCard* GetCard1()
+	{
+		if (pCards1.GetSize() == 0)
+			return NULL;
+		else
+			return pCards1.GetAt(0);
+	}
+
+	CCard* GetCard2()
+	{
+		if (pCards2.GetSize() == 0)
+			return NULL;
+		else
+			return pCards2.GetAt(0);
+	}
+
+//	OVERRIDE (CString, GetCardName)(BOOL bIncludeDetails = TRUE) const;
 };
 
 //____________________________________________________________________________

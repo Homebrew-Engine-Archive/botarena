@@ -272,6 +272,13 @@ BEGIN
     IDS_STRING25004         "Grove of the Dreampods\n\nPlane - Fabacin\nPC2,S\nWhen you planeswalk to Grove of the Dreampods or at the beginning of your upkeep, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and the rest on the bottom of your library in a random order.\rWhenever you roll {C}, return target creature card from your graveyard to the battlefield."
     IDS_STRING25005         "Three Dreams\n{4W}\nSorcery\nPC2,R\nSearch your library for up to three Aura cards with different names, reveal them, and put them into your hand. Then shuffle your library."
     IDS_STRING25006         "Mass Mutiny\n{3RR}\nSorcery\nPC2,R\nFor each opponent, gain control of up to one target creature that player controls until end of turn. Untap those creatures. They gain haste until end of turn."
+    IDS_STRING25007         "Brutalizer Exarch\n{5G}\nCreature - Cleric\nPC2,U\nWhen Brutalizer Exarch enters the battlefield, choose one - Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it; or put target noncreature permanent on the bottom of its owner's library.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25008         "Quiet Disrepair\n{1G}\nEnchantment - Aura\nPC2,C\nEnchant artifact or enchantment\rAt the beginning of your upkeep, choose one - Destroy enchanted permanent; or you gain 2 life."
+    IDS_STRING25009         "Hedron Fields of Agadeem\n\nPlane - Zendikar\nPC2,S\nCreatures with power 7 or greater can't attack or block.\rWhenever you roll {C}, put a 7/7 colorless Eldrazi creature token with annihilator 1 onto the battlefield."
 END
 
 #endif    // English (United States) resources

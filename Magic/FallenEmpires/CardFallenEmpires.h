@@ -294,8 +294,9 @@ class CFarrelitePriestCard : public CCreatureCard
 
 protected:
 	CAbility* m_pAbility;
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
-						   CNode* pToNode) const;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -303,6 +304,10 @@ protected:
 class CRainbowValeCard : public CNonbasicLandCard
 {
     DECLARE_CARD_CSTOR(CRainbowValeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -404,6 +409,17 @@ protected:
 	BOOL CanPlay(BOOL bIncludeTricks);
 	CAbility* m_pAbility1;
 	CAbility* m_pAbility2;
+};
+
+//____________________________________________________________________________
+//
+class CGoblinKitesCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CGoblinKitesCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________

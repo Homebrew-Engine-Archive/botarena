@@ -294,6 +294,11 @@
 #define IDS_STRING6577                  6577
 #define IDS_STRING6578                  6578
 #define IDS_STRING6579                  6579
+#define IDS_STRING6580                  6580
+#define IDS_STRING6581                  6581
+#define IDS_STRING6582                  6582
+#define IDS_STRING6583                  6583
+#define IDS_STRING6584                  6584
 #define IDI_MODULE                      6683
 #define IDI_LARGE_MODULE                6684
 

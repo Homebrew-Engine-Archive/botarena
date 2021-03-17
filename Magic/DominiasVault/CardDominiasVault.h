@@ -124,3 +124,24 @@ class CPerhapsYouveMetMyCohortCard : public CSchemeCard
 
 //____________________________________________________________________________
 //
+class CDrenchTheSoilInTheirBloodCard : public CSchemeCard
+{
+	DECLARE_CARD_CSTOR(CDrenchTheSoilInTheirBloodCard);
+
+protected:
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+};
+
+//____________________________________________________________________________
+//
+class CShichifukujinDragonCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CShichifukujinDragonCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

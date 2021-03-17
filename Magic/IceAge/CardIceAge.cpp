@@ -32,6 +32,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBalduvianConjurerCard);
 		DEFINE_CARD(CBalduvianHydraCard);
 		DEFINE_CARD(CBarbarianGuidesCard);
+		//DEFINE_CARD(CBattleCryCard);
 		DEFINE_CARD(CBattleFrenzyCard);
 		DEFINE_CARD(CBlackScarabCard);
 		DEFINE_CARD(CBlizzardCard);
@@ -100,7 +101,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CJuniperOrderDruidCard);
 		DEFINE_CARD(CKarplusanGiantCard);
 		DEFINE_CARD(CKelsinkoRangerCard);
+		DEFINE_CARD(CKjeldoranEliteGuardCard);
 		DEFINE_CARD(CKjeldoranFrostbeastCard);
+		DEFINE_CARD(CKjeldoranGuardCard);
 		DEFINE_CARD(CKrovikanElementalistCard);
 		DEFINE_CARD(CLandCapCard);
 		DEFINE_CARD(CLapisLazuliTalismanCard);
@@ -122,6 +125,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMysticMightCard);
 		DEFINE_CARD(CMysticRemoraCard);
 		DEFINE_CARD(CNacreTalismanCard);
+		DEFINE_CARD(CNorrittCard);
 		DEFINE_CARD(COnyxTalismanCard);
 		DEFINE_CARD(COrcishCannoneersCard);
 		DEFINE_CARD(COrcishHealerCard);
@@ -129,6 +133,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(COrcishLumberjackCard);
 		DEFINE_CARD(CPaleBearsCard);
 		DEFINE_CARD(CPestilenceRatsCard);
+		DEFINE_CARD(CPhantasmalMountCard);
 		DEFINE_CARD(CPolarKrakenCard);
 		DEFINE_CARD(CPygmyAllosaurusCard);
 		DEFINE_CARD(CPykniteCard);
@@ -766,6 +771,8 @@ CWalkingWallCard::CWalkingWallCard(CGame* pGame, UINT nID)
 CCelestialSwordCard::CCelestialSwordCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Celestial Sword"), CardType::Artifact, nID,
 		_T("6"), AbilityType::Artifact)
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CCelestialSwordCard::OnResolutionCompleted))
 {
 	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
@@ -774,19 +781,25 @@ CCelestialSwordCard::CCelestialSwordCard(CGame* pGame, UINT nID)
 			CreatureKeyword::Null, CreatureKeyword::Null,
 			TRUE, PreventableType::NotPreventable));
 
-	cpAbility->GetTargetModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater));
-
 	cpAbility->AddTapCost();
 	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
-
-	cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+void CCelestialSwordCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sure Sacrifice Effect"), 61064, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -1049,7 +1062,7 @@ CGlaciersCard::CGlaciersCard(CGame* pGame, UINT nID)
 			::CreateObject<CCardTypeEnchantment>(this,
 				_T("2") WHITE_MANA_TEXT BLUE_MANA_TEXT,
 				new CardTypeComparer(CardType::Mountain, false),
-				CardType::Plains | CardType::BasicLand, CardType::_All));
+				CardType::Plains | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -1502,6 +1515,8 @@ CElementalAuguryCard::CElementalAuguryCard(CGame* pGame, UINT nID)
 CKrovikanElementalistCard::CKrovikanElementalistCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Krovikan Elementalist"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
 		BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(1), Life(1))
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CKrovikanElementalistCard::OnResolutionCompleted))
 {
 	{
 		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
@@ -1521,20 +1536,23 @@ CKrovikanElementalistCard::CKrovikanElementalistCard(CGame* pGame, UINT nID)
 				CreatureKeyword::Flying, CreatureKeyword::Null,
 				TRUE, PreventableType::NotPreventable));
 
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(
-			new CScheduledCardModifier(pGame,
-				new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice),
-				TurnNumberDelta(-1),
-				NodeId::EndStep, 
-				true, // in-play only
-				CScheduledCardModifier::Operation::ApplyToLater));
-
 		cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
 
-		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
-
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+		
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+void CKrovikanElementalistCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2076,6 +2094,10 @@ CFieryJusticeCard::CFieryJusticeCard(CGame* pGame, UINT nID)
 CGoblinSappersCard::CGoblinSappersCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Goblin Sappers"), CardType::Creature, CREATURE_TYPE(Goblin), nID,
 		_T("1") RED_MANA_TEXT, Power(1), Life(1))
+		, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CGoblinSappersCard::OnResolutionCompleted1))
+		, m_cpEventListener2(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CGoblinSappersCard::OnResolutionCompleted2))
 {
 	{
 		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
@@ -2085,23 +2107,10 @@ CGoblinSappersCard::CGoblinSappersCard(CGame* pGame, UINT nID)
 				CreatureKeyword::Unblockable, CreatureKeyword::Null,
 				TRUE, PreventableType::NotPreventable));
 
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(
-			new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy),
-			TurnNumberDelta(-1),
-			NodeId::EndOfCombatStep,
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater));
-		
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(
-			new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy),
-			TurnNumberDelta(-1),
-			NodeId::EndOfCombatStep,
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater));
-
 		cpAbility->AddTapCost();
 		cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
 
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
@@ -2112,18 +2121,36 @@ CGoblinSappersCard::CGoblinSappersCard(CGame* pGame, UINT nID)
 				CreatureKeyword::Unblockable, CreatureKeyword::Null,
 				TRUE, PreventableType::NotPreventable));
 
-		cpAbility->GetTargetModifier().CCardModifiers::push_back(
-			new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy),
-			TurnNumberDelta(-1),
-			NodeId::EndOfCombatStep, 
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater));
-
 		cpAbility->AddTapCost();
 		cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
 
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener2.GetPointer());
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+void CGoblinSappersCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+void CGoblinSappersCard::OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2286,6 +2313,8 @@ CDriftOfTheDeadCard::CDriftOfTheDeadCard(CGame* pGame, UINT nID)
 CGoblinSkiPatrolCard::CGoblinSkiPatrolCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Goblin Ski Patrol"), CardType::Creature, CREATURE_TYPE(Goblin), nID,
 		_T("1") RED_MANA_TEXT, Power(1), Life(1))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CGoblinSkiPatrolCard::OnResolutionCompleted))
 {
 	m_CardFilter.AddComparer(new CardTypeComparer(CardType::Snow | CardType::Mountain, true));
 
@@ -2296,13 +2325,6 @@ CGoblinSkiPatrolCard::CGoblinSkiPatrolCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetMaxTurnUsageCount(1);
 
-	cpAbility->GetOtherCardModifiers().push_back(
-		new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater));
-
 	counted_ptr<CPlayableIfTrait> cpTrait(
 		::CreateObject<CPlayableIfTrait>(
 			m_pUntapAbility,
@@ -2310,6 +2332,7 @@ CGoblinSkiPatrolCard::CGoblinSkiPatrolCard(CGame* pGame, UINT nID)
 			&CGoblinSkiPatrolCard::CanPlay)));
 
 	cpAbility->Add(cpTrait.GetPointer());
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -2322,6 +2345,17 @@ BOOL CGoblinSkiPatrolCard::CanPlay(BOOL bIncludeTricks)
 		return true;
 
 	return false;
+}
+
+void CGoblinSkiPatrolCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects;
+	
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Sure Sacrifice Effect"), 61064, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2491,7 +2525,7 @@ CPykniteCard::CPykniteCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -2508,7 +2542,7 @@ CClairvoyanceCard::CClairvoyanceCard(CGame* pGame, UINT nID)
 			FALSE,
 			CCardFilter::GetFilter(_T("cards"))));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -2523,7 +2557,7 @@ CForceVoidCard::CForceVoidCard(CGame* pGame, UINT nID)
 	m_pCounterSpell->SetCanBeDenied();
 	m_pCounterSpell->GetDenialCost().SetManaCost(_T("1"));
 
-	m_pCounterSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	m_pCounterSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 }
 
 //____________________________________________________________________________
@@ -2538,7 +2572,7 @@ CGravebindCard::CGravebindCard(CGame* pGame, UINT nID)
 			CreatureKeyword::CantRegenerate, CreatureKeyword::Null,
 			TRUE, PreventableType::NotPreventable));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -2554,7 +2588,7 @@ CInfuseCard::CInfuseCard(CGame* pGame, UINT nID)
 			FALSE, TRUE,
 			new CardTypeComparer(CardType::Creature | CardType::Artifact | CardType::_Land, false)));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -2571,7 +2605,7 @@ CLightningBlowCard::CLightningBlowCard(CGame* pGame, UINT nID)
 			CreatureKeyword::FirstStrike, CreatureKeyword::Null,
 			TRUE, PreventableType::NotPreventable));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -2588,7 +2622,7 @@ CRayOfErasureCard::CRayOfErasureCard(CGame* pGame, UINT nID)
 
 	cpSpell->SetReorder(TRUE, ZoneId::Graveyard);
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 2981, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Slowtrip Effect"), 61031, 1, FALSE, ZoneId::_Effects));
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -4547,14 +4581,6 @@ CBarbarianGuidesCard::CBarbarianGuidesCard(CGame* pGame, UINT nID)
 	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
 	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBarbarianGuidesCard::BeforeResolution));
 
-	cpAbility->GetTargetModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame,
-			new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-			TurnNumberDelta(-1),
-			NodeId::EndStep, 
-			true, // in-play only
-			CScheduledCardModifier::Operation::ApplyToLater));
-
 	AddAbility(cpAbility.GetPointer());
 }
 
@@ -4698,15 +4724,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4733,15 +4758,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4768,15 +4792,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4803,15 +4826,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4838,15 +4860,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4873,15 +4894,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4908,16 +4928,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
-
+				pModifier2.ApplyTo(pSelectionPlayer);
 				return;
 			}
 
@@ -4943,15 +4961,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -4978,15 +4995,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -5013,15 +5029,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -5048,15 +5063,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -5083,15 +5097,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -5118,15 +5131,14 @@ void CBarbarianGuidesCard::OnLandwalkSelected(const std::vector<SelectionEntry>&
 				
 				CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
-				CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(m_pGame,
-					new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others),
-					TurnNumberDelta(-1),
-					NodeId::EndStep, 
-					true, // in-play only
-					CScheduledCardModifier::Operation::ApplyToLater);
+				CCountedCardContainer pSubjects;
+				if (pTarget->IsInplay())
+					pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+				CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 
 				pModifier1->ApplyTo(pTarget);
-				pModifier2->ApplyTo(pTarget);
+				pModifier2.ApplyTo(pSelectionPlayer);
 
 				return;
 			}
@@ -7273,6 +7285,282 @@ bool CBalduvianConjurerCard::BeforeResolution(CAbilityAction* pAction) const
 	pModifier2.ApplyTo(pCard);
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CNorrittCard::CNorrittCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Norritt"), CardType::Creature, CREATURE_TYPE(Imp), nID,
+		_T("3") BLACK_MANA_TEXT, Power(1), Life(1))
+{
+	{
+		counted_ptr<CActivatedAbility<CTargetTapUntapCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetTapUntapCardSpell>>(this,
+				_T(""),
+				FALSE, TRUE,
+				new CardTypeComparer(CardType::Blue | CardType::Creature, true)));
+		ATLASSERT(cpAbility);
+
+		cpAbility->AddTapCost();
+
+		AddAbility(cpAbility.GetPointer());	
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+				_T(""),
+				new AnyCreatureComparer, false, new CNorrittTargeting));
+
+		cpAbility->AddTapCost();
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CNorrittCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CNorrittCard::BeforeResolution));
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+BOOL CNorrittCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::UpkeepStep ||
+			pCurrentNode->GetNodeId() == NodeId::DrawStep2 ||
+			m_pGame->IsMainPhase(TRUE) == TRUE ||
+			pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep);
+}
+
+bool CNorrittCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier(CreatureKeyword::MustAttack, TRUE);
+	pModifier1.ApplyTo(pTarget);
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Destroy Pacifists Effect"), 61075, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+BOOL CNorrittCard::CNorrittTargeting::TargetAllowed(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const
+{
+	return FALSE;
+}
+
+BOOL CNorrittCard::CNorrittTargeting::TargetAllowed(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const
+{
+	if (!__super::TargetAllowed(pCard, bIncludeTricks, bTrick))
+		return FALSE;
+
+	if (!pCard->GetCardType().IsCreature()) return FALSE;
+	if (pCard->GetCardKeyword()->HasChangeling()) return FALSE;
+	if (((CCreatureCard*)pCard)->GetCreatureType().HasType(SingleCreatureType::Wall)) return FALSE;
+	if (pCard->GetController() != GetSourceCard()->GetGame()->GetActivePlayer()) return FALSE;
+	
+	int nTurnInControl = pCard->GetControllerTurnChanged();
+	if (nTurnInControl < 0)	return FALSE;
+	if (nTurnInControl >= pCard->GetController()->GetPlayerTurnNumber()) return FALSE;
+
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+/*
+CBattleCryCard::CBattleCryCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Battle Cry"), CardType::Instant, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CBattleCryCard::OnResolutionCompleted))
+{
+	counted_ptr<CGlobalUntapSpell> cpSpell(
+		::CreateObject<CGlobalUntapSpell>(this, AbilityType::Instant,
+			_T("2") WHITE_MANA_TEXT,
+			new CardTypeComparer(CardType::White | CardType::Creature, true)));
+
+	cpSpell->SetAffectControllerCardsOnly();
+
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+	AddSpell(cpSpell.GetPointer());
+}
+
+void CBattleCryCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Battle Cry Effect"), 61096, 1, FALSE, ZoneId::_Effects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+*/
+//____________________________________________________________________________
+//
+CKjeldoranEliteGuardCard::CKjeldoranEliteGuardCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kjeldoran Elite Guard"), CardType::Creature, CREATURE_TYPE2(Human, Soldier), nID,
+		_T("3") WHITE_MANA_TEXT, Power(2), Life(2))
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CKjeldoranEliteGuardCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T(""),
+			Power(+2), Life(+2),
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable,
+			new AnyCreatureComparer));
+
+	cpAbility->AddTapCost();
+
+	counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+			&CKjeldoranEliteGuardCard::CanPlay)));
+	cpAbility->Add(cpTrait.GetPointer());
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CKjeldoranEliteGuardCard::CanPlay(BOOL bIncludeTricks)
+{
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b ||
+			pCurrentNode->GetNodeId() == NodeId::EndOfCombatStep);
+}
+
+void CKjeldoranEliteGuardCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Kjeldoran Elite Guard Effect"), 61098, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CKjeldoranGuardCard::CKjeldoranGuardCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kjeldoran Guard"), CardType::Creature, CREATURE_TYPE2(Human, Soldier), nID,
+		_T("1") WHITE_MANA_TEXT, Power(1), Life(1))
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CKjeldoranGuardCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T(""),
+			Power(+1), Life(+1),
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable,
+			new AnyCreatureComparer));
+
+	cpAbility->AddTapCost();
+
+	counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+		m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+			&CKjeldoranGuardCard::CanPlay)));
+	cpAbility->Add(cpTrait.GetPointer());
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CKjeldoranGuardCard::CanPlay(BOOL bIncludeTricks)
+{
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::Snow, false));
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::_Land, false));
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		if ((pPlayer != GetGame()->GetActivePlayer()) && (m_CardFilter.CountIncluded(pPlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) > 0))
+			return false;
+	}
+
+	CNode* pCurrentNode = m_pGame->GetCurrentNode();
+
+	return (pCurrentNode->GetNodeId() == NodeId::BeginningOfCombatStep ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareAttackersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b ||
+			pCurrentNode->GetNodeId() == NodeId::EndOfCombatStep);
+}
+
+void CKjeldoranGuardCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Kjeldoran Guard Effect"), 61099, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CPhantasmalMountCard::CPhantasmalMountCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Phantasmal Mount"), CardType::Creature, CREATURE_TYPE2(Illusion, Horse), nID,
+		_T("1") BLUE_MANA_TEXT, Power(1), Life(1))
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CPhantasmalMountCard::OnResolutionCompleted))
+{
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T(""),
+			Power(+1), Life(+1),
+			CreatureKeyword::Flying, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable,
+			new AnyCreatureComparer));
+
+	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
+	cpAbility->GetTargeting()->GetSubjectCardFilter().AddComparer(new CreatureToughnessComparer<std::less_equal<int>>(2));
+
+	cpAbility->AddTapCost();
+
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+void CPhantasmalMountCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects1.AddCard(pTarget, CardPlacement::Top);
+	if (IsInplay())
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Phantasmal Mount Effect"), 61100, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

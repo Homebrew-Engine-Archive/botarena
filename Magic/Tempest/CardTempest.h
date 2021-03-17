@@ -160,6 +160,10 @@ class CCommanderGrevenIlVecCard : public CCreatureCard
 class CCrazedArmodonCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCrazedArmodonCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -515,6 +519,10 @@ protected:
 class CMoggCannonCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CMoggCannonCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -792,9 +800,8 @@ class CAncientRunesCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CAncientRunesCard);
 
-private:
-	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1091,6 +1098,9 @@ class CBloodFrenzyCard : public CChgPwrTghAttrSpellCard
 
 protected:
 	BOOL CanPlay(BOOL bIncludeTricks);
+
+	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener1;
 };
 
 //____________________________________________________________________________
@@ -1538,8 +1548,13 @@ class CMinionOfTheWastesCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CMinionOfTheWastesCard);
 
 protected:
-	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
-	ListenerPtr<CardMovementEventSource::Listener> m_cpAListener;
+	VIRTUAL(void, OnSelectionDone)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_Selection;
+	
+	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+					CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+
+	int_ m_nLifePaid;
 };
 
 //____________________________________________________________________________
@@ -1710,6 +1725,30 @@ protected:
 	void Process (CPlayer* pController);
 	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	void Finale (CPlayer* pController);
+};
+
+//____________________________________________________________________________
+//
+class CMaddeningImpCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMaddeningImpCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+
+	bool BeforeResolution (CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CMagmasaurCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMagmasaurCard);
+
+protected:
+	CSelectionSupport m_Selection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________
