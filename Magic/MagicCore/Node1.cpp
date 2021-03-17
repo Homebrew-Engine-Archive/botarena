@@ -470,6 +470,11 @@ void CMainNode::GetNodeActions(CActionContainer& actionContainer)
 						bTransitAllowed = FALSE;
 						break;
 					}
+					if (pCreatureCard->GetCreatureKeyword()->MustAttackEachCombat())
+					{
+						bTransitAllowed = FALSE;
+						break;
+					}
 					if (pCreatureCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::MustAttackGideon))
 					{
 						CCardFilter temp;
@@ -1084,7 +1089,7 @@ void CAttackDeclarationNode1::GetNodeActions(CActionContainer& actionContainer)
 				{
 
 					CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
-					if ((pCreatureCard->GetCreatureKeyword()->MustAttack() &&
+					if (pCreatureCard->GetCreatureKeyword()->MustAttackEachCombat() || (pCreatureCard->GetCreatureKeyword()->MustAttack() &&
 						!pCreatureCard->GetCreatureFlag()->HasAttacked()) || pCreatureCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::MustAttackGideon))
 					{
 						bFound = TRUE;

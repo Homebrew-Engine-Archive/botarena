@@ -165,14 +165,14 @@ BEGIN
     IDS_STRING16468         "Dimir Cutpurse\n{1UB}\nCreature - Spirit\nRAV,R\nWhenever Dimir Cutpurse deals combat damage to a player, that player discards a card and you draw a card.\n2/2"
     IDS_STRING16469         "Dimir Guildmage\n{CC}\nCreature - Human Wizard\nRAV,U\n{3U}: Target player draws a card. Activate this ability only any time you could cast a sorcery.\r{3B}: Target player discards a card. Activate this ability only any time you could cast a sorcery.\n2/2"
     IDS_STRING16470         "Dimir House Guard\n{3B}\nCreature - Skeleton\nRAV,C\nFear\rSacrifice a creature: Regenerate Dimir House Guard.\rTransmute {1BB}\n2/3"
-    IDS_STRING16471         "Dimir Infiltrator\n{UB}\nCreature - Spirit\nRAV,C\nDimir Infiltrator is unblockable.\rTransmute {1UB}\n1/3"
+    IDS_STRING16471         "Dimir Infiltrator\n{UB}\nCreature - Spirit\nRAV,C\nDimir Infiltrator can't be blocked.\rTransmute {1UB}\n1/3"
     IDS_STRING16472         "Divebomber Griffin\n{3WW}\nCreature - Griffin\nRAV,U\nFlying\r{T}, Sacrifice Divebomber Griffin: Divebomber Griffin deals 3 damage to target attacking or blocking creature.\n3/2"
     IDS_STRING16473         "Dowsing Shaman\n{4G}\nCreature - Centaur Shaman\nRAV,U\n{2G}, {T}: Return target enchantment card from your graveyard to your hand.\n3/4"
     IDS_STRING16474         "Drake Familiar\n{1U}\nCreature - Drake\nRAV,C\nFlying\rWhen Drake Familiar enters the battlefield, sacrifice it unless you return an enchantment to its owner's hand.\n2/1"
     IDS_STRING16475         "Drift of Phantasms\n{2U}\nCreature - Spirit\nRAV,C\nDefender\rFlying\rTransmute {1UU}\n0/5"
     IDS_STRING16476         "Dromad Purebred\n{4W}\nCreature - Camel Beast\nRAV,C\nWhenever Dromad Purebred is dealt damage, you gain 1 life.\n1/5"
     IDS_STRING16477         "Elvish Skysweeper\n{G}\nCreature - Elf Warrior\nRAV,C\n{4G}, Sacrifice a creature: Destroy target creature with flying.\n1/1"
-    IDS_STRING16478         "Ethereal Usher\n{5U}\nCreature - Spirit\nRAV,U\n{U}, {T}: Target creature is unblockable this turn.\rTransmute {1UU}\n2/3"
+    IDS_STRING16478         "Ethereal Usher\n{5U}\nCreature - Spirit\nRAV,U\n{U}, {T}: Target creature can't be blocked this turn.\rTransmute {1UU}\n2/3"
     IDS_STRING16479         "Flame-Kin Zealot\n{1RRW}\nCreature - Elemental Berserker\nRAV,U\nWhen Flame-Kin Zealot enters the battlefield, creatures you control get +1/+1 and gain haste until end of turn.\n2/2"
 END
 

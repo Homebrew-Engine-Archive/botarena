@@ -1,0 +1,354 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "ModernMasters.ico"
+IDI_LARGE_MODULE        ICON                    "ModernMastersLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Modern Masters"
+    IDS_EXPANSION_ABBREV    "MMA"
+    IDS_FIRST_CARD          "26400"
+    IDS_TOTAL_CARD          "229"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "26398"
+    IDS_MODULE_LARGE_ICON_ID "26399"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "07-06-2013"
+    IDS_MWS_FOLDER          "MWS\\MMA\\"
+    IDS_PRODUCT_LIST        """Modern Masters Starter Box"":R-3:U-10:C-32:BL-30,""Modern Masters Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING26400         "AEther Spellbomb\n{1}\nArtifact\nMMA,C\n{U}, Sacrifice Æther Spellbomb: Return target creature to its owner's hand.\r{1}, Sacrifice Æther Spellbomb: Draw a card."
+	IDS_STRING26401         "AEther Vial\n{1}\nArtifact\nMMA,R\nAt the beginning of your upkeep, you may put a charge counter on Æther Vial.\r{T}: You may put a creature card with converted mana cost equal to the number of charge counters on Æther Vial from your hand onto the battlefield."
+    IDS_STRING26402         "AEthersnipe\n{5U}\nCreature - Elemental\nMMA,C\nEvoke {1UU}\rWhen Æthersnipe enters the battlefield, return target nonland permanent to its owner's hand.\n4/4"
+	IDS_STRING26403         "Absorb Vis\n{6B}\nSorcery\nMMA,C\nTarget player loses 4 life and you gain 4 life.\rBasic landcycling {1B}"
+	IDS_STRING26404         "Academy Ruins\n\nLegendary Land\nMMA,R\n{T}: Add {1} to your mana pool.\r{1U}, {T}: Put target artifact card from your graveyard on top of your library."
+	IDS_STRING26405         "Adarkar Valkyrie\n{4WW}\nSnow Creature - Angel\nMMA,R\nFlying, vigilance\r{T}: When target creature other than Adarkar Valkyrie dies this turn, return that card to the battlefield under your control.\n4/5"
+    IDS_STRING26406         "Amrou Scout\n{1W}\nCreature - Kithkin Rebel Scout\nMMA,C\n{4}, {T}: Search your library for a Rebel permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n2/1"
+	IDS_STRING26407         "Amrou Seekers\n{2W}\nCreature - Kithkin Rebel\nMMA,C\nAmrou Seekers can't be blocked except by artifact creatures and/or white creatures.\n2/2"
+	IDS_STRING26408         "Angel's Grace\n{W}\nInstant\nMMA,R\nSplit second\rYou can't lose the game this turn and your opponents can't win the game this turn. Until end of turn, damage that would reduce your life total to less than 1 reduces it to 1 instead."
+	IDS_STRING26409         "Arcbound Ravager\n{2}\nArtifact Creature - Beast\nMMA,R\nSacrifice an artifact: Put a +1/+1 counter on Arcbound Ravager.\rModular 1\n0/0"
+	IDS_STRING26410         "Arcbound Stinger\n{2}\nArtifact Creature - Insect\nMMA,C\nFlying\rModular 1\n0/0"
+	IDS_STRING26411         "Arcbound Wanderer\n{6}\nArtifact Creature - Golem\nMMA,C\nModular-Sunburst\n0/0"
+    IDS_STRING26412         "Arcbound Worker\n{1}\nArtifact Creature - Construct\nMMA,C\nModular 1\n0/0"
+    IDS_STRING26413         "Auntie's Snitch\n{2B}\nCreature - Goblin Rogue\nMMA,U\nAuntie's Snitch can't block.\rProwl {1B}\rWhenever a Goblin or Rogue you control deals combat damage to a player, if Auntie's Snitch is in your graveyard, you may return Auntie's Snitch to your hand.\n3/1"
+    IDS_STRING26414         "Auriok Salvagers\n{3W}\nCreature - Human Soldier\nMMA,R\n{1W}: Return target artifact card with converted mana cost 1 or less from your graveyard to your hand.\n2/4"
+    IDS_STRING26415         "Avian Changeling\n{2W}\nCreature - Shapeshifter\nMMA,C\nChangeling\rFlying\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26416         "Blightspeaker\n{1B}\nCreature - Human Rebel Cleric\nMMA,C\n{T}: Target player loses 1 life.\r{4}, {T}: Search your library for a Rebel permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING26417         "Blind-Spot Giant\n{2R}\nCreature - Giant Warrior\nMMA,C\nBlind-Spot Giant can't attack or block unless you control another Giant.\n4/3"
+    IDS_STRING26418         "Blinkmoth Nexus\n\nLand\nMMA,R\n{T}: Add {1} to your mana pool.\r{1}: Blinkmoth Nexus becomes a 1/1 Blinkmoth artifact creature with flying until end of turn. It's still a land.\r{1}, {T}: Target Blinkmoth creature gets +1/+1 until end of turn."
+    IDS_STRING26419         "Blood Moon\n{2R}\nEnchantment\nMMA,R\nNonbasic lands are Mountains."
+    IDS_STRING26420         "Bonesplitter\n{1}\nArtifact - Equipment\nMMA,C\nEquipped creature gets +2/+0.\rEquip {1}"
+    IDS_STRING26421         "Bound in Silence\n{2W}\nTribal Enchantment - Rebel Aura\nMMA,C\nEnchant creature\rEnchanted creature can't attack or block."
+    IDS_STRING26422         "Bridge from Below\n{BBB}\nEnchantment\nMMA,R\nWhenever a nontoken creature is put into your graveyard from the battlefield, if Bridge from Below is in your graveyard, put a 2/2 black Zombie creature token onto the battlefield.\rWhen a creature is put into an opponent's graveyard from the battlefield, if Bridge from Below is in your graveyard, exile Bridge from Below."
+    IDS_STRING26423         "Brute Force\n{R}\nInstant\nMMA,C\nTarget creature gets +3/+3 until end of turn."
+    IDS_STRING26424         "Careful Consideration\n{2UU}\nInstant\nMMA,U\nTarget player draws four cards, then discards three cards. If you cast this spell during your main phase, instead that player draws four cards, then discards two cards."
+    IDS_STRING26425         "Cenn's Enlistment\n{3W}\nSorcery\nMMA,C\nPut two 1/1 white Kithkin Soldier creature tokens onto the battlefield.\rRetrace"
+    IDS_STRING26426         "Chalice of the Void\n{XX}\nArtifact\nMMA,R\nChalice of the Void enters the battlefield with X charge counters on it.\rWhenever a player casts a spell with converted mana cost equal to the number of charge counters on Chalice of the Void, counter that spell."
+    IDS_STRING26427         "Citanul Woodreaders\n{2G}\nCreature - Human Druid\nMMA,C\nKicker {2G}\rWhen Citanul Woodreaders enters the battlefield, if it was kicked, draw two cards.\n1/4"
+    IDS_STRING26428         "City of Brass\n\nLand\nMMA,R\nWhenever City of Brass becomes tapped, it deals 1 damage to you.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING26429         "Cloudgoat Ranger\n{3WW}\nCreature - Giant Warrior\nMMA,U\nWhen Cloudgoat Ranger enters the battlefield, put three 1/1 white Kithkin Soldier creature tokens onto the battlefield.\rTap three untapped Kithkin you control: Cloudgoat Ranger gets +2/+0 and gains flying until end of turn.\n3/3"
+    IDS_STRING26430         "Cold-Eyed Selkie\n{1LL}\nCreature - Merfolk Rogue\nMMA,R\nIslandwalk\rWhenever Cold-Eyed Selkie deals combat damage to a player, you may draw that many cards.\n1/1"
+    IDS_STRING26431         "Countryside Crusher\n{1RR}\nCreature - Giant Warrior\nMMA,R\nAt the beginning of your upkeep, reveal the top card of your library. If it's a land card, put it into your graveyard and repeat this process.\rWhenever a land card is put into your graveyard from anywhere, put a +1/+1 counter on Countryside Crusher.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26432         "Court Homunculus\n{W}\nArtifact Creature - Homunculus\nMMA,C\nCourt Homunculus gets +1/+1 as long as you control another artifact.\n1/1"
+    IDS_STRING26433         "Cryptic Command\n{1UUU}\nInstant\nMMA,R\nChoose two - Counter target spell; or return target permanent to its owner's hand; or tap all creatures your opponents control; or draw a card."
+    IDS_STRING26434         "Dakmor Salvage\n\nLand\nMMA,U\nDakmor Salvage enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\rDredge 2"
+    IDS_STRING26435         "Dark Confidant\n{1B}\nCreature - Human Wizard\nMMA,MR\nAt the beginning of your upkeep, reveal the top card of your library and put that card into your hand. You lose life equal to its converted mana cost.\n2/1"
+    IDS_STRING26436         "Death Cloud\n{XBBB}\nSorcery\nMMA,R\nEach player loses X life, discards X cards, sacrifices X creatures, then sacrifices X lands."
+    IDS_STRING26437         "Death Denied\n{XBB}\nInstant - Arcane\nMMA,C\nReturn X target creature cards from your graveyard to your hand."
+    IDS_STRING26438         "Death Rattle\n{5B}\nInstant\nMMA,C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rDestroy target nongreen creature. It can't be regenerated."
+    IDS_STRING26439         "Demigod of Revenge\n{DDDDD}\nCreature - Spirit Avatar\nMMA,R\nFlying, haste\rWhen you cast Demigod of Revenge, return all cards named Demigod of Revenge from your graveyard to the battlefield.\n5/4"
+    IDS_STRING26440         "Dispeller's Capsule\n{W}\nArtifact\nMMA,C\n{2W}, {T}, Sacrifice Dispeller's Capsule: Destroy target artifact or enchantment."
+    IDS_STRING26441         "Divinity of Pride\n{HHHHH}\nCreature - Spirit Avatar\nMMA,R\nFlying, lifelink\rDivinity of Pride gets +4/+4 as long as you have 25 or more life.\n4/4"
+    IDS_STRING26442         "Doubling Season\n{4G}\nEnchantment\nMMA,R\nIf an effect would put one or more tokens onto the battlefield under your control, it puts twice that many of those tokens onto the battlefield instead.\rIf an effect would place one or more counters on a permanent you control, it places twice that many of those counters on that permanent instead."
+    IDS_STRING26443         "Drag Down\n{2B}\nInstant\nMMA,C\nDomain - Target creature gets -1/-1 until end of turn for each basic land type among lands you control."
+    IDS_STRING26444         "Dragonstorm\n{8R}\nSorcery\nMMA,R\nSearch your library for a Dragon permanent card and put it onto the battlefield. Then shuffle your library.\rStorm"
+    IDS_STRING26445         "Dreamspoiler Witches\n{3B}\nCreature - Faerie Wizard\nMMA,C\nFlying\rWhenever you cast a spell during an opponent's turn, you may have target creature get -1/-1 until end of turn.\n2/2"
+    IDS_STRING26446         "Durkwood Baloth\n{4GG}\nCreature - Beast\nMMA,C\nSuspend 5 - {G}\n5/5"
+    IDS_STRING26447         "Earwig Squad\n{3BB}\nCreature - Goblin Rogue\nMMA,R\nProwl {2B}\rWhen Earwig Squad enters the battlefield, if its prowl cost was paid, search target opponent's library for three cards and exile them. Then that player shuffles his or her library.\n5/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26448         "Echoing Courage\n{1G}\nInstant\nMMA,C\nTarget creature and all other creatures with the same name as that creature get +2/+2 until end of turn."
+    IDS_STRING26449         "Echoing Truth\n{1U}\nInstant\nMMA,C\nReturn target nonland permanent and all other permanents with the same name as that permanent to their owners' hands."
+    IDS_STRING26450         "Electrolyze\n{1UR}\nInstant\nMMA,U\nElectrolyze deals 2 damage divided as you choose among one or two target creatures and/or players.\rDraw a card."
+    IDS_STRING26451         "Elspeth, Knight-Errant\n{2WW}\nPlaneswalker - Elspeth\nMMA,MR\n[+1]: Put a 1/1 white Soldier creature token onto the battlefield.\r[+1]: Target creature gets +3/+3 and gains flying until end of turn.\r[-8]: You get an emblem with ""Artifacts, creatures, enchantments, and lands you control are indestructible.""\n4"
+    IDS_STRING26452         "Empty the Warrens\n{3R}\nSorcery\nMMA,C\nPut two 1/1 red Goblin creature tokens onto the battlefield.\rStorm"
+    IDS_STRING26453         "Engineered Explosives\n{X}\nArtifact\nMMA,R\nSunburst\r{2}, Sacrifice Engineered Explosives: Destroy each nonland permanent with converted mana cost equal to the number of charge counters on Engineered Explosives."
+    IDS_STRING26454         "Epochrasite\n{2}\nArtifact Creature - Construct\nMMA,U\nEpochrasite enters the battlefield with three +1/+1 counters on it if you didn't cast it from your hand.\rWhen Epochrasite dies, exile it with three time counters on it and it gains suspend.\n1/1"
+    IDS_STRING26455         "Errant Ephemeron\n{6U}\nCreature - Illusion\nMMA,C\nFlying\rSuspend 4 - {1U}\n4/4"
+    IDS_STRING26456         "Erratic Mutation\n{2U}\nInstant\nMMA,C\nChoose target creature. Reveal cards from the top of your library until you reveal a nonland card. That creature gets +X/-X until end of turn, where X is that card's converted mana cost. Put all cards revealed this way on the bottom of your library in any order."
+    IDS_STRING26457         "Esperzoa\n{2U}\nArtifact Creature - Jellyfish\nMMA,U\nFlying\rAt the beginning of your upkeep, return an artifact you control to its owner's hand.\n4/3"
+    IDS_STRING26458         "Etched Oracle\n{4}\nArtifact Creature - Wizard\nMMA,U\nSunburst\r{1}, Remove four +1/+1 counters from Etched Oracle: Target player draws three cards.\n0/0"
+    IDS_STRING26459         "Eternal Witness\n{1GG}\nCreature - Human Shaman\nMMA,U\nWhen Eternal Witness enters the battlefield, you may return target card from your graveyard to your hand.\n2/1"
+    IDS_STRING26460         "Etherium Sculptor\n{1U}\nArtifact Creature - Vedalken Artificer\nMMA,C\nArtifact spells you cast cost {1} less to cast.\n1/2"
+    IDS_STRING26461         "Ethersworn Canonist\n{1W}\nArtifact Creature - Human Cleric\nMMA,R\nEach player who has cast a nonartifact spell this turn can't cast additional nonartifact spells.\n2/2"
+    IDS_STRING26462         "Executioner's Capsule\n{B}\nArtifact\nMMA,U\n{1B}, {T}, Sacrifice Executioner's Capsule: Destroy target nonblack creature."
+    IDS_STRING26463         "Extirpate\n{B}\nInstant\nMMA,R\nSplit second\rChoose target card in a graveyard other than a basic land card. Search its owner's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING26464         "Facevaulter\n{B}\nCreature - Goblin Warrior\nMMA,C\n{B}, Sacrifice a Goblin: Facevaulter gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING26465         "Faerie Macabre\n{1BB}\nCreature - Faerie Rogue\nMMA,C\nFlying\rDiscard Faerie Macabre: Exile up to two target cards from graveyards.\n2/2"
+    IDS_STRING26466         "Faerie Mechanist\n{3U}\nArtifact Creature - Faerie Artificer\nMMA,C\nFlying\rWhen Faerie Mechanist enters the battlefield, look at the top three cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\n2/2"
+    IDS_STRING26467         "Festering Goblin\n{B}\nCreature - Zombie Goblin\nMMA,C\nWhen Festering Goblin dies, target creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING26468         "Feudkiller's Verdict\n{4WW}\nTribal Sorcery - Giant\nMMA,U\nYou gain 10 life. Then if you have more life than an opponent, put a 5/5 white Giant Warrior creature token onto the battlefield."
+    IDS_STRING26469         "Fiery Fall\n{5R}\nInstant\nMMA,C\nFiery Fall deals 5 damage to target creature.\rBasic landcycling {1R}"
+    IDS_STRING26470         "Figure of Destiny\n{K}\nCreature - Kithkin\nMMA,R\n{K}:Figure of Destiny becomes a 2/2 Kithkin Spirit.\r{KKK}:If Figure of Destiny is a Spirit, it becomes a 4/4 Kithkin Spirit Warrior.\r{KKKKKK}:If Figure of Destiny is a Warrior, it becomes an 8/8 Kithkin Spirit Warrior Avatar with flying and first strike.\n1/1"
+    IDS_STRING26471         "Flickerwisp\n{1WW}\nCreature - Elemental\nMMA,U\nFlying\rWhen Flickerwisp enters the battlefield, exile another target permanent. Return that card to the battlefield under its owner's control at the beginning of the next end step.\n3/1"
+    IDS_STRING26472         "Frogmite\n{4}\nArtifact Creature - Frog\nMMA,C\nAffinity for artifacts\n2/2"
+    IDS_STRING26473         "Giant Dustwasp\n{3GG}\nCreature - Insect\nMMA,C\nFlying\rSuspend 4 - {1G}\n3/3"
+    IDS_STRING26474         "Gifts Ungiven\n{3U}\nInstant\nMMA,R\nSearch your library for up to four cards with different names and reveal them. Target opponent chooses two of those cards. Put the chosen cards into your graveyard and the rest into your hand. Then shuffle your library."
+    IDS_STRING26475         "Gleam of Resistance\n{4W}\nInstant\nMMA,C\nCreatures you control get +1/+2 until end of turn. Untap those creatures.\rBasic landcycling {1W}"
+    IDS_STRING26476         "Glen Elendra Archmage\n{3U}\nCreature - Faerie Wizard\nMMA,R\nFlying\r{U}, Sacrifice Glen Elendra Archmage: Counter target noncreature spell.\rPersist\n2/2"
+    IDS_STRING26477         "Glimmervoid\n\nLand\nMMA,R\nAt the beginning of the end step, if you control no artifacts, sacrifice Glimmervoid.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING26478         "Grand Arbiter Augustin IV\n{2WU}\nLegendary Creature - Human Advisor\nMMA,R\nWhite spells you cast cost {1} less to cast.\rBlue spells you cast cost {1} less to cast.\rSpells your opponents cast cost {1} more to cast.\n2/3"
+    IDS_STRING26479         "Grapeshot\n{1R}\nSorcery\nMMA,C\nGrapeshot deals 1 damage to target creature or player.\rStorm"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26480         "Greater Gargadon\n{9R}\nCreature - Beast\nMMA,R\nSuspend 10 - {R}\rSacrifice an artifact, creature, or land: Remove a time counter from Greater Gargadon. Activate this ability only if Greater Gargadon is suspended.\n9/7"
+    IDS_STRING26481         "Greater Mossdog\n{3G}\nCreature - Plant Hound\nMMA,C\nDredge 3\n3/3"
+    IDS_STRING26482         "Grinning Ignus\n{2R}\nCreature - Elemental\nMMA,C\n{R}, Return Grinning Ignus to its owner's hand: Add {2R} to your mana pool. Activate this ability only any time you could cast a sorcery.\n2/2"
+    IDS_STRING26483         "Hammerheim Deadeye\n{3R}\nCreature - Giant Warrior\nMMA,U\nEcho {5R}\rWhen Hammerheim Deadeye enters the battlefield, destroy target creature with flying.\n3/3"
+    IDS_STRING26484         "Hana Kami\n{G}\nCreature - Spirit\nMMA,C\n{1G}, Sacrifice Hana Kami: Return target Arcane card from your graveyard to your hand.\n1/1"
+    IDS_STRING26485         "Hillcomber Giant\n{2WW}\nCreature - Giant Scout\nMMA,C\nMountainwalk\n3/3"
+    IDS_STRING26486         "Ivory Giant\n{5WW}\nCreature - Giant\nMMA,C\nWhen Ivory Giant enters the battlefield, tap all nonwhite creatures.\rSuspend 5 - {W}\n3/4"
+    IDS_STRING26487         "Kataki, War's Wage\n{1W}\nLegendary Creature - Spirit\nMMA,R\nAll artifacts have ""At the beginning of your upkeep, sacrifice this artifact unless you pay {1}.""\n2/1"
+    IDS_STRING26488         "Keiga, the Tide Star\n{5U}\nLegendary Creature - Dragon Spirit\nMMA,MR\nFlying\rWhen Keiga, the Tide Star dies, gain control of target creature.\n5/5"
+    IDS_STRING26489         "Kiki-Jiki, Mirror Breaker\n{2RRR}\nLegendary Creature - Goblin Shaman\nMMA,MR\nHaste\r{T}: Put a token that's a copy of target nonlegendary creature you control onto the battlefield. That token has haste. Sacrifice it at the beginning of the next end step.\n2/2"
+    IDS_STRING26490         "Kira, Great Glass-Spinner\n{1UU}\nLegendary Creature - Spirit\nMMA,R\nFlying\rCreatures you control have ""Whenever this creature becomes the target of a spell or ability for the first time in a turn, counter that spell or ability.""\n2/2"
+    IDS_STRING26491         "Kitchen Finks\n{1FF}\nCreature - Ouphe\nMMA,U\nPersist\rWhen Kitchen Finks enters the battlefield, you gain 2 life.\n3/2"
+    IDS_STRING26492         "Kithkin Greatheart\n{1W}\nCreature - Kithkin Soldier\nMMA,C\nAs long as you control a Giant, Kithkin Greatheart gets +1/+1 and has first strike.\n2/1"
+    IDS_STRING26493         "Knight of the Reliquary\n{1GW}\nCreature - Human Knight\nMMA,R\nKnight of the Reliquary gets +1/+1 for each land card in your graveyard.\r{T}, Sacrifice a Forest or Plains: Search your library for a land card, put it onto the battlefield, then shuffle your library.\n2/2"
+    IDS_STRING26494         "Kodama's Reach\n{2G}\nSorcery - Arcane\nMMA,C\nSearch your library for two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Then shuffle your library."
+    IDS_STRING26495         "Kokusho, the Evening Star\n{4BB}\nLegendary Creature - Dragon Spirit\nMMA,MR\nFlying\rWhen Kokusho, the Evening Star dies, each opponent loses 5 life. You gain life equal to the life lost this way.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26496         "Krosan Grip\n{2G}\nInstant\nMMA,U\nSplit second\rDestroy target artifact or enchantment."
+    IDS_STRING26497         "Latchkey Faerie\n{3U}\nCreature - Faerie Rogue\nMMA,C\nFlying\rProwl {2U}\rWhen Latchkey Faerie enters the battlefield, if its prowl cost was paid, draw a card.\n3/1"
+    IDS_STRING26498         "Lava Spike\n{R}\nSorcery - Arcane\nMMA,C\nLava Spike deals 3 damage to target player."
+    IDS_STRING26499         "Life from the Loam\n{1G}\nSorcery\nMMA,R\nReturn up to three target land cards from your graveyard to your hand.\rDredge 3"
+    IDS_STRING26500         "Lightning Helix\n{RW}\nInstant\nMMA,U\nLightning Helix deals 3 damage to target creature or player and you gain 3 life."
+    IDS_STRING26501         "Lotus Bloom\n\nArtifact\nMMA,R\nSuspend 3 - {0}\r{T}, Sacrifice Lotus Bloom: Add three mana of any one color to your mana pool."
+    IDS_STRING26502         "Mad Auntie\n{2B}\nCreature - Goblin Shaman\nMMA,U\nOther Goblin creatures you control get +1/+1.\r{T}: Regenerate another target Goblin.\n2/2"
+    IDS_STRING26503         "Maelstrom Pulse\n{1BG}\nSorcery\nMMA,R\nDestroy target nonland permanent and all other permanents with the same name as that permanent."
+    IDS_STRING26504         "Manamorphose\n{1E}\nInstant\nMMA,U\nAdd two mana in any combination of colors to your mana pool.\rDraw a card."
+    IDS_STRING26505         "Marsh Flitter\n{3B}\nCreature - Faerie Rogue\nMMA,U\nFlying\rWhen Marsh Flitter enters the battlefield, put two 1/1 black Goblin Rogue creature tokens onto the battlefield.\rSacrifice a Goblin: Marsh Flitter becomes 3/3 until end of turn.\n1/1"
+    IDS_STRING26506         "Masked Admirers\n{2GG}\nCreature - Elf Shaman\nMMA,U\nWhen Masked Admirers enters the battlefield, draw a card.\rWhenever you cast a creature spell, you may pay {GG}. If you do, return Masked Admirers from your graveyard to your hand.\n3/2"
+    IDS_STRING26507         "Meloku the Clouded Mirror\n{4U}\nLegendary Creature - Moonfolk Wizard\nMMA,R\nFlying\r{1}, Return a land you control to its owner's hand: Put a 1/1 blue Illusion creature token with flying onto the battlefield.\n2/4"
+    IDS_STRING26508         "Mind Funeral\n{1UB}\nSorcery\nMMA,U\nTarget opponent reveals cards from the top of his or her library until four land cards are revealed. That player puts all cards revealed this way into his or her graveyard."
+    IDS_STRING26509         "Mogg War Marshal\n{1R}\nCreature - Goblin Warrior\nMMA,C\nEcho {1R}\rWhen Mogg War Marshal enters the battlefield or dies, put a 1/1 red Goblin creature token onto the battlefield.\n1/1"
+    IDS_STRING26510         "Moldervine Cloak\n{2G}\nEnchantment - Aura\nMMA,C\nEnchant creature\rEnchanted creature gets +3/+3.\rDredge 2"
+    IDS_STRING26511         "Mothdust Changeling\n{U}\nCreature - Shapeshifter\nMMA,C\nChangeling\rTap an untapped creature you control: Mothdust Changeling gains flying until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26512         "Mulldrifter\n{4U}\nCreature - Elemental\nMMA,U\nFlying\rWhen Mulldrifter enters the battlefield, draw two cards.\rEvoke {2U}\n2/2"
+    IDS_STRING26513         "Murderous Redcap\n{2DD}\nCreature - Goblin Assassin\nMMA,U\nWhen Murderous Redcap enters the battlefield, it deals damage equal to its power to target creature or player.\rPersist\n2/2"
+    IDS_STRING26514         "Myr Enforcer\n{7}\nArtifact Creature - Myr\nMMA,C\nAffinity for artifacts\n4/4"
+    IDS_STRING26515         "Myr Retriever\n{2}\nArtifact Creature - Myr\nMMA,U\nWhen Myr Retriever dies, return another target artifact card from your graveyard to your hand.\n1/1"
+    IDS_STRING26516         "Nantuko Shaman\n{2G}\nCreature - Insect Shaman\nMMA,C\nWhen Nantuko Shaman enters the battlefield, if you control no tapped lands, draw a card.\rSuspend 1 - {2GG}\n3/2"
+    IDS_STRING26517         "Narcomoeba\n{1U}\nCreature - Illusion\nMMA,U\nFlying\rWhen Narcomoeba is put into your graveyard from your library, you may put it onto the battlefield.\n1/1"
+    IDS_STRING26518         "Oona, Queen of the Fae\n{3CCC}\nLegendary Creature - Faerie Wizard\nMMA,R\nFlying\r{XC}: Choose a color. Target opponent exiles the top X cards of his or her library. For each card of the chosen color exiled this way, put a 1/1 blue and black Faerie Rogue creature token with flying onto the battlefield.\n5/5"
+    IDS_STRING26519         "Otherworldly Journey\n{1W}\nInstant - Arcane\nMMA,C\nExile target creature. At the beginning of the next end step, return that card to the battlefield under its owner's control with a +1/+1 counter on it."
+    IDS_STRING26520         "Pact of Negation\n{0}\nInstant\nMMA,R\nCounter target spell.\rAt the beginning of your next upkeep, pay {3UU}. If you don't, you lose the game.\n"
+    IDS_STRING26521         "Pallid Mycoderm\n{3W}\nCreature - Fungus\nMMA,C\nAt the beginning of your upkeep, put a spore counter on Pallid Mycoderm.\rRemove three spore counters from Pallid Mycoderm: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Each creature you control that's a Fungus or a Saproling gets +1/+1 until end of turn.\n2/4"
+    IDS_STRING26522         "Paradise Mantle\n{0}\nArtifact - Equipment\nMMA,U\nEquipped creature has ""{T}: Add one mana of any color to your mana pool.""\rEquip {1}"
+    IDS_STRING26523         "Pardic Dragon\n{4RR}\nCreature - Dragon\nMMA,U\nFlying\r{R}: Pardic Dragon gets +1/+0 until end of turn.\rSuspend 2 - {RR}\rWhenever an opponent casts a spell, if Pardic Dragon is suspended, that player may put a time counter on Pardic Dragon.\n4/4"
+    IDS_STRING26524         "Path to Exile\n{W}\nInstant\nMMA,U\nExile target creature. Its controller may search his or her library for a basic land card, put that card onto the battlefield tapped, then shuffle his or her library."
+    IDS_STRING26525         "Peer Through Depths\n{1U}\nInstant - Arcane\nMMA,C\nLook at the top five cards of your library. You may reveal an instant or sorcery card from among them and put it into your hand. Put the rest on the bottom of your library in any order."
+    IDS_STRING26526         "Penumbra Spider\n{2GG}\nCreature - Spider\nMMA,C\nReach\rWhen Penumbra Spider dies, put a 2/4 black Spider creature token with reach onto the battlefield.\n2/4"
+    IDS_STRING26527         "Peppersmoke\n{B}\nTribal Instant - Faerie\nMMA,C\nTarget creature gets -1/-1 until end of turn. If you control a Faerie, draw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26528         "Perilous Research\n{1U}\nInstant\nMMA,C\nDraw two cards, then sacrifice a permanent."
+    IDS_STRING26529         "Pestermite\n{2U}\nCreature - Faerie Rogue\nMMA,C\nFlash\rFlying\rWhen Pestermite enters the battlefield, you may tap or untap target permanent.\n2/1"
+    IDS_STRING26530         "Phthisis\n{3BBBB}\nSorcery\nMMA,U\nDestroy target creature. Its controller loses life equal to its power plus its toughness.\rSuspend 5 - {1B}"
+    IDS_STRING26531         "Plumeveil\n{AAA}\nCreature - Elemental\nMMA,U\nFlash\rDefender, flying\n4/4"
+    IDS_STRING26532         "Progenitus\n{WWUUBBRRGG}\nLegendary Creature - Hydra Avatar\nMMA,MR\nProtection from everything\rIf Progenitus would be put into a graveyard from anywhere, reveal Progenitus and shuffle it into its owner's library instead.\n10/10"
+    IDS_STRING26533         "Pyrite Spellbomb\n{1}\nArtifact\nMMA,C\n{R}, Sacrifice Pyrite Spellbomb: Pyrite Spellbomb deals 2 damage to target creature or player.\r{1}, Sacrifice Pyrite Spellbomb: Draw a card."
+    IDS_STRING26534         "Pyromancer's Swath\n{2R}\nEnchantment\nMMA,R\nIf an instant or sorcery source you control would deal damage to a creature or player, it deals that much damage plus 2 to that creature or player instead.\rAt the beginning of each end step, discard your hand."
+    IDS_STRING26535         "Rathi Trapper\n{1B}\nCreature - Human Rebel Rogue\nMMA,C\n{B}, {T}: Tap target creature.\n1/2"
+    IDS_STRING26536         "Raven's Crime\n{B}\nSorcery\nMMA,C\nTarget player discards a card.\rRetrace"
+    IDS_STRING26537         "Reach Through Mists\n{U}\nInstant - Arcane\nMMA,C\nDraw a card."
+    IDS_STRING26538         "Reach of Branches\n{4G}\nTribal Instant - Treefolk\nMMA,U\nPut a 2/5 green Treefolk Shaman creature token onto the battlefield.\rWhenever a Forest enters the battlefield under your control, you may return Reach of Branches from your graveyard to your hand."
+    IDS_STRING26539         "Relic of Progenitus\n{1}\nArtifact\nMMA,U\n{T}: Target player exiles a card from his or her graveyard.\r{1}, Exile Relic of Progenitus: Exile all cards from all graveyards. Draw a card."
+    IDS_STRING26540         "Reveillark\n{4W}\nCreature - Elemental\nMMA,R\nFlying\rWhen Reveillark leaves the battlefield, return up to two target creature cards with power 2 or less from your graveyard to the battlefield.\rEvoke {5W}\n4/3"
+    IDS_STRING26541         "Rift Bolt\n{2R}\nSorcery\nMMA,C\nRift Bolt deals 3 damage to target creature or player. Suspend 1 - {R}"
+    IDS_STRING26542         "Riftsweeper\n{1G}\nCreature - Elf Shaman\nMMA,U\nWhen Riftsweeper enters the battlefield, choose target face-up exiled card. Its owner shuffles it into his or her library.\n2/2"
+    IDS_STRING26543         "Riftwing Cloudskate\n{3UU}\nCreature - Illusion\nMMA,U\nWhen Riftwing Cloudskate enters the battlefield, return target permanent to its owner's hand.\rSuspend 3 - {1U}\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26544         "Rude Awakening\n{4G}\nSorcery\nMMA,R\nChoose one - Untap all lands you control; or until end of turn, lands you control become 2/2 creatures that are still lands.\rEntwine {2G}"
+    IDS_STRING26545         "Runed Stalactite\n{1}\nArtifact - Equipment\nMMA,C\nEquipped creature gets +1/+1 and is every creature type.\rEquip {2}"
+    IDS_STRING26546         "Ryusei, the Falling Star\n{5R}\nLegendary Creature - Dragon Spirit\nMMA,MR\nFlying\rWhen Ryusei, the Falling Star dies, it deals 5 damage to each creature without flying.\n5/5"
+    IDS_STRING26547         "Saltfield Recluse\n{2W}\nCreature - Human Rebel Cleric\nMMA,C\n{T}: Target creature gets -2/-0 until end of turn.\n1/2"
+    IDS_STRING26548         "Sanctum Gargoyle\n{3W}\nArtifact Creature - Gargoyle\nMMA,C\nFlying\rWhen Sanctum Gargoyle enters the battlefield, you may return target artifact card from your graveyard to your hand.\n2/3"
+    IDS_STRING26549         "Sandsower\n{3W}\nCreature - Spirit\nMMA,U\nTap three untapped creatures you control: Tap target creature.\n1/3"
+    IDS_STRING26550         "Sarkhan Vol\n{2RG}\nPlaneswalker - Sarkhan\nMMA,MR\n[+1]: Creatures you control get +1/+1 and gain haste until end of turn.\r[-2]: Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\r[-6]: Put five 4/4 red Dragon creature tokens with flying onto the battlefield.\n4"
+    IDS_STRING26551         "Scion of Oona\n{2U}\nCreature - Faerie Soldier\nMMA,R\nFlash\rFlying\rOther Faerie creatures you control get +1/+1.\rOther Faeries you control have shroud.\n1/1"
+    IDS_STRING26552         "Search for Tomorrow\n{2G}\nSorcery\nMMA,C\nSearch your library for a basic land card and put it onto the battlefield. Then shuffle your library.\rSuspend 2-{G}"
+    IDS_STRING26553         "Shrapnel Blast\n{1R}\nInstant\nMMA,U\nAs an additional cost to cast Shrapnel Blast, sacrifice an artifact.\rShrapnel Blast deals 5 damage to target creature or player."
+    IDS_STRING26554         "Skeletal Vampire\n{4BB}\nCreature - Vampire Skeleton\nMMA,R\nFlying\rWhen Skeletal Vampire enters the battlefield, put two 1/1 black Bat creature tokens with flying onto the battlefield.\r{3BB}, Sacrifice a Bat: Put two 1/1 black Bat creature tokens with flying onto the battlefield.\rSacrifice a Bat: Regenerate Skeletal Vampire.\n3/3"
+    IDS_STRING26555         "Skyreach Manta\n{5}\nArtifact Creature - Fish\nMMA,C\nSunburst\rFlying\n0/0"
+    IDS_STRING26556         "Slaughter Pact\n{0}\nInstant\nMMA,R\nDestroy target nonblack creature.\rAt the beginning of your next upkeep, pay {2B}. If you don't, you lose the game."
+    IDS_STRING26557         "Spell Snare\n{U}\nInstant\nMMA,U\nCounter target spell with converted mana cost 2."
+    IDS_STRING26558         "Spellstutter Sprite\n{1U}\nCreature - Faerie Wizard\nMMA,C\nFlash\rFlying\rWhen Spellstutter Sprite enters the battlefield, counter target spell with converted mana cost X or less, where X is the number of Faeries you control.\n1/1"
+    IDS_STRING26559         "Sporesower Thallid\n{2GG}\nCreature - Fungus\nMMA,U\nAt the beginning of your upkeep, put a spore counter on each Fungus you control.\rRemove three spore counters from Sporesower Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26560         "Sporoloth Ancient\n{3GG}\nCreature - Fungus\nMMA,C\nAt the beginning of your upkeep, put a spore counter on Sporoloth Ancient.\rCreatures you control have ""Remove two spore counters from this creature: Put a 1/1 green Saproling creature token onto the battlefield.""\n4/4"
+    IDS_STRING26561         "Squee, Goblin Nabob\n{2R}\nLegendary Creature - Goblin\nMMA,R\nAt the beginning of your upkeep, you may return Squee, Goblin Nabob from your graveyard to your hand.\n1/1"
+    IDS_STRING26562         "Stingscourger\n{1R}\nCreature - Goblin Warrior\nMMA,C\nEcho {3R}\rWhen Stingscourger enters the battlefield, return target creature an opponent controls to its owner's hand.\n2/2"
+    IDS_STRING26563         "Stinkdrinker Daredevil\n{2R}\nCreature - Goblin Rogue\nMMA,C\nGiant spells you cast cost {2} less to cast.\n1/3"
+    IDS_STRING26564         "Stinkweed Imp\n{2B}\nCreature - Imp\nMMA,C\nFlying\rWhenever Stinkweed Imp deals combat damage to a creature, destroy that creature.\rDredge 5\n1/2"
+    IDS_STRING26565         "Stonehewer Giant\n{3WW}\nCreature - Giant Warrior\nMMA,R\nVigilance\r{1W}, {T}: Search your library for an Equipment card and put it onto the battlefield. Attach it to a creature you control. Then shuffle your library.\n4/4"
+    IDS_STRING26566         "Street Wraith\n{3BB}\nCreature - Wraith\nMMA,C\nSwampwalk\rCycling - Pay 2 life.\n3/4"
+    IDS_STRING26567         "Sudden Shock\n{1R}\nInstant\nMMA,U\nSplit second\rSudden Shock deals 2 damage to target creature or player."
+    IDS_STRING26568         "Summoner's Pact\n{0}\nInstant\nMMA,R\nSearch your library for a green creature card, reveal it, and put it into your hand. Then shuffle your library.\rAt the beginning of your next upkeep, pay {2GG}. If you don't, you lose the game."
+    IDS_STRING26569         "Sword of Fire and Ice\n{3}\nArtifact - Equipment\nMMA,MR\nEquip {2}\rEquipped creature gets +2/+2 and has protection from red and from blue.\rWhenever equipped creature deals combat damage to a player, Sword of Fire and Ice deals 2 damage to target creature or player and you draw a card."
+    IDS_STRING26570         "Sword of Light and Shadow\n{3}\nArtifact - Equipment\nMMA,MR\nEquipped creature gets +2/+2 and has protection from white and from black.\rWhenever equipped creature deals combat damage to a player, you gain 3 life and you may return up to one target creature card from your graveyard to your hand.\rEquip {2}"
+    IDS_STRING26571         "Sylvan Bounty\n{5G}\nInstant\nMMA,C\nTarget player gains 8 life.\rBasic landcycling {1G}"
+    IDS_STRING26572         "Syphon Life\n{1BB}\nSorcery\nMMA,C\nTarget player loses 2 life and you gain 2 life.\rRetrace"
+    IDS_STRING26573         "Take Possession\n{5UU}\nEnchantment - Aura\nMMA,U\nSplit second\rEnchant permanent\rYou control enchanted permanent."
+    IDS_STRING26574         "Tar Pitcher\n{3R}\nCreature - Goblin Shaman\nMMA,U\n{T}, Sacrifice a Goblin: Tar Pitcher deals 2 damage to target creature or player.\n2/2"
+    IDS_STRING26575         "Tarmogoyf\n{1G}\nCreature - Lhurgoyf\nMMA,MR\nTarmogoyf's power is equal to the number of card types among cards in all graveyards and its toughness is equal to that number plus 1.\n*/1+*"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26576         "Terashi's Grasp\n{2W}\nSorcery - Arcane\nMMA,U\nDestroy target artifact or enchantment. You gain life equal to its converted mana cost."
+    IDS_STRING26577         "Terramorphic Expanse\n\nLand\nMMA,C\n{T}, Sacrifice Terramorphic Expanse: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING26578         "Thallid\n{G}\nCreature - Fungus\nMMA,C\nAt the beginning of your upkeep, put a spore counter on Thallid.\rRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+    IDS_STRING26579         "Thallid Germinator\n{2G}\nCreature - Fungus\nMMA,C\nAt the beginning of your upkeep, put a spore counter on Thallid Germinator.\rRemove three spore counters from Thallid Germinator: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Target creature gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING26580         "Thallid Shell-Dweller\n{1G}\nCreature - Fungus\nMMA,C\nDefender\rAt the beginning of your upkeep, put a spore counter on Thallid Shell-Dweller.\rRemove three spore counters from Thallid Shell-Dweller: Put a 1/1 green Saproling creature token onto the battlefield.\n0/5"
+    IDS_STRING26581         "Thieving Sprite\n{2B}\nCreature - Faerie Rogue\nMMA,C\nFlying\rWhen Thieving Sprite enters the battlefield, target player reveals X cards from his or her hand, where X is the number of Faeries you control. You choose one of those cards. That player discards that card.\n1/1"
+    IDS_STRING26582         "Thirst for Knowledge\n{2U}\nInstant\nMMA,U\nDraw three cards. Then discard two cards unless you discard an artifact card."
+    IDS_STRING26583         "Thundercloud Shaman\n{3RR}\nCreature - Giant Shaman\nMMA,U\nWhen Thundercloud Shaman enters the battlefield, it deals damage equal to the number of Giants you control to each non-Giant creature.\n4/4"
+    IDS_STRING26584         "Thundering Giant\n{3RR}\nCreature - Giant\nMMA,C\nHaste\n4/3"
+    IDS_STRING26585         "Tidehollow Sculler\n{WB}\nArtifact Creature - Zombie\nMMA,U\nWhen Tidehollow Sculler enters the battlefield, target opponent reveals his or her hand and you choose a nonland card from it. Exile that card.\rWhen Tidehollow Sculler leaves the battlefield, return the exiled card to its owner's hand.\n2/2"
+    IDS_STRING26586         "Tombstalker\n{6BB}\nCreature - Demon\nMMA,R\nFlying\rDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\n5/5"
+    IDS_STRING26587         "Tooth and Nail\n{5GG}\nSorcery\nMMA,R\nChoose one - Search your library for up to two creature cards, reveal them, put them into your hand, then shuffle your library; or put up to two creature cards from your hand onto the battlefield.\rEntwine {2}"
+    IDS_STRING26588         "Traumatic Visions\n{3UU}\nInstant\nMMA,C\nCounter target spell.\rBasic landcycling {1U}"
+    IDS_STRING26589         "Tribal Flames\n{1R}\nSorcery\nMMA,U\nDomain - Tribal Flames deals X damage to target creature or player, where X is the number of basic land types among lands you control."
+    IDS_STRING26590         "Tromp the Domains\n{5G}\nSorcery\nMMA,U\nDomain - Until end of turn, creatures you control gain trample and get +1/+1 for each basic land type among lands you control."
+    IDS_STRING26591         "Trygon Predator\n{1GU}\nCreature - Beast\nMMA,U\nFlying\rWhenever Trygon Predator deals combat damage to a player, you may destroy target artifact or enchantment that player controls.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26592         "Vedalken Dismisser\n{5U}\nCreature - Vedalken Wizard\nMMA,C\nWhen Vedalken Dismisser enters the battlefield, put target creature on top of its owner's library.\n2/2"
+    IDS_STRING26593         "Vedalken Shackles\n{3}\nArtifact\nMMA,MR\nYou may choose not to untap Vedalken Shackles during your untap step.\r{2}, {T}: Gain control of target creature with power less than or equal to the number of Islands you control for as long as Vedalken Shackles remains tapped."
+    IDS_STRING26594         "Vendilion Clique\n{1UU}\nLegendary creature - Faerie Wizard\nMMA,MR\nFlash\rFlying\rWhen Vendilion Clique enters the battlefield, look at target player's hand. You may choose a nonland card from it. If you do, that player reveals the chosen card, puts it on the bottom of his or her library, then draws a card.\n3/1"
+    IDS_STRING26595         "Veteran Armorer\n{1W}\nCreature - Human Soldier\nMMA,C\nOther creatures you control get +0/+1.\n2/2"
+    IDS_STRING26596         "Vivid Crag\n\nLand\nMMA,U\nVivid Crag enters the battlefield tapped with two charge counters on it.\r{T}: Add {R} to your mana pool.\r{T}, Remove a charge counter from Vivid Crag: Add one mana of any color to your mana pool."
+    IDS_STRING26597         "Vivid Creek\n\nLand\nMMA,U\nVivid Creek enters the battlefield tapped with two charge counters on it.\r{T}: Add {U} to your mana pool.\r{T}, Remove a charge counter from Vivid Creek: Add one mana of any color to your mana pool."
+    IDS_STRING26598         "Vivid Grove\n\nLand\nMMA,U\nVivid Grove enters the battlefield tapped with two charge counters on it.\r{T}: Add {G} to your mana pool.\r{T}, Remove a charge counter from Vivid Grove: Add one mana of any color to your mana pool."
+    IDS_STRING26599         "Vivid Marsh\n\nLand\nMMA,U\nVivid Marsh enters the battlefield tapped with two charge counters on it.\r{T}: Add {B} to your mana pool.\r{T}, Remove a charge counter from Vivid Marsh: Add one mana of any color to your mana pool."
+    IDS_STRING26600         "Vivid Meadow\n\nLand\nMMA,U\nVivid Meadow enters the battlefield tapped with two charge counters on it.\r{T}: Add {W} to your mana pool.\r{T}, Remove a charge counter from Vivid Meadow: Add one mana of any color to your mana pool."
+    IDS_STRING26601         "Walker of the Grove\n{6GG}\nCreature - Elemental\nMMA,C\nWhen Walker of the Grove leaves the battlefield, put a 4/4 green Elemental creature token onto the battlefield.\rEvoke {4G}\n7/7"
+    IDS_STRING26602         "War-Spike Changeling\n{3R}\nCreature - Shapeshifter\nMMA,C\nChangeling\r{R}: War-Spike Changeling gains first strike until end of turn.\n3/3"
+    IDS_STRING26603         "Warren Pilferers\n{4B}\nCreature - Goblin Rogue\nMMA,C\nWhen Warren Pilferers enters the battlefield, return target creature card from your graveyard to your hand. If that card is a Goblin card, Warren Pilferers gains haste until end of turn.\n3/3"
+    IDS_STRING26604         "Warren Weirding\n{1B}\nTribal Sorcery - Goblin\nMMA,C\nTarget player sacrifices a creature. If a Goblin is sacrificed this way, that player puts two 1/1 black Goblin Rogue creature tokens onto the battlefield, and those tokens gain haste until end of turn."
+    IDS_STRING26605         "Woodfall Primus\n{5GGG}\nCreature - Treefolk Shaman\nMMA,R\nTrample\rWhen Woodfall Primus enters the battlefield, destroy target noncreature permanent.\rPersist\n6/6"
+    IDS_STRING26606         "Worm Harvest\n{2JJJ}\nSorcery\nMMA,U\nPut a 1/1 black and green Worm creature token onto the battlefield for each land card in your graveyard.\rRetrace"
+    IDS_STRING26607         "Yosei, the Morning Star\n{4WW}\nLegendary Creature - Dragon Spirit\nMMA,MR\nFlying\rWhen Yosei, the Morning Star dies, target player skips his or her next untap step. Tap up to five target permanents that player controls.\n5/5"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

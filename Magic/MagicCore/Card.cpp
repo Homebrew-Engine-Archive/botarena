@@ -1157,6 +1157,17 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 					nExtraCount += 1;
 			}
 			
+			CCard* pMentionedCard;
+			for (int i = 0; i < pEffects->GetSize(); ++i)
+			{
+				if (pEffects->GetAt(i)->GetPrintedCardName() == _T("Savage Summoning Second Effect"))
+				{
+					pMentionedCard = ((CContainerEffectCard*)pEffects->GetAt(i))->GetCard();
+					if (pMentionedCard == this)
+						nExtraCount += 1;
+				}
+			}
+
 			bool bBloodthirst = false;
 			for (int ip = 0; ip < m_pGame->GetPlayerCount(); ++ip)
 				if ((m_pGame->GetPlayer(ip) != GetController()) && (m_pGame->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))

@@ -352,7 +352,7 @@ BEGIN
     IDS_STRING4218          "Elvish Archdruid\n{1GG}\nCreature - Elf Druid\nM10,R\nOther Elf creatures you control get +1/+1.\r{T}: Add {G} to your mana pool for each Elf you control.\n2/2"
     IDS_STRING4219          "Xathrid Demon\n{3BBB}\nCreature - Demon\nM10,MR\nFlying, trample\rAt the beginning of your upkeep, sacrifice a creature other than Xathrid Demon, then each opponent loses life equal to the sacrificed creature's power. If you can't sacrifice a creature, tap Xathrid Demon and you lose 7 life.\n7/7"
     IDS_STRING4220          "Safe Passage\n{2W}\nInstant\nM10,C\nPrevent all damage that would be dealt to you and creatures you control this turn."
-    IDS_STRING4221          "Darksteel Colossus\n{11}\nArtifact Creature - Golem\nM10,MR\nTrample\rDarksteel Colossus is indestructible.\rIf Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.\n11/11"
+    IDS_STRING4221          "Darksteel Colossus\n{11}\nArtifact Creature - Golem\nM10,MR\nTrample, indestructible\rIf Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.\n11/11"
     IDS_STRING4222          "Indestructibility\n{3W}\nEnchantment - Aura\nM10,R\nEnchant permanent\rEnchanted permanent is indestructible."
     IDS_STRING4223          "Wall of Frost\n{1UU}\nCreature - Wall\nM10,U\nDefender\rWhenever Wall of Frost blocks a creature, that creature doesn't untap during its controller's next untap step.\n0/7"
 END

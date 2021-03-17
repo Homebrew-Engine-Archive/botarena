@@ -208,6 +208,8 @@ BEGIN
     IDS_STRING13704         "Laquatus's Champion\n{4BB}\nCreature - Nightmare Horror\nTOR,R\nWhen Laquatus's Champion enters the battlefield, target player loses 6 life.\rWhen Laquatus's Champion leaves the battlefield, that player gains 6 life.\r{B}: Regenerate Laquatus's Champion.\n6/3"
     IDS_STRING13705         "Gurzigost\n{3GG}\nCreature - Beast\nTOR,R\nAt the beginning of your upkeep, sacrifice Gurzigost unless you put two cards from your graveyard on the bottom of your library.\r{GG}, Discard a card: You may have Gurzigost assign its combat damage this turn as though it weren't blocked.\n6/8"
     IDS_STRING13706         "Pitchstone Wall\n{2R}\nCreature - Wall\nTOR,U\nDefender\rWhenever you discard a card, you may sacrifice Pitchstone Wall. If you do, return the discarded card from your graveyard to your hand.\n2/5"
+    IDS_STRING13707         "Insist\n{G}\nSorcery\nTOR,R\nThe next creature spell you cast this turn can't be countered by spells or abilities.\rDraw a card."
+    IDS_STRING13708         "Overmaster\n{R}\nSorcery\nTOR,R\nThe next instant or sorcery spell you cast this turn can't be countered by spells or abilities.\rDraw a card."
 END
 
 #endif    // English (United States) resources

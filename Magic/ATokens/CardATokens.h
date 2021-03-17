@@ -615,3 +615,10 @@ class CConstructAFToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CGiantABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CGiantABToken);
+};
+
+//____________________________________________________________________________
+//

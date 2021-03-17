@@ -129,7 +129,7 @@ BEGIN
     IDS_STRING1136          "Fear\n{BB}\nEnchantment - Aura\nUTD,C\nEnchant creature\rEnchanted creature has fear."
     IDS_STRING1137          "Frozen Shade\n{2B}\nCreature - Shade\nUTD,C\n{B}: Frozen Shade gets +1/+1 until end of turn.\n0/1"
     IDS_STRING1138          "Cockatrice\n{3GG}\nCreature - Cockatrice\nUTD,R\nFlying\rWhenever Cockatrice blocks or becomes blocked by a non-Wall creature, destroy that creature at end of combat.\n2/4"
-    IDS_STRING1139          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\nUTD,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING1139          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\nUTD,C\n{T}: Target creature with power 2 or less can't be blocked this turn.\n1/1"
     IDS_STRING1140          "Granite Gargoyle\n{2R}\nCreature - Gargoyle\nUTD,R\nFlying\r{R}: Granite Gargoyle gets +0/+1 until end of turn.\n2/2"
     IDS_STRING1141          "Gray Ogre\n{2R}\nCreature - Ogre\nUTD,C\n\n2/2"
     IDS_STRING1142          "Hurloon Minotaur\n{1RR}\nCreature - Minotaur\nUTD,C\n\n2/3"

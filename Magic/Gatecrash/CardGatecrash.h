@@ -2219,16 +2219,6 @@ class CUrbisProtectorCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CVerdantHavenCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CVerdantHavenCard);
-
-private:
-	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
-};
-
-//____________________________________________________________________________
-//
 class CVoidwalkCard : public CCard
 {
     DECLARE_CARD_CSTOR(CVoidwalkCard);

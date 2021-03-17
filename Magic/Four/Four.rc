@@ -151,7 +151,7 @@ BEGIN
     IDS_STRING7657          "Dragon Engine\n{3}\nArtifact Creature - Construct\n4TH,R\n{2}: Dragon Engine gets +1/+0 until end of turn.\n1/3"
     IDS_STRING7658          "Drudge Skeletons\n{1B}\nCreature - Skeleton\n4TH,C\n{B}: Regenerate Drudge Skeletons.\n1/1"
     IDS_STRING7659          "Durkwood Boars\n{4G}\nCreature - Boar\n4TH,C\n\n4/4"
-    IDS_STRING7660          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\n4TH,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING7660          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\n4TH,C\n{T}: Target creature with power 2 or less can't be blocked this turn.\n1/1"
     IDS_STRING7661          "Earth Elemental\n{3RR}\nCreature - Elemental\n4TH,U\n\n4/5"
     IDS_STRING7662          "Earthquake\n{XR}\nSorcery\n4TH,R\nEarthquake deals X damage to each creature without flying and each player."
     IDS_STRING7663          "Elven Riders\n{3GG}\nCreature - Elf\n4TH,U\nElven Riders can't be blocked except by Walls and/or creatures with flying.\n3/3"

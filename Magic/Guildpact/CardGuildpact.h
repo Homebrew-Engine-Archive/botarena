@@ -907,13 +907,6 @@ class CRepealCard : public CCard
 
 //____________________________________________________________________________
 //
-class CQuickenCard : public CCard 
-{
-	DECLARE_CARD_CSTOR(CQuickenCard);
-};
-
-//____________________________________________________________________________
-//
 class CYoreTillerNephilimCard : public CCreatureCard
 {
     DECLARE_CARD_CSTOR(CYoreTillerNephilimCard);

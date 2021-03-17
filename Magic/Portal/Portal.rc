@@ -100,7 +100,7 @@ BEGIN
     IDS_STRING19814         "Devastation\n{5RR}\nSorcery\nPOR,R\nDestroy all creatures and lands."
     IDS_STRING19815         "Devoted Hero\n{W}\nCreature - Elf Soldier\nPOR,C\n\n1/2"
     IDS_STRING19816         "Djinn of the Lamp\n{5UU}\nCreature - Djinn\nPOR,R\nFlying\n5/6"
-    IDS_STRING19817         "Dread Charge\n{3B}\nSorcery\nPOR,R\nUntil end of turn, black creatures you control can be blocked only by black creatures."
+    IDS_STRING19817         "Dread Charge\n{3B}\nSorcery\nPOR,R\nBlack creatures you control can't be blocked this turn except by black creatures."
     IDS_STRING19818         "Dread Reaper\n{3BBB}\nCreature - Horror\nPOR,R\nFlying\rWhen Dread Reaper enters the battlefield, you lose 5 life.\n6/5"
     IDS_STRING19819         "Ebon Dragon\n{5BB}\nCreature - Dragon\nPOR,R\nFlying\rWhen Ebon Dragon enters the battlefield, you may have target opponent discard a card.\n5/4"
     IDS_STRING19820         "Elite Cat Warrior\n{2G}\nCreature - Cat Warrior\nPOR,C\nForestwalk\n2/3"

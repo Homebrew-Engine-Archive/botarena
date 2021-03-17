@@ -94,7 +94,7 @@ BEGIN
     IDS_STRING24012         "Swamp\n\nBasic Land - Swamp\nAVR,BL\n{T}: Add {B} to your mana pool."
     IDS_STRING24013         "Swamp\n\nBasic Land - Swamp\nAVR,BL\n{T}: Add {B} to your mana pool."
     IDS_STRING24014         "Swamp\n\nBasic Land - Swamp\nAVR,BL\n{T}: Add {B} to your mana pool."
-    IDS_STRING24015         "Avacyn, Angel of Hope\n{5WWW}\nLegendary Creature - Angel\nAVR,MR\nFlying, vigilance\rAvacyn, Angel of Hope and other permanents you control are indestructible.\n8/8"
+    IDS_STRING24015         "Avacyn, Angel of Hope\n{5WWW}\nLegendary Creature - Angel\nAVR,MR\nFlying, vigilance, indestructible\rOther permanents you control have indestructible.\n8/8"
 END
 
 STRINGTABLE
@@ -153,7 +153,7 @@ BEGIN
     IDS_STRING24059         "Wolfir Avenger\n{1GG}\nCreature - Wolf Warrior\nAVR,U\nFlash\r{1G}: Regenerate Wolfir Avenger.\n3/3"
     IDS_STRING24060         "Thatcher Revolt\n{2R}\nSorcery\nAVR,C\nPut three 1/1 red Human creature tokens with haste onto the battlefield. Sacrifice those tokens at the beginning of the next end step."
     IDS_STRING24061         "Angel's Mercy\n{2WW}\nInstant\nAVR,C\nYou gain 7 life."
-    IDS_STRING24062         "Angelic Wall\n{1W}\nCreature - Wall\nAVR,C\nDefender, flying\n0/4"
+    IDS_STRING24062         "Angelic Wall\n{1W}\nCreature - Wall\nAVR,C\nDefender\rFlying\n0/4"
     IDS_STRING24063         "Archangel\n{5WW}\nCreature - Angel\nAVR,U\nFlying, vigilance\n5/5"
 END
 

@@ -172,7 +172,7 @@ BEGIN
     IDS_STRING8074          "Dust to Dust\n{1WW}\nSorcery\n5TH,U\nExile two target artifacts."
     IDS_STRING8075          "Dwarven Ruins\n\nLand\n5TH,U\nDwarven Ruins enters the battlefield tapped.\r{T}: Add {R} to your mana pool.\r{T}, Sacrifice Dwarven Ruins: Add {RR} to your mana pool."
     IDS_STRING8076          "Dwarven Soldier\n{1R}\nCreature - Dwarf Soldier\n5TH,C\nWhenever Dwarven Soldier blocks or becomes blocked by one or more Orcs, Dwarven Soldier gets +0/+2 until end of turn.\n2/1"
-    IDS_STRING8077          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\n5TH,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING8077          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\n5TH,C\n{T}: Target creature with power 2 or less can't be blocked this turn.\n1/1"
     IDS_STRING8078          "Earthquake\n{XR}\nSorcery\n5TH,R\nEarthquake deals X damage to each creature without flying and each player."
     IDS_STRING8079          "Ebon Stronghold\n\nLand\n5TH,U\nEbon Stronghold enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\r{T}, Sacrifice Ebon Stronghold: Add {BB} to your mana pool."
 END

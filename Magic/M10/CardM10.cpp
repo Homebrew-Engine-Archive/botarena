@@ -546,7 +546,7 @@ CHowlOfTheNightPackCard::CHowlOfTheNightPackCard(CGame* pGame, UINT nID)
 			_T("6") GREEN_MANA_TEXT,
 			new CardTypeComparer(CardType::Forest, false),
 			FALSE, FALSE,
-			_T("Wolf A"), 2725, 1));
+			_T("Wolf I"), 62051, 1));
 
 	AddSpell(cpSpell.GetPointer());
 }

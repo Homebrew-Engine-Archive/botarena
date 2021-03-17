@@ -35,7 +35,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBloodTributeCard);
 		DEFINE_CARD(CBogTattersCard);
 		DEFINE_CARD(CBoldDefenseCard);
-		DEFINE_CARD(CBraveTheElementsCard);
 		DEFINE_CARD(CBurstLightningCard);
 		DEFINE_CARD(CCallerOfGalesCard);
 		DEFINE_CARD(CCaravanHurdaCard);
@@ -65,7 +64,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGoblinBushwhackerCard);
 		DEFINE_CARD(CGoblinGuideCard);
 		DEFINE_CARD(CGoblinRuinblasterCard);
-		DEFINE_CARD(CGoblinShortcutterCard);
 		DEFINE_CARD(CGomazoaCard);
 		DEFINE_CARD(CGraypeltRefugeCard);
 		DEFINE_CARD(CGrazingGladehartCard);
@@ -126,6 +124,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMoltenRavagerCard);
 		DEFINE_CARD(CMurasaPyromancerCard);
 		DEFINE_CARD(CNarrowEscapeCard);
+		DEFINE_CARD(CNeedlebiteTrapCard);
 		DEFINE_CARD(CNimanaSellSwordCard);
 		DEFINE_CARD(CNimbusWingsCard);
 		DEFINE_CARD(CNissaRevaneCard);
@@ -2628,78 +2627,6 @@ bool CBloodTributeCard::BeforeResolution(CAbilityAction* pAction) const
 
 //____________________________________________________________________________
 //
-CBraveTheElementsCard::CBraveTheElementsCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Brave the Elements"), CardType::Instant, nID)
-{
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				WHITE_MANA_TEXT,
-				new CardTypeComparer(CardType::White | CardType::Creature, true),
-				Power(+0), Life(+0)));
-
-		cpSpell->GetEnchantmentCardFilter().SetThisCardsControllerOnly(this);
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::ProtectionFromWhite);
-		cpSpell->SetAbilityText(_T("Choose white. White creatures you control gain protection from white until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				WHITE_MANA_TEXT,
-				new CardTypeComparer(CardType::White | CardType::Creature, true),
-				Power(+0), Life(+0)));
-
-		cpSpell->GetEnchantmentCardFilter().SetThisCardsControllerOnly(this);
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::ProtectionFromBlue);
-		cpSpell->SetAbilityText(_T("Choose blue. White creatures you control gain protection from blue until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				WHITE_MANA_TEXT,
-				new CardTypeComparer(CardType::White | CardType::Creature, true),
-				Power(+0), Life(+0)));
-
-		cpSpell->GetEnchantmentCardFilter().SetThisCardsControllerOnly(this);
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::ProtectionFromBlack);
-		cpSpell->SetAbilityText(_T("Choose black. White creatures you control gain protection from black until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				WHITE_MANA_TEXT,
-				new CardTypeComparer(CardType::White | CardType::Creature, true),
-				Power(+0), Life(+0)));
-
-		cpSpell->GetEnchantmentCardFilter().SetThisCardsControllerOnly(this);
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::ProtectionFromRed);
-		cpSpell->SetAbilityText(_T("Choose red. White creatures you control gain protection from red until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				WHITE_MANA_TEXT,
-				new CardTypeComparer(CardType::White | CardType::Creature, true),
-				Power(+0), Life(+0)));
-
-		cpSpell->GetEnchantmentCardFilter().SetThisCardsControllerOnly(this);
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::ProtectionFromGreen);
-		cpSpell->SetAbilityText(_T("Choose green. White creatures you control gain protection from green until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
 CCryptOfAgadeemCard::CCryptOfAgadeemCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Crypt of Agadeem"), nID, CardType::NonbasicLand)
 {
@@ -3081,28 +3008,6 @@ bool CGoblinRuinblasterCard::SetTriggerContext(CTriggeredMoveCardAbility::Trigge
 		return false;
 		
 	return (GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost));
-}
-
-//____________________________________________________________________________
-//
-CGoblinShortcutterCard::CGoblinShortcutterCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Goblin Shortcutter"), CardType::Creature, CREATURE_TYPE2(Goblin, Scout), nID,
-		_T("1") RED_MANA_TEXT, Power(2), Life(1))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyCreatureAbility,
-								 CWhenSelfInplay, CWhenSelfInplay::EventCallback,
-								 &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
-	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::CantBlock);
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -7504,6 +7409,55 @@ BOOL CWhiplashTrapCard::CanPlay(BOOL bIncludeTricks)
 	}
 
 	return bFound;
+}
+
+//____________________________________________________________________________
+//
+CNeedlebiteTrapCard::CNeedlebiteTrapCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Needlebite Trap"), CardType::Instant | CardType::Trap, nID)
+{
+	{
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
+				_T("5") BLACK_MANA_TEXT BLACK_MANA_TEXT, 
+				FALSE_CARD_COMPARER, true,
+				Life(-5), PreventableType::NotPreventable));
+
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(+5), this, PreventableType::NotPreventable));
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
+				BLACK_MANA_TEXT, 
+				FALSE_CARD_COMPARER, true,
+				Life(-5), PreventableType::NotPreventable));
+
+		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(+5), this, PreventableType::NotPreventable));
+
+		counted_ptr<CPlayableIfTrait> cpTrait(::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CNeedlebiteTrapCard::CanPlay)));
+		cpSpell->Add(cpTrait.GetPointer());
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+BOOL CNeedlebiteTrapCard::CanPlay(BOOL bIncludeTricks)
+{
+	if (GetCardKeyword()->HasFreecast()) return false;
+	bool LifeGained = false;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if ((GetGame()->GetPlayer(ip) != GetController()) && (GetGame()->GetPlayer(ip)->GetLifeGainThisTurn() > Life(0)))
+		{
+			LifeGained = true;
+			break;
+		}
+
+	return LifeGained;
 }
 
 //____________________________________________________________________________

@@ -115,7 +115,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING21728         "Phyrexian Vatmother\n{2BB}\nCreature - Horror\nMBS,R\nInfect\rAt the beginning of your upkeep, you get a poison counter.\n4/5"
     IDS_STRING21729         "Steel Sabotage\n{U}\nInstant\nMBS,C\nChoose one - Counter target artifact spell; or return target artifact to its owner's hand."
-    IDS_STRING21730         "Blightsteel Colossus\n{12}\nArtifact Creature - Golem\nMBS,MR\nTrample, infect\rBlightsteel Colossus is indestructible.\rIf Blightsteel Colossus would be put into a graveyard from anywhere, reveal Blightsteel Colossus and shuffle it into its owner's library instead.\n11/11"
+    IDS_STRING21730         "Blightsteel Colossus\n{12}\nArtifact Creature - Golem\nMBS,MR\nTrample, infect, indestructible\rIf Blightsteel Colossus would be put into a graveyard from anywhere, reveal Blightsteel Colossus and shuffle it into its owner's library instead.\n11/11"
     IDS_STRING21731         "Sphere of the Suns\n{2}\nArtifact\nMBS,U\nSphere of the Suns enters the battlefield tapped and with three charge counters on it.\r{T}, Remove a charge counter from Sphere of the Suns: Add one mana of any color to your mana pool."
     IDS_STRING21732         "Vedalken Infuser\n{3U}\nCreature - Vedalken Wizard\nMBS,U\nAt the beginning of your upkeep, you may put a charge counter on target artifact.\n1/4"
     IDS_STRING21733         "Victory's Herald\n{3WWW}\nCreature - Angel\nMBS,R\nFlying\rWhenever Victory's Herald attacks, attacking creatures gain flying and lifelink until end of turn.\n4/4"
@@ -239,7 +239,7 @@ BEGIN
     IDS_STRING21827         "Tangle Mantis\n{2GG}\nCreature - Insect\nMBS,C\nTrample\n3/4"
     IDS_STRING21828         "Rot Wolf\n{2G}\nCreature - Wolf\nMBS,C\nInfect\rWhenever a creature dealt damage by Rot Wolf this turn dies, you may draw a card.\n2/2"
     IDS_STRING21829         "Kuldotha Ringleader\n{4R}\nCreature - Giant Berserker\nMBS,C\nBattle cry\rKuldotha Ringleader attacks each turn if able.\n4/4"
-    IDS_STRING21830         "Darksteel Plate\n{3}\nArtifact - Equipment\nMBS,R\nDarksteel Plate is indestructible.\rEquipped creature is indestructible.\rEquip {2}"
+    IDS_STRING21830         "Darksteel Plate\n{3}\nArtifact - Equipment\nMBS,R\nIndestructible\rEquipped creature has indestructible.\rEquip {2}"
     IDS_STRING21831         "Horrifying Revelation\n{B}\nSorcery\nMBS,C\nTarget player discards a card, then puts the top card of his or her library into his or her graveyard."
     IDS_STRING21832         "Strandwalker\n{5}\nArtifact - Equipment\nMBS,U\nLiving weapon\rEquipped creature gets +2/+4 and has reach.\rEquip {4}"
     IDS_STRING21833         "Morbid Plunder\n{1BB}\nSorcery\nMBS,C\nReturn up to two target creature cards from your graveyard to your hand."

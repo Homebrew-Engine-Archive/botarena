@@ -304,7 +304,7 @@ BEGIN
     IDS_STRING23178         "Wrecking Ball\n{2BR}\nInstant\nCMD,C\nDestroy target creature or land."
     IDS_STRING23179         "Armillary Sphere\n{2}\nArtifact\nCMD,C\n{2}, {T}, Sacrifice Armillary Sphere: Search your library for up to two basic land cards, reveal them, and put them into your hand. Then shuffle your library."
     IDS_STRING23180         "Boros Signet\n{2}\nArtifact\nCMD,C\n{1}, {T}: Add {RW} to your mana pool."
-    IDS_STRING23181         "Darksteel Ingot\n{3}\nArtifact\nCMD,C\nDarksteel Ingot is indestructible.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING23181         "Darksteel Ingot\n{3}\nArtifact\nCMD,C\nIndestructible\r{T}: Add one mana of any color to your mana pool."
     IDS_STRING23182         "Dimir Signet\n{2}\nArtifact\nCMD,C\n{1}, {T}: Add {UB} to your mana pool."
     IDS_STRING23183         "Dreamstone Hedron\n{6}\nArtifact\nCMD,U\n{T}: Add {3} to your mana pool.\r{3}, {T}, Sacrifice Dreamstone Hedron: Draw three cards."
 END

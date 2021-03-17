@@ -615,13 +615,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CFireshriekerCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CFireshriekerCard);
-};
-
-//____________________________________________________________________________
-//
 class CGalvanicKeyCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CGalvanicKeyCard);

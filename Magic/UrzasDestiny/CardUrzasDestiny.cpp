@@ -29,7 +29,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBrassSecretaryCard);
 		DEFINE_CARD(CBubblingBeeblesCard);
 		DEFINE_CARD(CBubblingMuckCard);
-		DEFINE_CARD(CCapashenKnightCard);
 		DEFINE_CARD(CCapashenStandardCard);
 		DEFINE_CARD(CCapashenTemplarCard);
 		DEFINE_CARD(CCarnivalOfSoulsCard);
@@ -338,16 +337,6 @@ CYawgmothsBargainCard::CYawgmothsBargainCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-}
-
-//____________________________________________________________________________
-//
-CCapashenKnightCard::CCapashenKnightCard(CGame* pGame, UINT nID)
-	: CPumpCreatureCard(pGame, _T("Capashen Knight"), CardType::Creature, CREATURE_TYPE2(Human, Knight), nID,
-		_T("1") WHITE_MANA_TEXT, Power(1), Life(1),
-		_T("1") WHITE_MANA_TEXT, Power(+1), Life(+0))
-{
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
 }
 
 //____________________________________________________________________________

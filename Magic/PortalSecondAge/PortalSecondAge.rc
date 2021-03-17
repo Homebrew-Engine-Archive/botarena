@@ -168,7 +168,7 @@ BEGIN
     IDS_STRING20170         "Predatory Nightstalker\n{3BB}\nCreature - Nightstalker\nP02,U\nWhen Predatory Nightstalker enters the battlefield, you may have target opponent sacrifice a creature.\n3/2"
     IDS_STRING20171         "Air Elemental\n{3UU}\nCreature - Elemental\nP02,U\nFlying\n4/4"
     IDS_STRING20172         "Angel of Mercy\n{4W}\nCreature - Angel\nP02,U\nFlying\rWhen Angel of Mercy enters the battlefield, you gain 3 life.\n3/3"
-    IDS_STRING20173         "Angelic Wall\n{1W}\nCreature - Wall\nP02,C\nDefender, flying\n0/4"
+    IDS_STRING20173         "Angelic Wall\n{1W}\nCreature - Wall\nP02,C\nDefender\rFlying\n0/4"
     IDS_STRING20174         "Archangel\n{5WW}\nCreature - Angel\nP02,R\nFlying, vigilance\n5/5"
     IDS_STRING20175         "Denizen of the Deep\n{6UU}\nCreature - Serpent\nP02,R\nWhen Denizen of the Deep enters the battlefield, return each other creature you control to its owner's hand.\n11/11"
 END

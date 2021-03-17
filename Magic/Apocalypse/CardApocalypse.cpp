@@ -75,7 +75,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKavuMaulerCard);
 		DEFINE_CARD(CLastCaressCard);
 		DEFINE_CARD(CLastStandCard);
-		DEFINE_CARD(CLayOfTheLandCard);
 		DEFINE_CARD(CLifeDeathCard);
 		DEFINE_CARD(CLightningAngelCard);
 		DEFINE_CARD(CLivingAirshipCard);
@@ -2100,17 +2099,6 @@ CLastCaressCard::CLastCaressCard(CGame* pGame, UINT nID)
 	m_pTargetChgLifeSpell->SetReverseLifeDeltaToController();
 	m_pTargetChgLifeSpell->SetDamageType(DamageType::NotDealingDamage);
 	m_pTargetChgLifeSpell->GetResolutionModifier().CPlayerModifiers::Add(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
-}
-
-//____________________________________________________________________________
-//
-CLayOfTheLandCard::CLayOfTheLandCard(CGame* pGame, UINT nID)
-	: CSearchLibrarySpellCard(pGame, _T("Lay of the Land"), CardType::Sorcery, nID,
-		GREEN_MANA_TEXT, AbilityType::Sorcery,
-		CCardFilter::GetFilter(_T("basic lands")), 
-		ZoneId::Hand, TRUE, TRUE, FALSE)
-{
-	m_pSearchLibrarySpell->SetSearchCount(MinimumValue(0), MaximumValue(1));
 }
 
 //____________________________________________________________________________

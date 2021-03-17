@@ -63,6 +63,14 @@
 #define IDS_STRING62046                 62046
 #define IDS_STRING62047                 62047
 #define IDS_STRING62048                 62048
+#define IDS_STRING62049                 62049
+#define IDS_STRING62050                 62050
+#define IDS_STRING62051                 62051
+#define IDS_STRING62052                 62052
+#define IDS_STRING62053                 62053
+#define IDS_STRING62054                 62054
+#define IDS_STRING62055                 62055
+#define IDS_STRING62056                 62056
 #define IDI_MODULE                      20300
 #define IDI_LARGE_MODULE                20301
 

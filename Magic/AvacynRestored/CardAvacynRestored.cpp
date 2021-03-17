@@ -215,12 +215,16 @@ CAvacynAngelOfHopeCard::CAvacynAngelOfHopeCard(CGame* pGame, UINT nID)
 		_T("5") WHITE_MANA_TEXT WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(8), Life(8))
 {
 	GetCreatureKeyword()->AddVigilance(FALSE);
+	GetCardKeyword()->AddIndestructible(FALSE);
 
 	{
 		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 			::CreateObject<CPwrTghAttrEnchantment>(this,
 				new TrueCardComparer,
 				Power(+0), Life(+0)));
+
+		cpAbility->GetEnchantmentCardFilter().
+			AddNegateComparer(new SpecificCardComparer(this));
 
 		cpAbility->SetAffectControllerCardsOnly();
 
@@ -3574,7 +3578,7 @@ CConjurersClosetCard::CConjurersClosetCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(
 		::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
 
 	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 
@@ -4088,7 +4092,7 @@ bool CVexingDevilCard::BeforeResolution(CAbilityAction* pAction)
 			break;
 		}
 
-	bSomeonePaid = FALSE;
+
 	PunisherFunction(pActivePlayerID, pAction->GetController());
 
 	return true;
@@ -4105,7 +4109,9 @@ void CVexingDevilCard::PunisherFunction(int PlayerID, CPlayer* pController)
 			SelectionEntry selectionEntry;
 
 			selectionEntry.dwContext = 0;
-			selectionEntry.strText.Format(_T("Don't take damage"));
+			selectionEntry.strText.Format(_T("Take 4 damage"));
+
+			bSomeonePaid = false;
 
 			entries.push_back(selectionEntry);
 		}
@@ -4113,7 +4119,9 @@ void CVexingDevilCard::PunisherFunction(int PlayerID, CPlayer* pController)
 			SelectionEntry selectionEntry;
 
 			selectionEntry.dwContext = 1;
-			selectionEntry.strText.Format(_T("Take 4 damage"));
+			selectionEntry.strText.Format(_T("Don't take damage"));
+
+			bSomeonePaid = true;
 
 			entries.push_back(selectionEntry);
 		}
@@ -4152,22 +4160,6 @@ void CVexingDevilCard::OnPunisherSelected(const std::vector<SelectionEntry>& sel
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s doesn't take damage"), pSelectionPlayer->GetPlayerName());
-					m_pGame->Message(
-						strMessage,
-						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
-						MessageImportance::High
-						);
-				}
-				Advance(dwContext1, (CPlayer*)dwContext2);
-				
-				return;
-			}
-			if ((int)it->dwContext == 1)
-			{
-				if (!m_pGame->IsThinking())
-				{
-					CString strMessage;
 					strMessage.Format(_T("%s takes 4 damage"), pSelectionPlayer->GetPlayerName());
 					m_pGame->Message(
 						strMessage,
@@ -4177,6 +4169,24 @@ void CVexingDevilCard::OnPunisherSelected(const std::vector<SelectionEntry>& sel
 				}
 				CLifeModifier pModifier = CLifeModifier(Life(-4), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
 				pModifier.ApplyTo(pSelectionPlayer);
+
+				Advance(dwContext1, (CPlayer*)dwContext2);
+				
+				return;
+			}
+			if ((int)it->dwContext == 1)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s doesn't take damage"), pSelectionPlayer->GetPlayerName());
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				
 				
 				bSomeonePaid = FALSE;
 

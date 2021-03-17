@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+#include "afxres.h"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -417,8 +416,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-
+#include "..\MagicCore\MagicCore.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

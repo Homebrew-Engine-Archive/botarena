@@ -479,17 +479,6 @@ class CNephaliaDrownyardCard : public CNonbasicLandCard
 
 //____________________________________________________________________________
 //
-class CClaustrophobiaCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CClaustrophobiaCard);
-
-protected:
-	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-};
-
-//____________________________________________________________________________
-//
 class CVampiricFuryCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CVampiricFuryCard);
@@ -591,13 +580,6 @@ class CCobbledWingsCard : public CInPlaySpellCard
 class CVictimOfNightCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CVictimOfNightCard);
-};
-
-//____________________________________________________________________________
-//
-class CSensoryDeprivationCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CSensoryDeprivationCard);
 };
 
 //____________________________________________________________________________
@@ -939,13 +921,6 @@ protected:
 
 //______________________________________________________________________________
 //
-class CAltarsReapCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CAltarsReapCard);
-};
-
-//____________________________________________________________________________
-//
 class CBrainWeevilCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBrainWeevilCard);
@@ -1134,13 +1109,6 @@ class CNightbirdsClutchesCard : public CCard
 	DECLARE_CARD_CSTOR(CNightbirdsClutchesCard);
 };
 
-//____________________________________________________________________________
-//
-class CPitchburnDevilsCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CPitchburnDevilsCard);
-};
-
 //______________________________________________________________________________
 //
 class CRageThrowerCard : public CCreatureCard
@@ -1178,13 +1146,6 @@ class CRollingTemblorCard : public CCard
 class CTraitorousBloodCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CTraitorousBloodCard);
-};
-
-//____________________________________________________________________________
-//
-class CBramblecrushCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CBramblecrushCard);
 };
 
 //____________________________________________________________________________
@@ -2005,16 +1966,6 @@ class CScourgeOfGeierReachCard : public CCreatureCard
 class CRooftopStormCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CRooftopStormCard);
-
-protected:
-	counted_ptr<CSpell> CreateSpell(CCard* pCard);
-};
-
-//____________________________________________________________________________
-//
-class CRangersGuileCard : public CChgPwrTghAttrSpellCard
-{
-	DECLARE_CARD_CSTOR(CRangersGuileCard);
 
 protected:
 	counted_ptr<CSpell> CreateSpell(CCard* pCard);

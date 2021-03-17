@@ -69,6 +69,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CElfAAToken);
 		DEFINE_TOKEN(CFaerieAAToken);
 		DEFINE_TOKEN(CGiantAAToken);
+		DEFINE_TOKEN(CGiantABToken);
 		DEFINE_TOKEN(CGolemAAToken);
 		DEFINE_TOKEN(CGolemABToken);
 		DEFINE_TOKEN(CGolemACToken);
@@ -1341,6 +1342,21 @@ CConstructAFToken::CConstructAFToken(CGame* pGame, UINT nID)
 		Power(0), Life(0))
 {
 // Animation of Chimeric Coils
+}
+
+//____________________________________________________________________________
+//
+CGiantABToken::CGiantABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Giant"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Giant), nID,
+		_T(""),
+		Power(7), Life(7))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddHaste(FALSE);
+
+// Used by Awaken the Ancient
 }
 
 //____________________________________________________________________________

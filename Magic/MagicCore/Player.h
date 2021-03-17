@@ -332,6 +332,7 @@ public:
 	Life GetCombatDamageTakenThisTurn() const;
 	Life GetNoncombatDamageTakenThisTurn() const;
 	Life GetLifeLossTakenThisTurn() const;
+	Life GetLifeGainThisTurn() const;
 	Life GetDamageTakenThisTurn() const;		// Only damage
 	Life GetTotalLifeLossTakenThisTurn() const; // Total delta
 
@@ -374,6 +375,7 @@ public:
 	int GetPoisonCounters() const					{ return m_nPoisonCounters; }
 
 	void AddLifeLossTakenThisTurn(Life pLifeLost);
+	void AddLifeGainThisTurn(Life pLifeGained);
 
 	void IncreaseTurnDrawCount()					{ ++m_nTurnDrawCount; }
 	int GetTurnDrawCount() const					{ return m_nTurnDrawCount; }	
@@ -586,6 +588,7 @@ protected:
 	Life_	m_nTurnCombatDamageTaken;
 	Life_	m_nTurnNoncombatDamageTaken;
 	Life_	m_nTurnLifeLossTaken;
+	Life_	m_nTurnLifeGain;
 
 	BOOL_	m_bFinishedMulligan;
 

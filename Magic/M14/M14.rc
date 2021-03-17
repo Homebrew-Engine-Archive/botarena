@@ -107,11 +107,256 @@ END
 
 STRINGTABLE
 BEGIN
-	IDS_STRING25920         "Kalonian Tusker\n{GG}\nCreature - Beast\nM14,U\n\n3/3"
-	IDS_STRING25921         "Shadowborn Demon\n{3BB}\nCreature - Demon\nM14,MR\nFlying\rWhen Shadowborn Demon enters the battlefield, destroy target non-Demon creature.\rAt the beginning of your upkeep, if there are fewer than six creature cards in your graveyard, sacrifice a creature.\n5/6"
-	IDS_STRING25922         "Shadowborn Apostle\n{B}\nCreature - Human Cleric\nM14,C\nA deck can have any number of cards named Shadowborn Apostle.\r{B}, Sacrifice six creatures named Shadowborn Apostle: Search your library for a Demon creature card and put it onto the battlefield. Then shuffle your library.\n1/1"
-	IDS_STRING25923         "Staff of the Wild Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a green spell or a Forest enters the battlefield under your control, you gain 1 life."
-	IDS_STRING25924         "Regathan Firecat\n{2R}\nCreature - Elemental Cat\nM14,C\n\n4/1"
+    IDS_STRING25920         "Kalonian Tusker\n{GG}\nCreature - Beast\nM14,U\n\n3/3"
+    IDS_STRING25921         "Shadowborn Demon\n{3BB}\nCreature - Demon\nM14,MR\nFlying\rWhen Shadowborn Demon enters the battlefield, destroy target non-Demon creature.\rAt the beginning of your upkeep, if there are fewer than six creature cards in your graveyard, sacrifice a creature.\n5/6"
+    IDS_STRING25922         "Shadowborn Apostle\n{B}\nCreature - Human Cleric\nM14,C\nA deck can have any number of cards named Shadowborn Apostle.\r{B}, Sacrifice six creatures named Shadowborn Apostle: Search your library for a Demon creature card and put it onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING25923         "Staff of the Wild Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a green spell or a Forest enters the battlefield under your control, you gain 1 life."
+    IDS_STRING25924         "Regathan Firecat\n{2R}\nCreature - Elemental Cat\nM14,C\n\n4/1"
+    IDS_STRING25925         "Battle Sliver\n{4R}\nCreature - Sliver\nM14,U\nSliver creatures you control get +2/+0.\n3/3"
+    IDS_STRING25926         "Blur Sliver\n{2R}\nCreature - Sliver\nM14,C\nSliver creatures you control have haste.\n2/2"
+    IDS_STRING25927         "Groundshaker Sliver\n{6G}\nCreature - Sliver\nM14,C\nSliver creatures you control have trample.\n5/5"
+    IDS_STRING25928         "Sentinel Sliver\n{1W}\nCreature - Sliver\nM14,C\nSliver creatures you control have vigilance.\n2/2"
+    IDS_STRING25929         "Steelform Sliver\n{2W}\nCreature - Sliver\nM14,U\nSliver creatures you control get +0/+1.\n2/2"
+    IDS_STRING25930         "Striking Sliver\n{R}\nCreature - Sliver\nM14,C\nSliver creatures you control have first strike.\n1/1"
+    IDS_STRING25931         "Vastwood Hydra\n{XGG}\nCreature - Hydra\nM14,R\nVastwood Hydra enters the battlefield with X +1/+1 counters on it.\rWhen Vastwood Hydra dies, you may distribute a number of +1/+1 counters equal to the number of +1/+1 counters on Vastwood Hydra among any number of creatures you control.\n0/0"
+    IDS_STRING25932         "Chandra's Phoenix\n{1RR}\nCreature - Phoenix\nM14,R\nFlying\rHaste\rWhenever an opponent is dealt damage by a red instant or sorcery spell you control or by a red planeswalker you control, return Chandra's Phoenix from your graveyard to your hand.\n2/2"
+    IDS_STRING25933         "Advocate of the Beast\n{2G}\nCreature - Elf Shaman\nM14,C\nAt the beginning of your end step, put a +1/+1 counter on target Beast creature you control.\n2/3"
+    IDS_STRING25934         "Archangel of Thune\n{3WW}\nCreature - Angel\nM14,MR\nFlying\rLifelink\rWhenever you gain life, put a +1/+1 counter on each creature you control.\n3/4"
+    IDS_STRING25935         "Garruk's Horde\n{5GG}\nCreature - Beast\nM14,R\nTrample\rPlay with the top card of your library revealed.\rYou may cast the top card of your library if it's a creature card.\n7/7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25936         "Hunt the Weak\n{3G}\nSorcery\nM14,C\nPut a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control."
+    IDS_STRING25937         "Scavenging Ooze\n{1G}\nCreature - Ooze\nM14,R\n{G}: Exile target card from a graveyard. If it was a creature card, put a +1/+1 counter on Scavenging Ooze and you gain 1 life.\n2/2"
+    IDS_STRING25938         "Megantic Sliver\n{5G}\nCreature - Sliver\nM14,R\nSliver creatures you control get +3/+3.\n3/3"
+    IDS_STRING25939         "Awaken the Ancient\n{1RRR}\nEnchantment - Aura\nM14,R\nEnchant Mountain\rEnchanted Mountain is a 7/7 red Giant creature with haste. It's still a land."
+    IDS_STRING25940         "Staff of the Mind Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a blue spell or an Island enters the battlefield under your control, you gain 1 life."
+    IDS_STRING25941         "Bonescythe Sliver\n{3W}\nCreature - Sliver\nM14,R\nSliver creatures you control have double strike.\n2/2"
+    IDS_STRING25942         "Charging Griffin\n{3W}\nCreature - Griffin\nM14,C\nFlying\rWhenever Charging Griffin attacks, it gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING25943         "Devout Invocation\n{6W}\nSorcery\nM14,MR\nTap any number of untapped creatures you control. Put a 4/4 white Angel creature token with flying onto the battlefield for each creature tapped this way."
+    IDS_STRING25944         "Glimpse the Future\n{2U}\nSorcery\nM14,U\nLook at the top three cards of your library. Put one of them into your hand and the rest into your graveyard."
+    IDS_STRING25945         "Grim Return\n{2B}\nInstant\nM14,R\nChoose target creature card in a graveyard that was put there from the battlefield this turn. Put that card onto the battlefield under your control."
+    IDS_STRING25946         "Guardian of the Ages\n{7}\nArtifact Creature - Golem\nM14,R\nDefender\rWhen a creature attacks you or a planeswalker you control, if Guardian of the Ages has defender, it loses defender and gains trample.\n7/7"
+    IDS_STRING25947         "Hive Stirrings\n{2W}\nSorcery\nM14,C\nPut two 1/1 colorless Sliver creature tokens onto the battlefield."
+    IDS_STRING25948         "Into the Wilds\n{3G}\nEnchantment\nM14,R\nAt the beginning of your upkeep, look at the top card of your library. If it's a land card, you may put it onto the battlefield."
+    IDS_STRING25949         "Liliana's Reaver\n{2BB}\nCreature - Zombie\nM14,R\nDeathtouch\rWhenever Liliana's Reaver deals combat damage to a player, that player discards a card and you put a 2/2 black Zombie creature token onto the battlefield tapped.\n4/3"
+    IDS_STRING25950         "Marauding Maulhorn\n{2RR}\nCreature - Beast\nM14,C\nMarauding Maulhorn attacks each combat if able unles you control a creature named Advocate of the Beast.\n5/3"
+    IDS_STRING25951         "Master of Diversion\n{2W}\nCreature - Human Scout\nM14,C\nWhenever Master of Diversion attacks, tap target creature defending player controls.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25952         "Molten Birth\n{2R}\nSorcery\nM14,U\nPut two 1/1 red Elemental creature tokens onto the battlefield. Then flip a coin. If you win the flip, return Molten Birth to its owner's hand."
+    IDS_STRING25953         "Ogre Battledriver\n{2RR}\nCreature - Ogre Warrior\nM14,R\nWhenever another creature enters the battlefield under your control, that creature gets +2/+0 and gains haste until end of turn.\n3/3"
+    IDS_STRING25954         "Predatory Sliver\n{1G}\nCreature - Sliver\nM14,C\nSliver creatures you control get +1/+1.\n1/1"
+    IDS_STRING25955         "Primeval Bounty\n{5G}\nEnchantment\nM14,MR\nWhenever you cast a creature spell, put a 3/3 green Beast creature token onto the battlefield.\rWhenever you cast a noncreature spell, put three +1/+1 counters on target creature you control.\rWhenever a land enters the battlefield under your control, you gain 3 life."
+    IDS_STRING25956         "Ring of Three Wishes\n{5}\nArtifact\nM14,MR\nRing of Three Wishes enters the battlefield with three wish counters on it.\r{5}, {T}, Remove a wish counter from Ring of Three Wishes: Search your library for a card and put that card into your hand. Then shuffle your library."
+    IDS_STRING25957         "Rise of the Dark Realms\n{7BB}\nSorcery\nM14,MR\nPut all creature cards from all graveyards onto the battlefield under your control."
+    IDS_STRING25958         "Rumbling Baloth\n{2GG}\nCreature - Beast\nM14,C\n\n4/4"
+    IDS_STRING25959         "Savage Summoning\n{G}\nInstant\nM14,R\nSavage Summoning can't be countered.\rThe next creature card you cast this turn can be cast as though it had flash. That spell can't be countered. That creature enters the battlefield with an additional +1/+1 counter on it."
+    IDS_STRING25960         "Seraph of the Sword\n{3W}\nCreature - Angel\nM14,R\nFlying\rPrevent all combat damage that would be dealt to Seraph of the Sword.\n3/3"
+    IDS_STRING25961         "Sliver Construct\n{3}\nArtifact Creature - Sliver Construct\nM14,C\n\n2/2"
+    IDS_STRING25962         "Sporemound\n{3GG}\nCreature - Fungus\nM14,C\nWhenever a land enters the battlefield under your control, put a 1/1 green Saproling creature token onto the battlefield.\n3/3"
+    IDS_STRING25963         "Staff of the Death Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a black spell or a Swamp enters the battlefield under your control, you gain 1 life."
+    IDS_STRING25964         "Thorncaster Sliver\n{4R}\nCreature - Sliver\nM14,R\nSliver creatures you control have ""Whenever this creature attacks, it deals 1 damage to target creature or player.""\n2/2"
+    IDS_STRING25965         "Vial of Poison\n{1}\nArtifact\nM14,U\n{1}, Sacrifice Vial of Poison: Target creature gains deathtouch until end of turn."
+    IDS_STRING25966         "Woodborn Behemoth\n{3GG}\nCreature - Elemental\nM14,U\nAs long as you control eight or more lands, Woodborn Behemoth gets +4/+4 and has trample.\n4/4"
+    IDS_STRING25967         "Young Pyromancer\n{1R}\nCreature - Human Shaman\nM14,U\nWhenever you cast an instant or sorcery spell, put a 1/1 red Elemental creature token onto the battlefield.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25968         "Dawnstrike Paladin\n{3WW}\nCreature - Human Knight\nM14,C\nVigilance, lifelink\n2/4"
+    IDS_STRING25969         "Staff of the Flame Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a red spell or a Mountain enters the battlefield under your control, you gain 1 life."
+    IDS_STRING25970         "Goblin Diplomats\n{1R}\nCreature - Goblin\nM14,R\n{T}: Each creature attacks this turn if able.\n2/1"
+    IDS_STRING25971         "Colossal Whale\n{5UU}\nCreature - Whale\nM14,R\nIslandwalk\rWhenever Colossal Whale attacks, you may exile target creature defending player controls until Colossal Whale leaves the battlefield.\n5/5"
+    IDS_STRING25972         "Minotaur Abomination\n{4BB}\nCreature - Zombie Minotaur\nM14,C\n\n4/6"
+    IDS_STRING25973         "Ratchet Bomb\n{2}\nArtifact\nM14,R\n{T}: Put a charge counter on Ratchet Bomb.\r{T}, Sacrifice Ratchet Bomb: Destroy each nonland permanent with converted mana cost equal to the number of charge counters on Ratchet Bomb."
+    IDS_STRING25974         "Scourge of Valkas\n{2RRR}\nCreature - Dragon\nM14,MR\nFlying\rWhenever Scourge of Valkas or another Dragon enters the battlefield under your control, it deals X damage to target creature or player, where X is the number of Dragons you control.\r{R}: Scourge of Valkas gets +1/+0 until end of turn.\n4/4"
+    IDS_STRING25975         "Trained Condor\n{2U}\nCreature - Bird\nM14,C\nFlying\rWhenever Trained Condor attacks, another target creature you control gains flying until end of turn.\n2/1"
+    IDS_STRING25976         "Windreader Sphinx\n{5UU}\nCreature - Sphinx\nM14,MR\nFlying\rWhenever a creature with flying attacks, you may draw a card.\n3/7"
+    IDS_STRING25977         "Opportunity\n{4UU}\nInstant\nM14,U\nTarget player draws four cards."
+    IDS_STRING25978         "Soulmender\n{W}\nCreature - Human Cleric\nM14,C\n{T}:You gain 1 Life.\n1/1"
+    IDS_STRING25979         "Seacoast Drake\n{1U}\nCreature - Drake\nM14,C\nFlying\n1/3"
+    IDS_STRING25980         "Imposing Sovereign\n{1W}\nCreature - Human\nM14,R\nCreatures your opponents control enter the battlefield tapped.\n2/1"
+    IDS_STRING25981         "Stonehorn Chanter\n{5W}\nCreature - Rhino Cleric\nM14,U\n{5W}: Stonehorn Chanter gains vigilance and lifelink until end of turn.\n4/4"
+    IDS_STRING25982         "Galerider Sliver\n{U}\nCreature - Sliver\nM14,R\nSliver creatures you control have flying.\n1/1"
+    IDS_STRING25983         "Messenger Drake\n{3UU}\nCreature - Drake\nM14,C\nFlying\rWhen Messenger Drake dies, draw a card.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25984         "Zephyr Charge\n{1U}\nEnchantment\nM14,C\n{1U}: Target creature gains flying until end of turn."
+    IDS_STRING25985         "Ajani, Caller of the Pride\n{1WW}\nPlaneswalker - Ajani\nM14,MR\n[+1]: Put a +1/+1 counter on up to one target creature.\r[-3]: Target creature gains flying and double strike until end of turn.\r[-8]: Put X 2/2 cats onto the battlefield, where X is your life total.\n4"
+    IDS_STRING25986         "Academy Raider\n{2R}\nCreature - Human Warrior\nM14,C\nIntimidate\rWhenever Academy Warrior deals combat damage to a player, you may discard a card. If you do, draw a card.\n1/1"
+    IDS_STRING25987         "Accorder's Shield\n{0}\nArtifact - Equipment\nM14,U\nEquipped creature gets +0/+3 and vigilance.\rEquip {3}\n"
+    IDS_STRING25988         "Accursed Spirit\n{3B}\nCreature - Spirit\nM14,C\nIntimidate\n3/2"
+    IDS_STRING25989         "Act of Treason\n{2R}\nSorcery\nM14,C\nGain control of target creature until end of turn. Untap that creature. It gains haste until end of turn."
+    IDS_STRING25990         "Air Servant\n{4U}\nCreature - Elemental\nM14,U\nFlying\r{2U}: Tap target creature with flying.\n4/3"
+    IDS_STRING25991         "Altar's Reap\n{1B}\nInstant\nM14,C\nAs an additional cost to cast Altar's Reap, sacrifice a creature.\rDraw two cards."
+    IDS_STRING25992         "Angelic Accord\n{3W}\nEnchantment\nM14,U\nAt the beginning of each end step, if you gained 4 or more life this turn, put a 4/4 white Angel creature token with flying onto the battlefield."
+    IDS_STRING25993         "Angelic Wall\n{1W}\nCreature - Wall\nM14,C\nDefender\rFlying\n0/4"
+    IDS_STRING25994         "Archaeomancer\n{2UU}\nCreature - Human Wizard\nM14,C\nWhen Archaeomancer enters the battlefield, return target instant or sorcery card from your graveyard to your hand.\n1/2"
+    IDS_STRING25995         "Armored Cancrix\n{4U}\nCreature - Crab\nM14,C\n\n2/5"
+    IDS_STRING25996         "Artificer's Hex\n{B}\nEnchantment - Aura\nM14,U\nEnchant Equipment\rAt the beginning of your upkeep, if enchanted Equipment is attached to a creature, destroy that creature."
+    IDS_STRING25997         "Auramancer\n{2W}\nCreature - Human Wizard\nM14,C\nWhen Auramancer enters the battlefield, you may return target enchantment card from your graveyard to your hand.\n2/2"
+    IDS_STRING25998         "Banisher Priest\n{1WW}\nCreature - Human Cleric\nM14,U\nWhen Banisher Priest enters the battlefield, exile target creature an opponent controls until Banisher Priest leaves the battlefield.\n2/2"
+    IDS_STRING25999         "Blightcaster\n{3B}\nCreature - Human Wizard\nM14,U\nWhenever you cast an enchantment spell, you may have target creature get -2/-2 until end of turn.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26000         "Blood Bairn\n{2B}\nCreature - Vampire\nM14,C\nSacrifice another creature: Blood Bairn gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING26001         "Corpse Hauler\n{1B}\nCreature - Human Rogue\nM14,C\n{2B}, Sacrifice Corpse Hauler: Return another target creature card from your graveyard to your hand.\n2/1"
+    IDS_STRING26002         "Dark Prophecy\n{BBB}\nEnchantment\nM14,R\nWhenever a creature you control dies, you draw a card and lose 1 life."
+    IDS_STRING26003         "Deathgaze Cockatrice\n{2BB}\nCreature - Cockatrice\nM14,C\nFlying, deathtouch.\n2/2"
+    IDS_STRING26004         "Gnawing Zombie\n{1B}\nCreature - Zombie\nM14,U\n{1B}, Sacrifice a creature: Target player loses 1 life and you gain 1 life.\n1/3"
+    IDS_STRING26005         "Lifebane Zombie\n{1BB}\nCreature - Zombie Warrior\nM14,R\nIntimidate\rWhen Lifebane Zombie enters the battlefield, target opponent reveals his or her hand. You choose a green or white creature card from it and exile that card.\n3/1"
+    IDS_STRING26006         "Liturgy of Blood\n{3BB}\nSorcery\nM14,C\nDestroy target creature. Add {BBB} to your mana pool."
+    IDS_STRING26007         "Syphon Sliver\n{2B}\nCreature - Sliver\nM14,R\nSliver creatures you control have lifelink.\n2/2"
+    IDS_STRING26008         "Undead Minotaur\n{2B}\nCreature - Zombie Minotaur\nM14,C\n\n2/3"
+    IDS_STRING26009         "Vampire Warlord\n{4B}\nCreature - Vampire Warrior\nM14,U\nSacrifice another creature: Regenerate Vampire Warlord.\n4/2"
+    IDS_STRING26010         "Barrage of Expendables\n{R}\nEnchantment\nM14,U\n{R}, Sacrifice a creature: Barrage of Expendables deals 1 damage to target creature or player."
+    IDS_STRING26011         "Cyclops Tyrant\n{5R}\nCreature - Cyclops\nM14,C\nIntimidate\rCyclops Tyrant can't block creatures with power 2 or less.\n2/3"
+    IDS_STRING26012         "Fleshpulper Giant\n{5RR}\nCreature - Giant\nM14,U\nWhen Fleshpulper Giant enterse the battlefield, you may destroy target creature with toughness 2 or less.\n4/4"
+    IDS_STRING26013         "Mindsparker\n{1RR}\nCreature - Elemental\nM14,R\nFirst Strike\rWhenever an opponent casts a white or blue instant or sorcery spell, Mindsparker deals 2 damage to that player.\n3/2"
+    IDS_STRING26014         "Cancel\n{1UU}\nInstant\nM14,C\nCounter target spell."
+    IDS_STRING26015         "Blessing\n{WW}\nEnchantment - Aura\nM14,U\nEnchant creature\r{W}: Enchanted creature gets +1/+1 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26016         "Brave the Elements\n{W}\nInstant\nM14,U\nChoose a color. White creatures you control gain protection from the chosen color until end of turn."
+    IDS_STRING26017         "Capashen Knight\n{1W}\nCreature - Human Knight\nM14,C\nFirst strike\r{1W}: Capashen Knight gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING26018         "Congregate\n{3W}\nInstant\nM14,U\nTarget player gains 2 life for each creature on the battlefield."
+    IDS_STRING26019         "Divine Favor\n{1W}\nEnchantment - Aura\nM14,C\nEnchant creature\rWhen Divine Favor enters the battlefield, you gain 3 life.\rEnchanted creature gets +1/+3."
+    IDS_STRING26020         "Fortify\n{2W}\nInstant\nM14,C\nChoose one - Creatures you control get +2/+0 until end of turn; or creatures you control get +0/+2 until end of turn."
+    IDS_STRING26021         "Griffin Sentinel\n{2W}\nCreature - Griffin\nM14,C\nFlying\rVigilance\n1/3"
+    IDS_STRING26022         "Indestructibility\n{3W}\nEnchantment - Aura\nM14,R\nEnchant permanent\rEnchanted permanent is indestructible."
+    IDS_STRING26023         "Pacifism\n{1W}\nEnchantment - Aura\nM14,C\nEnchant creature\rEnchanted creature can't attack or block."
+    IDS_STRING26024         "Pillarfield Ox\n{3W}\nCreature - Ox\nM14,C\n\n2/4"
+    IDS_STRING26025         "Planar Cleansing\n{3WWW}\nSorcery\nM14,R\nDestroy all nonland permanents."
+    IDS_STRING26026         "Serra Angel\n{3WW}\nCreature - Angel\nM14,U\nFlying\rVigilance\n4/4"
+    IDS_STRING26027         "Show of Valor\n{1W}\nInstant\nM14,C\nTarget creature gets +2/+4 until end of turn."
+    IDS_STRING26028         "Siege Mastodon\n{4W}\nCreature - Elephant\nM14,C\n\n3/5"
+    IDS_STRING26029         "Silence\n{W}\nInstant\nM14,R\nYour opponents can't cast spells this turn."
+    IDS_STRING26030         "Solemn Offering\n{2W}\nSorcery\nM14,C\nDestroy target artifact or enchantment. You gain 4 life."
+    IDS_STRING26031         "Suntail Hawk\n{W}\nCreature - Bird\nM14,C\nFlying\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26032         "Wall of Swords\n{3W}\nCreature - Wall\nM14,U\nDefender, flying\n3/5"
+    IDS_STRING26033         "Claustrophobia\n{1UU}\nEnchantment - Aura\nM14,C\nEnchant creature\rWhen Claustrophobia enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING26034         "Coral Merfolk\n{1U}\nCreature - Merfolk\nM14,C\n\n2/1"
+    IDS_STRING26035         "Disperse\n{1U}\nInstant\nM14,C\nReturn target nonland permanent to its owner's hand.\n"
+    IDS_STRING26036         "Divination\n{2U}\nSorcery\nM14,C\nDraw two cards."
+    IDS_STRING26037         "Domestication\n{2UU}\nEnchantment - Aura\nM14,R\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your end step, if enchanted creature's power is 4 or greater, sacrifice Domestication."
+    IDS_STRING26038         "Essence Scatter\n{1U}\nInstant\nM14,C\nCounter target creature spell."
+    IDS_STRING26039         "Frost Breath\n{2U}\nInstant\nM14,C\nTap up to two target creatures. Those creatures don't untap during their controller's next untap step."
+    IDS_STRING26040         "Jace, Memory Adept\n{3UU}\nPlaneswalker - Jace\nM14,MR\n[+1]: Draw a card. Target player puts the top card of his or her library into his or her graveyard.\r[0]: Target player puts the top ten cards of his or her library into his or her graveyard.\r[-7]: Any number of target players each draw twenty cards.\n4"
+    IDS_STRING26041         "Merfolk Spy\n{U}\nCreature - Merfolk Rogue\nM14,C\nIslandwalk\rWhenever Merfolk Spy deals combat damage to a player, that player reveals a card at random from his or her hand.\n1/1"
+    IDS_STRING26042         "Negate\n{1U}\nInstant\nM14,C\nCounter target noncreature spell."
+    IDS_STRING26043         "Nephalia Seakite\n{3U}\nCreature - Bird\nM14,C\nFlash\rFlying\n2/3"
+    IDS_STRING26044         "Water Servant\n{2UU}\nCreature - Elemental\nM14,U\n{U}: Water Servant gets +1/-1 until end of turn.\r{U}: Water Servant gets -1/+1 until end of turn.\n3/4"
+    IDS_STRING26045         "Phantom Warrior\n{1UU}\nCreature - Illusion Warrior\nM14,U\nPhantom Warrior is unblockable.\n2/2"
+    IDS_STRING26046         "Quicken\n{U}\nInstant\nM14,R\nThe next sorcery card you cast this turn can be cast as though it had flash.\rDraw a card."
+    IDS_STRING26047         "Scroll Thief\n{2U}\nCreature - Merfolk Rogue\nM14,C\nWhenever Scroll Thief deals combat damage to a player, draw a card.\n1/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26048         "Sensory Deprivation\n{U}\nEnchantment - Aura\nM14,C\nEnchant creature\rEnchanted creature gets -3/-0."
+    IDS_STRING26049         "Spell Blast\n{XU}\nInstant\nM14,C\nCounter target spell with converted mana cost X."
+    IDS_STRING26050         "Time Ebb\n{2U}\nSorcery\nM14,C\nPut target creature on top of its owner's library."
+    IDS_STRING26051         "Tome Scour\n{U}\nSorcery\nM14,C\nTarget player puts the top five cards of his or her library into his or her graveyard."
+    IDS_STRING26052         "Traumatize\n{3UU}\nSorcery\nM14,R\nTarget player puts the top half of his or her library, rounded down, into his or her graveyard."
+    IDS_STRING26053         "Wall of Frost\n{1UU}\nCreature - Wall\nM14,U\nDefender\rWhenever Wall of Frost blocks a creature, that creature doesn't untap during its controller's next untap step.\n0/7"
+    IDS_STRING26054         "Lightning Talons\n{2R}\nEnchantment - Aura\nM14,C\nEnchant creature\rEnchanted creature gets +3/+0 and has first strike."
+    IDS_STRING26055         "Child of Night\n{1B}\nCreature - Vampire\nM14,C\nLifelink\n2/1"
+    IDS_STRING26056         "Corrupt\n{5B}\nSorcery\nM14,C\nCorrupt deals damage equal to the number of Swamps you control to target creature or player. You gain life equal to the damage dealt this way."
+    IDS_STRING26057         "Dark Favor\n{1B}\nEnchantment - Aura\nM14,C\nEnchant creature\rWhen Dark Favor enters the battlefield, you lose 1 life.\rEnchanted creature gets +3/+1."
+    IDS_STRING26058         "Diabolic Tutor\n{2BB}\nSorcery\nM14,U\nSearch your library for a card and put that card into your hand. Then shuffle your library."
+    IDS_STRING26059         "Doom Blade\n{1B}\nInstant\nM14,C\nDestroy target nonblack creature."
+    IDS_STRING26060         "Duress\n{B}\nSorcery\nM14,C\nTarget opponent reveals his or her hand. You choose a noncreature, nonland card from it. That player discards that card."
+    IDS_STRING26061         "Liliana of the Dark Realms\n{2BB}\nPlaneswalker - Liliana\nM14,MR\n[+1]: Search your library for a Swamp card, reveal it, and put it into your hand. Then shuffle your library.\r[-3]: Target creature gets +X/+X or -X/-X until end of turn, where X is the number of Swamps you control.\r[-6]: You get an emblem with """"""""Swamps you control have '{T}: Add {BBBB} to your mana pools.'""""""""\n3"
+    IDS_STRING26062         "Mark of the Vampire\n{3B}\nEnchantment - Aura\nM14,C\nEnchant creature\rEnchanted creature gets +2/+2 and has lifelink."
+    IDS_STRING26063         "Mind Rot\n{2B}\nSorcery\nM14,C\nTarget player discards two cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26064         "Nightmare\n{5B}\nCreature - Nightmare Horse\nM14,R\nFlying\rNightmare's power and toughness are each equal to the number of Swamps you control.\n*/*"
+    IDS_STRING26065         "Nightwing Shade\n{4B}\nCreature - Shade\nM14,C\nFlying\r{1B}: Nightwing Shade gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING26066         "Quag Sickness\n{2B}\nEnchantment - Aura\nM14,C\nEnchant creature\rEnchanted creature gets -1/-1 for each Swamp you control."
+    IDS_STRING26067         "Sanguine Bond\n{3BB}\nEnchantment\nM14,R\nWhenever you gain life, target opponent loses that much life."
+    IDS_STRING26068         "Sengir Vampire\n{3BB}\nCreature - Vampire\nM14,U\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
+    IDS_STRING26069         "Shrivel\n{1B}\nSorcery\nM14,C\nAll creatures get -1/-1 until end of turn."
+    IDS_STRING26070         "Vile Rebirth\n{B}\nInstant\nM14,C\nExile target creature card from a graveyard. Put a 2/2 black Zombie creature token onto the battlefield."
+    IDS_STRING26071         "Wring Flesh\n{B}\nInstant\nM14,C\nTarget creature gets -3/-1 until end of turn."
+    IDS_STRING26072         "Oath of the Ancient Wood\n{2G}\nEnchantment\nM14,R\nWhenever Oath of the Ancient Wood or another enchantment enters the battlefield under your control, you may put a +1/+1 counter on target creature."
+    IDS_STRING26073         "Canyon Minotaur\n{3R}\nCreature - Minotaur Warrior\nM14,C\n\n3/3"
+    IDS_STRING26074         "Chandra's Outrage\n{2RR}\nInstant\nM14,C\nChandra's Outrage deals 4 damage to target creature and 2 damage to that creature's controller."
+    IDS_STRING26075         "Demolish\n{3R}\nSorcery\nM14,C\nDestroy target artifact or land."
+    IDS_STRING26076         "Dragon Hatchling\n{1R}\nCreature - Dragon\nM14,C\nFlying\r{R}: Dragon Hatchling gets +1/+0 until end of turn.\n0/1"
+    IDS_STRING26077         "Flames of the Firebrand\n{2R}\nSorcery\nM14,U\nFlames of the Firebrand deals 3 damage divided as you choose among one, two, or three target creatures and/or players."
+    IDS_STRING26078         "Goblin Shortcutter\n{1R}\nCreature - Goblin Scout\nM14,C\nWhen Goblin Shortcutter enters the battlefield, target creature can't block this turn.\n2/1"
+    IDS_STRING26079         "Lava Axe\n{4R}\nSorcery\nM14,C\nLava Axe deals 5 damage to target player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26080         "Pitchburn Devils\n{4R}\nCreature - Devil\nM14,C\nWhen Pitchburn Devils dies, it deals 3 damage to target creature or player.\n3/3"
+    IDS_STRING26081         "Shivan Dragon\n{4RR}\nCreature - Dragon\nM14,R\nFlying\r{R}: Shivan Dragon gets +1/+0 until end of turn.\n5/5"
+    IDS_STRING26082         "Shiv's Embrace\n{2RR}\nEnchantment - Aura\nM14,U\nEnchant creature\rEnchanted creature gets +2/+2 and has flying.\r{R}: Enchanted creature gets +1/+0 until end of turn."
+    IDS_STRING26083         "Shock\n{R}\nInstant\nM14,C\nShock deals 2 damage to target creature or player."
+    IDS_STRING26084         "Smelt\n{R}\nInstant\nM14,C\nDestroy target artifact."
+    IDS_STRING26085         "Thunder Strike\n{1R}\nInstant\nM14,C\nTarget creature gets +2/+0 and gains first strike until end of turn."
+    IDS_STRING26086         "Volcanic Geyser\n{XRR}\nInstant\nM14,U\nVolcanic Geyser deals X damage to target creature or player."
+    IDS_STRING26087         "Wild Guess\n{RR}\nSorcery\nM14,C\nAs an additional cost to cast Wild Guess, discard a card.\rDraw two cards."
+    IDS_STRING26088         "Bramblecrush\n{2GG}\nSorcery\nM14,U\nDestroy target noncreature permanent."
+    IDS_STRING26089         "Briarpack Alpha\n{3G}\nCreature - Wolf\nM14,U\nFlash\rWhen Briarpack Alpha enters the battlefield, target creature gets +2/+2 until end of turn.\n3/3"
+    IDS_STRING26090         "Brindle Boar\n{2G}\nCreature - Boar\nM14,C\nSacrifice Brindle Boar: You gain 4 life.\n2/2"
+    IDS_STRING26091         "Deadly Recluse\n{1G}\nCreature - Spider\nM14,C\nReach\rDeathtouch\n1/2"
+    IDS_STRING26092         "Fog\n{G}\nInstant\nM14,C\nPrevent all combat damage that would be dealt this turn."
+    IDS_STRING26093         "Giant Growth\n{G}\nInstant\nM14,C\nTarget creature gets +3/+3 until end of turn."
+    IDS_STRING26094         "Giant Spider\n{3G}\nCreature - Spider\nM14,C\nReach\n2/4"
+    IDS_STRING26095         "Gladecover Scout\n{G}\nCreature - Elf Scout\nM14,C\nHexproof\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26096         "Howl of the Night Pack\n{6G}\nSorcery\nM14,U\nPut a 2/2 green Wolf creature token onto the battlefield for each Forest you control."
+    IDS_STRING26097         "Lay of the Land\n{G}\nSorcery\nM14,C\nSearch your library for a basic land card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING26098         "Naturalize\n{1G}\nInstant\nM14,C\nDestroy target artifact or enchantment."
+    IDS_STRING26099         "Plummet\n{1G}\nInstant\nM14,C\nDestroy target creature with flying."
+    IDS_STRING26100         "Ranger's Guile\n{G}\nInstant\nM14,C\nTarget creature you control gets +1/+1 and gains hexproof until end of turn."
+    IDS_STRING26101         "Rootwalla\n{2G}\nCreature - Lizard\nM14,C\n{1G}: Rootwalla gets +2/+2 until end of turn. Activate this ability only once each turn.\n2/2"
+    IDS_STRING26102         "Trollhide\n{2G}\nEnchantment - Aura\nM14,C\nEnchant creature\rEnchanted creature gets +2/+2 and has """"{1G}: Regenerate this creature."""""
+    IDS_STRING26103         "Verdant Haven\n{2G}\nEnchantment - Aura\nM14,C\nEnchant land\rWhen Verdant Haven enters the battlefield, you gain 2 life.\rWhenever enchanted land is tapped for mana, its controller adds one mana of any color to his or her mana pool."
+    IDS_STRING26104         "Windstorm\n{XG}\nInstant\nM14,U\nWindstorm deals X damage to each creature with flying."
+    IDS_STRING26105         "Darksteel Forge\n{9}\nArtifact\nM14,MR\nArtifacts you control have indestructible."
+    IDS_STRING26106         "Darksteel Ingot\n{3}\nArtifact\nM14,U\nIndestructible\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING26107         "Elixir of Immortality\n{1}\nArtifact\nM14,U\n{2}, {T}: You gain 5 life. Shuffle Elixir of Immortality and your graveyard into their owner's library."
+    IDS_STRING26108         "Fireshrieker\n{3}\nArtifact - Equipment\nM14,U\nEquipped creature has double strike.\rEquip {2}"
+    IDS_STRING26109         "Millstone\n{2}\nArtifact\nM14,U\n{2}, {T}: Target player puts the top two cards of his or her library into his or her graveyard."
+    IDS_STRING26110         "Mutavault\n\nLand\nM14,R\n{T}: Add {1} to your mana pool.\r{1}: Mutavault becomes a 2/2 creature with all creature types until end of turn. It's still a land."
+    IDS_STRING26111         "Rod of Ruin\n{4}\nArtifact\nM14,U\n{3}, {T}: Rod of Ruin deals 1 damage to target creature or player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26112         "Shimmering Grotto\n\nLand\nM14,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING26113         "Trading Post\n{4}\nArtifact\nM14,R\n{1}, {T}, Discard a card: You gain 4 life.\r{1}, {T}, Pay 1 life: Put a 0/1 white Goat creature token onto the battlefield.\r{1}, {T}, Sacrifice a creature: Return target artifact card from your graveyard to your hand.\r{1}, {T}, Sacrifice an artifact: Draw a card."
+    IDS_STRING26114         "Dragon Egg\n{2R}\nCreature - Dragon\nM14,U\nDefender\rWhen Dragon Egg dies, put a 2/2 red Dragon creature token with flying onto the battlefield. It has ""{R}: This creature gets +1/+0 until end of turn.""\n0/2"
+    IDS_STRING26115         "Xathrid Necromancer\n{2B}\nCreature - Human Wizard\nM14,R\nWhenever Xathrid Necromancer or another Human creature you control dies, put a 2/2 black Zombie creature token onto the battlefield tapped.\n2/2"
+    IDS_STRING26116         "Staff of the Sun Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a white spell or a Plains enters the battlefield under your control, you gain 1 life."
+    IDS_STRING26117         "Elvish Mystic\n{G}\nCreature - Elf Druid\nM14,C\n{T}: Add {G} to your mana pool.\n1/1"
+    IDS_STRING26118         "Manaweft Sliver\n{1G}\nCreature - Sliver\nM14,U\nSliver creatures you control have ""{T}: Add one mana of any color to your mana pool.""\n1/1"
+    IDS_STRING26119         "Illusionary Armor\n{4U}\nEnchantment - Aura\nM14,U\nEnchant creature\rEnchanted creature gets +4/+4.\rWhen enchanted creature becomes the target of a spell or ability, sacrifice Illusionary Armor."
+    IDS_STRING26120         "Burning Earth\n{3R}\nEnchantment\nM14,R\nWhenever a player taps a nonbasic land for mana, Burning Earth deals 1 damage to that player."
+    IDS_STRING26121         "Celestial Flare\n{WW}\nInstant\nM14,C\nTarget player sacrifices an attacking or blocking creature."
 END
 
 #endif    // English (United States) resources

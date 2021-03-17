@@ -91,7 +91,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFoolsDemiseCard);
 		DEFINE_CARD(CForiysianInterceptorCard);
 		DEFINE_CARD(CForiysianTotemCard);
-		DEFINE_CARD(CFortifyCard);
 		DEFINE_CARD(CFungalReachesCard);
 		DEFINE_CARD(CFungusSliverCard);
 		DEFINE_CARD(CFurySliverCard);
@@ -3320,37 +3319,6 @@ CUndyingRageCard::CUndyingRageCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CFortifyCard::CFortifyCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Fortify"), CardType::Instant, nID)
-{
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				_T("2") WHITE_MANA_TEXT,
-				new AnyCreatureComparer,
-				Power(+2), Life(+0)));
-
-		cpSpell->SetAffectControllerCardsOnly();
-		cpSpell->SetAbilityText(_T("Creatures you control get +2/+0 until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
-				_T("2") WHITE_MANA_TEXT,
-				new AnyCreatureComparer,
-				Power(+0), Life(+2)));
-
-		cpSpell->SetAffectControllerCardsOnly();
-		cpSpell->SetAbilityText(_T("Creatures you control get +0/+2 until end of turn. Casts"));
-
-		AddSpell(cpSpell.GetPointer());
-	}
 }
 
 //____________________________________________________________________________

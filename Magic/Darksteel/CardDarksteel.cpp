@@ -42,9 +42,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCrazedGoblinCard);
 		DEFINE_CARD(CDarksteelBruteCard);
 		DEFINE_CARD(CDarksteelCitadelCard);
-		DEFINE_CARD(CDarksteelForgeCard);
 		DEFINE_CARD(CDarksteelGargoyleCard);
-		DEFINE_CARD(CDarksteelIngotCard);
 		DEFINE_CARD(CDarksteelPendantCard);
 		DEFINE_CARD(CDarksteelReactorCard);
 		DEFINE_CARD(CDeathCloudCard);
@@ -2258,75 +2256,6 @@ CDarksteelBruteCard::CDarksteelBruteCard(CGame* pGame, UINT nID)
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("3"),
 				_T("Beast AA"), 64015));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
-CDarksteelForgeCard::CDarksteelForgeCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Darksteel Forge"), CardType::Artifact, nID,
-		_T("9"), AbilityType::Artifact)
-{
-	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-		::CreateObject<CPwrTghAttrEnchantment>(this,
-			new CardTypeComparer(CardType::Artifact, false),	
-			Power(+0), Life(+0), CreatureKeyword::Null));
-	
-	cpAbility->SetAffectControllerCardsOnly();
-
-	cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Indestructible);
-	cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CDarksteelIngotCard::CDarksteelIngotCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Darksteel Ingot"), CardType::Artifact, nID,
-		_T("3"), AbilityType::Artifact)
-{
-	GetCardKeyword()->AddIndestructible(FALSE);
-	
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT));
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT));
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));
-
-		cpAbility->AddTapCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}

@@ -335,7 +335,7 @@ BEGIN
     IDS_STRING18101         "Marsh Flitter\n{3B}\nCreature - Faerie Rogue\nLRW,U\nFlying\rWhen Marsh Flitter enters the battlefield, put two 1/1 black Goblin Rogue creature tokens onto the battlefield.\rSacrifice a Goblin: Marsh Flitter becomes 3/3 until end of turn.\n1/1"
     IDS_STRING18102         "Scarred Vinebreeder\n{1B}\nCreature - Elf Shaman\nLRW,C\n{2B}, Exile an Elf card from your graveyard: Scarred Vinebreeder gets +3/+3 until end of turn.\n1/1"
     IDS_STRING18103         "Giant's Ire\n{3R}\nTribal Sorcery - Giant\nLRW,C\nGiant's Ire deals 4 damage to target player. If you control a Giant, draw a card."
-    IDS_STRING18104         "Boggart Shenanigans\n{2R}\nTribal Enchantment - Goblin\nLRW,U\nWhenever another Goblin you control dies, you may have Boggart Shenanigans deal 1 damage to target player."
+    IDS_STRING18104         "Boggart Shenanigans\n{2R}\nTribal Enchantment - Goblin\nLRW,U\nWhenever another Goblin you control is put into a graveyard from the battlefield, you may have Boggart Shenanigans deal 1 damage to target player."
     IDS_STRING18105         "Prowess of the Fair\n{1B}\nTribal Enchantment - Elf\nLRW,U\nWhenever another nontoken Elf is put into your graveyard from the battlefield, you may put a 1/1 green Elf Warrior creature token onto the battlefield."
     IDS_STRING18106         "Blades of Velis Vel\n{1R}\nTribal Instant - Shapeshifter\nLRW,C\nChangeling\rUp to two target creatures each get +2/+0 and gain all creature types until end of turn."
     IDS_STRING18107         "Ego Erasure\n{2U}\nTribal Instant - Shapeshifter\nLRW,U\nChangeling\rCreatures target player controls get -2/-0 and lose all creature types until end of turn."

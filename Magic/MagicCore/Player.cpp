@@ -38,6 +38,7 @@ CPlayer::CPlayer(CGame* pGame)
 	, m_nTurnCombatDamageTaken(Life(0))
 	, m_nTurnNoncombatDamageTaken(Life(0))
 	, m_nTurnLifeLossTaken(Life(0))
+	, m_nTurnLifeGain(Life(0))
 	, m_nProwl(FALSE)
 	, m_DamageRedirectionSelection(pGame,
 		CSelectionSupport::SelectionCallback(
@@ -201,6 +202,7 @@ void CPlayer::SetLife(Life nLife)
 				nLifeDelta *= Life(2);
 
 		nLife = m_nLife + nLifeDelta;
+		AddLifeGainThisTurn(nLifeDelta);
 	}
 	else
 		AddLifeLossTakenThisTurn(-nLifeDelta);
@@ -965,6 +967,11 @@ Life CPlayer::GetLifeLossTakenThisTurn() const
 	return m_nTurnLifeLossTaken;
 }
 
+Life CPlayer::GetLifeGainThisTurn() const
+{
+	return m_nTurnLifeGain;
+}
+
 Life CPlayer::GetDamageTakenThisTurn() const
 {
 	return m_nTurnCombatDamageTaken + m_nTurnNoncombatDamageTaken;
@@ -1073,6 +1080,11 @@ void CPlayer::SetPoisonCounters(int value,BOOL replace)
 void CPlayer::AddLifeLossTakenThisTurn(Life pLifeLost)
 {
 	m_nTurnLifeLossTaken = m_nTurnLifeLossTaken + pLifeLost;
+}
+
+void CPlayer::AddLifeGainThisTurn(Life pLifeGained)
+{
+	m_nTurnLifeGain = m_nTurnLifeGain + pLifeGained;
 }
 
 CString CPlayer::GetPlayerName() const
@@ -1639,6 +1651,7 @@ void CPlayer::ResetTurnInfo()
 	m_nTurnCombatDamageTaken = Life(0);
 	m_nTurnNoncombatDamageTaken = Life(0);
 	m_nTurnLifeLossTaken = Life(0);
+	m_nTurnLifeGain = Life(0);
 	m_nProwl = FALSE;
 	m_bSearchedLibraryThisTurn = FALSE;
 	m_bCreatureCounteredByOpponent = FALSE;

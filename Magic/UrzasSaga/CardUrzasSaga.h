@@ -1553,17 +1553,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CCongregateCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CCongregateCard);
-
-protected:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-};
-
-//____________________________________________________________________________
-//
 class CMeltdownCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMeltdownCard);

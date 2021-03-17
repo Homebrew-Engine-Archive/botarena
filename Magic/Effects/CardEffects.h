@@ -710,9 +710,13 @@ protected:
 
 //____________________________________________________________________________
 //
-class CGenericContainerToken : public CContainerEffectCard
+class CGenericContainerExileToken : public CContainerEffectCard
 {
-	DECLARE_CARD_CSTOR(CGenericContainerToken);
+	DECLARE_CARD_CSTOR(CGenericContainerExileToken);
+
+protected:
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________
@@ -1787,6 +1791,71 @@ protected:
 
 	void OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	CSelectionSupport m_Selection;
+};
+
+//____________________________________________________________________________
+//
+class CSavageSummoningFirstEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CSavageSummoningFirstEffectToken);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+							CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+class CSavageSummoningSecondEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CSavageSummoningSecondEffectToken);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CInsistEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CInsistEffectToken);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+							CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+class COvermasterEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(COvermasterEffectToken);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+							CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+class CGoblinDiplomatsEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CGoblinDiplomatsEffectToken);
+};
+
+//____________________________________________________________________________
+//
+class CGenericContainerBattlefieldToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CGenericContainerBattlefieldToken);
+
+protected:
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //____________________________________________________________________________

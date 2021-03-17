@@ -779,13 +779,6 @@ class CUndyingRageCard : public CChgPwrTghAttrEnchantCard
 
 //____________________________________________________________________________
 //
-class CFortifyCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CFortifyCard);
-};
-
-//____________________________________________________________________________
-//
 class CKrosanGripCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CKrosanGripCard);

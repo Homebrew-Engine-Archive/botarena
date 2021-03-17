@@ -768,13 +768,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CBraveTheElementsCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CBraveTheElementsCard);
-};
-
-//____________________________________________________________________________
-//
 class CCryptOfAgadeemCard : public CNonbasicLandCard
 {
 	DECLARE_CARD_CSTOR(CCryptOfAgadeemCard);
@@ -913,13 +906,6 @@ protected:
 							CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
 private:
 	CManaCost	m_KickerCost;
-};
-
-//____________________________________________________________________________
-//
-class CGoblinShortcutterCard : public CCreatureCard
-{
-    DECLARE_CARD_CSTOR(CGoblinShortcutterCard);
 };
 
 //____________________________________________________________________________
@@ -2016,6 +2002,16 @@ protected:
 class CWhiplashTrapCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CWhiplashTrapCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//____________________________________________________________________________
+//
+class CNeedlebiteTrapCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CNeedlebiteTrapCard);
 
 protected:
 	BOOL CanPlay(BOOL bIncludeTricks);

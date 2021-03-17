@@ -1098,7 +1098,7 @@ bool CAdmonitionAngelCard::SetTriggerContext(CTriggeredAbility<>::TriggerContext
 {
 	CCountedCardContainer pCreated;
 
-	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Generic Container"), 61056, &pExiled, &pCreated);
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Generic Container - Exile"), 61056, &pExiled, &pCreated);
 	pModifier.ApplyTo(GetController());
 
 	triggerContext.nValue1 = (DWORD)pCreated.GetAt(0);

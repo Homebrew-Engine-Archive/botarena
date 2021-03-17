@@ -287,7 +287,7 @@ BEGIN
     IDS_STRING2873          "Bird (D)\n{W}\nCreature - Bird\nToken\nFlying\n3/3"
     IDS_STRING2874          "Ooze (B)\n{G}\nCreature - Ooze\nToken\nWhen this creature dies, put two 1/1 green Ooze creature tokens onto the battlefield.\n2/2"
     IDS_STRING2875          "Ooze (C)\n{G}\nCreature - Ooze\nToken\n\n1/1"
-    IDS_STRING2876          "Marit Lage\n{B}\nLegendary Creature - Avatar\nToken\nFlying\rThis creature is indestructible.\n20/20"
+    IDS_STRING2876          "Marit Lage\n{B}\nLegendary Creature - Avatar\nToken\nFlying, indestructible\n20/20"
     IDS_STRING2877          "Snake (F)\n{G}\nCreature - Snake\nToken\n\n1/1"
 	IDS_STRING2878          "Butterfly\n{G}\nCreature - Insect\nToken\nFlying\n1/1"
     IDS_STRING2879          "Zombie (E)\n{B}\nCreature - Zombie\nToken\n\n2/2"

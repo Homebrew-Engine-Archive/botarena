@@ -1479,7 +1479,6 @@ CGoblinPyromancerCard::CGoblinPyromancerCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(
 			::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
 
-		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToAllPlayers);
 

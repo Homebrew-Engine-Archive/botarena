@@ -501,7 +501,8 @@ public:
 	void operator+=(const Integer& m) { m_Value = m_Value + m.m_Value; } 
 	void operator-=(const Integer& m) { m_Value = m_Value - m.m_Value; } 
 	void operator*=(const Integer& m) { m_Value = m_Value * m.m_Value; } 
-	void operator/=(const Integer& m) { m_Value = m_Value / m.m_Value; } 
+	void operator/=(const Integer& m) { m_Value = m_Value / m.m_Value; }
+	operator T() {return m_Value;}
 
 private: 
 	T m_Value;

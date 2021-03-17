@@ -80,7 +80,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING10800         "Blood Vassal\n{2B}\nCreature - Thrull\nUSG,C\nSacrifice Blood Vassal: Add {BB} to your mana pool.\n2/2"
     IDS_STRING10801         "Catastrophe\n{4WW}\nSorcery\nUSG,R\nDestroy all lands or all creatures. Creatures destroyed this way can't be regenerated."
-    IDS_STRING10802         "Cloak of Mists\n{1U}\nEnchantment - Aura\nUSG,C\nEnchant creature\rEnchanted creature is unblockable."
+    IDS_STRING10802         "Cloak of Mists\n{1U}\nEnchantment - Aura\nUSG,C\nEnchant creature\rEnchanted creature can't be blocked."
     IDS_STRING10803         "Exploration\n{G}\nEnchantment\nUSG,R\nYou may play an additional land on each of your turns."
     IDS_STRING10804         "Thran Quarry\n\nLand\nUSG,R\nAt the beginning of the end step, if you control no creatures, sacrifice Thran Quarry.\r{T}: Add one mana of any color to your mana pool."
     IDS_STRING10805         "Morphling\n{3UU}\nCreature - Shapeshifter\nUSG,R\n{U}: Untap Morphling.\r{U}: Morphling gains flying until end of turn.\r{U}: Morphling gains shroud until end of turn.\r{1}: Morphling gets +1/-1 until end of turn.\r{1}: Morphling gets -1/+1 until end of turn.\n3/3"

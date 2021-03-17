@@ -462,13 +462,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CLightningTalonsCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CLightningTalonsCard);
-};
-
-//____________________________________________________________________________
-//
 class CMarbleChaliceCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CMarbleChaliceCard);

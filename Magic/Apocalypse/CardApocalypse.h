@@ -485,13 +485,6 @@ class CLastCaressCard : public CTargetChgLifeSpellCard
 
 //____________________________________________________________________________
 //
-class CLayOfTheLandCard : public CSearchLibrarySpellCard
-{
-	DECLARE_CARD_CSTOR(CLayOfTheLandCard);
-};
-
-//____________________________________________________________________________
-//
 class CPlanarDespairCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CPlanarDespairCard);

@@ -63,7 +63,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CExtraplanarLensCard);
 		DEFINE_CARD(CFangrenHunterCard);
 		DEFINE_CARD(CFieryGambitCard);
-		DEFINE_CARD(CFireshriekerCard);
 		DEFINE_CARD(CFlayedNimCard);
 		DEFINE_CARD(CForgeArmorCard);
 		DEFINE_CARD(CFrogmiteCard);
@@ -1938,26 +1937,6 @@ counted_ptr<CAbility> CEmpyrialPlateCard::CreateEquipmentAbility(CCard* pCard)
 	cpEquipAbility->StartListening(GetController());
 
 	return counted_ptr<CAbility>(cpEquipAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CFireshriekerCard::CFireshriekerCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Fireshrieker"), CardType::Artifact | CardType::Equipment, nID, 
-		_T("3"), AbilityType::Artifact)
-{
-	counted_ptr<CEquipAbility> cpAbility(
-		::CreateObject<CEquipAbility>(this, _T("2")));
-
-	CCreatureKeywordModifier* pModifier = new CCreatureKeywordModifier;
-	pModifier->GetModifier().SetToAdd(CreatureKeyword::DoubleStrike);
-	pModifier->GetModifier().SetOneTurnOnly(FALSE);
-
-	cpAbility->AddCreatureModifier(pModifier);
-
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -6226,7 +6205,7 @@ void CGrabTheReinsCard::OnCreatureSelected(const std::vector<SelectionEntry>& se
 //____________________________________________________________________________
 //
 CSpoilsOfTheVaultCard::CSpoilsOfTheVaultCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Demonic Consultation"), CardType::Instant, nID)
+	: CCard(pGame, _T("Spoils of the Vault"), CardType::Instant, nID)
 	, m_NameSelection(pGame, CSelectionSupport::SelectionCallback(this, &CSpoilsOfTheVaultCard::OnNameSelected))
 {
 	counted_ptr<CGenericSpell> cpSpell(
@@ -7159,7 +7138,7 @@ CSecondSunriseCard::CSecondSunriseCard(CGame* pGame, UINT nID)
 		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Instant,
 			_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT,
 			new CardPresentinHistoryComparer(ZoneId::Graveyard, ZoneId::Battlefield),
-			ZoneId::Battlefield, TRUE, MoveType::Destroy, ZoneId::Graveyard));
+			ZoneId::Battlefield, TRUE, MoveType::Others, ZoneId::Graveyard));
 
 	cpSpell->GetGlobalCardFilter().AddComparer(new CardTypeComparer(CardType::Artifact | CardType::Creature | CardType::_Enchantment | CardType::_Land, false));
 

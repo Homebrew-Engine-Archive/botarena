@@ -3775,79 +3775,154 @@ CJinGitaxiasCoreAugurCard::CJinGitaxiasCoreAugurCard(CGame* pGame, UINT nID)
 //
 CApostlesBlessingCard::CApostlesBlessingCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Apostle's Blessing"), CardType::Instant, nID)
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-		&CApostlesBlessingCard::OnResolutionCompleted))
+	, m_ColorSelection(pGame, CSelectionSupport::SelectionCallback(this, &CApostlesBlessingCard::OnColorSelected))
 {
 	GetCardKeyword()->AddPhyrexianMana(FALSE);
 
 	{
-		counted_ptr<CTargetGainKeywordSpell> cpSpell(
-			::CreateObject<CTargetGainKeywordSpell>(this, AbilityType::Instant,
+		counted_ptr<CTargetSpell> cpSpell(
+			::CreateObject<CTargetSpell>(this, AbilityType::Instant,
 				_T("1") WHITE_MANA_TEXT,
-				new CardTypeComparer(CardType::Artifact | CardType::Creature, false)));
-
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue, TRUE, _T("blue"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed, TRUE, _T("red"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
+				new CardTypeComparer(CardType::Artifact | CardType::Creature, false), FALSE));
 
 		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-		cpSpell->SetAbilityText(_T("Casts (color)"));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CApostlesBlessingCard::BeforeResolution));
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
-		counted_ptr<CTargetGainKeywordSpell> cpSpell(
-			::CreateObject<CTargetGainKeywordSpell>(this, AbilityType::Instant,
+		counted_ptr<CTargetSpell> cpSpell(
+			::CreateObject<CTargetSpell>(this, AbilityType::Instant,
 				_T("1"),
-				new CardTypeComparer(CardType::Artifact | CardType::Creature, false)));
-
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue, TRUE, _T("blue"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed, TRUE, _T("red"));
-		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
+				new CardTypeComparer(CardType::Artifact | CardType::Creature, false), FALSE));
 
 		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
 		cpSpell->AddPayLifeDeltaCost(Life(-2));
-		cpSpell->SetAbilityText(_T("Casts (color)"));
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant,
-				_T("1") WHITE_MANA_TEXT,
-				Power(+0), Life(+0),
-				CreatureKeyword::Null, CreatureKeyword::Null,
-				TRUE, PreventableType::NotPreventable,
-				new CardTypeComparer(CardType::Artifact | CardType::Creature, false)));
-
-		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-		cpSpell->SetAbilityText(_T("Casts (artifacts)"));
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant,
-				_T("1"),
-				Power(+0), Life(+0),
-				CreatureKeyword::Null, CreatureKeyword::Null,
-				TRUE, PreventableType::NotPreventable,
-				new CardTypeComparer(CardType::Artifact | CardType::Creature, false)));
-
-		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-		cpSpell->AddPayLifeDeltaCost(Life(-2));
-		cpSpell->SetAbilityText(_T("Casts (artifacts)"));
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CApostlesBlessingCard::BeforeResolution));
 		AddSpell(cpSpell.GetPointer());
 	}
 }
 
-void CApostlesBlessingCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{	
-	CCard* pCard = pAbilityAction->GetAssociatedCard();
-	if (bResult) pCard->GetCardKeyword()->AddSpecialProtection(TRUE, CCardFilter::GetFilter(_T("artifact cards")));
+bool CApostlesBlessingCard::BeforeResolution(CAbilityAction* pAction)
+{
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 1;
+		selectionEntry.strText.Format(_T("white"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 2;
+		selectionEntry.strText.Format(_T("blue"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 3;
+		selectionEntry.strText.Format(_T("black"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 4;
+		selectionEntry.strText.Format(_T("red"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 5;
+		selectionEntry.strText.Format(_T("green"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 6;
+		selectionEntry.strText.Format(_T("artifacts"));
+
+		entries.push_back(selectionEntry);
+	}
+	
+	m_ColorSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController(), (DWORD)pAction->GetAssociatedCard());
+
+	return true;
+}
+
+void CApostlesBlessingCard::OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 1)
+			{
+				CCardKeywordModifier* pModifier = new CCardKeywordModifier;
+				pModifier->GetModifier().SetToAdd(CardKeyword::ProtectionFromWhite);
+				pModifier->GetModifier().SetOneTurnOnly(TRUE);
+
+				pModifier->ApplyTo((CCard*)dwContext1);
+				
+				return;
+			}
+			if ((int)it->dwContext == 2)
+			{
+				CCardKeywordModifier* pModifier = new CCardKeywordModifier;
+				pModifier->GetModifier().SetToAdd(CardKeyword::ProtectionFromBlue);
+				pModifier->GetModifier().SetOneTurnOnly(TRUE);
+
+				pModifier->ApplyTo((CCard*)dwContext1);
+				
+				return;
+			}
+			if ((int)it->dwContext == 3)
+			{
+				CCardKeywordModifier* pModifier = new CCardKeywordModifier;
+				pModifier->GetModifier().SetToAdd(CardKeyword::ProtectionFromBlack);
+				pModifier->GetModifier().SetOneTurnOnly(TRUE);
+
+				pModifier->ApplyTo((CCard*)dwContext1);
+				
+				return;
+			}
+			if ((int)it->dwContext == 4)
+			{
+				CCardKeywordModifier* pModifier = new CCardKeywordModifier;
+				pModifier->GetModifier().SetToAdd(CardKeyword::ProtectionFromRed);
+				pModifier->GetModifier().SetOneTurnOnly(TRUE);
+
+				pModifier->ApplyTo((CCard*)dwContext1);
+				
+				return;
+			}
+			if ((int)it->dwContext == 5)
+			{
+				CCardKeywordModifier* pModifier = new CCardKeywordModifier;
+				pModifier->GetModifier().SetToAdd(CardKeyword::ProtectionFromGreen);
+				pModifier->GetModifier().SetOneTurnOnly(TRUE);
+
+				pModifier->ApplyTo((CCard*)dwContext1);
+				
+				return;
+			}
+			if ((int)it->dwContext == 6)
+			{
+				((CCard*)dwContext1)->GetCardKeyword()->AddSpecialProtection(TRUE, CCardFilter::GetFilter(_T("artifact cards")));
+				
+				return;
+			}
+		}
 }
 
 //____________________________________________________________________________

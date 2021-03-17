@@ -52,7 +52,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CClawsOfGixCard);
 		DEFINE_CARD(CClearCard);
 		DEFINE_CARD(CCloakOfMistsCard);
-		DEFINE_CARD(CCongregateCard);
 		DEFINE_CARD(CCopperGnomesCard);
 		DEFINE_CARD(CCradleGuardCard);
 		DEFINE_CARD(CCraterHellionCard);
@@ -6021,38 +6020,6 @@ bool CBrandCard::BeforeResolution(CAbilityAction* pAction) const
 	}
 
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CCongregateCard::CCongregateCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Congregate"), CardType::Instant, nID)
-, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-				   &CCongregateCard::OnResolutionCompleted))
-{
-	counted_ptr<CGenericTargetPlayerSpell> cpSpell(
-		::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
-			_T("3") WHITE_MANA_TEXT));
-
-	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-void CCongregateCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	if (!bResult) return;
-	
-	CZone* pContInplay = pAbilityAction->GetController()->GetZoneById(ZoneId::Battlefield);
-	CZone* pOppInplay = m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetZoneById(ZoneId::Battlefield);
-
-	CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.AddComparer(new AnyCreatureComparer);
-
-	int n = 2 * (m_CardFilter_temp.CountIncluded(pContInplay->GetCardContainer()) + m_CardFilter_temp.CountIncluded(pOppInplay->GetCardContainer()));
-
-	CLifeModifier modifier1 = CLifeModifier(Life(n), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-	modifier1.ApplyTo(pAbilityAction->GetAssociatedPlayer());
 }
 
 //____________________________________________________________________________

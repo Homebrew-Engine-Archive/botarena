@@ -18,7 +18,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	{
 		DEFINE_CARD(CAbattoirGhoulCard);
 		DEFINE_CARD(CAbbeyGriffinCard);
-		DEFINE_CARD(CAltarsReapCard);
 		DEFINE_CARD(CAmbushViperCard);
 		DEFINE_CARD(CAngelicOverseerCard);
 		DEFINE_CARD(CAngelOfFlightAlabasterCard);
@@ -36,7 +35,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBloodlineKeeperCard);
 		DEFINE_CARD(CBoneyardWurmCard);
 		DEFINE_CARD(CBrainWeevilCard);
-		DEFINE_CARD(CBramblecrushCard);
 		DEFINE_CARD(CBrimstoneVolleyCard);
 		DEFINE_CARD(CBumpInTheNightCard);
 		DEFINE_CARD(CBurningVengeanceCard);
@@ -47,7 +45,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CChapelGeistCard);
 		DEFINE_CARD(CCharmbreakerDevilsCard);
 		DEFINE_CARD(CCivilizedScholarCard);
-		DEFINE_CARD(CClaustrophobiaCard);
 		DEFINE_CARD(CClifftopRetreatCard);
 		DEFINE_CARD(CCloisteredYouthCard);
 		DEFINE_CARD(CCobbledWingsCard);
@@ -174,13 +171,11 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CParallelLivesCard);
 		DEFINE_CARD(CParaseleneCard);
 		DEFINE_CARD(CPastInFlamesCard);
-		DEFINE_CARD(CPitchburnDevilsCard);
 		DEFINE_CARD(CPurifyTheGraveCard);
 		DEFINE_CARD(CRageThrowerCard);
 		DEFINE_CARD(CRakishHeirCard);
 		DEFINE_CARD(CRallyThePeasantsCard);
 		DEFINE_CARD(CRampagingWerewolfCard);
-		DEFINE_CARD(CRangersGuileCard);
 		DEFINE_CARD(CReaperFromTheAbyssCard);
 		DEFINE_CARD(CRebukeCard);
 		DEFINE_CARD(CRecklessWaifCard);
@@ -193,7 +188,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CScreechingBatCard);
 		DEFINE_CARD(CSelflessCatharCard);
 		DEFINE_CARD(CSelhoffOccultistCard);
-		DEFINE_CARD(CSensoryDeprivationCard);
 		DEFINE_CARD(CSeverTheBloodlineCard);
 		DEFINE_CARD(CSilentDepartureCard);
 		DEFINE_CARD(CSilverchaseFoxCard);
@@ -1471,7 +1465,7 @@ CSpiderSpawningCard::CSpiderSpawningCard(CGame* pGame, UINT nID)
 
 bool CSpiderSpawningCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	int nCreatures = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
+	int nCreatures = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(GetController()->GetZoneById(ZoneId::Graveyard)->GetCardContainer());
 	if (nCreatures == 0) return false;
 
 	ContextValue Context(pAction->GetValue());
@@ -2274,27 +2268,6 @@ CNephaliaDrownyardCard::CNephaliaDrownyardCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CClaustrophobiaCard::CClaustrophobiaCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Claustrophobia"), nID,
-		_T("1") BLUE_MANA_TEXT BLUE_MANA_TEXT,
-		Power(+0), Life(+0))
-		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-		&CClaustrophobiaCard::OnResolutionCompleted))
-{
-	m_pChgPwrTghAttrEnchant->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::NoUntapInUntapPhase);
-
-	m_pChgPwrTghAttrEnchant->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-}
-
-void CClaustrophobiaCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{	
-	CCard* target = pAbilityAction->GetAssociatedCard();
-	CCardOrientationModifier pModifier = CCardOrientationModifier(true);
-	if (bResult) pModifier.ApplyTo(target);
-}
-
-//____________________________________________________________________________
-//
 CVampiricFuryCard::CVampiricFuryCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Vampiric Fury"), CardType::Instant, nID)
 {
@@ -2786,15 +2759,6 @@ CVictimOfNightCard::CVictimOfNightCard(CGame* pGame, UINT nID)
 	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CreatureTypeComparer(CREATURE_TYPE(Vampire), false));
 	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CreatureTypeComparer(CREATURE_TYPE(Werewolf), false));
 	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CreatureTypeComparer(CREATURE_TYPE(Zombie), false));
-}
-
-//____________________________________________________________________________
-//
-CSensoryDeprivationCard::CSensoryDeprivationCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Sensory Deprivation"), nID,
-		BLUE_MANA_TEXT,
-		Power(-3), Life(-0))
-{
 }
 
 //____________________________________________________________________________
@@ -3772,22 +3736,6 @@ bool CAbattoirGhoulCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerC
 
 //____________________________________________________________________________
 //
-CAltarsReapCard::CAltarsReapCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Altar's Reap"), CardType::Instant, nID)
-{
-	counted_ptr<CDrawCardSpell> cpSpell(
-		::CreateObject<CDrawCardSpell>(this, AbilityType::Instant,
-			_T("1") BLACK_MANA_TEXT, 2));
-
-	ATLASSERT(cpSpell);
-
-	cpSpell->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("creatures")));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CBrainWeevilCard::CBrainWeevilCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Brain Weevil"), CardType::Creature, CREATURE_TYPE(Insect), nID,
 		_T("3") BLACK_MANA_TEXT, Power(1), Life(1))
@@ -4447,32 +4395,6 @@ CNightbirdsClutchesCard::CNightbirdsClutchesCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CPitchburnDevilsCard::CPitchburnDevilsCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Pitchburn Devils"), CardType::Creature, CREATURE_TYPE(Devil), nID,
-		_T("4") RED_MANA_TEXT, Power(3), Life(3))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenSelfMoved > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this,
-			ZoneId::Battlefield, ZoneId::Graveyard));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(-3));
-	cpAbility->GetLifeModifier().SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
-
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetTargeting().SetIncludePlayers(true);
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
-
-	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CRageThrowerCard::CRageThrowerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Rage Thrower"), CardType::Creature, CREATURE_TYPE2(Human, Shaman), nID,
 		_T("5") RED_MANA_TEXT, Power(4), Life(2))
@@ -4604,16 +4526,6 @@ CTraitorousBloodCard::CTraitorousBloodCard(CGame* pGame, UINT nID)
 	cpSpell->SetReturnToPreviousControllerAtNext(NodeId::CleanupStep1);
 
 	AddSpell(cpSpell.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CBramblecrushCard::CBramblecrushCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Bramblecrush"), CardType::Sorcery, nID,
-		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, AbilityType::Instant,
-		new NegateCardComparer(new AnyCreatureComparer),
-		ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy)
-{
 }
 
 //____________________________________________________________________________
@@ -8355,19 +8267,6 @@ counted_ptr<CSpell> CRooftopStormCard::CreateSpell(CCard* pCard)
 
 	cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
 	return counted_ptr<CSpell>(cpSpell.GetPointer());
-}
-//____________________________________________________________________________
-//
-CRangersGuileCard::CRangersGuileCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrSpellCard(pGame, _T("Ranger's Guile"), CardType::Instant, nID, AbilityType::Instant,
-		GREEN_MANA_TEXT,
-		Power(+1), Life(+1),
-		CreatureKeyword::Null, CreatureKeyword::Null,
-		TRUE, PreventableType::NotPreventable)
-{
-	m_pTargetChgPwrTghAttrSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Hexproof);
-	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 }
 
 //____________________________________________________________________________

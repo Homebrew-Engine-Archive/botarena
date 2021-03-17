@@ -211,7 +211,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING11504         "Bubbling Beebles\n{4U}\nCreature - Beeble\nUDS,C\nBubbling Beebles is unblockable as long as defending player controls an enchantment.\n3/3"
+    IDS_STRING11504         "Bubbling Beebles\n{4U}\nCreature - Beeble\nUDS,C\nBubbling Beebles can't be blocked as long as defending player controls an enchantment.\n3/3"
     IDS_STRING11505         "Fatigue\n{1U}\nSorcery\nUDS,C\nTarget player skips his or her next draw step."
     IDS_STRING11506         "Flicker\n{1W}\nSorcery\nUDS,R\nExile target nontoken permanent, then return it to the battlefield under its owner's control."
     IDS_STRING11507         "Repercussion\n{1RR}\nEnchantment\nUDS,R\nWhenever a creature is dealt damage, Repercussion deals that much damage to that creature's controller."

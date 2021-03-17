@@ -739,13 +739,6 @@ protected:
 };
 //_____________________________________________________________________________
 //
-class CAccordersShieldCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CAccordersShieldCard);
-};
-
-//____________________________________________________________________________
-//
 class CArgentumArmorCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CArgentumArmorCard);
@@ -838,12 +831,6 @@ class CWithstandDeathCard : public CChgPwrTghAttrSpellCard
 };
 
 //____________________________________________________________________________
-//
-class CRatchetBombCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CRatchetBombCard);
-};
-//_____________________________________________________________________________
 //
 class CSnapsailGliderCard : public CCreatureCard
 {

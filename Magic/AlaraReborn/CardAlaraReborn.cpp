@@ -2722,20 +2722,16 @@ CDauntlessEscortCard::CDauntlessEscortCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dauntless Escort"), CardType::Creature, CREATURE_TYPE2(Rhino, Soldier), nID,
 		_T("1") WHITE_MANA_TEXT GREEN_MANA_TEXT, Power(3), Life(3))
 {
-	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
-			_T("")));
+	counted_ptr<CActivatedAbility<CPwrTghAttrEnchantment>> cpAbility(
+		::CreateObject<CActivatedAbility<CPwrTghAttrEnchantment>>(this,
+			_T(""),	new AnyCreatureComparer,
+				Power(+0), Life(+0)));
 
-	CPlayerEffectModifier* pmodifier = new CPlayerEffectModifier(PlayerEffectType::IndestructibleCreatures);	
+	cpAbility->SetAffectControllerCardsOnly();
+	cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Indestructible);
 
-	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pmodifier, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
-
-	pmodifier->LinkPlayerModifier(pModifier2);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pmodifier);		
-
-	cpAbility->SetAbilityName(_T("Creatures you control are indestructible this turn"));
-	cpAbility->SetAbilityText(_T("Creatures you control are indestructible this turn"));
+	cpAbility->SetAbilityName(_T("Creatures you control gain indestructible until end of turn"));
+	cpAbility->SetAbilityText(_T("Creatures you control gain indestructible until end of turn"));
 
 	cpAbility->AddSacrificeCost();				
 	

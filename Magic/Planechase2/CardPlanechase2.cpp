@@ -314,7 +314,12 @@ CPreyseizerDragonCard::CPreyseizerDragonCard(CGame* pGame, UINT nID)
 
 bool CPreyseizerDragonCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
-	int nCounterCount = GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount();
+	int nCounterCount = 0;
+	
+	if (IsInplay())
+		nCounterCount = GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount();
+	else
+		nCounterCount = GetLastKnownp11Counters();
 
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 	triggerContext.m_LifeModifier.SetLifeDelta(-Life(nCounterCount));

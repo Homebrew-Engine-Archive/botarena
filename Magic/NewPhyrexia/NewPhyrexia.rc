@@ -90,7 +90,7 @@ BEGIN
     IDS_STRING21904         "Urabrask the Hidden\n{3RR}\nLegendary Creature - Praetor\nNPH,MR\nCreatures you control have Haste.\rCreatures your opponents control enter the battlefield tapped.\n4/4"
     IDS_STRING21905         "Sheoldred, Whispering One\n{5BB}\nLegendary Creature - Praetor\nNPH,MR\nSwampwalk\rAt the beginning of your upkeep, return target creature card from your graveyard to the battlefield.\rAt the beginning of each opponent's upkeep, that player sacrifices a creature.\n6/6"
     IDS_STRING21906         "Argent Mutation\n{2U}\nInstant\nNPH,U\nTarget permanent becomes an artifact in addition to its other types until end of turn.\rDraw a card."
-    IDS_STRING21907         "Blighted Agent\n{1U}\nCreature - Human Rogue\nNPH\nInfect\rBlighted Agent is unblockable.\n1/1"
+    IDS_STRING21907         "Blighted Agent\n{1U}\nCreature - Human Rogue\nNPH\nInfect\rBlighted Agent can't be blocked.\n1/1"
     IDS_STRING21908         "Defensive Stance\n{U}\nEnchantment - Aura\nNPH\nEnchant creature\r Enchanted creature gets -1/+1"
     IDS_STRING21909         "Gitaxian Probe\n{$}\nSorcery\nNPH\nLook at target player's hand.\rDraw a card"
     IDS_STRING21910         "Mental Misstep\n{$}\nInstant\nNPH,U\nCounter target spell with converted mana cost 1."
@@ -188,7 +188,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING21984         "Blinding Souleater\n{3}\nArtifact Creature - Cleric\nNPH, C\n{!}, {T}: Tap target creature.\n1/3"
-    IDS_STRING21985         "Darksteel Relic\n{0}\nArtifact\nNPH,U\nDarksteel Relic is indestructible."
+    IDS_STRING21985         "Darksteel Relic\n{0}\nArtifact\nNPH,U\nIndestructible"
     IDS_STRING21986         "Etched Monstrosity\n{5}\nArtifact Creature - Golem\nNPH,MR\nEtched Monstrosity enters the battlefield with five -1/-1 counters on it.\r{WUBRG}, Remove five -1/-1 counters from Etched Monstrosity: target player draws three cards.\n10/10"
     IDS_STRING21987         "Hovermyr\n{2}\nArtifact Creature - Myr\nNPH\nFlying, vigilance\n1/2"
     IDS_STRING21988         "Immolating Souleater\n{2}\nArtifact Creature - Hound\nNPH, C\n{&}: Immolating Souleater gets +1/+0 until end of turn.\n1/1"

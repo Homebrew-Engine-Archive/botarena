@@ -69,7 +69,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
     </Midl>
     <ClCompile>
-      <AdditionalOptions>/EHac -Zm264 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/EHac -Zm300 /Zm300 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>C:\Program Files\Microsoft Speech SDK 5.1\Include;..\..\EpochLib;..\MagicCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_MY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -115,7 +115,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
     </Midl>
     <ClCompile>
-      <AdditionalOptions>/EHac -Zm300 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/EHac -Zm300 /Zm300 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>

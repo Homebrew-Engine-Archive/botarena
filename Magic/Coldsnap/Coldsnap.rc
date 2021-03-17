@@ -172,7 +172,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING7072          "Icefall\n{2RR}\nSorcery\nCSP,C\nDestroy target artifact or land.\rRecover {RR}"
-    IDS_STRING7073          "Dark Depths\n\nLegendary Snow Land\nCSP,R\nDark Depths enters the battlefield with ten ice counters on it.\r{3}: Remove an ice counter from Dark Depths.\rWhen Dark Depths has no ice counters on it, sacrifice it. If you do, put a legendary 20/20 black Avatar creature token with flying and ""This creature is indestructible"" named Marit Lage onto the battlefield."
+    IDS_STRING7073          "Dark Depths\n\nLegendary Snow Land\nCSP,R\nDark Depths enters the battlefield with ten ice counters on it.\r{3}: Remove an ice counter from Dark Depths.\rWhen Dark Depths has no ice counters on it, sacrifice it. If you do, put a legendary 20/20 black Avatar creature token with flying and indestructible named Marit Lage onto the battlefield."
     IDS_STRING7074          "Counterbalance\n{UU}\nEnchantment\nCSP,U\nWhenever an opponent casts a spell, you may reveal the top card of your library. If you do, counter that spell if it has the same converted mana cost as the revealed card."
     IDS_STRING7075          "Greater Stone Spirit\n{4RR}\nCreature - Elemental Spirit\nCSP,U\nGreater Stone Spirit can't be blocked by creatures with flying.\r{2R}: Until end of turn, target creature gets +0/+2 and gains ""{R}: This creature gets +1/+0 until end of turn.""\n4/4"
     IDS_STRING7076          "Feast of Flesh\n{B}\nSorcery\nCSP,C\nFeast of Flesh deals X damage to target creature and you gain X life, where X is 1 plus the number of cards named Feast of Flesh in all graveyards."

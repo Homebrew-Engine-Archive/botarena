@@ -16,7 +16,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
 		DEFINE_CARD(CAfflictedDeserterCard);
 		DEFINE_CARD(CAlphaBrawlCard);
 		DEFINE_CARD(CArchangelsLightCard);
@@ -27,7 +26,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBloodFeudCard);
 		DEFINE_CARD(CBoneToAshCard);
 		DEFINE_CARD(CBreakOfDayCard);
-		DEFINE_CARD(CBriarpackAlphaCard);
 		DEFINE_CARD(CBurdenOfGuiltCard);
 		DEFINE_CARD(CBurningOilCard);
 		DEFINE_CARD(CChaliceOfDeathCard);
@@ -102,7 +100,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMoonveilDragonCard);
 		DEFINE_CARD(CMysticRetrievalCard);
 		DEFINE_CARD(CNearheathStalkerCard);
-		DEFINE_CARD(CNephaliaSeakiteCard);
 		DEFINE_CARD(CNiblisOfTheBreathCard);
 		DEFINE_CARD(CNiblisOfTheMistCard);
 		DEFINE_CARD(CNiblisOfTheUrnCard);
@@ -1450,34 +1447,6 @@ CMarkovBlademasterCard::CMarkovBlademasterCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetCombatDamageOnly();
 
 		cpAbility->GetTriggeredCardModifiers().push_back(new CCardCounterModifier(_T("+1/+1"), +1));
-
-		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
-CBriarpackAlphaCard::CBriarpackAlphaCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Briarpack Alpha"), CardType::Creature, CREATURE_TYPE(Wolf), nID,
-		_T("3") GREEN_MANA_TEXT, Power(3), Life(3))
-{
-	GetCardKeyword()->AddFlash(FALSE);
-
-	{
-		typedef
-			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay, 
-									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetLifeModifier().SetLifeDelta(Life(+2));
-		cpAbility->GetPowerModifier().SetPowerDelta(Power(+2));
-		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
-
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
 
 		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
@@ -2871,15 +2840,6 @@ CMysticRetrievalCard::CMysticRetrievalCard(CGame* pGame, UINT nID)
 
 		AddCardType(CardType::Blue, CardType::_ColorMask); //to fix the color of this card.
 	}
-}
-
-//____________________________________________________________________________
-//
-CNephaliaSeakiteCard::CNephaliaSeakiteCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Nephalia Seakite"), CardType::Creature, CREATURE_TYPE(Bird), nID,
-		_T("3") BLUE_MANA_TEXT, Power(2), Life(3))
-{
-	GetCardKeyword()->AddFlash(FALSE);
 }
 
 //____________________________________________________________________________
@@ -4347,7 +4307,7 @@ CHuntmasteroftheFellsCard::CHuntmasteroftheFellsCard(CGame* pGame, UINT nID)
 		cpAbility->GetTargeting2().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::Creature, false));
 		cpAbility->GetTargeting2().SetIncludeNonControllerCardsOnly();
 		cpAbility->GetTargeting2().SetDefaultCharacteristic(Characteristic::Negative);
-		cpAbility->GetTargeting2().SetSubjectCount(0,1);
+		cpAbility->GetTargeting2().SetSubjectCount(0,1, true);
 
 		cpAbility->GetLifeModifier1().SetLifeDelta(Life(-2));
 		cpAbility->GetLifeModifier1().SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);

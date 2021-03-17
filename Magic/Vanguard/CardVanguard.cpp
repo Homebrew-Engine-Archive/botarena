@@ -1044,33 +1044,43 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 6;
+				nRand = pAction->GetController()->GetRand() % 8;
 			}
 		
 			if (nRand == 0)
 			{
+				nUID = 25982;
+				name = _T("Galerider Sliver");
+			}
+			if (nRand == 1)
+			{
 				nUID = 10004;
 				name = _T("Metallic Sliver");
 			}
-			else if (nRand == 1)
+			else if (nRand == 2)
 			{
 				nUID = 17460;
 				name = _T("Mindlash Sliver");
 			}
-			else if (nRand == 2)
+			else if (nRand == 3)
 			{
 				nUID = 14408;
 				name = _T("Plated Sliver");
 			}
-			else if (nRand == 3)
+			else if (nRand == 4)
 			{
 				nUID = 17341;
 				name = _T("Screeching Sliver");
 			}
-			else if (nRand == 4)
+			else if (nRand == 5)
 			{
 				nUID = 17436;
 				name = _T("Sidewinder Sliver");
+			}
+			else if (nRand == 6)
+			{
+				nUID = 25930;
+				name = _T("Striking Sliver");
 			}
 			else
 			{
@@ -1084,7 +1094,7 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 20;
+				nRand = pAction->GetController()->GetRand() % 23;
 			}
 		
 			if (nRand == 0)
@@ -1142,45 +1152,62 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 			// Mistform Sliver
 			else if (nRand == 10)
 			{
+				nUID = 26118;
+				name = _T("Manaweft Sliver");
+			}
+			else if (nRand == 11)
+			{
 				nUID = 10013;
 				name = _T("Muscle Sliver");
 			}
-			else if (nRand == 11)
+			else if (nRand == 12)
+			{
+				nUID = 25954;
+				name = _T("Predatory Sliver");
+			}
+			else if (nRand == 13)
 			{
 				nUID = 14473;
 				name = _T("Quick Sliver");
 			}
-			else if (nRand == 12)
+			else if (nRand == 14)
 			{
 				nUID = 17337;
 				name = _T("Quilled Sliver");
 			}
-			else if (nRand == 13)
+			else if (nRand == 15)
+			{
+				nUID = 25928;
+				name = _T("Sentinel Sliver");
+			}
+			else if (nRand == 16)
 			{
 				nUID = 2522;
 				name = _T("Sinew Sliver");
 			}
-			else if (nRand == 14)
+			else if (nRand == 17)
 			{
-				nUID = 17321;
+				nUID = 10486;
+				if ((pAction->GetController()->GetRand() % 2) == 1)
+					nUID = 17321;
 				name = _T("Spined Sliver");
 			}
-			else if (nRand == 15)
+			else if (nRand == 18)
 			{
 				nUID = 17204;
 				name = _T("Spinneret Sliver");
 			}
-			else if (nRand == 16)
+			else if (nRand == 19)
 			{
 				nUID = 10007;
 				name = _T("Talon Sliver");
 			}
-			else if (nRand == 17)
+			else if (nRand == 20)
 			{
 				nUID = 17205;
 				name = _T("Two-Headed Sliver");
 			}
-			else if (nRand == 18)
+			else if (nRand == 21)
 			{
 				nUID = 10487;
 				name = _T("Victual Sliver");
@@ -1197,7 +1224,7 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 17;
+				nRand = pAction->GetController()->GetRand() % 21;
 			}
 		
 			if (nRand == 0)
@@ -1222,68 +1249,88 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 			}
 			else if (nRand == 4)
 			{
+				nUID = 25926;
+				name = _T("Blur Sliver");
+			}
+			else if (nRand == 5)
+			{
 				nUID = 17317;
 				name = _T("Firewake Sliver");
 			}
-			else if (nRand == 5)
+			else if (nRand == 6)
 			{
 				nUID = 2634;
 				name = _T("Frenetic Sliver");
 			}
-			else if (nRand == 6)
+			else if (nRand == 7)
 			{
 				nUID = 17451;
 				name = _T("Harmonic Sliver");
 			}
-			else if (nRand == 7)
+			else if (nRand == 8)
 			{
 				nUID = 17826;
 				name = _T("Homing Sliver");
 			}
-			else if (nRand == 8)
+			else if (nRand == 9)
 			{
 				nUID = 10002;
 				name = _T("Horned Sliver");
 			}
-			else if (nRand == 9)
+			else if (nRand == 10)
 			{
 				nUID = 10215;
 				name = _T("Mindwhip Sliver");
 			}
-			else if (nRand == 10)
+			else if (nRand == 11)
 			{
 				nUID = 10216;
 				name = _T("Mnemonic Sliver");
 			}
-			else if (nRand == 11)
+			else if (nRand == 12)
 			{
 				nUID = 2579;
 				name = _T("Necrotic Sliver");
 			}
-			else if (nRand == 12)
+			else if (nRand == 13)
 			{
 				nUID = 17448;
 				name = _T("Opaline Sliver");
 			}
-			else if (nRand == 13)
+			else if (nRand == 14)
 			{
 				nUID = 2580;
 				name = _T("Poultice Sliver");
 			}
-			else if (nRand == 14)
+			else if (nRand == 15)
 			{
 				nUID = 17342;
 				name = _T("Sedge Sliver");
 			}
-			else if (nRand == 15)
+			else if (nRand == 16)
 			{
 				nUID = 17414;
 				name = _T("Shadow Sliver");
 			}
-			else
+			else if (nRand == 17)
+			{
+				nUID = 25961;
+				name = _T("Sliver Construct");
+			}
+			else if (nRand == 18)
 			{
 				nUID = 14460;
 				name = _T("Spectral Sliver");
+			}
+			else if (nRand == 19)
+			{
+				nUID = 25929;
+				name = _T("Steelform Sliver");
+			}
+			else
+			{
+				nUID = 26007;
+				name = _T("Syphon Sliver");
 			}
 		}
 		else if (nCMC == 4)
@@ -1292,66 +1339,73 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 13;
+				nRand = pAction->GetController()->GetRand() % 14;
 			}
 		
 			if (nRand == 0)
 			{
+				nUID = 25941;
+				name = _T("Bonescythe Sliver");
+			}
+			else if (nRand == 1)
+			{
 				nUID = 17200;
 				name = _T("Bonesplitter Sliver");
 			}
-			else if (nRand == 1)
+			else if (nRand == 2)
 			{
 				nUID = 2607;
 				name = _T("Dormant Sliver");
 			}
-			else if (nRand == 2)
+			else if (nRand == 3)
 			{
-				nUID = 17242;
+				nUID = 14407;
+				if ((pAction->GetController()->GetRand() % 2) == 1)
+					nUID = 17242;
 				name = _T("Essence Sliver");
 			}
-			else if (nRand == 3)
+			else if (nRand == 4)
 			{
 				nUID = 17319;
 				name = _T("Fungus Sliver");
 			}
-			else if (nRand == 4)
+			else if (nRand == 5)
 			{
 				nUID = 14472;
 				name = _T("Magma Sliver");
 			}
 			//Mesmeric Sliver
-			else if (nRand == 5)
+			else if (nRand == 6)
 			{
 				nUID = 17308;
 				name = _T("Plague Sliver");
 			}
-			else if (nRand == 6)
+			else if (nRand == 7)
 			{
 				nUID = 2523;
 				name = _T("Reflex Sliver");
 			}
-			else if (nRand == 7)
+			else if (nRand == 8)
 			{
 				nUID = 14409;
 				name = _T("Root Sliver");
 			}
-			else if (nRand == 8)
+			else if (nRand == 9)
 			{
 				nUID = 14410;
 				name = _T("Shifting Sliver");
 			}
-			else if (nRand == 9)
+			else if (nRand == 10)
 			{
 				nUID = 17349;
 				name = _T("Telekinetic Sliver");
 			}
-			else if (nRand == 10)
+			else if (nRand == 11)
 			{
 				nUID = 14461;
 				name = _T("Toxin Sliver");
 			}
-			else if (nRand == 11)
+			else if (nRand == 12)
 			{
 				nUID = 17354;
 				name = _T("Vampiric Sliver");
@@ -1368,66 +1422,76 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 13;
+				nRand = pAction->GetController()->GetRand() % 15;
 			}
 		
 			if (nRand == 0)
 			{
+				nUID = 25925;
+				name = _T("Battle Sliver");
+			}
+			else if (nRand == 1)
+			{
 				nUID = 14404;
 				name = _T("Brood Sliver");
 			}
-			else if (nRand == 1)
+			else if (nRand == 2)
 			{
 				nUID = 17560;
 				name = _T("Dementia Sliver");
 			}
-			else if (nRand == 2)
+			else if (nRand == 3)
 			{
 				nUID = 17701;
 				name = _T("Lymph Sliver");
 			}
-			else if (nRand == 3)
+			else if (nRand == 4)
 			{
 				nUID = 17203;
 				name = _T("Might Sliver");
 			}
-			else if (nRand == 4)
+			else if (nRand == 5)
 			{
 				nUID = 17336;
 				name = _T("Psionic Sliver");
 			}
 			//Pulmonic Sliver
-			else if (nRand == 5)
+			else if (nRand == 6)
 			{
 				nUID = 17702;
 				name = _T("Sliver Legion");
 			}
-			else if (nRand == 6)
+			else if (nRand == 7)
 			{
 				nUID = 14624;
 				name = _T("Sliver Overlord");
 			}
-			else if (nRand == 7)
+			else if (nRand == 8)
 			{
 				nUID = 10447;
 				name = _T("Sliver Queen");
 			}
-			else if (nRand == 8)
+			else if (nRand == 9)
 			{
 				nUID = 2524;
 				name = _T("Spitting Sliver");
 			}
-			else if (nRand == 9)
+			else if (nRand == 10)
 			{
 				nUID = 14411;
 				name = _T("Synapse Sliver");
 			}
-			else if (nRand == 10)
+			else if (nRand == 11)
 			{
 				nUID = 2521;
 				name = _T("Synchronous Sliver");
 			}
-			else if (nRand == 11)
+			else if (nRand == 12)
+			{
+				nUID = 25964;
+				name = _T("Thorncaster Sliver");
+			}
+			else if (nRand == 13)
 			{
 				nUID = 17206;
 				name = _T("Venser's Sliver");
@@ -1444,7 +1508,7 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 2;
+				nRand = pAction->GetController()->GetRand() % 3;
 			}
 		
 			if (nRand == 0)
@@ -1452,11 +1516,21 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 				nUID = 2520;
 				name = _T("Battering Sliver");
 			}
-			else
+			else if (nRand == 1)
 			{
 				nUID = 17320;
 				name = _T("Fury Sliver");
 			}
+			else
+			{
+				nUID = 25938;
+				name = _T("Megantic Sliver");
+			}
+		}
+		else if (nCMC == 7)
+		{
+			nUID = 25927;
+			name = _T("Groundshaker Sliver");
 		}
 
 		if (nUID != 0)

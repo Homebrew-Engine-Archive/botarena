@@ -1770,7 +1770,7 @@ CLivingTerrainCard::CLivingTerrainCard(CGame* pGame, UINT nID)
 		::CreateObject<CIsAlsoAEnchant>(this,
 			_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT,
 			new CardTypeComparer(CardType::_Land, false),
-			_T("Treefolk A"), 2710));
+			_T("Treefolk AB"), 64076));
 
 	AddSpell(cpSpell.GetPointer());
 }

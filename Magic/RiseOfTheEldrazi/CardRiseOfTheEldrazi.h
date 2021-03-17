@@ -767,13 +767,6 @@ class CSharedDiscoveryCard : public CCard
 
 //____________________________________________________________________________
 //
-class CShrivelCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CShrivelCard);
-};
-
-//____________________________________________________________________________
-//
 class CWrapInFlamesCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CWrapInFlamesCard);
@@ -1581,22 +1574,6 @@ class CRepayInKindCard : public CCard
 protected:
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-};
-
-//____________________________________________________________________________
-//
-class CDomesticationCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CDomesticationCard);
-
-protected:
-	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
-
-	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
-	CCardFilter m_CardFilter;
-	CControlEnchant* pSpell;
 };
 
 //____________________________________________________________________________

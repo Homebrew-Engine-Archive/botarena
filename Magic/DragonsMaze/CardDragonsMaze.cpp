@@ -858,7 +858,7 @@ void CSinCollectorCard::OnCardSelected(const std::vector<SelectionEntry>& select
 					MessageImportance::High
 					);
 			}
-			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Hand, ZoneId::Exile, TRUE, MoveType::Discard, pSelectionPlayer);
+			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Hand, ZoneId::Exile, TRUE, MoveType::Others, pSelectionPlayer);
 
 			pModifier.ApplyTo(pCard);
 				

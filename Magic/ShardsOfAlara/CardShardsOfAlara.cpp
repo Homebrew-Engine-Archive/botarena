@@ -119,7 +119,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKnightOfTheSkywardEyeCard);
 		DEFINE_CARD(CKnightOfTheWhiteOrchidCard);
 		DEFINE_CARD(CKreshTheBloodbraidedCard);
-		DEFINE_CARD(CLightningTalonsCard);
 		DEFINE_CARD(CMagmaSprayCard);
 		DEFINE_CARD(CManaplasmCard);
 		DEFINE_CARD(CMarbleChaliceCard);
@@ -1718,15 +1717,6 @@ CKnightCaptainOfEosCard::CKnightCaptainOfEosCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-}
-
-//____________________________________________________________________________
-//
-CLightningTalonsCard::CLightningTalonsCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Lightning Talons"), nID,
-		_T("2") RED_MANA_TEXT,
-		Power(+3), Life(0), CreatureKeyword::FirstStrike)
-{
 }
 
 //____________________________________________________________________________

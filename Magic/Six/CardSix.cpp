@@ -1680,7 +1680,7 @@ CAncestralMemoriesCard::CAncestralMemoriesCard(CGame* pGame, UINT nID)
 			7));
 
 	cpSpell->SetReorder(TRUE, ZoneId::Graveyard);
-	cpSpell->SetSelectionOptions(MinimumValue(1), MaximumValue(2), ZoneId::Hand, CardPlacement::NotApplicable, NULL);
+	cpSpell->SetSelectionOptions(MinimumValue(2), MaximumValue(2), ZoneId::Hand, CardPlacement::NotApplicable, NULL);
 
 	AddSpell(cpSpell.GetPointer());
 }

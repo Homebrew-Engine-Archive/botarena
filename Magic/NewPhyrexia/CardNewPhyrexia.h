@@ -890,10 +890,11 @@ class CJinGitaxiasCoreAugurCard : public CCreatureCard
 class CApostlesBlessingCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CApostlesBlessingCard);
-protected:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 
-	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+protected:
+	CSelectionSupport m_ColorSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

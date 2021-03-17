@@ -2153,7 +2153,7 @@ void CZoneModifier::ApplyTo(CPlayer* pPlayer) const
 			nMinSelectionCount = MinimumValue(GET_INTEGER(nMaxSelectionCount));
 
 		if (GET_INTEGER(nMinSelectionCount) > nValidSelectionCount)
-			nMinSelectionCount = MinimumValue(GET_INTEGER(nValidSelectionCount));
+			nMinSelectionCount = MinimumValue(nValidSelectionCount);
 
 		if (nMaxSelectionCount <= MaximumValue(0))
 			continue;

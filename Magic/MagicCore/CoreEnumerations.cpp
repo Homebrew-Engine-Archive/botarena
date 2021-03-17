@@ -165,6 +165,8 @@ CString CreatureKeyword::ToString(CreatureKeyword creatureKeyword)
 	if ((creatureKeyword & CreatureKeyword::Soulbond).Any())
 		strText += _T("soulbond, ");
 
+	if ((creatureKeyword & CreatureKeyword::MustAttackEachCombat).Any())
+		strText += _T("attack each combat if able, ");
 
 	if (!strText.IsEmpty())
 		strText = strText.Left(strText.GetLength() - 2);

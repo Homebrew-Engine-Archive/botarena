@@ -204,7 +204,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		//DEFINE_CARD(CSentryOakCard);
 		DEFINE_CARD(CShelldockIsleCard);
 		DEFINE_CARD(CShieldsofVelisVelCard);
-		DEFINE_CARD(CShimmeringGrottoCard);
 		DEFINE_CARD(CShriekmawCard);
 		DEFINE_CARD(CSilvergillAdeptCard);
 		DEFINE_CARD(CSilvergillDouserCard);
@@ -1707,115 +1706,6 @@ CSentinelsOfGlenElendraCard::CSentinelsOfGlenElendraCard(CGame* pGame, UINT nID)
 		_T("3") BLUE_MANA_TEXT, Power(2), Life(3))
 {
 	GetCardKeyword()->AddFlash(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CShimmeringGrottoCard::CShimmeringGrottoCard(CGame* pGame, UINT nID)
-	: CNonbasicLandCard(pGame, _T("Shimmering Grotto"), nID)
-{
-	counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
-
-	cpNonbasicLandManaAbility->AddTapCost();
-
-	AddAbility(cpNonbasicLandManaAbility.GetPointer());
-
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(_T("1"));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(_T("1"));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(_T("1"));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(_T("1"));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaProductionAbility> cpAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-		cpAbility->GetCost().AddManaCost(_T("1"));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	/*{
-		counted_ptr<CManaFilterAbility> cpAbility(
-			::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT, _T("1")));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaFilterAbility> cpAbility(
-			::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT, _T("1")));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaFilterAbility> cpAbility(
-			::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT, _T("1")));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaFilterAbility> cpAbility(
-			::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT, _T("1")));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CManaFilterAbility> cpAbility(
-			::CreateObject<CManaFilterAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT, _T("1")));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}*/
 }
 
 //____________________________________________________________________________
@@ -7556,107 +7446,78 @@ CWarrenScourgeElfCard::CWarrenScourgeElfCard(CGame* pGame, UINT nID)
 CPestermiteCard::CPestermiteCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Pestermite"), CardType::Creature, CREATURE_TYPE2(Faerie, Rogue), nID,
 		_T("2") BLUE_MANA_TEXT, Power(2), Life(1))
-		, m_TargetZoneSelection(pGame, CSelectionSupport::SelectionCallback(this, &CPestermiteCard::OnTargetZoneSelected))
+		, m_TapSelection(pGame, CSelectionSupport::SelectionCallback(this, &CPestermiteCard::OnTapSelected))
 {
 	GetCardKeyword()->AddFlash(FALSE);
 
-	{
-		typedef
-			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+	typedef
+		TTriggeredTargetAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));                                 // This Trigger will activate the choice box
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CPestermiteCard::BeforeResolution));		
+	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
 
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredTargetAbility< CTriggeredTapCardAbility, CSpecialTrigger > TriggeredAbility;
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPestermiteCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTrigger().SetTriggerIndex(1);
-		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
-
-		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
-		//cpAbility->GetTargeting().SetIncludeControllerCardsOnly();
-
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::UntapSingleCard);
-		//cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Positive);
-
-		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredTargetAbility< CTriggeredTapCardAbility, CSpecialTrigger > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->GetTrigger().SetTriggerIndex(2);                                                // Certain index activated by modifier
-		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
-
-		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
-		//cpAbility->GetTargeting().SetIncludeNonControllerCardsOnly();
-
-		cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::TapSingleCard);
-		//cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Positive);
-			
-		cpAbility->SetSkipStack(TRUE);
-
-		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
-bool CPestermiteCard::BeforeResolution(CPestermiteCard::TriggeredAbility::TriggeredActionType* pAction)
+bool CPestermiteCard::BeforeResolution(CAbilityAction* pAction)
 {
-	std::vector<SelectionEntry> entries;
-
-	if (pAction->GetController()->GetZoneById(ZoneId::Battlefield)->GetSize()>0)
+	CCard* pTarget = pAction->GetAssociatedCard();
+	
+	if (pTarget->GetOrientation()->IsTapped())
 	{
+		std::vector<SelectionEntry> entries;
 		{
-		SelectionEntry selectionEntry;
+			SelectionEntry selectionEntry;
 
-		selectionEntry.dwContext = 1;
-		selectionEntry.strText.Format(_T("Untap target permanent"));
+			selectionEntry.dwContext = 0;
+			selectionEntry.strText.Format(_T("Don't untap %s"), pTarget->GetCardName(TRUE));
 
-		entries.push_back(selectionEntry);
+			entries.push_back(selectionEntry);
 		}
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("Untap %s"), pTarget->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		
+		m_TapSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController(), 0, (DWORD)pTarget);
 	}
-	if (m_pGame->GetNextPlayer(GetController())->GetZoneById(ZoneId::Battlefield)->GetSize()>0 )
+	else
 	{
+		std::vector<SelectionEntry> entries;
 		{
-		SelectionEntry selectionEntry;
+			SelectionEntry selectionEntry;
 
-		selectionEntry.dwContext = 2;
-		selectionEntry.strText.Format(_T("tap target permanent"));
+			selectionEntry.dwContext = 0;
+			selectionEntry.strText.Format(_T("Don't tap %s"), pTarget->GetCardName(TRUE));
 
-		entries.push_back(selectionEntry);
+			entries.push_back(selectionEntry);
 		}
-	}
+		{
+			SelectionEntry selectionEntry;
 
-	m_TargetZoneSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
-	return false;
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("Tap %s"), pTarget->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		
+		m_TapSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController(), 1, (DWORD)pTarget);
+	}
+	return true;
 }
 
-void CPestermiteCard::OnTargetZoneSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+void CPestermiteCard::OnTapSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
 
@@ -7665,42 +7526,16 @@ void CPestermiteCard::OnTargetZoneSelected(const std::vector<SelectionEntry>& se
 		{
 			if ((int)it->dwContext == 1)
 			{
-				CSpecialEffectModifier pModifier = CSpecialEffectModifier((CCard*)this, 1);        // With this modifier we activate SpecialTrigger for certain card (this) with certain index (1)
-				pModifier.ApplyTo(this);
+				CCard* pCard = (CCard*)dwContext2;
 
+				CCardOrientationModifier pModifier = CCardOrientationModifier(dwContext1);
+				pModifier.ApplyTo(pCard);
 				return;
-			}
-			if ((int)it->dwContext == 2)
-			{
-				CSpecialEffectModifier pModifier = CSpecialEffectModifier((CCard*)this, 2);
-				pModifier.ApplyTo(this);
-
-				return;
+			
 			}
 			return;
 		}
 }
-//{
-//	GetCardKeyword()->AddFlash(FALSE);
-//
-//	{
-//		typedef
-//			TTriggeredTargetAbility< CTriggeredTapCardAbility, CWhenSelfInplay, 
-//								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-//
-//		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-//
-//		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
-//
-//		cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::TapUntapSingleCard);
-//
-//		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
-//
-//		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-//
-//		AddAbility(cpAbility.GetPointer());
-//	}
-//}
 
 //____________________________________________________________________________
 //

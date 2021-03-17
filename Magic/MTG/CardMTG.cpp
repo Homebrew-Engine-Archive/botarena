@@ -2686,7 +2686,7 @@ CWolfAToken::CWolfAToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
-// M10 version; used by Howl of the Night Pack, Master of the Hunt, Master of the Hunt Avatar
+// M10 version; used by Master of the Hunt, Master of the Hunt Avatar
 }
 
 //____________________________________________________________________________
@@ -3717,7 +3717,7 @@ CCatDToken::CCatDToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
 
-// M13 version; used by Ajani, Caller of the Pride
+// M14 version; used by Ajani, Caller of the Pride
 }
 
 //____________________________________________________________________________
@@ -3896,7 +3896,7 @@ CGoatBToken::CGoatBToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
 
-// M13 version; used by Trading Post
+// M14 version; used by Trading Post
 }
 
 //____________________________________________________________________________
@@ -4631,7 +4631,7 @@ CZombieMToken::CZombieMToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
 
-// M13 version; used by Vile Rebirth
+// M14 version; used by Liliana's Reaver, Vile Rebirth, Xathrid Necromancer
 }
 
 //____________________________________________________________________________

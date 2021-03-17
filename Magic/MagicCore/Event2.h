@@ -731,6 +731,7 @@ public:
 
 	BOOL Trample() const;
 	BOOL MustAttack() const;
+	BOOL MustAttackEachCombat() const;
 	BOOL CantRegenerate() const;
 	BOOL CantBeEquipped() const;
 	
@@ -788,6 +789,7 @@ public:
 
 	void AddTrample(BOOL bThisTurnOnly);
 	void AddMustAttack(BOOL bThisTurnOnly);
+	void AddMustAttackEachCombat(BOOL bThisTurnOnly);
 	void AddCantRegenerate(BOOL bThisTurnOnly);
 	void AddDeathtouch(BOOL bThisTurnOnly);
 
@@ -853,6 +855,7 @@ public:
 
 	void RemoveTrample(BOOL bThisTurnOnly);
 	void RemoveMustAttack(BOOL bThisTurnOnly);
+	void RemoveMustAttackEachCombat(BOOL bThisTurnOnly);
 	void RemoveCantRegenerate(BOOL bThisTurnOnly);
 	void RemoveDeathtouch(BOOL bThisTurnOnly);
 

@@ -282,13 +282,6 @@ class CMarkovBlademasterCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CBriarpackAlphaCard : public CCreatureCard 
-{
-	DECLARE_CARD_CSTOR(CBriarpackAlphaCard);
-};
-
-//____________________________________________________________________________
-//
 class CMikaeusTheUnhallowedCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMikaeusTheUnhallowedCard);
@@ -653,13 +646,6 @@ class CGriptideCard : public CTargetMoveCardSpellCard
 class CMysticRetrievalCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMysticRetrievalCard);
-};
-
-//____________________________________________________________________________
-//
-class CNephaliaSeakiteCard : public CFlyingCreatureCard
-{
-	DECLARE_CARD_CSTOR(CNephaliaSeakiteCard);
 };
 
 //_____________________________________________________________________________

@@ -56,7 +56,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDepriveCard);
 		DEFINE_CARD(CDevastatingSummonsCard);
 		DEFINE_CARD(CDistortionStrikeCard);
-		DEFINE_CARD(CDomesticationCard);
 		DEFINE_CARD(CDrakeUmbraCard);
 		DEFINE_CARD(CDranaKalastriaBloodchiefCard);
 		DEFINE_CARD(CDreadDroneCard);
@@ -171,7 +170,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSeaGateOracleCard);
 		DEFINE_CARD(CSeeBeyondCard);
 		DEFINE_CARD(CSharedDiscoveryCard);
-		DEFINE_CARD(CShrivelCard);
 		DEFINE_CARD(CSkeletalWurmCard);
 		DEFINE_CARD(CSkitteringInvasionCard);
 		DEFINE_CARD(CSkywatcherAdeptCard);
@@ -2471,21 +2469,6 @@ CSharedDiscoveryCard::CSharedDiscoveryCard(CGame* pGame, UINT nID)
 			BLUE_MANA_TEXT, 3));
 
 	cpSpell->GetCost().AddTapCardCost(4, CCardFilter::GetFilter(_T("creatures")));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CShrivelCard::CShrivelCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Shrivel"), CardType::Sorcery, nID)
-{
-	counted_ptr<CPwrTghAttrEnchantment> cpSpell(
-		::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Sorcery,
-			_T("1") BLACK_MANA_TEXT, 
-			new AnyCreatureComparer,
-			Power(-1),	// power delta
-			Life(-1)));	// life delta
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -6942,10 +6925,10 @@ bool CDevastatingSummonsCard::BeforeResolution(CAbilityAction* pAction) const
 
 	for (int i = 0; i < nTokenCount; ++i)
 	{
-		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Elemental O"), 2905));		
+		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Elemental (O)"), 2905));		
 		
 		if (!m_pGame->IsThinking())
-		{ ((CTokenCreature*)cpToken.GetPointer())->SetUID(2905); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(_T("Elemental O")); }
+		{ ((CTokenCreature*)cpToken.GetPointer())->SetUID(2905); ((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(_T("Elemental (O)")); }
 
 		pController->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
 		
@@ -7453,50 +7436,6 @@ void CRepayInKindCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 		pModifier->ApplyTo(pPlayer);
 	}
 
-}
-
-//____________________________________________________________________________
-//
-CDomesticationCard::CDomesticationCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Domestication"), CardType::EnchantCreature, nID)
-	, m_CardFilter(_T("enchanted by this"), _T("enchanted by this"), new EnchantedByComparer(this))
-{
-	{
-		counted_ptr<CControlEnchant> cpSpell(
-			::CreateObject<CControlEnchant>(this,
-				_T("2") BLUE_MANA_TEXT BLUE_MANA_TEXT,
-				new CardTypeComparer(CardType::Creature, false)));
-		ATLASSERT(cpSpell);
-
-		pSpell = cpSpell.GetPointer();
-		AddSpell(pSpell);
-	}
-	{
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDomesticationCard::SetTriggerContext));
-		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDomesticationCard::BeforeResolution));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CDomesticationCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-											  CNode* pToNode) const
-{
-	CCreatureCard* pCreature = (CCreatureCard*)pSpell->GetEnchantedOnCard();
-	return (GET_INTEGER(pCreature->GetPower()) >= 4);
-}
-
-bool CDomesticationCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
-{
-	CCreatureCard* pCreature = (CCreatureCard*)pSpell->GetEnchantedOnCard();
-	return (GET_INTEGER(pCreature->GetPower()) >= 4);
 }
 
 //____________________________________________________________________________

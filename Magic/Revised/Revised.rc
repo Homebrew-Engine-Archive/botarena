@@ -132,7 +132,7 @@ BEGIN
     IDS_STRING7242          "Disrupting Scepter\n{3}\nArtifact\nREV,R\n{3}, {T}: Target player discards a card. Activate this ability only during your turn."
     IDS_STRING7243          "Dragon Engine\n{3}\nArtifact Creature - Construct\nREV,R\n{2}: Dragon Engine gets +1/+0 until end of turn.\n1/3"
     IDS_STRING7244          "Drudge Skeletons\n{1B}\nCreature - Skeleton\nREV,C\n{B}: Regenerate Drudge Skeletons.\n1/1"
-    IDS_STRING7245          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\nREV,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING7245          "Dwarven Warriors\n{2R}\nCreature - Dwarf Warrior\nREV,C\n{T}: Target creature with power 2 or less can't be blocked this turn.\n1/1"
     IDS_STRING7246          "Earth Elemental\n{3RR}\nCreature - Elemental\nREV,U\n\n4/5"
     IDS_STRING7247          "Earthquake\n{XR}\nSorcery\nREV,R\nEarthquake deals X damage to each creature without flying and each player."
 END

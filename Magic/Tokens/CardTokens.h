@@ -354,3 +354,59 @@ class CElementalRToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CAngelIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CAngelIToken);
+};
+
+//____________________________________________________________________________
+//
+class CSliverCToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSliverCToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalSToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalSToken);
+};
+
+//____________________________________________________________________________
+//
+class CBeastMToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CBeastMToken);
+};
+
+//____________________________________________________________________________
+//
+class CSaprolingNToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSaprolingNToken);
+};
+
+//____________________________________________________________________________
+//
+class CDragonGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CDragonGToken);
+};
+
+//____________________________________________________________________________
+//
+class CWolfIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfIToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalTToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalTToken);
+};
+
+//____________________________________________________________________________
+//

@@ -542,13 +542,6 @@ class CSentinelsOfGlenElendraCard : public CFlyingCreatureCard
 
 //___________________________________________________________________________
 //
-class CShimmeringGrottoCard : public CNonbasicLandCard
-{
-	DECLARE_CARD_CSTOR(CShimmeringGrottoCard);
-};
-
-//___________________________________________________________________________
-//
 class CSoaringHopeCard : public CChgPwrTghAttrEnchantCard
 {
 	DECLARE_CARD_CSTOR(CSoaringHopeCard);
@@ -1919,17 +1912,10 @@ class CPestermiteCard : public CFlyingCreatureCard
 	DECLARE_CARD_CSTOR(CPestermiteCard);
 
 protected:
-	void OnTargetZoneSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
-	CSelectionSupport		m_TargetZoneSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
 
-private:
-	typedef
-		TTriggeredTargetAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-								 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
-	typedef
-		TTriggeredTargetAbility< CTriggeredMoveCardAbility, CSpecialTrigger > TriggeredAbility1;
-	bool BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction);
+	void OnTapSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport		m_TapSelection;
 };
 
 //____________________________________________________________________________

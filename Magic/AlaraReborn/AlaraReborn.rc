@@ -184,7 +184,7 @@ BEGIN
     IDS_STRING9082          "Jund Hackblade\n{JR}\nCreature - Goblin Berserker\nARB,C\nAs long as you control another multicolored permanent, Jund Hackblade gets +1/+1 and has haste.\n2/1"
     IDS_STRING9083          "Naya Hushblade\n{KG}\nCreature - Elf Rogue\nARB,C\nAs long as you control another multicolored permanent, Naya Hushblade gets +1/+1 and has shroud.\n2/1"
     IDS_STRING9084          "Esper Stormblade\n{HU}\nArtifact Creature - Vedalken Wizard\nARB,C\nAs long as you control another multicolored permanent, Esper Stormblade gets +1/+1 and has flying.\n2/1"
-    IDS_STRING9085          "Dauntless Escort\n{1GW}\nCreature - Rhino Soldier\nARB,R\nSacrifice Dauntless Escort: Creatures you control are indestructible this turn.\n3/3"
+    IDS_STRING9085          "Dauntless Escort\n{1GW}\nCreature - Rhino Soldier\nARB,R\nSacrifice Dauntless Escort: Creatures you control gain indestructible until end of turn.\n3/3"
     IDS_STRING9086          "Finest Hour\n{2GWU}\nEnchantment\nARB,R\nExalted\rWhenever a creature you control attacks alone, if it's the first combat phase of the turn, untap that creature. After this phase, there is an additional combat phase."
     IDS_STRING9087          "Wildfield Borderpost\n{1GW}\nArtifact\nARB,C\nYou may pay {1} and return a basic land you control to its owner's hand rather than pay Wildfield Borderpost's mana cost.\rWildfield Borderpost enters the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool."
 END

@@ -17,7 +17,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	do
 	{
 		DEFINE_CARD(CAbunaAcolyteCard);
-		DEFINE_CARD(CAccordersShieldCard);
 		DEFINE_CARD(CAcidWebSpiderCard);
 		DEFINE_CARD(CAlphaTyrranaxCard);
 		DEFINE_CARD(CArcTrailCard);
@@ -147,7 +146,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPlatedSeastriderCard);
 		DEFINE_CARD(CPlatinumEmperionCard);
 		DEFINE_CARD(CPutrefaxCard);
-		DEFINE_CARD(CRatchetBombCard);
 		DEFINE_CARD(CRazorfieldThresherCard);
 		DEFINE_CARD(CRazorHippogriffCard);
 		DEFINE_CARD(CRazorvergeThicketCard);
@@ -3092,29 +3090,6 @@ bool CFurnaceCelebrationCard::SetTriggerContext(CTriggeredModifyLifeAbility::Tri
 
 //____________________________________________________________________________
 //
-CAccordersShieldCard::CAccordersShieldCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Accorder's Shield"), CardType::Artifact | CardType::Equipment, nID, 
-		_T("0"), AbilityType::Artifact)
-{
-	counted_ptr<CEquipAbility> cpAbility(
-		::CreateObject<CEquipAbility>(this, _T("3")));
-
-	cpAbility->AddCreatureModifier(new CPowerModifier(Power(+0), FALSE));
-
-	cpAbility->AddCreatureModifier(new CLifeModifier(Life(+3), this, 
-		PreventableType::NotPreventable, DamageType::NonCombatDamage, FALSE));
-
-	CCreatureKeywordModifier* pModifier = new CCreatureKeywordModifier;
-	pModifier->GetModifier().SetToAdd(CreatureKeyword::Vigilance);
-	pModifier->GetModifier().SetOneTurnOnly(FALSE);
-
-	cpAbility->AddCreatureModifier(pModifier);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CArgentumArmorCard::CArgentumArmorCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Argentum Armor"), CardType::Artifact | CardType::Equipment, nID, 
 		_T("6"), AbilityType::Artifact)
@@ -3435,40 +3410,6 @@ CWithstandDeathCard::CWithstandDeathCard(CGame* pGame, UINT nID)
 	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 }
 
-//____________________________________________________________________________
-//
-CRatchetBombCard::CRatchetBombCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Ratchet Bomb"), CardType::Artifact, nID, 
-		_T("2"), AbilityType::Artifact)
-{
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-	{
-	
-		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
-			 _T("")));
-
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(CHARGE_COUNTER, +1));
-		cpAbility->AddTapCost();
-
-		cpAbility->SetAbilityName(_T("Put a Charge counter on"));
-		cpAbility->SetAbilityText(_T("Put a Charge counter on"));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CActivatedAbility<CExplosiveKegSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CExplosiveKegSpell>>(this,
-				_T(""),
-				new TrueCardComparer, ZoneId::Graveyard, MoveType::Destroy, ZoneId::Battlefield, CHARGE_COUNTER));
-
-		cpAbility->AddTapCost();
-		cpAbility->AddSacrificeCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	
-}
 //____________________________________________________________________________
 //
 CSnapsailGliderCard::CSnapsailGliderCard(CGame* pGame, UINT nID)

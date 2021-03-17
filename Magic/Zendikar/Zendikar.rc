@@ -250,7 +250,7 @@ BEGIN
     IDS_STRING19436         "Warren Instigator\n{RR}\nCreature - Goblin Berserker\nZEN,MR\nDouble strike\rWhenever Warren Instigator deals damage to an opponent, you may put a Goblin creature card from your hand onto the battlefield.\n1/1"
     IDS_STRING19437         "Welkin Tern\n{1U}\nCreature - Bird\nZEN,C\nFlying\rWelkin Tern can block only creatures with flying.\n2/1"
     IDS_STRING19438         "Adventuring Gear\n{1}\nArtifact - Equipment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, equipped creature gets +2/+2 until end of turn.\rEquip {1}"
-    IDS_STRING19439         "AEther Figment\n{1U}\nCreature - Illusion\nZEN,U\nKicker {3}\r∆ther Figment is unblockable.\rIf ∆ther Figment was kicked, it enters the battlefield with two +1/+1 counters on it.\n1/1"
+    IDS_STRING19439         "AEther Figment\n{1U}\nCreature - Illusion\nZEN,U\nKicker {3}\r∆ther Figment can't be blocked.\rIf ∆ther Figment was kicked, it enters the battlefield with two +1/+1 counters on it.\n1/1"
 END
 
 STRINGTABLE
@@ -365,7 +365,7 @@ BEGIN
     IDS_STRING19527         "Luminarch Ascension\n{1W}\nEnchantment\nZEN,R\nAt the beginning of each opponent's end step, if you didn't lose life this turn, you may put a quest counter on Luminarch Ascension.\r{1W}: Put a 4/4 white Angel creature token with flying onto the battlefield. Activate this ability only if Luminarch Ascension has four or more quest counters on it."
     IDS_STRING19528         "Quest for the Gemblades\n{1G}\nEnchantment\nZEN,U\nWhenever a creature you control deals combat damage to a creature, you may put a quest counter on Quest for the Gemblades.\rRemove a quest counter from Quest for the Gemblades and sacrifice it: Put four +1/+1 counters on target creature."
     IDS_STRING19529         "Archive Trap\n{3UU}\nInstant - Trap\nZEN,R\nIf an opponent searched his or her library this turn, you may pay {0} rather than pay Archive Trap's mana cost.\rTarget opponent puts the top thirteen cards of his or her library into his or her graveyard."
-    IDS_STRING19530         "Eldrazi Monument\n{5}\nArtifact\nZEN,MR\nCreatures you control get +1/+1, have flying, and are indestructible.\rAt the beginning of your upkeep, sacrifice a creature. If you can't, sacrifice Eldrazi Monument."
+    IDS_STRING19530         "Eldrazi Monument\n{5}\nArtifact\nZEN,MR\nCreatures you control get +1/+1 and have flying and indestructible.\rAt the beginning of your upkeep, sacrifice a creature. If you can't, sacrifice Eldrazi Monument."
     IDS_STRING19531         "Oran-Rief, the Vastwood\n\nLand\nZEN,R\nOran-Rief, the Vastwood enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\r{T}: Put a +1/+1 counter on each green creature that entered the battlefield this turn."
     IDS_STRING19532         "Celestial Mantle\n{3WWW}\nEnchantment - Aura\nZEN,R\nEnchant creature\rEnchanted creature gets +3/+3.\rWhenever enchanted creature deals combat damage to a player, double its controller's life total."
     IDS_STRING19533         "Vampire's Bite\n{B}\nInstant\nZEN,C\nKicker {2B}\rTarget creature gets +3/+0 until end of turn. If Vampire's Bite was kicked, that creature gains lifelink until end of turn."
@@ -397,6 +397,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING19552         "Lavaball Trap\n{6RR}\nInstant - Trap\nZEN,R\nIf an opponent had two or more lands enter the battlefield under his or her control this turn, you may pay {3}{R}{R} rather than pay Lavaball Trap's mana cost.\rDestroy two target lands. Lavaball Trap deals 4 damage to each creature."
     IDS_STRING19553         "Whiplash Trap\n{3UU}\nInstant - Trap\nZEN,C\nIf an opponent had two or more creatures enter the battlefield under his or her control this turn, you may pay {U} rather than pay Whiplash Trap's mana cost.\rReturn two target creatures to their owners' hands."
+    IDS_STRING19554         "Needlebite Trap\n{5BB}\nInstant - Trap\nZEN,U\nIf an opponent gained life this turn, you may pay {B} rather than pay Needlebite Trap's mana cost.\rTarget player loses 5 life and you gain 5 life."
 END
 
 #endif    // English (United States) resources

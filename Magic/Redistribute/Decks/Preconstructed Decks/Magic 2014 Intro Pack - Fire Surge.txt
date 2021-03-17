@@ -1,0 +1,40 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+Chandra's Phoenix (25932)
+2 Dragon Hatchling (26076)
+2 Fleshpulper Giant (26012)
+3 Goblin Shortcutter (26078)
+2 Nephalia Seakite (26043)
+2 Phantom Warrior (26045)
+3 Regathan Firecat (25924)
+Shivan Dragon (26081)
+2 Trained Condor (25975)
+
+// Instants - 8 (13.33%)
+
+Chandra's Outrage (26074)
+2 Disperse (26035)
+Essence Scatter (26038)
+Negate (26042)
+2 Opportunity (25977)
+Volcanic Geyser (26086)
+
+// Sorceries - 5 (8.33%)
+
+2 Flames of the Firebrand (26077)
+3 Lava Axe (26079)
+
+// Enchantments - 2 (3.33%)
+
+2 Shiv's Embrace (26082)
+
+// Artifacts - 1 (1.67%)
+
+Staff of the Flame Magus (25969)
+
+// Lands - 26 (43.33%)
+
+10 Island (25904)
+16 Mountain (25908)

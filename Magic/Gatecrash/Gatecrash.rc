@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -124,7 +125,7 @@ BEGIN
     IDS_STRING25436         "Duskmantle Guildmage\n{UB}\nCreature - Human Wizard\nGTC,U\n{1UB}: Whenever a card is put into an opponent's graveyard from anywhere this turn, that player loses 1 life.\r{2UB}: Target player puts the top two cards of his or her library into his or her graveyard.\n2/2"
     IDS_STRING25437         "High Priest of Penance\n{WB}\nCreature - Human Cleric\nGTC,R\nWhenever High Priest of Penance is dealt damage, you may destroy target nonland permanent.\n1/1"
     IDS_STRING25438         "Skyknight Legionnaire\n{1RW}\nCreature - Human Knight\nGTC,C\nFlying, haste\n2/2"
-    IDS_STRING25439         "Elusive Krasis\n{1GU}\nCreature - Fish Mutant\nGTC,U\nElusive Krasis is unblockable.\rEvolve\n0/4"
+    IDS_STRING25439         "Elusive Krasis\n{1GU}\nCreature - Fish Mutant\nGTC,U\nElusive Krasis can't be blocked.\rEvolve\n0/4"
 END
 
 STRINGTABLE
@@ -153,8 +154,8 @@ BEGIN
     IDS_STRING25457         "Ground Assault\n{RG}\nSorcery\nGTC,U\nGround Assault deals damage to target creature equal to the number of lands you control."
     IDS_STRING25458         "Shambleshark\n{GU}\nCreature - Fish Crab\nGTC,C\nFlash\rEvolve\n2/1"
     IDS_STRING25459         "Simic Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {G} or {U} to your mana pool.\r{GU}: Simic Keyrune becomes a 2/3 green and blue Crab artifact creature with hexproof until end of turn."
-    IDS_STRING25460         "Dimir Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {U} or {B} to your mana pool.\r{UB}: Dimir Keyrune becomes a 2/2 blue and black Horror artifact creature until end of turn and is unblockable this turn."
-    IDS_STRING25461         "Boros Charm\n{RW}\nInstant\nGTC,U\nChoose one - Boros Charm deals 4 damage to target player; or permanents you control are indestructible this turn; or target creature gains double strike until end of turn."
+    IDS_STRING25460         "Dimir Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {U} or {B} to your mana pool.\r{UB}: Dimir Keyrune becomes a 2/2 blue and black Horror artifact creature until end of turn and can't be blocked this turn."
+    IDS_STRING25461         "Boros Charm\n{RW}\nInstant\nGTC,U\nChoose one - Boros Charm deals 4 damage to target player; or permanents you control gain indestructible until end of turn; or target creature gains double strike until end of turn."
     IDS_STRING25462         "Gideon, Champion of Justice\n{2WW}\nPlaneswalker - Gideon\nGTC,MR\n[+1]: Put a loyalty counter on Gideon, Champion of Justice for each creature target opponent controls.\r[0]: Until end of turn, Gideon, Champion of Justice becomes an indestructible Human Soldier creature with power and toughness each equal to the number of loyalty counters on him. He's still a planeswalker. Prevent all damage that would be dealt to him this turn.\r[-15]: Exile all other permanents.\n4"
     IDS_STRING25463         "Five-Alarm Fire\n{1RR}\nEnchantment\nGTC,R\nWhenever a creature you control deals combat damage, put a blaze counter on Five-Alarm Fire.\rRemove five blaze counters from Five-Alarm Fire: Five-Alarm Fire deals 5 damage to target creature or player."
     IDS_STRING25464         "Skarrg Guildmage\n{RG}\nCreature - Human Shaman\nGTC,U\n{RG}: Creatures you control gain trample until end of turn.\r{1RG}: Target land you control becomes a 4/4 Elemental creature until end of turn. It's still a land.\n2/2"
@@ -181,7 +182,7 @@ BEGIN
     IDS_STRING25481         "Stolen Identity\n{4UU}\nSorcery\nGTC,R\nPut a token onto the battlefield that's a copy of target artifact or creature.\rCipher"
     IDS_STRING25482         "Undercity Plague\n{4BB}\nSorcery\nGTC,R\nTarget player loses 1 life, discards a card, then sacrifices a permanent.\rCipher"
     IDS_STRING25483         "Whispering Madness\n{2UB}\nSorcery\nGTC,R\nEach player discards his or her hand, then draws cards equal to the greatest number of cards a player discarded this way."
-    IDS_STRING25484         "Ogre Slumlord\n{4BB}\nCreature - Ogre Rogue\nGTC,R\nWhenever another nontoken creature dies, you may put a 1/1 black Rat creature token onto the battlefield.\rRats you control have deathtouch.\n3/3"
+    IDS_STRING25484         "Ogre Slumlord\n{3BB}\nCreature - Ogre Rogue\nGTC,R\nWhenever another nontoken creature dies, you may put a 1/1 black Rat creature token onto the battlefield.\rRats you control have deathtouch.\n3/3"
     IDS_STRING25485         "Glaring Spotlight\n{1}\nArtifact\nGTC,R\nCreatures your opponents control with hexproof can be the targets of spells and abilities you control as though they didn't have hexproof.\r{3}, Sacrifice Glaring Spotlight: Creatures you control gain hexproof until end of turn and are unblockable this turn."
     IDS_STRING25486         "Slaughterhorn\n{2G}\nCreature - Beast\nGTC,C\nBloodrush - {G}, Discard Slaughterhorn: Target attacking creature gets +3/+2 until end of turn."
     IDS_STRING25487         "Merciless Eviction\n{4WB}\nSorcery\nGTC,R\nChoose one - Exile all artifacts; or exile all creatures; or exile all enchantments; or exile all planeswalkers."
@@ -377,6 +378,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

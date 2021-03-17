@@ -40,7 +40,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDeclarationOfNaughtCard);
 		DEFINE_CARD(CDeglamerCard);
 		DEFINE_CARD(CDewdropSpyCard);
-		DEFINE_CARD(CDisperseCard);
 		DEFINE_CARD(CDistantMelodyCard);
 		DEFINE_CARD(CDivinersWandCard);
 		//DEFINE_CARD(CDoorOfDestiniesCard);
@@ -83,7 +82,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMothdustChangelingCard);
 		DEFINE_CARD(CMudbuttonClangerCard);
 		DEFINE_CARD(CMurmuringBoskCard);
-		DEFINE_CARD(CMutavaultCard);
 		DEFINE_CARD(CNevermakerCard);
 		DEFINE_CARD(CNightshadeSchemersCard);
 		DEFINE_CARD(CNogginWhackCard);
@@ -465,16 +463,6 @@ CDewdropSpyCard::CDewdropSpyCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-}
-
-//____________________________________________________________________________
-//
-CDisperseCard::CDisperseCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Disperse"), CardType::Instant, nID,
-		_T("1") BLUE_MANA_TEXT, AbilityType::Instant,
-		new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)),
-		ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)
-{
 }
 
 //____________________________________________________________________________
@@ -2613,29 +2601,6 @@ CWarSpikeChangelingCard::CWarSpikeChangelingCard(CGame* pGame, UINT nID)
 		RED_MANA_TEXT, Power(+0), Life(+0), CreatureKeyword::FirstStrike)
 {
 	GetCardKeyword()->AddChangeling(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CMutavaultCard::CMutavaultCard(CGame* pGame, UINT nID)
-	: CNonbasicLandCard(pGame, _T("Mutavault"), nID)
-{
-	{
-		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
-
-		cpNonbasicLandManaAbility->AddTapCost();
-
-		AddAbility(cpNonbasicLandManaAbility.GetPointer());
-	}
-	{
-		counted_ptr<CIsAlsoAAbility> cpAbility(
-			::CreateObject<CIsAlsoAAbility>(this,
-				_T("1"),
-				_T("Shapeshifter AA"), 64064));
-
-		AddAbility(cpAbility.GetPointer());
-	}
 }
 
 //____________________________________________________________________________

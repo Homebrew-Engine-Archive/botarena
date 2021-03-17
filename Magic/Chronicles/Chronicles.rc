@@ -1,0 +1,215 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Chronicles.ico"
+IDI_LARGE_MODULE        ICON                    "ChroniclesLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Chronicles"
+    IDS_EXPANSION_ABBREV    "CHR"
+    IDS_FIRST_CARD          "26200"
+    IDS_TOTAL_CARD          "125"
+    IDS_WHITE_BORDER        "1"
+    IDS_MODULE_ICON_ID      "26198"
+    IDS_MODULE_LARGE_ICON_ID "26199"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-07-1995"
+    IDS_MWS_FOLDER          "MWS\\CHR\\"
+    IDS_PRODUCT_LIST        """Chronicles Starter Box"":R-3:U-10:C-32:BL-30,""Chronicles Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26200         "Active Volcano\n{R}\nInstant\nCHR,C\nChoose one - Destroy target blue permanent; or return target Island to its owner's hand."
+	IDS_STRING26201         "Akron Legionnaire\n{6WW}\nCreature - Giant Soldier\nCHR,R\nExcept for creatures named Akron Legionnaire and artifact creatures, creatures you control can't attack.\n8/4"
+	IDS_STRING26202         "Aladdin\n{2RR}\nCreature - Human Rogue\nCHR,U\n{1RR}, {T}: Gain control of target artifact for as long as you control Aladdin.\n1/1"
+	IDS_STRING26203         "Angelic Voices\n{2WW}\nEnchantment\nCHR,R\nCreatures you control get +1/+1 as long as you control no nonartifact, nonwhite creatures."
+	IDS_STRING26204         "Arcades Sabboth\n{2GGWWUU}\nLegendary Creature - Elder Dragon\nCHR,R\nFlying\rAt the beginning of your upkeep, sacrifice Arcades Sabboth unless you pay {GWU}.\rUntapped nonattacking creatures you control get +0/+2.\r{W}: Arcades Sabboth gets +0/+1 until end of turn.\n7/7"
+    IDS_STRING26205         "Arena of the Ancients\n{3}\nArtifact\nCHR,R\nLegendary creatures don't untap during their controllers' untap steps.\rWhen Arena of the Ancients enters the battlefield, tap all legendary creatures."
+	IDS_STRING26206         "Ashnod's Altar\n{3}\nArtifact\nCHR,C\nSacrifice a creature: Add {2} to your mana pool."
+	IDS_STRING26207         "Ashnod's Transmogrant\n{1}\nArtifact\nCHR,C\n{T}, Sacrifice Ashnod's Transmogrant: Put a +1/+1 counter on target nonartifact creature. That creature becomes an artifact in addition to its other types."
+    IDS_STRING26208         "Axelrod Gunnarson\n{4BBRR}\nLegendary Creature - Giant\nCHR,R\nTrample\rWhenever a creature dealt damage by Axelrod Gunnarson this turn dies, you gain 1 life and Axelrod deals 1 damage to target player.\n5/5"
+    IDS_STRING26209         "Azure Drake\n{3U}\nCreature - Drake\nCHR,U\nFlying\n2/4"
+	IDS_STRING26210         "Banshee\n{2BB}\nCreature - Spirit\nCHR,U\n{X}, {T}: Banshee deals half X damage, rounded down, to target creature or player, and half X damage, rounded up, to you.\n0/1"
+    IDS_STRING26211         "Barl's Cage\n{4}\nArtifact\nCHR,R\n{3}: Target creature doesn't untap during its controller's next untap step."
+    IDS_STRING26212         "Beasts of Bogardan\n{4R}\nCreature - Beast\nCHR,U\nProtection from red\rBeasts of Bogardan gets +1/+1 as long as an opponent controls a white permanent.\n3/3"
+    IDS_STRING26213         "Blood Moon\n{2R}\nEnchantment\nCHR,R\nNonbasic lands are Mountains."
+    IDS_STRING26214         "Bog Rats\n{B}\nCreature - Rat\nCHR,C\nBog Rats can't be blocked by Walls.\n1/1"
+    IDS_STRING26215         "Book of Rass\n{6}\nArtifact\nCHR,R\n{2}, Pay 2 life: Draw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26216         "Boomerang\n{UU}\nInstant\nCHR,C\nReturn target permanent to its owner's hand."
+    IDS_STRING26217         "Cat Warriors\n{1GG}\nCreature - Cat Warrior\nCHR,C\nForestwalk\n2/2"
+    IDS_STRING26218         "Chromium\n{2WWUUBB}\nLegendary Creature - Elder Dragon\nCHR,R\nFlying\rRampage 2\rAt the beginning of your upkeep, sacrifice Chromium unless you pay {WUB}.\n7/7"
+    IDS_STRING26219         "City of Brass\n\nLand\nCHR,R\nWhenever City of Brass becomes tapped, it deals 1 damage to you.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING26220         "Concordant Crossroads\n{G}\nWorld Enchantment\nCHR,R\nAll creatures have haste."
+    IDS_STRING26221         "Craw Giant\n{3GGGG}\nCreature - Giant\nCHR,U\nTrample\rRampage 2\n6/4"
+    IDS_STRING26222         "D'Avenant Archer\n{2W}\nCreature - Human Soldier Archer\nCHR,C\n{T}: D'Avenant Archer deals 1 damage to target attacking or blocking creature.\n1/2"
+    IDS_STRING26223         "Dakkon Blackblade\n{2WUUB}\nLegendary Creature - Human Warrior\nCHR,R\nDakkon Blackblade's power and toughness are each equal to the number of lands you control.\n*/*"
+    IDS_STRING26224         "Dandân\n{UU}\nCreature - Fish\nCHR,C\nDandân can't attack unless defending player controls an Island.\rWhen you control no Islands, sacrifice Dandân.\n4/1"
+    IDS_STRING26225         "Divine Offering\n{1W}\nInstant\nCHR,C\nDestroy target artifact. You gain life equal to its converted mana cost."
+    IDS_STRING26226         "Emerald Dragonfly\n{1G}\nCreature - Insect\nCHR,C\nFlying\r{GG}: Emerald Dragonfly gains first strike until end of turn.\n1/1"
+    IDS_STRING26227         "Erhnam Djinn\n{3G}\nCreature - Djinn\nCHR,U\nAt the beginning of your upkeep, target non-Wall creature an opponent controls gains forestwalk until your next upkeep.\n4/5"
+    IDS_STRING26228         "Fallen Angel\n{3BB}\nCreature - Angel\nCHR,U\nFlying\rSacrifice a creature: Fallen Angel gets +2/+1 until end of turn.\n3/3"
+    IDS_STRING26229         "Feldon's Cane\n{1}\nArtifact\nCHR,C\n{T}, Exile Feldon's Cane: Shuffle your graveyard into your library."
+    IDS_STRING26230         "Fire Drake\n{1RR}\nCreature - Drake\nCHR,U\nFlying\r{R}: Fire Drake gets +1/+0 until end of turn. Activate this ability only once each turn.\n1/2"
+    IDS_STRING26231         "Fishliver Oil\n{1U}\nEnchantment - Aura\nCHR,C\nEnchant creature\rEnchanted creature has islandwalk."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26232         "Flash Flood\n{U}\nInstant\nCHR,C\nChoose one - Destroy target red permanent; or return target Mountain to its owner's hand."
+    IDS_STRING26233         "Fountain of Youth\n{0}\nArtifact\nCHR,C\n{2}, {T}: You gain 1 life."
+    IDS_STRING26234         "Gabriel Angelfire\n{3GGWW}\nLegendary Creature - Angel\nCHR,R\nAt the beginning of your upkeep, choose flying, first strike, trample, or rampage 3. Gabriel Angelfire gains that ability until your next upkeep.\n4/4"
+    IDS_STRING26235         "Gauntlets of Chaos\n{5}\nArtifact\nCHR,R\n{5}, Sacrifice Gauntlets of Chaos: Exchange control of target artifact, creature, or land you control and target permanent an opponent controls that shares one of those types with it. If those permanents are exchanged this way, destroy all Auras attached to them."
+    IDS_STRING26236         "Ghazbán Ogre\n{G}\nCreature - Ogre\nCHR,C\nAt the beginning of your upkeep, if a player has more life than each other player, the player with the most life gains control of Ghazbán Ogre.\n2/2"
+    IDS_STRING26237         "Goblin Digging Team\n{R}\nCreature - Goblin\nCHR,C\n{T}, Sacrifice Goblin Digging Team: Destroy target Wall.\n1/1"
+    IDS_STRING26238         "Goblins of the Flarg\n{R}\nCreature - Goblin Warrior\nCHR,C\nMountainwalk\rWhen you control a Dwarf, sacrifice Goblins of the Flarg.\n1/1"
+    IDS_STRING26239         "Hasran Ogress\n{BB}\nCreature - Ogre\nCHR,C\nWhenever Hasran Ogress attacks, it deals 3 damage to you unless you pay {2}.\n3/2"
+    IDS_STRING26240         "Hell's Caretaker\n{3B}\nCreature - Horror\nCHR,R\n{T}, Sacrifice a creature: Return target creature card from your graveyard to the battlefield. Activate this ability only during your upkeep.\n1/1"
+    IDS_STRING26241         "Horn of Deafening\n{4}\nArtifact\nCHR,R\n{2}, {T}: Prevent all combat damage that would be dealt by target creature this turn."
+    IDS_STRING26242         "Indestructible Aura\n{W}\nInstant\nCHR,C\nPrevent all damage that would be dealt to target creature this turn."
+    IDS_STRING26243         "Ivory Guardians\n{4WW}\nCreature - Giant Cleric\nCHR,U\nProtection from red\rCreatures named Ivory Guardians get +1/+1 as long as an opponent controls a nontoken red permanent.\n3/3"
+    IDS_STRING26244         "Jalum Tome\n{3}\nArtifact\nCHR,R\n{2}, {T}: Draw a card, then discard a card."
+    IDS_STRING26245         "Juxtapose\n{3U}\nSorcery\nCHR,R\nYou and target player exchange control of the creature you each control with the highest converted mana cost. Then exchange control of artifacts the same way. If two or more permanents a player controls are tied for highest cost, their controller chooses one of them."
+    IDS_STRING26246         "Keepers of the Faith\n{1WW}\nCreature - Human Cleric\nCHR,C\n\n2/3"
+    IDS_STRING26247         "Kei Takahashi\n{2GW}\nLegendary Creature - Human Cleric\nCHR,U\n{T}: Prevent the next 2 damage that would be dealt to target creature this turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26248         "Marhault Elsdragon\n{3RRG}\nLegendary Creature - Elf Warrior\nCHR,U\nRampage 1\n4/6"
+    IDS_STRING26249         "Mountain Yeti\n{2RR}\nCreature - Yeti\nCHR,C\nMountainwalk, protection from white\n3/3"
+    IDS_STRING26250         "Nebuchadnezzar\n{3UB}\nLegendary Creature - Human Wizard\nCHR,R\n{X}, {T}: Name a card. Target opponent reveals X cards at random from his or her hand. Then that player discards all cards with that name revealed this way. Activate this ability only during your turn.\n3/3"
+    IDS_STRING26251         "Nicol Bolas\n{2UUBBRR}\nLegendary Creature - Elder Dragon\nCHR,R\nFlying\rAt the beginning of your upkeep, sacrifice Nicol Bolas unless you pay {UBR}.\rWhenever Nicol Bolas deals damage to an opponent, that player discards his or her hand.\n7/7"
+    IDS_STRING26252         "Obelisk of Undoing\n{1}\nArtifact\nCHR,R\n{6}, {T}: Return target permanent you both own and control to your hand."
+    IDS_STRING26253         "Palladia-Mors\n{2RRGGWW}\nLegendary Creature - Elder Dragon\nCHR,R\nFlying, trample\rAt the beginning of your upkeep, sacrifice Palladia-Mors unless you pay {RGW}.\n7/7"
+    IDS_STRING26254         "Petra Sphinx\n{2WWW}\nCreature - Sphinx\nCHR,R\n{T}: Target player names a card, then reveals the top card of his or her library. If that card is the named card, that player puts it into his or her hand. If it isn't, the player puts it into his or her graveyard.\n3/4"
+    IDS_STRING26255         "Puppet Master\n{UUU}\nEnchantment - Aura\nCHR,U\nEnchant creature\rWhen enchanted creature dies, return that card to its owner's hand. If that card is returned to its owner's hand this way, you may pay {UUU}. If you do, return Puppet Master from your graveyard to your hand."
+    IDS_STRING26256         "Rabid Wombat\n{2GG}\nCreature - Wombat\nCHR,U\nVigilance\rRabid Wombat gets +2/+2 for each Aura attached to it.\n0/1"
+    IDS_STRING26257         "Rakalite\n{6}\nArtifact\nCHR,R\n{2}: Prevent the next 1 damage that would be dealt to target creature or player this turn. Return Rakalite to its owner's hand at the beginning of the next end step."
+    IDS_STRING26258         "Recall\n{XXU}\nSorcery\nCHR,U\nDiscard X cards, then return a card from your graveyard to your hand for each card discarded this way. Exile Recall."
+    IDS_STRING26259         "Remove Soul\n{1U}\nInstant\nCHR,C\nCounter target creature spell."
+    IDS_STRING26260         "Repentant Blacksmith\n{1W}\nCreature - Human\nCHR,C\nProtection from red\n1/2"
+	IDS_STRING26261         "Runesword\n{6}\nArtifact\nCHR,C\n{3}, {T}: Target attacking creature gets +2/+0 until end of turn. When that creature leaves the battlefield this turn, sacrifice Runesword. If the creature deals damage to a creature this turn, the creature dealt damage can't be regenerated this turn. If a creature dealt damage by the targeted creature would die this turn, exile that creature instead."
+    IDS_STRING26262         "Scavenger Folk\n{G}\nCreature - Human\nCHR,C\n{G}, {T}, Sacrifice Scavenger Folk: Destroy target artifact.\n1/1"
+    IDS_STRING26263         "Serpent Generator\n{6}\nArtifact\nCHR,R\n{4}, {T}: Put a 1/1 colorless Snake artifact creature token onto the battlefield. This creature has ""Whenever this creature deals damage to a player, that player gets a poison counter."""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26264         "Shield Wall\n{1W}\nInstant\nCHR,U\nCreatures you control get +0/+2 until end of turn."
+    IDS_STRING26265         "Sivitri Scarzam\n{5UB}\nLegendary Creature - Human\nCHR,U\n\n6/4"
+    IDS_STRING26266         "Sol'kanar the Swamp King\n{2UBR}\nLegendary Creature - Demon\nCHR,R\nSwampwalk\rWhenever a player casts a black spell, you gain 1 life.\n5/5"
+    IDS_STRING26267         "Stangg\n{4RG}\nLegendary Creature - Human Warrior\nCHR,R\nWhen Stangg enters the battlefield, put a legendary 3/4 red and green Human Warrior creature token named Stangg Twin onto the battlefield. When Stangg leaves the battlefield, exile that token. When that token leaves the battlefield, sacrifice Stangg.\n3/4"
+    IDS_STRING26268         "Storm Seeker\n{3G}\nInstant\nCHR,U\nStorm Seeker deals damage equal to the number of cards in target player's hand to that player."
+    IDS_STRING26269         "Takklemaggot\n{2BB}\nEnchantment - Aura\nCHR,U\nEnchant creature\rAt the beginning of the upkeep of enchanted creature's controller, put a -0/-1 counter on that creature.\rWhen enchanted creature dies, that creature's controller chooses a creature that Takklemaggot could enchant. If he or she does, return Takklemaggot to the battlefield under your control attached to that creature. If he or she doesn't, return Takklemaggot to the battlefield under your control as a non-Aura enchantment. It loses ""enchant creature"" and gains ""At the beginning of that player's upkeep, Takklemaggot deals 1 damage to him or her."""
+    IDS_STRING26270         "Teleport\n{UUU}\nInstant\nCHR,R\nCast Teleport only after attackers are declared and before blockers are declared.\rTarget creature is unblockable this turn."
+	IDS_STRING26271         "The Fallen\n{1BBB}\nCreature - Zombie\nCHR,U\nAt the beginning of your upkeep, The Fallen deals 1 damage to each opponent it has dealt damage to this game.\n2/3"
+    IDS_STRING26272         "Tobias Andrion\n{3WU}\nLegendary Creature - Human Advisor\nCHR,U\n\n4/4"
+    IDS_STRING26273         "Tor Wauki\n{2BBR}\nLegendary Creature - Human Archer\nCHR,U\n{T}: Tor Wauki deals 2 damage to target attacking or blocking creature.\n3/3"
+    IDS_STRING26274         "Tormod's Crypt\n{0}\nArtifact\nCHR,C\n{T}, Sacrifice Tormod's Crypt: Exile all cards from target player's graveyard."
+    IDS_STRING26275         "Transmutation\n{1B}\nInstant\nCHR,C\nSwitch target creature's power and toughness until end of turn."
+    IDS_STRING26276         "Triassic Egg\n{4}\nArtifact\nCHR,R\n{3}, {T}: Put a hatchling counter on Triassic Egg.\rSacrifice Triassic Egg: Choose one - You may put a creature card from your hand onto the battlefield; or return target creature card from your graveyard to the battlefield. Activate this ability only if two or more hatchling counters are on Triassic Egg."
+    IDS_STRING26277         "Urza's Mine\n\nLand - Urza's Mine\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26278         "Urza's Mine\n\nLand - Urza's Mine\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26279         "Urza's Mine\n\nLand - Urza's Mine\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26280         "Urza's Mine\n\nLand - Urza's Mine\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26281         "Urza's Power Plant\n\nLand - Urza's Power-Plant\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26282         "Urza's Power Plant\n\nLand - Urza's Power-Plant\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26283         "Urza's Power Plant\n\nLand - Urza's Power-Plant\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26284         "Urza's Power Plant\n\nLand - Urza's Power-Plant\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING26285         "Urza's Tower\n\nLand - Urza's Tower\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING26286         "Urza's Tower\n\nLand - Urza's Tower\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING26287         "Urza's Tower\n\nLand - Urza's Tower\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING26288         "Urza's Tower\n\nLand - Urza's Tower\nCHR,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING26289         "Vaevictis Asmadi\n{2BBRRGG}\nLegendary Creature - Elder Dragon\nCHR,R\nFlying\rAt the beginning of your upkeep, sacrifice Vaevictis Asmadi unless you pay {BRG}.\r{B}: Vaevictis Asmadi gets +1/+0 until end of turn.\r{R}: Vaevictis Asmadi gets +1/+0 until end of turn.\r{G}: Vaevictis Asmadi gets +1/+0 until end of turn.\n7/7"
+    IDS_STRING26290         "Wall of Heat\n{2R}\nCreature - Wall\nCHR,C\nDefender\n2/6"
+    IDS_STRING26291         "Wall of Opposition\n{3RR}\nCreature - Wall\nCHR,U\nDefender\r{1}: Wall of Opposition gets +1/+0 until end of turn.\n0/6"
+    IDS_STRING26292         "Wall of Wonder\n{2UU}\nCreature - Wall\nCHR,U\nDefender\r{2UU}: Wall of Wonder gets +4/-4 until end of turn and may attack this turn as though it didn't have defender.\n1/5"
+    IDS_STRING26293         "Witch Hunter\n{2WW}\nCreature - Human Cleric\nCHR,U\n{T}: Witch Hunter deals 1 damage to target player.\r{1WW}, {T}: Return target creature an opponent controls to its owner's hand.\n1/1"
+    IDS_STRING26294         "Xira Arien\n{BRG}\nLegendary Creature - Insect Wizard\nCHR,R\nFlying\r{BRG}, {T}: Target player draws a card.\n1/2"
+    IDS_STRING26295         "Yawgmoth Demon\n{4BB}\nCreature - Demon\nCHR,R\nFlying\rFirst strike\rAt the beginning of your upkeep, you may sacrifice an artifact. If you don't, tap Yawgmoth Demon and it deals 2 damage to you.\n6/6"
+END
+
+    
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

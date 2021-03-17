@@ -69,13 +69,6 @@ class CYawgmothsBargainCard : public CInPlaySpellCard
 
 //____________________________________________________________________________
 //
-class CCapashenKnightCard : public CPumpCreatureCard
-{
-	DECLARE_CARD_CSTOR(CCapashenKnightCard);
-};
-
-//____________________________________________________________________________
-//
 class CCapashenTemplarCard : public CPumpCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCapashenTemplarCard);

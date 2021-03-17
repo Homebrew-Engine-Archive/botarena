@@ -1200,7 +1200,7 @@ CGriffinRiderCard::CGriffinRiderCard(CGame* pGame, UINT nID)
 	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 		::CreateObject<CPwrTghAttrEnchantment>(this,
 			new SpecificCardComparer(this),
-			Power(+3), Life(+3)));
+			Power(+3), Life(+3), CreatureKeyword::Flying));
 
 	cpAbility->SetConditionWork();
 	cpAbility->GetConditionFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Griffin), false));

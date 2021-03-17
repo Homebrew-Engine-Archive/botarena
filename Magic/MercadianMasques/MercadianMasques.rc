@@ -184,7 +184,7 @@ BEGIN
     IDS_STRING11682         "Battle Rampart\n{2R}\nCreature - Wall\nMMQ,C\nDefender\r{T}: Target creature gains haste until end of turn.\n1/3"
     IDS_STRING11683         "Battle Squadron\n{3RR}\nCreature - Goblin\nMMQ,R\nFlying\rBattle Squadron's power and toughness are each equal to the number of creatures you control.\n*/*"
     IDS_STRING11684         "Blaster Mage\n{2R}\nCreature - Human Spellshaper\nMMQ,C\n{R}, {T}, Discard a card: Destroy target Wall.\n2/2"
-    IDS_STRING11685         "Blockade Runner\n{3U}\nCreature - Merfolk\nMMQ,C\n{U}: Blockade Runner is unblockable this turn.\n2/2"
+    IDS_STRING11685         "Blockade Runner\n{3U}\nCreature - Merfolk\nMMQ,C\n{U}: Blockade Runner can't be blocked this turn.\n2/2"
     IDS_STRING11686         "Boa Constrictor\n{4G}\nCreature - Snake\nMMQ,U\n{T}: Boa Constrictor gets +3/+3 until end of turn.\n3/3"
     IDS_STRING11687         "Bog Smugglers\n{1BB}\nCreature - Human Mercenary\nMMQ,C\nSwampwalk\n2/2"
     IDS_STRING11688         "Bog Witch\n{2B}\nCreature - Human Spellshaper\nMMQ,C\n{B}, {T}, Discard a card: Add {BBB} to your mana pool.\n1/1"

@@ -146,7 +146,7 @@ BEGIN
 	IDS_STRING61053          "Sandals of Abdallah Effect\n\nEffect\nToken\nWhen the subject dies this turn, destroy Sandals of Abdallah."
 	IDS_STRING61054          "Skeletonize Effect\n\nEffect\nToken\nWhen a creature damaged by the subject dies this turn, put a 1/1 black Skeleton creature token onto the battlefield with ""{B}: Regenerate this creature."""
 	IDS_STRING61055          "Virulent Wound Effect\n\nEffect\nToken\nWhen the subject dies this turn, its controller gets a poison counter."
-	IDS_STRING61056          "Generic Container\n\nEffect\nToken\nThis effect stores cards for another card's ability."
+	IDS_STRING61056          "Generic Container - Exile\n\nEffect\nToken\nThis effect stores cards for another card's ability."
 	IDS_STRING61057          "End Step Return from Exile Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects from exile to the battlefield under their owners' control."
 	IDS_STRING61058          "End Step Sacrifice Effect\n\nEffect\nToken\nAt the beginning of the next end step, sacrifice the subjects."
 	IDS_STRING61059          "End Step Bounce Effect\n\nEffect\nToken\nAt the beginning of the next end step, return the subjects to their owner's hand."
@@ -229,6 +229,12 @@ BEGIN
 	IDS_STRING61120          "Mana Drain Effect\n\nEffect\nToken\nAt the beginning of your next main phase, add {X} to your mana pool."
 	IDS_STRING61121          "Plasm Capture Effect\n\nEffect\nToken\nAt the beginning of your next precombat main phase, add X mana in any combination of colors to your mana pool."
 	IDS_STRING61122          "Scattering Stroke Effect\n\nEffect\nToken\nAt the beginning of your next main phase, you may add {X} to your mana pool."
+	IDS_STRING61123          "Savage Summoning First Effect\n\nEffect\nToken\nThe next creature card you cast this turn can be cast as though it had flash. That spell can't be countered. That creature enters the battlefield with an additional +1/+1 counter on it."
+	IDS_STRING61124          "Savage Summoning Second Effect\n\nEffect\nToken\nThe subject will enter the battlefield with an additional +1/+1 counter on it."
+	IDS_STRING61125          "Insist Effect\n\nEffect\nToken\nThe next creature spell you cast this turn can't be countered by spells or abilities."
+	IDS_STRING61126          "Overmaster Effect\n\nEffect\nToken\nThe next instant or sorcery spell you cast this turn can't be countered by spells or abilities."
+    IDS_STRING61127          "Goblin Diplomats Effect\n\nEffect\nToken\nEach creature must attack this turn if able."
+	IDS_STRING61128          "Generic Container - Battlefield\n\nEffect\nToken\nThis effect stores cards for another card's ability."
 //	IDS_STRING61040          "Chancellor of the Annex Effect\n\nEffect\nToken\nWhen each opponent casts his or her first spell of the game, counter that spell unless that player pays {1}."
 END
 #endif    // English (United States) resources

@@ -144,7 +144,7 @@ BEGIN
     IDS_STRING23371         "Skeletal Grimace\n{1B}\nEnchantment - Aura\nISD,C\nEnchant creature\rEnchanted creature gets +1/+1 and has ""{B}: Regenerate this creature."""
     IDS_STRING23372         "Spider Spawning\n{4G}\nSorcery\nISD,U\nPut a 1/2 green Spider creature token with reach onto the battlefield for each creature card in your graveyard.\rFlashback {6B}"
     IDS_STRING23373         "Avacyn's Pilgrim\n{G}\nCreature - Human Monk\nISD,C\n{T}: Add {W} to your mana pool.\n1/1"
-    IDS_STRING23374         "Angelic Overseer\n{3WW}\nCreature - Angel\nISD,MR\nFlying\rAs long as you control a Human, Angelic Overseer has hexproof and is indestructible.\n5/3"
+    IDS_STRING23374         "Angelic Overseer\n{3WW}\nCreature - Angel\nISD,MR\nFlying\rAs long as you control a Human, Angelic Overseer has hexproof and indestructible.\n5/3"
     IDS_STRING23375         "Walking Corpse\n{1B}\nCreature - Zombie\nISD,C\n\n2/2"
 END
 
@@ -395,7 +395,7 @@ BEGIN
     IDS_STRING23570         "Scourge of Geier Reach\n{3RR}\nCreature - Elemental\nISD,U\nScourge of Geier Reach gets +1/+1 for each creature your opponents control.\n3/3"
     IDS_STRING23571         "Rooftop Storm\n{5U}\nEnchantment\nISD,R\nYou may pay {0} rather than pay the mana cost for Zombie creature spells you cast."
     IDS_STRING23572         "Ranger's Guile\n{G}\nInstant\nISD,C\nTarget creature you control gets +1/+1 and gains hexproof until end of turn."
-    IDS_STRING23573         "Creepy Doll\n{5}\nArtifact Creature - Construct\nISD,R\nCreepy Doll is indestructible.\rWhenever Creepy Doll deals combat damage to a creature, flip a coin. If you win the flip, destroy that creature.\n1/1"
+    IDS_STRING23573         "Creepy Doll\n{5}\nArtifact Creature - Construct\nISD,R\nIndestructible.\rWhenever Creepy Doll deals combat damage to a creature, flip a coin. If you win the flip, destroy that creature.\n1/1"
     IDS_STRING23574         "Grimoire of the Dead\n{4}\nLegendary Artifact\nISD,MR\n{1}, {T}, Discard a card: Put a study counter on Grimoire of the Dead.\r{T}, Remove three study counters from Grimoire of the Dead and sacrifice it: Put all creature cards from all graveyards onto the battlefield under your control. They're black Zombies in addition to their other colors and types."
     IDS_STRING23575         "Elder Cathar\n{2W}\nCreature - Human Soldier\nISD,C\nWhen Elder Cathar dies, put a +1/+1 counter on target creature you control. If that creature is a Human, put two +1/+1 counters on it instead.\n2/2"
     IDS_STRING23576         "Divine Reckoning\n{2WW}\nSorcery\nISD,R\nEach player chooses a creature he or she controls. Destroy the rest.\rFlashback {5WW}"

@@ -3334,7 +3334,7 @@ CPowerSinkCard::CPowerSinkCard(CGame* pGame, UINT nID)
 	//Old/current: "Counter target spell unless its controller pays {X}. If he or she doesn't, that player taps all lands he or she controls and empties his or her mana pool."
 	//Worldwake rules update: "Counter target spell unless its controller pays {X}. If he or she doesn't, that player taps all lands with mana abilities he or she controls and empties his or her mana pool."
 	//Should now check for presence of mana abilities on lands and not tap lands without them.
-	m_pCounterSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, FALSE, CManaCost::AllCostColors);
+	m_pCounterSpell->GetCost().SetExtraManaCost(SpecialNumber::AnyPositive, false, CManaCost::AllCostColors);
 	m_pCounterSpell->SetExtraActionValueVector();
 	m_pCounterSpell->SetCanBeDenied();
 	m_pCounterSpell->SetExtraCostToDenialCost();
@@ -4687,6 +4687,7 @@ CParalyzeCard::CParalyzeCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		//cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CParalyzeCard::SetTriggerContext3));
 
 		cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::UntapSingleCard);

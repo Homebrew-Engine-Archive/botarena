@@ -1,0 +1,125 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by NewExpansion.rc
+//
+#define IDS_EXPANSION                   200
+#define IDS_EXPANSION_ABBREV            201
+#define IDS_FIRST_CARD                  202
+#define IDS_TOTAL_CARD                  203
+#define IDS_WHITE_BORDER                204
+#define IDS_MODULE_ICON_ID              205
+#define IDS_MODULE_LARGE_ICON_ID        206
+#define IDS_ALT_IMG_URL                 207
+#define IDS_ALT_IMG_METHOD              208
+#define IDS_RELEASE_DATE                209
+#define IDS_MWS_FOLDER                  210
+#define IDS_PRODUCT_LIST                211
+#define IDI_MODULE                      26198
+#define IDI_LARGE_MODULE                26199
+#define IDS_STRING26200                 26200
+#define IDS_STRING26201                 26201
+#define IDS_STRING26202                 26202
+#define IDS_STRING26203                 26203
+#define IDS_STRING26204                 26204
+#define IDS_STRING26205                 26205
+#define IDS_STRING26206                 26206
+#define IDS_STRING26207                 26207
+#define IDS_STRING26208                 26208
+#define IDS_STRING26209                 26209
+#define IDS_STRING26210                 26210
+#define IDS_STRING26211                 26211
+#define IDS_STRING26212                 26212
+#define IDS_STRING26213                 26213
+#define IDS_STRING26214                 26214
+#define IDS_STRING26215                 26215
+#define IDS_STRING26216                 26216
+#define IDS_STRING26217                 26217
+#define IDS_STRING26218                 26218
+#define IDS_STRING26219                 26219
+#define IDS_STRING26220                 26220
+#define IDS_STRING26221                 26221
+#define IDS_STRING26222                 26222
+#define IDS_STRING26223                 26223
+#define IDS_STRING26224                 26224
+#define IDS_STRING26225                 26225
+#define IDS_STRING26226                 26226
+#define IDS_STRING26227                 26227
+#define IDS_STRING26228                 26228
+#define IDS_STRING26229                 26229
+#define IDS_STRING26230                 26230
+#define IDS_STRING26231                 26231
+#define IDS_STRING26232                 26232
+#define IDS_STRING26233                 26233
+#define IDS_STRING26234                 26234
+#define IDS_STRING26235                 26235
+#define IDS_STRING26236                 26236
+#define IDS_STRING26237                 26237
+#define IDS_STRING26238                 26238
+#define IDS_STRING26239                 26239
+#define IDS_STRING26240                 26240
+#define IDS_STRING26241                 26241
+#define IDS_STRING26242                 26242
+#define IDS_STRING26243                 26243
+#define IDS_STRING26244                 26244
+#define IDS_STRING26245                 26245
+#define IDS_STRING26246                 26246
+#define IDS_STRING26247                 26247
+#define IDS_STRING26248                 26248
+#define IDS_STRING26249                 26249
+#define IDS_STRING26250                 26250
+#define IDS_STRING26251                 26251
+#define IDS_STRING26252                 26252
+#define IDS_STRING26253                 26253
+#define IDS_STRING26254                 26254
+#define IDS_STRING26255                 26255
+#define IDS_STRING26256                 26256
+#define IDS_STRING26257                 26257
+#define IDS_STRING26258                 26258
+#define IDS_STRING26259                 26259
+#define IDS_STRING26260                 26260
+#define IDS_STRING26261                 26261
+#define IDS_STRING26262                 26262
+#define IDS_STRING26263                 26263
+#define IDS_STRING26264                 26264
+#define IDS_STRING26265                 26265
+#define IDS_STRING26266                 26266
+#define IDS_STRING26267                 26267
+#define IDS_STRING26268                 26268
+#define IDS_STRING26269                 26269
+#define IDS_STRING26270                 26270
+#define IDS_STRING26271                 26271
+#define IDS_STRING26272                 26272
+#define IDS_STRING26273                 26273
+#define IDS_STRING26274                 26274
+#define IDS_STRING26275                 26275
+#define IDS_STRING26276                 26276
+#define IDS_STRING26277                 26277
+#define IDS_STRING26278                 26278
+#define IDS_STRING26279                 26279
+#define IDS_STRING26280                 26280
+#define IDS_STRING26281                 26281
+#define IDS_STRING26282                 26282
+#define IDS_STRING26283                 26283
+#define IDS_STRING26284                 26284
+#define IDS_STRING26285                 26285
+#define IDS_STRING26286                 26286
+#define IDS_STRING26287                 26287
+#define IDS_STRING26288                 26288
+#define IDS_STRING26289                 26289
+#define IDS_STRING26290                 26290
+#define IDS_STRING26291                 26291
+#define IDS_STRING26292                 26292
+#define IDS_STRING26293                 26293
+#define IDS_STRING26294                 26294
+#define IDS_STRING26295                 26295
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        20000
+#define _APS_NEXT_COMMAND_VALUE         20000
+#define _APS_NEXT_CONTROL_VALUE         20000
+#define _APS_NEXT_SYMED_VALUE           20000
+#endif
+#endif

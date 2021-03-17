@@ -142,7 +142,7 @@ BEGIN
     IDS_STRING24898         "Dark Hatchling\n{4BB}\nCreature - Horror\nPC2,R\nFlying\rWhen Dark Hatchling enters the battlefield, destroy target nonblack creature. It can't be regenerated.\n3/3"
     IDS_STRING24899         "Deny Reality\n{3UB}\nSorcery\nPC2,C\nCascade\rReturn target permanent to its owner's hand."
     IDS_STRING24900         "Dimir Aqueduct\n\nLand\nPC2,C\nDimir Aqueduct enters the battlefield tapped.\rWhen Dimir Aqueduct enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {UB} to your mana pool."
-    IDS_STRING24901         "Dimir Infiltrator\n{UB}\nCreature - Spirit\nPC2,C\nDimir Infiltrator is unblockable.\rTransmute {1UB}\n1/3"
+    IDS_STRING24901         "Dimir Infiltrator\n{UB}\nCreature - Spirit\nPC2,C\nDimir Infiltrator can't be blocked.\rTransmute {1UB}\n1/3"
     IDS_STRING24902         "Dowsing Shaman\n{4G}\nCreature - Centaur Shaman\nPC2,U\n{2G}, {T}: Return target enchantment card from your graveyard to your hand.\n3/4"
     IDS_STRING24903         "Dragonlair Spider\n{2RRGG}\nCreature - Spider\nPC2,R\nReach\rWhenever an opponent casts a spell, put a 1/1 green Insect creature token onto the battlefield.\n5/6"
     IDS_STRING24904         "Dreampod Druid\n{1G}\nCreature - Human Druid\nPC2,U\nAt the beginning of each upkeep, if Dreampod Druid is enchanted, put a 1/1 green Saproling creature token onto the battlefield.\n2/2"

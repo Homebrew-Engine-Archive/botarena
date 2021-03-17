@@ -582,20 +582,6 @@ class CDarksteelBruteCard : public CInPlaySpellCard
 
 //____________________________________________________________________________
 //
-class CDarksteelForgeCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CDarksteelForgeCard);
-};
-
-//____________________________________________________________________________
-//
-class CDarksteelIngotCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CDarksteelIngotCard);
-};
-
-//____________________________________________________________________________
-//
 class CDarksteelPendantCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CDarksteelPendantCard);

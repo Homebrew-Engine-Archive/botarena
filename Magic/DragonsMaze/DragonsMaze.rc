@@ -167,7 +167,7 @@ BEGIN
 	IDS_STRING25769         "Emmara Tandris\n{5GW}\nLegendary Creature - Elf Shaman\nDGM,R\nPrevent all damage that would be dealt to creature tokens you control.\n5/7"
 	IDS_STRING25770         "Wake the Reflections\n{W}\nSorcery\nDGM,C\nPopulate."
 	IDS_STRING25771         "Warleader's Helix\n{2RW}\nInstant\nDGM,U\nWarleader's Helix deals 4 damage to target creature or player and you gain 4 life."
-	IDS_STRING25772         "AEtherling\n{4UU}\nCreature - Shapeshifter\nDGM,R\n{U}: Exile AEtherling. Return it to the battlefield under its owner's control at the beginning of the next end step.\r{U}: AEtherling is unblockable this turn.\r{1}: AEtherling gets +1/-1 until end of turn.\r{1}: AEtherling gets -1/+1 until end of turn.\n4/5"
+	IDS_STRING25772         "AEtherling\n{4UU}\nCreature - Shapeshifter\nDGM,R\n{U}: Exile AEtherling. Return it to the battlefield under its owner's control at the beginning of the next end step.\r{U}: AEtherling can't be blocked this turn.\r{1}: AEtherling gets +1/-1 until end of turn.\r{1}: AEtherling gets -1/+1 until end of turn.\n4/5"
 	IDS_STRING25773         "Blast of Genius\n{4UR}\nSorcery\nDGM,U\nChoose target creature or player. Draw three cards, then discard a card. Blast of Genius deals damage equal to the discarded card's converted mana cost to that creature or player."
 	IDS_STRING25774         "Korozda Gorgon\n{3BG}\nCreature - Gorgon\nDGM,U\nDeathtouch\r{2}, Remove a +1/+1 counter from a creature you control: Target creature gets -1/-1 until end of turn.\n2/5"
 	IDS_STRING25775         "Unflinching Courage\n{1GW}\nEnchantment - Aura\nDGM,U\nEnchant creature\rEnchanted creature gets +2/+2 and has trample and lifelink."

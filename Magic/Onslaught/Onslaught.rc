@@ -100,7 +100,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING14016         "Blackmail\n{B}\nSorcery\nONS,U\nTarget player reveals three cards from his or her hand and you choose one of them. That player discards that card."
-    IDS_STRING14017         "Crafty Pathmage\n{2U}\nCreature - Human Wizard\nONS,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING14017         "Crafty Pathmage\n{2U}\nCreature - Human Wizard\nONS,C\n{T}: Target creature with power 2 or less can't be blocked this turn.\n1/1"
     IDS_STRING14018         "Demystify\n{W}\nInstant\nONS,C\nDestroy target enchantment."
     IDS_STRING14019         "Doomed Necromancer\n{2B}\nCreature - Human Cleric Mercenary\nONS,R\n{B}, {T}, Sacrifice Doomed Necromancer: Return target creature card from your graveyard to the battlefield.\n2/2"
     IDS_STRING14020         "Dragon Roost\n{4RR}\nEnchantment\nONS,R\n{5RR}: Put a 5/5 red Dragon creature token with flying onto the battlefield."
@@ -364,7 +364,7 @@ BEGIN
     IDS_STRING14226         "Whipcorder\n{WW}\nCreature - Human Soldier Rebel\nONS,U\n{W}, {T}: Tap target creature.\rMorph {W}\n2/2"
     IDS_STRING14227         "Battlefield Medic\n{1W}\nCreature - Human Cleric\nONS,C\n{T}: Prevent the next X damage that would be dealt to target creature this turn, where X is the number of Clerics on the battlefield.\n1/1"
     IDS_STRING14228         "Profane Prayers\n{2BB}\nSorcery\nONS,C\nProfane Prayers deals X damage to target creature or player and you gain X life, where X is the number of Clerics on the battlefield."
-    IDS_STRING14229         "Contested Cliffs\n\nLand\nONS,R\n{T}: Add {1} to your mana pool.\r{RG}, {T}: Choose target Beast creature you control and target creature an opponent controls. Those creatures fight each other."
+    IDS_STRING14229         "Contested Cliffs\n\nLand\nONS,R\n{T}: Add {1} to your mana pool.\r{RG}, {T}: Target Beast creature you control fights target creature an opponent controls."
     IDS_STRING14230         "Thoughtbound Primoc\n{2R}\nCreature - Bird Beast\nONS,U\nFlying\rAt the beginning of your upkeep, if a player controls more Wizards than each other player, the player who controls the most Wizards gains control of Thoughtbound Primoc.\n2/3"
     IDS_STRING14231         "Insurrection\n{5RRR}\nSorcery\nONS,R\nUntap all creatures and gain control of them until end of turn. They gain haste until end of turn."
     IDS_STRING14232         "Unified Strike\n{W}\nInstant\nONS,C\nExile target attacking creature if its power is less than or equal to the number of Soldiers on the battlefield."

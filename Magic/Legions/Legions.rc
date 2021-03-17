@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+#include "afxres.h"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -84,8 +83,8 @@ BEGIN
     IDS_STRING14402         "Blade Sliver\n{2R}\nCreature - Sliver\nLGN,U\nAll Sliver creatures get +1/+0.\n2/2"
     IDS_STRING14403         "Blood Celebrant\n{B}\nCreature - Human Cleric\nLGN,C\n{B}, Pay 1 life: Add one mana of any color to your mana pool.\n1/1"
     IDS_STRING14404         "Brood Sliver\n{4G}\nCreature - Sliver\nLGN,R\nWhenever a Sliver deals combat damage to a player, its controller may put a 1/1 colorless Sliver creature token onto the battlefield.\n3/3"
-    IDS_STRING14405         "Cephalid Pathmage\n{2U}\nCreature - Cephalid Wizard\nLGN,C\nCephalid Pathmage is unblockable.\r{T}, Sacrifice Cephalid Pathmage: Target creature is unblockable this turn.\n1/2"
-    IDS_STRING14406         "Covert Operative\n{4U}\nCreature - Human Wizard\nLGN,C\nCovert Operative is unblockable.\n3/2"
+    IDS_STRING14405         "Cephalid Pathmage\n{2U}\nCreature - Cephalid Wizard\nLGN,C\nCephalid Pathmage can't be blocked.\r{T}, Sacrifice Cephalid Pathmage: Target creature can't be blocked this turn.\n1/2"
+    IDS_STRING14406         "Covert Operative\n{4U}\nCreature - Human Wizard\nLGN,C\nCovert Operative can't be blocked.\n3/2"
     IDS_STRING14407         "Essence Sliver\n{3W}\nCreature - Sliver\nLGN,R\nWhenever a Sliver deals damage, its controller gains that much life.\n3/3"
     IDS_STRING14408         "Plated Sliver\n{W}\nCreature - Sliver\nLGN,C\nAll Sliver creatures get +0/+1.\n1/1"
     IDS_STRING14409         "Root Sliver\n{3G}\nCreature - Sliver\nLGN,U\nRoot Sliver can't be countered.\rSliver spells can't be countered by spells or abilities.\n2/2"
@@ -220,7 +219,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING14512         "Caller of the Claw\n{2G}\nCreature - Elf\nLGN,R\nFlash\rWhen Caller of the Claw enters the battlefield, put a 2/2 green Bear creature token onto the battlefield for each nontoken creature put into your graveyard from the battlefield this turn.\n2/2"
-    IDS_STRING14513         "Planar Guide\n{2G}\nCreature - Human Cleric\nLGN,R\n{3W}, Exile Planar Guide: Exile all creatures. At the beginning of the next end step, return those cards to the battlefield under their owners' control."
+    IDS_STRING14513         "Planar Guide\n{W}\nCreature - Human Cleric\nLGN,R\n{3W}, Exile Planar Guide: Exile all creatures. At the beginning of the next end step, return those cards to the battlefield under their owners' control."
     IDS_STRING14514         "Skirk Alarmist\n{1R}\nCreature - Human Wizard\nLGN,R\nHaste\r{T}: Turn target face-down creature you control face up. At the beginning of the next end step, sacrifice it.\n1/2"
 END
 
@@ -234,8 +233,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-
+#include "..\MagicCore\MagicCore.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

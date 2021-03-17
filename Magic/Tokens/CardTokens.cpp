@@ -15,8 +15,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 	{
 
 		// Add new card class names here:
-		// For example:
-		// 	DEFINE_CARD(CDefenderEnVecCard);
+		DEFINE_TOKEN(CAngelIToken);
+		DEFINE_TOKEN(CBeastMToken);
 		DEFINE_TOKEN(CBlankAToken);
 		DEFINE_TOKEN(CBlankBToken);
 		DEFINE_TOKEN(CBlankCToken);
@@ -29,10 +29,13 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBlankJToken);
 		DEFINE_TOKEN(CBlankKToken);
 		DEFINE_TOKEN(CBlankLToken);
+		DEFINE_TOKEN(CDragonGToken);
 		DEFINE_TOKEN(CDragonSpiritToken);
 		DEFINE_TOKEN(CEldraziToken);
 		DEFINE_TOKEN(CElementalQToken);
 		DEFINE_TOKEN(CElementalRToken);
+		DEFINE_TOKEN(CElementalSToken);
+		DEFINE_TOKEN(CElementalTToken);
 		DEFINE_TOKEN(CGoblinGToken);
 		DEFINE_TOKEN(CGoblinHToken);
 		DEFINE_TOKEN(CGoblinIToken);
@@ -62,10 +65,13 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSaprolingKToken);
 		DEFINE_TOKEN(CSaprolingLToken);
 		DEFINE_TOKEN(CSaprolingMToken);
+		DEFINE_TOKEN(CSaprolingNToken);
 		DEFINE_TOKEN(CSkeletonBToken);
+		DEFINE_TOKEN(CSliverCToken);
 		DEFINE_TOKEN(CTetraviteToken);
 		DEFINE_TOKEN(CTwinToken);
 		DEFINE_TOKEN(CWallBToken);
+		DEFINE_TOKEN(CWolfIToken);
 
 	} while (false);
 
@@ -767,6 +773,120 @@ CElementalRToken::CElementalRToken(CGame* pGame, UINT nID)
 	AddAbility(cpAbility.GetPointer());
 
 // Used by Voice of Resurgence
+}
+
+//____________________________________________________________________________
+//
+CAngelIToken::CAngelIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Angel"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Angel), nID,
+		_T(""),
+		Power(4), Life(4))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// M14 version; used by Angelic Accord and Devout Invocation
+}
+
+//____________________________________________________________________________
+//
+CSliverCToken::CSliverCToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Sliver"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Sliver), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+// M14 version; used by Hive Stirrings
+}
+
+//____________________________________________________________________________
+//
+CElementalSToken::CElementalSToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// Used by Young Pyromancer
+}
+
+//____________________________________________________________________________
+//
+CBeastMToken::CBeastMToken(CGame* pGame, UINT nID)
+    : CTokenCreature(pGame, _T("Beast"), CardType::Creature | CardType::Token,
+        CREATURE_TYPE(Beast), nID,
+        _T(""),
+        Power(3), Life(3))
+{
+    AddCardType(CardType::Green, CardType::_ColorMask);
+
+// M14 version; used by Primeval Bounty
+}
+
+//____________________________________________________________________________
+//
+CSaprolingNToken::CSaprolingNToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Saproling"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Saproling), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// M14 version; used by Sporemound
+}
+
+//____________________________________________________________________________
+//
+CDragonGToken::CDragonGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Dragon"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Dragon), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+	counted_ptr<CPumpAbility> cpAbility(
+		::CreateObject<CPumpAbility>(this,
+			RED_MANA_TEXT,
+			Power(+1), Life(+0)));
+	ATLASSERT(cpAbility);
+
+	AddAbility(cpAbility.GetPointer());
+
+// Used by Dragon Egg
+}
+
+//____________________________________________________________________________
+//
+CWolfIToken::CWolfIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// M14 version; used by Howl of the Night Pack
+}
+
+//____________________________________________________________________________
+//
+CElementalTToken::CElementalTToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+// Used by Molten Birth
 }
 
 //____________________________________________________________________________

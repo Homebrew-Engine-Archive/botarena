@@ -494,7 +494,7 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
 	{
 		CZone* pBattlefield = pAttacker->GetController()->GetZoneById(ZoneId::Battlefield);
 
-		Power nMaxPower = 0;
+		Power nMaxPower = Power(0);
 		bool bFound = false;
 
 		for (int i = 0; i < pBattlefield->GetSize(); ++i)

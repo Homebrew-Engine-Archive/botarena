@@ -398,6 +398,11 @@ BOOL CCreatureKeyword::MustAttack() const
 	return (m_Bitflag & CreatureKeyword::MustAttack).Any();
 }
 
+BOOL CCreatureKeyword::MustAttackEachCombat() const
+{
+	return (m_Bitflag & CreatureKeyword::MustAttackEachCombat).Any();
+}
+
 BOOL CCreatureKeyword::CantRegenerate() const
 {
 	return (m_Bitflag & CreatureKeyword::CantRegenerate).Any();
@@ -608,6 +613,11 @@ void CCreatureKeyword::AddTrample(BOOL bThisTurnOnly)
 void CCreatureKeyword::AddMustAttack(BOOL bThisTurnOnly)
 {
 	AddEntry(BitflagEntry(CreatureKeyword::MustAttack, bThisTurnOnly));
+}
+
+void CCreatureKeyword::AddMustAttackEachCombat(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::MustAttackEachCombat, bThisTurnOnly));
 }
 
 void CCreatureKeyword::AddCantRegenerate(BOOL bThisTurnOnly)
@@ -850,6 +860,11 @@ void CCreatureKeyword::RemoveTrample(BOOL bThisTurnOnly)
 void CCreatureKeyword::RemoveMustAttack(BOOL bThisTurnOnly)
 {
 	AddEntry(BitflagEntry(CreatureKeyword::MustAttack, bThisTurnOnly, EntryType::Removal));
+}
+
+void CCreatureKeyword::RemoveMustAttackEachCombat(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::MustAttackEachCombat, bThisTurnOnly, EntryType::Removal));
 }
 
 void CCreatureKeyword::RemoveCantRegenerate(BOOL bThisTurnOnly)

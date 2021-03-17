@@ -101,7 +101,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPoisonbellyOgreCard);
 		DEFINE_CARD(CPredatoryFocusCard);
 		DEFINE_CARD(CPrimevalLightCard);
-		DEFINE_CARD(CQuickenCard);
 		DEFINE_CARD(CRepealCard);
 		DEFINE_CARD(CRestlessBonesCard);
 		DEFINE_CARD(CRevenantPatriarchCard);
@@ -3349,21 +3348,6 @@ CRepealCard::CRepealCard(CGame* pGame, UINT nID)
 	cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::_Land, false));
 	cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new AlsoCardTypeComparer(CardType::_Land, false));
 
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CQuickenCard::CQuickenCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Quicken"), CardType::Instant, nID)
-{
-	counted_ptr<CGenericSpell> cpSpell(
-		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
-			BLUE_MANA_TEXT));
-
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Quicken Effect"), 2908, 1, FALSE, ZoneId::_Effects));
 	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
 
 	AddSpell(cpSpell.GetPointer());

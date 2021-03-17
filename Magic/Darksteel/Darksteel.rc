@@ -174,18 +174,18 @@ BEGIN
     IDS_STRING15276         "Spincrusher\n{2}\nArtifact Creature - Construct\nDST,U\nWhenever Spincrusher blocks, put a +1/+1 counter on it.\rRemove a +1/+1 counter from Spincrusher: Spincrusher is unblockable this turn.\n0/2"
     IDS_STRING15277         "Death Cloud\n{XBBB}\nSorcery\nDST,R\nEach player loses X life, discards X cards, sacrifices X creatures, then sacrifices X lands."
     IDS_STRING15278         "AEther Vial\n{1}\nArtifact\nDST,U\nAt the beginning of your upkeep, you may put a charge counter on Æther Vial.\r{T}: You may put a creature card with converted mana cost equal to the number of charge counters on Æther Vial from your hand onto the battlefield."
-    IDS_STRING15279         "Darksteel Colossus\n{11}\nArtifact Creature - Golem\nDST,R\nTrample\rDarksteel Colossus is indestructible.\rIf Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.\n11/11"
+    IDS_STRING15279         "Darksteel Colossus\n{11}\nArtifact Creature - Golem\nDST,R\nTrample, indestructible\rIf Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.\n11/11"
 END
 
 STRINGTABLE
 BEGIN
     IDS_STRING15280         "Slobad, Goblin Tinkerer\n{1R}\nLegendary Creature - Goblin Artificer\nDST,R\nSacrifice an artifact: Target artifact is indestructible this turn.\n1/2"
-    IDS_STRING15281         "Darksteel Gargoyle\n{7}\nArtifact Creature - Gargoyle\nDST,U\nFlying\rDarksteel Gargoyle is indestructible.\n3/3"
-    IDS_STRING15282         "Darksteel Citadel\n\nArtifact Land\nDST,C\nDarksteel Citadel is indestructible.\r{T}: Add {1} to your mana pool."
-    IDS_STRING15283         "Darksteel Brute\n{2}\nArtifact\nDST,U\nDarksteel Brute is indestructible.\r{3}: Darksteel Brute becomes a 2/2 Beast artifact creature until end of turn."
-    IDS_STRING15284         "Darksteel Forge\n{9}\nArtifact\nDST,R\nArtifacts you control are indestructible."
-    IDS_STRING15285         "Darksteel Ingot\n{3}\nArtifact\nDST,C\nDarksteel Ingot is indestructible.\r{T}: Add one mana of any color to your mana pool."
-    IDS_STRING15286         "Darksteel Pendant\n{2}\nArtifact\nDST,C\nDarksteel Pendant is indestructible.\r{1}, {T}: Look at the top card of your library. You may put that card on the bottom of your library."
+    IDS_STRING15281         "Darksteel Gargoyle\n{7}\nArtifact Creature - Gargoyle\nDST,U\nFlying\rIndestructible\n3/3"
+    IDS_STRING15282         "Darksteel Citadel\n\nArtifact Land\nDST,C\nIndestructible\r{T}: Add {1} to your mana pool."
+    IDS_STRING15283         "Darksteel Brute\n{2}\nArtifact\nDST,U\nIndestructible\r{3}: Darksteel Brute becomes a 2/2 Beast artifact creature until end of turn."
+    IDS_STRING15284         "Darksteel Forge\n{9}\nArtifact\nDST,R\nArtifacts you control have indestructible."
+    IDS_STRING15285         "Darksteel Ingot\n{3}\nArtifact\nDST,C\nIndestructible\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING15286         "Darksteel Pendant\n{2}\nArtifact\nDST,C\nIndestructible\r{1}, {T}: Look at the top card of your library. You may put that card on the bottom of your library."
     IDS_STRING15287         "Myr Matrix\n{5}\nArtifact\nDST,R\nMyr Matrix is indestructible.\rMyr creatures get +1/+1.\r{5}: Put a 1/1 colorless Myr artifact creature token onto the battlefield."
     IDS_STRING15288         "Shield of Kaldra\n{4}\nLegendary Artifact - Equipment\nDST,R\nEquipment named Sword of Kaldra, Shield of Kaldra, and Helm of Kaldra are indestructible.\rEquipped creature is indestructible.\rEquip {4}"
     IDS_STRING15289         "Infested Roothold\n{4G}\nCreature - Wall\nDST,U\nDefender\rProtection from artifacts\rWhenever an opponent casts an artifact spell, you may put a 1/1 green Insect creature token onto the battlefield.\n0/3"
@@ -239,7 +239,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING15328         "Darksteel Reactor\n{4}\nArtifact\nDST,R\nDarksteel Reactor is indestructible.\rAt the beginning of your upkeep, you may put a charge counter on Darksteel Reactor.\rWhen Darksteel Reactor has twenty or more charge counters on it, you win the game."
+    IDS_STRING15328         "Darksteel Reactor\n{4}\nArtifact\nDST,R\nIndestructible\rAt the beginning of your upkeep, you may put a charge counter on Darksteel Reactor.\rWhen Darksteel Reactor has twenty or more charge counters on it, you win the game."
     IDS_STRING15329         "Sundering Titan\n{8}\nArtifact Creature - Golem\nDST,R\nWhen Sundering Titan enters the battlefield or leaves the battlefield, choose a land of each basic land type, then destroy those lands.\n7/10"
     IDS_STRING15330         "Goblin Archaeologist\n{1R}\nCreature - Goblin Artificer\nDST,U\n{R}, {T}: Flip a coin. If you win the flip, destroy target artifact and untap Goblin Archaeologist. If you lose the flip, sacrifice Goblin Archaeologist.\n1/2"
     IDS_STRING15331         "Wirefly Hive\n{3}\nArtifact\nDST,U\n{3}, {T}: Flip a coin. If you win the flip, put a 2/2 colorless Insect artifact creature token with flying named Wirefly onto the battlefield. If you lose the flip, destroy all permanents named Wirefly."

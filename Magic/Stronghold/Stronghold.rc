@@ -83,7 +83,7 @@ BEGIN
     IDS_STRING10401         "Flowstone Hellion\n{4R}\nCreature - Hellion Beast\nSTH,U\nHaste\r{0}: Flowstone Hellion gets +1/-1 until end of turn.\n3/3"
     IDS_STRING10402         "Ruination\n{3R}\nSorcery\nSTH,R\nDestroy all nonbasic lands."
     IDS_STRING10403         "Bandage\n{W}\nInstant\nSTH,C\nPrevent the next 1 damage that would be dealt to target creature or player this turn.\rDraw a card."
-    IDS_STRING10404         "Dream Prowler\n{2UU}\nCreature - Illusion\nSTH,C\nDream Prowler is unblockable as long as it's attacking alone.\n1/5"
+    IDS_STRING10404         "Dream Prowler\n{2UU}\nCreature - Illusion\nSTH,C\nDream Prowler can't be blocked as long as it's attacking alone.\n1/5"
     IDS_STRING10405         "Ensnaring Bridge\n{3}\nArtifact\nSTH,R\nCreatures with power greater than the number of cards in your hand can't attack."
     IDS_STRING10406         "Evacuation\n{3UU}\nInstant\nSTH,R\nReturn all creatures to their owners' hands."
     IDS_STRING10407         "Flame Wave\n{3RRRR}\nSorcery\nSTH,U\nFlame Wave deals 4 damage to target player and each creature he or she controls."

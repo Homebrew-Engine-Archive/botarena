@@ -217,7 +217,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CUnexpectedResultsCard);
 		DEFINE_CARD(CUrbanEvolutionCard);
 		DEFINE_CARD(CUrbisProtectorCard);
-		DEFINE_CARD(CVerdantHavenCard);
 		DEFINE_CARD(CViashinoShanktailCard);
 		DEFINE_CARD(CVizkopaConfessorCard);
 		DEFINE_CARD(CVizkopaGuildmageCard);
@@ -2055,7 +2054,7 @@ CHellraiserGoblinCard::CHellraiserGoblinCard(CGame* pGame, UINT nID)
 				new AnyCreatureComparer,
 				Power(+0), Life(+0)));
 			
-		cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::MustAttack);
+		cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::MustAttackEachCombat);
 		cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
 		cpAbility->SetAffectControllerCardsOnly();
 	
@@ -2615,20 +2614,17 @@ CBorosCharmCard::CBorosCharmCard(CGame* pGame, UINT nID)
 	}
 	{
 		//Permanents you control are indestructible this turn.
-		counted_ptr<CGenericSpell> cpSpell(
-			::CreateObject<CGenericSpell>(this, AbilityType::Instant,
-				RED_MANA_TEXT WHITE_MANA_TEXT));
+		counted_ptr<CPwrTghAttrEnchantment> cpSpell(
+			::CreateObject<CPwrTghAttrEnchantment>(this, AbilityType::Instant,
+				RED_MANA_TEXT WHITE_MANA_TEXT,
+				new TrueCardComparer,
+				Power(+0), Life(+0)));
 
-		CPlayerEffectModifier* pModifier1 = new CPlayerEffectModifier(PlayerEffectType::IndestructiblePermanents);	
-
-		CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
-
-		pModifier1->LinkPlayerModifier(pModifier2);
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(pModifier1);		
+		cpSpell->SetAffectControllerCardsOnly();
+		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Indestructible);
 
 		cpSpell->SetAbilityName(_T("Mode 2"));
-		cpSpell->SetAbilityText(_T("Permanents you control are indestructible this turn. Casts"));
+		cpSpell->SetAbilityText(_T("Permanents you control gain indestructible until end of turn. Casts"));
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
@@ -3540,7 +3536,7 @@ CLegionLoyalistCard::CLegionLoyalistCard(CGame* pGame, UINT nID)
 	cpAbility->SetModifyCreatureOption(CTriggeredModifyCreatureAbility::ModifyCreatureOption::ModifyTriggeredPlayersCreatures);
 
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::Unblockable);
-	cpAbility->GetCreatureKeywordMod().GetModifier().SetAdditionData((DWORD)CCardFilter::GetFilter(_T("token creatures")));
+	cpAbility->GetCreatureKeywordMod().GetModifier().SetAdditionData((DWORD)CCardFilter::GetFilter(_T("nontoken creatures")));
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 
 	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLegionLoyalistCard::BeforeResolution));
@@ -4566,7 +4562,7 @@ void CWhisperingMadnessCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone
 //
 COgreSlumlordCard::COgreSlumlordCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Ogre Slumlord"), CardType::Creature, CREATURE_TYPE2(Ogre, Rogue), nID,
-		_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(3), Life(3))
+		_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(3), Life(3))
 {
 	{
 		typedef
@@ -7573,7 +7569,7 @@ CIvyLaneDenizenCard::CIvyLaneDenizenCard(CGame* pGame, UINT nID)
 	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Positive);
 	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+	cpAbility->AddAbilityTag(AbilityTag::CardChange);
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -10063,54 +10059,6 @@ CUrbisProtectorCard::CUrbisProtectorCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CVerdantHavenCard::CVerdantHavenCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Verdant Haven"), CardType::EnchantLand, nID)
-{
-	{
-		counted_ptr<CAbilityEnchant> cpSpell(
-			::CreateObject<CAbilityEnchant>(this,
-				_T("2") GREEN_MANA_TEXT,
-				new CardTypeComparer(CardType::_Land, false),
-				CAbilityEnchant::CreateAbilityCallback(this, &CVerdantHavenCard::CreateEnchantAbility),
-				CAbilityEnchant::AdditionType::ToEnchantCard));
-
-		cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Positive);
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
-								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetLifeModifier().SetLifeDelta(Life(+2));
-		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
-
-		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-counted_ptr<CAbility> CVerdantHavenCard::CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue)
-{
-	typedef
-		TTriggeredAbility< CTriggeredProdManaAbility, CWhenSelfTappedForMana > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(pEnchantCard, pEnchantedCard));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
-	cpAbility->SetSkipStack(TRUE);
-
-	return counted_ptr<CAbility>(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

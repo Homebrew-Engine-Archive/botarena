@@ -208,18 +208,6 @@ class CHydraOmnivoreCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CScavengingOozeCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CScavengingOozeCard);
-
-protected:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-};
-
-//____________________________________________________________________________
-//
 class CHornetQueenCard : public CFlyingCreatureCard 
 {
 	DECLARE_CARD_CSTOR(CHornetQueenCard);

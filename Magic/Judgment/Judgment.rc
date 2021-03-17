@@ -105,7 +105,7 @@ BEGIN
     IDS_STRING13819         "Cabal Trainee\n{B}\nCreature - Human Minion\nJUD,C\nSacrifice Cabal Trainee: Target creature gets -2/-0 until end of turn.\n1/1"
     IDS_STRING13820         "Centaur Rootcaster\n{3G}\nCreature - Centaur Druid\nJUD,C\nWhenever Centaur Rootcaster deals combat damage to a player, you may search your library for a basic land card and put that card onto the battlefield tapped. If you do, shuffle your library.\n2/2"
     IDS_STRING13821         "Swelter\n{3R}\nSorcery\nJUD,U\nSwelter deals 2 damage to each of two target creatures."
-    IDS_STRING13822         "Cephalid Inkshrouder\n{2U}\nCreature - Cephalid\nJUD,U\nDiscard a card: Cephalid Inkshrouder gains shroud until end of turn and is unblockable this turn.\n2/1"
+    IDS_STRING13822         "Cephalid Inkshrouder\n{2U}\nCreature - Cephalid\nJUD,U\nDiscard a card: Cephalid Inkshrouder gains shroud until end of turn and can't be blocked this turn.\n2/1"
     IDS_STRING13823         "Dwarven Bloodboiler\n{RRR}\nCreature - Dwarf\nJUD,R\nTap an untapped Dwarf you control: Target creature gets +2/+0 until end of turn.\n2/2"
 END
 

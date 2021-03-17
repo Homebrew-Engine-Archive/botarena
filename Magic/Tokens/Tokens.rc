@@ -139,6 +139,14 @@ END
 STRINGTABLE
 BEGIN
 	IDS_STRING62048         "Elemental (R)\n{GW}\nCreature - Elemental\nToken\nThis creature's power and toughness are each equal to the number of creatures you control.\n*/*"
+	IDS_STRING62049         "Angel (I)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+	IDS_STRING62050         "Sliver (C)\n{1}\nCreature - Sliver\nToken\n\n1/1"
+	IDS_STRING62051         "Wolf (I)\n{G}\nCreature - Wolf\nToken\n\n2/2"
+	IDS_STRING62052         "Elemental (S)\n{R}\nCreature - Elemental\nToken\n\n1/1"
+	IDS_STRING62053         "Beast (M)\n{G}\nCreature - Beast\nToken\n\n3/3"
+	IDS_STRING62054         "Saproling (N)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+	IDS_STRING62055         "Dragon (G)\n{R}\nCreature - Dragon\nToken\nFlying\r{R}: This creature gets +1/+0 until end of turn.\n2/2"
+	IDS_STRING62056         "Elemental (T)\n{R}\nCreature - Elemental\nToken\n\n1/1"
 END
 
 #endif    // English (United States) resources

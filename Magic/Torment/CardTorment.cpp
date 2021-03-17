@@ -67,6 +67,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CHypochondriaCard);
 		DEFINE_CARD(CIchoridCard);
 		DEFINE_CARD(CInsidiousDreamsCard);
+		DEFINE_CARD(CInsistCard);
 		DEFINE_CARD(CInvigoratingFallsCard);
 		DEFINE_CARD(CKamahlsSledgeCard);
 		DEFINE_CARD(CKrosanConstrictorCard);
@@ -85,6 +86,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CNarcissismCard);
 		DEFINE_CARD(CObsessiveSearchCard);
 		DEFINE_CARD(COrganGrinderCard);
+		DEFINE_CARD(COvermasterCard);
 		DEFINE_CARD(CPardicArsonistCard);
 		DEFINE_CARD(CPardicCollaboratorCard);
 		DEFINE_CARD(CPetradonCard);
@@ -4653,6 +4655,36 @@ void CPitchstoneWallCard::OnUseSelected(const std::vector<SelectionEntry>& selec
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CInsistCard::CInsistCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Insist"), CardType::Sorcery, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			GREEN_MANA_TEXT));
+
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Insist Effect"), 61125, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+COvermasterCard::COvermasterCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Overmaster"), CardType::Sorcery, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			RED_MANA_TEXT));
+
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Overmaster Effect"), 61126, 1, FALSE, ZoneId::_Effects));
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
+
+	AddSpell(cpSpell.GetPointer());
 }
 
 //____________________________________________________________________________

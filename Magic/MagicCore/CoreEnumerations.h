@@ -848,14 +848,16 @@ struct CreatureKeyword
 		Paired								= 0x0004000000000000,
 		Soulbond							= 0x0008000000000000,	// For use with Flowering Lumberknot
 
+		MustAttackEachCombat				= 0x0010000000000000,	// Ref: Hellraiser Goblin
+
 		_All								= 0xffffffffffffffff,
 
-		_NegativeCreatureKeywords			= (CantAttack | Defender | CantBlock | CowardAttacker | CowardBlocker | DealNoCombatDamage | DealNoNoncombatDamage | MustAttack | CantRegenerate | OnlyBlockFlying | CantBeEquipped),
+		_NegativeCreatureKeywords			= (CantAttack | Defender | CantBlock | CowardAttacker | CowardBlocker | DealNoCombatDamage | DealNoNoncombatDamage | MustAttack | CantRegenerate | OnlyBlockFlying | CantBeEquipped | MustAttackEachCombat),
 		_PositiveCreatureKeywords			= (unsigned __int64)(~_NegativeCreatureKeywords),
 
 		// For usage patterns. These are the attributes which will affect a creature's ability to declare attack.
 
-		_AbleToAttackCreatureKeywords		= (Haste | Vigilance | DefenderMayAttack | CantAttack | Defender | MustAttack),
+		_AbleToAttackCreatureKeywords		= (Haste | Vigilance | DefenderMayAttack | CantAttack | Defender | MustAttack | MustAttackEachCombat),
 
 		// For usage patterns. These are the attributes which will give attacking creatures advantages.
 

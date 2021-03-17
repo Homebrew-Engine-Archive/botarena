@@ -432,7 +432,7 @@ BEGIN
     IDS_STRING2281          "Kraken's Eye\n{2}\nArtifact\n9TH,U\nWhenever a player casts a blue spell, you may gain 1 life."
     IDS_STRING2282          "Wurm's Tooth\n{2}\nArtifact\n9TH,U\nWhenever a player casts a green spell, you may gain 1 life."
     IDS_STRING2283          "Blessed Orator\n{3W}\nCreature - Human Cleric\n9TH,U\nOther creatures you control get +0/+1.\n1/4"
-    IDS_STRING2284          "Crafty Pathmage\n{2U}\nCreature - Human Wizard\n9TH,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING2284          "Crafty Pathmage\n{2U}\nCreature - Human Wizard\n9TH,C\n{T}: Target creature with power 2 or less can't be blocked this turn.\n1/1"
     IDS_STRING2285          "Magnivore\n{2RR}\nCreature - Lhurgoyf\n9TH,R\nHaste\rMagnivore's power and toughness are each equal to the number of sorcery cards in all graveyards.\n*/*"
     IDS_STRING2286          "Mortivore\n{2BB}\nCreature - Lhurgoyf\n9TH,R\nMortivore's power and toughness are each equal to the number of creature cards in all graveyards.\r{B}: Regenerate Mortivore.\n*/*"
     IDS_STRING2287          "Rootwalla\n{2G}\nCreature - Lizard\n9TH,C\n{1G}: Rootwalla gets +2/+2 until end of turn. Activate this ability only once each turn.\n2/2"
@@ -475,7 +475,7 @@ BEGIN
     IDS_STRING2316          "Mindslicer\n{2BB}\nCreature - Horror\n9TH,R\nWhen Mindslicer dies, each player discards his or her hand.\n4/3"
     IDS_STRING2317          "Battle of Wits\n{3UU}\nEnchantment\n9TH,R\nAt the beginning of your upkeep, if you have 200 or more cards in your library, you win the game."
     IDS_STRING2318          "Rogue Kavu\n{1R}\nCreature - Kavu\n9TH,C\nWhenever Rogue Kavu attacks alone, it gets +2/+0 until end of turn.\n1/1"
-    IDS_STRING2319          "Dream Prowler\n{2UU}\nCreature - Illusion\n9TH,U\nDream Prowler is unblockable as long as it's attacking alone.\n1/5"
+    IDS_STRING2319          "Dream Prowler\n{2UU}\nCreature - Illusion\n9TH,U\nDream Prowler can't be blocked as long as it's attacking alone.\n1/5"
 END
 
 STRINGTABLE

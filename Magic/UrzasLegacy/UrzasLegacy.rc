@@ -212,7 +212,7 @@ BEGIN
     IDS_STRING11306         "Raven Familiar\n{2U}\nCreature - Bird\nULG,U\nFlying\rEcho {2U}\rWhen Raven Familiar enters the battlefield, look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order.\n1/2"
     IDS_STRING11307         "Angelic Curator\n{1W}\nCreature - Angel Spirit\nULG,C\nFlying, protection from artifacts\n1/1"
     IDS_STRING11308         "Yavimaya Scion\n{4G}\nCreature - Treefolk\nULG,C\nProtection from artifacts\n4/4"
-    IDS_STRING11309         "Bouncing Beebles\n{2U}\nCreature - Beeble\nULG,C\nBouncing Beebles is unblockable as long as defending player controls an artifact.\n2/2"
+    IDS_STRING11309         "Bouncing Beebles\n{2U}\nCreature - Beeble\nULG,C\nBouncing Beebles can't be blocked as long as defending player controls an artifact.\n2/2"
     IDS_STRING11310         "Brink of Madness\n{2BB}\nEnchantment\nULG,R\nAt the beginning of your upkeep, if you have no cards in hand, sacrifice Brink of Madness. If you do, target opponent discards his or her hand."
     IDS_STRING11311         "Defense of the Heart\n{3G}\nEnchantment\nULG,R\nAt the beginning of your upkeep, if an opponent controls three or more creatures, sacrifice Defense of the Heart. If you do, search your library for up to two creature cards and put those creatures onto the battlefield. Then shuffle your library."
 END

@@ -108,13 +108,6 @@ class CDewdropSpyCard : public CFlyingCreatureCard
 
 //____________________________________________________________________________
 //
-class CDisperseCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CDisperseCard);
-};
-
-//____________________________________________________________________________
-//
 class CEarthbrawnCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CEarthbrawnCard);
@@ -609,13 +602,6 @@ class CTaureanMaulerCard : public CCreatureCard
 class CWarSpikeChangelingCard : public CPumpCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWarSpikeChangelingCard);
-};
-
-//____________________________________________________________________________
-//
-class CMutavaultCard : public CNonbasicLandCard
-{
-	DECLARE_CARD_CSTOR(CMutavaultCard);
 };
 
 //____________________________________________________________________________

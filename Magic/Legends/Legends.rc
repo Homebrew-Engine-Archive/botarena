@@ -363,7 +363,7 @@ BEGIN
 	IDS_STRING5525          "Hellfire\n{2BBB}\nSorcery\nLEG,R\nDestroy all nonblack creatures. Hellfire deals X plus 3 damage to you, where X is the number of creatures that died this way."
 	IDS_STRING5526          "Reincarnation\n{1GG}\nInstant\nLEG,U\nChoose target creature. When that creature dies this turn, return a creature card from its owner's graveyard to the battlefield under the control of that creature's owner."
 	IDS_STRING5527          "Reset\n{UU}\nInstant\nLEG,U\nCast Reset only during an opponent's turn after his or her upkeep step.\rUntap all lands you control."
-	IDS_STRING5528          "Glyph of Life\n{W}\nInstant\nLEG,C\nUntil end of turn, whenever an attacking creature deals damage to target Wall creature, you gain that much life."
+	IDS_STRING5528          "Glyph of Life\n{W}\nInstant\nLEG,C\nChoose target Wall creature. Whenever that creature is dealt damage by an attacking creature this turn, you gain that much life."
 END
 
 #endif    // English (United States) resources

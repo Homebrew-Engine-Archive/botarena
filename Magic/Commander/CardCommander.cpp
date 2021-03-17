@@ -44,7 +44,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 			DEFINE_CARD(CNinThePainArtistCard);
 			DEFINE_CARD(CRiddlekeeperCard);
 			DEFINE_CARD(CRikuOfTwoReflectionsCard);
-			DEFINE_CARD(CScavengingOozeCard);
 			DEFINE_CARD(CSkullbriartheWalkingGraveCard);
 			DEFINE_CARD(CSoulSnareCard);
 			DEFINE_CARD(CSpellCrumpleCard);
@@ -961,44 +960,6 @@ CHydraOmnivoreCard::CHydraOmnivoreCard(CGame* pGame, UINT nID)
 
 {
 	//NOTE: Coded as vanilla because BA doesn't support multiplayer yet. (08-Jul-2011)
-}
-
-//______________________________________________________________________________
-//
-CScavengingOozeCard::CScavengingOozeCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Scavenging Ooze"), CardType::Creature, CREATURE_TYPE(Ooze), nID,
-		_T("1") GREEN_MANA_TEXT, Power(2), Life(2))
-		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-			&CScavengingOozeCard::OnResolutionCompleted))
-{
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
-	counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
-			_T("") GREEN_MANA_TEXT,
-			new TrueCardComparer,
-			ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others));
-
-	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-void CScavengingOozeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	if (!bResult) return;
-
-	CCard* pTarget = pAbilityAction->GetAssociatedCard();
-		
-	if (pTarget->GetCardType().IsCreature())
-	{
-		CCardCounterModifier pModifier1 = CCardCounterModifier(_T("+1/+1"), 1);
-		CLifeModifier pModifier2 = CLifeModifier(Life(+1), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-
-		pModifier1.ApplyTo(this);
-		pModifier2.ApplyTo(GetController());
-	}
-
 }
 
 //______________________________________________________________________________

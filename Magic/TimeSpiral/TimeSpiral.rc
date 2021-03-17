@@ -445,7 +445,7 @@ BEGIN
     IDS_STRING17491         "Durkwood Baloth\n{4GG}\nCreature - Beast\nTSP,C\nSuspend 5 - {G}\n5/5"
     IDS_STRING17492         "Ancestral Vision\n\nSorcery\nTSP,R\nSuspend 4 - {U}\rTarget player draws three cards."
     IDS_STRING17493         "Corpulent Corpse\n{5B}\nCreature - Zombie\nTSP,C\nFear\rSuspend 5 - {B}\n3/3"
-    IDS_STRING17494         "Deep-Sea Kraken\n{7UUU}\nCreature - Kraken\nTSP,R\nDeep-Sea Kraken is unblockable.\rSuspend 9 - {2U}\rWhenever an opponent casts a spell, if Deep-Sea Kraken is suspended, remove a time counter from it.\n6/6"
+    IDS_STRING17494         "Deep-Sea Kraken\n{7UUU}\nCreature - Kraken\nTSP,R\nDeep-Sea Kraken can't be blocked.\rSuspend 9 - {2U}\rWhenever an opponent casts a spell, if Deep-Sea Kraken is suspended, remove a time counter from it.\n6/6"
     IDS_STRING17495         "Duskrider Peregrine\n{5W}\nCreature - Bird\nTSP,U\nFlying, protection from black\rSuspend 3 - {1W}\n3/3"
     IDS_STRING17496         "Errant Ephemeron\n{6U}\nCreature - Illusion\nTSP,C\nFlying\rSuspend 4 - {1U}\n4/4"
     IDS_STRING17497         "Greater Gargadon\n{9R}\nCreature - Beast\nTSP,R\nSuspend 10 - {R}\rSacrifice an artifact, creature, or land: Remove a time counter from Greater Gargadon. Activate this ability only if Greater Gargadon is suspended.\n9/7"

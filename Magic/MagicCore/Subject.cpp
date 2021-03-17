@@ -438,7 +438,7 @@ void CSubjectGatherer::SetDistributeValues(int nMaxDistributedValue, BOOL bFirst
 	m_bDistributeFirstValueOnly = bFirstValueOnly;
 	m_nMaxDistributedValue = nMaxDistributedValue;
 
-	m_nMinSubjectCount = 1;
+	m_nMinSubjectCount = 0;
 	m_nMaxSubjectCount = SpecialNumber::Any;
 }
 
