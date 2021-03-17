@@ -1,0 +1,40 @@
+// Death March
+// Eventide Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 27 (45.00%)
+
+Creakwood Liege (18936)
+2 Desecrator Hag (19039)
+Doomgape (19019)
+2 Hag Hedge-Mage (18974)
+2 Merrow Bonegnawer (19040)
+2 Noxious Hatchling (19001)
+3 Odious Trow (18951)
+2 Quillspike (19028)
+3 Rendclaw Trow (19002)
+2 Roughshod Mentor (18573)
+2 Stalker Hag (18956)
+2 Wickerbough Elder (18995)
+3 Woodlurker Mimic (19041)
+
+// Instants - 3 (5.00%)
+
+Cankerous Thirst (18986)
+2 Viridescent Wisps (18583)
+
+// Sorceries - 4 (6.67%)
+
+Savage Conception (18964)
+2 Soul Reap (19032)
+Syphon Life (18969)
+
+// Enchantments - 2 (3.33%)
+
+2 Gift of the Deity (19038)
+
+// Lands - 24 (40.00%)
+
+12 Forest (18506)
+12 Swamp (18524)

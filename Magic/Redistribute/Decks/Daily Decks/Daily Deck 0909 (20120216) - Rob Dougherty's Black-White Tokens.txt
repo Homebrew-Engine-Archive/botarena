@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+Elspeth Tirel (21433)
+2 Sorin, Lord of Innistrad (23717)
+
+// Creatures - 8 (13.33%)
+
+4 Champion of the Parish (23369)
+4 Doomed Traveler (23423)
+
+// Instants - 4 (6.67%)
+
+4 Midnight Haunting (23430)
+
+// Sorceries - 8 (13.33%)
+
+4 Gather the Townsfolk (23601)
+4 Lingering Souls (23626)
+
+// Enchantments - 11 (18.33%)
+
+4 Honor of the Pure (22239)
+4 Intangible Virtue (23406)
+3 Oblivion Ring (22121)
+
+// Artifacts - 2 (3.33%)
+
+2 Sword of War and Peace (21999)
+
+// Lands - 24 (40.00%)
+
+4 Isolated Chapel (23352)
+4 Plains (23331)
+4 Plains (23332)
+5 Plains (23330)
+Shimmering Grotto (23412)
+Swamp (23334)
+Swamp (23335)
+Swamp (23333)
+3 Vault of the Archangel (23622)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Hero of Bladehold (21706)
+
+// Instants
+
+Divine Offering (21783)
+Doom Blade (22145)
+Go for the Throat (21752)
+2 Revoke Existence (21563)
+2 Surgical Extraction (22003)
+
+// Sorceries
+
+Timely Reinforcements (22315)
+
+// Enchantments
+
+3 Angelic Destiny (22311)

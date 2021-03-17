@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Chandra Nalaar (4209)
+
+// Creatures - 19 (31.67%)
+
+4 Ball Lightning (4180)
+4 Goblin Guide (19456)
+3 Hell's Thunder (8676)
+4 Hellspark Elemental (8896)
+4 Plated Geopede (19345)
+
+// Instants - 12 (20.00%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (4060)
+4 Volcanic Fallout (8860)
+
+// Sorceries - 3 (5.00%)
+
+3 Elemental Appeal (19353)
+
+// Lands - 23 (38.33%)
+
+4 Arid Mesa (19349)
+2 Mountain (19319)
+3 Mountain (19316)
+3 Mountain (19317)
+3 Mountain (19318)
+4 Scalding Tarn (19358)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Goblin Ruinblaster (19457)
+
+// Instants
+
+3 Magma Spray (8735)
+4 Unstable Footing (19535)
+
+// Sorceries
+
+4 Earthquake (4034)

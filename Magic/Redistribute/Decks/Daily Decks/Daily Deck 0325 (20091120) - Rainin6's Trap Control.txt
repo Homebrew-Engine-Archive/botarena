@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 15 (25.00%)
+
+4 Grazing Gladehart (19387)
+3 Iona, Shield of Emeria (19468)
+3 Rampaging Baloths (19342)
+2 Sphinx of Jwar Isle (19378)
+3 Sphinx of Lost Truths (19508)
+
+// Instants - 7 (11.67%)
+
+4 Harrow (19347)
+3 Summoning Trap (19540)
+
+// Sorceries - 6 (10.00%)
+
+4 Day of Judgment (19340)
+2 Rite of Replication (19541)
+
+// Enchantments - 8 (13.33%)
+
+4 Journey to Nowhere (19524)
+4 Khalni Heart Expedition (19516)
+
+// Lands - 24 (40.00%)
+
+3 Arid Mesa (19349)
+Forest (19301)
+Forest (19302)
+Forest (19300)
+3 Graypelt Refuge (19397)
+Island (19308)
+Island (19309)
+4 Misty Rainforest (19356)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+4 Sejiri Refuge (19400)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Devout Lightcaster (19360)
+4 Kor Sanctifiers (19444)
+4 River Boa (19390)
+
+// Instants
+
+2 Spell Pierce (19377)
+
+// Sorceries
+
+Rite of Replication (19541)

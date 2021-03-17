@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Garruk Wildspeaker (18029)
+
+// Creatures - 31 (51.67%)
+
+4 Bramblewood Paragon (18412)
+4 Chameleon Colossus (18361)
+4 Heritage Druid (18307)
+4 Imperious Perfect (17961)
+3 Llanowar Elves (3092)
+4 Nettle Sentinel (18902)
+4 Wolf-Skull Shaman (18395)
+4 Wren's Run Vanquisher (18077)
+
+// Sorceries - 4 (6.67%)
+
+4 Elvish Promenade (18115)
+
+// Artifacts - 2 (3.33%)
+
+2 Coat of Arms (3023)
+
+// Lands - 20 (33.33%)
+
+5 Forest (18507)
+5 Forest (18505)
+5 Forest (18504)
+5 Forest (18506)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Cloudthresher (18015)
+4 Elvish Champion (3041)
+
+// Sorceries
+
+3 Gleeful Sabotage (60442)
+
+// Enchantments
+
+4 Eyes of the Wisent (18136)

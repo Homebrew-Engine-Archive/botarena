@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6,67%)
+
+4 Jace Beleren (4210)
+
+// Creatures - 4 (6,67%)
+
+4 Hedron Crab (19372)
+
+// Instants - 16 (26,67%)
+
+4 Angelsong (8635)
+4 Archive Trap (19529)
+4 Cancel (19346)
+4 Path to Exile (8897)
+
+// Sorceries - 9 (15,00%)
+
+4 Day of Judgment (19340)
+Haunting Echoes (4216)
+4 Mind Funeral (9077)
+
+// Artifacts - 4 (6,67%)
+
+4 Howling Mine (4050)
+
+// Lands - 23 (38,33%)
+
+4 Arcane Sanctum (8534)
+2 Island (19308)
+2 Island (19309)
+2 Island (19310)
+2 Island (19311)
+3 Marsh Flats (19357)
+3 Misty Rainforest (19356)
+Plains (19324)
+Plains (19325)
+2 Reliquary Tower (8844)
+Swamp (19332)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Sphinx of Jwar Isle (19378)
+
+// Instants
+
+4 Spell Pierce (19377)
+
+// Sorceries
+
+Haunting Echoes (4216)
+
+// Enchantments
+
+2 Luminarch Ascension (19527)
+
+// Artifacts
+
+3 Pithing Needle (4081)
+3 Relic of Progenitus (8725)

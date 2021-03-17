@@ -1,0 +1,46 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+2 Accorder Paladin (21710)
+2 Ardent Recruit (21780)
+Gold Myr (21422)
+2 Iron Myr (21423)
+3 Kuldotha Ringleader (21829)
+Leonin Relic-Warder (21737)
+Leonin Skyhunter (21714)
+2 Memnite (21440)
+Myrsmith (21462)
+2 Peace Strider (21700)
+Razorfield Rhino (21711)
+Siege Mastodon (21266)
+2 Signal Pest (21709)
+Silvercoat Lion (21189)
+Victory's Herald (21733)
+
+// Instants - 6 (10.00%)
+
+2 Galvanic Blast (21493)
+3 Master's Call (21707)
+White Sun's Zenith (21767)
+
+// Sorceries - 1 (1.67%)
+
+Concussive Bolt (21794)
+
+// Enchantments - 2 (3.33%)
+
+2 Arrest (21558)
+
+// Artifacts - 4 (6.67%)
+
+2 Origin Spellbomb (21446)
+Viridian Claw (21834)
+Whispersilk Cloak (21312)
+
+// Lands - 24 (40.00%)
+
+4 Mountain (21773)
+4 Mountain (21772)
+8 Plains (21774)
+8 Plains (21775)

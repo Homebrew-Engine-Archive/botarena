@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+4 Blight Mamba (21475)
+4 Cystbearer (21492)
+4 Ichorclaw Myr (21444)
+4 Necropede (21555)
+2 Putrefax (21476)
+
+// Instants - 14 (23.33%)
+
+2 Carrion Call (21487)
+4 Dispel (19630)
+4 Groundswell (19694)
+4 Vines of Vastwood (19435)
+
+// Sorceries - 4 (6.67%)
+
+4 Distortion Strike (20985)
+
+// Lands - 24 (40.00%)
+
+4 Forest (21400)
+4 Forest (21401)
+3 Forest (21403)
+3 Forest (21402)
+Island (21406)
+2 Island (21404)
+2 Island (21405)
+Island (21407)
+4 Misty Rainforest (19356)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Corpse Cur (21519)
+3 Tel-Jilad Fallen (21590)
+
+// Instants
+
+3 Flashfreeze (21133)
+3 Nature's Claim (19662)
+2 Negate (21192)
+
+// Artifacts
+
+2 Contagion Clasp (21430)

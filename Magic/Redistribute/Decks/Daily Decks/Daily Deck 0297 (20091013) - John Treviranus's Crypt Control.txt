@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Architects of Will (9056)
+4 Fleshbag Marauder (8571)
+4 Gatekeeper of Malakir (19442)
+Jhessian Zombies (9033)
+4 Monstrous Carabid (9037)
+2 Vampire Hexmage (19536)
+4 Viscera Dragger (8674)
+
+// Instants - 3 (5.00%)
+
+3 Terminate (9001)
+
+// Sorceries - 12 (20.00%)
+
+2 Banefire (8932)
+4 Consume Spirit (4025)
+Diabolic Tutor (4030)
+Earthquake (4034)
+4 Sign in Blood (4188)
+
+// Lands - 22 (36.67%)
+
+4 Crumbling Necropolis (8553)
+4 Crypt of Agadeem (19449)
+4 Dragonskull Summit (4198)
+Drowned Catacomb (4199)
+Island (19308)
+2 Swamp (19332)
+2 Swamp (19333)
+2 Swamp (19334)
+2 Swamp (19335)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+4 Negate (4016)
+
+// Sorceries
+
+Banefire (8932)
+4 Blightning (8641)
+4 Duress (4033)
+2 Infest (8584)

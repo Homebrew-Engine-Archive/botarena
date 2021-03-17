@@ -1,0 +1,37 @@
+// Starter 2000 Player A
+
+#PRE
+#NO_CARD_LIMIT
+
+// Total cards in deck - 22
+
+// Creatures - 9 (40.91%)
+
+Bog Imp (354)
+Durkwood Boars (20700)
+Goblin Hero (366)
+Mons's Goblin Raiders (20704)
+Moon Sprite (20705)
+Ogre Warrior (20706)
+Scathe Zombies (368)
+Trained Orgg (746)
+Willow Elf (20713)
+
+// Sorceries - 4 (18.18%)
+
+Coercion (440)
+Hand of Death (20716)
+Lava Axe (20717)
+Monstrous Growth (20718)
+
+// Lands - 9 (40.91%)
+
+Forest (300)
+Forest (516)
+Forest (517)
+Mountain (304)
+Mountain (519)
+Mountain (520)
+Swamp (301)
+Swamp (525)
+Swamp (526)

@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Elspeth Tirel (21433)
+
+// Creatures - 15 (25.00%)
+
+4 Blade Splicer (21919)
+4 Blood Artist (24116)
+4 Doomed Traveler (23423)
+3 Restoration Angel (24021)
+
+// Instants - 6 (10.00%)
+
+2 Go for the Throat (21752)
+4 Midnight Haunting (23430)
+
+// Sorceries - 7 (11.67%)
+
+3 Day of Judgment (22116)
+4 Lingering Souls (23626)
+
+// Enchantments - 5 (8.33%)
+
+Honor of the Pure (22239)
+4 Intangible Virtue (23406)
+
+// Lands - 24 (40.00%)
+
+3 Evolving Wilds (23655)
+4 Isolated Chapel (23352)
+4 Plains (24009)
+3 Plains (24011)
+3 Plains (24010)
+2 Swamp (24012)
+2 Swamp (24013)
+Swamp (24014)
+2 Vault of the Archangel (23622)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+Celestial Purge (22242)
+2 Surgical Extraction (22003)
+
+// Sorceries
+
+3 Memoricide (21564)
+2 Revoke Existence (21563)
+3 Timely Reinforcements (22315)
+
+// Enchantments
+
+2 Honor of the Pure (22239)
+
+// Artifacts
+
+Sword of Feast and Famine (21762)
+Sword of War and Peace (21999)

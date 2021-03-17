@@ -1,0 +1,76 @@
+// Total cards in deck - 60
+
+// Creatures - 4 (6.67%)
+
+Elesh Norn, Grand Cenobite (21901)
+Emrakul, the Aeons Torn (20937)
+Iona, Shield of Emeria (19468)
+Ulamog, the Infinite Gyre (20932)
+
+// Instants - 18 (30.00%)
+
+Condescend (15497)
+4 Gifts Ungiven (15799)
+4 Path to Exile (8897)
+4 Remand (16443)
+Repeal (16793)
+4 Thirst for Knowledge (15016)
+
+// Sorceries - 4 (6.67%)
+
+Day of Judgment (22116)
+Timely Reinforcements (22315)
+Unburial Rites (23399)
+Wrath of God (3200)
+
+// Enchantments - 1 (1.67%)
+
+Oblivion Ring (22121)
+
+// Artifacts - 8 (13.33%)
+
+4 Azorius Signet (23875)
+3 Expedition Map (19393)
+Talisman of Progress (14955)
+
+// Lands - 25 (41.67%)
+
+4 Celestial Colonnade (19602)
+Eye of Ugin (19681)
+3 Hallowed Fountain (23841)
+Island (23324)
+3 Seachrome Coast (21459)
+Tolaria West (17751)
+4 Urza's Mine (2236)
+4 Urza's Power Plant (2237)
+4 Urza's Tower (2238)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Ethersworn Canonist (8728)
+Wurmcoil Engine (21439)
+
+// Instants
+
+2 Celestial Purge (22242)
+Disenchant (17240)
+2 Dispel (19630)
+Negate (22135)
+Pact of Negation (17790)
+
+// Sorceries
+
+2 Timely Reinforcements (22315)
+
+// Enchantments
+
+Ghostly Prison (15826)
+Rule of Law (3229)
+
+// Artifacts
+
+2 Grafdigger's Cage (23727)

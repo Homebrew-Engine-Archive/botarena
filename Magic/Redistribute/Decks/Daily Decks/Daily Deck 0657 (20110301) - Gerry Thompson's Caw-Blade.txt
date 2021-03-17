@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 7 (11.67%)
+
+3 Gideon Jura (20966)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+4 Squadron Hawk (21218)
+4 Stoneforge Mystic (19638)
+
+// Instants - 8 (13.33%)
+
+3 Lightning Bolt (21124)
+2 Mana Leak (21214)
+3 Spell Pierce (19377)
+
+// Sorceries - 8 (13.33%)
+
+4 Day of Judgment (21263)
+4 Preordain (21152)
+
+// Artifacts - 2 (3.33%)
+
+Sword of Body and Mind (21420)
+Sword of Feast and Famine (21762)
+
+// Lands - 27 (45.00%)
+
+4 Arid Mesa (19349)
+3 Celestial Colonnade (19602)
+2 Evolving Wilds (20905)
+2 Glacial Fortress (21128)
+2 Island (21770)
+Island (21771)
+2 Mountain (21772)
+Mountain (21773)
+2 Plains (21775)
+2 Plains (21774)
+3 Scalding Tarn (19358)
+3 Seachrome Coast (21459)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Cunning Sparkmage (19608)
+Inferno Titan (21321)
+Sun Titan (21161)
+
+// Instants
+
+Dispel (19630)
+3 Divine Offering (21783)
+4 Flashfreeze (21133)
+
+// Artifacts
+
+Basilisk Collar (19687)

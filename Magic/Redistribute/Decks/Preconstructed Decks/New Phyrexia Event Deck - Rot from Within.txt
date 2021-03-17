@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 19 (31.67%)
+
+Blight Mamba (21475)
+4 Glistener Elf (21962)
+2 Ichorclaw Myr (21444)
+4 Overgrown Battlement (20890)
+2 Putrefax (21476)
+3 Rot Wolf (21828)
+3 Viridian Corrupter (21719)
+
+// Instants - 16 (26.67%)
+
+4 Carrion Call (21487)
+4 Groundswell (19694)
+4 Mutagenic Growth (21964)
+4 Primal Bellow (19504)
+
+// Sorceries - 1 (1.67%)
+
+Green Sun's Zenith (21720)
+
+// Artifacts - 1 (1.67%)
+
+Contagion Clasp (21430)
+
+// Lands - 23 (38.33%)
+
+11 Forest (21972)
+11 Forest (21973)
+Inkmoth Nexus (21745)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Melira, Sylvok Outcast (22006)
+2 Obstinate Baloth (21217)
+Viridian Corrupter (21719)
+
+// Instants
+
+Pistus Strike (21823)
+2 Unnatural Predation (21810)
+2 Vines of Vastwood (19435)
+
+// Artifacts
+
+3 Contagion Clasp (21430)
+3 Trigon of Infestation (21448)

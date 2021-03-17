@@ -1,0 +1,262 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Weatherlight.ico"
+IDI_LARGE_MODULE        ICON                    "WeatherlightLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Weatherlight"
+    IDS_EXPANSION_ABBREV    "WTH"
+    IDS_FIRST_CARD          "9800"
+    IDS_TOTAL_CARD          "167"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "9967"
+    IDS_MODULE_LARGE_ICON_ID "9968"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "09-06-1997"
+    IDS_MWS_FOLDER          "MWS\\WTH\\"
+    IDS_PRODUCT_LIST        """Weatherlight Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9800          "Rogue Elephant\n{G}\nCreature - Elephant\nWTH,C\nWhen Rogue Elephant enters the battlefield, sacrifice it unless you sacrifice a Forest.\n3/3"
+    IDS_STRING9801          "Abduction\n{2UU}\nEnchantment - Aura\nWTH,U\nEnchant creature\rWhen Abduction enters the battlefield, untap enchanted creature.\rYou control enchanted creature.\rWhen enchanted creature dies, return that card to the battlefield under its owner's control."
+    IDS_STRING9802          "AEther Flash\n{2RR}\nEnchantment\nWTH,U\nWhenever a creature enters the battlefield, Æther Flash deals 2 damage to it."
+    IDS_STRING9803          "Agonizing Memories\n{2BB}\nSorcery\nWTH,U\nLook at target player's hand and choose two cards from it. Put them on top of that player's library in any order."
+    IDS_STRING9804          "Ardent Militia\n{4W}\nCreature - Human Soldier\nWTH,C\nVigilance\n2/5"
+    IDS_STRING9805          "Aura of Silence\n{1WW}\nEnchantment\nWTH,U\nArtifact and enchantment spells your opponents cast cost {2} more to cast.\rSacrifice Aura of Silence: Destroy target artifact or enchantment."
+    IDS_STRING9806          "Benalish Knight\n{2W}\nCreature - Human Knight\nWTH,C\nFlash\rFirst strike\n2/2"
+    IDS_STRING9807          "Bloodrock Cyclops\n{2R}\nCreature - Cyclops\nWTH,C\nBloodrock Cyclops attacks each turn if able.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9808          "Bogardan Firefiend\n{2R}\nCreature - Elemental Spirit\nWTH,C\nWhen Bogardan Firefiend dies, it deals 2 damage to target creature.\n2/1"
+    IDS_STRING9809          "Call of the Wild\n{2GG}\nEnchantment\nWTH,R\n{2GG}: Reveal the top card of your library. If it's a creature card, put it onto the battlefield. Otherwise, put it into your graveyard."
+    IDS_STRING9810          "Cinder Wall\n{R}\nCreature - Wall\nWTH,C\nDefender\rWhen Cinder Wall blocks, destroy it at end of combat.\n3/3"
+    IDS_STRING9811          "Dense Foliage\n{2G}\nEnchantment\nWTH,R\nCreatures can't be the targets of spells."
+    IDS_STRING9812          "Doomsday\n{BBB}\nSorcery\nWTH,R\nSearch your library and graveyard for five cards and exile the rest. Put the chosen cards on top of your library in any order. You lose half your life, rounded up."
+    IDS_STRING9813          "Familiar Ground\n{2G}\nEnchantment\nWTH,U\nEach creature you control can't be blocked by more than one creature."
+    IDS_STRING9814          "Fatal Blow\n{B}\nInstant\nWTH,C\nDestroy target creature that was dealt damage this turn. It can't be regenerated."
+    IDS_STRING9815          "Fervor\n{2R}\nEnchantment\nWTH,R\nCreatures you control have haste."
+    IDS_STRING9816          "Fit of Rage\n{1R}\nSorcery\nWTH,C\nTarget creature gets +3/+3 and gains first strike until end of turn."
+    IDS_STRING9817          "Fog Elemental\n{2U}\nCreature - Elemental\nWTH,C\nFlying\rWhen Fog Elemental attacks or blocks, sacrifice it at end of combat.\n4/4"
+    IDS_STRING9818          "Gerrard's Wisdom\n{2WW}\nSorcery\nWTH,U\nYou gain 2 life for each card in your hand."
+    IDS_STRING9819          "Heavy Ballista\n{3W}\nCreature - Human Soldier\nWTH,C\n{T}: Heavy Ballista deals 2 damage to target attacking or blocking creature.\n2/3"
+    IDS_STRING9820          "Hidden Horror\n{1BB}\nCreature - Horror\nWTH,U\nWhen Hidden Horror enters the battlefield, sacrifice it unless you discard a creature card.\n4/4"
+    IDS_STRING9821          "Lava Hounds\n{2RR}\nCreature - Hound\nWTH,U\nHaste\rWhen Lava Hounds enters the battlefield, it deals 4 damage to you.\n4/4"
+    IDS_STRING9822          "Llanowar Behemoth\n{3GG}\nCreature - Elemental\nWTH,U\nTap an untapped creature you control: Llanowar Behemoth gets +1/+1 until end of turn.\n4/4"
+    IDS_STRING9823          "Mind Stone\n{2}\nArtifact\nWTH,C\n{T}: Add {1} to your mana pool.\r{1}, {T}, Sacrifice Mind Stone: Draw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9824          "Mischievous Poltergeist\n{2B}\nCreature - Spirit\nWTH,U\nFlying\rPay 1 life: Regenerate Mischievous Poltergeist.\n1/1"
+    IDS_STRING9825          "Nature's Resurgence\n{2GG}\nSorcery\nWTH,R\nEach player draws a card for each creature card in his or her graveyard."
+    IDS_STRING9826          "Phantom Warrior\n{1UU}\nCreature - Illusion Warrior\nWTH,U\nPhantom Warrior is unblockable.\n2/2"
+    IDS_STRING9827          "Razortooth Rats\n{2B}\nCreature - Rat\nWTH,C\nFear\n2/1"
+    IDS_STRING9828          "Redwood Treefolk\n{4G}\nCreature - Treefolk\nWTH,C\n\n3/6"
+    IDS_STRING9829          "Relearn\n{1UU}\nSorcery\nWTH,U\nReturn target instant or sorcery card from your graveyard to your hand."
+    IDS_STRING9830          "Sage Owl\n{1U}\nCreature - Bird\nWTH,C\nFlying\rWhen Sage Owl enters the battlefield, look at the top four cards of your library, then put them back in any order.\n1/1"
+    IDS_STRING9831          "Serenity\n{1W}\nEnchantment\nWTH,R\nAt the beginning of your upkeep, destroy all artifacts and enchantments. They can't be regenerated."
+    IDS_STRING9832          "Serra's Blessing\n{1W}\nEnchantment\nWTH,U\nCreatures you control have vigilance."
+    IDS_STRING9833          "Southern Paladin\n{2WW}\nCreature - Human Knight\nWTH,R\n{WW}, {T}: Destroy target red permanent.\n3/3"
+    IDS_STRING9834          "Steel Golem\n{3}\nArtifact Creature - Golem\nWTH,U\nYou can't cast creature spells.\n3/4"
+    IDS_STRING9835          "Strands of Night\n{2BB}\nEnchantment\nWTH,U\n{BB}, Pay 2 life, Sacrifice a Swamp: Return target creature card from your graveyard to the battlefield."
+    IDS_STRING9836          "Tariff\n{1W}\nSorcery\nWTH,R\nEach player sacrifices the creature he or she controls with the highest converted mana cost unless he or she pays that creature's mana cost. If two creatures a player controls are tied for highest cost, that player chooses one."
+    IDS_STRING9837          "Thundermare\n{5R}\nCreature - Elemental Horse\nWTH,R\nHaste\rWhen Thundermare enters the battlefield, tap all other creatures.\n5/5"
+    IDS_STRING9838          "Tranquil Grove\n{1G}\nEnchantment\nWTH,R\n{1GG}: Destroy all other enchantments."
+    IDS_STRING9839          "Vitalize\n{G}\nInstant\nWTH,C\nUntap all creatures you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9840          "Llanowar Sentinel\n{2G}\nCreature - Elf\nWTH,C\nWhen Llanowar Sentinel enters the battlefield, you may pay {1G}. If you do, search your library for a card named Llanowar Sentinel and put that card onto the battlefield. Then shuffle your library.\n2/3"
+    IDS_STRING9841          "Null Rod\n{2}\nArtifact\nWTH,R\nActivated abilities of artifacts can't be activated."
+    IDS_STRING9842          "Argivian Find\n{W}\nInstant\nWTH,U\nReturn target artifact or enchantment card from your graveyard to your hand."
+    IDS_STRING9843          "Argivian Restoration\n{2UU}\nSorcery\nWTH,U\nReturn target artifact card from your graveyard to the battlefield."
+    IDS_STRING9844          "Cloud Djinn\n{5U}\nCreature - Djinn\nWTH,U\nFlying\rCloud Djinn can block only creatures with flying.\n5/4"
+    IDS_STRING9845          "Dingus Staff\n{4}\nArtifact\nWTH,U\nWhenever a creature dies, Dingus Staff deals 2 damage to that creature's controller."
+    IDS_STRING9846          "Disrupt\n{U}\nInstant\nWTH\nCounter target instant or sorcery spell unless its controller pays {1}.\rDraw a card."
+    IDS_STRING9847          "Duskrider Falcon\n{1W}\nCreature - Bird\nWTH\nFlying\rProtection from black\n1/1"
+    IDS_STRING9848          "Fallow Wurm\n{2G}\nCreature - Wurm\nWTH,U\nWhen Fallow Wurm enters the battlefield, sacrifice it unless you discard a land card.\n4/4"
+    IDS_STRING9849          "Foriysian Brigade\n{3W}\nCreature - Human Soldier\nWTH,U\nForiysian Brigade can block an additional creature.\n2/4"
+    IDS_STRING9850          "Guided Strike\n{1W}\nInstant\nWTH\nTarget creature gets +1/+0 and gains first strike until end of turn."
+    IDS_STRING9851          "Harvest Wurm\n{1G}\nCreature - Wurm\nWTH\nWhen Harvest Wurm enters the battlefield, sacrifice it unless you return a basic land card from your graveyard to your hand.\n3/2"
+    IDS_STRING9852          "Infernal Tribute\n{BBB}\nEnchantment\nWTH,R\n{2}, Sacrifice a nontoken permanent: Draw a card."
+    IDS_STRING9853          "Odylic Wraith\n{3B}\nCreature - Wraith\nWTH,U\nSwampwalk\rWhenever Odylic Wraith deals damage to a player, that player discards a card.\n2/2"
+    IDS_STRING9854          "Peacekeeper\n{2W}\nCreature - Human\nWTH,R\nAt the beginning of your upkeep, sacrifice Peacekeeper unless you pay {1W}.\rCreatures can't attack.\n1/1"
+    IDS_STRING9855          "Striped Bears\n{3G}\nCreature - Bears\nWTH\nWhen Striped Bears enters the battlefield, draw a card.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9856          "Tendrils of Despair\n{B}\nSorcery\nWTH\nAs an additional cost to cast Tendrils of Despair, sacrifice a creature.\rTarget opponent discards two cards."
+    IDS_STRING9857          "Thunderbolt\n{1R}\nInstant\nWTH\nChoose one - Thunderbolt deals 3 damage to target player; or Thunderbolt deals 4 damage to target creature with flying."
+    IDS_STRING9858          "Timid Drake\n{2U}\nCreature - Drake\nWTH,U\nFlying\rWhen another creature enters the battlefield, return Timid Drake to its owner's hand.\n3/3"
+    IDS_STRING9859          "Buried Alive\n{2B}\nSorcery\nWTH,U\nSearch your library for up to three creature cards and put them into your graveyard. Then shuffle your library."
+    IDS_STRING9860          "Gemstone Mine\n\nLand\nWTH,U\nGemstone Mine enters the battlefield with three mining counters on it.\r{T}, Remove a mining counter from Gemstone Mine: Add one mana of any color to your mana pool. If there are no mining counters on Gemstone Mine, sacrifice it."
+    IDS_STRING9861          "Alabaster Dragon\n{4WW}\nCreature - Dragon\nWTH,R\nFlying\rWhen Alabaster Dragon dies, shuffle it into its owner's library.\n4/4"
+    IDS_STRING9862          "Paradigm Shift\n{1U}\nSorcery\nWTH,R\nExile all cards from your library. Then shuffle your graveyard into your library."
+    IDS_STRING9863          "Abyssal Gatekeeper\n{1B}\nCreature - Horror\nWTH,C\nWhen Abyssal Gatekeeper dies, each player sacrifices a creature.\n1/1"
+    IDS_STRING9864          "Benalish Missionary\n{W}\nCreature - Human Cleric\nWTH,C\n{1W}, {T}: Prevent all combat damage that would be dealt by target blocked creature this turn.\n1/1"
+    IDS_STRING9865          "Cinder Giant\n{3R}\nCreature - Giant\nWTH,U\nAt the beginning of your upkeep, Cinder Giant deals 2 damage to each other creature you control.\n5/3"
+    IDS_STRING9866          "Dwarven Berserker\n{1R}\nCreature - Dwarf Berserker\nWTH,C\nWhenever Dwarven Berserker becomes blocked, it gets +3/+0 and gains trample until end of turn.\n1/1"
+    IDS_STRING9867          "Fledgling Djinn\n{1B}\nCreature - Djinn\nWTH,C\nFlying\rAt the beginning of your upkeep, Fledgling Djinn deals 1 damage to you.\n2/2"
+    IDS_STRING9868          "Hurloon Shaman\n{1RR}\nCreature - Minotaur Shaman\nWTH,U\nWhen Hurloon Shaman dies, each player sacrifices a land.\n2/3"
+    IDS_STRING9869          "Manta Ray\n{1UU}\nCreature - Fish\nWTH,C\nManta Ray can't attack unless defending player controls an Island.\rManta Ray can't be blocked except by blue creatures.\rWhen you control no Islands, sacrifice Manta Ray.\n3/3"
+    IDS_STRING9870          "Maraxus of Keld\n{4RR}\nLegendary Creature - Human Warrior\nWTH,R\nMaraxus of Keld's power and toughness are each equal to the number of untapped artifacts, creatures, and lands you control.\n*/*"
+    IDS_STRING9871          "Noble Benefactor\n{2U}\nCreature - Human Cleric\nWTH,U\nWhen Noble Benefactor dies, each player may search his or her library for a card and put that card into his or her hand. Then each player who searched his or her library this way shuffles it.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9872          "Orcish Settlers\n{1R}\nCreature - Orc\nWTH,U\n{XXR}, {T}, Sacrifice Orcish Settlers: Destroy X target lands.\n1/1"
+    IDS_STRING9873          "Soul Shepherd\n{1W}\nCreature - Human Cleric\nWTH,C\n{W}, Exile a creature card from your graveyard: You gain 1 life.\n2/1"
+    IDS_STRING9874          "Tolarian Serpent\n{5UU}\nCreature - Serpent\nWTH,R\nAt the beginning of your upkeep, put the top seven cards of your library into your graveyard.\n7/7"
+    IDS_STRING9875          "Veteran Explorer\n{G}\nCreature - Human Soldier Scout\nWTH,U\nWhen Veteran Explorer dies, each player may search his or her library for up to two basic land cards and put them onto the battlefield. Then each player who searched his or her library this way shuffles it.\n1/1"
+    IDS_STRING9876          "Jangling Automaton\n{3}\nArtifact Creature - Construct\nWTH,C\nWhenever Jangling Automaton attacks, untap all creatures defending player controls.\n3/2"
+    IDS_STRING9877          "Straw Golem\n{1}\nArtifact Creature - Golem\nWTH,U\nWhen an opponent casts a creature spell, sacrifice Straw Golem.\n2/3"
+    IDS_STRING9878          "Bubble Matrix\n{4}\nArtifact\nWTH,R\nPrevent all damage that would be dealt to creatures."
+    IDS_STRING9879          "Touchstone\n{2}\nArtifact\nWTH,U\n{T}: Tap target artifact you don't control."
+    IDS_STRING9880          "Downdraft\n{2G}\nEnchantment\nWTH,U\n{G}: Target creature loses flying until end of turn.\rSacrifice Downdraft: Downdraft deals 2 damage to each creature with flying."
+    IDS_STRING9881          "Empyrial Armor\n{1WW}\nEnchantment - Aura\nWTH,C\nEnchant creature\rEnchanted creature gets +1/+1 for each card in your hand."
+    IDS_STRING9882          "Festering Evil\n{3BB}\nEnchantment\nWTH,U\nAt the beginning of your upkeep, Festering Evil deals 1 damage to each creature and each player.\r{BB}, Sacrifice Festering Evil: Festering Evil deals 3 damage to each creature and each player."
+    IDS_STRING9883          "Fire Whip\n{1R}\nEnchantment - Aura\nWTH,C\nEnchant creature you control\rEnchanted creature has ""{T}: This creature deals 1 damage to target creature or player.""\rSacrifice Fire Whip: Fire Whip deals 1 damage to target creature or player."
+    IDS_STRING9884          "Heat Stroke\n{2R}\nEnchantment\nWTH,R\nAt end of combat, destroy each creature that blocked or was blocked this turn."
+    IDS_STRING9885          "Abjure\n{U}\nInstant\nWTH,C\nAs an additional cost to cast Abjure, sacrifice a blue permanent.\rCounter target spell."
+    IDS_STRING9886          "Blossoming Wreath\n{G}\nInstant\nWTH,C\nYou gain life equal to the number of creature cards in your graveyard."
+    IDS_STRING9887          "Boiling Blood\n{2R}\nInstant\nWTH,C\nTarget creature attacks this turn if able.\rDraw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9888          "Lava Storm\n{3RR}\nInstant\nWTH,C\nLava Storm deals 2 damage to each attacking creature or Lava Storm deals 2 damage to each blocking creature."
+    IDS_STRING9889          "Xanthic Statue\n{8}\nArtifact\nWTH,R\n{5}: Until end of turn, Xanthic Statue becomes an 8/8 Golem artifact creature with trample."
+    IDS_STRING9890          "Chimeric Sphere\n{3}\nArtifact\nWTH,U\n{2}: Until end of turn, Chimeric Sphere becomes a 2/1 Construct artifact creature with flying.\r{2}: Until end of turn, Chimeric Sphere becomes a 3/2 Construct artifact creature without flying."
+    IDS_STRING9891          "Merfolk Traders\n{1U}\nCreature - Merfolk\nWTH,C\nWhen Merfolk Traders enters the battlefield, draw a card, then discard a card.\n1/2"
+    IDS_STRING9892          "Gaea's Blessing\n{1G}\nSorcery\nWTH,U\nTarget player shuffles up to three target cards from his or her graveyard into his or her library.\rDraw a card.\rWhen Gaea's Blessing is put into your graveyard from your library, shuffle your graveyard into your library."
+    IDS_STRING9893          "Phyrexian Furnace\n{1}\nArtifact\nWTH,U\n{T}: Exile the bottom card of target player's graveyard.\r{1}, Sacrifice Phyrexian Furnace: Exile target card from a graveyard. Draw a card."
+    IDS_STRING9894          "Serrated Biskelion\n{3}\nArtifact Creature - Construct\nWTH,U\n{T}: Put a -1/-1 counter on Serrated Biskelion and a -1/-1 counter on target creature.\n2/2"
+    IDS_STRING9895          "Avizoa\n{3U}\nCreature - Jellyfish\nWTH,R\nFlying\r{0}: Avizoa gets +2/+2 until end of turn. You skip your next untap step. Activate this ability only once each turn.\n2/2"
+    IDS_STRING9896          "Llanowar Druid\n{1G}\nCreature - Elf Druid\nWTH,C\n{T}, Sacrifice Llanowar Druid: Untap all Forests.\n1/2"
+    IDS_STRING9897          "Thran Forge\n{3}\nArtifact\nWTH,U\n{2}: Until end of turn, target nonartifact creature gets +1/+0 and becomes an artifact in addition to its other types."
+    IDS_STRING9898          "Shadow Rider\n{2BB}\nCreature - Zombie Knight\nWTH,C\nFlanking\n3/3"
+    IDS_STRING9899          "Sylvan Hierophant\n{1G}\nCreature - Human Cleric\nWTH,U\nWhen Sylvan Hierophant dies, exile Sylvan Hierophant, then return another target creature card from your graveyard to your hand.\n1/2"
+    IDS_STRING9900          "Shattered Crypt\n{XBB}\nSorcery\nWTH,C\nReturn X target creature cards from your graveyard to your hand. You lose X life."
+    IDS_STRING9901          "Phantom Wings\n{1U}\nEnchantment - Aura\nWTH,C\nEnchant creature\rEnchanted creature has flying.\rSacrifice Phantom Wings: Return enchanted creature to its owner's hand."
+    IDS_STRING9902          "Dwarven Thaumaturgist\n{2R}\nCreature - Dwarf Shaman\nWTH,R\n{T}: Switch target creature's power and toughness until end of turn.\n1/2"
+    IDS_STRING9903          "Pendrell Mists\n{3U}\nEnchantment\nWTH,R\nAll creatures have ""At the beginning of your upkeep, sacrifice this creature unless you pay {1}."""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9904          "Lotus Vale\n\nLand\nWTH,R\nIf Lotus Vale would enter the battlefield, sacrifice two untapped lands instead. If you do, put Lotus Vale onto the battlefield. If you don't, put it into its owner's graveyard.\r{T}: Add three mana of any one color to your mana pool."
+    IDS_STRING9905          "Scorched Ruins\n\nLand\nWTH,R\nIf Scorched Ruins would enter the battlefield, sacrifice two untapped lands instead. If you do, put Scorched Ruins onto the battlefield. If you don't, put it into its owner's graveyard.\r {T}: Add {4} to your mana pool."
+    IDS_STRING9906          "Winding Canyons\n\nLand\nWTH,R\n{T}: Add {1} to your mana pool.\r{2}, {T}: Until end of turn, you may play creature cards as though they had flash."
+    IDS_STRING9907          "Gallowbraid\n{3BB}\nLegendary Creature - Horror\nWTH,R\nTrample\rCumulative upkeep-Pay 1 life.\n5/5"
+    IDS_STRING9908          "Uktabi Efreet\n{2GG}\nCreature - Efreet\nWTH,C\nCumulative upkeep {G}\n5/4"
+    IDS_STRING9909          "Morinfen\n{3BB}\nLegendary Creature - Horror\nWTH,R\nFlying\rCumulative upkeep-Pay 1 life.\n5/4"
+    IDS_STRING9910          "Arctic Wolves\n{3GG}\nCreature - Wolf\nWTH,U\nCumulative upkeep {2}\rWhen Arctic Wolves enters the battlefield, draw a card.\n4/5"
+    IDS_STRING9911          "Inner Sanctum\n{1WW}\nEnchantment\nWTH,R\nCumulative upkeep - Pay 2 life.\rPrevent all damage that would be dealt to creatures you control."
+    IDS_STRING9912          "Briar Shield\n{G}\nEnchantment - Aura\nWTH\nEnchant creature\rEnchanted creature gets +1/+1.\rSacrifice Briar Shield: Enchanted creature gets +3/+3 until end of turn."
+    IDS_STRING9913          "Apathy\n{U}\nEnchantment - Aura\nWTH,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step.\rAt the beginning of the upkeep of enchanted creature's controller, that player may discard a card at random. If he or she does, untap that creature."
+    IDS_STRING9914          "Barishi\n{2GG}\nCreature - Elemental\nWTH,U\nWhen Barishi dies, exile Barishi, then shuffle all creature cards from your graveyard into your library.\n4/3"
+    IDS_STRING9915          "Haunting Misery\n{1BB}\nSorcery\nWTH\nAs an additional cost to cast Haunting Misery, exile X creature cards from your graveyard.\rHaunting Misery deals X damage to target player."
+    IDS_STRING9916          "Abeyance\n{1W}\nInstant\nWTH,R\nUntil end of turn, target player can't cast instant or sorcery spells, and that player can't activate abilities that aren't mana abilities.\rDraw a card."
+    IDS_STRING9917          "Master of Arms\n{2W}\nCreature - Human Soldier\nWTH,U\nFirst strike\r{1W}: Tap target creature blocking Master of Arms.\n2/2"
+    IDS_STRING9918          "Tolarian Drake\n{2U}\nCreature - Drake\nWTH,C\nFlying\rPhasing\n2/4"
+    IDS_STRING9919          "Mwonvuli Ooze\n{G}\nCreature - Ooze\nWTH,R\nCumulative upkeep {2}\rMwonvuli Ooze's power and toughness are each equal to 1 plus twice the number of age counters on it.\n1+*/1+*"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9920          "Fungus Elemental\n{3G}\nCreature - Fungus Elemental\nWTH,R\n{G}, Sacrifice a Forest: Put a +2/+2 counter on Fungus Elemental. Activate this ability only if Fungus Elemental entered the battlefield this turn.\n3/3"
+    IDS_STRING9921          "Roc Hatchling\n{R}\nCreature - Bird\nWTH,U\nRoc Hatchling enters the battlefield with four shell counters on it.\rAt the beginning of your upkeep, remove a shell counter from Roc Hatchling.\rAs long as Roc Hatchling has no shell counters on it, it gets +3/+2 and has flying.\n0/1"
+    IDS_STRING9922          "Angelic Renewal\n{1W}\nEnchantment\nWTH,C\nWhenever a creature is put into your graveyard from the battlefield, you may sacrifice Angelic Renewal. If you do, return that card to the battlefield."
+    IDS_STRING9923          "Mistmoon Griffin\n{3W}\nCreature - Griffin\nWTH,U\nFlying\rWhen Mistmoon Griffin dies, exile Mistmoon Griffin, then return the top creature card of your graveyard to the battlefield.\n2/2"
+    IDS_STRING9924          "Goblin Bomb\n{1R}\nEnchantment\nWTH,R\nAt the beginning of your upkeep, you may flip a coin. If you win the flip, put a fuse counter on Goblin Bomb. If you lose the flip, remove a fuse counter from Goblin Bomb.\rRemove five fuse counters from Goblin Bomb, Sacrifice Goblin Bomb: Goblin Bomb deals 20 damage to target player."
+    IDS_STRING9925          "Aboroth\n{4GG}\nCreature - Elemental\nWTH,R\nCumulative upkeep-Put a -1/-1 counter on Aboroth.\n9/9"
+    IDS_STRING9926          "Ancestral Knowledge\n{1U}\nEnchantment\nWTH,R\nCumulative upkeep {1}\rWhen Ancestral Knowledge enters the battlefield, look at the top ten cards of your library, then exile any number of them and put the rest back on top of your library in any order.\rWhen Ancestral Knowledge leaves the battlefield, shuffle your library."
+    IDS_STRING9927          "Psychic Vortex\n{2UU}\nEnchantment\nWTH,R\nCumulative upkeep-Draw a card.\rAt the beginning of your end step, sacrifice a land and discard your hand."
+    IDS_STRING9928          "Wave of Terror\n{2B}\nEnchantment\nWTH,R\nCumulative upkeep {1}\rAt the beginning of your draw step, destroy each creature with converted mana cost equal to the number of age counters on Wave of Terror. They can't be regenerated."
+    IDS_STRING9929          "Betrothed of Fire\n{1R}\nEnchantment - Aura\nWTH,C\nSacrifice an untapped creature: Enchanted creature gets +2/+0 until end of turn.\rSacrifice enchanted creature: Creatures you control get +2/+0 until end of turn. "
+    IDS_STRING9930          "Flux\n{2U}\nSorcery\nWTH,C\nEach player discards any number of cards, then draws that many cards.\rDraw a card."
+    IDS_STRING9931          "Thran Tome\n{4}\nArtifact\nWTH,R\n{5}, {T}: Reveal the top three cards of your library. Target opponent chooses one of those cards. Put that card into your graveyard, then draw two cards."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,41 @@
+// Army of Justice
+// 9th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 17 (42.50%)
+
+3 Angel of Mercy (2005)
+Ballista Squad (2290)
+3 Crossbow Infantry (2030)
+Infantry Veteran (2086)
+2 Master Decoy (2103)
+Phyrexian Hulk (2127)
+Skyhunter Prowler (2221)
+2 Suntail Hawk (2179)
+Venerable Monk (2195)
+2 Veteran Cavalier (2224)
+
+// Instants - 3 (7.50%)
+
+Chastise (2020)
+Mending Hands (2260)
+Righteousness (2275)
+
+// Enchantments - 3 (7.50%)
+
+Glorious Anthem (2067)
+2 Pacifism (2122)
+
+// Artifacts - 1 (2.50%)
+
+Angel's Feather (2278)
+
+// Lands - 16 (40.00%)
+
+4 Plains (2130)
+4 Plains (2131)
+4 Plains (2132)
+4 Plains (2133)

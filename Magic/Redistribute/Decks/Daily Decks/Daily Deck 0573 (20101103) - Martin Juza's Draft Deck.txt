@@ -1,0 +1,40 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 13 (32.50%)
+
+2 Blackcleave Goblin (21488)
+3 Contagious Nim (21489)
+Corpse Cur (21519)
+Cystbearer (21492)
+Fume Spitter (21574)
+2 Hand of the Praetors (21468)
+Ichor Rats (21426)
+Ichorclaw Myr (21444)
+Plague Stinger (21431)
+
+// Instants - 1 (2.50%)
+
+Instill Infection (21504)
+
+// Artifacts - 8 (20.00%)
+
+2 Contagion Clasp (21430)
+Darksteel Axe (21451)
+Infiltration Lens (21511)
+Sylvok Lifestaff (21557)
+Throne of Geth (21436)
+Trigon of Corruption (21552)
+Trigon of Infestation (21448)
+
+// Lands - 18 (45.00%)
+
+2 Forest (21400)
+Forest (21403)
+Forest (21401)
+Forest (21402)
+3 Swamp (21419)
+4 Swamp (21416)
+3 Swamp (21417)
+3 Swamp (21418)

@@ -1,0 +1,76 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+4 Dark Confidant (16449)
+4 Vampire Hexmage (19536)
+
+// Instants - 8 (13.33%)
+
+Boomerang (3018)
+4 Muddle the Mixture (16559)
+Slaughter Pact (17789)
+Smother (19600)
+Thirst for Knowledge (15016)
+
+// Sorceries - 8 (13.33%)
+
+3 Compulsive Research (16605)
+Rite of Consumption (18697)
+4 Thoughtseize (17901)
+
+// Artifacts - 10 (16.67%)
+
+4 Chrome Mox (15001)
+Engineered Explosives (15510)
+2 Sword of the Meek (17784)
+3 Thopter Foundry (9062)
+
+// Lands - 24 (40.00%)
+
+Academy Ruins (17277)
+4 Dark Depths (7073)
+Island (19310)
+Island (19309)
+Island (19308)
+4 River of Tears (17780)
+4 Sunken Ruins (18580)
+Swamp (19332)
+Swamp (19333)
+2 Tolaria West (17751)
+4 Urborg, Tomb of Yawgmoth (2606)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Jace, the Mind Sculptor (19670)
+
+// Creatures
+
+Gatekeeper of Malakir (19442)
+
+// Instants
+
+Darkblast (16596)
+3 Extirpate (2594)
+
+// Sorceries
+
+2 Damnation (2505)
+3 Deathmark (4028)
+2 Duress (4033)
+
+// Artifacts
+
+Chalice of the Void (15015)
+
+// Lands
+
+Ghost Quarter (23829)

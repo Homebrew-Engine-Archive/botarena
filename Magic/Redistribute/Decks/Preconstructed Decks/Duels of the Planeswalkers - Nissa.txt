@@ -1,0 +1,49 @@
+// Nissa
+// Duels of the Planeswalkers
+
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+Drove of Elves (18538)
+2 Elven Riders (3039)
+Elvish Champion (3041)
+3 Elvish Eulogist (17936)
+2 Elvish Visionary (4181)
+3 Elvish Warrior (18301)
+Gaea's Herald (3058)
+Greenweaver Druid (19388)
+Immaculate Magistrate (18086)
+Imperious Perfect (17961)
+Jagged-Scar Archers (17963)
+Lys Alana Huntmaster (17973)
+2 Moonglove Winnower (17979)
+Talara's Battalion (19030)
+
+// Instants - 8 (13.33%)
+
+3 Eyeblight's Ending (18076)
+4 Giant Growth (4044)
+Naturalize (4074)
+
+// Sorceries - 4 (6.67%)
+
+Elvish Promenade (18115)
+2 Essence Drain (3260)
+Nature's Spiral (4006)
+
+// Artifacts - 3 (5.00%)
+
+Coat of Arms (4024)
+2 Wurm's Tooth (4122)
+
+// Lands - 24 (40.00%)
+
+4 Forest (19301)
+4 Forest (19300)
+4 Forest (19303)
+4 Forest (19302)
+2 Swamp (19332)
+2 Swamp (19333)
+2 Swamp (19334)
+2 Swamp (19335)

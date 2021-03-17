@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Instants - 26 (43.33%)
+
+4 Brainstorm (11610)
+3 Counterspell (760)
+4 Force of Will (6759)
+4 Mental Misstep (21910)
+4 Repeal (16793)
+4 Spell Snare (23883)
+3 Swords to Plowshares (6372)
+
+// Enchantments - 4 (6.67%)
+
+4 Standstill (13312)
+
+// Artifacts - 3 (5.00%)
+
+Crucible of Worlds (3220)
+2 Vedalken Shackles (15508)
+
+// Lands - 23 (38.33%)
+
+3 Island (21974)
+3 Island (21975)
+3 Mishra's Factory (7745)
+4 Misty Rainforest (19356)
+3 Scalding Tarn (19358)
+4 Tundra (7386)
+3 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Llawan, Cephalid Empress (13622)
+
+// Instants
+
+2 Spell Pierce (19377)
+4 Submerge (12100)
+Swords to Plowshares (6372)
+
+// Artifacts
+
+Crucible of Worlds (3220)
+Engineered Explosives (15510)
+3 Pithing Needle (4081)

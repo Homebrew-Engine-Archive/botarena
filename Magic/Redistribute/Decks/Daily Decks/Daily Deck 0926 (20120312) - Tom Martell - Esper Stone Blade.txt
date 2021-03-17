@@ -1,0 +1,72 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+3 Snapcaster Mage (23533)
+4 Stoneforge Mystic (19638)
+Vendilion Clique (18369)
+
+// Instants - 14 (23.33%)
+
+4 Brainstorm (11610)
+Counterspell (760)
+3 Force of Will (6759)
+Intuition (10275)
+Spell Snare (23883)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 11 (18.33%)
+
+2 Inquisition of Kozilek (20846)
+4 Lingering Souls (23626)
+2 Ponder (22235)
+2 Thoughtseize (17901)
+Vindicate (13007)
+
+// Artifacts - 2 (3.33%)
+
+Batterskull (21983)
+Umezawa's Jitte (19149)
+
+// Lands - 22 (36.67%)
+
+4 Flooded Strand (14001)
+Island (23325)
+Island (23324)
+Karakas (5431)
+2 Marsh Flats (19357)
+Plains (23330)
+3 Polluted Delta (14000)
+Scrubland (7356)
+Swamp (23333)
+Tower of the Magistrate (11872)
+3 Tundra (7386)
+3 Underground Sea (7388)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+Blue Elemental Blast (7619)
+Darkblast (16596)
+Disenchant (17240)
+Force of Will (6759)
+2 Spell Pierce (19377)
+3 Surgical Extraction (22003)
+Zealous Persecution (9071)
+
+// Sorceries
+
+Inquisition of Kozilek (20846)
+2 Perish (394)
+
+// Artifacts
+
+Engineered Explosives (15510)
+Sword of Feast and Famine (21762)

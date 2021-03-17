@@ -1,0 +1,125 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by Prophecy.rc
+//
+#define IDS_EXPANSION                   200
+#define IDS_EXPANSION_ABBREV            201
+#define IDS_FIRST_CARD                  202
+#define IDS_TOTAL_CARD                  203
+#define IDS_WHITE_BORDER                204
+#define IDS_MODULE_ICON_ID              205
+#define IDS_MODULE_LARGE_ICON_ID        206
+#define IDS_ALT_IMG_URL                 207
+#define IDS_ALT_IMG_METHOD              208
+#define IDS_RELEASE_DATE                209
+#define IDS_MWS_FOLDER                  210
+#define IDS_PRODUCT_LIST                211
+#define IDS_STRING12200                 12200
+#define IDS_STRING12201                 12201
+#define IDS_STRING12202                 12202
+#define IDS_STRING12203                 12203
+#define IDS_STRING12204                 12204
+#define IDS_STRING12205                 12205
+#define IDS_STRING12206                 12206
+#define IDS_STRING12207                 12207
+#define IDS_STRING12208                 12208
+#define IDS_STRING12209                 12209
+#define IDS_STRING12210                 12210
+#define IDS_STRING12211                 12211
+#define IDS_STRING12212                 12212
+#define IDS_STRING12213                 12213
+#define IDS_STRING12214                 12214
+#define IDS_STRING12215                 12215
+#define IDS_STRING12216                 12216
+#define IDS_STRING12217                 12217
+#define IDS_STRING12218                 12218
+#define IDS_STRING12219                 12219
+#define IDS_STRING12220                 12220
+#define IDS_STRING12221                 12221
+#define IDS_STRING12222                 12222
+#define IDS_STRING12223                 12223
+#define IDS_STRING12224                 12224
+#define IDS_STRING12225                 12225
+#define IDS_STRING12226                 12226
+#define IDS_STRING12227                 12227
+#define IDS_STRING12228                 12228
+#define IDS_STRING12229                 12229
+#define IDS_STRING12230                 12230
+#define IDS_STRING12231                 12231
+#define IDS_STRING12232                 12232
+#define IDS_STRING12233                 12233
+#define IDS_STRING12234                 12234
+#define IDS_STRING12235                 12235
+#define IDS_STRING12236                 12236
+#define IDS_STRING12237                 12237
+#define IDS_STRING12238                 12238
+#define IDS_STRING12239                 12239
+#define IDS_STRING12240                 12240
+#define IDS_STRING12241                 12241
+#define IDS_STRING12242                 12242
+#define IDS_STRING12243                 12243
+#define IDS_STRING12244                 12244
+#define IDS_STRING12245                 12245
+#define IDS_STRING12246                 12246
+#define IDS_STRING12247                 12247
+#define IDS_STRING12248                 12248
+#define IDS_STRING12249                 12249
+#define IDS_STRING12250                 12250
+#define IDS_STRING12251                 12251
+#define IDS_STRING12252                 12252
+#define IDS_STRING12253                 12253
+#define IDS_STRING12254                 12254
+#define IDS_STRING12255                 12255
+#define IDS_STRING12256                 12256
+#define IDS_STRING12257                 12257
+#define IDS_STRING12258                 12258
+#define IDS_STRING12259                 12259
+#define IDS_STRING12260                 12260
+#define IDS_STRING12261                 12261
+#define IDS_STRING12262                 12262
+#define IDS_STRING12263                 12263
+#define IDS_STRING12264                 12264
+#define IDS_STRING12265                 12265
+#define IDS_STRING12266                 12266
+#define IDS_STRING12267                 12267
+#define IDS_STRING12268                 12268
+#define IDS_STRING12269                 12269
+#define IDS_STRING12270                 12270
+#define IDS_STRING12271                 12271
+#define IDS_STRING12272                 12272
+#define IDS_STRING12273                 12273
+#define IDS_STRING12274                 12274
+#define IDS_STRING12275                 12275
+#define IDS_STRING12276                 12276
+#define IDS_STRING12277                 12277
+#define IDS_STRING12278                 12278
+#define IDS_STRING12279                 12279
+#define IDS_STRING12280                 12280
+#define IDS_STRING12281                 12281
+#define IDS_STRING12282                 12282
+#define IDS_STRING12283                 12283
+#define IDS_STRING12284                 12284
+#define IDS_STRING12285                 12285
+#define IDS_STRING12286                 12286
+#define IDS_STRING12287                 12287
+#define IDS_STRING12288                 12288
+#define IDS_STRING12289                 12289
+#define IDS_STRING12290                 12290
+#define IDS_STRING12291                 12291
+#define IDS_STRING12292                 12292
+#define IDS_STRING12293                 12293
+#define IDS_STRING12294                 12294
+#define IDS_STRING12295                 12295
+#define IDI_MODULE                      12343
+#define IDI_LARGE_MODULE                12344
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        12200
+#define _APS_NEXT_COMMAND_VALUE         12200
+#define _APS_NEXT_CONTROL_VALUE         12200
+#define _APS_NEXT_SYMED_VALUE           12200
+#endif
+#endif

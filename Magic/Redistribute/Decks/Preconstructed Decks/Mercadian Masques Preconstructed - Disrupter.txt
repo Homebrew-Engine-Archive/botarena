@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+Alley Grifters (11679)
+Bog Witch (11688)
+Cackling Witch (11689)
+Cateran Enforcer (11691)
+Cinder Elemental (11704)
+2 Deepwood Ghoul (11622)
+Enslaved Horror (11714)
+Gerrard's Irregulars (11606)
+Henge Guardian (11774)
+2 Molting Harpy (11728)
+Ogre Taskmaster (11648)
+Primeval Shambler (11653)
+Shock Troops (11659)
+Silent Assassin (11755)
+Thrashing Wumpus (11764)
+Undertaker (11767)
+2 Wall of Distortion (11770)
+
+// Instants - 8 (13.33%)
+
+2 Dark Ritual (11619)
+Lunge (11853)
+2 Snuff Out (11829)
+2 Thunderclap (11821)
+Vendetta (11846)
+
+// Sorceries - 9 (15.00%)
+
+2 Rain of Tears (11654)
+Sever Soul (11658)
+3 Specter's Wail (11826)
+3 Stone Rain (11664)
+
+// Enchantments - 2 (3.33%)
+
+Larceny (11640)
+Maggot Therapy (11801)
+
+// Lands - 21 (35.00%)
+
+2 Mountain (11644)
+2 Mountain (11643)
+2 Mountain (11642)
+2 Mountain (11645)
+Subterranean Hangar (11877)
+3 Swamp (527)
+3 Swamp (11666)
+3 Swamp (11667)
+3 Swamp (11668)

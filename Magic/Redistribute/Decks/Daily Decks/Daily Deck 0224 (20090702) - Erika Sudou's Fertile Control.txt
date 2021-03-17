@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Garruk Wildspeaker (18029)
+
+// Creatures - 13 (21.67%)
+
+3 Broodmate Dragon (8543)
+2 Cloudthresher (18015)
+4 Demigod of Revenge (18645)
+4 Kitchen Finks (18593)
+
+// Instants - 7 (11.67%)
+
+4 Flame Javelin (18642)
+3 Terminate (9001)
+
+// Sorceries - 10 (16.67%)
+
+3 Firespout (18674)
+2 Primal Command (18131)
+3 Rampant Growth (3134)
+2 Vengeful Rebirth (9120)
+
+// Enchantments - 3 (5.00%)
+
+3 Fertile Ground (17902)
+
+// Lands - 24 (40.00%)
+
+2 Fire-Lit Thicket (18542)
+Forest (8509)
+Forest (8510)
+2 Graven Cairns (18547)
+Karplusan Forest (3086)
+2 Llanowar Wastes (3093)
+Mountain (8518)
+Mountain (8519)
+Mountain (8520)
+Reflecting Pool (18571)
+4 Savage Lands (8615)
+Sulfurous Springs (3173)
+Swamp (8527)
+3 Treetop Village (3308)
+2 Twilight Mire (18929)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Anathemancer (9048)
+2 Puppeteer Clique (18671)
+
+// Sorceries
+
+3 Infest (8584)
+4 Maelstrom Pulse (9055)
+
+// Artifacts
+
+3 Pithing Needle (3301)

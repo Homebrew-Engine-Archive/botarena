@@ -1,0 +1,46 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Koth of the Hammer (21435)
+
+// Creatures - 20 (33.33%)
+
+4 Goblin Guide (19456)
+4 Kargan Dragonlord (20955)
+4 Molten-Tail Masticore (21437)
+4 Plated Geopede (19345)
+4 Spikeshot Elder (21467)
+
+// Instants - 7 (11.67%)
+
+4 Lightning Bolt (21124)
+3 Staggershock (20984)
+
+// Sorceries - 4 (6.67%)
+
+4 Flame Slash (20924)
+
+// Lands - 25 (41.67%)
+
+4 Arid Mesa (19349)
+4 Mountain (21409)
+3 Mountain (21411)
+4 Mountain (21410)
+4 Mountain (21408)
+4 Scalding Tarn (19358)
+2 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Sorceries
+
+4 Arc Trail (21554)
+4 Traitorous Instinct (20833)
+
+// Artifacts
+
+4 Brittle Effigy (21248)
+3 Ratchet Bomb (21528)

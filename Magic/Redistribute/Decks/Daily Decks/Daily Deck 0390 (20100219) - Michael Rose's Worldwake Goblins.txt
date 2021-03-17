@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Chieftain (4002)
+4 Goblin Guide (19456)
+4 Siege-Gang Commander (4101)
+4 Warren Instigator (19436)
+
+// Instants - 10 (16.67%)
+
+3 Burst Lightning (19384)
+4 Lightning Bolt (4060)
+3 Searing Blaze (19697)
+
+// Sorceries - 4 (6.67%)
+
+4 Dragon Fodder (8561)
+
+// Enchantments - 3 (5.00%)
+
+3 Quest for the Goblin Lord (19704)
+
+// Lands - 23 (38.33%)
+
+5 Mountain (19316)
+5 Mountain (19317)
+5 Mountain (19318)
+4 Mountain (19319)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Goblin Ruinblaster (19457)
+
+// Sorceries
+
+4 Mark of Mutiny (19497)
+
+// Enchantments
+
+3 Manabarbs (4064)
+
+// Artifacts
+
+4 Blazing Torch (19445)
+2 Pithing Needle (4081)
+	

@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Elspeth, Knight-Errant (8722)
+
+// Creatures - 21 (35.00%)
+
+4 Akrasan Squire (8500)
+4 Battlegrace Angel (8729)
+4 Knight of the White Orchid (8657)
+2 Knight-Captain of Eos (8591)
+3 Ranger of Eos (8642)
+4 Sigiled Paladin (8624)
+
+// Sorceries - 3 (5.00%)
+
+3 Excommunicate (8508)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 4 (6.67%)
+
+4 Sigil of Distinction (8737)
+
+// Lands - 24 (40.00%)
+
+6 Plains (8524)
+6 Plains (8525)
+6 Plains (8526)
+6 Plains (8523)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Knight-Captain of Eos (8591)
+
+// Instants
+
+4 Resounding Silence (8661)
+
+// Sorceries
+
+Excommunicate (8508)
+
+// Artifacts
+
+4 Dispeller's Capsule (8560)
+4 Relic of Progenitus (8725)

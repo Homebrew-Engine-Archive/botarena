@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 14 (23,33%)
+
+4 Ajani Vengeant (8720)
+4 Garruk Wildspeaker (18029)
+4 Jace Beleren (18011)
+2 Liliana Vess (18048)
+
+// Instants - 17 (28,33%)
+
+4 Condemn (3291)
+4 Cryptic Command (18051)
+4 Esper Charm (8567)
+2 Terror (3181)
+3 Volcanic Fallout (8860)
+
+// Sorceries - 5 (8,33%)
+
+Cruel Ultimatum (8707)
+4 Wrath of God (3200)
+
+// Lands - 24 (40,00%)
+
+Exotic Orchard (8843)
+Island (8514)
+4 Mystic Gate (18564)
+4 Reflecting Pool (18571)
+2 Sunken Ruins (18580)
+4 Vivid Crag (18031)
+4 Vivid Creek (18032)
+4 Vivid Meadow (18035)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Burrenton Forge-Tender (18054)
+2 Cloudthresher (18015)
+
+// Instants
+
+3 Celestial Purge (8801)
+4 Negate (18305)
+Volcanic Fallout (8860)
+
+// Sorceries
+
+Martial Coup (8886)
+
+// Enchantments
+
+Runed Halo (18683)

@@ -1,0 +1,40 @@
+// Naya Behemoths
+// Shards of Alara Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 15 (36.59%)
+
+Bull Cerodon (8544)
+Cavern Thoctar (8547)
+2 Cylian Elf (8555)
+2 Druid of the Anima (8564)
+Mosstodon (8597)
+Naya Battlemage (8598)
+2 Rakeclaw Gargantuan (8609)
+Spearbreaker Behemoth (8723)
+2 Wild Nacatl (8504)
+2 Woolly Thoctar (8572)
+
+// Instants - 3 (7.32%)
+
+2 Giant Growth (3059)
+Naturalize (8522)
+
+// Sorceries - 6 (14.63%)
+
+Blaze (3015)
+2 Gift of the Gargantuan (8708)
+2 Rampant Growth (3134)
+Titanic Ultimatum (8730)
+
+// Lands - 17 (41.46%)
+
+4 Forest (8510)
+3 Forest (8511)
+2 Jungle Shrine (8588)
+3 Mountain (8521)
+2 Naya Panorama (8640)
+3 Plains (8523)

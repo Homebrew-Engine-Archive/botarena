@@ -1,0 +1,76 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 7 (11.67%)
+
+2 Ajani Vengeant (8720)
+3 Elspeth, Knight-Errant (8722)
+2 Gideon Jura (20966)
+
+// Creatures - 12 (20.00%)
+
+4 Knight of the Reliquary (8815)
+4 Primeval Titan (21223)
+4 Wall of Omens (20842)
+
+// Instants - 2 (3.33%)
+
+2 Path to Exile (8897)
+
+// Sorceries - 11 (18.33%)
+
+2 Day of Judgment (21263)
+2 Destructive Force (21254)
+4 Explore (19647)
+3 Rampant Growth (4091)
+
+// Enchantments - 2 (3.33%)
+
+2 Oblivion Ring (8718)
+
+// Lands - 26 (43.33%)
+
+3 Arid Mesa (19349)
+Forest (21105)
+Forest (21104)
+Khalni Garden (19621)
+Mountain (21112)
+Mountain (21113)
+Plains (21118)
+Plains (21117)
+Plains (21116)
+4 Raging Ravine (19699)
+Rootbound Crag (21129)
+Sejiri Steppe (19691)
+4 Stirring Wildwood (19623)
+2 Sunpetal Grove (21130)
+3 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Ajani Vengeant (8720)
+
+// Creatures
+
+4 Baneslayer Angel (21125)
+
+// Instants
+
+3 Condemn (21180)
+2 Path to Exile (8897)
+
+// Sorceries
+
+Day of Judgment (21263)
+Destructive Force (21254)
+
+// Enchantments
+
+2 Oblivion Ring (8718)
+
+// Lands
+
+Tectonic Edge (19651)

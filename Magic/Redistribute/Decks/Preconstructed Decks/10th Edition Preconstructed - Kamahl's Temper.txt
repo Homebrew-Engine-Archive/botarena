@@ -1,0 +1,42 @@
+// Kamahl's Temper
+// 10th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 13 (32.50%)
+
+2 Bloodrock Cyclops (3210)
+2 Bogardan Firefiend (3322)
+Furnace Whelp (3263)
+Kamahl, Pit Fighter (3253)
+2 Lightning Elemental (3091)
+Prodigal Pyromancer (3282)
+Raging Goblin (3133)
+2 Thundering Giant (3237)
+Viashino Sandscout (3292)
+
+// Instants - 4 (10.00%)
+
+Beacon of Destruction (3327)
+2 Incinerate (3226)
+Shock (3159)
+
+// Sorceries - 4 (10.00%)
+
+Blaze (3015)
+2 Spitting Earth (3169)
+Threaten (3184)
+
+// Artifacts - 2 (5.00%)
+
+Dragon's Claw (3036)
+Phyrexian Vault (3123)
+
+// Lands - 17 (42.50%)
+
+5 Mountain (3107)
+4 Mountain (3108)
+4 Mountain (3109)
+4 Mountain (3110)

@@ -1,0 +1,89 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Tezzeret the Seeker (8727)
+
+// Creatures - 2 (3.33%)
+
+Darksteel Colossus (15279)
+Sower of Temptation (18074)
+
+// Instants - 18 (30.00%)
+
+Ancestral Recall (1106)
+Brainstorm (11610)
+Echoing Truth (15220)
+Fact or Fiction (12670)
+FireIce (13001)
+4 Force of Will (6759)
+Gifts Ungiven (15799)
+Hurkyl's Recall (3339)
+4 Mana Drain (5502)
+Mystical Tutor (489)
+Thirst for Knowledge (15016)
+Vampiric Tutor (490)
+
+// Sorceries - 12 (20.00%)
+
+Demonic Tutor (7238)
+3 Duress (795)
+Merchant Scroll (1777)
+2 Night's Whisper (15400)
+Ponder (18010)
+Thoughtseize (17901)
+Time Walk (1107)
+Tinker (11204)
+Yawgmoth's Will (11062)
+
+// Artifacts - 11 (18.33%)
+
+Black Lotus (1100)
+Mana Crypt (4311)
+Mox Emerald (1101)
+Mox Jet (1102)
+Mox Pearl (1103)
+Mox Ruby (1104)
+Mox Sapphire (1105)
+Sensei's Divining Top (15640)
+Sol Ring (7367)
+Time Vault (1349)
+Voltaic Key (10808)
+
+// Lands - 16 (26.67%)
+
+3 Flooded Strand (14001)
+Island (8514)
+3 Polluted Delta (14000)
+3 Snow-Covered Island (7058)
+Tolarian Academy (11031)
+3 Underground Sea (7388)
+2 Volcanic Island (7393)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Ingot Chewer (18018)
+Sower of Temptation (18074)
+
+// Instants
+
+Pyroblast (8214)
+Red Elemental Blast (7781)
+
+// Sorceries
+
+Pyroclasm (3131)
+
+// Enchantments
+
+4 Leyline of the Void (16893)
+2 Threads of Disloyalty (19169)
+
+// Artifacts
+
+Pithing Needle (3301)
+Tormod's Crypt (17265)

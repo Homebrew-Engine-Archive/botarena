@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 13 (21.67%)
+
+4 Bloodbraid Elf (9105)
+Caldera Hellion (8665)
+4 Enlisted Wurm (9106)
+4 Kitchen Finks (18593)
+
+// Instants - 3 (5.00%)
+
+3 Volcanic Fallout (8860)
+
+// Sorceries - 16 (26.67%)
+
+4 Captured Sunlight (9108)
+4 Incendiary Command (18129)
+4 Primal Command (18131)
+4 Wrath of God (3200)
+
+// Lands - 28 (46.67%)
+
+Adarkar Wastes (3002)
+2 Battlefield Forge (3012)
+4 Graven Cairns (18547)
+Plains (8523)
+4 Reflecting Pool (18571)
+Rugged Prairie (18922)
+4 Treetop Village (3308)
+3 Vivid Crag (18031)
+2 Vivid Grove (18033)
+3 Vivid Meadow (18035)
+3 Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Cloudthresher (18015)
+4 Fulminator Mage (18600)
+
+// Instants
+
+Volcanic Fallout (8860)
+
+// Sorceries
+
+2 Maelstrom Pulse (9055)
+4 Rain of Tears (3232)

@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 32 (53.33%)
+
+2 Birchlore Rangers (14190)
+2 Elvish Spirit Guide (6791)
+4 Elvish Visionary (8507)
+3 Essence Warden (2512)
+Eternal Witness (15428)
+4 Fyndhorn Elves (6387)
+4 Heritage Druid (18307)
+3 Llanowar Elves (3092)
+4 Nettle Sentinel (18902)
+2 Wirewood Hivemaster (14457)
+3 Wirewood Symbiote (14655)
+
+// Sorceries - 4 (6.67%)
+
+4 Glimpse of Nature (15806)
+
+// Enchantments - 6 (10.00%)
+
+4 Earthcraft (10170)
+2 Squirrel Nest (13427)
+
+// Artifacts - 4 (6.67%)
+
+4 Skullclamp (15206)
+
+// Lands - 14 (23.33%)
+
+4 Forest (8509)
+4 Forest (8510)
+3 Forest (8511)
+3 Forest (8512)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+Brain Freeze (14679)
+3 Guttural Response (18548)
+3 Krosan Grip (17369)
+
+// Sorceries
+
+Gaea's Blessing (17404)
+
+// Enchantments
+
+3 Fecundity (1818)
+
+// Artifacts
+
+2 Relic of Progenitus (8725)
+2 Thorn of Amethyst (18000)

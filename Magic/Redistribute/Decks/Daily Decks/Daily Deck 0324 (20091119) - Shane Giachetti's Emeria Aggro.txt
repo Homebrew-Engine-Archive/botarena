@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Ajani Goldmane (4214)
+
+// Creatures - 26 (43.33%)
+
+4 Baneslayer Angel (4224)
+2 Devout Lightcaster (19360)
+4 Kazandu Blademaster (19472)
+4 Knight of the White Orchid (8657)
+4 Kor Cartographer (19367)
+4 Sigiled Paladin (8624)
+4 White Knight (4120)
+
+// Instants - 6 (10.00%)
+
+2 Celestial Purge (4014)
+4 Path to Exile (8897)
+
+// Enchantments - 4 (6.67%)
+
+4 Honor of the Pure (4008)
+
+// Lands - 22 (36.67%)
+
+4 Emeria, the Sky Ruin (19348)
+5 Plains (19324)
+4 Plains (19326)
+4 Plains (19327)
+5 Plains (19325)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Devout Lightcaster (19360)
+Iona, Shield of Emeria (19468)
+2 Kor Sanctifiers (19444)
+World Queller (19537)
+
+// Instants
+
+3 Brave the Elements (19448)
+2 Celestial Purge (4014)
+
+// Sorceries
+
+2 Day of Judgment (19340)
+2 Martial Coup (8886)

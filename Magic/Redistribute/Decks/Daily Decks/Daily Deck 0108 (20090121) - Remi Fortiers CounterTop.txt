@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Creatures - 13 (21.67%)
+
+4 Dark Confidant (16449)
+4 Tarmogoyf (17704)
+3 Trinket Mage (15446)
+2 Venser, Shaper Savant (17788)
+
+// Instants - 10 (16.67%)
+
+4 Counterspell (760)
+2 Stifle (14676)
+4 Thirst for Knowledge (15016)
+
+// Enchantments - 5 (8.33%)
+
+2 Counterbalance (7074)
+3 Threads of Disloyalty (19169)
+
+// Artifacts - 11 (18.33%)
+
+4 Chrome Mox (15001)
+Engineered Explosives (15510)
+3 Sensei's Divining Top (15640)
+Tormod's Crypt (17265)
+2 Umezawa's Jitte (19149)
+
+// Lands - 21 (35.00%)
+
+Academy Ruins (17277)
+Breeding Pool (23840)
+4 Flooded Strand (14001)
+Forest (17211)
+Hallowed Fountain (23841)
+Island (17215)
+Island (17217)
+Island (17216)
+Island (17218)
+Plains (17223)
+4 Polluted Delta (14000)
+Seat of the Synod (14930)
+Steam Vents (16809)
+Swamp (17227)
+Watery Grave (16448)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+3 Ancient Grudge (17272)
+2 Choking Tethers (14148)
+2 Putrefy (16408)
+
+// Enchantments
+
+3 Engineered Plague (1042)
+
+// Artifacts
+
+2 Engineered Explosives (15510)
+Pithing Needle (3301)
+2 Tormod's Crypt (17265)

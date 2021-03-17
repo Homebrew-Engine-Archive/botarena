@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+4 Keiga, the Tide Star (15739)
+4 Meloku the Clouded Mirror (15761)
+
+// Instants - 14 (23.33%)
+
+4 Electrolyze (16858)
+4 Mana Leak (2101)
+4 Remand (16443)
+2 Telling Time (16441)
+
+// Sorceries - 9 (15.00%)
+
+Blaze (2014)
+4 Compulsive Research (16605)
+Invoke the Firemind (16868)
+2 Pyroclasm (2136)
+Tidings (2258)
+
+// Enchantments - 2 (3.33%)
+
+2 Confiscate (2025)
+
+// Artifacts - 4 (6.67%)
+
+4 Izzet Signet (16851)
+
+// Lands - 23 (38.33%)
+
+Minamo, School at Water's Edge (15638)
+4 Shivan Reef (2243)
+4 Steam Vents (16809)
+2 Tendo Ice Bridge (19150)
+4 Urza's Mine (2236)
+4 Urza's Power Plant (2237)
+4 Urza's Tower (2238)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Giant Solifuge (16820)
+Ryusei, the Falling Star (15682)
+
+// Instants
+
+2 Repeal (16793)
+2 Smash (16434)
+
+// Sorceries
+
+2 Pyroclasm (2136)
+
+// Enchantments
+
+4 Annex (2270)
+	

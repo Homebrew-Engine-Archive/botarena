@@ -1,0 +1,11 @@
+#NO_CARD_LIMIT
+// Total cards in deck - 60
+
+// Sorceries - 40 (66.67%)
+
+20 Channel (1339)
+20 Fireball (1348)
+
+// Artifacts - 20 (33.33%)
+
+20 Black Lotus (1100)

@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 2 (3.33%)
+
+2 Emrakul, the Aeons Torn (20937)
+
+// Instants - 6 (10.00%)
+
+4 Deprive (20934)
+2 Into the Roil (19373)
+
+// Sorceries - 16 (26.67%)
+
+4 Polymorph (4087)
+4 Ponder (4208)
+4 Rampant Growth (4091)
+4 See Beyond (20935)
+
+// Enchantments - 8 (13.33%)
+
+4 Awakening Zone (20851)
+4 Spreading Seas (19430)
+
+// Lands - 24 (40.00%)
+
+2 Forest (20801)
+Forest (20803)
+Forest (20802)
+2 Forest (20800)
+4 Halimar Depths (19634)
+Island (20807)
+Island (20806)
+2 Island (20805)
+2 Island (20804)
+4 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+3 Garruk Wildspeaker (4204)
+
+// Creatures
+
+2 Iona, Shield of Emeria (19468)
+
+// Instants
+
+4 Flashfreeze (4038)
+2 Into the Roil (19373)
+4 Negate (4016)

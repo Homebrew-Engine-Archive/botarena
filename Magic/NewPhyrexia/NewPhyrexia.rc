@@ -1,0 +1,277 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "NewPhyrexia.ico"
+IDI_LARGE_MODULE        ICON                    "NewPhyrexiaLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "New Phyrexia"
+    IDS_EXPANSION_ABBREV    "NPH"
+    IDS_FIRST_CARD          "21900"
+    IDS_TOTAL_CARD          "175"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "22075"
+    IDS_MODULE_LARGE_ICON_ID "22076"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "13-5-2011"
+    IDS_MWS_FOLDER          "MWS\\NPH\\"
+    IDS_PRODUCT_LIST        """New Phyrexia Booster Pack"":MR-8:R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21900         "Suture Priest\n{1W}\nCreature - Cleric\nNPH,C\nWhenever another creature enters the battlefield under your control, you may gain 1 life.\rWhenever a creature enters the battlefield under an opponent's control, you may have that player loses 1 life.\n1/1"
+    IDS_STRING21901         "Elesh Norn, Grand Cenobite\n{5WW}\nLegendary Creature - Praetor\nNPH,MR\nVigilance\rOther creatures you control get +2/+2\rCreatures your opponent control get -2/-2.\n4/7"
+    IDS_STRING21902         "Pristine Talisman\n{3}\nArtifact\nNPH,C\n{T}: Add {1} to your mana pool. You gain 1 life."
+    IDS_STRING21903         "Phyrexian Obliterator\n{BBBB}\nCreature - Horror\nNPH,MR\nTrample\rWhenever a source deals damage to Phyrexian Obliterator, that source's controller sacrifices that many permanents.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21904         "Urabrask the Hidden\n{3RR}\nLegendary Creature - Praetor\nNPH,MR\nCreatures you control have Haste.\rCreatures your opponents control enter the battlefield tapped.\n4/4"
+    IDS_STRING21905         "Sheoldred, Whispering One\n{5BB}\nLegendary Creature - Praetor\nNPH,MR\nSwampwalk\rAt the beginning of your upkeep, return target creature card from your graveyard to the battlefield.\rAt the beginning of each opponent's upkeep, that player sacrifices a creature.\n6/6"
+    IDS_STRING21906         "Argent Mutation\n{2U}\nInstant\nNPH,U\nTarget permanent becomes an artifact in addition to its other types until end of turn.\rDraw a card."
+    IDS_STRING21907         "Blighted Agent\n{1U}\nCreature - Human Rogue\nNPH\nInfect\rBlighted Agent is unblockable.\n1/1"
+    IDS_STRING21908         "Defensive Stance\n{U}\nEnchantment - Aura\nNPH\nEnchant creature\r Enchanted creature gets -1/+1"
+    IDS_STRING21909         "Gitaxian Probe\n{$}\nSorcery\nNPH\nLook at target player's hand.\rDraw a card"
+    IDS_STRING21910         "Mental Misstep\n{$}\nInstant\nNPH,U\nCounter target spell with converted mana cost 1."
+    IDS_STRING21911         "Mindculling\n{5U}\nSorcery\nNPH,U\nYou draw two cards and target opponent discards two cards."
+    IDS_STRING21912         "Psychic Barrier\n{UU}\nInstant\nNPH\nCounter target creature spell. Its controller loses 1 life."
+    IDS_STRING21913         "Spined Thopter\n{2$}\nArtifact Creature - Thopter\nNPH\nFlying\n2/1"
+    IDS_STRING21914         "Spire Monitor\n{4U}\nCreature - Drake\nNPH\nFlash\rFlying\n3/3"
+    IDS_STRING21915         "Tezzeret's Gambit\n{3$}\nSorcery\nNPH,U\nDraw two cards, then proliferate."
+    IDS_STRING21916         "Vapor Snag\n{U}\nInstant\nNPH\nReturn target creature to its owner's hand. Its controller loses 1 life."
+    IDS_STRING21917         "Viral Drake\n{3U}\nCreature - Drake\nNPH,U\nFlying\rInfect\r{3U}: Proliferate\n1/4"
+    IDS_STRING21918         "Wing Splicer\n{3U}\nCreature - Human Artificer\nNPH,U\nWhen Wing Splicer enters the battlefield, put a 3/3 colorless Golem artifact creature token onto the battlefield.\rGolem creatures you control have flying.\n1/1"
+    IDS_STRING21919         "Blade Splicer\n{2W}\nCreature - Human Artificer\nNPH,R\nWhen Blade Splicer enter the battlefield, put a 3/3 colorless Golem artifact creature token onto the battlefield.\rGolem creatures you control have first strike.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21920         "Master Splicer\n{3W}\nCreature - Human Artificer\nNPH,U\nWhen Master Splicer enter the battlefield, put a 3/3 colorless Golem artifact creature token onto the battlefield.\rGolem creatures you control get +1/+1.\n1/1"
+    IDS_STRING21921         "Sensor Splicer\n{4W}\nCreature - Artificer\nNPH\nWhen Sensor Splicer enter the battlefield, put a 3/3 colorless Golem artifact creature token onto the battlefield.\rGolem creatures you control have vigilance.\n1/1"
+    IDS_STRING21922         "Maul Splicer\n{6G}\nCreature - Human Artificer\nNPH\nWhen Maul Splicer enter the battlefield, put two 3/3 colorless Golem artifact creature token onto the battlefield.\rGolem creatures you control have trample.\n1/1"
+    IDS_STRING21923         "Vital Splicer\n{3G}\nCreature - Human Artificer\nNPH,U\nWhen Vital Splicer enter the battlefield, put a 3/3 colorless Golem artifact creature token onto the battlefield.\r{1}: Regenerate target Golem you control.\n1/1"
+    IDS_STRING21924         "Forced Worship\n{1W}\nEnchantment - Aura\nNPH\nEnchant creature\rEnchanted creature can't attack.\r{2W}: Return Forced Worship to its owner's hand."
+    IDS_STRING21925         "Lost Leonin\n{1W}\nCreature - Cat Soldier\nNPH\nInfect\n2/1"
+    IDS_STRING21926         "Loxodon Convert\n{3W}\nCreature - Elephant Soldier\nNPH\n\n4/2"
+    IDS_STRING21927         "Marrow Shards\n{!}\nInstant\nNPH,U\nMarrow Shards deals 1 damage to each attacking creature."
+    IDS_STRING21928         "Porcelain Legionnaire\n{2!}\nArtifact Creature - Soldier\nNPH\nFirst strike\n3/1"
+    IDS_STRING21929         "Remember the Fallen\n{2W}\nSorcery\nNPH\nChoose one or both - Return target creature card from your graveyard to your hand; and/or return target artifact card from your graveyard to your hand."
+    IDS_STRING21930         "Shattered Angel\n{3WW}\nCreature - Angel\nNPH,U\nFlying\rWhenever a land enters the battlefield under an opponent's control, you may gain 3 life.\n3/3"
+    IDS_STRING21931         "Shriek Raptor\n{3WW}\nCreature - Bird\nNPH\nFlying\rInfect\n2/3"
+    IDS_STRING21932         "War Report\n{3W}\nInstant\nNPH\nYou gain life equal to the number of creatures on the battlefield plus the number of artifacts on the battlefield."
+    IDS_STRING21933         "Act of Aggression\n{3&&}\nInstant\nNPH,U\nGain control of target creature an opponent controls until end of turn. Untap that creature. Its gains haste until end of turn."
+    IDS_STRING21934         "Artillerize\n{3R}\nInstant\nNPH\nAs an additional cost to cast Artillerize, sacrifice an artifact or creature.\rArtillerize deals 5 damage to target creature or player."
+    IDS_STRING21935         "Fallen Ferromancer\n{3R}\nCreature - Human Shaman\nNPH,U\nInfect\r{1R}, {T}: Fallen Ferromancer deals 1 damage to target creature or player.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21936         "Flameborn Viron\n{4RR}\nCreature - Insect\nNPH\n\n6/4"
+    IDS_STRING21937         "Gut Shot\n{&}\nInstant\nNPH,U\nGut Shot deals 1 damage to target creature or player."
+    IDS_STRING21938         "Moltensteel Dragon\n{4&&}\nArtifact Creature - Dragon\nNPH,R\n{&}: Moltensteel Dragon gets +1/+0 until end  of turn.\n4/4"
+    IDS_STRING21939         "Ogre Menial\n{3R}\nCreature - Ogre\nNPH\nInfect\r{R}: Ogre Menial gets +1/+0 until end of turn.\n0/4"
+    IDS_STRING21940         "Priest of Urabrask\n{2R}\nCreature - Human Cleric\nNPH,U\nWhen Priest of Urabrask enters the battlefield, add {RRR} to your mana pool.\n2/1"
+    IDS_STRING21941         "Razor Swine\n{2R}\nCreature - Boar\nNPH\nFirst strike\rInfect\n2/1"
+    IDS_STRING21942         "Scrapyard Salvo\n{1RR}\nSorcery\nNPH\nScrapyard Salvo deals damage to target player equal to the number of artifact cards in your graveyard."
+    IDS_STRING21943         "Slag Fiend\n{R}\nCreature - Construct\nNPH,R\nSlag Fiend's power and toughtness are each equal to teh number of artifact cards in all graveyards.\n*/*"
+    IDS_STRING21944         "Slash Panther\n{4&}\nArtifact Creature - Cat\nNPH\nHaste\n4/2"
+    IDS_STRING21945         "Victorious Destruction\n{4R}\nSorcery\nNPH\nDestroy target artifact or land. Its controller loses 1 life."
+    IDS_STRING21946         "Volt Charge\n{2R}\nInstant\nNPH\nVolt Charge deals 3 damage to target creature or player. Proliferate."
+    IDS_STRING21947         "Vulshok Refugee\n{1RR}\nCreature - Human Warrior\nNPH,U\nProtection from Red\n3/2"
+    IDS_STRING21948         "Whipflare\n{1R}\nSorcery\nNPH,U\nWhipflare deals 2 damage to each nonartifact creature."
+    IDS_STRING21949         "Dementia Bat\n{4B}\nCreature - Bat\nNPH\nFlying\r{4B}, Sacrifice Dementia Bat: target player discards two cards.\n2/2"
+    IDS_STRING21950         "Despise\n{B}\nSorcery\nNPH,U\nTarget opponent reveals his or her hand. You choose a creature or planeswalker card from it. That player discards that card."
+    IDS_STRING21951         "Dismember\n{1%%}\nInstant\nNPH,U\nTarget creature gets -5/-5 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21952         "Evil Presence\n{B}\nEnchantment - Aura\nNPH\nEnchant land\rEnchanted land is a swamp."
+    IDS_STRING21953         "Geth's Verdict\n{BB}\nInstant\nNPH\nTarget player sacrifices a creature and loses 1 life."
+    IDS_STRING21954         "Grim Affliction\n{2B}\nInstant\nNPH\nPut a -1/-1 counter on target creature, then proliferate."
+    IDS_STRING21955         "Pith Driller\n{4%}\nArtifact Creature - Horror\nNPH\nWhen Pith Driller enters the battlefield put a -1/-1 counter on target creature.\n2/4"
+    IDS_STRING21956         "Toxic Nim\n{4BB}\nCreature - Zombie\nNPH\nInfect\r{B}: Regenerate Toxic Nim.\n4/1"
+    IDS_STRING21957         "Vault Skirge\n{1%}\nArtifact Creature - Imp\nNPH\nFlying\rLifelink\n1/1"
+    IDS_STRING21958         "Beast Within\n{2G}\nInstant\nNPH,U\nDestroy target permanent. Its controller puts a 3/3 green Beast creature token onto the battlefield."
+    IDS_STRING21959         "Corrosive Gale\n{X/}\nSorcery\nNPH,U\nCorrosive Gale deals X damage to each creature with flying."
+    IDS_STRING21960         "Death-Hood Cobra\n{1G}\nCreature - Snake\nNPH\n{1G}: Death-Hood Cobra gains reach until end of turn.\r{1G}: Death-Hood Cobra gains deathtouch until end of turn.\n2/2"
+    IDS_STRING21961         "Glissa's Scorn\n{1G}\nInstant\nNPH\nDestroy target artifact. Its controller loses 1 life."
+    IDS_STRING21962         "Glistener Elf\n{G}\nCreature - Elf Warrior\nNPH\nInfect\n1/1"
+    IDS_STRING21963         "Leeching Bite\n{1G}\nInstant\nNPH\nTarget creature gets +1/+1 until end of turn. Another target creature gets -1/-1 until end of turn."
+    IDS_STRING21964         "Mutagenic Growth\n{/}\nInstant\nNPH\nTarget creature gets +2/+2 until end of turn."
+    IDS_STRING21965         "Noxious Revival\n{/}\nInstant\nNPH,U\nPut target card from a graveyard on top of its owner's library."
+    IDS_STRING21966         "Rotted Hystrix\n{4G}\nCreature - Beast\nNPH\n\n3/6"
+    IDS_STRING21967         "Spinebiter\n{4GG}\nCreature - Beast\nNPH,U\nInfect\rYou may have Spinebiter assign its combat damage as though it weren't blocked.\n3/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21968         "Thundering Tanadon\n{4//}\nArtifact Creature - Beast\nNPH\nTrample\n5/4"
+    IDS_STRING21969         "Triumph of the Hordes\n{2GG}\nSorcery\nNPH,U\nUntil end of turn, creatures you control get +1/+1 and gain trample and infect."
+    IDS_STRING21970         "Jor Kadeen, the Prevailer\n{3RW}\nLegendary Creature - Human Warrior\nNPH,R\nFirst strike\rMetalcraft - Creatures you control get +3/+0 as long you control three or more artifacts.\n5/4"
+    IDS_STRING21971         "Phyrexia's Core\n\nLand\nNPH,U\n{T}: Add {1} to your mana pool.\r{1}, {T}, Sacrifice an artifact: You gain 1 life."
+    IDS_STRING21972         "Forest\n\nBasic Land - Forest\nNPH,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING21973         "Forest\n\nBasic Land - Forest\nNPH,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING21974         "Island\n\nBasic Land - Island\nNPH,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING21975         "Island\n\nBasic Land - Island\nNPH,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING21976         "Mountain\n\nBasic Land - Mountain\nNPH,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING21977         "Mountain\n\nBasic Land - Mountain\nNPH,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING21978         "Plains\n\nBasic Land - Plains\nNPH,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING21979         "Plains\n\nBasic Land - Plains\nNPH,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING21980         "Swamp\n\nBasic Land - Swamp\nNPH,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING21981         "Swamp\n\nBasic Land - Swamp\nNPH,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING21982         "Alloy Myr\n{3}\nArtifact Creature - Myr\nNPH,U\n{T}: Add one mana of any color to your mana pool.\n2/2"
+    IDS_STRING21983         "Batterskull\n{5}\nArtifact - Equipment\nNPH,MR\nLiving weapon\rEquipped creature gets +4/+4 and has vigilance and lifelink.\r{3}: Return Batterskull to its owner's hand.\rEquip {5}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21984         "Blinding Souleater\n{3}\nArtifact Creature - Cleric\nNPH, C\n{!}, {T}: Tap target creature.\n1/3"
+    IDS_STRING21985         "Darksteel Relic\n{0}\nArtifact\nNPH,U\nDarksteel Relic is indestructible."
+    IDS_STRING21986         "Etched Monstrosity\n{5}\nArtifact Creature - Golem\nNPH,MR\nEtched Monstrosity enters the battlefield with five -1/-1 counters on it.\r{WUBRG}, Remove five -1/-1 counters from Etched Monstrosity: target player draws three cards.\n10/10"
+    IDS_STRING21987         "Hovermyr\n{2}\nArtifact Creature - Myr\nNPH\nFlying, vigilance\n1/2"
+    IDS_STRING21988         "Immolating Souleater\n{2}\nArtifact Creature - Hound\nNPH, C\n{&}: Immolating Souleater gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING21989         "Insatiable Souleater\n{4}\nArtifact Creature - Beast\nNPH,C\n{/}: Insatiable Souleater gains trample until end of turn.\n5/1"
+    IDS_STRING21990         "Pestilent Souleater\n{5}\nArtifact Creature - Insect\nNPH, C\n{%}: Pestilent Souleater gains infect until end of turn.\n3/3"
+    IDS_STRING21991         "Mycosynth Wellspring\n{2}\nArtifact\nNPH, C\nWhen Mycosynth Wellspring enters the battlefield or is put into a graveyard from the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle your library."
+    IDS_STRING21992         "Necropouncer\n{6}\nArtifact - Equipment\nNPH,U\nLiving weapon\rEquipped creature gets +3/+1 and has haste.\rEquip {2}"
+    IDS_STRING21993         "Phyrexian Hulk\n{6}\nArtifact Creature - Golem\nNPH\n\n5/4"
+    IDS_STRING21994         "Sickleslicer\n{3}\nArtifact - Equipment\nNPH,U\nLiving weapon\rEquipped creature gets +2/+2.\rEquip {4}"
+    IDS_STRING21995         "Soul Conduit\n{6}\nArtifact\nNPH,R\n{6}, {T}: Two target players exchange life totals."
+    IDS_STRING21996         "Surge Node\n{1}\nArtifact\nNPH,U\nSurge Node enters the battlefield with six charge counters on it.\r{1}, {T}, Remove a charge counter from Surge Node: Put a charge counter on target artifact."
+    IDS_STRING21997         "Unwinding Clock\n{4}\nArtifact\nNPH,R\nUntap all artifacts you control during each other player's untap step."
+    IDS_STRING21998         "Kiln Walker\n{3}\nArtifact Creature - Construct\nNPH,U\nWhenever Kiln Walker attacks it gets +3/+0 until end of turn.\n0/3"
+    IDS_STRING21999         "Sword of War and Peace\n{3}\nArtifact - Equipment\nNPH,MR\nEquipped creature gets +2/+2 and has protection from red and from white.\rWhenever equipped creature deals combat damage to a player, Sword of War and Peace deals damage to that player equal to the number of cards in his or her hand and you gain 1 life for each card in your hand.\rEquip {2}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING22000         "Deceiver Exarch\n{2U}\nCreature - Cleric\nNPH, U\nFlash\rWhen Deceiver Exarch enters the battlefield, choose one - Untap target permanent you control; or tap target permanent an opponent controls.\n1/4"
+    IDS_STRING22001         "Shrine of Burning Rage\n{2}\nArtifact\nNPH,U\nAt the beginning of your upkeep or whenever you cast a red spell, put a charge counter on Shrine of Burning Rage.\r{3}, {T}, Sacrifice Shrine of Burning Rage: Shrine of Burning Rage deals damage equal to the number of charge counters on it to target creature or player."
+    IDS_STRING22002         "Hex Parasite\n{1}\nArtifact Creature - Insect\nNPH, R\n{X}{%}: Remove up to X counters from target permanent. For each counter removed this way, Hex Parasite gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING22003         "Surgical Extraction\n{%}\nInstant\nNPH,R\nChoose target card in a graveyard other than a basic land card. Search its owner's graveyard, hand, and library for any number of cards with the same name as that card and exile them. Then that player shuffles his or her library."
+    IDS_STRING22004         "Lashwrithe\n{4}\nArtifact - Equipment\nNPH,R\nLiving weapon\rEquipped creature gets +1/+1 for each Swamp you control.\rEquip {%%}"
+    IDS_STRING22005         "Birthing Pod\n{3/}\nArtifact\nNPH,R\n{1/}, {T}, Sacrifice a creature: Search your library for a creature card with converted mana cost equal to 1 plus the sacrificed creature's converted mana cost, put that card onto the battlefield, then shuffle your library. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING22006         "Melira, Sylvok Outcast\n{1G}\nLegendary Creature - Human Scout\nNPH, R\nYou can't get poison counters.\rCreatures you control can't have -1/-1 counters placed on them.\rCreatures your opponents control lose infect.\n2/2"
+    IDS_STRING22007         "Blind Zealot\n{1BB}\nCreature - Human Cleric\nNPH\nIntimidate\rWhenever Blind Zealot deals combat damage to a player, you may sacrifice it. If you do, destroy target creature that player controls.\n2/2"
+    IDS_STRING22008         "Caress of Phyrexia\n{3BB}\nSorcery\nNPH,U\nTarget player draws three cards, loses 3 life, and gets three poison counters."
+    IDS_STRING22009         "Impaler Shrike\n{2UU}\nCreature - Bird\nNPH\nFlying\rWhenever Impaler Shrike deals combat damage to a player, you may sacrifice it. If you do, draw three cards.\n3/1"
+    IDS_STRING22010         "Due Respect\n{1W}\nInstant\nNPH,U\nPermanents enter the battlefield tapped this turn.\rDraw a card."
+    IDS_STRING22011         "Trespassing Souleater\n{3}\nArtifact Creature - Construct\nNPH\n{$}: Trespassing Souleater is unblockable this turn. \n2/2"
+    IDS_STRING22012         "Vorinclex, Voice of Hunger\n{6GG}\nLegendary Creature - Praetor\nNPH, MR\nTrample\rWhenever you tap a land for mana, add one mana to your mana pool of any type that land produced.\rWhenever an opponent taps a land for mana, that land doesn't untap during its controller's next untap step.\n7/6"
+    IDS_STRING22013         "Jin-Gitaxias, Core Augur\n{8UU}\nLegendary Creature - Praetor\nNPH, MR\nFlash\rAt the beginning of your end step, draw seven cards.\rEach opponent's maximum hand size is reduced by seven.\n5/4"
+    IDS_STRING22014         "Apostle's Blessing\n{1!}\nInstant\nNPH,C\nTarget artifact or creature you control gains protection from artifacts or from the color of your choice until end of turn."
+    IDS_STRING22015         "Furnace Scamp\n{R}\nCreature - Beast\nNPH,C\nWhenever Furnace Scamp deals combat damage to a player, you may sacrifice it. If you do, Furnace Scamp deals 3 damage to that player.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING22016         "Mortis Dogs\n{3B}\nCreature - Hound\nNPH,C\nWhenever Mortis Dogs attacks, it gets +2/+0 until end of turn.\rWhen Mortis Dogs dies, target player loses life equal to its power.\n2/2"
+    IDS_STRING22017         "Shrine of Loyal Legions\n{2}\nArtifact\nNPH,U\nAt the beginning of your upkeep or whenever you cast a white spell, put a charge counter on Shrine of Loyal Legions.\r{3}, {T}, Sacrifice Shrine of Loyal Legions: Put a 1/1 colorless Myr artifact creature token onto the battlefield for each charge counter on Shrine of Loyal Legions."
+    IDS_STRING22018         "Fresh Meat\n{3G}\nInstant\nNPH,R\nPut a 3/3 green Beast creature token onto the battlefield for each creature put into your graveyard from the battlefield this turn."
+    IDS_STRING22019         "Dispatch\n{W}\nInstant\nNPH,U\nTap target creature.\rMetalcraft - If you control three or more artifacts, exile that creature."
+    IDS_STRING22020         "Ichor Explosion\n{5BB}\nSorcery\nNPH,U\nAs an additional cost to cast Ichor Explosion, sacrifice a creature.\rAll creatures get -X/-X until end of turn, where X is the sacrificed creature's power."
+    IDS_STRING22021         "Viridian Harvest\n{G}\nEnchantment - Aura\nNPH,C\nEnchant artifact\rWhen enchanted artifact is put into a graveyard, you gain 6 life."
+    IDS_STRING22022         "Enslave\n{4BB}\nEnchantment - Aura\nNPH,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your upkeep, enchanted creature deals 1 damage to its owner."
+    IDS_STRING22023         "Conversion Chamber\n{3}\nArtifact\nNPH,U\n{2}, {T}: Exile target artifact card from a graveyard. Put a charge counter on Conversion Chamber.\r{2}, {T}, Remove a charge counter from Conversion Chamber: Put a 3/3 colorless Golem artifact creature token onto the battlefield."
+    IDS_STRING22024         "Numbing Dose\n{3UU}\nEnchantment - Aura\nNPH,C\nEnchant artifact or creature\rEnchanted permanent doesn't untap during its controller's untap step.\rAt the beginning of the upkeep of enchanted permanent's controller, that player loses 1 life."
+    IDS_STRING22025         "Chained Throatseeker\n{5U}\nCreature - Horror\nNPH,C\nInfect\rChained Throatseeker can't attack unless defending player is poisoned.\n5/5"
+    IDS_STRING22026         "Corrupted Resolve\n{1U}\nInstant\nNPH,U\nCounter target spell if its controller is poisoned."
+    IDS_STRING22027         "Phyrexian Swarmlord\n{4GG}\nCreature - Insect Horror\nNPH,R\nInfect\rAt the beginning of your upkeep, put a 1/1 green Insect creature token with infect onto the battlefield for each poison counter your opponents have.\n4/4"
+    IDS_STRING22028         "Life's Finale\n{4BB}\nSorcery\nNPH,R\nDestroy all creatures, then search target opponent's library for up to three creature cards and put them into his or her graveyard. Then that player shuffles his or her library."
+    IDS_STRING22029         "Puresteel Paladin\n{WW}\nCreature - Human Knight\nNPH,R\nWhenever an Equipment enters the battlefield under your control, you may draw a card.\rMetalcraft - Equipment you control have equip {0} as long as you control three or more artifacts.\n2/2"
+    IDS_STRING22030         "Isolation Cell\n{4}\nArtifact\nNPH,U\nWhenever an opponent casts a creature spell, that player loses 2 life unless he or she pays {2}."
+    IDS_STRING22031         "Rage Extractor\n{4&}\nArtifact\nNPH,U\nWhenever you cast a spell with {P} in its mana cost, Rage Extractor deals damage equal to that spell's converted mana cost to target creature or player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING22032         "Ruthless Invasion\n{3&}\nSorcery\nNPH,C\nNonartifact creatures can't block this turn."
+    IDS_STRING22033         "Invader Parasite\n{3RR}\nCreature - Insect\nNPH,R\nImprint - When Invader Parasite enters the battlefield, exile target land.\rWhenever a land with the same name as the exiled card enters the battlefield under an opponent's control, Invader Parasite deals 2 damage to that player.\n3/2"
+    IDS_STRING22034         "Caged Sun\n{6}\nArtifact\nNPH,R\nAs Caged Sun enters the battlefield, choose a color.\rCreatures you control of the chosen color get +1/+1.\rWhenever a land's ability adds one or more mana of the chosen color to your mana pool, add one additional mana of that color to your mana pool."
+    IDS_STRING22035         "Xenograft\n{4U}\nEnchantment\nNPH,R\nAs Xenograft enters the battlefield, choose a creature type.\rEach creature you control is the chosen type in addition to its other types."
+    IDS_STRING22036         "Karn Liberated\n{7}\nPlaneswalker - Karn\nNPH,MR\n[+4]:Target player exiles a card from his or her hand.\r[-3]: Exile target permanent.\r[-14]: Restart the game, leaving in exile all non-Aura permanent cards exiled with Karn Liberated. Then put those cards onto the battlefield under your control.\n6"
+    IDS_STRING22037         "Shrine of Boundless Growth\n{3}\nArtifact\nNPH,U\nAt the beginning of your upkeep or whenever you cast a green spell, put a charge counter on Shrine of Boundless Growth.\r{T}, Sacrifice Shrine of Boundless Growth: Add {1} to your mana pool for each charge counter on Shrine of Boundless Growth."
+    IDS_STRING22038         "Shrine of Limitless Power\n{3}\nArtifact\nNPH,U\nAt the beginning of your upkeep or whenever you cast a black spell, put a charge counter on Shrine of Limitless Power.\r{4}, {T}, Sacrifice Shrine of Limitless Power: Target player discards a card for each charge counter on Shrine of Limitless Power."
+    IDS_STRING22039         "Shrine of Piercing Vision\n{2}\nArtifact\nNPH,U\nAt the beginning of your upkeep or whenever you cast a blue spell, put a charge counter on Shrine of Piercing Vision.\r{T}, Sacrifice Shrine of Piercing Vision: Look at the top X cards of your library, where X is the number of charge counters on Shrine of Piercing Vision. Put one of those cards into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING22040         "Glistening Oil\n{BB}\nEnchantment - Aura\nNPH,R\nEnchanted creature has infect.\rAt the beginning of your upkeep, put a -1/-1 counter on enchanted creature.\rWhen Glistening Oil is put into a graveyard from the battlefield, return Glistening Oil to its owner's hand."
+    IDS_STRING22041         "Brutalizer Exarch\n{5G}\nCreature - Cleric\nNPH,U\nWhen Brutalizer Exarch enters the battlefield, choose one - Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it; or put target noncreature permanent on the bottom of its owner's library.\n3/3"
+    IDS_STRING22042         "Entomber Exarch\n{2BB}\nCreature - Cleric\nNPH,U\nWhen Entomber Exarch enters the battlefield, choose one - Return target creature card from your graveyard to your hand; or target opponent reveals his or her hand, you choose a noncreature card from it, then that player discards that card.\n2/2"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

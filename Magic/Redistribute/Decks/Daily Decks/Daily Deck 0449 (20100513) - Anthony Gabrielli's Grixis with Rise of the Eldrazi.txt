@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace, the Mind Sculptor (19670)
+
+// Instants - 14 (23.33%)
+
+3 Consume the Meek (20844)
+Into the Roil (19373)
+4 Lightning Bolt (4060)
+3 Negate (4016)
+3 Terminate (9001)
+
+// Sorceries - 12 (20.00%)
+
+4 Consuming Vapors (20986)
+3 Cruel Ultimatum (8707)
+4 Divination (4142)
+Earthquake (4034)
+
+// Enchantments - 4 (6.67%)
+
+4 Spreading Seas (19430)
+
+// Lands - 27 (45.00%)
+
+3 Creeping Tar Pit (19622)
+4 Crumbling Necropolis (8553)
+2 Dragonskull Summit (4198)
+3 Drowned Catacomb (4199)
+Island (20805)
+Island (20804)
+Island (20806)
+2 Lavaclaw Reaches (19698)
+Mountain (20809)
+Mountain (20810)
+Mountain (20808)
+4 Scalding Tarn (19358)
+Swamp (20816)
+Swamp (20817)
+Swamp (20818)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Goblin Ruinblaster (19457)
+2 Malakir Bloodwitch (19496)
+
+// Instants
+
+Negate (4016)
+
+// Sorceries
+
+3 Duress (4033)
+Thought Hemorrhage (9101)
+
+// Artifacts
+
+3 Dragon's Claw (4031)
+Pithing Needle (4081)

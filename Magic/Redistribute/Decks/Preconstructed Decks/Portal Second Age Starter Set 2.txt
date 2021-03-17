@@ -1,0 +1,41 @@
+// Portal Second Age - Starter Set 2
+
+#PRE
+#NO_CARD_LIMIT
+
+// Total cards in deck - 30
+
+// Creatures - 13 (43.33%)
+
+Alaborn Trooper (20104)
+Angel of Mercy (20172)
+Bear Cub (20114)
+Golden Bear (20132)
+Screeching Drake (20250)
+Talas Air Ship (20157)
+Talas Explorer (20158)
+Talas Merchant (20159)
+Talas Scout (20161)
+Temple Acolyte (20163)
+Trokin High Guard (20166)
+Volunteer Militia (20167)
+Wild Griffin (20194)
+
+// Sorceries - 4 (13.33%)
+
+Bee Sting (20214)
+Path of Peace (20231)
+Theft of Dreams (20237)
+Time Ebb (20239)
+
+// Lands - 13 (43.33%)
+
+Forest (20195)
+Forest (20196)
+Forest (20197)
+2 Island (20198)
+2 Island (20199)
+Island (20200)
+2 Plains (20204)
+2 Plains (20205)
+Plains (20206)

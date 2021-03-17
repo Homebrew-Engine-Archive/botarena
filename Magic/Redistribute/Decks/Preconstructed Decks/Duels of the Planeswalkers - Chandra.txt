@@ -1,0 +1,45 @@
+// Chandra
+// Duels of the Planeswalkers
+
+// Total cards in deck - 61
+
+// Creatures - 22 (36,07%)
+
+Bloodmark Mentor (18500)
+2 Cinder Pyromancer (18908)
+2 Earth Elemental (3205)
+4 Goblin Piker (4046)
+2 Goblin Sky Raider (3065)
+4 Hill Giant (3072)
+Kamahl, Pit Fighter (3253)
+4 Lightning Elemental (4061)
+Prodigal Pyromancer (4088)
+Shivan Dragon (4100)
+
+// Instants - 7 (11,48%)
+
+Enrage (2048)
+3 Incinerate (3226)
+3 Shock (3159)
+
+// Sorceries - 4 (6,56%)
+
+2 Act of Treason (4157)
+Banefire (8932)
+Blaze (3015)
+
+// Enchantments - 2 (3,28%)
+
+Furnace of Rath (3057)
+Rage Reflection (18591)
+
+// Artifacts - 2 (3,28%)
+
+2 Dragon's Claw (4031)
+
+// Lands - 24 (39,34%)
+
+6 Mountain (4073)
+6 Mountain (4070)
+6 Mountain (4071)
+6 Mountain (4072)

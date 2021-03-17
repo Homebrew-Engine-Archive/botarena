@@ -1,0 +1,75 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 7 (11.67%)
+
+2 Elspeth, Knight-Errant (8722)
+2 Gideon Jura (20966)
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+4 Baneslayer Angel (4224)
+4 Wall of Omens (20842)
+
+// Instants - 4 (6.67%)
+
+4 Path to Exile (8897)
+
+// Sorceries - 6 (10.00%)
+
+3 Day of Judgment (19340)
+Martial Coup (8886)
+2 Mind Spring (18303)
+
+// Enchantments - 7 (11.67%)
+
+3 Oblivion Ring (8718)
+4 Spreading Seas (19430)
+
+// Artifacts - 2 (3.33%)
+
+2 Everflowing Chalice (19677)
+
+// Lands - 26 (43.33%)
+
+2 Arid Mesa (19349)
+4 Celestial Colonnade (19602)
+4 Glacial Fortress (4200)
+Island (20807)
+2 Island (20806)
+2 Island (20804)
+2 Island (20805)
+2 Plains (20812)
+Plains (20813)
+Plains (20815)
+Plains (20814)
+2 Sejiri Refuge (19400)
+2 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth, Knight-Errant (8722)
+Jace Beleren (18011)
+
+// Creatures
+
+3 Kor Firewalker (19606)
+Kor Sanctifiers (19444)
+Sphinx of Lost Truths (19508)
+
+// Instants
+
+2 Celestial Purge (4014)
+4 Negate (18305)
+
+// Sorceries
+
+Martial Coup (8886)
+
+// Enchantments
+
+Oblivion Ring (8718)

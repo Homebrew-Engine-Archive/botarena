@@ -1,0 +1,43 @@
+// Custom Creatures
+// 9th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Bottle Gnomes (2246)
+2 Craw Wurm (2028)
+2 Elvish Warrior (2209)
+Emperor Crocodile (2046)
+Giant Spider (2066)
+Kavu Climber (2266)
+Llanowar Elves (2097)
+2 Norwood Ranger (2118)
+2 Trained Armodon (2190)
+Verduran Enchantress (2197)
+Yavimaya Enchantress (2206)
+
+// Instants - 1 (2.50%)
+
+Naturalize (2115)
+
+// Enchantments - 7 (17.50%)
+
+2 Blanchwood Armor (2013)
+2 Overgrowth (2306)
+Regeneration (2144)
+Treetop Bracers (2273)
+Web (2272)
+
+// Artifacts - 1 (2.50%)
+
+Wurm's Tooth (2282)
+
+// Lands - 16 (40.00%)
+
+4 Forest (2056)
+4 Forest (2057)
+4 Forest (2058)
+4 Forest (2059)

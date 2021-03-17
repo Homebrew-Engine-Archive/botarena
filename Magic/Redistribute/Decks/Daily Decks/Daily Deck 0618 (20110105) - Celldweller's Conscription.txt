@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+2 Elspeth, Knight-Errant (8722)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 23 (38.33%)
+
+4 Birds of Paradise (21103)
+3 Dauntless Escort (9085)
+4 Knight of the Reliquary (8815)
+4 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+4 Sovereigns of Lost Alara (9100)
+
+// Instants - 4 (6.67%)
+
+4 Mana Leak (21214)
+
+// Enchantments - 2 (3.33%)
+
+2 Eldrazi Conscription (20909)
+
+// Lands - 25 (41.67%)
+
+3 Celestial Colonnade (19602)
+Flooded Grove (18914)
+Forest (21403)
+Forest (21400)
+Forest (21401)
+Forest (21402)
+Island (21404)
+Island (21405)
+Island (21406)
+Marsh Flats (19357)
+4 Misty Rainforest (19356)
+Murmuring Bosk (18387)
+Plains (21412)
+2 Razorverge Thicket (21472)
+Seachrome Coast (21459)
+Sejiri Steppe (19691)
+3 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Jace Beleren (21258)
+
+// Creatures
+
+3 Kitchen Finks (18593)
+4 Linvala, Keeper of Silence (20881)
+
+// Instants
+
+4 Nature's Claim (19662)
+2 Spell Pierce (19377)
+
+	

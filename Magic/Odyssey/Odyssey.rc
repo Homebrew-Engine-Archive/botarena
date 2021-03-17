@@ -1,0 +1,466 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Odyssey.ico"
+IDI_LARGE_MODULE        ICON                    "OdysseyLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Odyssey"
+    IDS_EXPANSION_ABBREV    "ODY"
+    IDS_FIRST_CARD          "13200"
+    IDS_TOTAL_CARD          "350"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "13550"
+    IDS_MODULE_LARGE_ICON_ID "13551"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-10-2001"
+    IDS_MWS_FOLDER          "MWS\\ODY\\"
+    IDS_PRODUCT_LIST        """Odyssey Starter Box"":R-3:U-10:C-32:BL-30,""Odyssey Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13200         "Ashen Firebeast\n{6RR}\nCreature - Elemental Beast\nODY,R\n{1R}: Ashen Firebeast deals 1 damage to each creature without flying.\n6/6"
+    IDS_STRING13201         "Braids, Cabal Minion\n{2BB}\nLegendary Creature - Human Minion\nODY,R\nAt the beginning of each player's upkeep, that player sacrifices an artifact, creature, or land.\n2/2"
+    IDS_STRING13202         "Cantivore\n{1WW}\nCreature - Lhurgoyf\nODY,R\nVigilance\rCantivore's power and toughness are each equal to the number of enchantment cards in all graveyards.\n*/*"
+    IDS_STRING13203         "Cephalid Broker\n{3U}\nCreature - Cephalid\nODY,U\n{T}: Target player draws two cards, then discards two cards.\n2/2"
+    IDS_STRING13204         "Cephalid Looter\n{2U}\nCreature - Cephalid Rogue\nODY,C\n{T}: Target player draws a card, then discards a card.\n2/1"
+    IDS_STRING13205         "Cephalid Retainer\n{2UU}\nCreature - Cephalid\nODY,R\n{UU}: Tap target creature without flying.\n2/3"
+    IDS_STRING13206         "Cephalid Scout\n{1U}\nCreature - Cephalid Wizard Scout\nODY,C\nFlying\r{2U}, Sacrifice a land: Draw a card.\n1/1"
+    IDS_STRING13207         "Cognivore\n{6UU}\nCreature - Lhurgoyf\nODY,R\nFlying\rCognivore's power and toughness are each equal to the number of instant cards in all graveyards.\n*/*"
+    IDS_STRING13208         "Escape Artist\n{1U}\nCreature - Human Wizard\nODY,C\nEscape Artist is unblockable.\r{U}, Discard a card: Return Escape Artist to its owner's hand.\n1/1"
+    IDS_STRING13209         "Lithatog\n{1RG}\nCreature - Atog\nODY,U\nSacrifice an artifact: Lithatog gets +1/+1 until end of turn.\rSacrifice a land: Lithatog gets +1/+1 until end of turn.\n1/2"
+    IDS_STRING13210         "Master Apothecary\n{WWW}\nCreature - Human Cleric\nODY,R\nTap an untapped Cleric you control: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n2/2"
+    IDS_STRING13211         "Phantatog\n{1WU}\nCreature - Atog\nODY,U\nSacrifice an enchantment: Phantatog gets +1/+1 until end of turn.\rDiscard a card: Phantatog gets +1/+1 until end of turn.\n1/2"
+    IDS_STRING13212         "Seton, Krosan Protector\n{GGG}\nLegendary Creature - Centaur Druid\nODY,R\nTap an untapped Druid you control: Add {G} to your mana pool.\n2/2"
+    IDS_STRING13213         "Stalking Bloodsucker\n{4BB}\nCreature - Vampire\nODY,R\nFlying\r{1B}, Discard a card: Stalking Bloodsucker gets +2/+2 until end of turn.\n4/4"
+    IDS_STRING13214         "Terravore\n{1GG}\nCreature - Lhurgoyf\nODY,R\nTrample\rTerravore's power and toughness are each equal to the number of land cards in all graveyards.\n*/*"
+    IDS_STRING13215         "Thaumatog\n{1GW}\nCreature - Atog\nODY,U\nSacrifice a land: Thaumatog gets +1/+1 until end of turn.\rSacrifice an enchantment: Thaumatog gets +1/+1 until end of turn.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13216         "Vampiric Dragon\n{6BR}\nCreature - Vampire Dragon\nODY,R\nFlying\rWhenever a creature dealt damage by Vampiric Dragon this turn dies, put a +1/+1 counter on Vampiric Dragon.\r{1R}: Vampiric Dragon deals 1 damage to target creature.\n5/5"
+    IDS_STRING13217         "Afflict\n{2B}\nInstant\nODY,C\nTarget creature gets -1/-1 until end of turn.\rDraw a card."
+    IDS_STRING13218         "Anarchist\n{4R}\nCreature - Human Wizard\nODY,C\nWhen Anarchist enters the battlefield, you may return target sorcery card from your graveyard to your hand.\n2/2"
+    IDS_STRING13219         "Angelic Wall\n{1W}\nCreature - Wall\nODY,C\nDefender, flying\n0/4"
+    IDS_STRING13220         "Aven Cloudchaser\n{3W}\nCreature - Bird Soldier\nODY,C\nFlying\rWhen Aven Cloudchaser enters the battlefield, destroy target enchantment.\n2/2"
+    IDS_STRING13221         "Aven Fisher\n{3U}\nCreature - Bird Soldier\nODY,C\nFlying\rWhen Aven Fisher dies, you may draw a card.\n2/2"
+    IDS_STRING13222         "Aven Flock\n{4W}\nCreature - Bird Soldier\nODY,C\nFlying\r{W}: Aven Flock gets +0/+1 until end of turn.\n2/3"
+    IDS_STRING13223         "Aven Windreader\n{3UU}\nCreature - Bird Soldier Wizard\nODY,C\nFlying\r{1U}: Target player reveals the top card of his or her library.\n3/3"
+    IDS_STRING13224         "Battle of Wits\n{3UU}\nEnchantment\nODY,R\nAt the beginning of your upkeep, if you have 200 or more cards in your library, you win the game."
+    IDS_STRING13225         "Blessed Orator\n{3W}\nCreature - Human Cleric\nODY,U\nOther creatures you control get +0/+1.\n1/4"
+    IDS_STRING13226         "Concentrate\n{2UU}\nSorcery\nODY,U\nDraw three cards."
+    IDS_STRING13227         "Deluge\n{2U}\nInstant\nODY,U\nTap all creatures without flying."
+    IDS_STRING13228         "Demolish\n{3R}\nSorcery\nODY,U\nDestroy target artifact or land."
+    IDS_STRING13229         "Diabolic Tutor\n{2BB}\nSorcery\nODY,U\nSearch your library for a card and put that card into your hand. Then shuffle your library."
+    IDS_STRING13230         "Dusk Imp\n{2B}\nCreature - Imp\nODY,C\nFlying\n2/1"
+    IDS_STRING13231         "Execute\n{2B}\nInstant\nODY,U\nDestroy target white creature. It can't be regenerated.\rDraw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13232         "Forest\n\nBasic Land - Forest\nODY,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING13233         "Forest\n\nBasic Land - Forest\nODY,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING13234         "Forest\n\nBasic Land - Forest\nODY,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING13235         "Forest\n\nBasic Land - Forest\nODY,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING13236         "Gravedigger\n{3B}\nCreature - Zombie\nODY,C\nWhen Gravedigger enters the battlefield, you may return target creature card from your graveyard to your hand.\n2/2"
+    IDS_STRING13237         "Island\n\nBasic Land - Island\nODY,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING13238         "Island\n\nBasic Land - Island\nODY,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING13239         "Island\n\nBasic Land - Island\nODY,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING13240         "Island\n\nBasic Land - Island\nODY,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING13241         "Kamahl, Pit Fighter\n{4RR}\nLegendary Creature - Human Barbarian\nODY,R\nHaste\r{T}: Kamahl, Pit Fighter deals 3 damage to target creature or player.\n6/1"
+    IDS_STRING13242         "Magnivore\n{2RR}\nCreature - Lhurgoyf\nODY,R\nHaste\rMagnivore's power and toughness are each equal to the number of sorcery cards in all graveyards.\n*/*"
+    IDS_STRING13243         "Mindslicer\n{2BB}\nCreature - Horror\nODY,R\nWhen Mindslicer dies, each player discards his or her hand.\n4/3"
+    IDS_STRING13244         "Mortivore\n{2BB}\nCreature - Lhurgoyf\nODY,R\nMortivore's power and toughness are each equal to the number of creature cards in all graveyards.\r{B}: Regenerate Mortivore.\n*/*"
+    IDS_STRING13245         "Mountain\n\nBasic Land - Mountain\nODY,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING13246         "Mountain\n\nBasic Land - Mountain\nODY,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING13247         "Mountain\n\nBasic Land - Mountain\nODY,BL\n{T}: Add {R} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13248         "Mountain\n\nBasic Land - Mountain\nODY,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING13249         "Nantuko Disciple\n{3G}\nCreature - Insect Druid\nODY,C\n{G}, {T}: Target creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING13250         "Overrun\n{2GGG}\nSorcery\nODY,U\nCreatures you control get +3/+3 and gain trample until end of turn."
+    IDS_STRING13251         "Peek\n{U}\nInstant\nODY,C\nLook at target player's hand.\rDraw a card."
+    IDS_STRING13252         "Persuasion\n{3UU}\nEnchantment - Aura\nODY,R\nEnchant creature\rYou control enchanted creature."
+    IDS_STRING13253         "Plains\n\nBasic Land - Plains\nODY,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING13254         "Plains\n\nBasic Land - Plains\nODY,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING13255         "Plains\n\nBasic Land - Plains\nODY,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING13256         "Plains\n\nBasic Land - Plains\nODY,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING13257         "Puppeteer\n{2U}\nCreature - Human Wizard\nODY,U\n{U}, {T}: You may tap or untap target creature.\n1/2"
+    IDS_STRING13258         "Swamp\n\nBasic Land - Swamp\nODY,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING13259         "Swamp\n\nBasic Land - Swamp\nODY,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING13260         "Swamp\n\nBasic Land - Swamp\nODY,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING13261         "Swamp\n\nBasic Land - Swamp\nODY,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING13262         "Time Stretch\n{8UU}\nSorcery\nODY,R\nTarget player takes two extra turns after this one."
+    IDS_STRING13263         "Traumatize\n{3UU}\nSorcery\nODY,R\nTarget player puts the top half of his or her library, rounded down, into his or her graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13264         "Zombify\n{3B}\nSorcery\nODY,U\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING13265         "Patchwork Gnomes\n{3}\nArtifact Creature - Gnome\nODY,U\nDiscard a card: Regenerate Patchwork Gnomes.\n2/1"
+    IDS_STRING13266         "Gallantry\n{1W}\nInstant\nODY,U\nTarget blocking creature gets +4/+4 until end of turn.\rDraw a card."
+    IDS_STRING13267         "Cartographer\n{2G}\nCreature - Human\nODY,C\nWhen Cartographer enters the battlefield, you may return target land card from your graveyard to your hand.\n2/2"
+    IDS_STRING13268         "Scrivener\n{4U}\nCreature - Human Wizard\nODY,C\nWhen Scrivener enters the battlefield, you may return target instant card from your graveyard to your hand.\n2/2"
+    IDS_STRING13269         "Nimble Mongoose\n{G}\nCreature - Mongoose\nODY,U\nShroud\rThreshold - Nimble Mongoose gets +2/+2 as long as seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13270         "Upheaval\n{4UU}\nSorcery\nODY,R\nReturn all permanents to their owners' hands."
+    IDS_STRING13271         "Abandoned Outpost\n\nLand\nODY\nAbandoned Outpost enters the battlefield tapped.\r{T}: Add {W} to your mana pool.\r{T}, Sacrifice Abandoned Outpost: Add one mana of any color to your mana pool."
+    IDS_STRING13272         "Bog Wreckage\n\nLand\nODY\nBog Wreckage enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\r{T}, Sacrifice Bog Wreckage: Add one mana of any color to your mana pool."
+    IDS_STRING13273         "Ravaged Highlands\n\nLand\nODY\nRavaged Highlands enters the battlefield tapped.\r{T}: Add {R} to your mana pool.\r{T}, Sacrifice Ravaged Highlands: Add one mana of any color to your mana pool."
+    IDS_STRING13274         "Seafloor Debris\n\nLand\nODY\nSeafloor Debris enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\r{T}, Sacrifice Seafloor Debris: Add one mana of any color to your mana pool."
+    IDS_STRING13275         "Timberland Ruins\n\nLand\nODY\nTimberland Ruins enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\r{T}, Sacrifice Timberland Ruins: Add one mana of any color to your mana pool."
+    IDS_STRING13276         "Darkwater Catacombs\n\nLand\nODY,R\n{1}, {T}: Add {UB} to your mana pool."
+    IDS_STRING13277         "Mossfire Valley\n\nLand\nODY,R\n{1}, {T}: Add {RG} to your mana pool."
+    IDS_STRING13278         "Shadowblood Ridge\n\nLand\nODY,R\n{1}, {T}: Add {BR} to your mana pool."
+    IDS_STRING13279         "Skycloud Expanse\n\nLand\nODY,R\n{1}, {T}: Add {WU} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13280         "Sungrass Prairie\n\nLand\nODY,R\n{1}, {T}: Add {GW} to your mana pool."
+    IDS_STRING13281         "Nomad Stadium\n\nLand\nODY,U\n{T}: Add {W} to your mana pool. Nomad Stadium deals 1 damage to you.\rThreshold - {W}, {T}, Sacrifice Nomad Stadium: You gain 4 life. Activate this ability only if seven or more cards are in your graveyard."
+    IDS_STRING13282         "Barbarian Ring\n\nLand\nODY,U\n{T}: Add {R} to your mana pool. Barbarian Ring deals 1 damage to you.\rThreshold - {R}, {T}, Sacrifice Barbarian Ring: Barbarian Ring deals 2 damage to target creature or player. Activate this ability only if seven or more cards are in your graveyard."
+    IDS_STRING13283         "Cabal Pit\n\nLand\nODY,U\n{T}: Add {B} to your mana pool. Cabal Pit deals 1 damage to you.\rThreshold - {B}, {T}, Sacrifice Cabal Pit: Target creature gets -2/-2 until end of turn. Activate this ability only if seven or more cards are in your graveyard."
+    IDS_STRING13284         "Centaur Garden\n\nLand\nODY,U\n{T}: Add {G} to your mana pool. Centaur Garden deals 1 damage to you.\rThreshold - {G}, {T}, Sacrifice Centaur Garden: Target creature gets +3/+3 until end of turn. Activate this ability only if seven or more cards are in your graveyard."
+    IDS_STRING13285         "Cephalid Coliseum\n\nLand\nODY,U\n{T}: Add {U} to your mana pool. Cephalid Coliseum deals 1 damage to you.\rThreshold - {U}, {T}, Sacrifice Cephalid Coliseum: Target player draws three cards, then discards three cards. Activate this ability only if seven or more cards are in your graveyard."
+    IDS_STRING13286         "Careful Study\n{U}\nSorcery\nODY\nDraw two cards, then discard two cards."
+    IDS_STRING13287         "Bash to Bits\n{3R}\nInstant\nODY,U\nDestroy target artifact.\rFlashback {4RR}"
+    IDS_STRING13288         "Beast Attack\n{2GGG}\nInstant\nODY,U\nPut a 4/4 green Beast creature token onto the battlefield.\rFlashback {2GGG}"
+    IDS_STRING13289         "Call of the Herd\n{2G}\nSorcery\nODY,R\nPut a 3/3 green Elephant creature token onto the battlefield.\rFlashback {3G}"
+    IDS_STRING13290         "Chatter of the Squirrel\n{G}\nSorcery\nODY\nPut a 1/1 green Squirrel creature token onto the battlefield.\rFlashback {1G}"
+    IDS_STRING13291         "Coffin Purge\n{B}\nInstant\nODY\nExile target card from a graveyard.\rFlashback {B}"
+    IDS_STRING13292         "Deep Reconnaissance\n{2G}\nSorcery\nODY,U\nSearch your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\rFlashback {4G}"
+    IDS_STRING13293         "Dematerialize\n{3U}\nSorcery\nODY\nReturn target permanent to its owner's hand.\rFlashback {5UU}"
+    IDS_STRING13294         "Earth Rift\n{3R}\nSorcery\nODY\nDestroy target land.\rFlashback {5RR}"
+    IDS_STRING13295         "Elephant Ambush\n{2GG}\nInstant\nODY\nPut a 3/3 green Elephant creature token onto the battlefield.\rFlashback {6GG}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13296         "Engulfing Flames\n{R}\nInstant\nODY,U\nEngulfing Flames deals 1 damage to target creature. It can't be regenerated this turn.\rFlashback {3R}"
+    IDS_STRING13297         "Fervent Denial\n{3UU}\nInstant\nODY,U\nCounter target spell.\rFlashback {5UU}"
+    IDS_STRING13298         "Firebolt\n{R}\nSorcery\nODY\nFirebolt deals 2 damage to target creature or player.\rFlashback {4R}"
+    IDS_STRING13299         "Howling Gale\n{1G}\nInstant\nODY,U\nHowling Gale deals 1 damage to each creature with flying and each player.\rFlashback {1G}"
+    IDS_STRING13300         "Moment's Peace\n{1G}\nInstant\nODY\nPrevent all combat damage that would be dealt this turn.\rFlashback {2G}"
+    IDS_STRING13301         "Morbid Hunger\n{4BB}\nSorcery\nODY\nMorbid Hunger deals 3 damage to target creature or player. You gain 3 life.\rFlashback {7BB}"
+    IDS_STRING13302         "Morgue Theft\n{1B}\nSorcery\nODY\nReturn target creature card from your graveyard to your hand.\rFlashback {4B}"
+    IDS_STRING13303         "Ray of Distortion\n{3W}\nInstant\nODY\nDestroy target artifact or enchantment.\rFlashback {4WW}"
+    IDS_STRING13304         "Reckless Charge\n{R}\nSorcery\nODY\nTarget creature gets +3/+0 and gains haste until end of turn.\rFlashback {2R}"
+    IDS_STRING13305         "Roar of the Wurm\n{6G}\nSorcery\nODY,U\nPut a 6/6 green Wurm creature token onto the battlefield.\rFlashback {3G}"
+    IDS_STRING13306         "Scorching Missile\n{3R}\nSorcery\nODY\nScorching Missile deals 4 damage to target player.\rFlashback {9R}"
+    IDS_STRING13307         "Skull Fracture\n{B}\nSorcery\nODY,U\nTarget player discards a card.\rFlashback {3B}"
+    IDS_STRING13308         "Sylvan Might\n{1G}\nInstant\nODY,U\nTarget creature gets +2/+2 and gains trample until end of turn.\rFlashback {2GG}"
+    IDS_STRING13309         "Volcanic Spray\n{1R}\nSorcery\nODY,U\nVolcanic Spray deals 1 damage to each creature without flying and each player.\rFlashback {1R}"
+    IDS_STRING13310         "Volley of Boulders\n{8R}\nSorcery\nODY,R\nVolley of Boulders deals 6 damage divided as you choose among any number of target creatures and/or players.\rFlashback {RRRRRR}"
+    IDS_STRING13311         "Buried Alive\n{2B}\nSorcery\nODY,U\nSearch your library for up to three creature cards and put them into your graveyard. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13312         "Standstill\n{1U}\nEnchantment\nODY,U\nWhen a player casts a spell, sacrifice Standstill. If you do, each of that player's opponents draws three cards."
+    IDS_STRING13313         "Amugaba\n{5UU}\nCreature - Illusion\nODY,R\nFlying\r{2U}, Discard a card: Return Amugaba to its owner's hand.\n6/6"
+    IDS_STRING13314         "Auramancer\n{2W}\nCreature - Human Wizard\nODY,C\nWhen Auramancer enters the battlefield, you may return target enchantment card from your graveyard to your hand.\n2/2"
+    IDS_STRING13315         "Aven Archer\n{3WW}\nCreature - Bird Soldier Archer\nODY,U\nFlying\r{2W}, {T}: Aven Archer deals 2 damage to target attacking or blocking creature.\n2/2"
+    IDS_STRING13316         "Aven Smokeweaver\n{2UU}\nCreature - Bird Soldier\nODY,U\nFlying, protection from red\n2/3"
+    IDS_STRING13317         "Balshan Griffin\n{3UU}\nCreature - Griffin\nODY,U\nFlying\r{1U}, Discard a card: Return Balshan Griffin to its owner's hand.\n3/2"
+    IDS_STRING13318         "Barbarian Lunatic\n{2R}\nCreature - Human Barbarian\nODY,C\n{2R}, Sacrifice Barbarian Lunatic: Barbarian Lunatic deals 2 damage to target creature.\n2/1"
+    IDS_STRING13319         "Confessor\n{W}\nCreature - Human Cleric\nODY,C\nWhenever a player discards a card, you may gain 1 life.\n1/1"
+    IDS_STRING13320         "Crypt Creeper\n{1B}\nCreature - Zombie\nODY,C\nSacrifice Crypt Creeper: Exile target card from a graveyard.\n2/1"
+    IDS_STRING13321         "Cursed Monstrosity\n{4B}\nCreature - Horror\nODY,R\nFlying\rWhenever Cursed Monstrosity becomes the target of a spell or ability, sacrifice it unless you discard a land card.\n4/3"
+    IDS_STRING13322         "Dedicated Martyr\n{W}\nCreature - Human Cleric\nODY,C\n{W}, Sacrifice Dedicated Martyr: You gain 3 life.\n1/1"
+    IDS_STRING13323         "Dogged Hunter\n{2W}\nCreature - Human Nomad\nODY,R\n{T}: Destroy target creature token.\n1/1"
+    IDS_STRING13324         "Dreamwinder\n{3U}\nCreature - Serpent\nODY,C\nDreamwinder can't attack unless defending player controls an Island.\r{U}, Sacrifice an Island: Target land becomes an Island until end of turn.\n4/3"
+    IDS_STRING13325         "Druid Lyrist\n{G}\nCreature - Human Druid\nODY,C\n{G}, {T}, Sacrifice Druid Lyrist: Destroy target enchantment.\n1/1"
+    IDS_STRING13326         "Dwarven Grunt\n{R}\nCreature - Dwarf\nODY,C\nMountainwalk\n1/1"
+    IDS_STRING13327         "Dwarven Recruiter\n{2R}\nCreature - Dwarf\nODY,U\nWhen Dwarven Recruiter enters the battlefield, search your library for any number of Dwarf cards and reveal those cards. Shuffle your library, then put them on top of it in any order.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13328         "Face of Fear\n{5B}\nCreature - Horror\nODY,U\n{2B}, Discard a card: Face of Fear gains fear until end of turn.\n3/4"
+    IDS_STRING13329         "Famished Ghoul\n{3B}\nCreature - Zombie\nODY,U\n{1B}, Sacrifice Famished Ghoul: Exile up to two target cards from a single graveyard.\n3/2"
+    IDS_STRING13330         "Filthy Cur\n{1B}\nCreature - Hound\nODY,C\nWhenever Filthy Cur is dealt damage, you lose that much life.\n2/2"
+    IDS_STRING13331         "Fledgling Imp\n{2B}\nCreature - Imp\nODY,C\n{B}, Discard a card: Fledgling Imp gains flying until end of turn.\n2/2"
+    IDS_STRING13332         "Halberdier\n{3R}\nCreature - Human Barbarian\nODY,C\nFirst strike\n3/1"
+    IDS_STRING13333         "Iridescent Angel\n{5WU}\nCreature - Angel\nODY,R\nFlying, protection from all colors\n4/4"
+    IDS_STRING13334         "Krosan Archer\n{3G}\nCreature - Centaur Archer\nODY,C\nReach\r{G}, Discard a card: Krosan Archer gets +0/+2 until end of turn.\n2/3"
+    IDS_STRING13335         "Leaf Dancer\n{1GG}\nCreature - Centaur\nODY,C\nForestwalk\n2/2"
+    IDS_STRING13336         "Lieutenant Kirtar\n{1WW}\nLegendary Creature - Bird Soldier\nODY,R\nFlying\r{1W}, Sacrifice Lieutenant Kirtar: Exile target attacking creature.\n2/2"
+    IDS_STRING13337         "Minotaur Explorer\n{1R}\nCreature - Minotaur Scout\nODY,U\nWhen Minotaur Explorer enters the battlefield, sacrifice it unless you discard a card at random.\n3/3"
+    IDS_STRING13338         "Nantuko Elder\n{2G}\nCreature - Insect Druid\nODY,U\n{T}: Add {1G} to your mana pool.\n1/2"
+    IDS_STRING13339         "Overeager Apprentice\n{2B}\nCreature - Human Minion\nODY,C\nDiscard a card, Sacrifice Overeager Apprentice: Add {BBB} to your mana pool.\n1/2"
+    IDS_STRING13340         "Patrol Hound\n{1W}\nCreature - Hound\nODY,C\nDiscard a card: Patrol Hound gains first strike until end of turn.\n2/2"
+    IDS_STRING13341         "Patron Wizard\n{UUU}\nCreature - Human Wizard\nODY,R\nTap an untapped Wizard you control: Counter target spell unless its controller pays {1}.\n2/2"
+    IDS_STRING13342         "Phantom Whelp\n{1U}\nCreature - Illusion Hound\nODY,C\nWhen Phantom Whelp attacks or blocks, return it to its owner's hand at end of combat.\n2/2"
+    IDS_STRING13343         "Pianna, Nomad Captain\n{1WW}\nLegendary Creature - Human Nomad\nODY,R\nWhenever Pianna, Nomad Captain attacks, attacking creatures get +1/+1 until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13344         "Pulsating Illusion\n{4U}\nCreature - Illusion\nODY,U\nFlying\rDiscard a card: Pulsating Illusion gets +4/+4 until end of turn. Activate this ability only once each turn.\n0/1"
+    IDS_STRING13345         "Rabid Elephant\n{4G}\nCreature - Elephant\nODY,C\nWhenever Rabid Elephant becomes blocked, it gets +2/+2 until end of turn for each creature blocking it.\n3/4"
+    IDS_STRING13346         "Resilient Wanderer\n{2WW}\nCreature - Human Nomad\nODY,U\nFirst strike\rDiscard a card: Resilient Wanderer gains protection from the color of your choice until end of turn.\n2/3"
+    IDS_STRING13347         "Sadistic Hypnotist\n{3BB}\nCreature - Human Minion\nODY,U\nSacrifice a creature: Target player discards two cards. Activate this ability only any time you could cast a sorcery.\n2/2"
+    IDS_STRING13348         "Shadowmage Infiltrator\n{1UB}\nCreature - Human Wizard\nODY,R\nFear\rWhenever Shadowmage Infiltrator deals combat damage to a player, you may draw a card.\n1/3"
+    IDS_STRING13349         "Skyshooter\n{1G}\nCreature - Centaur Archer\nODY,U\nReach\r{T}, Sacrifice Skyshooter: Destroy target attacking or blocking creature with flying.\n1/2"
+    IDS_STRING13350         "Spellbane Centaur\n{2G}\nCreature - Centaur\nODY,R\nCreatures you control can't be the targets of blue spells or abilities from blue sources.\n3/2"
+    IDS_STRING13351         "Squirrel Mob\n{1GG}\nCreature - Squirrel\nODY,R\nSquirrel Mob gets +1/+1 for each other Squirrel on the battlefield.\n2/2"
+    IDS_STRING13352         "Tireless Tribe\n{W}\nCreature - Human Nomad\nODY,C\nDiscard a card: Tireless Tribe gets +0/+4 until end of turn.\n1/1"
+    IDS_STRING13353         "Treetop Sentinel\n{2UU}\nCreature - Bird Soldier\nODY,U\nFlying, protection from green\n2/3"
+    IDS_STRING13354         "Twigwalker\n{2G}\nCreature - Insect\nODY,U\n{1G}, Sacrifice Twigwalker: Two target creatures each get +2/+2 until end of turn.\n2/2"
+    IDS_STRING13355         "Whispering Shade\n{3B}\nCreature - Shade\nODY,C\nSwampwalk\r{B}: Whispering Shade gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING13356         "Woodland Druid\n{G}\nCreature - Human Druid\nODY,C\n\n1/2"
+    IDS_STRING13357         "Zombie Cannibal\n{B}\nCreature - Zombie\nODY,C\nWhenever Zombie Cannibal deals combat damage to a player, you may exile target card from that player's graveyard.\n1/1"
+    IDS_STRING13358         "Zoologist\n{3G}\nCreature - Human Druid\nODY,R\n{3G}, {T}: Reveal the top card of your library. If it's a creature card, put it onto the battlefield. Otherwise, put it into your graveyard.\n1/2"
+    IDS_STRING13359         "Limestone Golem\n{6}\nArtifact Creature - Golem\nODY,U\n{2}, Sacrifice Limestone Golem: Target player draws a card.\n3/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13360         "Crystal Quarry\n\nLand\nODY,R\n{T}: Add {1} to your mana pool.\r{5}, {T}: Add {WUBRG} to your mana pool."
+    IDS_STRING13361         "Deserted Temple\n\nLand\nODY,R\n{T}: Add {1} to your mana pool.\r{1}, {T}: Untap target land."
+    IDS_STRING13362         "Petrified Field\n\nLand\nODY,R\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Petrified Field: Return target land card from your graveyard to your hand."
+    IDS_STRING13363         "Tarnished Citadel\n\nLand\nODY,R\n{T}: Add {1} to your mana pool.\r{T}: Add one mana of any color to your mana pool. Tarnished Citadel deals 3 damage to you."
+    IDS_STRING13364         "Soulcatcher\n{1W}\nCreature - Bird Soldier\nODY,U\nFlying\rWhenever a creature with flying dies, put a +1/+1 counter on Soulcatcher.\n1/1"
+    IDS_STRING13365         "Darkwater Egg\n{1}\nArtifact\nODY,U\n{2}, {T}, Sacrifice Darkwater Egg: Add {UB} to your mana pool. Draw a card."
+    IDS_STRING13366         "Mossfire Egg\n{1}\nArtifact\nODY,U\n{2}, {T}, Sacrifice Mossfire Egg: Add {RG} to your mana pool. Draw a card."
+    IDS_STRING13367         "Sandstone Deadfall\n{3}\nArtifact\nODY,U\n{T}, Sacrifice two lands and Sandstone Deadfall: Destroy target attacking creature."
+    IDS_STRING13368         "Shadowblood Egg\n{1}\nArtifact\nODY,U\n{2}, {T}, Sacrifice Shadowblood Egg: Add {BR} to your mana pool. Draw a card."
+    IDS_STRING13369         "Skycloud Egg\n{1}\nArtifact\nODY,U\n{2}, {T}, Sacrifice Skycloud Egg: Add {WU} to your mana pool. Draw a card."
+    IDS_STRING13370         "Steamclaw\n{2}\nArtifact\nODY,U\n{3}, {T}: Exile target card from a graveyard.\r{1}, Sacrifice Steamclaw: Exile target card from a graveyard."
+    IDS_STRING13371         "Sungrass Egg\n{1}\nArtifact\nODY,U\n{2}, {T}, Sacrifice Sungrass Egg: Add {GW} to your mana pool. Draw a card."
+    IDS_STRING13372         "Battle Strain\n{1R}\nEnchantment\nODY,U\nWhenever a creature blocks, Battle Strain deals 1 damage to that creature's controller."
+    IDS_STRING13373         "Burning Sands\n{3RR}\nEnchantment\nODY,R\nWhenever a creature dies, that creature's controller sacrifices a land."
+    IDS_STRING13374         "Earnest Fellowship\n{1W}\nEnchantment\nODY,R\nEach creature has protection from its colors."
+    IDS_STRING13375         "Magma Vein\n{2R}\nEnchantment\nODY,U\n{R}, Sacrifice a land: Magma Vein deals 1 damage to each creature without flying."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13376         "Malevolent Awakening\n{1BB}\nEnchantment\nODY,U\n{1BB}, Sacrifice a creature: Return target creature card from your graveyard to your hand."
+    IDS_STRING13377         "Need for Speed\n{R}\nEnchantment\nODY,R\nSacrifice a land: Target creature gains haste until end of turn."
+    IDS_STRING13378         "Pedantic Learning\n{UU}\nEnchantment\nODY,R\nWhenever a land card is put into your graveyard from your library, you may pay {1}. If you do, draw a card."
+    IDS_STRING13379         "Primal Frenzy\n{G}\nEnchantment - Aura\nODY,C\nEnchant creature\rEnchanted creature has trample."
+    IDS_STRING13380         "Still Life\n{1GG}\nEnchantment\nODY,U\n{GG}: Still Life becomes a 4/3 Centaur creature until end of turn. It's still an enchantment."
+    IDS_STRING13381         "Zombie Infestation\n{1B}\nEnchantment\nODY,U\nDiscard two cards: Put a 2/2 black Zombie creature token onto the battlefield."
+    IDS_STRING13382         "Cease-Fire\n{2W}\nInstant\nODY,C\nTarget player can't cast creature spells this turn.\rDraw a card."
+    IDS_STRING13383         "Divert\n{U}\nInstant\nODY,R\nChange the target of target spell with a single target unless that spell's controller pays {2}."
+    IDS_STRING13384         "Embolden\n{2W}\nInstant\nODY,C\nPrevent the next 4 damage that would be dealt this turn to any number of target creatures and/or players, divided as you choose.\rFlashback {1W}"
+    IDS_STRING13385         "Entomb\n{B}\nInstant\nODY,R\nSearch your library for a card and put that card into your graveyard. Then shuffle your library."
+    IDS_STRING13386         "Refresh\n{2G}\nInstant\nODY,C\nRegenerate target creature.\rDraw a card."
+    IDS_STRING13387         "Repel\n{3U}\nInstant\nODY,C\nPut target creature on top of its owner's library."
+    IDS_STRING13388         "Second Thoughts\n{4W}\nInstant\nODY,C\nExile target attacking creature.\rDraw a card."
+    IDS_STRING13389         "Shelter\n{1W}\nInstant\nODY,C\nTarget creature you control gains protection from the color of your choice until end of turn.\rDraw a card."
+    IDS_STRING13390         "Ancestral Tribute\n{5WW}\nSorcery\nODY,R\nYou gain 2 life for each card in your graveyard.\rFlashback {9WWW}"
+    IDS_STRING13391         "Decompose\n{1B}\nSorcery\nODY,U\nExile up to three target cards from a single graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13392         "Extract\n{U}\nSorcery\nODY,R\nSearch target player's library for a card and exile it. Then that player shuffles his or her library."
+    IDS_STRING13393         "New Frontiers\n{XG}\nSorcery\nODY,R\nEach player may search his or her library for up to X basic land cards and put them onto the battlefield tapped. Then each player who searched his or her library this way shuffles it."
+    IDS_STRING13394         "Piper's Melody\n{G}\nSorcery\nODY,U\nShuffle any number of target creature cards from your graveyard into your library."
+    IDS_STRING13395         "Touch of Invisibility\n{3U}\nSorcery\nODY,C\nTarget creature is unblockable this turn.\rDraw a card."
+    IDS_STRING13396         "Mudhole\n{2R}\nInstant\nODY,R\nTarget player exiles all land cards from his or her graveyard."
+    IDS_STRING13397         "Childhood Horror\n{3B}\nCreature - Horror\nODY,U\nFlying\rThreshold - As long as seven or more cards are in your graveyard, Childhood Horror gets +2/+2 and can't block.\n2/2"
+    IDS_STRING13398         "Crashing Centaur\n{4GG}\nCreature - Centaur\nODY,U\n{G}, Discard a card: Crashing Centaur gains trample until end of turn.\rThreshold - As long as seven or more cards are in your graveyard, Crashing Centaur gets +2/+2 and has shroud.\n3/4"
+    IDS_STRING13399         "Dirty Wererat\n{3B}\nCreature - Human Rat Minion\nODY,C\n{B}, Discard a card: Regenerate Dirty Wererat.\rThreshold - As long as seven or more cards are in your graveyard, Dirty Wererat gets +2/+2 and can't block.\n2/2"
+    IDS_STRING13400         "Frightcrawler\n{1B}\nCreature - Horror\nODY,C\nFear\rThreshold - As long as seven or more cards are in your graveyard, Frightcrawler gets +2/+2 and can't block.\n1/1"
+    IDS_STRING13401         "Metamorphic Wurm\n{3GG}\nCreature - Elephant Wurm\nODY,U\nThreshold - Metamorphic Wurm gets +4/+4 as long as seven or more cards are in your graveyard.\n3/3"
+    IDS_STRING13402         "Krosan Beast\n{3G}\nCreature - Squirrel Beast\nODY,R\nThreshold - Krosan Beast gets +7/+7 as long as seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13403         "Werebear\n{1G}\nCreature - Human Bear Druid\nODY,C\n{T}: Add {G} to your mana pool.\rThreshold - Werebear gets +3/+3 as long as seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13404         "Springing Tiger\n{3G}\nCreature - Cat\nODY,C\nThreshold - Springing Tiger gets +2/+2 as long as seven or more cards are in your graveyard.\n3/3"
+    IDS_STRING13405         "Mystic Crusader\n{1WW}\nCreature - Human Nomad Mystic\nODY,R\nProtection from black and from red.\rThreshold - As long as seven or more cards are in your graveyard, Mystic Crusader gets +1/+1 and has flying.\n2/1"
+    IDS_STRING13406         "Mystic Enforcer\n{2GW}\nCreature - Human Nomad Mystic\nODY,R\nProtection from black.\rThreshold - As long as seven or more cards are in your graveyard, Mystic Enforcer gets +3/+3 and has flying.\n3/3"
+    IDS_STRING13407         "Mystic Penitent\n{W}\nCreature - Human Nomad Mystic\nODY,U\nVigilance.\rThreshold - As long as seven or more cards are in your graveyard, Mystic Penitent gets +1/+1 and has flying.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13408         "Mystic Visionary\n{1W}\nCreature - Human Nomad Mystic\nODY,C\nThreshold - Mystic Visionary has flying as long as seven or more cards are in your graveyard.\n2/1"
+    IDS_STRING13409         "Mystic Zealot\n{3W}\nCreature - Human Nomad Mystic\nODY,C\nThreshold - As long as seven or more cards are in your graveyard, Mystic Zealot gets +1/+1 and has flying.\n2/4"
+    IDS_STRING13410         "Otarian Juggernaut\n{4}\nArtifact Creature - Juggernaut\nODY,R\nOtarian Juggernaut can't be blocked by Walls.\rThreshold - As long as seven or more cards are in your graveyard, Otarian Juggernaut gets +3/+0 and attacks each turn if able.\n2/3"
+    IDS_STRING13411         "Chainflinger\n{3R}\nCreature - Beast\nODY,C\n{1R}, {T}: Chainflinger deals 1 damage to target creature or player.\rThreshold - {2R}, {T}: Chainflinger deals 2 damage to target creature or player. Activate this ability only if seven or more cards are in your graveyard.\n2/2"
+    IDS_STRING13412         "Nomad Decoy\n{2W}\nCreature - Human Nomad\nODY,U\n{W}, {T}: Tap target creature.\rThreshold - {WW}, {T}: Tap two target creatures. Activate this ability only if seven or more cards are in your graveyard.\n1/2"
+    IDS_STRING13413         "Infected Vermin\n{2B}\nCreature - Rat\nODY,U\n{2B}: Infected Vermin deals 1 damage to each creature and each player.\rThreshold - {3B}: Infected Vermin deals 3 damage to each creature and each player. Activate this ability only if seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13414         "Hallowed Healer\n{2W}\nCreature - Human Cleric\nODY,C\n{T}: Prevent the next 2 damage that would be dealt to target creature or player this turn.\rThreshold - {T}: Prevent the next 4 damage that would be dealt to target creature or player this turn. Activate this ability only if seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13415         "Thermal Blast\n{4R}\nInstant\nODY,C\nThermal Blast deals 3 damage to target creature.\rThreshold - Thermal Blast deals 5 damage to that creature instead if seven or more cards are in your graveyard."
+    IDS_STRING13416         "Cabal Patriarch\n{3BBB}\nLegendary Creature - Human Wizard\nODY,R\n{2B}, Sacrifice a creature: Target creature gets -2/-2 until end of turn.\r{2B}, Exile a creature card from your graveyard: Target creature gets -2/-2 until end of turn.\n5/5"
+    IDS_STRING13417         "Gorilla Titan\n{3GG}\nCreature - Ape\nODY,U\nTrample\rGorilla Titan gets +4/+4 as long as there are no cards in your graveyard.\n4/4"
+    IDS_STRING13418         "Bearscape\n{1GG}\nEnchantment\nODY,R\n{1G}, Exile two cards from your graveyard: Put a 2/2 green Bear creature token onto the battlefield."
+    IDS_STRING13419         "Caustic Tar\n{4BB}\nEnchantment - Aura\nODY,U\nEnchant land\rEnchanted land has ""{T}: Target player loses 3 life."""
+    IDS_STRING13420         "Chamber of Manipulation\n{2UU}\nEnchantment - Aura\nODY,U\nEnchant land\rEnchanted land has ""{T}, Discard a card: Gain control of target creature until end of turn."""
+    IDS_STRING13421         "Divine Sacrament\n{1WW}\nEnchantment\nODY,R\nWhite creatures get +1/+1.\rThreshold - White creatures get an additional +1/+1 as long as seven or more cards are in your graveyard."
+    IDS_STRING13422         "Krosan Avenger\n{2G}\nCreature - Human Druid\nODY,C\nTrample\rThreshold - {1G}: Regenerate Krosan Avenger. Activate this ability only if seven or more cards are in your graveyard.\n3/1"
+    IDS_STRING13423         "Psionic Gift\n{1U}\nEnchantment - Aura\nODY,C\nEnchant creature\rEnchanted creature has ""{T}: This creature deals 1 damage to target creature or player."""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13424         "Psychatog\n{1UB}\nCreature - Atog\nODY,U\nDiscard a card: Psychatog gets +1/+1 until end of turn.\rExile two cards from your graveyard: Psychatog gets +1/+1 until end of turn.\n1/2"
+    IDS_STRING13425         "Sarcatog\n{1BR}\nCreature - Atog\nODY,U\nExile two cards from your graveyard: Sarcatog gets +1/+1 until end of turn.\rSacrifice an artifact: Sarcatog gets +1/+1 until end of turn.\n1/2"
+    IDS_STRING13426         "Spark Mage\n{R}\nCreature - Dwarf Wizard\nODY,U\nWhenever Spark Mage deals combat damage to a player, you may have Spark Mage deal 1 damage to target creature that player controls.\n1/1"
+    IDS_STRING13427         "Squirrel Nest\n{1GG}\nEnchantment - Aura\nODY,U\nEnchant land\rEnchanted land has ""{T}: Put a 1/1 green Squirrel creature token onto the battlefield."""
+    IDS_STRING13428         "Nut Collector\n{5G}\nCreature - Human Druid\nODY,R\nAt the beginning of your upkeep, you may put a 1/1 green Squirrel creature token onto the battlefield.\rThreshold - Squirrel creatures get +2/+2 as long as seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13429         "Savage Firecat\n{3RR}\nCreature - Elemental Cat\nODY,R\nTrample\rSavage Firecat enters the battlefield with seven +1/+1 counters on it.\rWhenever you tap a land for mana, remove a +1/+1 counter from Savage Firecat.\n0/0"
+    IDS_STRING13430         "Ivy Elemental\n{XG}\nCreature - Elemental\nODY,R\nIvy Elemental enters the battlefield with X +1/+1 counters on it.\n0/0"
+    IDS_STRING13431         "Haunting Echoes\n{3BB}\nSorcery\nODY,R\nExile all cards from target player's graveyard other than basic land cards. For each card exiled this way, search that player's library for all cards with the same name as that card and exile them. Then that player shuffles his or her library."
+    IDS_STRING13432         "Innocent Blood\n{B}\nSorcery\nODY,C\nEach player sacrifices a creature."
+    IDS_STRING13433         "Simplify\n{G}\nSorcery\nODY,C\nEach player sacrifices an enchantment."
+    IDS_STRING13434         "Tremble\n{1R}\nSorcery\nODY,C\nEach player sacrifices a land."
+    IDS_STRING13435         "Cabal Inquisitor\n{1B}\nCreature - Human Minion\nODY,C\nThreshold - {1B}, {T}, Exile two cards from your graveyard: Target player discards a card. Activate this ability only any time you could cast a sorcery, and only if seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13436         "Screams of the Damned\n{3BB}\nEnchantment\nODY,U\n{1B}, Exile a card from your graveyard: Screams of the Damned deals 1 damage to each creature and each player."
+    IDS_STRING13437         "Beloved Chaplain\n{1W}\nCreature - Human Cleric\nODY,U\nProtection from creatures\n1/1"
+    IDS_STRING13438         "Immobilizing Ink\n{1U}\nEnchantment - Aura\nODY,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step.\rEnchanted creature has ""{1}, Discard a card: Untap this creature."""
+    IDS_STRING13439         "Holistic Wisdom\n{1GG}\nEnchantment\nODY,R\n{2}, Exile a card from your hand: Return target card from your graveyard to your hand if it shares a card type with the card exiled this way."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13440         "Wild Mongrel\n{1G}\nCreature - Hound\nODY,C\nDiscard a card: Wild Mongrel gets +1/+1 and becomes the color of your choice until end of turn.\n2/2"
+    IDS_STRING13441         "Aboshan, Cephalid Emperor\n{4UU}\nLegendary Creature - Cephalid\nODY,R\nTap an untapped Cephalid you control: Tap target permanent.\r{UUU}: Tap all creatures without flying.\n3/3"
+    IDS_STRING13442         "Kirtar's Wrath\n{4WW}\nSorcery\nODY,R\nDestroy all creatures. They can't be regenerated.\rThreshold - If seven or more cards are in your graveyard, instead destroy all creatures, then put two 1/1 white Spirit creature tokens with flying onto the battlefield. Creatures destroyed this way can't be regenerated."
+    IDS_STRING13443         "Animal Boneyard\n{2W}\nEnchantment - Aura\nODY,U\nEnchant land\rEnchanted land has ""{T}, Sacrifice a creature: You gain life equal to that creature's toughness."""
+    IDS_STRING13444         "Atogatog\n{WUBRG}\nLegendary Creature - Atog\nODY,R\nSacrifice an Atog creature: Atogatog gets +X/+X until end of turn, where X is the sacrificed creature's power.\n5/5"
+    IDS_STRING13445         "Nantuko Mentor\n{2G}\nCreature - Insect Druid\nODY,R\n{2G}, {T}: Target creature gets +X/+X until end of turn, where X is that creature's power.\n1/1"
+    IDS_STRING13446         "Rotting Giant\n{1B}\nCreature - Zombie Giant\nODY,U\nWhenever Rotting Giant attacks or blocks, sacrifice it unless you exile a card from your graveyard.\n3/3"
+    IDS_STRING13447         "Stone-Tongue Basilisk\n{4GGG}\nCreature - Basilisk\nODY,R\nWhenever Stone-Tongue Basilisk deals combat damage to a creature, destroy that creature at end of combat.\rThreshold - As long as seven or more cards are in your graveyard, all creatures able to block Stone-Tongue Basilisk do so.\n4/5"
+    IDS_STRING13448         "Zombie Assassin\n{4B}\nCreature - Zombie Assassin\nODY,C\n{T}, Exile two cards from your graveyard and Zombie Assassin: Destroy target nonblack creature. It can't be regenerated.\n3/2"
+    IDS_STRING13449         "Druid's Call\n{1G}\nEnchantment - Aura\nODY,U\nEnchant creature\rWhenever enchanted creature is dealt damage, its controller puts that many 1/1 green Squirrel creature tokens onto the battlefield."
+    IDS_STRING13450         "Words of Wisdom\n{1U}\nInstant\nODY,C\nYou draw two cards, then each other player draws a card."
+    IDS_STRING13451         "Tombfire\n{B}\nSorcery\nODY,R\nTarget player exiles all cards with flashback from his or her graveyard."
+    IDS_STRING13452         "Muscle Burst\n{1G}\nInstant\nODY,C\nTarget creature gets +X/+X until end of turn, where X is 3 plus the number of cards named Muscle Burst in all graveyards."
+    IDS_STRING13453         "Diligent Farmhand\n{G}\nCreature - Human Druid\nODY,C\n{1G}, Sacrifice Diligent Farmhand: Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\rIf Diligent Farmhand is in a graveyard, effects from spells named Muscle Burst count it as a card named Muscle Burst.\n1/1"
+    IDS_STRING13454         "Life Burst\n{1W}\nInstant\nODY,C\nTarget player gains 4 life, then gains 4 life for each card named Life Burst in each graveyard."
+    IDS_STRING13455         "Mind Burst\n{1B}\nSorcery\nODY,C\nTarget player discards X cards, where X is one plus the number of cards named Mind Burst in all graveyards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13456         "Aven Shrine\n{1WW}\nEnchantment\nODY,R\nWhenever a player casts a spell, that player gains X life, where X is the number of cards in all graveyards with the same name as that spell."
+    IDS_STRING13457         "Cabal Shrine\n{1BB}\nEnchantment\nODY,R\nWhenever a player casts a spell, that player discards X cards, where X is the number of cards in all graveyards with the same name as that spell."
+    IDS_STRING13458         "Dwarven Shrine\n{1RR}\nEnchantment\nODY,R\nWhenever a player casts a spell, Dwarven Shrine deals X damage to that player, where X is twice the number of cards in all graveyards with the same name as that spell."
+    IDS_STRING13459         "Nantuko Shrine\n{1GG}\nEnchantment\nODY,R\nWhenever a player casts a spell, that player puts X 1/1 green Squirrel creature tokens onto the battlefield, where X is the number of cards in all graveyards with the same name as that spell."
+    IDS_STRING13460         "Flame Burst\n{1R}\nInstant\nODY,C\nFlame Burst deals X damage to target creature or player, where X is 2 plus the number of cards named Flame Burst in all graveyards."
+    IDS_STRING13461         "Pardic Firecat\n{3R}\nCreature - Elemental Cat\nODY,C\nHaste\rIf Pardic Firecat is in a graveyard, effects from spells named Flame Burst count it as a card named Flame Burst.\n2/3"
+    IDS_STRING13462         "Devoted Caretaker\n{W}\nCreature - Human Cleric\nODY,R\n{W},{T}: Target permanent you control gains protection from instant spells and from sorcery spells until end of turn.\n1/2"
+    IDS_STRING13463         "Thought Devourer\n{2UU}\nCreature - Beast\nODY,R\nFlying\rYour maximum hand size is increased by four.\n4/4"
+    IDS_STRING13464         "Thought Eater\n{1U}\nCreature - Beast\nODY,U\nFlying\rYour maximum hand size is increased by three.\n2/2"
+    IDS_STRING13465         "Thought Nibbler\n{U}\nCreature - Beast\nODY,C\nFlying\rYour maximum hand size is increased by two.\n1/1"
+    IDS_STRING13466         "Shower of Coals\n{3RR}\nSorcery\nODY,U\nShower of Coals deals 2 damage to each of up to three target creatures and/or players.\rThreshold - Shower of Coals deals 4 damage to each of those creatures and/or players instead if seven or more cards are in your graveyard."
+    IDS_STRING13467         "Recoup\n{1R}\nSorcery\nODY,U\nTarget sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost.\rFlashback {3R}"
+    IDS_STRING13468         "Syncopate\n{XU}\nInstant\nODY,C\nCounter target spell unless its controller pays {X}. If that spell is countered this way, exile it instead of putting it into its owner's graveyard."
+    IDS_STRING13469         "Ghastly Demise\n{B}\nInstant\nODY,C\nDestroy target nonblack creature if its toughness is less than or equal to the number of cards in your graveyard."
+    IDS_STRING13470         "Luminous Guardian\n{3W}\nCreature - Human Nomad\nODY,U\n{W}: Luminous Guardian gets +0/+1 until end of turn.\r{2}: Luminous Guardian can block an additional creature this turn.\n1/4"
+    IDS_STRING13471         "Liquid Fire\n{4RR}\nSorcery\nODY,U\nAs an additional cost to cast Liquid Fire, choose a number between 0 and 5.\rLiquid Fire deals X damage to target creature and 5 minus X damage to that creature's controller, where X is the chosen number."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13472         "Chlorophant\n{GGG}\nCreature - Elemental\nODY,R\nAt the beginning of your upkeep, you may put a +1/+1 counter on Chlorophant.\rThreshold - As long as seven or more cards are in your graveyard, Chlorophant has ""At the beginning of your upkeep, you may put another +1/+1 counter on Chlorophant.""\n1/1"
+    IDS_STRING13473         "Bloodcurdler\n{1B}\nCreature - Horror\nODY,R\nFlying\rAt the beginning of your upkeep, put the top card of your library into your graveyard.\rThreshold - As long as seven or more cards are in your graveyard, Bloodcurdler gets +1/+1 and has ""At the beginning of your end step, exile two cards from your graveyard.""\n1/1"
+    IDS_STRING13474         "Decaying Soil\n{1BB}\nEnchantment\nODY,R\nAt the beginning of your upkeep, exile a card from your graveyard.\rThreshold - As long as seven or more cards are in your graveyard, Decaying Soil has ""Whenever a nontoken creature is put into your graveyard from the battlefield, you may pay {1}. If you do, return that card to your hand."""
+    IDS_STRING13475         "Demoralize\n{2R}\nInstant\nODY,C\nEach creature can't be blocked this turn except by two or more creatures.\rThreshold - If seven or more cards are in your graveyard, creatures can't block this turn."
+    IDS_STRING13476         "Epicenter\n{4R}\nSorcery\nODY,R\nTarget player sacrifices a land.\rThreshold - Each player sacrifices all lands he or she controls instead if seven or more cards are in your graveyard."
+    IDS_STRING13477         "Repentant Vampire\n{3BB}\nCreature - Vampire\nODY,R\nFlying\rWhenever a creature dealt damage by Repentant Vampire this turn dies, put a +1/+1 counter on Repentant Vampire.\rThreshold - As long as seven or more cards are in your graveyard, Repentant Vampire is white and has ""{T}: Destroy target black creature.""\n3/3"
+    IDS_STRING13478         "Wayward Angel\n{4WW}\nCreature - Angel Horror\nODY,R\nFlying, vigilance\rThreshold - As long as seven or more cards are in your graveyard, Wayward Angel gets +3/+3, is black, has trample, and has ""At the beginning of your upkeep, sacrifice a creature.""\n4/4"
+    IDS_STRING13479         "Mirari\n{5}\nLegendary Artifact\nODY,R\nWhenever you cast an instant or sorcery spell, you may pay {3}. If you do, copy that spell. You may choose new targets for the copy."
+    IDS_STRING13480         "Ground Seal\n{1G}\nEnchantment\nODY,R\nWhen Ground Seal enters the battlefield, draw a card.\rCards in graveyards can't be the targets of spells or abilities."
+    IDS_STRING13481         "Junk Golem\n{4}\nArtifact Creature - Golem\nODY,R\nJunk Golem enters the battlefield with three +1/+1 counters on it.\rAt the beginning of your upkeep, sacrifice Junk Golem unless you remove a +1/+1 counter from it.\r{1}, Discard a card: Put a +1/+1 counter on Junk Golem.\n0/0"
+    IDS_STRING13482         "Lava Blister\n{1R}\nSorcery\nODY,U\nDestroy target nonbasic land unless its controller has Lava Blister deal 6 damage to him or her."
+    IDS_STRING13483         "Blazing Salvo\n{R}\nInstant\nODY,C\nBlazing Salvo deals 3 damage to target creature unless that creature's controller has Blazing Salvo deal 5 damage to him or her."
+    IDS_STRING13484         "Chance Encounter\n{2RR}\nEnchantment\nODY,R\nWhenever you win a coin flip, put a luck counter on Chance Encounter.\rAt the beginning of your upkeep, if Chance Encounter has ten or more luck counters on it, you win the game."
+    IDS_STRING13485         "Laquatus's Creativity\n{4U}\nSorcery\nODY,U\nTarget player draws cards equal to the number of cards in his or her hand, then discards that many cards."
+    IDS_STRING13486         "Rites of Initiation\n{R}\nInstant\nODY,C\nDiscard any number of cards at random. Creatures you control get +1/+0 until end of turn for each card discarded this way."
+    IDS_STRING13487         "Rites of Spring\n{1G}\nSorcery\nODY,C\nDiscard any number of cards. Search your library for that many basic land cards, reveal those cards, and put them into your hand. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13488         "Sacred Rites\n{W}\nInstant\nODY,C\nDiscard any number of cards. Creatures you control get +0/+1 until end of turn for each card discarded this way."
+    IDS_STRING13489         "Predict\n{1U}\nInstant\nODY,U\nName a card, then target player puts the top card of his or her library into his or her graveyard. If that card is the named card, you draw two cards. Otherwise, you draw a card."
+    IDS_STRING13490         "Hint of Insanity\n{2B}\nSorcery\nODY,R\nTarget player reveals his or her hand. That player discards all nonland cards with the same name as another card in his or her hand."
+    IDS_STRING13491         "Tainted Pact\n{1B}\nInstant\nODY,R\nExile the top card of your library. You may put that card into your hand unless it has the same name as another card exiled this way. Repeat this process until you put a card into your hand or you exile two cards with the same name, whichever comes first."
+    IDS_STRING13492         "Last Rites\n{2B}\nSorcery\nODY,C\nDiscard any number of cards. Target player reveals his or her hand, then you choose a nonland card from it for each card discarded this way. That player discards those cards."
+    IDS_STRING13493         "Verdant Succession\n{4G}\nSorcery\nODY,R\nWhenever a green nontoken creature dies, that creature's controller may search his or her library for a card with the same name as that creature and put it onto the battlefield. If that player does, he or she shuffles his or her library."
+    IDS_STRING13494         "Vivify\n{2G}\nInstant\nODY,U\nTarget land becomes a 3/3 creature until end of turn. It's still a land.\rDraw a card."
+    IDS_STRING13495         "Think Tank\n{2U}\nEnchantment\nODY,U\nAt the beginning of your upkeep, look at the top card of your library. You may put that card into your graveyard."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

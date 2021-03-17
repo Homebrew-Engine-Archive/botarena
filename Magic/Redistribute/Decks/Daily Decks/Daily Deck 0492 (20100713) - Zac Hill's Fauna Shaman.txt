@@ -1,0 +1,46 @@
+// Total cards in deck - 60
+
+// Creatures - 31 (51.67%)
+
+Baneslayer Angel (21125)
+Birds of Paradise (21103)
+3 Bloodbraid Elf (9105)
+Cunning Sparkmage (19608)
+4 Fauna Shaman (21239)
+3 Knight of the Reliquary (8815)
+2 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+Obstinate Baloth (21217)
+Ranger of Eos (8642)
+Scute Mob (19362)
+4 Squadron Hawk (21218)
+Stoneforge Mystic (19638)
+4 Vengevine (20939)
+
+// Enchantments - 2 (3.33%)
+
+2 Oblivion Ring (8718)
+
+// Artifacts - 2 (3.33%)
+
+Basilisk Collar (19687)
+Behemoth Sledge (9003)
+
+// Lands - 25 (41.67%)
+
+4 Arid Mesa (19349)
+Evolving Wilds (20905)
+2 Forest (21104)
+Forest (21107)
+Forest (21106)
+2 Forest (21105)
+Jungle Shrine (8588)
+3 Misty Rainforest (19356)
+Mountain (21113)
+Mountain (21112)
+Plains (21117)
+Plains (21116)
+Raging Ravine (19699)
+Sejiri Steppe (19691)
+2 Stirring Wildwood (19623)
+2 Sunpetal Grove (21130)

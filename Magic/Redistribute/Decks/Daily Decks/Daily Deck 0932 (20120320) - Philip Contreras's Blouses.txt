@@ -1,0 +1,57 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Birds of Paradise (22236)
+4 Geist of Saint Traft (23568)
+4 Noble Hierarch (8819)
+4 Qasali Pridemage (9018)
+4 Troll Ascetic (3341)
+
+// Instants - 15 (25.00%)
+
+4 Brainstorm (11610)
+4 Daze (12089)
+3 Psionic Blast (17256)
+4 Spell Pierce (19377)
+
+// Enchantments - 5 (8.33%)
+
+2 Spectral Flight (23451)
+3 Unstable Mutation (17420)
+
+// Lands - 20 (33.33%)
+
+Forest (23322)
+Forest (23321)
+Island (23325)
+Island (23324)
+4 Misty Rainforest (19356)
+2 Savannah (7353)
+4 Tropical Island (7384)
+2 Tundra (7386)
+2 Wasteland (10008)
+2 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Gaddock Teeg (18062)
+
+// Instants
+
+2 Mindbreak Trap (19500)
+2 Path to Exile (8897)
+3 Submerge (12100)
+
+// Enchantments
+
+3 Chill (587)
+2 Threads of Disloyalty (19169)
+
+// Artifacts
+
+2 Umezawa's Jitte (19149)

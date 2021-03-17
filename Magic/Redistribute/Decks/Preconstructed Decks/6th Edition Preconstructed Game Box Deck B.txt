@@ -1,0 +1,58 @@
+// Classic Sixth Game Box Deck B
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 12 (30.00%)
+
+Air Elemental (311)
+Anaba Bodyguard (313)
+D'Avenant Archer (327)
+Horned Turtle (310)
+Phantom Warrior (305)
+Prodigal Sorcerer (306)
+Sabretooth Tiger (314)
+Sibilant Spirit (307)
+Storm Crow (309)
+Venerable Monk (325)
+Wall of Fire (312)
+Wind Drake (308)
+
+// Instants - 4 (10.00%)
+
+Boomerang (343)
+Counterspell (344)
+Disenchant (340)
+Lightning Blast (337)
+
+// Sorceries - 4 (10.00%)
+
+Blaze (333)
+Fit of Rage (332)
+Pyrotechnics (330)
+Tremor (331)
+
+// Enchantments - 2 (5.00%)
+
+Castle (348)
+Hero's Resolve (347)
+
+// Artifacts - 1 (2.50%)
+
+Mana Prism (350)
+
+// Lands - 17 (42.50%)
+
+2 Island (303)
+2 Island (522)
+Island (523)
+Island (524)
+2 Mountain (304)
+2 Mountain (519)
+Mountain (520)
+Mountain (521)
+2 Plains (302)
+Plains (528)
+Plains (529)
+Plains (530)

@@ -1,0 +1,45 @@
+// Molimo's Might
+// 10th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 14 (35.00%)
+
+2 Canopy Spider (3021)
+2 Civic Wayfinder (3324)
+Craw Wurm (3028)
+Enormous Baloth (3043)
+Kavu Climber (3087)
+Mantis Engine (3257)
+Molimo, Maro-Sorcerer (3256)
+2 Rootwalla (3143)
+2 Spined Wurm (3166)
+Stampeding Wildebeests (3331)
+
+// Instants - 1 (2.50%)
+
+Giant Growth (3059)
+
+// Sorceries - 6 (15.00%)
+
+2 Commune with Nature (3335)
+Hurricane (3078)
+Overrun (3309)
+2 Rampant Growth (3134)
+
+// Enchantments - 2 (5.00%)
+
+2 Blanchwood Armor (3014)
+
+// Artifacts - 1 (2.50%)
+
+Wurm's Tooth (3201)
+
+// Lands - 16 (40.00%)
+
+4 Forest (3051)
+4 Forest (3052)
+4 Forest (3053)
+4 Forest (3054)

@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 27 (45.00%)
+
+4 Arcbound Ravager (15300)
+4 Arcbound Worker (15304)
+3 Atog (14822)
+4 Ethersworn Canonist (8728)
+4 Frogmite (15007)
+4 Master of Etherium (8594)
+4 Ornithopter (3117)
+
+// Instants - 3 (5.00%)
+
+3 Fatal Frenzy (2595)
+
+// Artifacts - 12 (20.00%)
+
+4 Chromatic Star (3280)
+4 Cranial Plating (15458)
+4 Springleaf Drum (17994)
+
+// Lands - 18 (30.00%)
+
+4 Ancient Den (14926)
+2 Blinkmoth Nexus (15249)
+4 Great Furnace (14929)
+4 Seat of the Synod (14930)
+4 Vault of Whispers (14932)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Krark-Clan Shaman (14879)
+
+// Sorceries
+
+4 Deathmark (3217)
+4 Thoughtseize (17901)
+
+// Artifacts
+
+2 Tormod's Crypt (17265)
+
+// Lands
+
+Sulfurous Springs (3173)

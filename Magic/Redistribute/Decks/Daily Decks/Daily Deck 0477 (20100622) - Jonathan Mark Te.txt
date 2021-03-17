@@ -1,0 +1,57 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+4 Elvish Visionary (4181)
+4 Joraga Treespeaker (20945)
+4 Kozilek's Predator (20841)
+4 Nest Invader (20887)
+4 Noble Hierarch (8819)
+4 Sea Gate Oracle (20850)
+
+// Instants - 4 (6.67%)
+
+4 Unified Will (20983)
+
+// Sorceries - 9 (15.00%)
+
+Bestial Menace (19663)
+4 Overrun (4077)
+4 Shared Discovery (20927)
+
+// Artifacts - 1 (1.67%)
+
+Eldrazi Monument (19530)
+
+// Lands - 22 (36.67%)
+
+Forest (20801)
+2 Forest (20800)
+Forest (20803)
+Forest (20802)
+2 Halimar Depths (19634)
+Island (20806)
+Island (20805)
+Island (20804)
+4 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 River Boa (19390)
+
+// Instants
+
+3 Fog (4039)
+3 Into the Roil (19373)
+2 Naturalize (20824)
+3 Negate (4016)
+
+// Artifacts
+
+2 Pithing Needle (4081)

@@ -1,0 +1,42 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+4 Ashenmoor Gouger (18594)
+4 Blood Knight (2501)
+4 Demigod of Revenge (18645)
+4 Figure of Destiny (19006)
+4 Magus of the Moon (17735)
+4 Magus of the Scroll (17486)
+
+// Instants - 12 (20.00%)
+
+4 Flame Javelin (18642)
+4 Incinerate (3226)
+4 Skred (7054)
+
+// Lands - 24 (40.00%)
+
+2 Keldon Megaliths (17729)
+22 Snow-Covered Mountain (7059)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Murderous Redcap (18646)
+3 Spitebellows (18342)
+
+// Instants
+
+4 Sulfurous Blast (17485)
+
+// Sorceries
+
+2 Unwilling Recruit (19044)
+
+// Artifacts
+
+2 Pithing Needle (3301)

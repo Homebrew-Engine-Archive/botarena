@@ -1,0 +1,41 @@
+// Life Boost
+// 8th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+2 Angel of Mercy (1758)
+2 Angelic Page (1503)
+2 Crossbow Infantry (1527)
+Diving Griffin (1749)
+Seasoned Marshal (1635)
+Staunch Defenders (1648)
+2 Suntail Hawk (1732)
+2 Tundra Wolves (1692)
+3 Venerable Monk (1671)
+
+// Instants - 3 (7.50%)
+
+Blessed Reversal (1511)
+Chastise (1773)
+Healing Salve (1563)
+
+// Enchantments - 3 (7.50%)
+
+Glorious Anthem (1556)
+Pacifism (1604)
+Spirit Link (1646)
+
+// Artifacts - 1 (2.50%)
+
+Ivory Cup (1578)
+
+// Lands - 17 (42.50%)
+
+5 Plains (1610)
+4 Plains (1611)
+4 Plains (1612)
+4 Plains (1613)

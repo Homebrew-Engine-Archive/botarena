@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Elspeth, Knight-Errant (8722)
+
+// Creatures - 24 (40.00%)
+
+4 Ajani's Pridemate (21138)
+4 Kor Firewalker (19606)
+4 Ranger of Eos (8642)
+4 Serra Ascendant (21247)
+4 Soul Warden (4103)
+4 Soul's Attendant (20895)
+
+// Instants - 4 (6.67%)
+
+4 Brave the Elements (19448)
+
+// Sorceries - 4 (6.67%)
+
+4 Survival Cache (20989)
+
+// Enchantments - 1 (1.67%)
+
+Oblivion Ring (8718)
+
+// Lands - 24 (40.00%)
+
+4 Kabira Crossroads (19401)
+4 Plains (21116)
+4 Plains (21117)
+4 Plains (21118)
+4 Plains (21119)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Linvala, Keeper of Silence (20881)
+Sun Titan (21161)
+War Priest of Thune (21226)
+
+// Instants
+
+3 Celestial Purge (21131)
+3 Path to Exile (8897)
+
+// Enchantments
+
+3 Luminarch Ascension (19527)
+2 Oblivion Ring (8718)

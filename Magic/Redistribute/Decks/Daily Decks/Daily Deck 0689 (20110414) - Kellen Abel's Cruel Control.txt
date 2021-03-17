@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 6 (10.00%)
+
+3 Inferno Titan (21321)
+3 Sedraxis Specter (8685)
+
+// Instants - 13 (21.67%)
+
+4 Cryptic Command (18051)
+2 Go for the Throat (21752)
+4 Lightning Bolt (21124)
+3 Volcanic Fallout (8860)
+
+// Sorceries - 12 (20.00%)
+
+2 Cruel Ultimatum (8707)
+3 Inquisition of Kozilek (20846)
+4 Preordain (21152)
+3 Thoughtseize (17901)
+
+// Lands - 25 (41.67%)
+
+4 Blackcleave Cliffs (21470)
+4 Cascade Bluffs (18907)
+4 Creeping Tar Pit (19622)
+4 Darkslick Shores (21469)
+2 Graven Cairns (18547)
+Island (21771)
+Island (21770)
+Mountain (21772)
+Mountain (21773)
+2 Scalding Tarn (19358)
+Sunken Ruins (18580)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Sedraxis Specter (8685)
+3 Vampire Nighthawk (19355)
+
+// Instants
+
+2 Doom Blade (21198)
+3 Flashfreeze (21133)
+2 Mana Leak (21214)
+Volcanic Fallout (8860)
+
+// Sorceries
+
+Duress (21280)
+Pyroclasm (21291)
+Thoughtseize (17901)

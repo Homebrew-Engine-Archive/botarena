@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 29 (48.33%)
+
+4 Boreal Druid (7045)
+4 Bramblewood Paragon (18412)
+2 Elvish Champion (3041)
+4 Heritage Druid (18307)
+4 Imperious Perfect (17961)
+4 Llanowar Elves (3092)
+4 Nettle Sentinel (18902)
+3 Regal Force (19018)
+
+// Instants - 6 (10.00%)
+
+4 Gilt-Leaf Ambush (18142)
+2 Summoner's Pact (17793)
+
+// Sorceries - 5 (8.33%)
+
+3 Elvish Promenade (18115)
+2 Hunting Triad (18377)
+
+// Lands - 20 (33.33%)
+
+4 Forest (18507)
+4 Forest (18504)
+4 Forest (18506)
+4 Forest (18505)
+Pendelhaven (17253)
+3 Treetop Village (3308)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Garruk Wildspeaker (18029)
+
+// Creatures
+
+Cloudthresher (18015)
+4 Riftsweeper (17821)
+4 Wren's Run Vanquisher (18077)
+
+// Instants
+
+2 Krosan Grip (17369)
+2 Squall Line (17375)

@@ -1,0 +1,51 @@
+// Merrow Riverways
+// Lorwyn Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 27 (45.00%)
+
+2 Avian Changeling (18065)
+2 Drowner of Secrets (17935)
+Fallowsage (17944)
+2 Harpoon Sniper (17955)
+3 Judge of Currents (17964)
+Merrow Harbinger (17976)
+2 Merrow Reejerey (18082)
+2 Silvergill Adept (18089)
+3 Silvergill Douser (18084)
+2 Stonybrook Angler (17995)
+3 Streambed Aquitects (17996)
+Sygg, River Guide (18026)
+2 Tideshaper Mystic (18002)
+Wanderwine Prophets (18116)
+
+// Instants - 2 (3.33%)
+
+Broken Ambitions (18057)
+Whirlpool Whelm (18085)
+
+// Sorceries - 3 (5.00%)
+
+Ponder (18010)
+2 Summon the School (18037)
+
+// Enchantments - 4 (6.67%)
+
+Merrow Commerce (18038)
+3 Oblivion Ring (18040)
+
+// Artifacts - 2 (3.33%)
+
+2 Springleaf Drum (17994)
+
+// Lands - 22 (36.67%)
+
+4 Island (17907)
+3 Island (17908)
+3 Island (17909)
+3 Island (17910)
+2 Plains (17918)
+2 Plains (17917)
+2 Plains (17916)
+3 Plains (17915)

@@ -1,0 +1,49 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 12 (30.00%)
+
+Ant Queen (4001)
+2 Borderland Ranger (4164)
+Craw Wurm (4027)
+Cudgel Troll (4168)
+Elvish Visionary (4181)
+2 Illusionary Servant (4196)
+Llanowar Elves (4062)
+Merfolk Looter (4066)
+Shivan Dragon (4100)
+Wind Drake (4121)
+
+// Instants - 2 (5.00%)
+
+Naturalize (4074)
+Negate (4016)
+
+// Sorceries - 5 (12.50%)
+
+Earthquake (4034)
+Howl of the Night Pack (4131)
+Ponder (4208)
+Rampant Growth (4091)
+Sleep (4207)
+
+// Enchantments - 3 (7.50%)
+
+Entangling Vines (4192)
+Levitation (4059)
+Oakenform (4172)
+
+// Lands - 18 (45.00%)
+
+3 Forest (4040)
+2 Forest (4041)
+2 Forest (4042)
+2 Forest (4043)
+2 Island (4052)
+2 Island (4053)
+Island (4054)
+Island (4055)
+Mountain (4070)
+Mountain (4071)
+Rootbound Crag (4201)

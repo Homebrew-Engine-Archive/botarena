@@ -1,0 +1,44 @@
+// Esper Artifice
+// Shards of Alara Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 15 (36.59%)
+
+2 Cloudheath Drake (8548)
+Esper Battlemage (8566)
+2 Etherium Sculptor (8731)
+Filigree Sages (8570)
+Master of Etherium (8594)
+Sanctum Gargoyle (8614)
+Sharding Sphinx (8620)
+2 Tidehollow Strix (8630)
+2 Tower Gargoyle (8633)
+2 Windwright Mage (8695)
+
+// Sorceries - 1 (2.44%)
+
+Tidings (3185)
+
+// Enchantments - 2 (4.88%)
+
+2 Oblivion Ring (8718)
+
+// Artifacts - 6 (14.63%)
+
+Courier's Capsule (8550)
+2 Executioner's Capsule (8569)
+Marble Chalice (8593)
+Obelisk of Esper (8601)
+Onyx Goblet (8605)
+
+// Lands - 17 (41.46%)
+
+2 Arcane Sanctum (8534)
+2 Esper Panorama (8637)
+4 Island (8515)
+3 Island (8516)
+3 Plains (8526)
+3 Swamp (8527)

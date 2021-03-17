@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 26 (43.33%)
+
+4 Bloodbraid Elf (9105)
+2 Borderland Ranger (4164)
+4 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+4 Sea Gate Oracle (20850)
+4 Siege-Gang Commander (4101)
+4 Vengevine (20939)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (4060)
+
+// Artifacts - 3 (5.00%)
+
+3 Eldrazi Monument (19530)
+
+// Lands - 24 (40.00%)
+
+Forest (20803)
+Forest (20801)
+Forest (20800)
+Forest (20802)
+Island (20806)
+Island (20805)
+Island (20804)
+4 Misty Rainforest (19356)
+Mountain (20809)
+Mountain (20808)
+4 Raging Ravine (19699)
+4 Rootbound Crag (4201)
+3 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Chandra Nalaar (4209)
+2 Garruk Wildspeaker (4204)
+Jace, the Mind Sculptor (19670)
+
+// Creatures
+
+4 Cunning Sparkmage (19608)
+2 Sphinx of Jwar Isle (19378)
+Sphinx of Lost Truths (19508)
+
+// Sorceries
+
+3 Flame Slash (20924)

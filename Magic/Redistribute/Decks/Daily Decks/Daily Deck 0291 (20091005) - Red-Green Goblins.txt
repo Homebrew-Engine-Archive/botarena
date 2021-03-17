@@ -1,0 +1,37 @@
+#NO_CARD_LIMIT
+// Total cards in deck - 56
+
+// Creatures - 24 (42.86%)
+
+4 Bloodbraid Elf (9105)
+Goblin Artillery (4161)
+Goblin Bushwhacker (19455)
+4 Goblin Chieftain (4002)
+3 Goblin Guide (19456)
+Goblin Razerunners (8938)
+3 Goblin Ruinblaster (19457)
+3 Viashino Slaughtermaster (8901)
+4 Warren Instigator (19436)
+
+// Instants - 8 (14.29%)
+
+2 Burst Lightning (19384)
+2 Colossal Might (9007)
+4 Lightning Bolt (4060)
+
+// Enchantments - 1 (1.79%)
+
+Quest for the Gemblades (19528)
+
+// Lands - 23 (41.07%)
+
+Forest (19301)
+Forest (19300)
+Kazandu Refuge (19399)
+3 Mountain (19316)
+2 Mountain (19317)
+2 Mountain (19318)
+2 Mountain (19319)
+4 Rootbound Crag (4201)
+3 Savage Lands (8615)
+4 Teetering Peaks (19351)

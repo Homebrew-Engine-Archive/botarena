@@ -1,0 +1,45 @@
+// Bomber
+// 7th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 14 (35.00%)
+
+Air Elemental (757)
+Coral Merfolk (708)
+Daring Apprentice (756)
+Fighting Drake (791)
+Glacial Wall (752)
+Horned Turtle (753)
+Merfolk Looter (711)
+Merfolk of the Pearl Trident (751)
+Prodigal Sorcerer (755)
+Sage Owl (798)
+Thieving Magpie (799)
+Wall of Air (761)
+2 Wind Drake (754)
+
+// Instants - 7 (17.50%)
+
+2 Boomerang (759)
+2 Counterspell (760)
+Force Spike (802)
+Inspiration (702)
+Unsummon (758)
+
+// Sorceries - 1 (2.50%)
+
+Ancestral Memories (800)
+
+// Enchantments - 1 (2.50%)
+
+Confiscate (801)
+
+// Lands - 17 (42.50%)
+
+5 Island (747)
+4 Island (748)
+4 Island (749)
+4 Island (750)

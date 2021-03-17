@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CardAlaraReborn.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CardAlaraReborn.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AlaraReborn.ico" />
+    <None Include="AlaraRebornLarge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AlaraReborn.rc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+2 Cloudthresher (18015)
+4 Kitchen Finks (18593)
+2 Loxodon Hierarch (16606)
+
+// Instants - 7 (11.67%)
+
+3 Path to Exile (8897)
+4 Spark Spray (14632)
+
+// Sorceries - 8 (13.33%)
+
+3 Edge of Autumn (17718)
+3 Life from the Loam (16597)
+2 Wrath of God (3200)
+
+// Enchantments - 6 (10.00%)
+
+3 Astral Slide (14184)
+3 Lightning Rift (14183)
+
+// Artifacts - 3 (5.00%)
+
+3 Engineered Explosives (15510)
+
+// Lands - 28 (46.67%)
+
+2 Flagstones of Trokair (17278)
+Forest (8509)
+Forest (8510)
+3 Forgotten Cave (14128)
+2 Ghost Quarter (23829)
+Mountain (8518)
+Plains (8524)
+Plains (8523)
+Sacred Foundry (16446)
+4 Secluded Steppe (14134)
+Stomping Ground (16810)
+Temple Garden (16447)
+4 Tranquil Thicket (14135)
+3 Windswept Heath (14003)
+2 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Ajani Vengeant (8720)
+
+// Creatures
+
+Cloudthresher (18015)
+3 Duergar Hedge-Mage (18973)
+2 Eternal Witness (15428)
+
+// Instants
+
+2 Ancient Grudge (17272)
+4 Lightning Helix (16450)
+Path to Exile (8897)

@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+Bloodline Keeper (23537)
+4 Diregraf Ghoul (23348)
+3 Fume Spitter (21574)
+4 Geralf's Messenger (23645)
+4 Gravecrawler (23603)
+3 Porcelain Legionnaire (21928)
+Skinrender (21525)
+4 Skirsdag High Priest (23384)
+
+// Instants - 8 (13.33%)
+
+4 Geth's Verdict (21953)
+4 Tragic Slip (23640)
+
+// Artifacts - 4 (6.67%)
+
+Lashwrithe (22004)
+3 Mortarpod (21825)
+
+// Lands - 24 (40.00%)
+
+8 Swamp (23334)
+8 Swamp (23335)
+8 Swamp (23333)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Phyrexian Obliterator (21903)
+
+// Instants
+
+2 Mental Misstep (21910)
+
+// Sorceries
+
+2 Black Sun's Zenith (21746)
+3 Distress (22144)
+
+// Artifacts
+
+Nihil Spellbomb (21540)
+3 Ratchet Bomb (21528)
+Sword of War and Peace (21999)

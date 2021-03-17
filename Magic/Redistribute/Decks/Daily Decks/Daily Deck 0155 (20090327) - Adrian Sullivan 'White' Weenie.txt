@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Creatures - 27 (45.00%)
+
+Dryad Arbor (17804)
+3 Eternal Witness (15428)
+4 Gaddock Teeg (18062)
+4 Knight of the Reliquary (8815)
+3 Tarmogoyf (17704)
+4 Troll Ascetic (3341)
+4 Vinelasher Kudzu (16523)
+4 Wild Nacatl (8504)
+
+// Sorceries - 2 (3.33%)
+
+2 Steelshaper's Gift (15415)
+
+// Enchantments - 1 (1.67%)
+
+Worship (2204)
+
+// Artifacts - 11 (18.33%)
+
+4 Chrome Mox (15001)
+Lightning Greaves (14810)
+O-Naginata (16272)
+2 Sword of Fire and Ice (15222)
+Sword of Light and Shadow (15253)
+2 Umezawa's Jitte (19149)
+
+// Lands - 19 (31.67%)
+
+Forest (8510)
+Forest (8509)
+Plains (8523)
+Sacred Foundry (16446)
+Stomping Ground (16810)
+3 Temple Garden (16447)
+3 Treetop Village (3308)
+4 Windswept Heath (14003)
+4 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Kitchen Finks (18593)
+
+// Instants
+
+3 Ancient Grudge (17272)
+4 Gilded Light (14630)
+3 Volcanic Fallout (8860)
+
+// Enchantments
+
+2 Worship (2204)

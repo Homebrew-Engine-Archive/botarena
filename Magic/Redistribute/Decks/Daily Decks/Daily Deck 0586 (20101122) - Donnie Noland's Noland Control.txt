@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+2 Garruk Wildspeaker (21205)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 12 (20.00%)
+
+Avenger of Zendikar (19664)
+3 Frost Titan (21322)
+4 Lotus Cobra (19389)
+3 Oracle of Mul Daya (19542)
+Sphinx of Lost Truths (19508)
+
+// Instants - 8 (13.33%)
+
+3 Doom Blade (21198)
+Jace's Ingenuity (21147)
+4 Mana Leak (21214)
+
+// Sorceries - 8 (13.33%)
+
+4 Explore (19647)
+4 Preordain (21152)
+
+// Lands - 26 (43.33%)
+
+4 Creeping Tar Pit (19622)
+3 Drowned Catacomb (21127)
+Forest (21402)
+Forest (21403)
+Forest (21400)
+Forest (21401)
+2 Halimar Depths (19634)
+Island (21404)
+Island (21405)
+Island (21406)
+4 Misty Rainforest (19356)
+Swamp (21416)
+Swamp (21417)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Acidic Slime (21311)
+Molten-Tail Masticore (21437)
+2 Obstinate Baloth (21217)
+Wurmcoil Engine (21439)
+
+// Instants
+
+3 Consume the Meek (20844)
+2 Flashfreeze (21133)
+
+// Sorceries
+
+3 Memoricide (21564)

@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38,33%)
+
+3 Boartusk Liege (18596)
+3 Boggart Ram-Gang (18659)
+2 Chameleon Colossus (18361)
+4 Figure of Destiny (19006)
+4 Mogg Fanatic (3254)
+2 Murderous Redcap (18646)
+2 Siege-Gang Commander (3326)
+3 Vexing Shusher (18682)
+
+// Sorceries - 8 (13,33%)
+
+4 Blightning (8641)
+4 Dragon Fodder (8561)
+
+// Enchantments - 6 (10,00%)
+
+3 Boggart Shenanigans (18104)
+3 Goblin Assault (8574)
+
+// Lands - 23 (38,33%)
+
+4 Auntie's Hovel (18050)
+4 Fire-Lit Thicket (18542)
+2 Graven Cairns (18547)
+4 Karplusan Forest (3086)
+Mountain (8521)
+2 Mountain (8520)
+2 Mountain (8519)
+2 Mountain (8518)
+2 Sulfurous Springs (3173)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+3 Sarkhan Vol (8717)
+
+// Creatures
+
+Murderous Redcap (18646)
+3 Squeaking Pie Sneak (18090)
+
+// Instants
+
+4 Guttural Response (18548)
+
+// Sorceries
+
+4 Firespout (18674)

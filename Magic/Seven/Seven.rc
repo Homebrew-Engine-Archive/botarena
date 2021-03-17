@@ -1,0 +1,535 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Englisch (USA) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Seven.ico"
+IDI_LARGE_MODULE        ICON                    "SevenLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Seventh Edition"
+    IDS_EXPANSION_ABBREV    "7TH"
+    IDS_FIRST_CARD          "700"
+    IDS_TOTAL_CARD          "350"
+    IDS_WHITE_BORDER        "1"
+    IDS_MODULE_ICON_ID      "1050"
+    IDS_MODULE_LARGE_ICON_ID "1051"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RELEASE_DATE        "11-04-2001"
+    IDS_MWS_FOLDER          "MWS\\7E\\"
+    IDS_PRODUCT_LIST        """7th Edition Starter Box"":R-3:U-10:C-32:BL-30,""7th Edition Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING700           "Orcish Oriflamme\n{3R}\nEnchantment\n7TH,U\nAttacking creatures you control get +1/+0."
+    IDS_STRING701           "Marble Diamond\n{2}\nArtifact\n7TH,U\nMarble Diamond enters the battlefield tapped.\r{T}: Add {W} to your mana pool."
+    IDS_STRING702           "Inspiration\n{3U}\nInstant\n7TH,C\nTarget player draws two cards."
+    IDS_STRING703           "Lightning Blast\n{3R}\nInstant\n7TH,C\nLightning Blast deals 4 damage to target creature or player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING704           "Venerable Monk\n{2W}\nCreature - Human Monk Cleric\n7TH,C\nWhen Venerable Monk enters the battlefield, you gain 2 life.\n2/2"
+    IDS_STRING705           "Razortooth Rats\n{2B}\nCreature - Rat\n7TH,C\nFear\n2/1"
+    IDS_STRING706           "Llanowar Elves\n{G}\nCreature - Elf Druid\n7TH,C\n{T}: Add {G} to your mana pool.\n1/1"
+    IDS_STRING707           "Knight Errant\n{1W}\nCreature - Human Knight\n7TH,C\n\n2/2"
+    IDS_STRING708           "Coral Merfolk\n{1U}\nCreature - Merfolk\n7TH,C\n\n2/1"
+    IDS_STRING709           "Skyshroud Falcon\n{1W}\nCreature - Bird\n7TH,C\nFlying, vigilance\n1/1"
+    IDS_STRING710           "Canopy Spider\n{1G}\nCreature - Spider\n7TH,C\nReach\n1/3"
+    IDS_STRING711           "Merfolk Looter\n{1U}\nCreature - Merfolk Rogue\n7TH,U\n{T}: Draw a card, then discard a card.\n1/1"
+    IDS_STRING712           "Pacifism\n{1W}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature can't attack or block."
+    IDS_STRING713           "Disenchant\n{1W}\nInstant\n7TH,C\nDestroy target artifact or enchantment."
+    IDS_STRING714           "Healing Salve\n{W}\nInstant\n7TH,C\nChoose one - Target player gains 3 life; or prevent the next 3 damage that would be dealt to target creature or player this turn."
+    IDS_STRING715           "Heavy Ballista\n{3W}\nCreature - Human Soldier\n7TH,U\n{T}: Heavy Ballista deals 2 damage to target attacking or blocking creature.\n2/3"
+    IDS_STRING716           "Longbow Archer\n{WW}\nCreature - Human Soldier Archer\n7TH,U\nFirst strike; reach\n2/2"
+    IDS_STRING717           "Samite Healer\n{1W}\nCreature - Human Cleric\n7TH,C\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n1/1"
+    IDS_STRING718           "Plains\n\nBasic Land - Plains\n7TH,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING719           "Plains\n\nBasic Land - Plains\n7TH,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING720           "Plains\n\nBasic Land - Plains\n7TH,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING721           "Plains\n\nBasic Land - Plains\n7TH,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING722           "Angelic Page\n{1W}\nCreature - Angel Spirit\n7TH,C\nFlying\r{T}: Target attacking or blocking creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING723           "Eager Cadet\n{W}\nCreature - Human Soldier\n7TH,C\n\n1/1"
+    IDS_STRING724           "Razorfoot Griffin\n{3W}\nCreature - Griffin\n7TH,C\nFlying\rFirst strike\n2/2"
+    IDS_STRING725           "Standing Troops\n{2W}\nCreature - Human Soldier\n7TH,C\nVigilance\n1/4"
+    IDS_STRING726           "Serra Advocate\n{3W}\nCreature - Angel\n7TH,U\nFlying\r{T}: Target attacking or blocking creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING727           "Master Healer\n{4W}\nCreature - Human Cleric\n7TH,R\n{T}: Prevent the next 4 damage that would be dealt to target creature or player this turn.\n1/4"
+    IDS_STRING728           "Crossbow Infantry\n{1W}\nCreature - Human Soldier Archer\n7TH,C\n{T}: Crossbow Infantry deals 1 damage to target attacking or blocking creature.\n1/1"
+    IDS_STRING729           "Serra's Embrace\n{2WW}\nEnchantment - Aura\n7TH,U\nEnchant creature\rEnchanted creature gets +2/+2 and has flying and vigilance."
+    IDS_STRING730           "Glorious Anthem\n{1WW}\nEnchantment\n7TH,R\nCreatures you control get +1/+1."
+    IDS_STRING731           "Goblin King\n{1RR}\nCreature - Goblin\n7TH,R\nOther Goblin creatures get +1/+1 and have mountainwalk.\n2/2"
+    IDS_STRING732           "Goblin Digging Team\n{R}\nCreature - Goblin\n7TH,C\n{T}, Sacrifice Goblin Digging Team: Destroy target Wall.\n1/1"
+    IDS_STRING733           "Raging Goblin\n{R}\nCreature - Goblin Berserker\n7TH,C\nHaste\n1/1"
+    IDS_STRING734           "Fire Elemental\n{3RR}\nCreature - Elemental\n7TH,U\n\n5/4"
+    IDS_STRING735           "Patagia Golem\n{4}\nArtifact Creature - Golem\n7TH,U\n{3}: Patagia Golem gains flying until end of turn.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING736           "Shock\n{R}\nInstant\n7TH,C\nShock deals 2 damage to target creature or player."
+    IDS_STRING737           "Pillage\n{1RR}\nSorcery\n7TH,U\nDestroy target artifact or land. It can't be regenerated."
+    IDS_STRING738           "Blaze\n{XR}\nSorcery\n7TH,U\nBlaze deals X damage to target creature or player."
+    IDS_STRING739           "Goblin Chariot\n{2R}\nCreature - Goblin Warrior\n7TH,C\nHaste\n2/2"
+    IDS_STRING740           "Goblin Raider\n{1R}\nCreature - Goblin Warrior\n7TH,C\nGoblin Raider can't block.\n2/2"
+    IDS_STRING741           "Mountain\n\nBasic Land - Mountain\n7TH,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING742           "Mountain\n\nBasic Land - Mountain\n7TH,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING743           "Mountain\n\nBasic Land - Mountain\n7TH,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING744           "Mountain\n\nBasic Land - Mountain\n7TH,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING745           "Goblin Glider\n{1R}\nCreature - Goblin\n7TH,U\nFlying\rGoblin Glider can't block.\n1/1"
+    IDS_STRING746           "Trained Orgg\n{6R}\nCreature - Orgg\n7TH,R\n\n6/6"
+    IDS_STRING747           "Island\n\nBasic Land - Island\n7TH,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING748           "Island\n\nBasic Land - Island\n7TH,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING749           "Island\n\nBasic Land - Island\n7TH,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING750           "Island\n\nBasic Land - Island\n7TH,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING751           "Merfolk of the Pearl Trident\n{U}\nCreature - Merfolk\n7TH,C\n\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING752           "Glacial Wall\n{2U}\nCreature - Wall\n7TH,U\nDefender\n0/7"
+    IDS_STRING753           "Horned Turtle\n{2U}\nCreature - Turtle\n7TH,C\n\n1/4"
+    IDS_STRING754           "Wind Drake\n{2U}\nCreature - Drake\n7TH,C\nFlying\n2/2"
+    IDS_STRING755           "Prodigal Sorcerer\n{2U}\nCreature - Human Wizard\n7TH,C\n{T}: Prodigal Sorcerer deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING756           "Daring Apprentice\n{1UU}\nCreature - Human Wizard\n7TH,R\n{T}, Sacrifice Daring Apprentice: Counter target spell.\n1/1"
+    IDS_STRING757           "Air Elemental\n{3UU}\nCreature - Elemental\n7TH,U\nFlying\n4/4"
+    IDS_STRING758           "Unsummon\n{U}\nInstant\n7TH,C\nReturn target creature to its owner's hand."
+    IDS_STRING759           "Boomerang\n{UU}\nInstant\n7TH,C\nReturn target permanent to its owner's hand."
+    IDS_STRING760           "Counterspell\n{UU}\nInstant\n7TH,C\nCounter target spell."
+    IDS_STRING761           "Wall of Air\n{1UU}\nCreature - Wall\n7TH,U\nDefender, flying\n1/5"
+    IDS_STRING762           "Forest\n\nBasic Land - Forest\n7TH,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING763           "Forest\n\nBasic Land - Forest\n7TH,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING764           "Forest\n\nBasic Land - Forest\n7TH,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING765           "Forest\n\nBasic Land - Forest\n7TH,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING766           "Redwood Treefolk\n{4G}\nCreature - Treefolk\n7TH,C\n\n3/6"
+    IDS_STRING767           "Gorilla Chieftain\n{2GG}\nCreature - Ape\n7TH,C\n{1G}: Regenerate Gorilla Chieftain\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING768           "Giant Spider\n{3G}\nCreature - Spider\n7TH,C\nReach\n2/4"
+    IDS_STRING769           "Giant Growth\n{G}\nInstant\n7TH,C\nTarget creature gets +3/+3 until end of turn."
+    IDS_STRING770           "Creeping Mold\n{2GG}\nSorcery\n7TH,U\nDestroy target artifact, enchantment, or land."
+    IDS_STRING771           "Stream of Life\n{XG}\nSorcery\n7TH,C\nTarget player gains X life."
+    IDS_STRING772           "Grizzly Bears\n{1G}\nCreature - Bear\n7TH,C\n\n2/2"
+    IDS_STRING773           "Fyndhorn Elder\n{2G}\nCreature - Elf Druid\n7TH,U\n{T}: Add {GG} to your mana pool.\n1/1"
+    IDS_STRING774           "Trained Armodon\n{1GG}\nCreature - Elephant\n7TH,C\n\n3/3"
+    IDS_STRING775           "Rod of Ruin\n{4}\nArtifact\n7TH,U\n{3}, {T}: Rod of Ruin deals 1 damage to target creature or player."
+    IDS_STRING776           "Drudge Skeletons\n{1B}\nCreature - Skeleton\n7TH,C\n{B}: Regenerate Drudge Skeletons.\n1/1"
+    IDS_STRING777           "Swamp\n\nBasic Land - Swamp\n7TH,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING778           "Swamp\n\nBasic Land - Swamp\n7TH,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING779           "Swamp\n\nBasic Land - Swamp\n7TH,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING780           "Swamp\n\nBasic Land - Swamp\n7TH,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING781           "Charcoal Diamond\n{2}\nArtifact\n7TH,U\nCharcoal Diamond enters the battlefield tapped.\r{T}: Add {B} to your mana pool."
+    IDS_STRING782           "Greed\n{3B}\nEnchantment\n7TH,R\n{B}, Pay 2 life: Draw a card."
+    IDS_STRING783           "Fallen Angel\n{3BB}\nCreature - Angel\n7TH,R\nFlying\rSacrifice a creature: Fallen Angel gets +2/+1 until end of turn.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING784           "Blood Pet\n{B}\nCreature - Thrull\n7TH,C\nSacrifice Blood Pet: Add {B} to your mana pool.\n1/1"
+    IDS_STRING785           "Bog Imp\n{1B}\nCreature - Imp\n7TH,C\nFlying\n1/1"
+    IDS_STRING786           "Foul Imp\n{BB}\nCreature - Imp\n7TH,U\nFlying\rWhen Foul Imp enters the battlefield, you lose 2 life.\n2/2"
+    IDS_STRING787           "Serpent Warrior\n{2B}\nCreature - Snake Warrior\n7TH,C\nWhen Serpent Warrior enters the battlefield, you lose 3 life.\n3/3"
+    IDS_STRING788           "Looming Shade\n{2B}\nCreature - Shade\n7TH,C\n{B}: Looming Shade gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING789           "Spined Wurm\n{4G}\nCreature - Wurm\n7TH,C\n\n5/4"
+    IDS_STRING790           "Ancient Silverback\n{4GG}\nCreature - Ape\n7TH,R\n{G}: Regenerate Ancient Silverback.\n6/5"
+    IDS_STRING791           "Fighting Drake\n{2UU}\nCreature - Drake\n7TH,U\nFlying\n2/4"
+    IDS_STRING792           "Phyrexian Hulk\n{6}\nArtifact Creature - Golem\n7TH,U\n\n5/4"
+    IDS_STRING793           "Dark Banishing\n{2B}\nInstant\n7TH,C\nDestroy target nonblack creature. It can't be regenerated."
+    IDS_STRING794           "Befoul\n{2BB}\nSorcery\n7TH,U\nDestroy target land or nonblack creature. It can't be regenerated."
+    IDS_STRING795           "Duress\n{B}\nSorcery\n7TH,C\nTarget opponent reveals his or her hand. You choose a noncreature, nonland card from it. That player discards that card."
+    IDS_STRING796           "Regeneration\n{1G}\nEnchantment - Aura\n7TH,C\nEnchant creature\r{G}: Regenerate enchanted creature."
+    IDS_STRING797           "Spirit Link\n{W}\nEnchantment - Aura\n7TH,U\nEnchant creature\rWhenever enchanted creature deals damage, you gain that much life."
+    IDS_STRING798           "Sage Owl\n{1U}\nCreature - Bird\n7TH,C\nFlying\rWhen Sage Owl enters the battlefield, look at the top four cards of your library, then put them back in any order.\n1/1"
+    IDS_STRING799           "Thieving Magpie\n{2UU}\nCreature - Bird\n7TH,U\nFlying\rWhenever Thieving Magpie deals damage to an opponent, draw a card.\n1/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING800           "Ancestral Memories\n{2UUU}\nSorcery\n7TH,R\nLook at the top seven cards of your library. Put two of them into your hand and the rest into your graveyard."
+    IDS_STRING801           "Confiscate\n{4UU}\nEnchantment - Aura\n7TH,U\nEnchant permanent\rYou control enchanted permanent."
+    IDS_STRING802           "Force Spike\n{U}\nInstant\n7TH,C\nCounter target spell unless its controller pays {1}."
+    IDS_STRING803           "Serra Angel\n{3WW}\nCreature - Angel\n7TH,R\nFlying\rVigilance\n4/4"
+    IDS_STRING804           "Birds of Paradise\n{G}\nCreature - Bird\n7TH,R\nFlying\r{T}: Add one mana of any color to your mana pool.\n0/1"
+    IDS_STRING805           "Wrath of God\n{2WW}\nSorcery\n7TH,R\nDestroy all creatures. They can't be regenerated."
+    IDS_STRING806           "Karplusan Forest\n\nLand\n7TH,R\n{T}: Add {1} to your mana pool.\r{T}: Add {R} or {G} to your mana pool. Karplusan Forest deals 1 damage to you."
+    IDS_STRING807           "Shivan Dragon\n{4RR}\nCreature - Dragon\n7TH,R\nFlying\r{R}: Shivan Dragon gets +1/+0 until end of turn.\n5/5"
+    IDS_STRING808           "Underground River\n\nLand\n7TH,R\n{T}: Add {1} to your mana pool.\r{T}: Add {U} or {B} to your mana pool. Underground River deals 1 damage to you."
+    IDS_STRING809           "Sulfurous Springs\n\nLand\n7TH,R\n{T}: Add {1} to your mana pool.\r{T}: Add {B} or {R} to your mana pool. Sulfurous Springs deals 1 damage to you."
+    IDS_STRING810           "Adarkar Wastes\n\nLand\n7TH,R\n{T}: Add {1} to your mana pool.\r{T}: Add {W} or {U} to your mana pool. Adarkar Wastes deals 1 damage to you."
+    IDS_STRING811           "City of Brass\n\nLand\n7TH,R\nWhenever City of Brass becomes tapped, it deals 1 damage to you.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING812           "Brushland\n\nLand\n7TH,R\n{T}: Add {1} to your mana pool.\r{T}: Add {G} or {W} to your mana pool. Brushland deals 1 damage to you."
+    IDS_STRING813           "Might of Oaks\n{3G}\nInstant\n7TH,R\nTarget creature gets +7/+7 until end of turn."
+    IDS_STRING814           "Moss Diamond\n{2}\nArtifact\n7TH,U\nMoss Diamond enters the battlefield tapped.\r{T}: Add {G} to your mana pool."
+    IDS_STRING815           "Fire Diamond\n{2}\nArtifact\n7TH,U\nFire Diamond enters the battlefield tapped.\r{T}: Add {R} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING816           "Sky Diamond\n{2}\nArtifact\n7TH,U\nSky Diamond enters the battlefield tapped.\r{T}: Add {U} to your mana pool."
+    IDS_STRING817           "Flying Carpet\n{4}\nArtifact\n7TH,R\n{2}, {T}: Target creature gains flying until end of turn."
+    IDS_STRING818           "Aladdin's Ring\n{8}\nArtifact\n7TH,R\n{8}, {T}: Aladdin's Ring deals 4 damage to target creature or player."
+    IDS_STRING819           "AEther Flash\n{2RR}\nEnchantment\n7TH,U\nWhenever a creature enters the battlefield, Æther Flash deals 2 damage to it."
+    IDS_STRING820           "Agonizing Memories\n{2BB}\nSorcery\n7TH,U\nLook at target player's hand and choose two cards from it. Put them on top of that player's library in any order."
+    IDS_STRING821           "Ardent Militia\n{4W}\nCreature - Human Soldier\n7TH,U\nVigilance\n2/5"
+    IDS_STRING822           "Balduvian Barbarians\n{1RR}\nCreature - Human Barbarian\n7TH,C\n\n3/2"
+    IDS_STRING823           "Bog Wraith\n{3B}\nCreature - Wraith\n7TH,U\nSwampwalk\n3/3"
+    IDS_STRING824           "Boil\n{3R}\nInstant\n7TH,U\nDestroy all Islands."
+    IDS_STRING825           "Castle\n{3W}\nEnchantment\n7TH,U\nUntapped creatures you control get +0/+2."
+    IDS_STRING826           "Circle of Protection: Black\n{1W}\nEnchantment\n7TH,C\n{1}: The next time a black source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING827           "Circle of Protection: Blue\n{1W}\nEnchantment\n7TH,C\n{1}: The next time a blue source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING828           "Circle of Protection: Green\n{1W}\nEnchantment\n7TH,C\n{1}: The next time a green source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING829           "Circle of Protection: Red\n{1W}\nEnchantment\n7TH,C\n{1}: The next time a red source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING830           "Circle of Protection: White\n{1W}\nEnchantment\n7TH,C\n{1}: The next time a white source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING831           "Crimson Hellkite\n{6RRR}\nCreature - Dragon\n7TH,R\nFlying\r{X}, {T}: Crimson Hellkite deals X damage to target creature. Spend only red mana this way.\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING832           "Early Harvest\n{1GG}\nInstant\n7TH,R\nTarget player untaps all basic lands he or she controls."
+    IDS_STRING833           "Earthquake\n{XR}\nSorcery\n7TH,R\nEarthquake deals X damage to each creature without flying and each player."
+    IDS_STRING834           "Elvish Archers\n{1G}\nCreature - Elf Archer\n7TH,R\nFirst strike\n2/1"
+    IDS_STRING835           "Fear\n{BB}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature has fear."
+    IDS_STRING836           "Femeref Archers\n{2G}\nCreature - Human Archer\n7TH,U\n{T}: Femeref Archers deals 4 damage to target attacking creature with flying.\n2/2"
+    IDS_STRING837           "Fervor\n{2R}\nEnchantment\n7TH,R\nCreatures you control have haste."
+    IDS_STRING838           "Flight\n{U}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature has flying."
+    IDS_STRING839           "Howl from Beyond\n{XB}\nInstant\n7TH,C\nTarget creature gets +X/+0 until end of turn."
+    IDS_STRING840           "Howling Mine\n{2}\nArtifact\n7TH,R\nAt the beginning of each player's draw step, if Howling Mine is untapped, that player draws an additional card."
+    IDS_STRING841           "Hurricane\n{XG}\nSorcery\n7TH,R\nHurricane deals X damage to each creature with flying and each player."
+    IDS_STRING842           "Infernal Contract\n{BBB}\nSorcery\n7TH,R\nDraw four cards. You lose half your life, rounded up."
+    IDS_STRING843           "Inferno\n{5RR}\nInstant\n7TH,R\nInferno deals 6 damage to each creature and each player."
+    IDS_STRING844           "Jalum Tome\n{3}\nArtifact\n7TH,R\n{2}, {T}: Draw a card, then discard a card."
+    IDS_STRING845           "Jayemdae Tome\n{4}\nArtifact\n7TH,R\n{4}, {T}: Draw a card."
+    IDS_STRING846           "Leshrac's Rite\n{B}\nEnchantment - Aura\n7TH,U\nEnchant creature\rEnchanted creature has swampwalk."
+    IDS_STRING847           "Maro\n{2GG}\nCreature - Elemental\n7TH,R\nMaro's power and toughness are each equal to the number of cards in your hand.\n*/*"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING848           "Memory Lapse\n{1U}\nInstant\n7TH,C\nCounter target spell. If that spell is countered this way, put it on top of its owner's library instead of into that player's graveyard."
+    IDS_STRING849           "Nightmare\n{5B}\nCreature - Nightmare Horse\n7TH,R\nFlying\rNightmare's power and toughness are each equal to the number of Swamps you control.\n*/*"
+    IDS_STRING850           "Phantom Warrior\n{1UU}\nCreature - Illusion Warrior\n7TH,U\nPhantom Warrior is unblockable.\n2/2"
+    IDS_STRING851           "Pyrotechnics\n{4R}\nSorcery\n7TH,U\nPyrotechnics deals 4 damage divided as you choose among any number of target creatures and/or players."
+    IDS_STRING852           "Raise Dead\n{B}\nSorcery\n7TH,C\nReturn target creature card from your graveyard to your hand."
+    IDS_STRING853           "Rampant Growth\n{1G}\nSorcery\n7TH,C\nSearch your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING854           "Remove Soul\n{1U}\nInstant\n7TH,C\nCounter target creature spell."
+    IDS_STRING855           "Sabretooth Tiger\n{2R}\nCreature - Cat\n7TH,C\nFirst strike\n2/1"
+    IDS_STRING856           "Scathe Zombies\n{2B}\nCreature - Zombie\n7TH,C\n\n2/2"
+    IDS_STRING857           "Sea Monster\n{4UU}\nCreature - Serpent\n7TH,C\nSea Monster can't attack unless defending player controls an Island.\n6/6"
+    IDS_STRING858           "Shanodin Dryads\n{G}\nCreature - Dryad\n7TH,C\nForestwalk\n1/1"
+    IDS_STRING859           "Shatter\n{1R}\nInstant\n7TH,C\nDestroy target artifact."
+    IDS_STRING860           "Staunch Defenders\n{3WW}\nCreature - Human Soldier\n7TH,U\nWhen Staunch Defenders enters the battlefield, you gain 4 life.\n3/4"
+    IDS_STRING861           "Stone Rain\n{2R}\nSorcery\n7TH,C\nDestroy target land."
+    IDS_STRING862           "Storm Crow\n{1U}\nCreature - Bird\n7TH,C\nFlying\n1/2"
+    IDS_STRING863           "Strands of Night\n{2BB}\nEnchantment\n7TH,U\n{BB}, Pay 2 life, Sacrifice a Swamp: Return target creature card from your graveyard to the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING864           "Sunweb\n{3W}\nCreature - Wall\n7TH,R\nDefender\rFlying\rSunweb can't block creatures with power 2 or less.\n5/6"
+    IDS_STRING865           "Tranquility\n{2G}\nSorcery\n7TH,C\nDestroy all enchantments."
+    IDS_STRING866           "Tremor\n{R}\nSorcery\n7TH,C\nTremor deals 1 damage to each creature without flying."
+    IDS_STRING867           "Uktabi Wildcats\n{4G}\nCreature - Cat\n7TH,R\nUktabi Wildcats's power and toughness are each equal to the number of Forests you control.\r{G}, Sacrifice a Forest: Regenerate Uktabi Wildcats.\n*/*"
+    IDS_STRING868           "Untamed Wilds\n{2G}\nSorcery\n7TH,U\nSearch your library for a basic land card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING869           "Wall of Fire\n{1RR}\nCreature - Wall\n7TH,U\nDefender\r{R}: Wall of Fire gets +1/+0 until end of turn.\n0/5"
+    IDS_STRING870           "Wall of Swords\n{3W}\nCreature - Wall\n7TH,U\nDefender, flying\n3/5"
+    IDS_STRING871           "Treasure Trove\n{2UU}\nEnchantment\n7TH,U\n{2UU}: Draw a card."
+    IDS_STRING872           "Elvish Lyrist\n{G}\nCreature - Elf\n7TH,U\n{G}, {T}, Sacrifice Elvish Lyrist: Destroy target enchantment.\n1/1"
+    IDS_STRING873           "Scavenger Folk\n{G}\nCreature - Human\n7TH,U\n{G}, {T}, Sacrifice Scavenger Folk: Destroy target artifact.\n1/1"
+    IDS_STRING874           "Wall of Bone\n{2B}\nCreature - Skeleton Wall\n7TH,U\nDefender\r{B}: Regenerate Wall of Bone.\n1/4"
+    IDS_STRING875           "Treefolk Seedlings\n{2G}\nCreature - Treefolk\n7TH,U\nTreefolk Seedlings's toughness is equal to the number of Forests you control.\n2/*"
+    IDS_STRING876           "Opportunity\n{4UU}\nInstant\n7TH,U\nTarget player draws four cards."
+    IDS_STRING877           "Wing Snare\n{2G}\nSorcery\n7TH,U\nDestroy target creature with flying."
+    IDS_STRING878           "Yavimaya Enchantress\n{2G}\nCreature - Human Druid\n7TH,U\nYavimaya Enchantress gets +1/+1 for each enchantment on the battlefield.\n2/2"
+    IDS_STRING879           "Steal Artifact\n{2UU}\nEnchantment - Aura\n7TH,U\nEnchant artifact\rYou control enchanted artifact."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING880           "Hibernation\n{2U}\nInstant\n7TH,U\nReturn all green permanents to their owners' hands."
+    IDS_STRING881           "Levitation\n{2UU}\nEnchantment\n7TH,U\nCreatures you control have flying."
+    IDS_STRING882           "Pyroclasm\n{1R}\nSorcery\n7TH,U\nPyroclasm deals 2 damage to each creature."
+    IDS_STRING883           "Wind Dancer\n{1U}\nCreature - Faerie\n7TH,U\nFlying\r{T}: Target creature gains flying until end of turn.\n1/1"
+    IDS_STRING884           "Fugue\n{3BB}\nSorcery\n7TH,U\nTarget player discards three cards."
+    IDS_STRING885           "Orcish Artillery\n{1RR}\nCreature - Orc Warrior\n7TH,U\n{T}: Orcish Artillery deals 2 damage to target creature or player and 3 damage to you.\n1/3"
+    IDS_STRING886           "Disorder\n{1R}\nSorcery\n7TH,U\nDisorder deals 2 damage to each white creature and each player who controls a white creature."
+    IDS_STRING887           "Blanchwood Armor\n{2G}\nEnchantment - Aura\n7TH,U\nEnchant creature\rEnchanted creature gets +1/+1 for each Forest you control."
+    IDS_STRING888           "Bull Hippo\n{3G}\nCreature - Hippo\n7TH,U\nIslandwalk\n3/3"
+    IDS_STRING889           "Vizzerdrix\n{6U}\nCreature - Rabbit Beast\n7TH,R\n\n6/6"
+    IDS_STRING890           "Mahamoti Djinn\n{4UU}\nCreature - Djinn\n7TH,R\nFlying\n5/6"
+    IDS_STRING891           "Lightning Elemental\n{3R}\nCreature - Elemental\n7TH,C\nHaste\n4/1"
+    IDS_STRING892           "Hill Giant\n{3R}\nCreature - Giant\n7TH,C\n\n3/3"
+    IDS_STRING893           "Goblin Spelunkers\n{2R}\nCreature - Goblin Warrior\n7TH,C\nMountainwalk\n2/2"
+    IDS_STRING894           "Plague Beetle\n{B}\nCreature - Insect\n7TH,C\nSwampwalk\n1/1"
+    IDS_STRING895           "Giant Cockroach\n{3B}\nCreature - Insect\n7TH,C\n\n4/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING896           "Spineless Thug\n{1B}\nCreature - Zombie Mercenary\n7TH,C\nSpineless Thug can't block.\n2/2"
+    IDS_STRING897           "Giant Octopus\n{3U}\nCreature - Octopus\n7TH,C\n\n3/3"
+    IDS_STRING898           "Ogre Taskmaster\n{3R}\nCreature - Ogre\n7TH,U\nOgre Taskmaster can't block.\n4/3"
+    IDS_STRING899           "Benthic Behemoth\n{5UUU}\nCreature - Serpent\n7TH,R\nIslandwalk\n7/6"
+    IDS_STRING900           "Anaconda\n{3G}\nCreature - Snake\n7TH,U\nSwampwalk\n3/3"
+    IDS_STRING901           "Elite Archers\n{5W}\nCreature - Human Soldier Archer\n7TH,R\n{T}: Elite Archers deals 3 damage to target attacking or blocking creature.\n3/3"
+    IDS_STRING902           "Honor Guard\n{W}\nCreature - Human Soldier\n7TH,C\n{W}: Honor Guard gets +0/+1 until end of turn.\n1/1"
+    IDS_STRING903           "Revenant\n{4B}\nCreature - Spirit\n7TH,R\nFlying\rRevenant's power and toughness are each equal to the number of creature cards in your graveyard.\n*/*"
+    IDS_STRING904           "Sisay's Ring\n{4}\nArtifact\n7TH,U\n{T}: Add {2} to your mana pool."
+    IDS_STRING905           "Stronghold Assassin\n{1BB}\nCreature - Zombie Assassin\n7TH,R\n{T}, Sacrifice a creature: Destroy target nonblack creature.\n2/1"
+    IDS_STRING906           "Pit Trap\n{2}\nArtifact\n7TH,U\n{2}, {T}, Sacrifice Pit Trap: Destroy target attacking creature without flying. It can't be regenerated."
+    IDS_STRING907           "Beast of Burden\n{6}\nArtifact Creature - Golem\n7TH,R\nBeast of Burden's power and toughness are each equal to the number of creatures on the battlefield.\n*/*"
+    IDS_STRING908           "Grapeshot Catapult\n{4}\nArtifact Creature - Construct\n7TH,U\n{T}: Grapeshot Catapult deals 1 damage to target creature with flying.\n2/3"
+    IDS_STRING909           "Wall of Spears\n{3}\nArtifact Creature - Wall\n7TH,U\nDefender\rFirst strike\n2/3"
+    IDS_STRING910           "Mawcor\n{3UU}\nCreature - Beast\n7TH,R\nFlying\r{T}: Mawcor deals 1 damage to target creature or player\n3/3"
+    IDS_STRING911           "Storm Shaman\n{2R}\nCreature - Human Cleric Shaman\n7TH,U\n{R}: Storm Shaman gets +1/+0 until end of turn.\n0/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING912           "Seeker of Skybreak\n{1G}\nCreature - Elf\n7TH,C\n{T}: Untap target creature.\n2/1"
+    IDS_STRING913           "Eastern Paladin\n{2BB}\nCreature - Zombie Knight\n7TH,R\n{BB}, {T}: Destroy target green creature.\n3/3"
+    IDS_STRING914           "Southern Paladin\n{2WW}\nCreature - Human Knight\n7TH,R\n{WW}, {T}: Destroy target red permanent.\n3/3"
+    IDS_STRING915           "Northern Paladin\n{2WW}\nCreature - Human Knight\n7TH,R\n{WW}, {T}: Destroy target black permanent.\n3/3"
+    IDS_STRING916           "Western Paladin\n{2BB}\nCreature - Zombie Knight\n7TH,R\n{BB}, {T}: Destroy target white creature.\n3/3"
+    IDS_STRING917           "Pygmy Pyrosaur\n{1R}\nCreature - Lizard\n7TH,C\nPygmy Pyrosaur can't block.\r{R}: Pygmy Pyrosaur gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING918           "Crypt Rats\n{2B}\nCreature - Rat\n7TH,U\n{X}: Crypt Rats deals X damage to each creature and each player. Spend only black mana this way.\n1/1"
+    IDS_STRING919           "Vigilant Drake\n{4U}\nCreature - Drake\n7TH,C\nFlying\r{2U}: Untap Vigilant Drake\n3/3"
+    IDS_STRING920           "Intrepid Hero\n{2W}\nCreature - Human Soldier\n7TH,R\n{T}: Destroy target creature with power 4 or greater.\n1/1"
+    IDS_STRING921           "Wall of Wonder\n{2UU}\nCreature - Wall\n7TH,R\nDefender\r{2UU}: Wall of Wonder gets +4/-4 until end of turn and may attack this turn as though it didn't have defender.\n1/5"
+    IDS_STRING922           "Archivist\n{2UU}\nCreature - Human Wizard\n7TH,R\n{T}: Draw a card.\n1/1"
+    IDS_STRING923           "Jandor's Saddlebags\n{2}\nArtifact\n7TH,R\n{3}, {T}: Untap target creature."
+    IDS_STRING924           "Millstone\n{2}\nArtifact\n7TH,R\n{2}, {T}: Target player puts the top two cards of his or her library into his or her graveyard."
+    IDS_STRING925           "Unholy Strength\n{B}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature gets +2/+1."
+    IDS_STRING926           "Holy Strength\n{W}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature gets +1/+2."
+    IDS_STRING927           "Reflexes\n{R}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature has first strike."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING928           "Granite Grip\n{2R}\nEnchantment - Aura\n7TH,C\nEnchant creature\rEnchanted creature gets +1/+0 for each Mountain you control."
+    IDS_STRING929           "Lord of Atlantis\n{UU}\nCreature - Merfolk\n7TH,R\nOther Merfolk creatures get +1/+1 and have islandwalk.\n2/2"
+    IDS_STRING930           "Elvish Champion\n{1GG}\nCreature - Elf\n7TH,R\nOther Elf creatures get +1/+1 and have forestwalk.\n2/2"
+    IDS_STRING931           "Temporal Adept\n{1UU}\nCreature - Human Wizard\n7TH,R\n{UUU}, {T}: Return target permanent to its owner's hand.\n1/1"
+    IDS_STRING932           "Bedlam\n{2RR}\nEnchantment\n7TH,R\nCreatures can't block."
+    IDS_STRING933           "Rolling Stones\n{1W}\nEnchantment\n7TH,R\nWall creatures can attack as though they didn't have defender."
+    IDS_STRING934           "Knighthood\n{2W}\nEnchantment\n7TH,U\nCreatures you control have first strike."
+    IDS_STRING935           "Familiar Ground\n{2G}\nEnchantment\n7TH,U\nEach creature you control can't be blocked by more than one creature."
+    IDS_STRING936           "Lava Axe\n{4R}\nSorcery\n7TH,C\nLava Axe deals 5 damage to target player."
+    IDS_STRING937           "Monstrous Growth\n{1G}\nSorcery\n7TH,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING938           "Volcanic Hammer\n{1R}\nSorcery\n7TH,C\nVolcanic Hammer deals 3 damage to target creature or player."
+    IDS_STRING939           "Nausea\n{1B}\nSorcery\n7TH,C\nAll creatures get -1/-1 until end of turn."
+    IDS_STRING940           "Breath of Life\n{3W}\nSorcery\n7TH,U\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING941           "Vengeance\n{3W}\nSorcery\n7TH,U\nDestroy target tapped creature."
+    IDS_STRING942           "Purify\n{3WW}\nSorcery\n7TH,R\nDestroy all artifacts and enchantments."
+    IDS_STRING943           "Mind Rot\n{2B}\nSorcery\n7TH,C\nTarget player discards two cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING944           "Sacred Nectar\n{1W}\nSorcery\n7TH,C\nYou gain 4 life."
+    IDS_STRING945           "Squall\n{2G}\nSorcery\n7TH,C\nSquall deals 2 damage to each creature with flying."
+    IDS_STRING946           "Nocturnal Raid\n{2BB}\nInstant\n7TH,U\nBlack creatures get +2/+0 until end of turn."
+    IDS_STRING947           "Reprisal\n{1W}\nInstant\n7TH,U\nDestroy target creature with power 4 or greater. It can't be regenerated."
+    IDS_STRING948           "Reclaim\n{G}\nInstant\n7TH,C\nPut target card from your graveyard on top of your library."
+    IDS_STRING949           "Shield Wall\n{1W}\nInstant\n7TH,C\nCreatures you control get +0/+2 until end of turn."
+    IDS_STRING950           "Evacuation\n{3UU}\nInstant\n7TH,R\nReturn all creatures to their owners' hands."
+    IDS_STRING951           "Elvish Piper\n{3G}\nCreature - Elf Shaman\n7TH,R\n{G}, {T}: You may put a creature card from your hand onto the battlefield.\n1/1"
+    IDS_STRING952           "Elder Druid\n{3G}\nCreature - Elf Cleric Druid\n7TH,R\n{3G}, {T}: You may tap or untap target artifact, creature, or land.\n2/2"
+    IDS_STRING953           "Spitting Earth\n{1R}\nSorcery\n7TH,C\nSpitting Earth deals damage to target creature equal to the number of Mountains you control."
+    IDS_STRING954           "Corrupt\n{5B}\nSorcery\n7TH,C\nCorrupt deals damage equal to the number of Swamps you control to target creature or player. You gain life equal to the damage dealt this way."
+    IDS_STRING955           "Goblin Gardener\n{3R}\nCreature - Goblin\n7TH,C\nWhen Goblin Gardener dies, destroy target land.\n2/1"
+    IDS_STRING956           "Cloudchaser Eagle\n{3W}\nCreature - Bird\n7TH,C\nFlying\rWhen Cloudchaser Eagle enters the battlefield, destroy target enchantment.\n2/2"
+    IDS_STRING957           "Gravedigger\n{3B}\nCreature - Zombie\n7TH,C\nWhen Gravedigger enters the battlefield, you may return target creature card from your graveyard to your hand.\n2/2"
+    IDS_STRING958           "Dakmor Lancer\n{4BB}\nCreature - Human Knight\n7TH,U\nWhen Dakmor Lancer enters the battlefield, destroy target nonblack creature.\n3/3"
+    IDS_STRING959           "Goblin Matron\n{2R}\nCreature - Goblin\n7TH,U\nWhen Goblin Matron enters the battlefield, you may search your library for a Goblin card, reveal that card, and put it into your hand. If you do, shuffle your library.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING960           "Twiddle\n{U}\nInstant\n7TH,C\nYou may tap or untap target artifact, creature, or land."
+    IDS_STRING961           "Pride of Lions\n{3GG}\nCreature - Cat\n7TH,U\nYou may have Pride of Lions assign its combat damage as though it weren't blocked.\n4/4"
+    IDS_STRING962           "Lone Wolf\n{2G}\nCreature - Wolf\n7TH,C\nYou may have Lone Wolf assign its combat damage as though it weren't blocked.\n2/2"
+    IDS_STRING963           "Thorn Elemental\n{5GG}\nCreature - Elemental\n7TH,R\nYou may have Thorn Elemental assign its combat damage as though it weren't blocked.\n7/7"
+    IDS_STRING964           "Seismic Assault\n{RRR}\nEnchantment\n7TH,R\nDiscard a land card: Seismic Assault deals 2 damage to target creature or player."
+    IDS_STRING965           "Soul Feast\n{3BB}\nSorcery\n7TH,U\nTarget player loses 4 life and you gain 4 life."
+    IDS_STRING966           "Goblin Elite Infantry\n{1R}\nCreature - Goblin Warrior\n7TH,C\nWhenever Goblin Elite Infantry blocks or becomes blocked, it gets -1/-1 until end of turn.\n2/2"
+    IDS_STRING967           "Gang of Elk\n{5G}\nCreature - Elk Beast\n7TH,U\nWhenever Gang of Elk becomes blocked, it gets +2/+2 until end of turn for each creature blocking it.\n5/4"
+    IDS_STRING968           "Hollow Dogs\n{4B}\nCreature - Zombie Hound\n7TH,C\nWhenever Hollow Dogs attacks, it gets +2/+0 until end of turn.\n3/3"
+    IDS_STRING969           "Sustainer of the Realm\n{2WW}\nCreature - Angel\n7TH,U\nFlying\rWhenever Sustainer of the Realm blocks, it gets +0/+2 until end of turn.\n2/3"
+    IDS_STRING970           "Reckless Embermage\n{3R}\nCreature - Human Wizard\n7TH,R\n{1R}: Reckless Embermage deals 1 damage to target creature or player and 1 damage to itself.\n2/2"
+    IDS_STRING971           "Gerrard's Wisdom\n{2WW}\nSorcery\n7TH,U\nYou gain 2 life for each card in your hand."
+    IDS_STRING972           "Blessed Reversal\n{1W}\nInstant\n7TH,R\nYou gain 3 life for each creature attacking you."
+    IDS_STRING973           "Starlight\n{1W}\nSorcery\n7TH,U\nYou gain 3 life for each black creature target opponent controls."
+    IDS_STRING974           "Ivory Cup\n{1}\nArtifact\n7TH,U\nWhenever a player casts a white spell, you may pay {1}. If you do, you gain 1 life."
+    IDS_STRING975           "Wooden Sphere\n{1}\nArtifact\n7TH,U\nWhenever a player casts a green spell, you may pay {1}. If you do, you gain 1 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING976           "Crystal Rod\n{1}\nArtifact\n7TH,U\nWhenever a player casts a blue spell, you may pay {1}. If you do, you gain 1 life."
+    IDS_STRING977           "Iron Star\n{1}\nArtifact\n7TH,U\nWhenever a player casts a red spell, you may pay {1}. If you do, you gain 1 life."
+    IDS_STRING978           "Throne of Bone\n{1}\nArtifact\n7TH,U\nWhenever a player casts a black spell, you may pay {1}. If you do, you gain 1 life."
+    IDS_STRING979           "Abyssal Specter\n{2BB}\nCreature - Specter\n7TH,U\nFlying\rWhenever Abyssal Specter deals damage to a player, that player discards a card.\n2/3"
+    IDS_STRING980           "Ostracize\n{B}\nSorcery\n7TH,C\nTarget opponent reveals his or her hand. You choose a creature card from it. That player discards that card."
+    IDS_STRING981           "Wood Elves\n{2G}\nCreature - Elf Scout\n7TH,C\nWhen Wood Elves enters the battlefield, search your library for a Forest card and put that card onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING982           "Lure\n{1GG}\nEnchantment - Aura\n7TH,U\nEnchant creature\rAll creatures able to block enchanted creature do so."
+    IDS_STRING983           "Wild Growth\n{G}\nEnchantment - Aura\n7TH,C\nEnchant land\rWhenever enchanted land is tapped for mana, its controller adds {G} to his or her mana pool."
+    IDS_STRING984           "Fog\n{G}\nInstant\n7TH,C\nPrevent all combat damage that would be dealt this turn."
+    IDS_STRING985           "Meekstone\n{1}\nArtifact\n7TH,R\nCreatures with power 3 or greater don't untap during their controllers' untap steps."
+    IDS_STRING986           "Worship\n{3W}\nEnchantment\n7TH,R\nIf you control a creature, damage that would reduce your life total to less than 1 reduces it to 1 instead."
+    IDS_STRING987           "Ensnaring Bridge\n{3}\nArtifact\n7TH,R\nCreatures with power greater than the number of cards in your hand can't attack."
+    IDS_STRING988           "Disrupting Scepter\n{3}\nArtifact\n7TH,R\n{3}, {T}: Target player discards a card. Activate this ability only during your turn."
+    IDS_STRING989           "Fleeting Image\n{2U}\nCreature - Illusion\n7TH,R\nFlying\r{1U}: Return Fleeting Image to its owner's hand.\n2/1"
+    IDS_STRING990           "Relentless Assault\n{2RR}\nSorcery\n7TH,R\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING991           "Megrim\n{2B}\nEnchantment\n7TH,U\nWhenever an opponent discards a card, Megrim deals 2 damage to that player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING992           "Seasoned Marshal\n{2WW}\nCreature - Human Soldier\n7TH,U\nWhenever Seasoned Marshal attacks, you may tap target creature.\n2/2"
+    IDS_STRING993           "Opposition\n{2UU}\nEnchantment\n7TH,R\nTap an untapped creature you control: Tap target artifact, creature, or land."
+    IDS_STRING994           "Delusions of Mediocrity\n{3U}\nEnchantment\n7TH,R\nWhen Delusions of Mediocrity enters the battlefield, you gain 10 life.\rWhen Delusions of Mediocrity leaves the battlefield, you lose 10 life."
+    IDS_STRING995           "Static Orb\n{3}\nArtifact\n7TH,R\nAs long as Static Orb is untapped, players can't untap more than two permanents during their untap steps."
+    IDS_STRING996           "Arcane Laboratory\n{2U}\nEnchantment\n7TH,U\nEach player can't cast more than one spell each turn."
+    IDS_STRING997           "Feroz's Ban\n{6}\nArtifact\n7TH,R\nCreature spells cost {2} more to cast."
+    IDS_STRING998           "Spellbook\n{0}\nArtifact\n7TH,U\nYou have no maximum hand size."
+    IDS_STRING999           "Telepathy\n{U}\nEnchantment\n7TH,U\nYour opponents play with their hands revealed."
+    IDS_STRING1000          "Mana Short\n{2U}\nInstant\n7TH,R\nTap all lands target player controls and empty his or her mana pool."
+    IDS_STRING1001          "Dregs of Sorrow\n{X4B}\nSorcery\n7TH,R\nDestroy X target nonblack creatures.\rDraw X cards."
+    IDS_STRING1002          "Tolarian Winds\n{1U}\nInstant\n7TH,C\nDiscard all the cards in your hand, then draw that many cards."
+    IDS_STRING1003          "Final Fortune\n{RR}\nInstant\n7TH,R\nTake an extra turn after this one. At the beginning of that turn's end step, you lose the game."
+    IDS_STRING1004          "Impatience\n{2R}\nEnchantment\n7TH,R\nAt the beginning of each player's end step, if that player didn't cast a spell that turn, Impatience deals 2 damage to him or her."
+    IDS_STRING1005          "Sudden Impact\n{3R}\nInstant\n7TH,U\nSudden Impact deals damage equal to the number of cards in target player's hand to that player."
+    IDS_STRING1006          "Okk\n{1R}\nCreature - Goblin\n7TH,R\nOkk can't attack unless a creature with greater power also attacks.\rOkk can't block unless a creature with greater power also blocks.\n4/4"
+    IDS_STRING1007          "Verduran Enchantress\n{1GG}\nCreature - Human Druid\n7TH,R\nWhenever you cast an enchantment spell, you may draw a card.\n0/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING1008          "Oppression\n{1BB}\nEnchantment\n7TH,R\nWhenever a player casts a spell, that player discards a card."
+    IDS_STRING1009          "Abyssal Horror\n{4BB}\nCreature - Horror\n7TH,R\nFlying\rWhen Abyssal Horror enters the battlefield, target player discards two cards.\n2/2"
+    IDS_STRING1010          "Telepathic Spies\n{2U}\nCreature - Human Wizard\n7TH,C\nWhen Telepathic Spies enters the battlefield, look at target opponent's hand.\n2/2"
+    IDS_STRING1011          "Bellowing Fiend\n{4B}\nCreature - Spirit\n7TH,R\nFlying\rWhenever Bellowing Fiend deals damage to a creature, Bellowing Fiend deals 3 damage to that creature's controller and 3 damage to you.\n3/3"
+    IDS_STRING1012          "Yawgmoth's Edict\n{1B}\nEnchantment\n7TH,U\nWhenever an opponent casts a white spell, that player loses 1 life and you gain 1 life."
+    IDS_STRING1013          "Equilibrium\n{1UU}\nEnchantment\n7TH,R\nWhenever you cast a creature spell, you may pay {1}. If you do, return target creature to its owner's hand."
+    IDS_STRING1014          "Mana Breach\n{2U}\nEnchantment\n7TH,U\nWhenever a player casts a spell, that player returns a land he or she controls to its owner's hand."
+    IDS_STRING1015          "Tainted AEther\n{2BB}\nEnchantment\n7TH,R\nWhenever a creature enters the battlefield, its controller sacrifices a creature or land."
+    IDS_STRING1016          "Bereavement\n{1B}\nEnchantment\n7TH,U\nWhenever a green creature dies, its controller discards a card."
+    IDS_STRING1017          "Vernal Bloom\n{3G}\nEnchantment\n7TH,R\nWhenever a Forest is tapped for mana, its controller adds {G} to his or her mana pool."
+    IDS_STRING1018          "Compost\n{1G}\nEnchantment\n7TH,U\nWhenever a black card is put into an opponent's graveyard from anywhere, you may draw a card."
+    IDS_STRING1019          "Soul Net\n{1}\nArtifact\n7TH,U\nWhenever a creature dies, you may pay {1}. If you do, you gain 1 life."
+    IDS_STRING1020          "Dingus Egg\n{4}\nArtifact\n7TH,R\nWhenever a land is put into a graveyard from the battlefield, Dingus Egg deals 2 damage to that land's controller."
+    IDS_STRING1021          "Caltrops\n{3}\nArtifact\n7TH,U\nWhenever a creature attacks, Caltrops deals 1 damage to it."
+    IDS_STRING1022          "Sacred Ground\n{1W}\nEnchantment\n7TH,R\nWhenever a spell or ability an opponent controls causes a land to be put into your graveyard from the battlefield, return that card to the battlefield."
+    IDS_STRING1023          "Thoughtleech\n{GG}\nEnchantment\n7TH,U\nWhenever an Island an opponent controls becomes tapped, you may gain 1 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING1024          "Sanctimony\n{1W}\nEnchantment\n7TH,U\nWhenever an opponent taps a Mountain for mana, you may gain 1 life."
+    IDS_STRING1025          "Storm Cauldron\n{5}\nArtifact\n7TH,R\nEach player may play an additional land during each of his or her turns.\rWhenever a land is tapped for mana, return it to its owner's hand."
+    IDS_STRING1026          "Nature's Resurgence\n{2GG}\nSorcery\n7TH,R\nEach player draws a card for each creature card in his or her graveyard."
+    IDS_STRING1027          "Baleful Stare\n{2U}\nSorcery\n7TH,U\nTarget opponent reveals his or her hand. You draw a card for each Mountain and red card in it."
+    IDS_STRING1028          "Sleight of Hand\n{U}\nSorcery\n7TH,c\nLook at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library."
+    IDS_STRING1029          "Reprocess\n{2BB}\nSorcery\n7TH,R\nSacrifice any number of artifacts, creatures, and/or lands. Draw a card for each permanent sacrificed this way."
+    IDS_STRING1030          "Rag Man\n{2BB}\nCreature - Human Minion\n7TH,R\n{BBB}, {T}: Target opponent reveals his or her hand and discards a creature card at random. Activate this ability only during your turn.\n2/1"
+    IDS_STRING1031          "Bloodshot Cyclops\n{5R}\nCreature - Cyclops Giant\n7TH,R\n{T}, Sacrifice a creature: Bloodshot Cyclops deals damage equal to the sacrificed creature's power to target creature or player.\n4/4"
+    IDS_STRING1032          "Ghitu Fire-Eater\n{2R}\nCreature - Human Nomad\n7TH,U\n{T}, Sacrifice Ghitu Fire-Eater: Ghitu Fire-Eater deals damage equal to its power to target creature or player.\n2/2"
+    IDS_STRING1033          "Grafted Skullcap\n{4}\nArtifact\n7TH,R\nAt the beginning of your draw step, draw an additional card.\rAt the beginning of your end step, discard your hand."
+    IDS_STRING1034          "Teferi's Puzzle Box\n{4}\nArtifact\n7TH,R\nAt the beginning of each player's draw step, that player puts the cards in his or her hand on the bottom of his or her library in any order, then draws that many cards."
+    IDS_STRING1035          "Necrologia\n{3BB}\nInstant\n7TH,U\nCast Necrologia only during your end step.\rAs an additional cost to cast Necrologia, pay any amount of life.\rDraw cards equal to the life paid this way."
+    IDS_STRING1036          "Goblin War Drums\n{2R}\nEnchantment\n7TH,U\nEach creature you control can't be blocked except by two or more creatures."
+    IDS_STRING1037          "Phyrexian Colossus\n{7}\nArtifact Creature - Golem\n7TH,R\nPhyrexian Colossus doesn't untap during your untap step.\rPay 8 life: Untap Phrexian Colossus.\rPhyrexian Colossus can't be blocked except by three or more creatures.\n8/8"
+    IDS_STRING1038          "Coat of Arms\n{5}\nArtifact\n7TH,R\nEach creature gets +1/+1 for each other creature on the battlefield that shares at least one creature type with it."
+    IDS_STRING1039          "Kjeldoran Royal Guard\n{3WW}\nCreature - Human Soldier\n7TH,R\n{T}: All combat damage that would be dealt to you by unblocked creatures this turn is dealt to Kjeldoran Royal Guard instead.\n2/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING1040          "Pariah\n{2W}\nEnchantment - Aura\n7TH,R\nEnchant creature\rAll damage that would be dealt to you is dealt to enchanted creature instead."
+    IDS_STRING1041          "Persecute\n{2BB}\nSorcery\n7TH,R\nChoose a color. Target player reveals his or her hand and discards all cards of that color."
+    IDS_STRING1042          "Engineered Plague\n{2B}\nEnchantment\n7TH,U\nAs Engineered Plague enters the battlefield, choose a creature type.\rAll creatures of the chosen type get -1/-1."
+    IDS_STRING1043          "Wildfire\n{4RR}\nSorcery\n7TH,R\nEach player sacrifices four lands. Wildfire deals 4 damage to each creature."
+    IDS_STRING1044          "Mana Clash\n{R}\nSorcery\n7TH,R\nYou and target opponent each flip a coin. Mana Clash deals 1 damage to each player whose coin comes up tails. Repeat this process until both players' coins come up heads on the same flip."
+    IDS_STRING1045          "Reverse Damage\n{1WW}\nInstant\n7TH,R\nThe next time a source of your choice would deal damage to you this turn, prevent that damage. You gain life equal to the damage prevented this way."
+    IDS_STRING1046          "Deflection\n{3U}\nInstant\n7TH,R\nChange the target of target spell with a single target."
+    IDS_STRING1047          "Rowen\n{2GG}\nEnchantment\n7TH,R\nReveal the first card you draw each turn. Whenever you reveal a basic land card this way, draw a card."
+    IDS_STRING1048          "Darkest Hour\n{B}\nEnchantment\n7TH,R\nAll creatures are black."
+    IDS_STRING1049          "Nature's Revolt\n{3GG}\nEnchantment\n7TH,R\nAll lands are 2/2 creatures that are still lands."
+END
+
+#endif    // Englisch (USA) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

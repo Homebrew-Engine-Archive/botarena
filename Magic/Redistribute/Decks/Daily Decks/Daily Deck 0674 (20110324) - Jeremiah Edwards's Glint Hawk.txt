@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 32 (53.33%)
+
+4 Glint Hawk (21460)
+4 Kor Duelist (19546)
+4 Kor Outfitter (19545)
+4 Kor Skyfisher (19368)
+4 Memnite (21440)
+4 Ornithopter (21306)
+4 Squadron Hawk (21218)
+4 Stoneforge Mystic (19638)
+
+// Enchantments - 4 (6.67%)
+
+4 Quest for the Holy Relic (19539)
+
+// Artifacts - 4 (6.67%)
+
+2 Argentum Armor (21515)
+Basilisk Collar (19687)
+Sword of Body and Mind (21420)
+
+// Lands - 20 (33.33%)
+
+4 Arid Mesa (19349)
+4 Marsh Flats (19357)
+3 Plains (21412)
+3 Plains (21413)
+3 Plains (21414)
+3 Plains (21415)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 14
+
+// Creatures
+
+Kemba, Kha Regent (21598)
+4 Kor Firewalker (19606)
+3 War Priest of Thune (21226)
+
+// Instants
+
+2 Emerge Unscathed (20987)
+3 Revoke Existence (21563)
+
+// Artifacts
+
+Argentum Armor (21515)

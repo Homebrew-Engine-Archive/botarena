@@ -1,0 +1,44 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Koth of the Hammer (21435)
+
+// Creatures - 23 (38.33%)
+
+4 Ember Hauler (21141)
+4 Goblin Bushwhacker (19455)
+4 Goblin Chieftain (21241)
+4 Goblin Guide (19456)
+3 Goblin Wardriver (21735)
+4 Spikeshot Elder (21467)
+
+// Instants - 12 (20.00%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (21124)
+4 Staggershock (20984)
+
+// Lands - 23 (38.33%)
+
+10 Mountain (21772)
+9 Mountain (21773)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Manic Vandal (21260)
+
+// Sorceries
+
+4 Arc Trail (21554)
+4 Mark of Mutiny (19497)
+
+// Artifacts
+
+3 Ratchet Bomb (21528)
+Tumble Magnet (21447)

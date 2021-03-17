@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 11 (18.33%)
+
+2 Consecrated Sphinx (21722)
+4 Inferno Titan (21321)
+4 Lotus Cobra (19389)
+Oracle of Mul Daya (19542)
+
+// Instants - 10 (16.67%)
+
+3 Beast Within (21958)
+Dismember (21951)
+2 Lightning Bolt (21124)
+4 Mana Leak (21214)
+
+// Sorceries - 8 (13.33%)
+
+4 Explore (19647)
+4 Preordain (21152)
+
+// Lands - 27 (45.00%)
+
+3 Copperline Gorge (21471)
+2 Forest (21973)
+2 Forest (21972)
+2 Halimar Depths (19634)
+2 Island (21974)
+2 Island (21975)
+4 Misty Rainforest (19356)
+Mountain (21976)
+Mountain (21977)
+4 Raging Ravine (19699)
+4 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Obstinate Baloth (21217)
+
+// Instants
+
+Deprive (20934)
+Dismember (21951)
+3 Flashfreeze (21133)
+Lightning Bolt (21124)
+3 Nature's Claim (19662)
+
+// Sorceries
+
+3 Pyroclasm (21291)

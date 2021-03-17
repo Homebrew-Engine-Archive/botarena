@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 3 (5.00%)
+
+2 Morphling (10805)
+Rainbow Efreet (9718)
+
+// Instants - 20 (33.33%)
+
+4 Counterspell (760)
+4 Fact or Fiction (12670)
+4 Force of Will (6759)
+4 Impulse (9641)
+4 Spell Snare (23883)
+
+// Enchantments - 8 (13.33%)
+
+4 Back to Basics (10971)
+4 Propaganda (10285)
+
+// Artifacts - 7 (11.67%)
+
+4 Powder Keg (11509)
+3 Vedalken Shackles (15508)
+
+// Lands - 22 (36.67%)
+
+Academy Ruins (17277)
+5 Island (17218)
+6 Island (17215)
+5 Island (17216)
+5 Island (17217)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Jace, the Mind Sculptor (19670)
+
+// Instants
+
+3 Hydroblast (8134)
+
+// Artifacts
+
+4 Chalice of the Void (15015)
+3 Pithing Needle (4081)
+3 Tormod's Crypt (17265)

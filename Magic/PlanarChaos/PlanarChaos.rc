@@ -1,0 +1,269 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "PlanarChaos.ico"
+IDI_LARGE_MODULE        ICON                    "PlanarChaosLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Planar Chaos"
+    IDS_EXPANSION_ABBREV    "PLC"
+    IDS_FIRST_CARD          "2500"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "2665"
+    IDS_MODULE_LARGE_ICON_ID "2666"
+    IDS_ALT_IMG_URL         "http://www.wizards.com/global/images/magic/plc/"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "1"
+    IDS_RELEASE_DATE        "02-02-2007"
+    IDS_MWS_FOLDER          "MWS\\PLC\\"
+    IDS_PRODUCT_LIST        """Planar Chaos Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2500          "Brute Force\n{R}\nInstant\nPLC,C\nTarget creature gets +3/+3 until end of turn."
+    IDS_STRING2501          "Blood Knight\n{RR}\nCreature - Human Knight\nPLC,U\nFirst strike, protection from white\n2/2"
+    IDS_STRING2502          "Prodigal Pyromancer\n{2R}\nCreature - Human Wizard\nPLC,C\n{T}: Prodigal Pyromancer deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING2503          "Pyrohemia\n{2RR}\nEnchantment\nPLC,U\nAt the beginning of the end step, if no creatures are on the battlefield, sacrifice Pyrohemia.\r{R}: Pyrohemia deals 1 damage to each creature and each player."
+    IDS_STRING2504          "Skirk Shaman\n{1RR}\nCreature - Goblin Shaman\nPLC,C\nSkirk Shaman can't be blocked except by artifact creatures and/or red creatures.\n2/2"
+    IDS_STRING2505          "Damnation\n{2BB}\nSorcery\nPLC,R\nDestroy all creatures. They can't be regenerated."
+    IDS_STRING2506          "Rathi Trapper\n{1B}\nCreature - Human Rebel Rogue\nPLC,C\n{B}, {T}: Tap target creature.\n1/2"
+    IDS_STRING2507          "Vampiric Link\n{B}\nEnchantment - Aura\nPLC,C\nEnchant creature\rWhenever enchanted creature deals damage, you gain that much life."
+    IDS_STRING2508          "Malach of the Dawn\n{2WW}\nCreature - Angel\nPLC,U\nFlying\r{WWW}: Regenerate Malach of the Dawn.\n2/4"
+    IDS_STRING2509          "Mana Tithe\n{W}\nInstant\nPLC,C\nCounter target spell unless its controller pays {1}."
+    IDS_STRING2510          "Mesa Enchantress\n{1WW}\nCreature - Human Druid\nPLC,R\nWhenever you cast an enchantment spell, you may draw a card.\n0/2"
+    IDS_STRING2511          "Revered Dead\n{1W}\nCreature - Spirit Soldier\nPLC,C\n{W}: Regenerate Revered Dead.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2512          "Essence Warden\n{G}\nCreature - Elf Shaman\nPLC,C\nWhenever another creature enters the battlefield, you gain 1 life.\n1/1"
+    IDS_STRING2513          "Gaea's Anthem\n{1GG}\nEnchantment\nPLC,R\nCreatures you control get +1/+1."
+    IDS_STRING2514          "Harmonize\n{2GG}\nSorcery\nPLC,U\nDraw three cards."
+    IDS_STRING2515          "Healing Leaves\n{G}\nInstant\nPLC,C\nChoose one - Target player gains 3 life; or prevent the next 3 damage that would be dealt to target creature or player this turn."
+    IDS_STRING2516          "Keen Sense\n{G}\nEnchantment - Aura\nPLC,U\nEnchant creature\rWhenever enchanted creature deals damage to an opponent, you may draw a card."
+    IDS_STRING2517          "Frozen AEther\n{3U}\nEnchantment\nPLC,U\nArtifacts, creatures, and lands your opponents control enter the battlefield tapped."
+    IDS_STRING2518          "Serra Sphinx\n{3UU}\nCreature - Sphinx\nPLC,R\nFlying, vigilance\n4/4"
+    IDS_STRING2519          "Saltfield Recluse\n{2W}\nCreature - Human Rebel Cleric\nPLC,C\n{T}: Target creature gets -2/-0 until end of turn.\n1/2"
+    IDS_STRING2520          "Battering Sliver\n{5R}\nCreature - Sliver\nPLC,C\nAll Sliver creatures have trample.\n4/4"
+    IDS_STRING2521          "Synchronous Sliver\n{4U}\nCreature - Sliver\nPLC,C\nAll Sliver creatures have vigilance.\n3/3"
+    IDS_STRING2522          "Sinew Sliver\n{1W}\nCreature - Sliver\nPLC,C\nAll Sliver creatures get +1/+1.\n1/1"
+    IDS_STRING2523          "Reflex Sliver\n{3G}\nCreature - Sliver\nPLC,C\nAll Sliver creatures have haste.\n2/2"
+    IDS_STRING2524          "Spitting Sliver\n{4B}\nCreature - Sliver\nPLC,C\nAll Sliver creatures have first strike.\n3/3"
+    IDS_STRING2525          "Mire Boa\n{1G}\nCreature - Snake\nPLC,C\nSwampwalk\r{G}: Regenerate Mire Boa.\n2/1"
+    IDS_STRING2526          "Needlepeak Spider\n{3R}\nCreature - Spider\nPLC,C\nReach\n4/2"
+    IDS_STRING2527          "Ghost Tactician\n{4W}\nCreature - Spirit Spellshaper\nPLC,C\n{W}, {T}, Discard a card: Creatures you control get +1/+0 until end of turn.\n2/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2528          "Sunlance\n{W}\nSorcery\nPLC,C\nSunlance deals 3 damage to target nonwhite creature."
+    IDS_STRING2529          "Saltblast\n{3WW}\nSorcery\nPLC,U\nDestroy target nonwhite permanent."
+    IDS_STRING2530          "Primal Plasma\n{3U}\nCreature - Elemental Shapeshifter\nPLC,C\nAs Primal Plasma enters the battlefield, it becomes your choice of a 3/3 creature, a 2/2 creature with flying, or a 1/6 creature with defender.\n*/*"
+    IDS_STRING2531          "Groundbreaker\n{GGG}\nCreature - Elemental\nPLC,R\nTrample, haste\rAt the beginning of the end step, sacrifice Groundbreaker.\n6/1"
+    IDS_STRING2532          "Sulfur Elemental\n{2R}\nCreature - Elemental\nPLC,U\nFlash\rSplit second\rWhite creatures get +1/-1.\n3/2"
+    IDS_STRING2533          "Ridged Kusite\n{B}\nCreature - Horror Spellshaper\nPLC,C\n{1B}, {T}, Discard a card: Target creature gets +1/+0 and gains first strike until end of turn.\n1/1"
+    IDS_STRING2534          "Magus of the Bazaar\n{1U}\nCreature - Human Wizard\nPLC,R\n{T}: Draw two cards, then discard three cards.\n0/1"
+    IDS_STRING2535          "Seal of Primordium\n{1G}\nEnchantment\nPLC,C\nSacrifice Seal of Primordium: Destroy target artifact or enchantment."
+    IDS_STRING2536          "Waning Wurm\n{3B}\nCreature - Zombie Wurm\nPLC,U\nVanishing 2\n7/6"
+    IDS_STRING2537          "Calciderm\n{2WW}\nCreature - Beast\nPLC,U\nShroud\rVanishing 4\n5/5"
+    IDS_STRING2538          "Crovax, Ascendant Hero\n{4WW}\nLegendary Creature - Human\nPLC,R\nOther white creatures get +1/+1.\rNonwhite creatures get -1/-1.\rPay 2 life: Return Crovax, Ascendant Hero to its owner's hand.\n3/3"
+    IDS_STRING2539          "Aven Riftwatcher\n{2W}\nCreature - Bird Rebel Soldier\nPLC,C\nFlying\rVanishing 3\rWhen Aven Riftwatcher enters the battlefield or leaves the battlefield, you gain 2 life.\n2/3"
+    IDS_STRING2540          "Sophic Centaur\n{3G}\nCreature - Centaur Spellshaper\nPLC,U\n{2GG}, {T}, Discard a card: You gain 2 life for each card in your hand.\n1/1"
+    IDS_STRING2541          "Hedge Troll\n{2G}\nCreature - Troll Cleric\nPLC,U\nHedge Troll gets +1/+1 as long as you control a Plains.\r{W}: Regenerate Hedge Troll.\n2/2"
+    IDS_STRING2542          "Wistful Thinking\n{2U}\nSorcery\nPLC,C\nTarget player draws two cards, then discards four cards."
+    IDS_STRING2543          "Braids, Conjurer Adept\n{2UU}\nLegendary Creature - Human Wizard\nPLC,R\nAt the beginning of each player's upkeep, that player may put an artifact, creature, or land card from his or her hand onto the battlefield.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2544          "Whitemane Lion\n{1W}\nCreature - Cat\nPLC,C\nFlash\rWhen Whitemane Lion enters the battlefield, return a creature you control to its owner's hand.\n2/2"
+    IDS_STRING2545          "Dust Elemental\n{2WW}\nCreature - Elemental\nPLC,R\nFlash\rFlying; fear\rWhen Dust Elemental enters the battlefield, return three creatures you control to their owner's hand.\n6/6"
+    IDS_STRING2546          "Dust Corona\n{R}\nEnchantment - Aura\nPLC,C\nEnchant creature\rEnchanted creature gets +2/+0 and can't be blocked by creatures with flying."
+    IDS_STRING2547          "Jedit Ojanen of Efrava\n{3GGG}\nLegendary Creature - Cat Warrior\nPLC,R\nForestwalk\rWhenever Jedit Ojanen of Efrava attacks or blocks, put a 2/2 green Cat Warrior creature token with forestwalk onto the battlefield.\n5/5"
+    IDS_STRING2548          "Stonecloaker\n{2W}\nCreature - Gargoyle\nPLC,U\nFlash\rFlying\rWhen Stonecloaker enters the battlefield, return a creature you control to its owner's hand.\rWhen Stonecloaker enters the battlefield, exile target card from a graveyard.\n3/2"
+    IDS_STRING2549          "AEther Membrane\n{1RR}\nCreature - Wall\nPLC,U\nDefender; reach\rWhenever Æther Membrane blocks a creature, return that creature to its owner's hand at end of combat.\n0/5"
+    IDS_STRING2550          "Bog Serpent\n{5B}\nCreature - Serpent\nPLC,C\nBog Serpent can't attack unless defending player controls a Swamp.\rWhen you control no Swamps, sacrifice Bog Serpent.\n5/5"
+    IDS_STRING2551          "Deadwood Treefolk\n{5G}\nCreature - Treefolk\nPLC,U\nVanishing 3\rWhen Deadwood Treefolk enters the battlefield or leaves the battlefield, return another target creature card from your graveyard to your hand.\n3/6"
+    IDS_STRING2552          "Dreamscape Artist\n{1U}\nCreature - Human Spellshaper\nPLC,C\n{2U}, {T}, Discard a card, Sacrifice a land: Search your library for up to two basic land cards and put them onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING2553          "Fa'adiyah Seer\n{1G}\nCreature - Human Shaman\nPLC,C\n{T}: Draw a card and reveal it. If it isn't a land card, discard it.\n1/1"
+    IDS_STRING2554          "Magus of the Library\n{GG}\nCreature - Human Wizard\nPLC,R\n{T}: Add {1} to your mana pool.\r{T}: Draw a card. Activate this ability only if you have exactly seven cards in hand.\n1/1"
+    IDS_STRING2555          "Keldon Marauders\n{1R}\nCreature - Human Warrior\nPLC,C\nVanishing 2\rWhen Keldon Marauders enters the battlefield or leaves the battlefield, it deals 1 damage to target player.\n3/3"
+    IDS_STRING2556          "Mirri the Cursed\n{2BB}\nLegendary Creature - Vampire Cat\nPLC,R\nFlying, first strike, haste\rWhenever Mirri the Cursed deals combat damage to a creature, put a +1/+1 counter on Mirri the Cursed.\n3/2"
+    IDS_STRING2557          "Molten Firebird\n{4R}\nCreature - Phoenix\nPLC,R\nFlying\rWhen Molten Firebird dies, return it to the battlefield under its owner's control at the beginning of the next end step and you skip your next draw step.\r{4R}: Exile Molten Firebird.\n2/2"
+    IDS_STRING2558          "Radha, Heir to Keld\n{RG}\nLegendary Creature - Elf Warrior\nPLC,R\nWhenever Radha, Heir to Keld attacks, you may add {RR} to your mana pool.\r{T}: Add {G} to your mana pool.\n2/2"
+    IDS_STRING2559          "Stormfront Riders\n{4W}\nCreature - Human Soldier\nPLC,U\nFlying\rWhen Stormfront Riders enters the battlefield, return two creatures you control to their owner's hand.\rWhenever Stormfront Riders or another creature is returned to your hand from the battlefield, put a 1/1 white Soldier creature token onto the battlefield.\n4/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2560          "Teneb, the Harvester\n{3BGW}\nLegendary Creature - Dragon\nPLC,R\nFlying\rWhenever Teneb, the Harvester deals combat damage to a player, you may pay {2B}. If you do, put target creature card from a graveyard onto the battlefield under your control.\n6/6"
+    IDS_STRING2561          "Oros, the Avenger\n{3WBR}\nLegendary Creature - Dragon\nPLC,R\nFlying\rWhenever Oros, the Avenger deals combat damage to a player, you may pay {2W}. If you do, Oros deals 3 damage to each nonwhite creature.\n6/6"
+    IDS_STRING2562          "Vorosh, the Hunter\n{3GUB}\nLegendary Creature - Dragon\nPLC,R\nFlying\rWhenever Vorosh, the Hunter deals combat damage to a player, you may pay {2G}. If you do, put six +1/+1 counters on Vorosh.\n6/6"
+    IDS_STRING2563          "Numot, the Devastator\n{3RWU}\nLegendary Creature - Dragon\nPLC,R\nFlying\rWhenever Numot, the Devastator deals combat damage to a player, you may pay {2R}. If you do, destroy up to two target lands.\n6/6"
+    IDS_STRING2564          "DeadGone\n{R} // {2R}\nInstant // Instant\nPLC,C\nDEAD: Dead deals 2 damage to target creature.\rGONE: Return target creature you don't control to its owner's hand."
+    IDS_STRING2565          "Evolution Charm\n{1G}\nInstant\nPLC,C\nChoose one - Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library; or return target creature card from your graveyard to your hand; or target creature gains flying until end of turn."
+    IDS_STRING2566          "Firefright Mage\n{R}\nCreature - Goblin Spellshaper\nPLC,C\n{1R}, {T}, Discard a card: Target creature can't be blocked this turn except by artifact creatures and/or red creatures.\n1/1"
+    IDS_STRING2567          "Midnight Charm\n{B}\nInstant\nPLC,C\nChoose one - Midnight Charm deals 1 damage to target creature and you gain 1 life; or target creature gains first strike until end of turn; or tap target creature."
+    IDS_STRING2568          "Piracy Charm\n{U}\nInstant\nPLC\nChoose one - Target creature gains islandwalk until end of turn; or target creature gets +2/-1 until end of turn; or target player discards a card."
+    IDS_STRING2569          "RoughTumble\n{1R} // {5R}\nSorcery // Sorcery\nPLC,U\nROUGH: Rough deals 2 damage to each creature without flying.\rTUMBLE: Tumble deals 6 damage to each creature with flying."
+    IDS_STRING2570          "Gossamer Phantasm\n{1U}\nCreature - Illusion\nPLC,C\nFlying\rWhen Gossamer Phantasm becomes the target of a spell or ability, sacrifice it.\n2/1"
+    IDS_STRING2571          "Serendib Sorcerer\n{1UU}\nCreature - Human Wizard\nPLC,R\n{T}: Target creature other than Serendib Sorcerer becomes 0/2 until end of turn.\n1/1"
+    IDS_STRING2572          "Magus of the Coffers\n{4B}\nCreature - Human Wizard\nPLC,R\n{2}, {T}: Add {B} to your mana pool for each Swamp you control.\n4/4"
+    IDS_STRING2573          "Kavu Predator\n{1G}\nCreature - Kavu\nPLC,U\nTrample\rWhenever an opponent gains life, put that many +1/+1 counters on Kavu Predator.\n2/2"
+    IDS_STRING2574          "Blightspeaker\n{1B}\nCreature - Human Rebel Cleric\nPLC,C\n{T}: Target player loses 1 life.\r{4}, {T}: Search your library for a Rebel permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING2575          "Cautery Sliver\n{RW}\nCreature - Sliver\nPLC,U\nAll Slivers have ""{1}, Sacrifice this permanent: This permanent deals 1 damage to target creature or player.""\rAll Slivers have ""{1}, Sacrifice this permanent: Prevent the next 1 damage that would be dealt to target Sliver creature or player this turn.""\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2576          "Citanul Woodreaders\n{2G}\nCreature - Human Druid\nPLC,C\nKicker {2G}\rWhen Citanul Woodreaders enters the battlefield, if it was kicked, draw two cards.\n1/4"
+    IDS_STRING2577          "Darkheart Sliver\n{BG}\nCreature - Sliver\nPLC,U\nAll Slivers have ""Sacrifice this permanent: You gain 3 life.""\n2/2"
+    IDS_STRING2578          "Hammerheim Deadeye\n{3R}\nCreature - Giant Warrior\nPLC,U\nEcho {5R}\rWhen Hammerheim Deadeye enters the battlefield, destroy target creature with flying.\n3/3"
+    IDS_STRING2579          "Necrotic Sliver\n{1WB}\nCreature - Sliver\nPLC,U\nAll Slivers have ""{3}, Sacrifice this permanent: Destroy target permanent.""\n2/2"
+    IDS_STRING2580          "Poultice Sliver\n{2W}\nCreature - Sliver\nPLC,C\nAll Slivers have ""{2}, {T}: Regenerate target Sliver.""\n2/2"
+    IDS_STRING2581          "Pouncing Wurm\n{3G}\nCreature - Wurm\nPLC,U\nKicker {2G}\rIf Pouncing Wurm was kicked, it enters the battlefield with three +1/+1 counters on it and with haste.\n3/3"
+    IDS_STRING2582          "Stingscourger\n{1R}\nCreature - Goblin Warrior\nPLC,C\nEcho {3R}\rWhen Stingscourger enters the battlefield, return target creature an opponent controls to its owner's hand.\n2/2"
+    IDS_STRING2583          "Timbermare\n{3G}\nCreature - Elemental Horse\nPLC,R\nHaste\rEcho {5G}\rWhen Timbermare enters the battlefield, tap all other creatures.\n5/5"
+    IDS_STRING2584          "Uktabi Drake\n{G}\nCreature - Drake\nPLC,C\nFlying, haste\rEcho {1GG}\n2/1"
+    IDS_STRING2585          "Mantle of Leadership\n{1W}\nEnchantment - Aura\nPLC,U\nFlash\rEnchant creature\rWhenever a creature enters the battlefield, enchanted creature gets +2/+2 until end of turn."
+    IDS_STRING2586          "Pongify\n{U}\nInstant\nPLC,U\nDestroy target creature. It can't be regenerated. That creature's controller puts a 3/3 green Ape creature token onto the battlefield."
+    IDS_STRING2587          "Mycologist\n{1W}\nCreature - Human Druid\nPLC,U\nAt the beginning of your upkeep, put a spore counter on Mycologist.\rRemove three spore counters from Mycologist: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: You gain 2 life.\n0/2"
+    IDS_STRING2588          "Pallid Mycoderm\n{3W}\nCreature - Fungus\nPLC,C\nAt the beginning of your upkeep, put a spore counter on Pallid Mycoderm.\rRemove three spore counters from Pallid Mycoderm: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Fungus and/or Saproling creatures you control get +1/+1 until end of turn.\n2/4"
+    IDS_STRING2589          "Psychotrope Thallid\n{2G}\nCreature - Fungus\nPLC,U\nAt the beginning of your upkeep, put a spore counter on Psychotrope Thallid.\rRemove three spore counters from Psychotrope Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\r{1}, Sacrifice a Saproling: Draw a card.\n1/1"
+    IDS_STRING2590          "Vitaspore Thallid\n{1G}\nCreature - Fungus\nPLC,C\nAt the beginning of your upkeep, put a spore counter on Vitaspore Thallid.\rRemove three spore counters from Vitaspore Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Target creature gains haste until end of turn.\n1/1"
+    IDS_STRING2591          "Deadly Grub\n{2B}\nCreature - Insect\nPLC,C\nVanishing 3\rWhen Deadly Grub dies, if it had no time counters on it, put a 6/1 green Insect creature token with shroud onto the battlefield.\n3/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2592          "Lavacore Elemental\n{2R}\nCreature - Elemental\nPLC,U\nVanishing 1\rWhenever a creature you control deals combat damage to a player, put a time counter on Lavacore Elemental.\n5/3"
+    IDS_STRING2593          "Chronozoa\n{3U}\nCreature - Illusion\nPLC,R\nFlying\rVanishing 3\rWhen Chronozoa dies, if it had no time counters on it, put two tokens that are copies of it onto the battlefield.\n3/3"
+    IDS_STRING2594          "Extirpate\n{B}\nInstant\nPLC,R\nSplit second\rChoose target card in a graveyard other than a basic land card. Search its owner's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library."
+    IDS_STRING2595          "Fatal Frenzy\n{2R}\nInstant\nPLC,R\nUntil end of turn, target creature you control gains trample and gets +X/+0, where X is its power. Sacrifice it at the beginning of the next end step."
+    IDS_STRING2596          "Jodah's Avenger\n{5U}\nCreature - Shapeshifter\nPLC,U\n{0}: Until end of turn, Jodah's Avenger gets -1/-1 and gains your choice of double strike, protection from red, vigilance, or shadow.\n4/4"
+    IDS_STRING2597          "Utopia Vow\n{1G}\nEnchantment - Aura\nPLC,C\nEnchant creature\rEnchanted creature can't attack or block.\rEnchanted creature has ""{T}: Add one mana of any color to your mana pool."""
+    IDS_STRING2598          "Simian Spirit Guide\n{2R}\nCreature - Ape Spirit\nPLC,C\nExile Simian Spirit Guide from your hand: Add {R} to your mana pool.\n2/2"
+    IDS_STRING2599          "Imp's Mischief\n{1B}\nInstant\nPLC,R\nChange the target of target spell with a single target. You lose life equal to that spell's converted mana cost."
+    IDS_STRING2600          "Ana Battlemage\n{2G}\nCreature - Human Wizard\nPLC,U\nKicker {2U} and/or {1B}\rWhen Ana Battlemage enters the battlefield, if it was kicked with its {2U} kicker, target player discards three cards.\rWhen Ana Battlemage enters the battlefield, if it was kicked with its {1B} kicker, tap target untapped creature and that creature deals damage equal to its power to its controller.\n2/2"
+    IDS_STRING2601          "Rebuff the Wicked\n{W}\nInstant\nPLC,U\nCounter target spell that targets a permanent you control."
+    IDS_STRING2602          "Dawn Charm\n{1W}\nInstant\nPLC,C\nChoose one - Prevent all combat damage that would be dealt this turn; or regenerate target creature; or counter target spell that targets you."
+    IDS_STRING2603          "Merfolk Thaumaturgist\n{2U}\nCreature - Merfolk Wizard\nPLC,C\n{T}: Switch target creature's power and toughness until end of turn.\n1/2"
+    IDS_STRING2604          "BoomBust\n{1R} // {5R}\nSorcery // Sorcery\nPLC,R\nBOOM: Destroy target land you control and target land you don't control.\rBUST: Destroy all lands."
+    IDS_STRING2605          "Magus of the Tabernacle\n{3W}\nCreature - Human Wizard\nPLC, R\nAll creatures have ""At the beginning of your upkeep, sacrifice this creature unless you pay {1}.""\n2/6"
+    IDS_STRING2606          "Urborg, Tomb of Yawgmoth\n\nLegendary Land\nPLC,R\nEach land is a Swamp in addition to its other land types."
+    IDS_STRING2607          "Dormant Sliver\n{2GU}\nCreature - Sliver\nPLC,U\nAll Sliver creatures have defender.\rAll Slivers have ""When this permanent enters the battlefield, draw a card.""\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2608          "Serra's Boon\n{2W}\nEnchantment - Aura\nPLC,U\nEnchant creature\rEnchanted creature gets +1/+2 as long as it's white. Otherwise, it gets -2/-1."
+    IDS_STRING2609          "Dismal Failure\n{2UU}\nInstant\nPLC,U\nCounter target spell. Its controller discards a card."
+    IDS_STRING2610          "Porphyry Nodes\n{W}\nEnchantment\nPLC,R\nAt the beginning of your upkeep, destroy the creature with the least power. It can't be regenerated. If two or more creatures are tied for least power, you choose one of them.\rWhen there are no creatures on the battlefield, sacrifice Porphyry Nodes."
+    IDS_STRING2611          "Reckless Wurm\n{3RR}\nCreature - Wurm\nPLC,U\nTrample\rMadness {2R}\n4/4"
+    IDS_STRING2612          "Aeon Chronicler\n{3UU}\nCreature - Avatar\nPLC,R\nAeon Chronicler's power and toughness are each equal to the number of cards in your hand.\rSuspend X - {X3U}. X can't be 0.\rWhenever a time counter is removed from Aeon Chronicler while it's exiled, draw a card.\n*/*"
+    IDS_STRING2613          "Big Game Hunter\n{1BB}\nCreature - Human Rebel Assassin\nPLC,U\nWhen Big Game Hunter enters the battlefield, destroy target creature with power 4 or greater. It can't be regenerated.\rMadness {B}\n1/1"
+    IDS_STRING2614          "Benalish Commander\n{3W}\nCreature - Human Soldier\nPLC,R\nBenalish Commander's power and toughness are each equal to the number of Soldiers you control.\rSuspend X - {XWW}. X can't be 0.\rWhenever a time counter is removed from Benalish Commander while it's exiled, put a 1/1 white Soldier creature token onto the battlefield.\n*/*"
+    IDS_STRING2615          "Detritivore\n{2RR}\nCreature - Lhurgoyf\nPLC,R\nDetritivore's power and toughness are each equal to the number of nonbasic land cards in your opponents' graveyards.\rSuspend X - {X3R}. X can't be 0.\rWhenever a time counter is removed from Detritivore while it's exiled, destroy target nonbasic land.\n*/*"
+    IDS_STRING2616          "Dichotomancy\n{7UU}\nSorcery\nPLC,R\nFor each tapped nonland permanent target opponent controls, search that player's library for a card with the same name as that permanent and put it onto the battlefield under your control. Then that player shuffles his or her library.\rSuspend 3 - {1UU}"
+    IDS_STRING2617          "Heroes Remembered\n{6WWW}\nSorcery\nPLC,R\nYou gain 20 life.\rSuspend 10 - {W}"
+    IDS_STRING2618          "Giant Dustwasp\n{3GG}\nCreature - Insect\nPLC,C\nFlying\rSuspend 4 - {1G}\n3/3"
+    IDS_STRING2619          "Shivan Meteor\n{3RR}\nSorcery\nPLC,U\nShivan Meteor deals 13 damage to target creature.\rSuspend 2 - {1RR}"
+    IDS_STRING2620          "Riftmarked Knight\n{1WW}\nCreature - Human Rebel Knight\nPLC,U\nProtection from black; flanking\rSuspend 3 - {1WW}\rWhen the last time counter is removed from Riftmarked Knight while it's exiled, put a 2/2 black Knight creature token with flanking, protection from white, and haste onto the battlefield.\n2/2"
+    IDS_STRING2621          "Roiling Horror\n{3BB}\nCreature - Horror\nPLC,R\nRoiling Horror's power and toughness are each equal to your life total minus the life total of an opponent with the most life.\rSuspend X - {XBBB}. X can't be 0.\rWhenever a time counter is removed from Roiling Horror while it's exiled, target player loses 1 life and you gain 1 life.\n*/*"
+    IDS_STRING2622          "Shade of Trokair\n{3W}\nCreature - Shade\nPLC,C\n{W}: Shade of Trokair gets +1/+1 until end of turn.\rSuspend 3 - {W}\n1/2"
+    IDS_STRING2623          "Veiling Oddity\n{3U}\nCreature - Illusion\nPLC,C\nSuspend 4 - {1U}\rWhen the last time counter is removed from Veiling Oddity while it's exiled, creatures are unblockable this turn.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2624          "Melancholy\n{2B}\nEnchantment - Aura\nPLC,C\nEnchant creature\rWhen Melancholy enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step.\rAt the beginning of your upkeep, sacrifice Melancholy unless you pay {B}."
+    IDS_STRING2625          "Akroma, Angel of Fury\n{5RRR}\nLegendary Creature - Angel\nPLC,R\nAkroma, Angel of Fury can't be countered.\rFlying, trample, protection from white and from blue\r{R}: Akroma, Angel of Fury gets +1/+0 until end of turn.\rMorph {3RRR}\n6/6"
+    IDS_STRING2626          "Riptide Pilferer\n{1U}\nCreature - Merfolk Rogue\nPLC\nWhenever Riptide Pilferer deals combat damage to a player, that player discards a card.\rMorph {U}\n1/1"
+    IDS_STRING2627          "Enslave\n{4BB}\nEnchantment - Aura\nPLC,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your upkeep, enchanted creature deals 1 damage to its owner."
+    IDS_STRING2628          "Tidewalker\n{2U}\nCreature - Elemental\nPLC,U\nTidewalker enters the battlefield with a time counter on it for each Island you control.\rVanishing\rTidewalker's power and toughness are each equal to the number of time counters on it.\n*/*"
+    IDS_STRING2629          "Cradle to Grave\n{1B}\nInstant\nPLC,C\nDestroy target nonblack creature that entered the battlefield this turn."
+    IDS_STRING2630          "Shivan Wumpus\n{3R}\nCreature - Beast\nPLC,R\nTrample\rWhen Shivan Wumpus enters the battlefield, any player may sacrifice a land. If a player does, put Shivan Wumpus on top of its owner's library.\n6/6"
+    IDS_STRING2631          "Circle of Affliction\n{1B}\nEnchantment\nPLC,U\nAs Circle of Affliction enters the battlefield, choose a color.\rWhenever a source of the chosen color deals damage to you, you may pay {1}. If you do, target player loses 1 life and you gain 1 life."
+    IDS_STRING2632          "Erratic Mutation\n{2U}\nInstant\nPLC,C\nChoose target creature. Reveal cards from the top of your library until you reveal a nonland card. That creature gets +X/-X until end of turn, where X is that card's converted mana cost. Put all cards revealed this way on the bottom of your library in any order."
+    IDS_STRING2633          "Dunerider Outlaw\n{BB}\nCreature - Human Rebel Rogue\nPLC,U\nProtection from green\rAt the beginning of each end step, if Dunerider Outlaw dealt damage to an opponent this turn, put a +1/+1 counter on it.\n1/1"
+    IDS_STRING2634          "Frenetic Sliver\n{1UR}\nCreature - Sliver\nPLC,U\nAll Slivers have ""{0}: If this permanent is on the battlefield, flip a coin. If you win the flip, exile this permanent and return it to the battlefield under its owner's control at the beginning of the next end step. If you lose the flip, sacrifice it."""
+    IDS_STRING2635          "Hunting Wilds\n{3G}\nSorcery\nPLC,U\nKicker {3G}\rSearch your library for up to two Forest cards and put them onto the battlefield tapped. Then shuffle your library.\rIf Hunting Wilds was kicked, untap all Forests put onto the battlefield this way. They become 3/3 green creatures with haste that are still lands."
+//    IDS_STRING2633          "Timecrafting\n{XR}\nInstant\nPLC,U\nChoose one - Remove X time counters from target permanent or suspended card; or put X time counters on target permanent with a time counter on it or suspended card."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
+-

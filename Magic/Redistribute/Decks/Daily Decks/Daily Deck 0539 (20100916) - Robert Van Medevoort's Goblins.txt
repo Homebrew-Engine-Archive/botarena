@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 32 (53.33%)
+
+4 Boartusk Liege (18596)
+2 Boggart Ram-Gang (18659)
+4 Earwig Squad (18388)
+2 Ember Hauler (21141)
+4 Goblin Chieftain (21241)
+4 Goblin Guide (19456)
+4 Simian Spirit Guide (2598)
+4 Tattermunge Maniac (18592)
+4 Warren Instigator (19436)
+
+// Instants - 5 (8.33%)
+
+Brute Force (2500)
+4 Punishing Fire (19544)
+
+// Lands - 23 (38.33%)
+
+4 Auntie's Hovel (18050)
+3 Graven Cairns (18547)
+4 Grove of the Burnwillows (17782)
+2 Lavaclaw Reaches (19698)
+2 Mountain (21113)
+Mountain (21115)
+2 Mountain (21112)
+Mountain (21114)
+4 Sulfurous Springs (3173)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Greater Gargadon (17497)
+
+// Instants
+
+2 Brute Force (2500)
+Terminate (9001)
+
+// Sorceries
+
+4 Deathmark (21132)
+Fodder Launch (18117)
+
+// Artifacts
+
+4 Thorn of Amethyst (18000)

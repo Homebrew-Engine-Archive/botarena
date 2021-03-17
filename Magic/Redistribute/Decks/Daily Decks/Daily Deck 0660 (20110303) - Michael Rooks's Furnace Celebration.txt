@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 19 (31.67%)
+
+4 Birds of Paradise (21103)
+4 Cunning Sparkmage (19608)
+3 Kozilek's Predator (20841)
+4 Molten-Tail Masticore (21437)
+4 Nest Invader (20887)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (21124)
+
+// Sorceries - 4 (6.67%)
+
+4 Arc Trail (21554)
+
+// Enchantments - 8 (13.33%)
+
+4 Awakening Zone (20851)
+4 Furnace Celebration (21513)
+
+// Artifacts - 1 (1.67%)
+
+Mortarpod (21825)
+
+// Lands - 24 (40.00%)
+
+3 Arid Mesa (19349)
+4 Copperline Gorge (21471)
+Forest (21769)
+2 Forest (21768)
+2 Mountain (21773)
+3 Mountain (21772)
+4 Raging Ravine (19699)
+4 Rootbound Crag (21129)
+Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Goblin Ruinblaster (19457)
+4 Sylvok Replica (21452)
+
+// Sorceries
+
+3 Act of Treason (21201)
+
+// Artifacts
+
+2 Basilisk Collar (19687)
+3 Sylvok Lifestaff (21557)

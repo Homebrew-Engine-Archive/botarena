@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Garruk Wildspeaker (21205)
+
+// Creatures - 20 (33.33%)
+
+4 Dark Confidant (16449)
+4 Kitchen Finks (18593)
+4 Noble Hierarch (8819)
+4 Strangleroot Geist (23649)
+4 Tarmogoyf (17704)
+
+// Instants - 3 (5.00%)
+
+3 Smother (19600)
+
+// Sorceries - 9 (15.00%)
+
+2 Inquisition of Kozilek (20846)
+2 Maelstrom Pulse (9055)
+2 Profane Command (18127)
+3 Thoughtseize (17901)
+
+// Artifacts - 2 (3.33%)
+
+Sword of Feast and Famine (21762)
+Sword of Fire and Ice (15222)
+
+// Lands - 24 (40.00%)
+
+Forest (23323)
+Forest (23322)
+Forest (23321)
+4 Overgrown Tomb (16445)
+Swamp (23333)
+4 Tectonic Edge (19651)
+4 Treetop Village (3308)
+4 Verdant Catacombs (19359)
+4 Woodland Cemetery (23354)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+3 Nature's Claim (19662)
+2 Slaughter Pact (17789)
+Smother (19600)
+3 Surgical Extraction (22003)
+
+// Sorceries
+
+2 Duress (21280)
+Maelstrom Pulse (9055)
+Thoughtseize (17901)
+
+// Artifacts
+
+2 Grafdigger's Cage (23727)

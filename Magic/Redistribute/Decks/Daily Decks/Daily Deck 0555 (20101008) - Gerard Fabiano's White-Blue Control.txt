@@ -1,0 +1,73 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 8 (13.33%)
+
+2 Gideon Jura (20966)
+2 Jace Beleren (21258)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 6 (10.00%)
+
+3 Baneslayer Angel (21125)
+2 Linvala, Keeper of Silence (20881)
+Sunblast Angel (21463)
+
+// Instants - 8 (13.33%)
+
+2 Condemn (21180)
+4 Mana Leak (21214)
+2 Negate (21192)
+
+// Sorceries - 8 (13.33%)
+
+4 Oust (20981)
+4 Preordain (21152)
+
+// Enchantments - 2 (3.33%)
+
+2 Volition Reins (21478)
+
+// Artifacts - 2 (3.33%)
+
+2 Everflowing Chalice (19677)
+
+// Lands - 26 (43.33%)
+
+Arid Mesa (19349)
+4 Celestial Colonnade (19602)
+4 Glacial Fortress (21128)
+2 Island (21406)
+2 Island (21405)
+2 Island (21404)
+Island (21407)
+2 Plains (21412)
+Plains (21413)
+Plains (21414)
+Plains (21415)
+2 Scalding Tarn (19358)
+Seachrome Coast (21459)
+2 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Kor Firewalker (19606)
+Sphinx of Jwar Isle (19378)
+
+// Instants
+
+2 Celestial Purge (21131)
+3 Flashfreeze (21133)
+2 Revoke Existence (21563)
+2 Spell Pierce (19377)
+
+// Artifacts
+
+Nihil Spellbomb (21540)
+
+// Lands
+
+Tectonic Edge (19651)

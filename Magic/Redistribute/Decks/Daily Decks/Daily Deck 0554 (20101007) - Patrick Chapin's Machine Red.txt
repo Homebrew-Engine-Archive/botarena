@@ -1,0 +1,37 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 6 (9.84%)
+
+2 Chandra Nalaar (21257)
+4 Koth of the Hammer (21435)
+
+// Creatures - 5 (8.20%)
+
+3 Necropede (21555)
+2 Pilgrim's Eye (19620)
+
+// Instants - 3 (4.92%)
+
+3 Galvanic Blast (21493)
+
+// Sorceries - 5 (8.20%)
+
+3 Destructive Force (21254)
+2 Pyroclasm (21291)
+
+// Artifacts - 22 (36.07%)
+
+4 Contagion Clasp (21430)
+4 Everflowing Chalice (19677)
+3 Lux Cannon (21521)
+4 Mox Opal (21434)
+4 Throne of Geth (21436)
+3 Voltaic Key (21240)
+
+// Lands - 20 (32.79%)
+
+5 Mountain (21410)
+4 Mountain (21411)
+5 Mountain (21408)
+5 Mountain (21409)
+Valakut, the Molten Pinnacle (19344)

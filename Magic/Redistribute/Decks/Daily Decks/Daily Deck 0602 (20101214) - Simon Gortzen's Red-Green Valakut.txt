@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 13 (21.67%)
+
+3 Avenger of Zendikar (19664)
+2 Oracle of Mul Daya (19542)
+4 Overgrown Battlement (20890)
+4 Primeval Titan (21223)
+
+// Instants - 7 (11.67%)
+
+3 Lightning Bolt (21124)
+4 Summoning Trap (19540)
+
+// Sorceries - 12 (20.00%)
+
+4 Cultivate (21319)
+4 Explore (19647)
+4 Growth Spasm (20925)
+
+// Lands - 28 (46.67%)
+
+3 Evolving Wilds (20905)
+Forest (21402)
+Forest (21401)
+2 Forest (21400)
+Forest (21403)
+Khalni Garden (19621)
+3 Mountain (21411)
+3 Mountain (21408)
+3 Mountain (21409)
+3 Mountain (21410)
+3 Terramorphic Expanse (21309)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Gaea's Revenge (21221)
+Oracle of Mul Daya (19542)
+4 Tunnel Ignus (21520)
+
+// Instants
+
+2 Nature's Claim (19662)
+
+// Sorceries
+
+4 Pyroclasm (21291)

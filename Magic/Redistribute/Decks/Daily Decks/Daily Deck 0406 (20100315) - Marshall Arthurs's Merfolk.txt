@@ -1,0 +1,46 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Cursecatcher (18534)
+4 Lord of Atlantis (17249)
+2 Merfolk Sovereign (4007)
+4 Merrow Reejerey (18082)
+4 Silvergill Adept (18089)
+4 Wake Thrasher (18931)
+
+// Instants - 12 (20.00%)
+
+4 Cryptic Command (18051)
+4 Mana Leak (2101)
+4 Path to Exile (8897)
+
+// Artifacts - 3 (5.00%)
+
+3 Umezawa's Jitte (19149)
+
+// Lands - 23 (38.33%)
+
+3 Hallowed Fountain (23841)
+2 Island (19310)
+2 Island (19309)
+2 Island (19311)
+2 Island (19308)
+4 Mutavault (18368)
+4 Scalding Tarn (19358)
+4 Wanderwine Hub (18094)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Ethersworn Canonist (8728)
+4 Meddling Mage (9016)
+
+// Enchantments
+
+Journey to Nowhere (19524)
+4 Temporal Isolation (17417)
+2 Threads of Disloyalty (19169)

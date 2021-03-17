@@ -1,0 +1,429 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "ReturnToRavnica.ico"
+IDI_LARGE_MODULE        ICON                    "ReturnToRavnicaLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Return to Ravnica"
+    IDS_EXPANSION_ABBREV    "RTR"
+    IDS_FIRST_CARD          "25100"
+    IDS_TOTAL_CARD          "274"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "25098"
+    IDS_MODULE_LARGE_ICON_ID "25099"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "05-10-2012"
+    IDS_MWS_FOLDER          "MWS\\RTR\\"
+    IDS_PRODUCT_LIST        """Return to Ravnica Starter Box"":R-3:U-10:C-32:BL-30,""Return to Ravnica Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25100         "Forest\n\nBasic Land - Forest\nRTR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25101         "Forest\n\nBasic Land - Forest\nRTR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25102         "Forest\n\nBasic Land - Forest\nRTR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25103         "Forest\n\nBasic Land - Forest\nRTR,BL\n{T}: Add {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25104         "Forest\n\nBasic Land - Forest\nRTR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25105         "Island\n\nBasic Land - Island\nRTR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25106         "Island\n\nBasic Land - Island\nRTR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25107         "Island\n\nBasic Land - Island\nRTR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25108         "Island\n\nBasic Land - Island\nRTR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25109         "Island\n\nBasic Land - Island\nRTR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25110         "Mountain\n\nBasic Land - Mountain\nRTR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25111         "Mountain\n\nBasic Land - Mountain\nRTR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25112         "Mountain\n\nBasic Land - Mountain\nRTR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25113         "Mountain\n\nBasic Land - Mountain\nRTR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25114         "Mountain\n\nBasic Land - Mountain\nRTR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25115         "Plains\n\nBasic Land - Plains\nRTR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25116         "Plains\n\nBasic Land - Plains\nRTR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25117         "Plains\n\nBasic Land - Plains\nRTR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25118         "Plains\n\nBasic Land - Plains\nRTR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25119         "Plains\n\nBasic Land - Plains\nRTR,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25120         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25121         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25122         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25123         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25124         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25125         "Goblin Electromancer\n{UR}\nCreature - Goblin Wizard\nRTR,C\nInstant and sorcery spells you cast cost 1 less to cast.\n2/2"
+    IDS_STRING25126         "Dreg Mangler\n{1BG}\nCreature - Plant Zombie\nRTR,U\nHaste\rScavenge {3BG}\n3/3"
+    IDS_STRING25127         "Izzet Charm\n{UR}\nInstant\nRTR,U\nChoose one - Counter target noncreature spell unless its controller pays {2}; or Izzet Charm deals 2 damage to target creature; or draw two cards, then discard two cards"
+    IDS_STRING25128         "Jarad, Golgari Lich Lord\n{BBGG}\nLegendary Creature - Zombie Elf\nRTR,MR\nJarad, Golgari Lich Lord gets +1/+1 for each creature card in your graveyard.\r{1BG}, Sacrifice another creature: Each opponent loses life equal to the sacrificed creature's power.\rSacrifice a Swamp and a Forest: Return Jarad from your graveyard to your hand.\n2/2"
+    IDS_STRING25129         "Korozda Guildmage\n{BG}\nCreature - Elf Shaman\nRTR,U\n{1BG}: Target creature gets +1/+1 and gains intimidate until end of turn.\r{2BG}, Sacrifice a nontoken creature: Put X 1/1 green Saproling creature tokens onto the battlefield, where X is the sacrificed creature's toughness.\n2/2"
+    IDS_STRING25130         "Street Spasm\n{XR}\nInstant\nRTR,U\nStreet Spasm deals X damage to target creature without flying you don't control.\rOverload {XXRR}"
+    IDS_STRING25131         "Deadbridge Goliath\n{2GG}\nCreature - Insect\nRTR,R\nScavenge {4GG}\n5/5"
+    IDS_STRING25132         "Auger Spree\n{1BR}\nInstant\nRTR,C\nTarget creature gets +4/-4 until end of turn."
+    IDS_STRING25133         "Azorius Charm\n{WU}\nInstant\nRTR,U\nChoose one - Creatures you control gain lifelink until end of turn; or draw a card; or put target attacking or blocking creature on top of its owner's library."
+    IDS_STRING25134         "Blood Crypt\n\nLand - Swamp Mountain\nRTR,R\n{T}: Add {B} or {R} to your mana pool.\rAs Blood Crypt enters the battlefield, you may pay 2 life. If you don't, Blood Crypt enters the battlefield tapped."
+    IDS_STRING25135         "Chromatic Lantern\n{3}\nArtifact\nRTR,R\nLands you control have ""{T}: Add one mana of any color to your mana pool.""\r{T}: Add one mana of any color to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25136         "Corpsejack Menace\n{2BG}\nCreature - Fungus\nRTR,R\nIf one or more +1/+1 counters would be placed on a creature you control, twice that many +1/+1 counters are placed on it instead.\n4/4"
+    IDS_STRING25137         "Dreadbore\n{BR}\nSorcery\nRTR,R\nDestroy target creature or planeswalker."
+    IDS_STRING25138         "Eyes in the Skies\n{3W}\nInstant\nRTR,C\nPut a 1/1 white Bird creature token with flying onto the battlefield, then populate."
+    IDS_STRING25139         "Axebane Guardian\n{2G}\nCreature - Human Druid\nRTR,C\nDefender\r{T}: Add X mana in any combination of colors to your mana pool, where X is the number of creatures with defender you control.\n0/3"
+    IDS_STRING25140         "Fencing Ace\n{1W}\nCreature - Human Soldier\nRTR,U\nDouble strike\n1/1"
+    IDS_STRING25141         "Gatecreeper Vine\n{1G}\nCreature - Plant\nRTR,C\nDefender\rWhen Gatecreeper Vine enters the battlefield, you may search your library for a basic land card or a Gate card, reveal it, put it into your hand, then shuffle your library.\n1/1"
+    IDS_STRING25142         "Azorius Guildgate\n\nLand - Gate\nRTR,C\nAzorius Guildgate enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING25143         "Golgari Guildgate\n\nLand - Gate\nRTR,C\nGolgari Guildgate enters the battlefield tapped.\r{T}: Add {B} or {G} to your mana pool."
+    IDS_STRING25144         "Izzet Guildgate\n\nLand - Gate\nRTR,C\nIzzet Guildgate enters the battlefield tapped.\r{T}: Add {U} or {R} to your mana pool."
+    IDS_STRING25145         "Rakdos Guildgate\n\nLand - Gate\nRTR,C\nRakdos Guildgate enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING25146         "Selesnya Guildgate\n\nLand - Gate\nRTR,C\nSelesnya Guildgate enters the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING25147         "Grisly Salvage\n{BG}\nInstant\nRTR,C\nReveal the top five cards of your library. You may put a creature or land card from among them into your hand. Put the rest into your graveyard."
+    IDS_STRING25148         "Grove of the Guardian\n\nLand\nRTR,R\n{T}: Add {1} to your mana pool.\r{3GW}, {T}, Tap two untapped creatures you control, Sacrifice Grove of the Guardian: Put an 8/8 green and white Elemental creature token with vigilance onto the battlefield."
+    IDS_STRING25149         "Guttersnipe\n{2R}\nCreature - Goblin Shaman\nRTR,U\nWhenever you cast an instant or sorcery spell, Guttersnipe deals 2 damage to each opponent.\n2/2"
+    IDS_STRING25150         "Hallowed Fountain\n\nLand - Plains Island\nRTR,R\n{T}: Add {W} or {U} to your mana pool.\rAs Hallowed Fountain enters the battlefield, you may pay 2 life. If you don't, Hallowed Fountain enters the battlefield tapped."
+    IDS_STRING25151         "Heroes' Reunion\n{GW}\nInstant\nRTR,U\nTarget player gains 7 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25152         "Hypersonic Dragon\n{3UR}\nCreature - Dragon\nRTR,R\nFlying, haste\rYou may cast sorcery spells as though they had flash.\n4/4"
+    IDS_STRING25153         "Judge's Familiar\n{A}\nCreature - Bird\nRTR,U\nFlying\rSacrifice Judge's Familiar: Counter target instant or sorcery spell unless its controller pays {1}.\n1/1"
+    IDS_STRING25154         "Mizzium Mortars\n{1R}\nSorcery\nRTR,R\nMizzium Mortars deals 4 damage to target creature you don't control.\rOverload {3RRR}"
+    IDS_STRING25155         "Nivix Guildmage\n{UR}\nCreature - Human Wizard\nRTR,U\n{1UR}: Draw a card, then discard a card.\r{2UR}: Copy target instant or sorcery spell you control. You may choose new targets for the copy.\n2/2"
+    IDS_STRING25156         "Ogre Jailbreaker\n{3B}\nCreature - Ogre Rogue\nRTR,C\nDefender\rOgre Jailbreaker can attack as though it didn't have defender as long as you control a Gate.\n4/4"
+    IDS_STRING25157         "Overgrown Tomb\n\nLand - Swamp Forest\nRTR,R\n{T}: Add {B} or {G} to your mana pool.\rAs Overgrown Tomb enters the battlefield, you may pay 2 life. If you don't, Overgrown Tomb enters the battlefield tapped."
+    IDS_STRING25158         "Pack Rat\n{1B}\nCreature - Rat\nRTR,R\nPack Rat's Power and toughness are each equal to the number of Rats you control.\r{2B}, Discard a card: Put a token onto the battlefield that's a copy of Pack Rat.\n*/*"
+    IDS_STRING25159         "Rakdos's Return\n{XBR}\nSorcery\nRTR,MR\nRakdos's Return deals X damage to target opponent. That player discards X cards."
+    IDS_STRING25160         "Rakdos Shred-Freak\n{DD}\nCreature - Human Berserker\nRTR,C\nHaste\n2/1"
+    IDS_STRING25161         "Selesnya Charm\n{GW}\nInstant\nRTR,U\nChoose one - Target creature gets +2/+2 and gains trample until end of turn; or exile target creature with power 5 or greater; or put a 2/2 white Knight creature token with vigilance onto the battlefield."
+    IDS_STRING25162         "Sluiceway Scorpion\n{2BG}\nCreature - Scorpion\nRTR,C\nDeathtouch\rScavenge {1BG}\n2/2"
+    IDS_STRING25163         "Rootborn Defenses\n{2W}\nInstant\nRTR,C\nPopulate. Creatures you control are indestructible this turn."
+    IDS_STRING25164         "Steam Vents\n\nLand - Island Mountain\nRTR,R\n{T}: Add {U} or {R} to your mana pool.\rAs Steam Vents enters the battlefield, you may pay 2 life. If you don't, Steam Vents enters the battlefield tapped."
+    IDS_STRING25165         "Temple Garden\n\nLand - Forest Plains\nRTR,R\n{T}: Add {G} or {W} to your mana pool.\rAs Temple Garden enters the battlefield, you may pay 2 life. If you don't, Temple Garden enters the battlefield tapped."
+    IDS_STRING25166         "Transguild Promenade\n\nLand\nRTR,C\nTransguild Promenade enters the battlefield tapped.\rWhen Transguild Promenade enters the battlefield, sacrifice it unless you pay {1}.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING25167         "Wayfaring Temple\n{1GW}\nCreature - Elemental\nRTR,R\nWayfaring Temple's power and toughness are each equal to the number of creatures you control.\rWhenever Wayfaring Temple deals combat damage to a player, populate.\n*/*"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25168         "Death's Presence\n{5G}\nEnchantment\nRTR,R\nWhenever a creature you control dies, put X +1/+1 counters on target creature you control, where X is the power of the creature that died."
+    IDS_STRING25169         "Niv-Mizzet, Dracogenius\n{2UURR}\nLegendary Creature - Dragon Wizard\nRTR,MR\nFlying\rWhenever Niv-Mizzet, Dracogenius deals damage to a player, you may draw a card.\r{UR}: Niv-Mizzet, Dracogenius deals 1 damage to target creature or player.\n5/5"
+    IDS_STRING25170         "Dryad Militant\n{F}\nCreature - Dryad Soldier\nRTR,U\nIf an instant or sorcery card would be put into a graveyard from anywhere, exile it instead.\n2/1"
+    IDS_STRING25171         "Havoc Festival\n{4BR}\nEnchantment\nRTR,R\nPlayers can't gain life\rAt the beginning of each player's upkeep, that player loses half his or her life, rounded up."
+    IDS_STRING25172         "Worldspine Wurm\n{8GGG}\nCreature - Wurm\nRTR,MR\nTrample\rWhen Worldspine Wurm dies, put three 5/5 green Wurm creature tokens with trample onto the battlefield.\rWhen Worldspine Wurm is put into a graveyard from anywhere, shuffle it into its owner's library.\n15/15"
+    IDS_STRING25173         "Lotleth Troll\n{BG}\nCreature - Zombie Troll\nRTR,R\nTrample\rDiscard a creature card: Put a +1/+1 counter on Lotleth Troll.\r{B}: Regenerate Lotleth Troll\n2/1"
+    IDS_STRING25174         "Slaughter Games\n{2BR}\nSorcery\nRTR,R\nSlaughter Games can't be countered by spells or abilities.\rName a nonland card. Search target opponent's graveyard, hand, and library for any number of cards with that name and exile them. Then that player shuffles his or her library."
+    IDS_STRING25175         "Supreme Verdict\n{1WWU}\nSorcery\nRTR,R\nSupreme Verdict can't be countered.\rDestroy all creatures."
+    IDS_STRING25176         "Slitherhead\n{J}\nCreature - Plant Zombie\nRTR,U\nScavenge {0}\n1/1"
+    IDS_STRING25177         "Abrupt Decay\n{BG}\nInstant\nRTR,R\nAbrupt Decay can't be countered by spells or abilities.\rDestroy target nonland permanent with converted mana cost 3 or less."
+    IDS_STRING25178         "Collective Blessing\n{3GGW}\nEnchantment\nRTR,R\nCreatures you control get +3/+3."
+    IDS_STRING25179         "Loxodon Smiter\n{1GW}\nCreature - Elephant Soldier\nRTR,R\nLoxodon Smiter can't be countered.\rIf a spell or ability an opponent controls causes you to discard Loxodon Smiter, put it onto the battlefield instead of putting it into your graveyard.\n4/4"
+    IDS_STRING25180         "Syncopate\n{XU}\nInstant\nRTR,U\nCounter target spell unless its controller pays {X}. If that spell is countered this way, exile it instead of putting it into its owner's graveyard."
+    IDS_STRING25181         "Skyline Predator\n{4UU}\nCreature - Drake\nRTR,U\nFlash\rFlying\n3/4"
+    IDS_STRING25182         "Desecration Demon\n{2BB}\nCreature - Demon\nRTR,R\nFlying\rAt the beginning of each combat, any opponent may sacrifice a creature. If a player does, tap Desecration Demon and put a +1/+1 counter on it.\n6/6"
+    IDS_STRING25183         "Rix Maadi Guildmage\n{BR}\nCreature - Human Shaman\nRTR,U\n{BR}: Target blocking creature gets -1/-1 until end of turn.\r{BR}: Target player who lost life this turn loses 1 life.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+IDS_STRING25184         "Trostani, Selesnya's Voice\n{GGWW}\nLegendary Creature - Dryad\nRTR,MR\nWhenever another creature enters the battlefield under your control, you gain life equal to that creature's toughness.\r{1GW}, {T}: Populate.\n2/5"
+    IDS_STRING25185         "Nivmagus Elemental\n{I}\nCreature - Elemental\nRTR,R\nExile an instant or sorcery spell you control: Put two +1/+1 counters on Nivmagus Elemental.\n1/2"
+    IDS_STRING25186         "Underworld Connections\n{1BB}\nEnchantment - Aura\nRTR,R\nEnchant land\rEnchanted land has ""{T}, Pay 1 life: Draw a card."""
+    IDS_STRING25187         "Faerie Impostor\n{U}\nCreature - Faerie Rogue\nRTR,U\nFlying\rWhen Faerie Impostor enters the battlefield, sacrifice it unless you return another creature you control to its owner's hand.\n2/1"
+    IDS_STRING25188         "Jarad's Orders\n{2BG}\nSorcery\nRTR,R\nSearch your library for up to two creature cards and reveal them. Put one into your hand and the other into your graveyard. Then shuffle your library."
+    IDS_STRING25189         "Cyclonic Rift\n{1U}\nInstant\nRTR,R\nReturn target nonland permanent you don't control to its owner's hand.\rOverload {6U}"
+    IDS_STRING25190         "Cryptborn Horror\n{1DD}\nCreature - Horror\nRTR,R\nTrample\rCryptborn Horror enters the battlefield with X +1/+1 counters on it, where X is the total life lost by your opponents this turn.\n0/0"
+    IDS_STRING25191         "Growing Ranks\n{2FF}\nEnchantment\nRTR,R\nAt the beginning of your upkeep, populate."
+    IDS_STRING25192         "Precinct Captain\n{WW}\nCreature - Human Soldier\nRTR,R\nFirst strike\rWhenever Precinct Captain deals combat damage to a player, put a 1/1 white Soldier creature token onto the battlefield.\n2/2"
+    IDS_STRING25193         "Pyroconvergence\n{4R}\nEnchantment\nRTR,U\nWhenever you cast a multicolored spell, Pyroconvergence deals 2 damage to target creature or player."
+    IDS_STRING25194         "Wild Beastmaster\n{2G}\nCreature - Human Shaman\nRTR,R\nWhenever Wild Beastmaster attacks, each other creature you control gets +X/+X until end of turn, where X is Wild Beastmaster's power.\n1/1"
+    IDS_STRING25195         "Sphinx's Revelation\n{XWUU}\nInstant\nRTR,MR\nYou gain X life and draw X cards."
+    IDS_STRING25196         "Stealer of Secrets\n{2U}\nCreature - Human Rogue\nRTR,C\nWhenever Stealer of Secrets deals combat damage to a player, draw a card.\n2/2"
+    IDS_STRING25197         "Mercurial Chemister\n{3UR}\nCreature - Human Wizard\nRTR,R\n{U}, {T}: Draw two cards.\r{R}, {T}, Discard a card: Mercurial Chemister deals damage to target creature equal to the discarded card's converted mana cost.\n2/3"
+    IDS_STRING25198         "Centaur Healer\n{1GW}\nCreature - Centaur Cleric\nRTR,C\nWhen Centaur Healer enters the battlefield, you gain 3 life.\n3/3"
+    IDS_STRING25199         "Pithing Needle\n{1}\nArtifact\nRTR,R\nAs Pithing Needle enters the battlefield, name a card.\rActivated abilities of sources with the chosen name can't be activated unless they're mana abilities."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25200         "Ash Zealot\n{RR}\nCreature - Human Warrior\nRTR,R\nFirst strike, haste\rWhenever a player casts a spell from a graveyard, Ash Zealot deals 3 damage to that player.\n2/2"
+    IDS_STRING25201         "Psychic Spiral\n{4U}\nInstant\nRTR,U\nShuffle all cards from your graveyard into your library. Target player puts that many cards from the top of his or her library into his or her graveyard."
+    IDS_STRING25202         "Ultimate Price\n{1B}\nInstant\nRTR,U\nDestroy target monocolored creature."
+    IDS_STRING25203         "Golgari Decoy\n{3G}\nCreature - Elf Rogue\nRTR,U\nAll creatures able to block Golgari Decoy do so.\rScavenge {3GG}\n2/2"
+    IDS_STRING25204         "Blistercoil Weird\n{I}\nCreature - Weird\nRTR,U\nWhenever you cast an instant or sorcery spell, Blistercoil Weird gets +2/+2 until end of turn. Untap it.\n1/1"
+    IDS_STRING25205         "Rakdos Charm\n{BR}\nInstant\nRTR,U\nChoose one - Exile all cards from target player's graveyard; or destroy target artifact; or each creature deals 1 damage to its controller."
+    IDS_STRING25206         "Arrest\n{2W}\nEnchantment - Aura\nRTR,U\nEnchant creature\rEnchanted creature can't attack or block, and its activated abilities can't be activated."
+    IDS_STRING25207         "Cancel\n{1UU}\nInstant\nRTR,C\nCounter target spell."
+    IDS_STRING25208         "Dispel\n{U}\nInstant\nRTR,C\nCounter target instant spell."
+    IDS_STRING25209         "Inspiration\n{3U}\nInstant\nRTR,C\nTarget player draws two cards."
+    IDS_STRING25210         "Paralyzing Grasp\n{2U}\nEnchantment - Aura\nRTR,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING25211         "Tower Drake\n{2U}\nCreature - Drake\nRTR,C\nFlying\r{W}: Tower Drake gets +0/+1 until end of turn.\n2/1"
+    IDS_STRING25212         "Cremate\n{B}\nInstant\nRTR,C\nExile target card from a graveyard.\rDraw a card."
+    IDS_STRING25213         "Dead Reveler\n{2B}\nCreature - Zombie\nRTR,C\nUnleash\n2/3"
+    IDS_STRING25214         "Grim Roustabout\n{1B}\nCreature - Skeleton Warrior\nRTR,C\nUnleash\r{1B}: Regenerate Grim Roustabout.\n1/1"
+    IDS_STRING25215         "Mind Rot\n{2B}\nSorcery\nRTR,C\nTarget player discards two cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25216         "Necropolis Regent\n{3BBB}\nCreature - Vampire\nRTR,MR\nFlying\rWhenever a creature you control deals combat damage to a player, put that many +1/+1 counters on it.\n6/5"
+    IDS_STRING25217         "Chaos Imps\n{4RR}\nCreature - Imp\nRTR,R\nFlying\rUnleash\rChaos Imps has trample as long as it has a +1/+1 counter on it\n6/5"
+    IDS_STRING25218         "Fall of the Gavel\n{3WU}\nInstant\nRTR,U\nCounter target spell. You gain 5 life."
+    IDS_STRING25219         "Search Warrant\n{WU}\nSorcery\nRTR,C\nTarget player reveals his or her hand. You gain life equal to the number of cards in that player's hand."
+    IDS_STRING25220         "Hussar Patrol\n{2WU}\nCreature - Human Knight\nRTR,C\nFlash\rVigilance\n2/4"
+    IDS_STRING25221         "Dramatic Rescue\n{WU}\nInstant\nRTR,C\nReturn target creature to its owner's hand. You gain 2 life."
+    IDS_STRING25222         "Skymark Roc\n{2WU}\nCreature - Bird\nRTR,U\nFlying\rWhenever Skymark Roc attacks, you may return target creature defending player controls with toughness 2 or less to its owner's hand.\n3/3"
+    IDS_STRING25223         "Phantom General\n{3W}\nCreature - Spirit Soldier\nRTR,U\nCreature tokens you control get +1/+1.\n2/3"
+    IDS_STRING25224         "Rest in Peace\n{1W}\nEnchantment\nRTR,R\nWhen Rest in Peace enters the battlefield, exile all cards from all graveyards.\rIf a card or token would be put into a graveyard from anywhere, exile it instead."
+    IDS_STRING25225         "Keening Apparition\n{1W}\nCreature - Spirit\nRTR,C\nSacrifice Keening Apparition: Destroy target enchantment.\n2/2"
+    IDS_STRING25226         "Knightly Valor\n{4W}\nEnchantment - Aura\nRTR,C\nEnchant creature\rWhen Knightly Valor enters the battlefield, put a 2/2 white Knight creature token with vigilance onto the battlefield.\rEnchanted creature gets +2/+2 and has vigilance."
+    IDS_STRING25227         "Crosstown Courier\n{1U}\nCreature - Vedalken\nRTR,C\nWhenever Crosstown Courier deals combat damage to a player, that player puts that many cards from the top of his or her library into his or her graveyard.\n2/1"
+    IDS_STRING25228         "Doorkeeper\n{1U}\nCreature - Homunculus\nRTR,C\nDefender\r{2U}, {T}: Target player puts the top X cards of his or her library into his or her graveyard, where X is the number of creatures with defender you control.\n0/4"
+    IDS_STRING25229         "Downsize\n{U}\nInstant\nRTR,C\nTarget creature you don't control gets -4/-0 until end of turn.\rOverload {2U}"
+    IDS_STRING25230         "Aquus Steed\n{3U}\nCreature - Beast\nRTR,U\n{2U}, {T}: Target creature gets -2/-0 until end of turn.\n1/3"
+    IDS_STRING25231         "Blustersquall\n{U}\nInstant\nRTR,U\nTap target creature you don't control.\rOverload {3U}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25232         "Voidwielder\n{4U}\nCreature - Human Wizard\nRTR,C\nWhen Voidwielder enters the battlefield, you may return target creature to its owner's hand.\n1/4"
+    IDS_STRING25233         "Runewing\n{3U}\nCreature - Bird\nRTR,C\nFlying\rWhen Runewing dies, draw a card.\n2/2"
+    IDS_STRING25234         "Lobber Crew\n{2R}\nCreature - Goblin Warrior\nRTR,C\nDefender\r{T}: Lobber Crew deals 1 damage to each opponent.\rWhenever you cast a multicolored spell, untap Lobber Crew.\n0/4"
+    IDS_STRING25235         "Minotaur Aggressor\n{6R}\nCreature - Minotaur Berserker\nRTR,U\nFirst strike, haste\n6/2"
+    IDS_STRING25236         "Pursuit of Flight\n{1R}\nEnchantment - Aura\nRTR,C\nEnchant creature\rEnchanted creature gets +2/+2 and has ""{U}: This creature gains flying until end of turn."""
+    IDS_STRING25237         "Explosive Impact\n{5R}\nInstant\nRTR,C\nExplosive Impact deals 5 damage to target creature or player."
+    IDS_STRING25238         "Goblin Rally\n{3RR}\nSorcery\nRTR,U\nPut four 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING25239         "Gore-House Chainwalker\n{1R}\nCreature - Human Warrior\nRTR,C\nUnleash\n2/1"
+    IDS_STRING25240         "Vassal Soul\n{1AA}\nCreature - Spirit\nRTR,C\nFlying\n2/2"
+    IDS_STRING25241         "Sundering Growth\n{FF}\nInstant\nRTR,C\nDestroy target artifact or enchantment, then populate."
+    IDS_STRING25242         "Trostani's Judgment\n{5W}\nInstant\nRTR,C\nExile target creature, then populate."
+    IDS_STRING25243         "Trained Caracal\n{W}\nCreature - Cat\nRTR,C\nLifelink\n1/1"
+    IDS_STRING25244         "Rogue's Passage\n\nLand\nRTR,U\n{T}: Add {1} to your mana p[ool.\r{4}, {T}: Target creature is unblockable this turn."
+    IDS_STRING25245         "Terrus Wurm\n{6B}\nCreature - Zombie Wurm\nRTR,C\nScavenge {6B}\n5/5"
+    IDS_STRING25246         "Thrill-Kill Assassin\n{1B}\nCreature - Human Assassin\nRTR,U\nDeathtouch\rUnleash\n1/2"
+    IDS_STRING25247         "Zanikev Locust\n{5B}\nCreature - Insect\nRTR,U\nFlying\rScavenge {2BB}\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25248         "Shrieking Affliction\n{B}\nEnchantment\nRTR,U\nAt the beginning of each opponent's upkeep, if that player has one or fewer cards in hand, he or she loses 3 life."
+    IDS_STRING25249         "Slum Reaper\n{3B}\nCreature - Horror\nRTR,U\nWhen Slum Reaper enters the battlefield, each player sacrifices a creature.\n4/2"
+    IDS_STRING25250         "Tavern Swindler\n{1B}\nCreature - Human Rogue\nRTR,U\n{T}, Pay 3 life: Flip a coin. If you win the flip, you gain 6 life.\n2/2"
+    IDS_STRING25251         "Bazaar Krovod\n{4W}\nCreature - Beast\nRTR,U\nWhenever Bazaar Krovod attacks, another target attacking creature gets +0/+2 until end of turn. Untap that creature.\n2/5"
+    IDS_STRING25252         "Concordia Pegasus\n{1W}\nCreature - Pegasus\nRTR,C\nFlying\n1/3"
+    IDS_STRING25253         "Ethereal Armor\n{W}\nEnchantment - Aura\nRTR,C\nEnchant creature\rEnchanted creature gets +1/+1 for each enchantment you control and has first strike."
+    IDS_STRING25254         "Armory Guard\n{3W}\nCreature - Giant Soldier\nRTR,C\nArmory Guard has vigilance as long as you control a Gate.\n2/5"
+    IDS_STRING25255         "Towering Indrik\n{3G}\nCreature - Beast\nRTR,C\nReach\n2/4"
+    IDS_STRING25256         "Perilous Shadow\n{2BB}\nCreature - Insect Shade\nRTR,C\n{1B}: Perilous Shadow gets +2/+2 until end of turn.\n0/4"
+    IDS_STRING25257         "Sewer Shambler\n{2B}\nCreature - Zombie\nRTR,C\nSwampwalk\rScavenge {2B}\n2/1"
+    IDS_STRING25258         "Drainpipe Vermin\n{B}\nCreature - Rat\nRTR,C\nWhen Drainpipe Vermin dies, you may pay {B}. If you do, target player discards a card.\n1/1"
+    IDS_STRING25259         "Launch Party\n{3B}\nInstant\nRTR,C\nAs an additional cost to cast Launch Party, sacrifice a creature.\rDestroy target creature. Its controller loses 2 life."
+    IDS_STRING25260         "Giant Growth\n{G}\nInstant\nRTR,C\nTarget creature gets +3/+3 until end of turn."
+    IDS_STRING25261         "Gobbling Ooze\n{4G}\nCreature - Ooze\nRTR,U\n{G}, Sacrifice another creature: Put a +1/+1 counter on Gobbling Ooze.\n3/3"
+    IDS_STRING25262         "Horncaller's Chant\n{7G}\nSorcery\nRTR,C\nPut a 4/4 green Rhino creature token with trample onto the battlefield, then populate."
+    IDS_STRING25263         "Drudge Beetle\n{1G}\nCreature - Insect\nRTR,C\nScavenge {5G}\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25264         "Druid's Deliverance\n{1G}\nInstant\nRTR,C\nPrevent all combat damage that would be dealt to you this turn. Populate."
+    IDS_STRING25265         "Carnival Hellsteed\n{4BR}\nCreature - Nightmare Horse\nRTR,R\nFirst strike, haste\rUnleash\n5/4"
+    IDS_STRING25266         "Spawn of Rix Maadi\n{3BR}\nCreature - Horror\nRTR,C\nUnleash\n5/3"
+    IDS_STRING25267         "Rakdos Ragemutt\n{3BR}\nCreature - Elemental Hound\nRTR,U\nLifelink, haste\n3/3"
+    IDS_STRING25268         "Hellhole Flailer\n{1BR}\nCreature - Ogre Warrior\nRTR,U\nUnleash\r{2BR}, Sacrifice Hellhole Flailer: Hellhole Flailer deals damage equal to its power to target player.\n3/2"
+    IDS_STRING25269         "Skull Rend\n{3BR}\nSorcery\nRTR,C\nSkull Rend deals 2 damage to each opponent. Those players each discard two cards at random."
+    IDS_STRING25270         "Risen Sanctuary\n{5GW}\nCreature - Elemental\nRTR,U\nVigilance\n8/8"
+    IDS_STRING25271         "Common Bond\n{1GW}\nInstant\nRTR,C\nPut a +1/+1 counter on target creature.\rPut a +1/+1 counter on target creature."
+    IDS_STRING25272         "Call of the Conclave\n{GW}\nSorcery\nRTR,U\nPut a 3/3 green Centaur creature token onto the battlefield."
+    IDS_STRING25273         "Vitu-Ghazi Guildmage\n{GW}\nCreature - Dryad Shaman\nRTR,U\n{4GW}: Put a 3/3 green Centaur creature token onto the battlefield.\r{2GW}: Populate.\n2/2"
+    IDS_STRING25274         "Coursers' Accord\n{4GW}\nSorcery\nRTR,C\nPut a 3/3 green Centaur creature token onto the battlefield, then populate."
+    IDS_STRING25275         "Savage Surge\n{1G}\nInstant\nRTR,U\nTarget creature gets +2/+2 until end of turn. Untap that creature."
+    IDS_STRING25276         "Seek the Horizon\n{3G}\nSorcery\nRTR,U\nSearch your library for up to three basic land cards, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING25277         "Stonefare Crocodile\n{2G}\nCreature - Crocodile\nRTR,C\n{2B}: Stonefare Crocodile gains lifelink until end of turn.\n3/2"
+    IDS_STRING25278         "Korozda Monitor\n{2GG}\nCreature - Lizard\nRTR,C\nTrample\rScavenge {5GG}\n3/3"
+    IDS_STRING25279         "Mana Bloom\n{XG}\nEnchantment\nRTR,R\nMana Bloom enters the battlefield with X charge counters on it.\rRemove a charge counter from Mana Bloom: Add one mana of any color to your mana pool. Activate this ability only once each turn.\rAt the beginning of your upkeep, if Mana Bloom has no charge counters on it, return it to its owner's hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25280         "Rubbleback Rhino\n{4G}\nCreature - Rhino\nRTR,C\nHexproof\n3/4"
+    IDS_STRING25281         "Sunspire Griffin\n{1WW}\nCreature - Griffin\nRTR,C\nFlying\n2/3"
+    IDS_STRING25282         "Swift Justice\n{W}\nInstant\nRTR,C\nUntil end of turn, target creature gets +1/+0 and gains first strike and lifelink."
+    IDS_STRING25283         "Security Blockade\n{2W}\nEnchantment - Aura\nRTR,U\nEnchant land\rWhen Security Blockade enters the battlefield, put a 2/2 white Knight creature token with vigilance onto the battlefield.\rEnchanted land has ""{T}: Prevent the next 1 damage that would be dealt to you this turn."""
+    IDS_STRING25284         "Selesnya Sentry\n{2W}\nCreature - Elephant Soldier\nRTR,C\n{5G}: Regenerate Selesnya Sentry\n3/2"
+    IDS_STRING25285         "Seller of Songbirds\n{2W}\nCreature - Human\nRTR,C\nWhen Seller of Songbirds enters the battlefield, put a 1/1 white Bird creature token with flying onto the battlefield.\n1/2"
+    IDS_STRING25286         "Chemister's Trick\n{UR}\nInstant\nRTR,C\nTarget creature you don't control gets -2/-0 until end of turn and attacks this turn if able.\rOverload {3UR}"
+    IDS_STRING25287         "Izzet Staticaster\n{1UR}\nCreature - Human Wizard\nRTR,U\nFlash\rHaste\r{T}: Izzet Staticaster deals 1 damage to target creature and each other creature with the same name as that creature.\n0/3"
+    IDS_STRING25288         "Thoughtflare\n{3UR}\nInstant\nRTR,U\nDraw four cards, then discard two cards."
+    IDS_STRING25289         "Teleportal\n{UR}\nSorcery\nRTR,U\nTarget creature you control gets +1/+0 until end of turn and is unblockable this turn.\rOverload {3UR}"
+    IDS_STRING25290         "Dark Revenant\n{3B}\nCreature - Spirit\nRTR,U\nFlying\rWhen Dark Revenant dies, put it on top of its owner's library.\n2/2"
+    IDS_STRING25291         "Destroy the Evidence\n{4B}\nSorcery\nRTR,C\nDestroy target land. Its controller reveals cards from the top of his or her library until he or she reveals a land card, then puts those cards into his or her graveyard."
+    IDS_STRING25292         "Deviant Glee\n{B}\nEnchantment - Aura\nRTR,C\nEnchant creature\rEnchanted creature gets +2/+1 and has ""{R}: This creature gains trample until end of turn."""
+    IDS_STRING25293         "Assassin's Strike\n{4BB}\nSorcery\nRTR,U\nDestroy target creature. Its controller discards a card."
+    IDS_STRING25294         "Catacomb Slug\n{4B}\nCreature - Slug\nRTR,C\n\n2/6"
+    IDS_STRING25295         "Daggerdrome Imp\n{1B}\nCreature - Imp\nRTR,C\nFlying\rLifelink\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25296         "Selesnya Keyrune\n{3}\nArtifact\nRTR,U\n{T}: Add {G} or {W} to your mana pool.\r{GW}: Selesnya Keyrune becomes a 3/3 green and white Wolf artifact creature until end of turn."
+    IDS_STRING25297         "Street Sweeper\n{6}\nArtifact Creature - Construct\nRTR,U\nWhenever Street Sweeper attacks, destroy all Auras attached to target land.\n4/6"
+    IDS_STRING25298         "Rakdos Keyrune\n{3}\nArtifact\nRTR,U\n{T}: Add {B} or {R} to your mana pool.\r{BR}: Rakdos Keyrune becomes a 3/1 black and red Devil artifact creature with first strike until end of turn."
+    IDS_STRING25299         "Golgari Keyrune\n{3}\nArtifact\nRTR,U\n{T}: Add {B} or {G} to your mana pool.\r{BG}: Golgari Keyrune becomes a 2/2 black and green Insect artifact creature with deathtouch until end of turn."
+    IDS_STRING25300         "Mizzium Skin\n{U}\nInstant\nRTR,C\nTarget creature you control gets +0/+1 and gains hexproof until end of turn.\rOverload {1U}"
+    IDS_STRING25301         "Hover Barrier\n{2U}\nCreature - Illusion Wall\nRTR,U\nDefender, flying\n0/6"
+    IDS_STRING25302         "Trestle Troll\n{1BG}\nCreature - Troll\nRTR,C\nDefender\rReach\r{1BG}: Regenerate Trestle Troll.\n1/4"
+    IDS_STRING25303         "Treasured Find\n{BG}\nSorcery\nRTR,U\nReturn target card from your graveyard to your hand. Exile Treasured Find."
+    IDS_STRING25304         "Rites of Reaping\n{4BG}\nSorcery\nRTR,U\nTarget creature gets +3/+3 until end of turn. Another target creature gets -3/-3 until end of turn."
+    IDS_STRING25305         "Cobblebrute\n{3R}\nCreature - Elemental\nRTR,C\n\n5/2"
+    IDS_STRING25306         "Dynacharge\n{R}\nInstant\nRTR,C\nTarget creature you control gets +2/+0 until end of turn.\rOverload {2R}"
+    IDS_STRING25307         "Electrickery\n{R}\nInstant\nRTR,C\nElectrickery deals 1 damage to target creature you don't control.\rOverload {1R}"
+    IDS_STRING25308         "Annihilating Fire\n{1RR}\nInstant\nRTR,C\nAnnihilating Fire deals 3 damage to target creature or player. If a creature dealt damage this way would die this turn, exile it instead."
+    IDS_STRING25309         "Batterhorn\n{4R}\nCreature - Beast\nRTR,C\nWhen Batterhorn enters the battlefield, you may destroy target artifact.\n4/3"
+    IDS_STRING25310         "Bellows Lizard\n{R}\nCreature - Lizard\nRTR,C\n{1R}: Bellows Lizard gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING25311         "Bloodfray Giant\n{2RR}\nCreature - Giant\nRTR,U\nTrample\rUnleash\n4/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25312         "Tenement Crasher\n{5R}\nCreature - Beast\nRTR,C\nHaste\n5/4"
+    IDS_STRING25313         "Traitorous Instinct\n{3R}\nSorcery\nRTR,C\nGain control of target creature until end of turn. Untap that creature. Until end of turn, it gets +2/+0 and gains haste."
+    IDS_STRING25314         "Vandalblast\n{R}\nSorcery\nRTR,U\nDestroy target artifact you don't control.\rOverload {4R}"
+    IDS_STRING25315         "Viashino Racketeer\n{2R}\nCreature - Viashino Rogue\nRTR,C\nWhen Viashino Racketeer enters the battlefield, you may discard a card. If you do, draw a card.\n2/1"
+    IDS_STRING25316         "Racecourse Fury\n{R}\nEnchantment - Aura\nRTR,U\nEnchant land\rEnchanted land has ""{T}: Target creature gains haste until end of turn."""
+    IDS_STRING25317         "Splatter Thug\n{2R}\nCreature - Human Warrior\nRTR,C\nFirst strike\rUnleash\n2/2"
+    IDS_STRING25318         "Survey the Wreckage\n{4R}\nSorcery\nRTR,C\nDestroy target land. Put a 1/1 red Goblin creature token onto the battlefield."
+    IDS_STRING25319         "Golgari Longlegs\n{3JJ}\nCreature - Insect\nRTR,C\n\n5/4"
+    IDS_STRING25320         "Rakdos Cackler\n{D}\nCreature - Devil\nRTR,U\nUnleash\n1/1"
+    IDS_STRING25321         "Aerial Predation\n{2G}\nInstant\nRTR,C\nDestroy target creature with flying. You gain 2 life."
+    IDS_STRING25322         "Archweaver\n{5GG}\nCreature - Spider\nRTR,U\nReach, trample\n5/5"
+    IDS_STRING25323         "Armada Wurm\n{2GGWW}\nCreature - Wurm\nRTR,MR\nTrample\rWhen Armada Wurm enters the battlefield, put a 5/5 green Wurm creature token with trample onto the battlefield.\n5/5"
+    IDS_STRING25324         "Axebane Stag\n{6G}\nCreature - Elk\nRTR,C\n\n6/7"
+    IDS_STRING25325         "Azorius Keyrune\n{3}\nArtifact\nRTR,U\n{T}: Add {W} or {U} to your mana pool.\r{WU}: Azorius Keyrune becomes a 2/2 blue and white Bird artifact creature with flying until end of turn."
+    IDS_STRING25326         "Azor's Elocutors\n{3AA}\nCreature - Human Advisor\nRTR,R\nAt the beginning of your upkeep, put a filibuster counter on Azor's Elocutors. Then if Azor's Elocutors has five or more filibuster counters on it, you win the game.\rWhenever a source deals damage to you, remove a filibuster counter from Azor's Elocutors.\n3/5"
+    IDS_STRING25327         "Brushstrider\n{1G}\nCreature - Beast\nRTR,U\nVigilance\n3/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25328         "Centaur's Herald\n{G}\nCreature - Elf Scout\nRTR,C\n{2G}, Sacrifice Centaur's Herald: Put a 3/3 green Centaur creature token onto the battlefield.\n0/1"
+    IDS_STRING25329         "Chorus of Might\n{3G}\nInstant\nRTR,U\nUntil end of turn, target creature gets +1/+1 for each creature you control and gains trample."
+    IDS_STRING25330         "Codex Shredder\n{1}\nArtifact\nRTR,C\n{T}: Target player puts the top card of his or her library into his or her graveyard.\r{5}, {T}, Sacrifice Codex Shredder: Return target card from your graveyard to your hand."
+    IDS_STRING25331         "Conjured Currency\n{5U}\nEnchantment\nRTR,R\nAt the beginning of your upkeep, you may exchange control of Conjured Currency and target permanent you neither own or control."
+    IDS_STRING25332         "Deathrite Shaman\n{J}\nCreature - Elf Shaman\nRTR,R\n{T}: Exile target land card from a graveyard. Add one mana of any color to your mana pool.\r{B}, {T}: Exile target instant or sorcery card from a graveyard. Each opponent loses 2 life.\r{G}, {T}: Exile target creature card from a graveyard. You gain 2 life.\n1/2"
+    IDS_STRING25333         "Firemind's Foresight\n{5UR}\nInstant\nRTR,R\nSearch your library for an instant card with converted mana cost 3, reveal it, and put it into your hand. Then repeat this process for instant cards with converted mana costs 2 and 1. Then shuffle your library."
+    IDS_STRING25334         "Frostburn Weird\n{II}\nCreature - Weird\nRTR,C\n{I}: Frostburn Weird gets +1/-1 until end of turn\n1/4"
+    IDS_STRING25335         "Golgari Charm\n{BG}\nInstant\nRTR,U\nChoose one - All creatures get -1/-1 until end of turn; or destroy target enchantment; or regenerate each creature you control."
+    IDS_STRING25336         "Isperia, Supreme Judge\n{2WWUU}\nLegendary Creature - Sphinx\nRTR,MR\nFlying\rWhenever a creature attacks you or a planeswalker you control, you may draw a card.\n6/4"
+    IDS_STRING25337         "Izzet Keyrune\n{3}\nArtifact\nRTR,U\n{T}: Add {U} or {R} to your mana pool.\r{UR}: Until end of turn, Izzet Keyrune becomes a 2/1 blue and red Elemental artifact creature.\rWhenever Izzet Keyrune deals combat damage to a player, you may draw a card. If you do, discard a card."
+    IDS_STRING25338         "Rakdos Ringleader\n{4BR}\nCreature - Skeleton Warrior\nRTR,U\nFirst strike\rWhenever Rakdos Ringleader deals combat damage to a player, that player discards a card at random.\r{B}: Regenerate Rakdos Ringleader.\n3/1"
+    IDS_STRING25339         "Utvara Hellkite\n{6RR}\nCreature - Dragon\nRTR,MR\nFlying\rWhenever a Dragon you control attacks, put a 6/6 red Dragon creature token with flying onto the battlefield.\n6/6"
+    IDS_STRING25340         "Volatile Rig\n{4}\nArtifact Creature - Construct\nRTR,R\nTrample\rVolatile Rig attacks each turn if able.\rWhenever Volatile Rig is dealt damage, flip a coin. If you lose the flip, sacrifice Volatile Rig.\rWhen Volatile Rig dies, flip a coin. If you lose the flip, it deals 4 damage to each creature and each player.\n4/4"
+    IDS_STRING25341         "Vraska the Unseen\n{3BG}\nPlaneswalker - Vraska\nRTR,MR\n[+1]: Until your next turn, whenever a creature deals combat damage to Vraska the Unseen, destroy that creature.\r[-3]: Destroy target nonland permanent.\r[-7]: Put three 1/1 black Assassin tokens onto the battlefield with ""Whenever this creature deals combat damage to a player, that player loses the game.""\n5"
+    IDS_STRING25342         "Rakdos, Lord of Riots\n{BBRR}\nLegendary Creature - Demon\nRTR,MR\nYou can't cast Rakdos, Lord of Riots unless an opponent lost life this turn.\rFlying, trample\rCreature spells you cast cost {1}  less to cast for each 1 life your opponents have lost this turn.\n6/6"
+    IDS_STRING25343         "Isperia's Skywatch\n{5U}\nCreature - Vedalken Knight\nRTR,C\nFlying\rWhen Isperia's Skywatch enters the battlefield, detain target creature an opponent controls.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25344         "Archon of the Triumvirate\n{5WU}\nCreature - Archon\nRTR,R\nFlying\rWhenever Archon of the Triumvirate attacks, detain up to two target nonland permanents your opponents control.\n4/5"
+    IDS_STRING25345         "Azorius Arrester\n{1W}\nCreature - Human Soldier\nRTR,C\nWhen Azorius Arrester enters the battlefield, detain target creature an opponent controls.\n2/1"
+    IDS_STRING25346         "Azorius Justiciar\n{2WW}\nCreature - Human Wizard\nRTR,U\nWhen Azorius Justiciar enters the battlefield, detain up to two target creatures your opponents control.\n2/2"
+    IDS_STRING25347         "Inaction Injunction\n{1U}\nSorcery\nRTR,C\nDetain target creature an opponent controls.\rDraw a card."
+    IDS_STRING25348         "Lyev Skyknight\n{1WU}\nCreature - Human Knight\nRTR,U\nFlying\rWhen Lyev Skyknight enters the battlefield, detain target nonland permanent an opponent controls.\n3/1"
+    IDS_STRING25349         "Martial Law\n{2WW}\nEnchantment\nRTR,R\nAt the beginning of your upkeep, detain target creature an opponent controls."
+    IDS_STRING25350         "New Prahv Guildmage\n{WU}\nCreature - Human Wizard\nRTR,U\n{WU}: Target creature gains flying until end of turn.\r{3WU}: Detain target nonland permanent an opponent controls.\n2/2"
+    IDS_STRING25351         "Soulsworn Spirit\n{3U}\nCreature - Spirit\nRTR,U\nSoulsworn Spirit is unblockable.\rWhen Soulsworn Spirit enters the battlefield, detain target creature an opponent controls.\n2/1"
+    IDS_STRING25352         "Jace, Architect of Thought\n{2UU}\nPlaneswalker - Jace\nRTR,MR\n[+1]:Until your next turn, whenever a creature an opponent controls attacks, it gets -1/-0 until end of turn.\r[-2]: Reveal the top three cards of your library. An opponent separates them into two piles. Put one pile into your hand and the other on the bottom of your library in any order.\r[-8]: For each player, search that player's library for a nonland card and exile it, then that player shuffles his or her library. You may cast those cards without paying their mana costs.\n4"
+    IDS_STRING25353         "Tablet of the Guilds\n{2}\nArtifact\nRTR,U\nAs Tablet of the Guilds enters the battlefield, choose two colors.\rWhenever you cast a spell, if it's at least one of the chosen colors, you gain 1 life for each of the chosen colors it is."
+    IDS_STRING25354         "Essence Backlash\n{2UR}\nInstant\nRTR,C\nCounter target creature spell. Essence Backlash deals damage equal to that spell's power to its controller."
+    IDS_STRING25355         "Angel of Serenity\n{4WWW}\nCreature - Angel\nRTR,MR\nFlying\rWhen Angel of Serenity enters the battlefield, you may exile up to three other target creatures from the battlefield and/or creature cards from graveyards.\rWhen Angel of Serenity leaves the battlefield, return the exiled cards to their owners' hands.\n5/6"
+    IDS_STRING25356         "Detention Sphere\n{1WU}\nEnchantment\nRTR,R\nWhen Detention Sphere enters the battlefield, you may exile target nonland permanent not named Detention Sphere and all other permanents with the same name as that permanent.\rWhen Detention Sphere leaves the battlefield, return the exiled cards to the battlefield under their owner's control."
+    IDS_STRING25357         "Epic Experiment\n{XUR}\nSorcery\nRTR,MR\nExile the top X cards of your library. For each instant and sorcery card with converted mana cost X or less among them, you may cast that card without paying its mana cost. Then put all cards exiled this way that weren't cast into your graveyard."
+    IDS_STRING25358         "Counterflux\n{UUR}\nInstant\nRTR,R\nCounterflux can't be countered by spells or abilities.\rCounter target spell you don't control.\rOverload {1UUR}"
+    IDS_STRING25359         "Guild Feud\n{5R}\nEnchantment\nRTR,R\nAt the beginning of your upkeep, target opponent reveals the top three cards of his or her library, may put a creature card from among them onto the battlefield, then puts the rest into his or her graveyard. You do the same with the top three cards of your library. If two creatures are put onto the battlefield this way, those creatures fight each other."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25360         "Slime Molding\n{XG}\nSorcery\nRTR,U\nPut an X/X green Ooze creature token onto the battlefield."
+    IDS_STRING25361         "Avenging Arrow\n{2W}\nInstant\nRTR,C\nDestroy target creature that dealt damage this turn."
+    IDS_STRING25362         "Stab Wound\n{2B}\nEnchantment - Aura\nRTR,C\nEnchant creature\rEnchanted creature gets -2/-2.\rAt the beginning of the upkeep of enchanted creature's controller, that player loses 2 life."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,274 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "FifthDawn.ico"
+IDI_LARGE_MODULE        ICON                    "FifthDawnLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Fifth Dawn"
+    IDS_EXPANSION_ABBREV    "5DN"
+    IDS_FIRST_CARD          "15400"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "15565"
+    IDS_MODULE_LARGE_ICON_ID "15566"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "04-06-2004"
+    IDS_MWS_FOLDER          "MWS\\5DN\\"
+    IDS_PRODUCT_LIST        """Fifth Dawn Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15400         "Night's Whisper\n{1B}\nSorcery\n5DN,U\nYou draw two cards and you lose 2 life."
+    IDS_STRING15401         "Plasma Elemental\n{5U}\nCreature - Elemental\n5DN,U\nPlasma Elemental is unblockable.\n4/1"
+    IDS_STRING15402         "Beacon of Destruction\n{3RR}\nInstant\n5DN,R\nBeacon of Destruction deals 5 damage to target creature or player. Shuffle Beacon of Destruction into its owner's library."
+    IDS_STRING15403         "Beacon of Unrest\n{3BB}\nSorcery\n5DN,R\nPut target artifact or creature card from a graveyard onto the battlefield under your control. Shuffle Beacon of Unrest into its owner's library."
+    IDS_STRING15404         "Composite Golem\n{6}\nArtifact Creature - Golem\n5DN,U\nSacrifice Composite Golem: Add {WUBRG} to your mana pool.\n4/4"
+    IDS_STRING15405         "Crucible of Worlds\n{3}\nArtifact\n5DN,R\nYou may play land cards from your graveyard."
+    IDS_STRING15406         "Dross Crocodile\n{3B}\nCreature - Zombie Crocodile\n5DN,C\n\n5/1"
+    IDS_STRING15407         "Furnace Whelp\n{2RR}\nCreature - Dragon\n5DN,U\nFlying\r{R}: Furnace Whelp gets +1/+0 until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15408         "Razormane Masticore\n{5}\nArtifact Creature - Masticore\n5DN,R\nFirst strike\rAt the beginning of your upkeep, sacrifice Razormane Masticore unless you discard a card.\rAt the beginning of your draw step, you may have Razormane Masticore deal 3 damage to target creature.\n5/5"
+    IDS_STRING15409         "Relentless Rats\n{1BB}\nCreature - Rat\n5DN,U\nRelentless Rats gets +1/+1 for each other creature on the battlefield named Relentless Rats.\rA deck can have any number of cards named Relentless Rats.\n2/2"
+    IDS_STRING15410         "Relic Barrier\n{2}\nArtifact\n5DN,U\n{T}: Tap target artifact."
+    IDS_STRING15411         "Skyhunter Prowler\n{2W}\nCreature - Cat Knight\n5DN,C\nFlying, vigilance\n1/3"
+    IDS_STRING15412         "Spark Elemental\n{R}\nCreature - Elemental\n5DN,C\nTrample, haste\rAt the beginning of the end step, sacrifice Spark Elemental.\n3/1"
+    IDS_STRING15413         "Thought Courier\n{1U}\nCreature - Human Wizard\n5DN,C\n{T}: Draw a card, then discard a card.\n1/1"
+    IDS_STRING15414         "Vedalken Mastermind\n{UU}\nCreature - Vedalken Wizard\n5DN,U\n{U}, {T}: Return target permanent you control to its owner's hand.\n1/2"
+    IDS_STRING15415         "Steelshaper's Gift\n{W}\nSorcery\n5DN,U\nSearch your library for an Equipment card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING15416         "Advanced Hoverguard\n{3U}\nCreature - Drone\n5DN,C\nFlying\r{U}: Advanced Hoverguard gains shroud until end of turn.\n2/2"
+    IDS_STRING15417         "Auriok Champion\n{WW}\nCreature - Human Cleric\n5DN,R\nProtection from black and from red\rWhenever another creature enters the battlefield, you may gain 1 life.\n1/1"
+    IDS_STRING15418         "Auriok Salvagers\n{3W}\nCreature - Human Soldier\n5DN,U\n{1W}: Return target artifact card with converted mana cost 1 or less from your graveyard to your hand.\n2/4"
+    IDS_STRING15419         "Blind Creeper\n{1B}\nCreature - Zombie Beast\n5DN,C\nWhenever a player casts a spell, Blind Creeper gets -1/-1 until end of turn.\n3/3"
+    IDS_STRING15420         "Bringer of the Blue Dawn\n{7UU}\nCreature - Bringer\n5DN,R\nYou may pay {WUBRG} rather than pay Bringer of the Blue Dawn's mana cost.\rTrample\rAt the beginning of your upkeep, you may draw two cards.\n5/5"
+    IDS_STRING15421         "Bringer of the Green Dawn\n{7GG}\nCreature - Bringer\n5DN,R\nYou may pay {WUBRG} rather than pay Bringer of the Green Dawn's mana cost.\rTrample\rAt the beginning of your upkeep, you may put a 3/3 green Beast creature token onto the battlefield.\n5/5"
+    IDS_STRING15422         "Bringer of the Black Dawn\n{7BB}\nCreature - Bringer\n5DN,R\nYou may pay {WUBRG} rather than pay Bringer of the Black Dawn's mana cost.\rTrample\rAt the beginning of your upkeep, you may pay 2 life. If you do, search your library for a card, then shuffle your library and put that card on top of it.\n5/5"
+    IDS_STRING15423         "Bringer of the White Dawn\n{7WW}\nCreature - Bringer\n5DN,R\nYou may pay {WUBRG} rather than pay Bringer of the White Dawn's mana cost.\rTrample\rAt the beginning of your upkeep, you may return target artifact card from your graveyard to the battlefield.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15424         "Cackling Imp\n{2BB}\nCreature - Imp\n5DN,C\nFlying\r{T}: Target player loses 1 life.\n2/2"
+    IDS_STRING15425         "Cosmic Larva\n{1RR}\nCreature - Beast\n5DN,R\nTrample\rAt the beginning of your upkeep, sacrifice Cosmic Larva unless you sacrifice two lands.\n7/6"
+    IDS_STRING15426         "Desecration Elemental\n{3B}\nCreature - Elemental\n5DN,R\nFear\rWhenever a player casts a spell, sacrifice a creature.\n8/8"
+    IDS_STRING15427         "Ebon Drake\n{2B}\nCreature - Drake\n5DN,U\nFlying\rWhenever a player casts a spell, you lose 1 life.\n3/3"
+    IDS_STRING15428         "Eternal Witness\n{1GG}\nCreature - Human Shaman\n5DN,U\nWhen Eternal Witness enters the battlefield, you may return target card from your graveyard to your hand.\n2/1"
+    IDS_STRING15429         "Fangren Pathcutter\n{4GG}\nCreature - Beast\n5DN,U\nWhenever Fangren Pathcutter attacks, attacking creatures gain trample until end of turn.\n4/6"
+    IDS_STRING15430         "Fleshgrafter\n{2B}\nCreature - Human Warrior\n5DN,C\nDiscard an artifact card: Fleshgrafter gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING15431         "Hoverguard Sweepers\n{6UU}\nCreature - Drone\n5DN,R\nFlying\rWhen Hoverguard Sweepers enters the battlefield, you may return up to two target creatures to their owners' hands.\n5/6"
+    IDS_STRING15432         "Iron-Barb Hellion\n{5R}\nCreature - Hellion Beast\n5DN,U\nHaste\rIron-Barb Hellion can't block.\n5/4"
+    IDS_STRING15433         "Krark-Clan Engineers\n{3R}\nCreature - Goblin Artificer\n5DN,U\n{R}, Sacrifice two artifacts: Destroy target artifact.\n2/2"
+    IDS_STRING15434         "Krark-Clan Ogre\n{3RR}\nCreature - Ogre\n5DN,C\n{R}, Sacrifice an artifact: Target creature can't block this turn.\n3/3"
+    IDS_STRING15435         "Leonin Squire\n{1W}\nCreature - Cat Soldier\n5DN,C\nWhen Leonin Squire enters the battlefield, return target artifact card with converted mana cost 1 or less from your graveyard to your hand.\n2/2"
+    IDS_STRING15436         "Loxodon Anchorite\n{2WW}\nCreature - Elephant Cleric\n5DN,C\n{T}: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n2/3"
+    IDS_STRING15437         "Loxodon Stalwart\n{3WW}\nCreature - Elephant Soldier\n5DN,U\nVigilance\r{W}: Loxodon Stalwart gets +0/+1 until end of turn.\n3/3"
+    IDS_STRING15438         "Magma Giant\n{5RR}\nCreature - Giant\n5DN,R\nWhen Magma Giant enters the battlefield, it deals 2 damage to each creature and each player.\n5/5"
+    IDS_STRING15439         "Moriok Rigger\n{2B}\nCreature - Human Rogue Rigger\n5DN,R\nWhenever an artifact is put into a graveyard from the battlefield, you may put a +1/+1 counter on Moriok Rigger.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15440         "Nim Grotesque\n{6B}\nCreature - Zombie\n5DN,U\nNim Grotesque gets +1/+0 for each artifact you control.\n3/6"
+    IDS_STRING15441         "Skyhunter Skirmisher\n{1WW}\nCreature - Cat Knight\n5DN,U\nFlying, double strike\n1/1"
+    IDS_STRING15442         "Sylvok Explorer\n{1G}\nCreature - Human Druid\n5DN,C\n{T}: Add to your mana pool one mana of any color that a land an opponent controls could produce.\n1/1"
+    IDS_STRING15443         "Tangle Asp\n{1G}\nCreature - Snake\n5DN,C\nWhenever Tangle Asp blocks or becomes blocked by a creature, destroy that creature at end of combat.\n1/2"
+    IDS_STRING15444         "Tel-Jilad Lifebreather\n{4G}\nCreature - Troll Shaman\n5DN,C\n{G}, {T}, Sacrifice a Forest: Regenerate target creature.\n3/2"
+    IDS_STRING15445         "Tornado Elemental\n{5GG}\nCreature - Elemental\n5DN,R\nWhen Tornado Elemental enters the battlefield, it deals 6 damage to each creature with flying.\rYou may have Tornado Elemental assign its combat damage as though it weren't blocked.\n6/6"
+    IDS_STRING15446         "Trinket Mage\n{2U}\nCreature - Human Wizard\n5DN,C\nWhen Trinket Mage enters the battlefield, you may search your library for an artifact card with converted mana cost 1 or less, reveal that card, and put it into your hand. If you do, shuffle your library.\n2/2"
+    IDS_STRING15447         "Tyrranax\n{4GG}\nCreature - Beast\n5DN,C\n{1G}: Tyrranax gets -1/+1 until end of turn.\n5/4"
+    IDS_STRING15448         "Viridian Scout\n{3G}\nCreature - Elf Warrior Scout\n5DN,C\n{2G}, Sacrifice Viridian Scout: Viridian Scout deals 2 damage to target creature with flying.\n1/2"
+    IDS_STRING15449         "Vulshok Sorcerer\n{1RR}\nCreature - Human Shaman\n5DN,C\nHaste\r{T}: Vulshok Sorcerer deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING15450         "Anodet Lurker\n{5}\nArtifact Creature - Construct\n5DN,C\nWhen Anodet Lurker dies, you gain 3 life.\n3/3"
+    IDS_STRING15451         "Arachnoid\n{6}\nArtifact Creature - Spider\n5DN,U\nReach\n2/6"
+    IDS_STRING15452         "Battered Golem\n{3}\nArtifact Creature - Golem\n5DN,C\nBattered Golem doesn't untap during your untap step.\rWhenever an artifact enters the battlefield, you may untap Battered Golem.\n3/2"
+    IDS_STRING15453         "Synod Centurion\n{4}\nArtifact Creature - Construct\n5DN,U\nWhen you control no other artifacts, sacrifice Synod Centurion.\n4/4"
+    IDS_STRING15454         "Thermal Navigator\n{3}\nArtifact Creature - Construct\n5DN,C\nSacrifice an artifact: Thermal Navigator gains flying until end of turn.\n2/2"
+    IDS_STRING15455         "Blasting Station\n{3}\nArtifact\n5DN,U\n{T}, Sacrifice a creature: Blasting Station deals 1 damage to target creature or player.\rWhenever a creature enters the battlefield, you may untap Blasting Station."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15456         "Clock of Omens\n{4}\nArtifact\n5DN,U\nTap two untapped artifacts you control: Untap target artifact."
+    IDS_STRING15457         "Conjurer's Bauble\n{1}\nArtifact\n5DN,C\n{T}, Sacrifice Conjurer's Bauble: Put up to one target card from your graveyard on the bottom of your library. Draw a card."
+    IDS_STRING15458         "Cranial Plating\n{2}\nArtifact - Equipment\n5DN,C\nEquipped creature gets +1/+0 for each artifact you control.\r{BB}: Attach Cranial Plating to target creature you control.\rEquip {1}"
+    IDS_STRING15459         "Grinding Station\n{2}\nArtifact\n5DN,U\n{T}, Sacrifice an artifact: Target player puts the top three cards of his or her library into his or her graveyard.\rWhenever an artifact enters the battlefield, you may untap Grinding Station."
+    IDS_STRING15460         "Guardian Idol\n{2}\nArtifact\n5DN,U\nGuardian Idol enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{2}: Guardian Idol becomes a 2/2 Golem artifact creature until end of turn."
+    IDS_STRING15461         "Healer's Headdress\n{2}\nArtifact - Equipment\n5DN,C\nEquipped creature gets +0/+2 and has ""{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.""\r{WW}: Attach Healer's Headdress to target creature you control.\rEquip {1}"
+    IDS_STRING15462         "Horned Helm\n{2}\nArtifact - Equipment\n5DN,C\nEquipped creature gets +1/+1 and has trample.\r{GG}: Attach Horned Helm to target creature you control.\rEquip {1}"
+    IDS_STRING15463         "Krark-Clan Ironworks\n{4}\nArtifact\n5DN,U\nSacrifice an artifact: Add {2} to your mana pool."
+    IDS_STRING15464         "Neurok Stealthsuit\n{2}\nArtifact - Equipment\n5DN,C\nEquipped creature has shroud.\r{UU}: Attach Neurok Stealthsuit to target creature you control.\rEquip {1}"
+    IDS_STRING15465         "Paradise Mantle\n{0}\nArtifact - Equipment\n5DN,U\nEquipped creature has ""{T}: Add one mana of any color to your mana pool.""\rEquip {1}"
+    IDS_STRING15466         "Salvaging Station\n{6}\nArtifact\n5DN,R\n{T}: Return target noncreature artifact card with converted mana cost 1 or less from your graveyard to the battlefield.\rWhenever a creature dies, you may untap Salvaging Station."
+    IDS_STRING15467         "Sparring Collar\n{2}\nArtifact - Equipment\n5DN,C\nEquipped creature has first strike.\r{RR}: Attach Sparring Collar to target creature you control.\rEquip {1}"
+    IDS_STRING15468         "Staff of Domination\n{3}\nArtifact\n5DN,R\n{1}: Untap Staff of Domination.\r{2}, {T}: You gain 1 life.\r{3}, {T}: Untap target creature.\r{4}, {T}: Tap target creature.\r{5}, {T}: Draw a card."
+    IDS_STRING15469         "Summoning Station\n{7}\nArtifact\n5DN,R\n{T}: Put a 2/2 colorless Pincher creature token onto the battlefield.\rWhenever an artifact is put into a graveyard from the battlefield, you may untap Summoning Station."
+    IDS_STRING15470         "Wayfarer's Bauble\n{1}\nArtifact\n5DN,C\n{2}, {T}, Sacrifice Wayfarer's Bauble: Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING15471         "Artificer's Intuition\n{1U}\nEnchantment\n5DN,R\n{U}, Discard an artifact card: Search your library for an artifact card with converted mana cost 1 or less, reveal that card, and put it into your hand. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15472         "Armed Response\n{2W}\nInstant\n5DN,C\nArmed Response deals damage to target attacking creature equal to the number of Equipment you control."
+    IDS_STRING15473         "Early Frost\n{1U}\nInstant\n5DN,C\nTap up to three target lands."
+    IDS_STRING15474         "Feedback Bolt\n{4R}\nInstant\n5DN,U\nFeedback Bolt deals damage to target player equal to the number of artifacts you control."
+    IDS_STRING15475         "Rain of Rust\n{3RR}\nInstant\n5DN,C\nChoose one - Destroy target artifact; or destroy target land.\rEntwine {3R}"
+    IDS_STRING15476         "Vanquish\n{2W}\nInstant\n5DN,U\nDestroy target blocking creature."
+    IDS_STRING15477         "Acquire\n{3UU}\nSorcery\n5DN,R\nSearch target opponent's library for an artifact card and put that card onto the battlefield under your control. Then that player shuffles his or her library."
+    IDS_STRING15478         "Beacon of Creation\n{3G}\nSorcery\n5DN,R\nPut a 1/1 green Insect creature token onto the battlefield for each Forest you control. Shuffle Beacon of Creation into its owner's library."
+    IDS_STRING15479         "Channel the Suns\n{3G}\nSorcery\n5DN,U\nAdd {WUBRG} to your mana pool."
+    IDS_STRING15480         "Granulate\n{2RR}\nSorcery\n5DN,R\nDestroy each nonland artifact with converted mana cost 4 or less."
+    IDS_STRING15481         "Roar of Reclamation\n{5WW}\nSorcery\n5DN,R\nEach player returns all artifact cards from his or her graveyard to the battlefield."
+    IDS_STRING15482         "Screaming Fury\n{2R}\nSorcery\n5DN,C\nTarget creature gets +5/+0 and gains haste until end of turn."
+    IDS_STRING15483         "Shattered Dreams\n{B}\nSorcery\n5DN,U\nTarget opponent reveals his or her hand. You choose an artifact card from it. That player discards that card."
+    IDS_STRING15484         "Joiner Adept\n{1G}\nCreature - Elf Druid\n5DN,R\nLands you control have ""{T}: Add one mana of any color to your mana pool.""\n2/1"
+    IDS_STRING15485         "Gemstone Array\n{4}\nArtifact\n5DN,U\n{2}: Put a charge counter on Gemstone Array.\rRemove a charge counter from Gemstone Array: Add one mana of any color to your mana pool."
+    IDS_STRING15486         "Rite of Passage\n{2G}\nEnchantment\n5DN,R\nWhenever a creature you control is dealt damage, put a +1/+1 counter on it."
+    IDS_STRING15487         "Clearwater Goblet\n{5}\nArtifact\n5DN,R\nSunburst\rAt the beginning of your upkeep, you may gain life equal to the number of charge counters on Clearwater Goblet."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15488         "Skyreach Manta\n{5}\nArtifact Creature - Fish\n5DN, C\nSunburst\rFlying\n0/0"
+    IDS_STRING15489         "Suntouched Myr\n{3}\nArtifact Creature - Myr\n5DN, C\nSunburst\n0/0"
+    IDS_STRING15490         "Baton of Courage\n{3}\nArtifact\n5DN,C\nFlash\rSunburst\rRemove a charge counter from Baton of Courage: Target creature gets +1/+1 until end of turn."
+    IDS_STRING15491         "Pentad Prism\n{2}\nArtifact\n5DN,C\nSunburst\rRemove a charge counter from Pentad Prism: Add one mana of any color to your mana pool."
+    IDS_STRING15492         "Etched Oracle\n{4}\nArtifact Creature - Wizard\n5DN,U\nSunburst\r{1}, Remove four +1/+1 counters from Etched Oracle: Target player draws three cards.\n0/0"
+    IDS_STRING15493         "Lunar Avenger\n{7}\nArtifact Creature - Golem\n5DN,U\nSunburst\rRemove a +1/+1 counter from Lunar Avenger: Lunar Avenger gains your choice of flying, first strike, or haste until end of turn.\n2/2"
+    IDS_STRING15494         "Sawtooth Thresher\n{6}\nArtifact Creature - Construct\n5DN,C\nSunburst\rRemove two +1/+1 counters from Sawtooth Thresher: Sawtooth Thresher gets +4/+4 until end of turn.\n1/1"
+    IDS_STRING15495         "Suncrusher\n{9}\nArtifact Creature - Construct\n5DN,R\nSunburst\r{4}, {T}, Remove a +1/+1 counter from Suncrusher: Destroy target creature.\r{2}, Remove a +1/+1 counter from Suncrusher: Return Suncrusher to its owner's hand.\n3/3"
+    IDS_STRING15496         "Eyes of the Watcher\n{2U}\nEnchantment\n5DN,U\nWhenever you cast an instant or sorcery spell, you may pay {1}. If you do, scry 2."
+    IDS_STRING15497         "Condescend\n{XU}\nInstant\n5DN,C\nCounter target spell unless its controller pays {X}.\rScry 2."
+    IDS_STRING15498         "Ferocious Charge\n{2G}\nInstant\n5DN,C\nTarget creature gets +4/+4 until end of turn.\rScry 2."
+    IDS_STRING15499         "Lose Hope\n{B}\nInstant\n5DN,C\nTarget creature gets -1/-1 until end of turn.\rScry 2."
+    IDS_STRING15500         "Magma Jet\n{1R}\nInstant\n5DN,U\nMagma Jet deals 2 damage to target creature or player.\rScry 2."
+    IDS_STRING15501         "Stand Firm\n{W}\nInstant\n5DN,C\nTarget creature gets +1/+1 until end of turn.\rScry 2."
+    IDS_STRING15502         "Tel-Jilad Justice\n{1G}\nInstant\n5DN,U\nDestroy target artifact.\rScry 2."
+    IDS_STRING15503         "Fill with Fright\n{3B}\nSorcery\n5DN,C\nTarget player discards two cards.\rScry 2."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15504         "Serum Visions\n{U}\nSorcery\n5DN,C\nDraw a card.\rScry 2."
+    IDS_STRING15505         "Goblin Cannon\n{4}\nArtifact\n5DN,U\n{2}: Goblin Cannon deals 1 damage to target creature or player. Sacrifice Goblin Cannon."
+    IDS_STRING15506         "Door to Nothingness\n{5}\nArtifact\n5DN,R\nDoor to Nothingness enters the battlefield tapped.\r{WWUUBBRRGG}, {T}, Sacrifice Door to Nothingness: Target player loses the game."
+    IDS_STRING15507         "Beacon of Tomorrows\n{6UU}\nSorcery\n5DN,R\nTarget player takes an extra turn after this one. Shuffle Beacon of Tomorrows into its owner's library."
+    IDS_STRING15508         "Vedalken Shackles\n{3}\nArtifact\n5DN,R\nYou may choose not to untap Vedalken Shackles during your untap step.\r{2}, {T}: Gain control of target creature with power less than or equal to the number of Islands you control for as long as Vedalken Shackles remains tapped."
+    IDS_STRING15509         "Ion Storm\n{2R}\nEnchantment\n5DN,R\n{1R}, Remove a +1/+1 counter or a charge counter from a permanent you control: Ion Storm deals 2 damage to target creature or player."
+    IDS_STRING15510         "Engineered Explosives\n{X}\nArtifact\n5DN,R\nSunburst\r{2}, Sacrifice Engineered Explosives: Destroy each nonland permanent with converted mana cost equal to the number of charge counters on Engineered Explosives."
+    IDS_STRING15511         "Devour in Shadow\n{BB}\nInstant\n5DN,U\nDestroy target creature. It can't be regenerated. You lose life equal to that creature's toughness."
+    IDS_STRING15512         "Helm of Kaldra\n{3}\nLegendary Artifact - Equipment\n5DN,R\nEquipped creature has first strike, trample, and haste.\r{1}: If you control Equipment named Helm of Kaldra, Sword of Kaldra, and Shield of Kaldra, put a legendary 4/4 colorless Avatar creature token named Kaldra onto the battlefield and attach those Equipment to it.\rEquip {2}"
+    IDS_STRING15513         "Myr Quadropod\n{4}\nArtifact Creature - Myr\n5DN,C\n{3}: Switch Myr Quadropod's power and toughness until end of turn.\n1/4"
+    IDS_STRING15514         "Arcbound Wanderer\n{6}\nArtifact Creature - Golem\n5DN,U\nModular-Sunburst\n0/0"
+    IDS_STRING15515         "Qumulox\n{6UU}\nCreature - Beast\n5DN,U\nAffinity for artifacts\rFlying\n5/4"
+    IDS_STRING15516         "Blinkmoth Infusion\n{12UU}\nInstant\n5DN,R\nAffinity for artifacts\rUntap all artifacts."
+    IDS_STRING15517         "Into Thin Air\n{5U}\nInstant\n5DN,C\nAffinity for artifacts\rReturn target artifact to its owner's hand."
+    IDS_STRING15518         "Viridian Lorebearers\n{3G}\nCreature - Elf Shaman\n5DN,U\n{3G}, {T}: Target creature gets +X/+X until end of turn, where X is the number of artifacts your opponents control.\n3/3"
+    IDS_STRING15519         "Myr Servitor\n{1}\nArtifact Creature - Myr\n5DN,C\nAt the beginning of your upkeep, if Myr Servitor is on the battlefield, each player returns all cards named Myr Servitor from his or her graveyard to the battlefield.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15520         "Abuna's Chant\n{3W}\nInstant\n5DN,C\nChoose one - You gain 5 life; or prevent the next 5 damage that would be dealt to target creature this turn.\rEntwine {2}"
+    IDS_STRING15521         "Mana Geyser\n{3RR}\nSorcery\n5DN,C\nAdd {R} to your mana pool for each tapped land your opponents control."
+    IDS_STRING15522         "Beacon of Immortality\n{5W}\nInstant\n5DN,R\nDouble target player's life total. Shuffle Beacon of Immortality into its owner's library."
+    IDS_STRING15523         "Vedalken Orrery\n{4}\nArtifact\n5DN,R\nYou may cast nonland cards as though they had flash."
+    IDS_STRING15524         "Ensouled Scimitar\n{3}\nArtifact - Equipment\n5DN,U\n{3}: Ensouled Scimitar becomes a 1/5 Spirit artifact creature with flying until end of turn.\rEquipped creature gets +1/+5.\rEquip {2}"
+    IDS_STRING15525         "Auriok Windwalker\n{3W}\nCreature - Human Wizard\n5DN,R\nFlying\r{T}: Attach target Equipment you control to target creature you control.\n2/3"
+    IDS_STRING15526         "Magnetic Theft\n{R}\nInstant\n5DN,U\nAttach target Equipment to target creature. (Control of the Equipment doesn't change.)"
+    IDS_STRING15527         "Grafted Wargear\n{3}\nArtifact - Equipment\n5DN,U\nEquipped creature gets +3/+2.\rWhenever Grafted Wargear becomes unattached from a permanent, sacrifice that permanent.\rEquip {0}"
+    IDS_STRING15528         "Heliophial\n{5}\nArtifact\n5DN\nSunburst\r{2}, Sacrifice Heliophial: Heliophial deals damage equal to the number of charge counters on it to target creature or player."
+    IDS_STRING15529         "Skullcage\n{4}\nArtifact\n5DN,U\nAt the beginning of each opponent's upkeep, Skullcage deals 2 damage to that player unless he or she has exactly three or exactly four cards in hand."
+    IDS_STRING15530         "Bringer of the Red Dawn\n{7RR}\nCreature - Bringer\n5DN,R\nYou may pay {WUBRG} rather than pay Bringer of the Red Dawn's mana cost.\rTrample\rAt the beginning of your upkeep, you may untap target creature and gain control of it until end of turn. That creature gains haste until end of turn.\n5/5"
+    IDS_STRING15531         "Vicious Betrayal\n{3BB}\nSorcery\n5DN,C\nAs an additional cost to cast Vicious Betrayal, sacrifice any number of creatures.\rTarget creature gets +2/+2 until end of turn for each creature sacrificed this way."
+    IDS_STRING15532         "Infused Arrows\n{4}\nArtifact\n5DN,U\nSunburst\r{T}, Remove X charge counters from Infused Arrows: Target creature gets -X/-X until end of turn."
+    IDS_STRING15533         "Dawn's Reflection\n{3G}\nEnchantment - Aura\n5DN,C\nEnchant land\rWhenever enchanted land is tapped for mana, its controller adds two mana in any combination of colors to his or her mana pool."
+    IDS_STRING15534         "Solarion\n{7}\nArtifact Creature - Construct\n5DN,R\nSunburst\r{T}: Double the number of +1/+1 counters on Solarion.\n0/0"
+    IDS_STRING15535         "Spinal Parasite\n{5}\nArtifact Creature - Insect\n5DN,U\nSunburst\rRemove two +1/+1 counters from Spinal Parasite: Remove a counter from target permanent.\n-1/-1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15536         "Doubling Cube\n{2}\nArtifact\n5DN,R\n{3}, {T}: Double the amount of each type of mana in your mana pool."
+    IDS_STRING15537         "Opaline Bracers\n{4}\nArtifact\n5DN,C\nSunburst\rEquipped creature gets +X/+X, where X is the number of charge counters on Opaline Bracers.\rEquip {2}"
+    IDS_STRING15538         "Avarice Totem\n{1}\nArtifact\n5DN,U\n{5}: Exchange control of Avarice Totem and target nonland permanent."
+    IDS_STRING15539         "Plunge into Darkness\n{1B}\nInstant\n5DN,R\nChoose one - Sacrifice any number of creatures, then you gain 3 life for each sacrificed creature; or pay X life, then look at the top X cards of your library, put one of those cards into your hand, and exile the rest.\rEntwine {B}"
+    IDS_STRING15540         "Ferropede\n{3}\nArtifact Creature - Insect\n5DN,U\nFerropede is unblockable.\rWhenever Ferropede deals combat damage to a player, you may remove a counter from target permanent."
+    IDS_STRING15541         "Rude Awakening\n{4G}\nSorcery\n5DN,U\nChoose one - Untap all lands you control; or until end of turn, lands you control become 2/2 creatures that are still lands.\rEntwine {2G}"
+    IDS_STRING15542         "Energy Chamber\n{2}\nArtifact\n5DN,U\nAt the beginning of your upkeep, choose one - Put a +1/+1 counter on target artifact creature; or put a charge counter on target noncreature artifact."
+    //IDS_STRING15538         "Mephidross Vampire\n{4BB}\nCreature - Vampire\n5DN,R\nFlying\rEach creature you control is a Vampire in addition to its other creature types and has ""Whenever this creature deals damage to a creature, put a +1/+1 counter on this creature.""\n3/4"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

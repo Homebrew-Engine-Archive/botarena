@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+4 Bloodbraid Elf (9105)
+4 Pestermite (18123)
+
+// Instants - 4 (6.67%)
+
+4 Cryptic Command (18051)
+
+// Sorceries - 16 (26.67%)
+
+3 Explore (19647)
+3 Ponder (4208)
+4 Preordain (21152)
+3 Rampant Growth (4091)
+3 Scapeshift (18413)
+
+// Enchantments - 6 (10.00%)
+
+4 Prismatic Omen (18719)
+2 Splinter Twin (20998)
+
+// Lands - 26 (43.33%)
+
+Cascade Bluffs (18907)
+Copperline Gorge (21471)
+Fire-Lit Thicket (18542)
+3 Flooded Grove (18914)
+Forest (21769)
+2 Forest (21768)
+2 Halimar Depths (19634)
+2 Island (21770)
+2 Island (21771)
+4 Misty Rainforest (19356)
+Mountain (21772)
+2 Scalding Tarn (19358)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Kitchen Finks (18593)
+2 Obstinate Baloth (21217)
+Primeval Titan (21223)
+3 Thrun, the Last Troll (21716)
+Wurmcoil Engine (21439)
+
+// Instants
+
+2 Nature's Claim (19662)
+Volcanic Fallout (8860)
+
+// Sorceries
+
+2 Slagstorm (21756)

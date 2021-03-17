@@ -1,0 +1,89 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+Blister Beetle (8538)
+Bloodbraid Elf (9105)
+Carrion Thrash (8545)
+Deadshot Minotaur (9029)
+Drumhunter (8664)
+2 Ember Weaver (8905)
+Goblin Outlander (8812)
+Gorger Wurm (9052)
+Jund Sojourners (9060)
+Jungle Weaver (8648)
+Monstrous Carabid (9037)
+Naya Battlemage (8598)
+Rhox Brute (9019)
+2 Vithian Stinger (8680)
+
+// Instants - 3 (7.50%)
+
+Fiery Fall (8878)
+Sylvan Bounty (8880)
+Violent Outburst (9114)
+
+// Sorceries - 1 (2.50%)
+
+Vengeful Rebirth (9120)
+
+// Enchantments - 2 (5.00%)
+
+Sangrite Backlash (9102)
+Trace of Abundance (9090)
+
+// Artifacts - 1 (2.50%)
+
+Quietus Spike (8653)
+
+// Lands - 17 (42.50%)
+
+2 Forest (8511)
+2 Forest (8509)
+2 Forest (8510)
+2 Forest (8512)
+2 Mountain (8518)
+2 Mountain (8519)
+2 Mountain (8520)
+Mountain (8521)
+Swamp (8528)
+Swamp (8527)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 19
+
+// Creatures
+
+Aerie Mystics (8805)
+Aven Trailblazer (8861)
+Fire-Field Ogre (8682)
+Paragon of the Amesha (8936)
+Skyward Eye Prophets (8826)
+Vagrant Plowbeasts (8828)
+Wandering Goblins (8919)
+Waveskimmer Aven (8559)
+Yoked Plowbeast (8643)
+
+// Instants
+
+Constricting Tendrils (8873)
+
+// Sorceries
+
+Demonic Dread (9110)
+Drastic Revelation (9050)
+Shard Convergence (8900)
+
+// Enchantments
+
+Banewasp Affliction (8733)
+Stormcaller's Boon (9113)
+
+// Artifacts
+
+Cumber Stone (8848)
+2 Relic of Progenitus (8725)
+Shield of the Righteous (9095)

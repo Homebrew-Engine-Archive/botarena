@@ -1,0 +1,39 @@
+// Total cards in deck - 41
+
+// Creatures - 14 (34.15%)
+
+Algae Gharial (8531)
+Blitz Hellion (9063)
+Bloodbraid Elf (9105)
+Elvish Visionary (8507)
+Gluttonous Slime (8893)
+Godtracker of Jund (9009)
+Gorger Wurm (9052)
+Rhox Brute (9019)
+Rockslide Elemental (8613)
+Spellbreaker Behemoth (9039)
+Thunder-Thrash Elder (8660)
+Tukatongue Thallid (8827)
+2 Valley Rannet (9040)
+
+// Instants - 5 (12.20%)
+
+Colossal Might (9007)
+2 Incinerate (3226)
+2 Shock (3159)
+
+// Sorceries - 4 (9.76%)
+
+2 Dragon Fodder (8561)
+Sangrite Surge (8690)
+Vengeful Rebirth (9120)
+
+// Lands - 18 (43.90%)
+
+3 Forest (8511)
+2 Forest (8509)
+3 Forest (8510)
+3 Mountain (8520)
+2 Mountain (8521)
+3 Mountain (8519)
+2 Terramorphic Expanse (17232)

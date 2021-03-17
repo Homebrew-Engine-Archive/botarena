@@ -1,0 +1,73 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 1 (1.64%)
+
+Ajani Vengeant (8720)
+
+// Creatures - 26 (42.62%)
+
+2 Baneslayer Angel (4224)
+Birds of Paradise (4020)
+4 Bloodbraid Elf (9105)
+4 Knight of the Reliquary (8815)
+4 Noble Hierarch (8819)
+4 Ranger of Eos (8642)
+Scute Mob (19362)
+2 Stoneforge Mystic (19638)
+4 Wild Nacatl (8504)
+
+// Instants - 5 (8.20%)
+
+3 Lightning Bolt (4060)
+2 Path to Exile (8897)
+
+// Enchantments - 1 (1.64%)
+
+Oblivion Ring (8718)
+
+// Artifacts - 2 (3.28%)
+
+Basilisk Collar (19687)
+Behemoth Sledge (9003)
+
+// Lands - 26 (42.62%)
+
+4 Arid Mesa (19349)
+Forest (19301)
+Forest (19300)
+Forest (19303)
+Forest (19302)
+3 Misty Rainforest (19356)
+Mountain (19316)
+Mountain (19317)
+Plains (19324)
+Plains (19325)
+2 Raging Ravine (19699)
+Rootbound Crag (4201)
+2 Sejiri Steppe (19691)
+Stirring Wildwood (19623)
+2 Sunpetal Grove (4202)
+Tectonic Edge (19651)
+2 Terramorphic Expanse (4111)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Baneslayer Angel (4224)
+4 Cunning Sparkmage (19608)
+2 Dauntless Escort (9085)
+Goblin Guide (19456)
+2 Qasali Pridemage (9018)
+Stoneforge Mystic (19638)
+
+// Enchantments
+
+2 Manabarbs (4064)
+Oblivion Ring (8718)
+
+// Artifacts
+
+Basilisk Collar (19687)

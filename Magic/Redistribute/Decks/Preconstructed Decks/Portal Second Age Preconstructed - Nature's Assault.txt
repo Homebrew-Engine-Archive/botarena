@@ -1,0 +1,31 @@
+// Nature's Assault
+// Portal Second Age Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 19 (47.50%)
+
+3 Bear Cub (20114)
+2 Golden Bear (20132)
+2 Ironhoof Ox (20133)
+2 Norwood Archers (20139)
+3 Norwood Ranger (20185)
+2 Norwood Riders (20140)
+2 River Bear (20189)
+Sylvan Basilisk (20191)
+2 Wild Ox (20168)
+
+// Sorceries - 6 (15.00%)
+
+Alluring Scent (20211)
+Hurricane (20224)
+2 Monstrous Growth (20228)
+2 Natural Spring (20229)
+
+// Lands - 15 (37.50%)
+
+5 Forest (20195)
+5 Forest (20196)
+5 Forest (20197)

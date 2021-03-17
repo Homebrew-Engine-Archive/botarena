@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace Beleren (18011)
+
+// Creatures - 4 (6.67%)
+
+4 Swans of Bryn Argoll (18708)
+
+// Instants - 18 (30.00%)
+
+4 Broken Ambitions (18057)
+4 Cryptic Command (18051)
+Flame Javelin (18642)
+4 Incinerate (3226)
+3 Remove Soul (3139)
+2 Volcanic Fallout (8860)
+
+// Sorceries - 6 (10.00%)
+
+4 Pyroclasm (3131)
+2 Tidings (3185)
+
+// Enchantments - 2 (3.33%)
+
+2 Seismic Assault (3151)
+
+// Lands - 27 (45.00%)
+
+4 Cascade Bluffs (18907)
+4 Crumbling Necropolis (8553)
+2 Faerie Conclave (3304)
+Island (8516)
+Island (8515)
+Island (8514)
+Mountain (8518)
+Mountain (8519)
+4 Mutavault (18368)
+4 Reflecting Pool (18571)
+4 Shivan Reef (3158)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Plumeveil (18611)
+2 Sower of Temptation (18074)
+
+// Instants
+
+2 Negate (18305)
+3 Swerve (8629)
+2 Volcanic Fallout (8860)
+
+// Enchantments
+
+4 Goblin Assault (8574)

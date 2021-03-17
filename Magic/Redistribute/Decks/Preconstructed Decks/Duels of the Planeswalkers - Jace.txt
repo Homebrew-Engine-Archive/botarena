@@ -1,0 +1,45 @@
+// Jace
+// Duels of the Planeswalkers
+
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+2 Air Elemental (4017)
+4 Cloud Sprite (3248)
+Denizen of the Deep (3333)
+Mahamoti Djinn (3099)
+Phantom Warrior (4080)
+3 Snapping Drake (4102)
+2 Thieving Magpie (3183)
+2 Wall of Spears (1676)
+
+// Instants - 15 (25.00%)
+
+2 Boomerang (3018)
+2 Cancel (4023)
+Counterbore (18669)
+2 Deluge (3289)
+3 Essence Scatter (4143)
+Evacuation (3044)
+2 Negate (4016)
+2 Unsummon (4115)
+
+// Sorceries - 1 (1.67%)
+
+Mind Spring (4004)
+
+// Enchantments - 1 (1.67%)
+
+Mind Control (4144)
+
+// Artifacts - 2 (3.33%)
+
+2 Kraken's Eye (4057)
+
+// Lands - 25 (41.67%)
+
+7 Island (4052)
+6 Island (4053)
+6 Island (4054)
+6 Island (4055)

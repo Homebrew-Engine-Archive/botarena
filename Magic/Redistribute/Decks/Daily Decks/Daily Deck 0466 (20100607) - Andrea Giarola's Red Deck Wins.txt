@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Guide (19456)
+4 Kargan Dragonlord (20955)
+4 Plated Geopede (19345)
+
+// Instants - 12 (20.00%)
+
+4 Burst Lightning (19384)
+4 Searing Blaze (19697)
+4 Staggershock (20984)
+
+// Sorceries - 4 (6.67%)
+
+4 Devastating Summons (20990)
+
+// Enchantments - 4 (6.67%)
+
+4 Zektar Shrine Expedition (19520)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+3 Mountain (20809)
+2 Mountain (20811)
+3 Mountain (20808)
+3 Mountain (20810)
+4 Scalding Tarn (19358)
+Smoldering Spires (19624)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Goblin Ruinblaster (19457)
+4 Tuktuk the Explorer (20843)
+
+// Instants
+
+4 Punishing Fire (19544)
+
+// Sorceries
+
+Mark of Mutiny (19497)
+
+// Artifacts
+
+2 Kitesail (19619)

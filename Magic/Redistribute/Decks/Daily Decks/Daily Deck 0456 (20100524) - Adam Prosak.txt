@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+3 Avenger of Zendikar (19664)
+3 Oracle of Mul Daya (19542)
+2 Rampaging Baloths (19342)
+
+// Instants - 3 (5.00%)
+
+Deprive (20934)
+2 Fog (4039)
+
+// Sorceries - 17 (28.33%)
+
+4 Explore (19647)
+4 Ponder (4208)
+4 Rampant Growth (4091)
+3 Time Warp (4217)
+2 Treasure Hunt (19673)
+
+// Lands - 28 (46.67%)
+
+2 Forest (20802)
+2 Forest (20803)
+2 Forest (20800)
+2 Forest (20801)
+4 Halimar Depths (19634)
+Island (20807)
+2 Island (20804)
+2 Island (20805)
+Island (20806)
+4 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+2 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Jace Beleren (4210)
+
+// Creatures
+
+3 Overgrown Battlement (20890)
+Pelakka Wurm (20839)
+
+// Instants
+
+2 Fog (4039)
+3 Negate (18305)
+
+// Sorceries
+
+2 Mind Spring (4004)
+2 Treasure Hunt (19673)

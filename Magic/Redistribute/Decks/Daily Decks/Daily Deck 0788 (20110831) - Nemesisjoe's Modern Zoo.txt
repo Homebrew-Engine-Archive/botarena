@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+4 Dark Confidant (16449)
+4 Grim Lavamancer (22165)
+4 Kird Ape (2312)
+4 Qasali Pridemage (9018)
+4 Tarmogoyf (17704)
+4 Wild Nacatl (8504)
+
+// Instants - 12 (20.00%)
+
+4 Lightning Bolt (21124)
+4 Lightning Helix (16450)
+4 Path to Exile (23045)
+
+// Sorceries - 4 (6.67%)
+
+4 Tribal Flames (17453)
+
+// Lands - 20 (33.33%)
+
+4 Arid Mesa (19349)
+Blood Crypt (17006)
+Godless Shrine (16808)
+4 Misty Rainforest (19356)
+Mountain (22215)
+Overgrown Tomb (16445)
+Plains (22219)
+Sacred Foundry (16446)
+3 Scalding Tarn (19358)
+Steam Vents (16809)
+Stomping Ground (16810)
+Temple Garden (16447)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Kataki, War's Wage (16284)
+3 Kitchen Finks (18593)
+
+// Sorceries
+
+4 Molten Rain (15025)
+
+// Artifacts
+
+4 Chalice of the Void (15015)
+
+// Lands
+
+Ghost Quarter (16996)

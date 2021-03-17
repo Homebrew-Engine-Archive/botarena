@@ -1,0 +1,35 @@
+// Total cards in deck - 60
+
+// Creatures - 14 (23.33%)
+
+4 Dragon Whelp (17310)
+Flameblast Dragon (8709)
+4 Imperial Hellkite (14495)
+4 Kilnmouth Dragon (14482)
+Zodiac Dragon (20375)
+
+// Instants - 9 (15.00%)
+
+4 Magma Jet (15500)
+2 Starstorm (14161)
+3 Urza's Rage (12655)
+
+// Artifacts - 13 (21.67%)
+
+2 Lightning Greaves (14810)
+4 Mind Stone (3242)
+2 Serum Tank (14987)
+Sol Ring (7367)
+4 Thran Dynamo (11405)
+
+// Lands - 24 (40.00%)
+
+4 Blasted Landscape (10955)
+4 Forgotten Cave (14128)
+4 Great Furnace (14929)
+Mountain (8521)
+Mountain (8518)
+Mountain (8519)
+Mountain (8520)
+4 Smoldering Crater (10962)
+4 Spinerock Knoll (18151)

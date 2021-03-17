@@ -1,0 +1,352 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "AvacynRestored.ico"
+IDI_LARGE_MODULE        ICON                    "AvacynRestoredLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Avacyn Restored"
+    IDS_EXPANSION_ABBREV    "AVR"
+    IDS_FIRST_CARD          "24000"
+    IDS_TOTAL_CARD          "244"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "23998"
+    IDS_MODULE_LARGE_ICON_ID "23999"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "04-05-2012"
+    IDS_MWS_FOLDER          "MWS\\AVR\\"
+    IDS_PRODUCT_LIST        """Avacyn Restored Starter Box"":R-3:U-10:C-32:BL-30,""Avacyn Restored Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24000         "Forest\n\nBasic Land - Forest\nAVR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24001         "Forest\n\nBasic Land - Forest\nAVR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24002         "Forest\n\nBasic Land - Forest\nAVR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24003         "Island\n\nBasic Land - Island\nAVR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24004         "Island\n\nBasic Land - Island\nAVR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24005         "Island\n\nBasic Land - Island\nAVR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24006         "Mountain\n\nBasic Land - Mountain\nAVR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24007         "Mountain\n\nBasic Land - Mountain\nAVR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24008         "Mountain\n\nBasic Land - Mountain\nAVR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24009         "Plains\n\nBasic Land - Plains\nAVR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24010         "Plains\n\nBasic Land - Plains\nAVR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24011         "Plains\n\nBasic Land - Plains\nAVR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24012         "Swamp\n\nBasic Land - Swamp\nAVR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24013         "Swamp\n\nBasic Land - Swamp\nAVR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24014         "Swamp\n\nBasic Land - Swamp\nAVR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24015         "Avacyn, Angel of Hope\n{5WWW}\nLegendary Creature - Angel\nAVR,MR\nFlying, vigilance\rAvacyn, Angel of Hope and other permanents you control are indestructible.\n8/8"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24016         "Demonlord of Ashmouth\n{2BB}\nCreature - Demon\nAVR,R\nFlying\rWhen Demonlord of Ashmouth enters the battlefield, exile it unless you sacrifice another creature.\rUndying\n5/4"
+    IDS_STRING24017         "Demonic Taskmaster\n{2B}\nCreature - Demon\nAVR,C\nFlying\rAt the beginning of your upkeep, sacrifice a creature other than Demonic Taskmaster.\n4/3"
+    IDS_STRING24018         "Howlgeist\n{5G}\nCreature - Spirit Wolf\nAVR,U\nCreatures with power less than Howlgeist's power can't block it.\rUndying\n4/2"
+    IDS_STRING24019         "Griselbrand\n{4BBBB}\nLegendary Creature - Demon\nAVR,MR\nFlying, lifelink\rPay 7 life: Draw seven cards.\n7/7"
+    IDS_STRING24020         "Cloudshift\n{W}\nInstant\nAVR,C\nExile target creature you control, then return that card to the battlefield under your control."
+    IDS_STRING24021         "Restoration Angel\n{3W}\nCreature - Angel\nAVR,R\nFlash\rFlying\rWhen Restoration Angel enters the battlefield, you may exile target non-Angel creature you control, then return that card to the battlefield under your control.\n3/4"
+    IDS_STRING24022         "Craterhoof Behemoth\n{5GGG}\nCreature - Beast\nAVR,MR\nHaste\rWhen Craterhoof Behemoth enters the battlefield, creatures you control gain trample and get +X/+X until end of turn, where X is the number of creatures you control.\n5/5"
+    IDS_STRING24023         "Druids' Repository\n{1GG}\nEnchantment\nAVR,R\nWhenever a creature you control attacks, put a charge counter on Druids' Repository.\rRemove a charge counter from Druids' Repository: Add one mana of any color to your mana pool."
+    IDS_STRING24024         "Latch Seeker\n{1UU}\nCreature - Spirit\nAVR,U\nLatch Seeker is unblockable.\n3/1"
+    IDS_STRING24025         "Moonsilver Spear\n{4}\nArtifact - Equipment\nAVR,R\nEquipped creature has first strike.\rWhenever equipped creature attacks, put a 4/4 white Angel token with flying onto the battlefield.\rEquip {4}"
+    IDS_STRING24026         "Angel's Tomb\n{3}\nArtifact\nAVR,U\nWhenever a creature enters the battlefield under your control, you may have Angel's Tomb become a 3/3 white Angel artifact creature with flying until end of turn."
+    IDS_STRING24027         "Arcane Melee\n{4U}\nEnchantment\nAVR,R\nInstant and sorcery spells cost {2} less to cast."
+    IDS_STRING24028         "Harvester of Souls\n{4BB}\nCreature - Demon\nAVR,R\nDeathtouch\rWhenever another nontoken creature dies, you may draw a card.\n5/5"
+    IDS_STRING24029         "Emancipation Angel\n{1WW}\nCreature - Angel\nAVR,U\nFlying\rWhen Emancipation Angel enters the battlefield, return a permanent you control to its owner's hand.\n3/3"
+    IDS_STRING24030         "Tamiyo, the Moon Sage\n{3UU}\nPlaneswalker - Tamiyo\nAVR,MR\n[+1]: Tap target permanent. It doesn't untap during its controller's next untap step.\r[-2]: Draw a card for each tapped creature target player controls.\r[-8]: You get an emblem with ""You have no maximum hand size"" and ""Whenever a card is put into your graveyard from anywhere, you may return it to your hand.""\n4"
+    IDS_STRING24031         "Cathars' Crusade\n{3WW}\nEnchantment\nAVR,R\nWhenever a creature enters the battlefield under your control, put a +1/+1 counter on each creature you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24032         "Tibalt, the Fiend-Blooded\n{RR}\nPlaneswalker - Tibalt\nAVR,MR\n[+1]: Draw a card, then discard a card at random.\r[-4]: Tibalt, the Fiend-Blooded deals damage equal to the number of cards in target player's hand to that player.\r[-6]: Gain control of all creatures until end of turn. Untap them. They gain haste until end of turn.\n2"
+    IDS_STRING24033         "Desolate Lighthouse\n\nLand\nAVR,R\n{T}: Add {1} to your mana pool.\r{1UR}, {T}: Draw a card, then discard a card."
+    IDS_STRING24034         "Herald of War\n{3WW}\nCreature - Angel\nAVR,R\nFlying\rWhenever Herald of War attacks, put a +1/+1 counter on it.\rAngel spells and Human spells you cast cost {1} less to cast for each +1/+1 counter on Herald of War.\n3/3"
+    IDS_STRING24035         "Appetite for Brains\n{B}\nSorcery\nAVR,U\nTarget opponent reveals his or her hand. You choose a card from it with converted mana cost 4 or greater and exile that card."
+    IDS_STRING24036         "Goldnight Redeemer\n{4WW}\nCreature - Angel\nAVR,U\nFlying\rWhen Goldnight Redeemer enters the battlefield, you gain 2 life for each other creature you control.\n4/4"
+    IDS_STRING24037         "Nephalia Smuggler\n{U}\nCreature - Human Rogue\nAVR,U\n{3U}, {T}: Exile another target creature you control, then return that card to the battlefield under your control.\n1/1"
+    IDS_STRING24038         "Angel of Glory's Rise\n{5WW}\nCreature - Angel\nAVR,R\nWhen Angel of Glory's Rise enters the battlefield, exile all Zombies, then return all Human creature cards from your graveyard to the battlefield.\n4/6"
+    IDS_STRING24039         "Barter in Blood\n{2BB}\nSorcery\nAVR,U\nEach player sacrifices two creatures."
+    IDS_STRING24040         "Thunderbolt\n{1R}\nInstant\nAVR,C\nChoose one - Thunderbolt deals 3 damage to target player; or Thunderbolt deals 4 damage to target creature with flying."
+    IDS_STRING24041         "Defy Death\n{3WW}\nSorcery\nAVR,U\nReturn target creature card from your graveyard to the battlefield. If it's an Angel, put two +1/+1 counters on it."
+    IDS_STRING24042         "Demonic Rising\n{3BB}\nEnchantment\nAVR,R\nAt the beginning of your end step, if you control exactly one creature, put a 5/5 black Demon creature token with flying onto the battlefield."
+    IDS_STRING24043         "Human Frailty\n{B}\nInstant\nAVR,U\nDestroy target Human creature."
+    IDS_STRING24044         "Thraben Valiant\n{1W}\nCreature - Human Soldier\nAVR,C\nVigilance\n2/1"
+    IDS_STRING24045         "Slayers' Stronghold\n\nLand\nAVR,R\n{T}: Add {1} to your mana pool.\r{RW}, {T}: Target creature gets +2/+0 and gains vigilance and haste until end of turn."
+    IDS_STRING24046         "Commander's Authority\n{4W}\nEnchantment - Aura\nAVR,U\nEnchant creature\rEnchanted creature has ""At the beginning of your upkeep, put a 1/1 white Human creature token onto the battlefield."""
+    IDS_STRING24047         "Treacherous Pit-Dweller\n{BB}\nCreature - Demon\nAVR,R\nWhen Treacherous Pit-Dweller enters the battlefield from a graveyard, target opponent gains control of it.\rUndying\n4/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24048         "Peel from Reality\n{1U}\nInstant\nAVR,C\nReturn target creature you control and target creature you don't control to their owners' hands."
+    IDS_STRING24049         "Triumph of Cruelty\n{2B}\nEnchantment\nAVR,U\nAt the beginning of your upkeep, target opponent discards a card if you control the creature with the greatest power or tied for the greatest power."
+    IDS_STRING24050         "Triumph of Ferocity\n{2G}\nEnchantment\nAVR,U\nAt the beginning of your upkeep, draw a card if you control the creature with the greatest power or tied for the greatest power."
+    IDS_STRING24051         "Crypt Creeper\n{1B}\nCreature - Zombie\nAVR,C\nSacrifice Crypt Creeper: Exile target card from a graveyard.\n2/1"
+    IDS_STRING24052         "Borderland Ranger\n{2G}\nCreature - Human Scout\nAVR,C\nWhen Borderland Ranger enters the battlefield, you may search your library for a basic land card, reveal it, and put it into your hand. If you do, shuffle your library.\n2/2"
+    IDS_STRING24053         "Soul of the Harvest\n{4GG}\nCreature - Elemental\nAVR,R\nTrample\rWhenever another nontoken creature enters the battlefield under your control, you may draw a card.\n6/6"
+    IDS_STRING24054         "Alchemist's Refuge\n\nLand\nAVR,R\n{T}: Add {1} to your mana pool.\r{GU}, {T}: You may cast nonland cards this turn as though they had flash."
+    IDS_STRING24055         "Archwing Dragon\n{2RR}\nCreature - Dragon\nAVR,R\nFlying, haste\rAt the beginning of the end step, return Archwing Dragon to its owner's hand.\n4/4"
+    IDS_STRING24056         "Exquisite Blood\n{4B}\nEnchantment\nAVR,R\nWhenever an opponent loses life, you gain that much life."
+    IDS_STRING24057         "Pillar of Flame\n{R}\nSorcery\nAVR,C\nPillar of Flame deals 2 damage to target creature or player. If a creature dealt damage this way would die this turn, exile it instead."
+    IDS_STRING24058         "Ulvenwald Tracker\n{G}\nCreature - Human Shaman\nAVR,R\n{1G}, {T}: Target creature you control fights another target creature.\n1/1"
+    IDS_STRING24059         "Wolfir Avenger\n{1GG}\nCreature - Wolf Warrior\nAVR,U\nFlash\r{1G}: Regenerate Wolfir Avenger.\n3/3"
+    IDS_STRING24060         "Thatcher Revolt\n{2R}\nSorcery\nAVR,C\nPut three 1/1 red Human creature tokens with haste onto the battlefield. Sacrifice those tokens at the beginning of the next end step."
+    IDS_STRING24061         "Angel's Mercy\n{2WW}\nInstant\nAVR,C\nYou gain 7 life."
+    IDS_STRING24062         "Angelic Wall\n{1W}\nCreature - Wall\nAVR,C\nDefender, flying\n0/4"
+    IDS_STRING24063         "Archangel\n{5WW}\nCreature - Angel\nAVR,U\nFlying, vigilance\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24064         "Farbog Explorer\n{2W}\nCreature - Human Scout\nAVR,C\nSwampwalk\n2/3"
+    IDS_STRING24065         "Leap of Faith\n{2W}\nInstant\nAVR,C\nTarget creature gains flying until end of turn. Prevent all damage that would be dealt to that creature this turn."
+    IDS_STRING24066         "Voice of the Provinces\n{4WW}\nCreature - Angel\nAVR,C\nFlying\rWhen Voice of the Provinces enters the battlefield, put a 1/1 white Human creature token onto the battlefield.\n3/3"
+    IDS_STRING24067         "Havengul Skaab\n{5U}\nCreature - Zombie Horror\nAVR,C\nWhenever Havengul Skaab attacks, return another creature you control to its owner's hand.\n4/5"
+    IDS_STRING24068         "Lunar Mystic\n{2UU}\nCreature - Human Wizard\nAVR,R\nWhenever you cast an instant spell, you may pay {1}. If you do, draw a card.\n2/2"
+    IDS_STRING24069         "Rotcrown Ghoul\n{4U}\nCreature - Zombie\nAVR,C\nWhen Rotcrown Ghoul dies, target player puts the top five cards of his or her library into his or her graveyard.\n3/3"
+    IDS_STRING24070         "Spectral Prison\n{1U}\nEnchantment - Aura\nAVR,C\nEnchant Creature\rEnchanted creature doesn't untap during its controller's untap step.\rWhen enchanted creature becomes the target of a spell, sacrifice Spectral Prison."
+    IDS_STRING24071         "Bone Splinters\n{B}\nSorcery\nAVR,C\nAs an additional cost to cast Bone Splinters, sacrifice a creature.\rDestroy target creature."
+    IDS_STRING24072         "Evernight Shade\n{3B}\nCreature - Shade\nAVR,U\n{B}: Evernight Shade gets +1/+1 until end of turn.\rUndying\n1/1"
+    IDS_STRING24073         "Maalfeld Twins\n{5B}\nCreature - Zombie\nAVR,U\nWhen Maalfeld Twins dies, put two 2/2 black Zombie creature tokens onto the battlefield.\n4/4"
+    IDS_STRING24074         "Demolish\n{3R}\nSorcery\nAVR,C\nDestroy target artifact or land."
+    IDS_STRING24075         "Gang of Devils\n{5R}\nCreature - Devil\nAVR,U\nWhen Gang of Devils dies, it deals 3 damage divided as you choose among one, two, or three target creatures and/or players.\n3/3"
+    IDS_STRING24076         "Havengul Vampire\n{3R}\nCreature - Vampire\nAVR,U\nWhenever Havengul Vampire deals combat damage to a player, put a +1/+1 counter on it.\rWhenever another creature dies, put a +1/+1 counter on Havengul Vampire.\n2/2"
+    IDS_STRING24077         "Hound of Griselbrand\n{2RR}\nCreature - Elemental Hound\nAVR,R\nDouble strike\rUndying\n2/2"
+    IDS_STRING24078         "Kessig Malcontents\n{2R}\nCreature - Human Warrior\nAVR,U\nWhen Kessig Malcontents enters the battlefield, it deals damage to target player equal to the number of Humans you control.\n3/1"
+    IDS_STRING24079         "Kruin Striker\n{1R}\nCreature - Human Warrior\nAVR,C\nWhenever another creature enters the battlefield under your control, Kruin Striker gets +1/+0 and gains trample until end of turn.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24080         "Riot Ringleader\n{2R}\nCreature - Human Warrior\nAVR,C\nWhenever Riot Ringleader attacks, Human creatures you control get +1/+0 until end of turn.\n2/2"
+    IDS_STRING24081         "Rush of Blood\n{2R}\nInstant\nAVR,U\nTarget creature gets +X/+0 until end of turn, where X is its power."
+    IDS_STRING24082         "Somberwald Vigilante\n{R}\nCreature - Human Warrior\nAVR,C\nWhenever Somberwald Vigilante becomes blocked by a creature, Somberwald Vigilante deals 1 damage to that creature.\n1/1"
+    IDS_STRING24083         "Gloomwidow\n{2G}\nCreature - Spider\nAVR,U\nReach\rGloomwidow can block only creatures with flying.\n3/3"
+    IDS_STRING24084         "Grounded\n{1G}\nEnchantment - Aura\nAVR,C\nEnchant creature\rEnchanted creature loses flying."
+    IDS_STRING24085         "Builder's Blessing\n{3W}\nEnchantment\nAVR,U\nUntapped creatures you control get +0/+2."
+    IDS_STRING24086         "Call to Serve\n{1W}\nEnchantment - Aura\nAVR,C\nEnchant nonblack creature\rEnchanted creature gets +1/+2, has flying, and is an Angel in addition to its other types."
+    IDS_STRING24087         "Cathedral Sanctifier\n{W}\nCreature - Human Cleric\nAVR,C\nWhen Cathedral Sanctifier enters the battlefield, you gain 3 life.\n1/1"
+    IDS_STRING24088         "Cursebreak\n{1W}\nInstant\nAVR,C\nDestroy target enchantment. You gain 2 life."
+    IDS_STRING24089         "Defang\n{1W}\nEnchantment - Aura\nAVR,C\nEnchant creature\rPrevent all damage that would be dealt by enchanted creature."
+    IDS_STRING24090         "Devout Chaplain\n{2W}\nCreature - Human Cleric\nAVR,U\n{T}, Tap two untapped Humans you control: Exile target artifact or enchantment.\n2/2"
+    IDS_STRING24091         "Goldnight Commander\n{3W}\nCreature - Human Soldier\nAVR,U\nWhenever another creature enters the battlefield under your control, creatures you control get +1/+1 until end of turn.\n2/2"
+    IDS_STRING24092         "Holy Justiciar\n{3W}\nCreature - Human Cleric\nAVR,U\n{2W}, {T}: Tap target creature. If that creature is a Zombie, exile it.\n2/1"
+    IDS_STRING24093         "Midnight Duelist\n{W}\nCreature - Human Soldier\nAVR,C\nProtection from Vampires\n2/1"
+    IDS_STRING24094         "Midvast Protector\n{3W}\nCreature - Human Wizard\nAVR,C\nWhen Midvast Protector enters the battlefield, target creature you control gains protection from the color of your choice until end of turn.\n2/3"
+    IDS_STRING24095         "Moonlight Geist\n{2W}\nCreature - Spirit\nAVR,C\nFlying\r{3W}: Prevent all combat damage that would be dealt to and by Moonlight Geist this turn.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24096         "Moorland Inquisitor\n{1W}\nCreature - Human Soldier\nAVR,C\n{2W}: Moorland Inquisitor gains first strike until end of turn.\n2/2"
+    IDS_STRING24097         "Righteous Blow\n{W}\nInstant\nAVR,C\nRighteous Blow deals 2 damage to target attacking or blocking creature."
+    IDS_STRING24098         "Seraph of Dawn\n{2WW}\nCreature - Angel\nAVR,C\nFlying\rLifelink\n2/4"
+    IDS_STRING24099         "Zealous Strike\n{1W}\nInstant\nAVR,C\nTarget creature gets +2/+2 and gains first strike until end of turn."
+    IDS_STRING24100         "Alchemist's Apprentice\n{1U}\nCreature - Human Wizard\nAVR,C\nSacrifice Alchemist's Apprentice: Draw a card.\n1/1"
+    IDS_STRING24101         "Amass the Components\n{3U}\nSorcery\nAVR,C\nDraw three cards, then put a card from your hand on the bottom of your library."
+    IDS_STRING24102         "Captain of the Mists\n{2U}\nCreature - Human Wizard\nAVR,R\nWhenever another Human enters the battlefield under your control, untap Captain of the Mists.\r{1U}, {T}: You may tap or untap target permanent.\n2/3"
+    IDS_STRING24103         "Crippling Chill\n{2U}\nInstant\nAVR,C\nTap target creature. It doesn’t untap during its controller’s next untap step.\rDraw a card."
+    IDS_STRING24104         "Dreadwaters\n{3U}\nSorcery\nAVR,C\nTarget player puts the top X cards of his or her library into his or her graveyard, where X is the number of lands you control."
+    IDS_STRING24105         "Favorable Winds\n{1U}\nEnchantment\nAVR,U\nCreatures you control with flying get +1/+1."
+    IDS_STRING24106         "Fleeting Distraction\n{U}\nInstant\nAVR,C\nTarget creature gets -1/-0 until end of turn.\rDraw a card."
+    IDS_STRING24107         "Geist Snatch\n{2UU}\nInstant\nAVR,C\nCounter target creature spell. Put a 1/1 blue Spirit creature token with flying onto the battlefield."
+    IDS_STRING24108         "Ghostform\n{1U}\nSorcery\nAVR,C\nUp to two target creatures are unblockable this turn."
+    IDS_STRING24109         "Gryff Vanguard\n{4U}\nCreature - Human Knight\nAVR,C\nFlying\rWhen Gryff Vanguard enters the battlefield, draw a card.\n3/2"
+    IDS_STRING24110         "Into the Void\n{3U}\nSorcery\nAVR,U\nReturn up to two target creatures to their owners’ hands."
+    IDS_STRING24111         "Lone Revenant\n{3UU}\nCreature - Spirit\nAVR,R\nHexproof\rWhenever Lone Revenant deals combat damage to a player, if you control no other creatures, look at the top four cards of your library. Put one of them into your hand and the others on the bottom of your library in any order.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24112         "Mass Appeal\n{2U}\nSorcery\nAVR,U\nDraw a card for each Human you control."
+    IDS_STRING24113         "Mist Raven\n{2UU}\nCreature - Bird\nAVR,C\nFlying\rWhen Mist Raven enters the battlefield, return target creature to its owner's hand.\n2/2"
+    IDS_STRING24114         "Scrapskin Drake\n{2U}\nCreature - Zombie Drake\nAVR,C\nFlying\rScrapskin Drake can block only creatures with flying.\n2/3"
+    IDS_STRING24115         "Spirit Away\n{5UU}\nEnchantment - Aura\nAVR,R\nEnchant creature\rYou control enchanted creature.\rEnchanted creature gets +2/+2 and has flying."
+    IDS_STRING24116         "Blood Artist\n{1B}\nCreature - Vampire\nAVR,U\nWhenever Blood Artist or another creature dies, target player loses 1 life and you gain 1 life.\n0/1"
+    IDS_STRING24117         "Bloodflow Connoisseur\n{2B}\nCreature - Vampire\nAVR,C\nSacrifice a creature: Put a +1/+1 counter on Bloodflow Connoisseur.\n1/1"
+    IDS_STRING24118         "Butcher Ghoul\n{1B}\nCreature - Zombie\nAVR,C\nUndying\n1/1"
+    IDS_STRING24119         "Corpse Traders\n{3B}\nCreature - Human Rogue\nAVR,U\n{2B}, Sacrifice a creature: Target player reveals his or her hand. You choose a card from it. That player discards that card. Activate this ability only any time you could cast a sorcery.\n3/3"
+    IDS_STRING24120         "Death Wind\n{XB}\nInstant\nAVR,C\nTarget creature gets -X/-X until end of turn."
+    IDS_STRING24121         "Driver of the Dead\n{3B}\nCreature - Vampire\nAVR,C\nWhen Driver of the Dead dies, return target creature with converted mana cost 2 or less from your graveyard to the battlefield.\n3/2"
+    IDS_STRING24122         "Essence Harvest\n{2B}\nSorcery\nAVR,C\nTarget player loses X life and you gain X life, where X is the greatestpower among creatures you control."
+    IDS_STRING24123         "Hunted Ghoul\n{B}\nCreature - Zombie\nAVR,C\nHunted Ghoul can't block Humans\n1/2"
+    IDS_STRING24124         "Marrow Bats\n{4B}\nCreature - Bat Skeleton\nAVR,U\nFlying\rPay 4 life: Regenerate Marrow Bats.\n4/1"
+    IDS_STRING24125         "Mental Agony\n{3B}\nSorcery\nAVR,C\nTarget player discards two cards and loses 2 life."
+    IDS_STRING24126         "Necrobite\n{2B}\nInstant\nAVR,C\nTarget creature gains deathtouch until end of turn. Regenerate it."
+    IDS_STRING24127         "Polluted Dead\n{4B}\nCreature - Zombie\nAVR,C\nWhen Polluted Dead dies, destroy target land.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24128         "Renegade Demon\n{3BB}\nCreature - Demon\nAVR,C\n\n5/3"
+    IDS_STRING24129         "Searchlight Geist\n{2B}\nCreature - Spirit\nAVR,C\nFlying\r{3B}: Searchlight Geist gains deathtouch until end of turn.\n2/1"
+    IDS_STRING24130         "Soulcage Fiend\n{1BB}\nCreature - Demon\nAVR,C\nWhen Soulcage Fiend dies, each player loses 3 life.\n2/2"
+    IDS_STRING24131         "Undead Executioner\n{3B}\nCreature - Zombie\nAVR,C\nWhen Undead Executioner dies, you may have target creature get -2-2 until end of turn.\n2/2"
+    IDS_STRING24132         "Unhallowed Pact\n{2B}\nEnchantment - Aura\nAVR,C\nEnchant creature\rWhen enchanted creature dies, return that card to the battlefield under your control."
+    IDS_STRING24133         "Banners Raised\n{R}\nInstant\nAVR,C\nCreatures you control get +1/+0 until end of turn."
+    IDS_STRING24134         "Battle Hymn\n{1R}\nInstant\nAVR,C\nAdd {R} to your mana pool for each creature you control."
+    IDS_STRING24135         "Dangerous Wager\n{1R}\nInstant\nAVR,C\nDiscard your hand, then draw two cards."
+    IDS_STRING24136         "Falkenrath Exterminator\n{1R}\nCreature - Vampire Archer\nAVR,U\nWhenever Falkenrath Exterminator deals combat damage to a player, put a +1/+1 counter on it.\r{2R}: Falkenrath Exterminator deals damage to target creature equal to the number of +1/+1 counters on Falkenrath Exterminator.\n1/1"
+    IDS_STRING24137         "Fervent Cathar\n{2R}\nCreature - Human Knight\nAVR,C\nHaste\rWhen Fervent Cathar enters the battlefield, target creature can't block this turn.\n2/1"
+    IDS_STRING24138         "Guise of Fire\n{R}\nEnchantment - Aura\nAVR,C\nEnchant creature\rEnchanted creature gets +1/-1 and attacks each turn if able."
+    IDS_STRING24139         "Heirs of Stromkirk\n{2RR}\nCreature - Vampire\nAVR,C\nIntimidate\rWhenever Heirs of Stromkirk deals combat damage to a player, put a +1/+1 counter on it.\n2/2"
+    IDS_STRING24140         "Lightning Prowess\n{2R}\nEnchantment - Aura\nAVR,U\nEnchant creature\rEnchanted creature has haste and ""{T}: This creature deals 1 damage to target creature or player."""
+    IDS_STRING24141         "Mad Prophet\n{3R}\nCreature - Human Shaman\nAVR,C\nHaste\r{T}, Discard a card: Draw a card.\n2/2"
+    IDS_STRING24142         "Malicious Intent\n{1R}\nEnchantment - Aura\nAVR,C\nEnchant creature\rEnchanted creature has “{T}: Target creature can’t block this turn.”"
+    IDS_STRING24143         "Raging Poltergeist\n{4R}\nCreature - Spirit\nAVR,C\n\n6/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24144         "Scalding Devil\n{1R}\nCreature - Devil\nAVR,C\n{2R}: Scalding deals 1 damage to target player.\n1/1"
+    IDS_STRING24145         "Tyrant of Discord\n{4RRR}\nCreature - Elemental\nAVR,R\nWhen Tyrant of Discord enters the battlefield, target opponent chooses a permanent he or she controls at random and sacrifices it. If a nonland permanent is sacrificed this way, repeat this process.\n7/7"
+    IDS_STRING24146         "Uncanny Speed\n{1R}\nInstant\nAVR,C\nTarget creature gets +3/+0 and gains haste until end of turn."
+    IDS_STRING24147         "Vigilante Justice\n{3R}\nEnchantment\nAVR,U\nWhenever a Human enters the battlefield under your control, Vigilante Justice deals 1 damage to target creature or player."
+    IDS_STRING24148         "Bower Passage\n{1G}\nEnchantment\nAVR,U\nCreatures with flying can't block creatures you control."
+    IDS_STRING24149         "Eaten by Spiders\n{2G}\nInstant\nAVR,U\nDestroy target creature with flying and all Equipment attached to that creature."
+    IDS_STRING24150         "Lair Delve\n{2G}\nSorcery\nAVR,C\nReveal the top two cards of your library. Put all creature and land cards revealed this way into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING24151         "Natural End\n{2G}\nInstant\nAVR,C\nDestroy target artifact or enchantment. You gain 3 life."
+    IDS_STRING24152         "Nettle Swine\n{3G}\nCreature - Boar\nAVR,C\n\n4/3"
+    IDS_STRING24153         "Snare the Skies\n{G}\nInstant\nAVR,C\nTarget creature gets +1/+1 and gains reach until end of turn."
+    IDS_STRING24154         "Timberland Guide\n{1G}\nCreature - Human Scout\nAVR,C\nWhen Timberland Guide enters the battlefield, put a +1/+1 counter on target creature.\n1/1"
+    IDS_STRING24155         "Vorstclaw\n{4GG}\nCreature - Elemental Horror\nAVR,U\n\n7/7"
+    IDS_STRING24156         "Wandering Wolf\n{1G}\nCreature - Wolf\nAVR,C\nCreatures with power less than Wandering Wolf's power can't block it.\n2/1"
+    IDS_STRING24157         "Wild Defiance\n{2G}\nEnchantment\nAVR,R\nWhenever a creature you control becomes the target of an instant or sorcery spell, that creature gets +3/+3 until end of turn."
+    IDS_STRING24158         "Yew Spirit\n{4G}\nCreature - Spirit Treefolk\nAVR,U\n{2GG}: Yew Spirit gets +X/+X until end of turn, where X is its power.\n3/3"
+    IDS_STRING24159         "Angelic Armaments\n{3}\nArtifact - Equipment\nAVR,U\nEquipped creature gets +2/+2, has flying, and is a white Angel in addition to its other colors and types.\rEquip {4}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24160         "Conjurer's Closet\n{5}\nArtifact\nAVR,R\nAt the beginning of your end step, you may exile target creature you control, then return it to the battlefield under your control."
+    IDS_STRING24161         "Gallows at Willow Hill\n{3}\nArtifact\nAVR,R\n{3}, {T}, Tap three untapped Humans you control: Destroy target creature. Its controller puts a 1/1 white Spirit creature token with flying onto the battlefield."
+    IDS_STRING24162         "Haunted Guardian\n{2}\nArtifact Creature - Construct\nAVR,U\nDefender, first strike\n2/1"
+    IDS_STRING24163         "Narstad Scrapper\n{5}\nArtifact Creature - Construct\nAVR,C\n{2}: Narstad Scrapper gets +1/+0 until end of turn.\n3/3"
+    IDS_STRING24164         "Otherworld Atlas\n{4}\nArtifact\nAVR,R\n{T}: Put a charge counter on Otherworld Atlas.\r{T}: Each player draws a card for each charge counter on Otherworld Atlas."
+    IDS_STRING24165         "Scroll of Avacyn\n{1}\nArtifact\nAVR,C\n{1}, Sacrifice Scroll of Avacyn: Draw a card. If you control an Angel, you gain 5 life."
+    IDS_STRING24166         "Scroll of Griselbrand\n{1}\nArtifact\nAVR,C\n{1}, Sacrifice Scroll of Griselbrand: Target opponent discards a card. If you control a Demon, that player loses 3 life."
+    IDS_STRING24167         "Tormentor's Trident\n{2}\nArtifact - Equipment\nAVR,U\nEquipped creature gets +3/+0 and attacks each turn if able.\rEquip {3}"
+    IDS_STRING24168         "Vessel of Endless Rest\n{3}\nArtifact\nAVR,U\nWhen Vessel of Endless Rest enters the battlefield, put target card from a graveyard on the bottom of its owner's library.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING24169         "Seraph Sanctuary\n\nLand\nAVR,C\nWhen Seraph Sanctuary enters the battlefield, you gain 1 life.\rWhenever an Angel enters the battlefield under your control, you gain 1 life.\r{T}: add {1} to your mana pool."
+    IDS_STRING24170         "Vanguard's Shield\n{2}\nArtifact - Equipment\nAVR,C\nEquipped creature gets +0/+3 and can block an additional creature.\rEquip {3}"
+    IDS_STRING24171         "Zealous Conscripts\n{4R}\nCreature - Human Warrior\nAVR,R\nHaste\rWhen Zealous Conscripts enters the battlefield, gain control of target permanent until end of turn. Untap that permanent. It gains haste until end of turn.\n3/3"
+    IDS_STRING24172         "Dual Casting\n{1R}\nEnchantment - Aura\nAVR,R\nEnchant creature\rEnchanted creature has ""{R}, {T}: Copy target instant or sorcery spell you control. You may choose new targets for the copy."""
+    IDS_STRING24173         "Sheltering Word\n{1G}\nInstant\nAVR,C\nTarget creature you control gains hexproof until end of turn. You gain life equal to that creature's toughness."
+    IDS_STRING24174         "Vexing Devil\n{R}\nCreature - Devil\nAVR,R\nWhen Vexing Devil enters the battlefield, any opponent may have it deal 4 damage to him or her. If a player does, sacrifice Vexing Devil.\n4/3"
+    IDS_STRING24175         "Primal Surge\n{8GG}\nSorcery\nAVR,MR\nExile the top card of your library. If it's a permanent card, you may put it onto the battlefield. If you do, repeat this process."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24176         "Wolfir Silverheart\n{3GG}\nCreature - Wolf Warrior\nAVR,R\nSoulbond\rAs long as Wolfir Silverheart is paired with another creature, each of those creatures gets +4/+4.\n4/4"
+    IDS_STRING24177         "Temporal Mastery\n{5UU}\nSorcery\nAVR,MR\nTake an extra turn after this one. Exile Temporal Mastery.\r Miracle {1U}"
+    IDS_STRING24178         "Banishing Stroke\n{5W}\nInstant\nAVR,U\nPut target artifact, creature, or enchantment on the bottom of its owner's library.\rMiracle {W}"
+    IDS_STRING24179         "Bonfire of the Damned\n{XXR}\nSorcery\nAVR,MR\nBonfire of the Damned deals X damage to target player and each creature he or she controls.\rMiracle {XR}"
+    IDS_STRING24180         "Devastation Tide\n{3UU}\nSorcery\nAVR,R\nReturn all nonland permanents to their owners' hands.\rMiracle {1U}"
+    IDS_STRING24181         "Entreat the Angels\n{XXWWW}\nSorcery\nAVR,MR\nPut X 4/4 white Angel creature tokens with flying onto the battlefield.\rMiracle {XWW}"
+    IDS_STRING24182         "Reforge the Soul\n{3RR}\nSorcery\nAVR,R\nEach player discards his or her hand and draws seven cards.\rMiracle {1R}"
+    IDS_STRING24183         "Revenge of the Hunted\n{4GG}\nSorcery\nAVR,R\nUntil end of turn, target creature gets +6/+6 and gains trample, and all creatures able to block it this turn do so.\rMiracle {G}"
+    IDS_STRING24184         "Terminus\n{4WW}\nSorcery\nAVR,R\nPut all creatures on the bottom of their owners' libraries.\rMiracle {W}"
+    IDS_STRING24185         "Thunderous Wrath\n{4RR}\nInstant\nAVR,U\nThunderous Wrath deals 5 damage to target creature or player.\rMiracle {R}"
+    IDS_STRING24186         "Vanishment\n{4U}\nInstant\nAVR,U\nPut target nonland permanent on top of its owner's library.\rMiracle {U}"
+    IDS_STRING24187         "Druid's Familiar\n{3G}\nCreature - Bear\nAVR,U\nSoulbond\rAs long as Druid's Familiar is paired with another creature, each of those creatures gets +2/+2.\n2/2"
+    IDS_STRING24188         "Elgaud Shieldmate\n{3U}\nCreature - Human Soldier\nAVR,C\nSoulbond\rAs long as Elgaud Shieldmate is paired with another creature, both creatures have hexproof.\n2/3"
+    IDS_STRING24189         "Galvanic Alchemist\n{2U}\nCreature - Human Wizard\nAVR,C\nSoulbond\rAs long as Galvanic Alchemist is paired with another creature, each of those creatures has ""{2U}: Untap this creature.""\n1/4"
+    IDS_STRING24190         "Geist Trappers\n{4G}\nCreature - Human Warrior\nAVR,C\nSoulbond\rAs long as Geist Trappers is paired with another creature, both creatures have reach.\n3/5"
+    IDS_STRING24191         "Hanweir Lancer\n{2R}\nCreature - Human Knight\nAVR,C\nSoulbond\rAs long as Hanweir Lancer is paired with another creature, both creatures have first strike.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24192         "Lightning Mauler\n{1R}\nCreature - Human Berserker\nAVR,U\nSoulbond\rAs long as Lightning Mauler is paired with another creature, both creatures have haste.\n2/1"
+    IDS_STRING24193         "Nearheath Pilgrim\n{1W}\nCreature - Human Cleric\nAVR,U\nSoulbond\rAs long as Nearheath Pilgrim is paired with another creature, both creatures have lifelink.\n2/1"
+    IDS_STRING24194         "Nightshade Peddler\n{1G}\nCreature - Human Druid\nAVR,C\nSoulbond\rAs long as Nightshade Peddler is paired with another creature, both creatures have deathtouch.\n1/1"
+    IDS_STRING24195         "Pathbreaker Wurm\n{4GG}\nCreature - Wurm\nAVR,C\nSoulbond\rAs long as Pathbreaker Wurm is paired with another creature, both creatures have trample.\n6/4"
+    IDS_STRING24196         "Silverblade Paladin\n{1WW}\nCreature - Human Knight\nAVR,R\nSoulbond\rAs long as Silverblade Paladin is paired with another creature, both creatures have double strike.\n2/2"
+    IDS_STRING24197         "Spectral Gateguards\n{4W}\nCreature - Spirit Soldier\nAVR,C\nSoulbond\rAs long as Spectral Gateguards is paired with another creature, both creatures have vigilance.\n2/5"
+    IDS_STRING24198         "Trusted Forcemage\n{2G}\nCreature - Human Shaman\nAVR,C\nSoulbond\rAs long as Trusted Forcemage is paired with another creature, each of those creatures gets +1/+1.\n2/2"
+    IDS_STRING24199         "Wingcrafter\n{U}\nCreature - Human Wizard\nAVR,C\nSoulbond\rAs long as Wingcrafter is paired with another creature, both creatures have flying.\n1/1"
+    IDS_STRING24200         "Stonewright\n{R}\nCreature - Human Shaman\nAVR,C\nSoulbond\rAs long as Stonewright is paired with another creature, each of those creatures has ""{R}: This creature gets +1/+0 until end of turn.""\n1/1"
+    IDS_STRING24201         "Stern Mentor\n{3U}\nCreature - Human Wizard\nAVR,U\nSoulbond\rAs long as Stern Mentor is paired with another creature, each of those creatures has ""{T}: Target player puts the top two cards of his or her library into his or her graveyard.""\n2/2"
+    IDS_STRING24202         "Homicidal Seclusion\n{4B}\nEnchantment\nAVR,U\nAs long as you control exactly one creature, that creature gets +3/+1 and has lifelink."
+    IDS_STRING24203         "Malignus\n{3RR}\nCreature - Elemental Spirit\nAVR,MR\nMalignus's power and toughness are each equal to half the highest life total among your opponents, rounded up.\rDamage that would be dealt by Malignus can't be prevented.\n*/*"
+    IDS_STRING24204         "Descent into Madness\n{3BB}\nEnchantment\nAVR,MR\nAt the beginning of your upkeep, put a despair counter on Descent into Madness, then each player exiles X permanents he or she controls and/or cards from his or her hand, where X is the number of despair counters on Descent into Madness."
+    IDS_STRING24205         "Burn at the Stake\n{2RRR}\nSorcery\nAVR,R\nAs an additional cost to cast Burn at the Stake, tap any number of untapped creatures you control.\rBurn at the Stake deals damage to target creature or player equal to three times the number of creatures tapped this way."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

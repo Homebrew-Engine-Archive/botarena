@@ -1,0 +1,245 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Nemesis.ico"
+IDI_LARGE_MODULE        ICON                    "NemesisLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Nemesis"
+    IDS_EXPANSION_ABBREV    "NMS"
+    IDS_FIRST_CARD          "12000"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "12143"
+    IDS_MODULE_LARGE_ICON_ID "12144"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "14-02-2000"
+    IDS_MWS_FOLDER          "MWS\\NMS\\"
+    IDS_PRODUCT_LIST        """Nemesis Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12000         "Flowstone Overseer\n{2RRR}\nCreature - Beast\nNMS,R\n{RR}: Target creature gets +1/-1 until end of turn.\n4/4"
+    IDS_STRING12001         "Flowstone Strike\n{1R}\nInstant\nNMS,C\nTarget creature gets +1/-1 and gains haste until end of turn."
+    IDS_STRING12002         "Flowstone Surge\n{1R}\nEnchantment\nNMS,U\nCreatures you control get +1/-1."
+    IDS_STRING12003         "Ascendant Evincar\n{4BB}\nLegendary Creature - Vampire\nNMS,R\nFlying\rOther black creatures get +1/+1.\rNonblack creatures get -1/-1.\n3/3"
+    IDS_STRING12004         "Blinding Angel\n{3WW}\nCreature - Angel\nNMS,R\nFlying\rWhenever Blinding Angel deals combat damage to a player, that player skips his or her next combat phase.\n2/4"
+    IDS_STRING12005         "Carrion Wall\n{1BB}\nCreature - Wall\nNMS,U\nDefender\r{1B}: Regenerate Carrion Wall.\n3/2"
+    IDS_STRING12006         "Death Pit Offering\n{2BB}\nEnchantment\nNMS,R\nWhen Death Pit Offering enters the battlefield, sacrifice all creatures you control.\rCreatures you control get +2/+2."
+    IDS_STRING12007         "Flowstone Crusher\n{3RR}\nCreature - Beast\nNMS,C\n{R}: Flowstone Crusher gets +1/-1 until end of turn.\n4/4"
+    IDS_STRING12008         "Flowstone Slide\n{X2RR}\nSorcery\nNMS,R\nAll creatures get +X/-X until end of turn."
+    IDS_STRING12009         "Mind Slash\n{1BB}\nEnchantment\nNMS,U\n{B}, Sacrifice a creature: Target opponent reveals his or her hand. Choose a card from it. That player discards that card. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING12010         "Murderous Betrayal\n{BBB}\nEnchantment\nNMS,R\n{BB}, Pay half your life rounded up: Destroy target nonblack creature. It can't be regenerated."
+    IDS_STRING12011         "Oracle's Attendants\n{3W}\nCreature - Human Soldier\nNMS,R\n{T}: All damage that would be dealt to target creature this turn by a source of your choice is dealt to Oracle's Attendants instead.\n1/5"
+    IDS_STRING12012         "Rhox\n{4GG}\nCreature - Rhino Beast\nNMS,R\nYou may have Rhox assign its combat damage as though it weren't blocked.\r{2G}: Regenerate Rhox.\n5/5"
+    IDS_STRING12013         "Rootwater Commando\n{2U}\nCreature - Merfolk\nNMS,C\nIslandwalk\n2/2"
+    IDS_STRING12014         "Sneaky Homunculus\n{1U}\nCreature - Homunculus Illusion\nNMS,C\nSneaky Homunculus can't block or be blocked by creatures with power 2 or greater.\n1/1"
+    IDS_STRING12015         "Spineless Thug\n{1B}\nCreature - Zombie Mercenary\nNMS,C\nSpineless Thug can't block.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12016         "Stronghold Discipline\n{2BB}\nSorcery\nNMS,C\nEach player loses 1 life for each creature he or she controls."
+    IDS_STRING12017         "Treetop Bracers\n{1G}\nEnchantment - Aura\nNMS,C\nEnchant creature\rEnchanted creature gets +1/+1 and can't be blocked except by creatures with flying."
+    IDS_STRING12018         "Vicious Hunger\n{BB}\nSorcery\nNMS,C\nVicious Hunger deals 2 damage to target creature and you gain 2 life."
+    IDS_STRING12019         "Flame Rift\n{1R}\nSorcery\nNMS,C\nFlame Rift deals 4 damage to each player."
+    IDS_STRING12020         "Arc Mage\n{2R}\nCreature - Human Spellshaper\nNMS,U\n{2R}, {T}, Discard a card: Arc Mage deals 2 damage divided as you choose among one or two target creatures and/or players.\n2/2"
+    IDS_STRING12021         "Avenger en-Dal\n{1W}\nCreature - Human Spellshaper\nNMS,R\n{2W}, {T}, Discard a card: Exile target attacking creature. Its controller gains life equal to its toughness.\n1/1"
+    IDS_STRING12022         "Battlefield Percher\n{3BB}\nCreature - Bird\nNMS,U\nFlying\rBattlefield Percher can block only creatures with flying.\r{1B}: Battlefield Percher gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING12023         "Belbe's Percher\n{2B}\nCreature - Bird\nNMS,C\nFlying\rBelbe's Percher can block only creatures with flying.\n2/2"
+    IDS_STRING12024         "Bola Warrior\n{1R}\nCreature - Human Spellshaper Warrior\nNMS,C\n{R}, {T}, Discard a card: Target creature can't block this turn.\n1/1"
+    IDS_STRING12025         "Chieftain en-Dal\n{1WW}\nCreature - Human Knight\nNMS,U\nWhenever Chieftain en-Dal attacks, attacking creatures gain first strike until end of turn.\n2/2"
+    IDS_STRING12026         "Coiling Woodworm\n{2G}\nCreature - Insect Worm\nNMS,U\nCoiling Woodworm's power is equal to the number of Forests on the battlefield.\n*/1"
+    IDS_STRING12027         "Defiant Falcon\n{1W}\nCreature - Rebel Bird\nNMS,C\nFlying\r{4}, {T}: Search your library for a Rebel permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING12028         "Flowstone Wall\n{2R}\nCreature - Wall\nNMS,C\nDefender\r{R}: Flowstone Wall gets +1/-1 until end of turn.\n0/6"
+    IDS_STRING12029         "Lawbringer\n{2W}\nCreature - Kor Rebel\nNMS,C\n{T}, Sacrifice Lawbringer: Exile target red creature.\n2/2"
+    IDS_STRING12030         "Lightbringer\n{2W}\nCreature - Kor Rebel\nNMS,C\n{T}, Sacrifice Lightbringer: Exile target black creature.\n2/2"
+    IDS_STRING12031         "Moggcatcher\n{2RR}\nCreature - Human Mercenary\nNMS,R\n{3}, {T}: Search your library for a Goblin permanent card and put it onto the battlefield. Then shuffle your library.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12032         "Nesting Wurm\n{4GG}\nCreature - Wurm\nNMS,U\nTrample\rWhen Nesting Wurm enters the battlefield, you may search your library for up to three cards named Nesting Wurm, reveal them, and put them into your hand. If you do, shuffle your library.\n4/3"
+    IDS_STRING12033         "Netter en-Dal\n{W}\nCreature - Human Spellshaper\nNMS,C\n{W}, {T}, Discard a card: Target creature can't attack this turn.\n1/1"
+    IDS_STRING12034         "Oraxid\n{3U}\nCreature - Crab Beast\nNMS,C\nProtection from red\n2/3"
+    IDS_STRING12035         "Phyrexian Driver\n{2B}\nCreature - Zombie Mercenary\nNMS,C\nWhen Phyrexian Driver enters the battlefield, other Mercenary creatures get +1/+1 until end of turn.\n1/1"
+    IDS_STRING12036         "Plague Witch\n{1B}\nCreature - Elf Spellshaper\nNMS,C\n{B}, {T}, Discard a card: Target creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING12037         "Rathi Assassin\n{2BB}\nCreature - Zombie Mercenary Assassin\nNMS,R\n{1BB}, {T}: Destroy target tapped nonblack creature.\r{3}, {T}: Search your library for a Mercenary permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING12038         "Rathi Fiend\n{3B}\nCreature - Horror Mercenary\nNMS,U\nWhen Rathi Fiend enters the battlefield, each player loses 3 life.\r{3}, {T}: Search your library for a Mercenary permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING12039         "Rathi Intimidator\n{1BB}\nCreature - Horror Mercenary\nNMS,C\nFear\r{2}, {T}: Search your library for a Mercenary permanent card with converted mana cost 2 or less and put it onto the battlefield. Then shuffle your library.\n2/1"
+    IDS_STRING12040         "Seahunter\n{2UU}\nCreature - Human Mercenary\nNMS,R\n{3}, {T}: Search your library for a Merfolk permanent card and put it onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING12041         "Shrieking Mogg\n{1R}\nCreature - Goblin\nNMS,R\nHaste\rWhen Shrieking Mogg enters the battlefield, tap all other creatures.\n1/1"
+    IDS_STRING12042         "Silkenfist Fighter\n{1W}\nCreature - Kor Soldier\nNMS,C\nWhenever Silkenfist Fighter becomes blocked, untap it.\n1/3"
+    IDS_STRING12043         "Silkenfist Order\n{3WW}\nCreature - Kor Soldier\nNMS,U\nWhenever Silkenfist Order becomes blocked, untap it.\n3/5"
+    IDS_STRING12044         "Skyshroud Poacher\n{2GG}\nCreature - Human Rebel\nNMS,R\n{3}, {T}: Search your library for an Elf permanent card and put it onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING12045         "Skyshroud Sentinel\n{2G}\nCreature - Elf\nNMS,C\nWhen Skyshroud Sentinel enters the battlefield, you may search your library for up to three cards named Skyshroud Sentinel, reveal them, and put them into your hand. If you do, shuffle your library.\n1/1"
+    IDS_STRING12046         "Sliptide Serpent\n{4UU}\nCreature - Serpent\nNMS,R\n{3U}: Return Sliptide Serpent to its owner's hand.\n4/4"
+    IDS_STRING12047         "Spiteful Bully\n{1B}\nCreature - Zombie Mercenary\nNMS,C\nAt the beginning of your upkeep, Spiteful Bully deals 3 damage to target creature you control.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12048         "Stampede Driver\n{G}\nCreature - Human Spellshaper\nNMS,U\n{1G}, {T}, Discard a card: Creatures you control get +1/+1 and gain trample until end of turn.\n1/1"
+    IDS_STRING12049         "Stronghold Biologist\n{2U}\nCreature - Human Spellshaper\nNMS,U\n{UU}, {T}, Discard a card: Counter target creature spell.\n1/1"
+    IDS_STRING12050         "Stronghold Machinist\n{2U}\nCreature - Human Spellshaper\nNMS,U\n{UU}, {T}, Discard a card: Counter target noncreature spell.\n1/1"
+    IDS_STRING12051         "Stronghold Zeppelin\n{2UU}\nCreature - Human\nNMS,U\nFlying\rStronghold Zeppelin can block only creatures with flying.\n3/3"
+    IDS_STRING12052         "Trickster Mage\n{U}\nCreature - Human Spellshaper\nNMS,C\n{U}, {T}, Discard a card: You may tap or untap target artifact, creature, or land.\n1/1"
+    IDS_STRING12053         "Voice of Truth\n{3W}\nCreature - Angel\nNMS,U\nFlying, protection from white\n2/2"
+    IDS_STRING12054         "Complex Automaton\n{4}\nArtifact Creature - Golem\nNMS,R\nAt the beginning of your upkeep, if you control seven or more permanents, return Complex Automaton to its owner's hand.\n4/4"
+    IDS_STRING12055         "Flint Golem\n{4}\nArtifact Creature - Golem\nNMS,U\nWhenever Flint Golem becomes blocked, defending player puts the top three cards of his or her library into his or her graveyard.\n2/3"
+    IDS_STRING12056         "Flowstone Thopter\n{7}\nArtifact Creature - Thopter\nNMS,U\n{1}: Flowstone Thopter gets +1/-1 and gains flying until end of turn.\n4/4"
+    IDS_STRING12057         "Kor Haven\n\nLegendary Land\nNMS,R\n{T}: Add {1} to your mana pool.\r{1W}, {T}: Prevent all combat damage that would be dealt by target attacking creature this turn."
+    IDS_STRING12058         "Rath's Edge\n\nLegendary Land\nNMS,R\n{T}: Add {1} to your mana pool.\r{4}, {T}, Sacrifice a land: Rath's Edge deals 1 damage to target creature or player."
+    IDS_STRING12059         "Belbe's Armor\n{3}\nArtifact\nNMS,U\n{X}, {T}: Target creature gets -X/+X until end of turn."
+    IDS_STRING12060         "Predator, Flagship\n{5}\nLegendary Artifact\nNMS,R\n{2}: Target creature gains flying until end of turn.\r{5}, {T}: Destroy target creature with flying."
+    IDS_STRING12061         "Air Bladder\n{U}\nEnchantment - Aura\nNMS,C\nEnchant creature\rEnchanted creature has flying.\rEnchanted creature can block only creatures with flying."
+    IDS_STRING12062         "Fanatical Devotion\n{2W}\nEnchantment\nNMS,C\nSacrifice a creature: Regenerate target creature."
+    IDS_STRING12063         "Noble Stand\n{4W}\nEnchantment\nNMS,U\nWhenever a creature you control blocks, you gain 2 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12064         "Rising Waters\n{3U}\nEnchantment\nNMS,R\nLands don't untap during their controllers' untap steps.\rAt the beginning of each player's upkeep, that player untaps a land he or she controls."
+    IDS_STRING12065         "Seal of Cleansing\n{1W}\nEnchantment\nNMS,C\nSacrifice Seal of Cleansing: Destroy target artifact or enchantment."
+    IDS_STRING12066         "Seal of Doom\n{2B}\nEnchantment\nNMS,C\nSacrifice Seal of Doom: Destroy target nonblack creature. It can't be regenerated."
+    IDS_STRING12067         "Seal of Fire\n{R}\nEnchantment\nNMS,C\nSacrifice Seal of Fire: Seal of Fire deals 2 damage to target creature or player."
+    IDS_STRING12068         "Seal of Removal\n{U}\nEnchantment\nNMS,C\nSacrifice Seal of Removal: Return target creature to its owner's hand."
+    IDS_STRING12069         "Seal of Strength\n{G}\nEnchantment\nNMS,C\nSacrifice Seal of Strength: Target creature gets +3/+3 until end of turn."
+    IDS_STRING12070         "Spiritual Asylum\n{2WW}\nEnchantment\nNMS,R\nCreatures and lands you control have shroud.\rWhen a creature you control attacks, sacrifice Spiritual Asylum."
+    IDS_STRING12071         "Rackling\n{4}\nArtifact Creature - Construct\nNMS,U\nAt the beginning of each opponent's upkeep, Rackling deals X damage to that player, where X is 3 minus the number of cards in his or her hand.\n2/2"
+    IDS_STRING12072         "Viseling\n{4}\nArtifact Creature - Construct\nNMS,U\nAt the beginning of each opponent's upkeep, Viseling deals X damage to that player, where X is the number of cards in his or her hand minus 4.\n2/2"
+    IDS_STRING12073         "Infiltrate\n{U}\nInstant\nNMS,C\nTarget creature is unblockable this turn."
+    IDS_STRING12074         "Off Balance\n{W}\nInstant\nNMS,C\nTarget creature can't attack or block this turn."
+    IDS_STRING12075         "Mogg Alarm\n{1RR}\nSorcery\nNMS,U\nYou may sacrifice two Mountains rather than pay Mogg Alarm's mana cost.\rPut two 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING12076         "Skyshroud Claim\n{3G}\nSorcery\nNMS,C\nSearch your library for up to two Forest cards and put them onto the battlefield. Then shuffle your library."
+    IDS_STRING12077         "Blastoderm\n{2GG}\nCreature - Beast\nNMS\nShroud\rFading 3\n5/5"
+    IDS_STRING12078         "Ancient Hydra\n{4R}\nCreature - Hydra\nNMS,U\nFading 5\r{1}, Remove a fade counter from Ancient Hydra: Ancient Hydra deals 1 damage to target creature or player.\n5/1"
+    IDS_STRING12079         "Cloudskate\n{1U}\nCreature - Illusion\nNMS\nFlying\rFading 3\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12080         "Defender en-Vec\n{3W}\nCreature - Human Cleric\nNMS\nFading 4\rRemove a fade counter from Defender en-Vec: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n2/4"
+    IDS_STRING12081         "Jolting Merfolk\n{2UU}\nCreature - Merfolk\nNMS,U\nFading 4\rRemove a fade counter from Jolting Merfolk: Tap target creature.\n4/4"
+    IDS_STRING12082         "Phyrexian Prowler\n{3B}\nCreature - Zombie Mercenary\nNMS,U\nFading 3\rRemove a fade counter from Phyrexian Prowler: Phyrexian Prowler gets +1/+1 until end of turn.\n3/3"
+    IDS_STRING12083         "Rejuvenation Chamber\n{2}\nArtifact\nNMS,U\nFading 2\r{T}: You gain 2 life."
+    IDS_STRING12084         "Skyshroud Behemoth\n{5GG}\nCreature - Beast\nNMS,R\nFading 2\rSkyshroud Behemoth enters the battlefield tapped.\n10/10"
+    IDS_STRING12085         "Skyshroud Ridgeback\n{G}\nCreature - Beast\nNMS\nFading 2\n2/3"
+    IDS_STRING12086         "Woodripper\n{3GG}\nCreature - Beast\nNMS,U\nFading 3\r{1}, Remove a fade counter from Woodripper: Destroy target artifact.\n4/6"
+    IDS_STRING12087         "Overlaid Terrain\n{2GG}\nEnchantment\nNMS,R\nAs Overlaid Terrain enters the battlefield, sacrifice all lands you control.\rLands you control have ""{T}: Add two mana of any one color to your mana pool."""
+    IDS_STRING12088         "Accumulated Knowledge\n{1U}\nInstant\nNMS,C\nDraw a card, then draw cards equal to the number of cards named Accumulated Knowledge in all graveyards."
+    IDS_STRING12089         "Daze\n{1U}\nInstant\nNMS\nYou may return an Island you control to its owner's hand rather than pay Daze's mana cost.\rCounter target spell unless its controller pays {1}."
+    IDS_STRING12090         "Ensnare\n{3U}\nInstant\nNMS,U\nYou may return two Islands you control to their owner's hand rather than pay Ensnare's mana cost.\rTap all creatures."
+    IDS_STRING12091         "Angelic Favor\n{3W}\nInstant\nNMS,U\nIf you control a Plains, you may tap an untapped creature you control rather than pay Angelic Favor's mana cost.\rCast Angelic Favor only during combat.\rPut a 4/4 white Angel creature token with flying onto the battlefield. Exile it at the beginning of the next end step."
+    IDS_STRING12092         "Dark Triumph\n{4B}\nInstant\nNMS,U\nIf you control a Swamp, you may sacrifice a creature rather than pay Dark Triumph's mana cost.\rCreatures you control get +2/+0 until end of turn."
+    IDS_STRING12093         "Massacre\n{2BB}\nSorcery\nNMS,U\nIf an opponent controls a Plains and you control a Swamp, you may cast Massacre without paying its mana cost.\rAll creatures get -2/-2 until end of turn."
+    IDS_STRING12094         "Mogg Salvage\n{2R}\nInstant\nNMS,U\nIf an opponent controls an Island and you control a Mountain, you may cast Mogg Salvage without paying its mana cost.\rDestroy target artifact."
+    IDS_STRING12095         "Mogg Toady\n{1R}\nCreature - Goblin\nNMS,C\nMogg Toady can't attack unless you control more creatures than defending player.\rMogg Toady can't block unless you control more creatures than attacking player.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12096         "Refreshing Rain\n{3G}\nInstant\nNMS,U\nIf an opponent controls a Swamp and you control a Forest, you may cast Refreshing Rain without paying its mana cost.\rTarget player gains 6 life."
+    IDS_STRING12097         "Reverent Silence\n{3G}\nSorcery\nNMS,C\nIf you control a Forest, rather than pay Reverent Silence's mana cost, you may have each other player gain 6 life.\rDestroy all enchantments."
+    IDS_STRING12098         "Sivvi's Ruse\n{2WW}\nInstant\nNMS,U\nIf an opponent controls a Mountain and you control a Plains, you may cast Sivvi's Ruse without paying its mana cost.\rPrevent all damage that would be dealt this turn to creatures you control."
+    IDS_STRING12099         "Skyshroud Cutter\n{3G}\nCreature - Beast\nNMS,C\nIf you control a Forest, rather than pay Skyshroud Cutter's mana cost, you may have each other player gain 5 life.\n2/2"
+    IDS_STRING12100         "Submerge\n{4U}\nInstant\nNMS,U\nIf an opponent controls a Forest and you control an Island, you may cast Submerge without paying its mana cost.\rPut target creature on top of its owner's library."
+    IDS_STRING12101         "Mossdog\n{G}\nCreature - Plant Hound\nNMS,C\nWhenever Mossdog becomes the target of a spell or ability an opponent controls, put a +1/+1 counter on Mossdog.\n1/1"
+    IDS_STRING12102         "Downhill Charge\n{2R}\nInstant\nNMS,C\nYou may sacrifice a Mountain rather than pay Downhill Charge's mana cost.\rTarget creature gets +X/+0 until end of turn, where X is the number of Mountains you control."
+    IDS_STRING12103         "Tangle Wire\n{3}\nArtifact\nNMS,R\nFading 4\rAt the beginning of each player's upkeep, that player taps an untapped artifact, creature, or land he or she controls for each fade counter on Tangle Wire."
+    IDS_STRING12104         "Rusting Golem\n{4}\nArtifact Creature - Golem\nNMS,U\nFading 5\rRusting Golem's power and toughness are each equal to the number of fade counters on it.\n*/*"
+    IDS_STRING12105         "Saproling Burst\n{4G}\nEnchantment\nNMS,R\nFading 7\rRemove a fade counter from Saproling Burst: Put a green Saproling creature token onto the battlefield. It has ""This creature's power and toughness are each equal to the number of fade counters on Saproling Burst.""\rWhen Saproling Burst leaves the battlefield, destroy all tokens put onto the battlefield with Saproling Burst. They can't be regenerated."
+    IDS_STRING12106         "Eye of Yawgmoth\n{3}\nArtifact\nNMS,R\n{3}, {T}, Sacrifice a creature: Reveal a number of cards from the top of your library equal to the sacrificed creature's power. Put one into your hand and exile the rest."
+    IDS_STRING12107         "Lin Sivvi, Defiant Hero\n{1WW}\nLegendary Creature - Human Rebel\nNMS,R\n{X}, {T}: Search your library for a Rebel permanent card with converted mana cost X or less and put it onto the battlefield. Then shuffle your library.\r{3}: Put target Rebel card from your graveyard on the bottom of your library.\n1/3"
+    IDS_STRING12108         "Dominate\n{X1UU}\nInstant\nNMS,U\nGain control of target creature with converted mana cost X or less. (This effect lasts indefinitely.)"
+    IDS_STRING12109         "Wild Mammoth\n{2G}\nCreature - Elephant\nNMS,U\nAt the beginning of your upkeep, if a player controls more creatures than each other player, the player who controls the most creatures gains control of Wild Mammoth.\n3/4"
+    IDS_STRING12110         "Volrath the Fallen\n{3BBB}\nLegendary Creature - Shapeshifter\nNMS,R\n{1B}, Discard a creature card: Volrath the Fallen gets +X/+X until end of turn, where X is the discarded card's converted mana cost.\n6/4"
+    IDS_STRING12111         "AEther Barrier\n{2U}\nEnchantment\nNMS,R\nWhenever a player casts a creature spell, that player sacrifices a permanent unless he or she pays {1}."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12112         "Belbe's Portal\n{5}\nArtifact\nNMS,R\nAs Belbe's Portal enters the battlefield, choose a creature type.\r{3}, {T}: You may put a creature card of the chosen type from your hand onto the battlefield."
+    IDS_STRING12113         "Divining Witch\n{1B}\nCreature - Human Spellshaper\nNMS,R\n{1B}, {T}, Discard a card: Name a card. Exile the top six cards of your library. Reveal cards from the top of your library until you reveal the named card, then put that card into your hand. Exile all other cards revealed this way.\n1/1"
+    IDS_STRING12114         "Pack Hunt\n{3G}\nSorcery\nNMS,R\nSearch your library for up to three cards with the same name as target creature, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING12115         "Parallax Wave\n{2WW}\nEnchantment\nNMS,R\nFading 5\rRemove a fade counter from Parallax Wave: Exile target creature.\rWhen Parallax Wave leaves the battlefield, each player returns to the battlefield all cards he or she owns exiled with Parallax Wave."
+    IDS_STRING12116         "Parallax Tide\n{2UU}\nEnchantment\nNMS,R\nFading 5\rRemove a fade counter from Parallax Tide: Exile target land.\rWhen Parallax Tide leaves the battlefield, each player returns to the battlefield all cards he or she owns exiled with Parallax Tide."
+    IDS_STRING12117         "Terrain Generator\n\nLand\nNMS,U\n{T}: Add {1} to your mana pool.\r{2}, {T}: You may put a basic land card from your hand onto the battlefield tapped."
+	IDS_STRING12118         "Animate Land\n{G}\nInstant\nNMS,U\nUntil end of turn, target land becomes a 3/3 creature that's still a land."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

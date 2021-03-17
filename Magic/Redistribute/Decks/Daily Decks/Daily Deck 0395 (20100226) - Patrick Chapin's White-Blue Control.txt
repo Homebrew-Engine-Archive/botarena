@@ -1,0 +1,77 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 1 (1.67%)
+
+Iona, Shield of Emeria (19468)
+
+// Instants - 11 (18.33%)
+
+4 Cancel (19346)
+Celestial Purge (4014)
+2 Essence Scatter (4143)
+2 Flashfreeze (4038)
+Negate (4016)
+Path to Exile (8897)
+
+// Sorceries - 11 (18.33%)
+
+3 Day of Judgment (19340)
+2 Martial Coup (8886)
+2 Mind Spring (4004)
+4 Treasure Hunt (19673)
+
+// Enchantments - 3 (5.00%)
+
+3 Oblivion Ring (8718)
+
+// Artifacts - 4 (6.67%)
+
+4 Everflowing Chalice (19677)
+
+// Lands - 26 (43.33%)
+
+2 Arid Mesa (19349)
+4 Celestial Colonnade (19602)
+4 Glacial Fortress (4200)
+4 Halimar Depths (19634)
+Island (19310)
+Island (19308)
+Island (19309)
+Plains (19326)
+Plains (19325)
+Plains (19324)
+Plains (19327)
+Scalding Tarn (19358)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth, Knight-Errant (8722)
+
+// Creatures
+
+3 Baneslayer Angel (4224)
+3 Kor Firewalker (19606)
+Perimeter Captain (19702)
+
+// Instants
+
+Essence Scatter (4143)
+2 Flashfreeze (4038)
+2 Negate (4016)
+
+// Enchantments
+
+Mind Control (4144)
+
+// Lands
+
+Plains (19324)

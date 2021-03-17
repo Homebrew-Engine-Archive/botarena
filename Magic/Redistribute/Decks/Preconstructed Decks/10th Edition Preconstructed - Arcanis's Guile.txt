@@ -1,0 +1,42 @@
+// Arcanis's Guile
+// 10th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 10 (25.00%)
+
+Air Elemental (3003)
+Arcanis the Omnipotent (3250)
+Aven Fisher (3009)
+2 Cloud Elemental (3252)
+Denizen of the Deep (3333)
+Phantom Warrior (3122)
+2 Sage Owl (3146)
+Thieving Magpie (3183)
+
+// Instants - 8 (20.00%)
+
+Boomerang (3018)
+2 Cancel (3212)
+2 Remove Soul (3139)
+Telling Time (3336)
+2 Unsummon (3192)
+
+// Sorceries - 3 (7.50%)
+
+2 Counsel of the Soratami (3026)
+Tidings (3185)
+
+// Artifacts - 2 (5.00%)
+
+Kraken's Eye (3089)
+Rod of Ruin (3142)
+
+// Lands - 17 (42.50%)
+
+5 Island (3084)
+4 Island (3081)
+4 Island (3082)
+4 Island (3083)

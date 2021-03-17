@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Dark Confidant (16449)
+4 Mother of Runes (11201)
+4 Stoneforge Mystic (19638)
+4 Tidehollow Sculler (8721)
+4 Vampire Nighthawk (19355)
+
+// Instants - 5 (8.33%)
+
+Diabolic Edict (10182)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 10 (16.67%)
+
+2 Inquisition of Kozilek (20846)
+4 Thoughtseize (17901)
+4 Vindicate (13007)
+
+// Artifacts - 3 (5.00%)
+
+Sword of Fire and Ice (15222)
+Sword of Light and Shadow (15253)
+Umezawa's Jitte (19149)
+
+// Lands - 22 (36.67%)
+
+Karakas (5431)
+4 Marsh Flats (19357)
+Plains (20813)
+Plains (20812)
+Plains (20814)
+4 Scrubland (7356)
+Swamp (20817)
+Swamp (20818)
+Swamp (20819)
+2 Swamp (20816)
+Urborg, Tomb of Yawgmoth (2606)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Faerie Macabre (18539)
+
+// Instants
+
+Diabolic Edict (10182)
+Path to Exile (8897)
+
+// Sorceries
+
+2 Duress (4033)
+
+// Enchantments
+
+3 Engineered Plague (1042)
+
+// Artifacts
+
+4 Pithing Needle (4081)

@@ -1,0 +1,43 @@
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 14 (34.15%)
+
+Cudgel Troll (4168)
+Daggerback Basilisk (20867)
+2 Elvish Visionary (4181)
+Gigantomancer (20977)
+Kor Spiritdancer (20994)
+Nema Siltlurker (20886)
+Ornithopter (4076)
+Pelakka Wurm (20839)
+Prized Unicorn (4173)
+Soul's Attendant (20895)
+2 Sporecap Spider (20897)
+Stomper Cub (20899)
+
+// Instants - 3 (7.32%)
+
+Angel's Mercy (4126)
+Harmless Assault (20914)
+Righteousness (4094)
+
+// Enchantments - 6 (14.63%)
+
+Boar Umbra (20967)
+Eland Umbra (20972)
+Mammoth Umbra (20974)
+2 Pacifism (4078)
+Spider Umbra (20976)
+
+// Lands - 18 (43.90%)
+
+3 Forest (20800)
+2 Forest (20801)
+2 Forest (20802)
+2 Forest (20803)
+3 Plains (20812)
+2 Plains (20813)
+2 Plains (20814)
+2 Plains (20815)

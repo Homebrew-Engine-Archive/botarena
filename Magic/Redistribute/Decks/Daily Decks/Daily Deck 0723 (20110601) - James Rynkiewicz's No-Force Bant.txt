@@ -1,0 +1,71 @@
+// Total cards in deck - 58
+
+// Planeswalkers - 2 (3.45%)
+
+2 Jace, the Mind Sculptor (19670)
+
+// Creatures - 15 (25.86%)
+
+Birds of Paradise (21103)
+Dryad Arbor (17804)
+3 Knight of the Reliquary (8815)
+3 Noble Hierarch (8819)
+2 Qasali Pridemage (9018)
+2 Stoneforge Mystic (19638)
+Tarmogoyf (17704)
+2 Vendilion Clique (18369)
+
+// Instants - 14 (24.14%)
+
+4 Brainstorm (11610)
+3 Daze (12089)
+3 Mental Misstep (21910)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 4 (6.90%)
+
+4 Green Sun's Zenith (21720)
+
+// Artifacts - 2 (3.45%)
+
+Sword of Feast and Famine (21762)
+Umezawa's Jitte (19149)
+
+// Lands - 21 (36.21%)
+
+Forest (21972)
+Karakas (5431)
+Maze of Ith (5737)
+4 Misty Rainforest (19356)
+2 Savannah (7353)
+3 Tropical Island (7384)
+2 Tundra (7386)
+3 Wasteland (10008)
+4 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Gaddock Teeg (18062)
+2 Rhox War Monk (8694)
+Sylvan Safekeeper (13833)
+Thrun, the Last Troll (21716)
+
+// Instants
+
+Dispel (19630)
+2 Krosan Grip (17369)
+Mental Misstep (21910)
+Path to Exile (8897)
+3 Spell Pierce (19377)
+
+// Artifacts
+
+Umezawa's Jitte (19149)
+
+// Lands
+
+Bojuka Bog (19672)

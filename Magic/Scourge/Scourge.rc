@@ -1,0 +1,237 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Scourge.ico"
+IDI_LARGE_MODULE        ICON                    "ScourgeLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Scourge"
+    IDS_EXPANSION_ABBREV    "SCG"
+    IDS_FIRST_CARD          "14600"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "14743"
+    IDS_MODULE_LARGE_ICON_ID "14744"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "26-05-2003"
+    IDS_MWS_FOLDER          "MWS\\SCG\\"
+    IDS_PRODUCT_LIST        """Scourge Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14600         "Dawn Elemental\n{WWWW}\nCreature - Elemental\nSCG,R\nFlying\rPrevent all damage that would be dealt to Dawn Elemental.\n3/3"
+    IDS_STRING14601         "Enrage\n{XR}\nInstant\nSCG,U\nTarget creature gets +X/+0 until end of turn."
+    IDS_STRING14602         "Final Punishment\n{3BB}\nSorcery\nSCG,R\nTarget player loses life equal to the damage already dealt to him or her this turn."
+    IDS_STRING14603         "Form of the Dragon\n{4RRR}\nEnchantment\nSCG,R\nAt the beginning of your upkeep, Form of the Dragon deals 5 damage to target creature or player.\rAt the beginning of each end step, your life total becomes 5.\rCreatures without flying can't attack you."
+    IDS_STRING14604         "Goblin Brigand\n{1R}\nCreature - Goblin Warrior\nSCG,C\nGoblin Brigand attacks each turn if able.\n2/2"
+    IDS_STRING14605         "Rain of Blades\n{W}\nInstant\nSCG,U\nRain of Blades deals 1 damage to each attacking creature."
+    IDS_STRING14606         "Siege-Gang Commander\n{3RR}\nCreature - Goblin\nSCG,R\nWhen Siege-Gang Commander enters the battlefield, put three 1/1 red Goblin creature tokens onto the battlefield.\r{1R}, Sacrifice a Goblin: Siege-Gang Commander deals 2 damage to target creature or player.\n2/2"
+    IDS_STRING14607         "Zealous Inquisitor\n{2W}\nCreature - Human Cleric\nSCG,C\n{1W}: The next 1 damage that would be dealt to Zealous Inquisitor this turn is dealt to target creature instead.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14608         "Ark of Blight\n{2}\nArtifact\nSCG,U\n{3}, {T}, Sacrifice Ark of Blight: Destroy target land."
+    IDS_STRING14609         "Ambush Commander\n{3GG}\nCreature - Elf\nSCG,R\nForests you control are 1/1 green Elf creatures that are still lands.\r{1G}, Sacrifice an Elf: Target creature gets +3/+3 until end of turn.\n2/2"
+    IDS_STRING14610         "Bladewing the Risen\n{3BBRR}\nLegendary Creature - Zombie Dragon\nSCG,R\nFlying\rWhen Bladewing the Risen enters the battlefield, you may return target Dragon permanent card from your graveyard to the battlefield.\r{BR}: Dragon creatures get +1/+1 until end of turn.\n4/4"
+    IDS_STRING14611         "Carrion Feeder\n{B}\nCreature - Zombie\nSCG,C\nCarrion Feeder can't block.\rSacrifice a creature: Put a +1/+1 counter on Carrion Feeder.\n1/1"
+    IDS_STRING14612         "Coast Watcher\n{1U}\nCreature - Bird Soldier\nSCG,C\nFlying, protection from green\n1/1"
+    IDS_STRING14613         "Death's-Head Buzzard\n{1BB}\nCreature - Bird\nSCG,C\nFlying\rWhen Death's-Head Buzzard dies, all creatures get -1/-1 until end of turn.\n2/1"
+    IDS_STRING14614         "Elvish Aberration\n{5G}\nCreature - Elf Mutant\nSCG,U\n{T}: Add {GGG} to your mana pool.\rForestcycling {2}\n4/5"
+    IDS_STRING14615         "Noble Templar\n{5W}\nCreature - Human Cleric Soldier\nSCG,C\nVigilance\rPlainscycling {2}\n3/6"
+    IDS_STRING14616         "Shoreline Ranger\n{5U}\nCreature - Bird Soldier\nSCG,C\nFlying\rIslandcycling {2}\n3/4"
+    IDS_STRING14617         "Silver Knight\n{WW}\nCreature - Human Knight\nSCG,U\nFirst strike, protection from red\n2/2"
+    IDS_STRING14618         "Treetop Scout\n{G}\nCreature - Elf Scout\nSCG,C\nTreetop Scout can't be blocked except by creatures with flying.\n1/1"
+    IDS_STRING14619         "Twisted Abomination\n{5B}\nCreature - Zombie Mutant\nSCG,C\n{B}: Regenerate Twisted Abomination.\rSwampcycling {2}\n5/3"
+    IDS_STRING14620         "Wirewood Guardian\n{5GG}\nCreature - Elf Mutant\nSCG,C\nForestcycling {2}\n6/6"
+    IDS_STRING14621         "Unspeakable Symbol\n{1BB}\nEnchantment\nSCG,U\nPay 3 life: Put a +1/+1 counter on target creature."
+    IDS_STRING14622         "Chartooth Cougar\n{5R}\nCreature - Cat Beast\nSCG,C\n{R}: Chartooth Cougar gets +1/+0 until end of turn.\rMountaincycling {2}\n4/4"
+    IDS_STRING14623         "Eternal Dragon\n{5WW}\nCreature - Dragon Spirit\nSCG,R\nFlying\r{3WW}: Return Eternal Dragon from your graveyard to your hand. Activate this ability only during your upkeep.\rPlainscycling {2}\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14624         "Sliver Overlord\n{WUBRG}\nLegendary Creature - Sliver Mutant\nSCG,R\n{3}: Search your library for a Sliver card, reveal that card, and put it into your hand. Then shuffle your library.\r{3}: Gain control of target Sliver.\n7/7"
+    IDS_STRING14625         "Vengeful Dead\n{3B}\nCreature - Zombie\nSCG,C\nWhenever Vengeful Dead or another Zombie dies, each opponent loses 1 life.\n3/2"
+    IDS_STRING14626         "Call to the Grave\n{4B}\nEnchantment\nSCG,R\nAt the beginning of each player's upkeep, that player sacrifices a non-Zombie creature.\rAt the beginning of the end step, if no creatures are on the battlefield, sacrifice Call to the Grave."
+    IDS_STRING14627         "Primitive Etchings\n{2GG}\nEnchantment\nSCG,R\nReveal the first card you draw each turn. Whenever you reveal a creature card this way, draw a card."
+    IDS_STRING14628         "Uncontrolled Infestation\n{1R}\nEnchantment - Aura\nSCG,C\nEnchant nonbasic land\rWhen enchanted land becomes tapped, destroy it."
+    IDS_STRING14629         "Decree of Savagery\n{7GG}\nInstant\nSCG,R\nPut four +1/+1 counters on each creature you control.\rCycling {4GG}\rWhen you cycle Decree of Savagery, you may put four +1/+1 counters on target creature."
+    IDS_STRING14630         "Gilded Light\n{1W}\nInstant\nSCG,U\nYou gain shroud until end of turn.\rCycling {2}"
+    IDS_STRING14631         "Recuperate\n{3W}\nInstant\nSCG,C\nChoose one - You gain 6 life; or prevent the next 6 damage that would be dealt to target creature this turn."
+    IDS_STRING14632         "Spark Spray\n{R}\nInstant\nSCG,C\nSpark Spray deals 1 damage to target creature or player.\rCycling {R}"
+    IDS_STRING14633         "Wipe Clean\n{1W}\nInstant\nSCG,C\nExile target enchantment.\rCycling {3}"
+    IDS_STRING14634         "Break Asunder\n{2GG}\nSorcery\nSCG,C\nDestroy target artifact or enchantment.\rCycling {2}"
+    IDS_STRING14635         "Claws of Wirewood\n{3G}\nSorcery\nSCG,U\nClaws of Wirewood deals 3 damage to each creature with flying and each player.\rCycling {2}"
+    IDS_STRING14636         "Goblin War Strike\n{R}\nSorcery\nSCG,C\nGoblin War Strike deals damage equal to the number of Goblins you control to target player."
+    IDS_STRING14637         "Misguided Rage\n{2R}\nSorcery\nSCG,C\nTarget player sacrifices a permanent."
+    IDS_STRING14638         "Skulltap\n{1B}\nSorcery\nSCG,C\nAs an additional cost to cast Skulltap, sacrifice a creature.\rDraw two cards."
+    IDS_STRING14639         "Unburden\n{1BB}\nSorcery\nSCG,C\nTarget player discards two cards.\rCycling {2}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14640         "Ageless Sentinels\n{3W}\nCreature - Wall\nSCG,R\nDefender\rFlying\rWhen Ageless Sentinels blocks, it becomes a Bird Giant, and it loses defender.\n4/4"
+    IDS_STRING14641         "Dragon Tyrant\n{8RR}\nCreature - Dragon\nSCG,R\nFlying, trample\rDouble strike\rAt the beginning of your upkeep, sacrifice Dragon Tyrant unless you pay {RRRR}.\r{R}: Dragon Tyrant gets +1/+0 until end of turn.\n6/6"
+    IDS_STRING14642         "Fierce Empath\n{2G}\nCreature - Elf\nSCG,C\nWhen Fierce Empath enters the battlefield, you may search your library for a creature card with converted mana cost 6 or greater, reveal it, put it into your hand, then shuffle your library.\n1/1"
+    IDS_STRING14643         "Kurgadon\n{4G}\nCreature - Beast\nSCG,U\nWhenever you cast a creature spell with converted mana cost 6 or greater, put three +1/+1 counters on Kurgadon.\n3/3"
+    IDS_STRING14644         "Nefashu\n{4BB}\nCreature - Zombie Mutant\nSCG,R\nWhenever Nefashu attacks, up to five target creatures each get -1/-1 until end of turn.\n5/3"
+    IDS_STRING14645         "Temple of the False God\n\nLand\nSCG,U\n{T}: Add {2} to your mana pool. Activate this ability only if you control five or more lands."
+    IDS_STRING14646         "Pyrostatic Pillar\n{1R}\nEnchantment\nSCG,U\nWhenever a player casts a spell with converted mana cost 3 or less, Pyrostatic Pillar deals 2 damage to that player."
+    IDS_STRING14647         "Decree of Justice\n{XX2WW}\nSorcery\nSCG,R\nPut X 4/4 white Angel creature tokens with flying onto the battlefield.\rCycling {2W}\rWhen you cycle Decree of Justice, you may pay {X}. If you do, put X 1/1 white Soldier creature tokens onto the battlefield."
+    IDS_STRING14648         "Decree of Annihilation\n{8RR}\nSorcery\nSCG,R\nExile all artifacts, creatures, and lands from the battlefield, all cards from all graveyards, and all cards from all hands.\rCycling {5RR}\rWhen you cycle Decree of Annihilation, destroy all lands."
+    IDS_STRING14649         "Xantid Swarm\n{G}\nCreature - Insect\nSCG,R\nFlying\rWhenever Xantid Swarm attacks, defending player can't cast spells this turn.\n0/1"
+    IDS_STRING14650         "Extra Arms\n{4R}\nEnchantment - Aura\nSCG,U\nEnchant creature\rWhenever enchanted creature attacks, it deals 2 damage to target creature or player."
+    IDS_STRING14651         "Lingering Death\n{1B}\nEnchantment - Aura\nSCG,C\nEnchant creature\rAt the beginning of the end step of enchanted creature's controller, that player sacrifices that creature."
+    IDS_STRING14652         "One with Nature\n{G}\nEnchantment - Aura\nSCG,U\nEnchant creature\rWhenever enchanted creature deals combat damage to a player, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library."
+    IDS_STRING14653         "Metamorphose\n{1U}\nInstant\nSCG,U\nPut target permanent an opponent controls on top of its owner's library. That opponent may put an artifact, creature, enchantment, or land card from his or her hand onto the battlefield."
+    IDS_STRING14654         "Divergent Growth\n{G}\nInstant\nSCG,C\nUntil end of turn, lands you control gain ""{T}: Add one mana of any color to your mana pool."""
+    IDS_STRING14655         "Wirewood Symbiote\n{G}\nCreature - Insect\nSCG,U\nReturn an Elf you control to its owner's hand: Untap target creature. Activate this ability only once each turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14656         "Dragonstalker\n{4W}\nCreature - Bird Soldier\nSCG,U\nFlying, protection from Dragons\n3/3"
+    IDS_STRING14657         "Frozen Solid\n{1UU}\nEnchantment - Aura\nSCG,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step.\rWhen enchanted creature is dealt damage, destroy it."
+    IDS_STRING14658         "Goblin Warchief\n{1RR}\nCreature - Goblin\nSCG,U\nGoblin spells you cast cost {1} less to cast.\rGoblin creatures you control have haste.\n2/2"
+    IDS_STRING14659         "Dragonspeaker Shaman\n{1RR}\nCreature - Human Barbarian Shaman\nSCG,U\nDragon spells you cast cost {2} less to cast.\n2/2"
+    IDS_STRING14660         "Edgewalker\n{1WB}\nCreature - Human Cleric\nSCG,U\nCleric spells you cast cost {WB} less to cast. This effect reduces only the amount of colored mana you pay.\n2/2"
+    IDS_STRING14661         "Daru Warchief\n{2WW}\nCreature - Human Soldier\nSCG,U\nSoldier spells you cast cost {1} less to cast.\rSoldier creatures you control get +1/+2.\n1/1"
+    IDS_STRING14662         "Krosan Warchief\n{2G}\nCreature - Beast\nSCG,U\nBeast spells you cast cost {1} less to cast.\r{1G}: Regenerate target Beast.\n2/2"
+    IDS_STRING14663         "Undead Warchief\n{2BB}\nCreature - Zombie\nSCG,U\nZombie spells you cast cost {1} less to cast.\rZombie creatures you control get +2/+1.\n1/1"
+    IDS_STRING14664         "Thundercloud Elemental\n{5UU}\nCreature - Elemental\nSCG,U\nFlying\r{3U}: Tap all creatures with toughness 2 or less.\r{3U}: All other creatures lose flying until end of turn.\n3/4"
+    IDS_STRING14665         "Dragon Shadow\n{1B}\nEnchantment - Aura\nSCG,C\nEnchant creature\rEnchanted creature gets +1/+0 and has fear.\rWhen a creature with converted mana cost 6 or more enters the battlefield, you may return Dragon Shadow from your graveyard to the battlefield attached to that creature."
+    IDS_STRING14666         "Krosan Drover\n{3G}\nCreature - Elf\nSCG,C\nCreature spells you cast with converted mana cost 6 or greater cost {2} less to cast.\n2/2"
+    IDS_STRING14667         "Dragon Mage\n{5RR}\nCreature - Dragon Wizard\nSCG,R\nFlying\rWhenever Dragon Mage deals combat damage to a player, each player discards his or her hand and draws seven cards.\n5/5"
+    IDS_STRING14668         "Dragon Fangs\n{1G}\nEnchantment - Aura\nSCG,C\nEnchant creature\rEnchanted creature gets +1/+1 and has trample.\rWhen a creature with converted mana cost 6 or more enters the battlefield, you may return Dragon Fangs from your graveyard to the battlefield attached to that creature."
+    IDS_STRING14669         "Dragon Scales\n{1W}\nEnchantment - Aura\nSCG,C\nEnchant creature\rEnchanted creature gets +1/+2 and has vigilance.\rWhen a creature with converted mana cost 6 or more enters the battlefield, you may return Dragon Scales from your graveyard to the battlefield attached to that creature."
+    IDS_STRING14670         "Dragon Wings\n{1U}\nEnchantment - Aura\nSCG,C\nEnchant creature\rEnchanted creature has flying.\rCycling {1U}\rWhen a creature with converted mana cost 6 or more enters the battlefield, you may return Dragon Wings from your graveyard to the battlefield attached to that creature."
+    IDS_STRING14671         "Bladewing's Thrall\n{2BB}\nCreature - Zombie\nSCG,U\nBladewing's Thrall has flying as long as you control a Dragon.\rWhen a Dragon enters the battlefield, you may return Bladewing's Thrall from your graveyard to the battlefield.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14672         "Dragon Breath\n{1R}\nEnchantment - Aura\nSCG,C\nEnchant creature\rEnchanted creature has haste.\r{R}: Enchanted creature gets +1/+0 until end of turn.\rWhen a creature with converted mana cost 6 or greater enters the battlefield, you may return Dragon Breath from your graveyard to the battlefield attached to that creature."
+    IDS_STRING14673         "Pemmin's Aura\n{1UU}\nEnchantment - Aura\nSCG,U\nEnchant creature\r{U}: Untap enchanted creature.\r{U}: Enchanted creature gains flying until end of turn.\r{U}: Enchanted creature gains shroud until end of turn.\r{1}: Enchanted creature gets +1/-1 or -1/+1 until end of turn."
+    IDS_STRING14674         "Consumptive Goo\n{BB}\nCreature - Ooze\nSCG,R\n{2BB}: Target creature gets -1/-1 until end of turn. Put a +1/+1 counter on Consumptive Goo.\n1/1"
+    IDS_STRING14675         "Trap Digger\n{3W}\nCreature - Human Soldier\nSCG,R\n{2W}, {T}: Put a trap counter on target land you control.\rSacrifice a land with a trap counter on it: Trap Digger deals 3 damage to target attacking creature without flying.\n1/3"
+    IDS_STRING14676         "Stifle\n{U}\nInstant\nSCG,R\nCounter target activated or triggered ability. (Mana abilities can't be targeted.)"
+    IDS_STRING14677         "Tendrils of Agony\n{2BB}\nSorcery\nSCG,U\nTarget player loses 2 life and you gain 2 life.\rStorm"
+    IDS_STRING14678         "Astral Steel\n{2W}\nInstant\nSCG,C\nTarget creature gets +1/+2 until end of turn.\rStorm"
+    IDS_STRING14679         "Brain Freeze\n{1U}\nInstant\nSCG,U\nTarget player puts the top three cards of his or her library into his or her graveyard.\rStorm"
+    IDS_STRING14680         "Dragonstorm\n{8R}\nSorcery\nSCG,R\nSearch your library for a Dragon permanent card and put it onto the battlefield. Then shuffle your library.\rStorm"
+    IDS_STRING14681         "Hindering Touch\n{3U}\nInstant\nSCG,C\nCounter target spell unless its controller pays {2}.\rStorm"
+    IDS_STRING14682         "Hunting Pack\n{5GG}\nInstant\nSCG,U\nPut a 4/4 green Beast creature token onto the battlefield.\rStorm"
+    IDS_STRING14683         "Reaping the Graves\n{2B}\nInstant\nSCG,C\nReturn target creature card from your graveyard to your hand.\rStorm"
+    IDS_STRING14684         "Scattershot\n{2R}\nInstant\nSCG,C\nScattershot deals 1 damage to target creature.\rStorm"
+    IDS_STRING14685         "Sprouting Vines\n{2G}\nInstant\nSCG,C\nSearch your library for a basic land card, reveal that card, and put it into your hand. Then shuffle your library.\rStorm"
+    IDS_STRING14686         "Temporal Fissure\n{4U}\nSorcery\nSCG,C\nReturn target permanent to its owner's hand.\rStorm"
+    IDS_STRING14687         "Wing Shards\n{1WW}\nInstant\nSCG,U\nTarget player sacrifices an attacking creature.\rStorm"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14688         "Accelerated Mutation\n{3GG}\nInstant\nSCG,C\nTarget creature gets +X/+X until end of turn, where X is the highest converted mana cost among permanents you control."
+    IDS_STRING14689         "Cabal Conditioning\n{6B}\nSorcery\nSCG,R\nAny number of target players each discard a number of cards equal to the highest converted mana cost among permanents you control."
+    IDS_STRING14690         "Dispersal Shield\n{1U}\nInstant\nSCG,C\nCounter target spell if its converted mana cost is less than or equal to the highest converted mana cost among permanents you control."
+    IDS_STRING14691         "Reward the Faithful\n{W}\nInstant\nSCG,U\nAny number of target players each gain life equal to the highest converted mana cost among permanents you control."
+    IDS_STRING14692         "Rush of Knowledge\n{4U}\nSorcery\nSCG,C\nDraw cards equal to the highest converted mana cost among permanents you control."
+    IDS_STRING14693         "Ancient Ooze\n{5GG}\nCreature - Ooze\nSCG,R\nAncient Ooze's power and toughness are each equal to the total converted mana cost of other creatures you control.\n*/*"
+    IDS_STRING14694         "Torrent of Fire\n{3RR}\nSorcery\nSCG,C\nTorrent of Fire deals damage equal to the highest converted mana cost among permanents you control to target creature or player."
+    IDS_STRING14695         "Carbonize\n{2R}\nInstant\nSCG,U\nCarbonize deals 3 damage to target creature or player. That creature can't be regenerated this turn. If the creature would die this turn, exile it instead."
+    IDS_STRING14696         "Sulfuric Vortex\n{1RR}\nEnchantment\nSCG,R\nAt the beginning of each player's upkeep, Sulfuric Vortex deals 2 damage to that player.\rIf a player would gain life, that player gains no life instead."
+    IDS_STRING14697         "Titanic Bulvox\n{6GG}\nCreature - Beast\nSCG,C\nTrample\rMorph {4GGG}\n7/4"
+    IDS_STRING14698         "Chill Haunting\n{1B}\nInstant\nSCG,U\nAs an additional cost to cast Chill Haunting, exile X creature cards from your graveyard.\rTarget creature gets -X/-X until end of turn."
+    IDS_STRING14699         "Putrid Raptor\n{4BB}\nCreature - Zombie Lizard Beast\nSCG\nMorph - Discard a Zombie card.\n4/4"
+    IDS_STRING14700         "Root Elemental\n{4GG}\nCreature - Elemental\nSCG,R\nMorph {5GG}\rWhen Root Elemental is turned face up, you may put a creature card from your hand onto the battlefield.\n6/5"
+    IDS_STRING14701         "Raven Guild Initiate\n{2U}\nCreature - Human Wizard\nSCG\nMorph - Return a Bird you control to its owner's hand.\n1/4"
+    IDS_STRING14702         "Scornful Egotist\n{7U}\nCreature - Human Wizard\nSCG\nMorph - {U}\n1/1"
+    IDS_STRING14703         "Zombie Cutthroat\n{3BB}\nCreature - Zombie\nSCG\nMorph - Pay 5 life.\n3/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14704         "Aven Liberator\n{2WW}\nCreature - Bird Soldier\nSCG\nFlying\rMorph {3W}\rWhen Aven Liberator is turned face up, target creature you control gains protection from the color of your choice until end of turn.\n2/3"
+    IDS_STRING14705         "Skirk Volcanist\n{3R}\nCreature - Goblin\nSCG,U\nMorph - Sacrifice two Mountains.\rWhen Skirk Volcanist is turned face up, it deals 3 damage divided as you choose among one, two, or three target creatures.\n3/1"
+    IDS_STRING14706         "Woodcloaker\n{5G}\nCreature - Elf\nSCG,C\nMorph {2GG}\rWhen Woodcloaker is turned face up, target creature gains trample until end of turn.\n3/3"
+    IDS_STRING14707         "Daru Spiritualist\n{1W}\nCreature - Human Cleric\nSCG,C\nWhenever a Cleric creature you control becomes the target of a spell or ability, it gets +0/+2 until end of turn.\n1/1"
+    IDS_STRING14708         "Decree of Pain\n{6BB}\nSorcery\nSCG,R\nDestroy all creatures. They can't be regenerated. Draw a card for each creature destroyed this way.\rCycling {3BB}\rWhen you cycle Decree of Pain, all creatures get -2/-2 until end of turn."
+    IDS_STRING14709         "Forgotten Ancient\n{3G}\nCreature - Elemental\nSCG,R\nWhenever a player casts a spell, you may put a +1/+1 counter on Forgotten Ancient.\rAt the beginning of your upkeep, you may move any number of +1/+1 counters from Forgotten Ancient onto other creatures.\n0/3"
+	IDS_STRING14710         "Day of the Dragons\n{4UUU}\nEnchantment\nSCG,R\nWhen Day of the Dragons enters the battlefield, exile all creatures you control. Then put that many 5/5 red Dragon creature tokens with flying onto the battlefield.\rWhen Day of the Dragons leaves the battlefield, sacrifice all Dragons you control. Then return the exiled cards to the battlefield under your control."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

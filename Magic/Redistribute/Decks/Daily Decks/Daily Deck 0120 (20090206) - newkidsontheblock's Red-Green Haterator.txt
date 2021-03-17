@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+2 Boreal Druid (7045)
+4 Goblin Sharpshooter (14082)
+3 Iwamori of the Open Fist (19117)
+4 Llanowar Elves (3092)
+4 Magus of the Moon (17735)
+4 Scryb Ranger (17419)
+4 Spectral Force (17426)
+
+// Instants - 3 (5.00%)
+
+3 DeadGone (2564)
+
+// Sorceries - 1 (1.67%)
+
+Day of Judgment (19340)
+
+// Artifacts - 11 (18.33%)
+
+4 Chalice of the Void (15015)
+3 Chrome Mox (15001)
+4 Umezawa's Jitte (19149)
+
+// Lands - 20 (33.33%)
+
+Forest (18505)
+Forest (18504)
+Forest (18506)
+4 Mutavault (18368)
+2 Pendelhaven (17253)
+3 Stomping Ground (16810)
+4 Windswept Heath (14003)
+4 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Kitchen Finks (18593)
+
+// Instants
+
+4 Ancient Grudge (17272)
+
+// Enchantments
+
+4 Blood Moon (2351)
+4 Choke (1796)

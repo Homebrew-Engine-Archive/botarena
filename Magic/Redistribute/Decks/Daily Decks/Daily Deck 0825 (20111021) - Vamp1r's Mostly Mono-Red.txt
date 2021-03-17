@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+3 Chandra's Phoenix (22310)
+Goblin Arsonist (22160)
+Grim Lavamancer (22165)
+3 Hero of Oxid Ridge (21758)
+4 Reckless Waif (23519)
+4 Stormblood Berserker (22293)
+4 Stromkirk Noble (23359)
+
+// Instants - 11 (18.33%)
+
+4 Brimstone Volley (23505)
+3 Gut Shot (21937)
+4 Incinerate (22166)
+
+// Sorceries - 2 (3.33%)
+
+2 Arc Trail (21554)
+
+// Artifacts - 4 (6.67%)
+
+4 Shrine of Burning Rage (22001)
+
+// Lands - 23 (38.33%)
+
+4 Copperline Gorge (21471)
+Kessig Wolf Run (23370)
+5 Mountain (23329)
+6 Mountain (23327)
+6 Mountain (23328)
+Rootbound Crag (22205)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Tree of Redemption (23496)
+4 Vulshok Refugee (21947)
+
+// Instants
+
+Act of Aggression (21933)
+3 Ancient Grudge (23468)
+
+// Sorceries
+
+Arc Trail (21554)
+Traitorous Blood (23484)
+
+// Artifacts
+
+Batterskull (21983)
+3 Nihil Spellbomb (21540)

@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+2 Garruk Wildspeaker (21205)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 20 (33.33%)
+
+4 Frost Titan (21322)
+4 Joraga Treespeaker (20945)
+4 Lotus Cobra (19389)
+4 Overgrown Battlement (20890)
+4 Primeval Titan (21223)
+
+// Sorceries - 4 (6.67%)
+
+4 Genesis Wave (21561)
+
+// Enchantments - 2 (3.33%)
+
+2 Spreading Seas (19430)
+
+// Lands - 28 (46.67%)
+
+Forest (21402)
+Forest (21401)
+2 Forest (21400)
+Forest (21403)
+4 Halimar Depths (19634)
+Island (21407)
+Island (21406)
+Island (21405)
+2 Island (21404)
+4 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+4 Tectonic Edge (19651)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Acidic Slime (21311)
+4 Obstinate Baloth (21217)
+
+// Instants
+
+3 Negate (21192)
+
+// Enchantments
+
+2 Spreading Seas (19430)
+
+// Artifacts
+
+Eldrazi Monument (19530)
+2 Tumble Magnet (21447)

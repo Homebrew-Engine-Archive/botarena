@@ -1,0 +1,31 @@
+// Total cards in deck - 60
+
+// Creatures - 29 (48.33%)
+
+4 Gold Myr (21422)
+Kemba, Kha Regent (21598)
+4 Kor Outfitter (19545)
+4 Kor Skyfisher (19368)
+4 Memnite (21440)
+4 Myrsmith (21462)
+4 Perilous Myr (21553)
+4 Stoneforge Mystic (19638)
+
+// Enchantments - 4 (6.67%)
+
+4 Quest for the Holy Relic (19539)
+
+// Artifacts - 7 (11.67%)
+
+Argentum Armor (21515)
+Basilisk Collar (19687)
+4 Sword of Body and Mind (21420)
+Sword of Vengeance (21252)
+
+// Lands - 20 (33.33%)
+
+Emeria, the Sky Ruin (19348)
+5 Plains (21412)
+4 Plains (21415)
+5 Plains (21413)
+5 Plains (21414)

@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 29 (48.33%)
+
+4 Court Homunculus (8865)
+4 Esper Stormblade (9084)
+3 Esperzoa (8835)
+4 Ethersworn Canonist (8728)
+2 Ethersworn Shieldmage (9075)
+4 Glaze Fiend (8573)
+4 Master of Etherium (8594)
+4 Vedalken Outlander (8842)
+
+// Enchantments - 2 (3.33%)
+
+2 Oblivion Ring (8718)
+
+// Artifacts - 12 (20.00%)
+
+4 Fieldmist Borderpost (9091)
+4 Mistvein Borderpost (9094)
+4 Thopter Foundry (9062)
+
+// Lands - 17 (28.33%)
+
+4 Arcane Sanctum (8534)
+Island (8516)
+Island (8514)
+Island (8515)
+Plains (8525)
+2 Plains (8524)
+2 Plains (8523)
+Plains (8526)
+Swamp (8530)
+Swamp (8527)
+Swamp (8528)
+Swamp (8529)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Fleshbag Marauder (8571)
+2 Sanctum Gargoyle (8614)
+3 Zombie Outlander (8832)
+
+// Instants
+
+3 Celestial Purge (8801)
+3 Countersquall (8890)
+2 Path to Exile (8897)

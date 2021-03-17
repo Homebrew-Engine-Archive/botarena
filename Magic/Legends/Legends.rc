@@ -1,0 +1,377 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Legends.ico"
+IDI_LARGE_MODULE        ICON                    "LegendsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Legends"
+    IDS_EXPANSION_ABBREV    "LEG"
+    IDS_FIRST_CARD          "5300"
+    IDS_TOTAL_CARD          "310"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "6610"
+    IDS_MODULE_LARGE_ICON_ID "6611"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-06-1994"
+    IDS_MWS_FOLDER          "MWS\\LEG\\"
+    IDS_PRODUCT_LIST        """Legends Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5300          "Acid Rain\n{3U}\nSorcery\nLEG,R\nDestroy all Forests."
+    IDS_STRING5301          "Adun Oakenshield\n{BRG}\nLegendary Creature - Human Knight\nLEG,R\n{BRG}, {T}: Return target creature card from your graveyard to your hand.\n1/2"
+    IDS_STRING5302          "Wall of Wonder\n{2UU}\nCreature - Wall\nLEG,U\nDefender\r{2UU}: Wall of Wonder gets +4/-4 until end of turn and may attack this turn as though it didn't have defender.\n1/5"
+    IDS_STRING5303          "Amrou Kithkin\n{WW}\nCreature - Kithkin\nLEG,C\nAmrou Kithkin can't be blocked by creatures with power 3 or greater.\n1/1"
+    IDS_STRING5304          "Azure Drake\n{3U}\nCreature - Drake\nLEG,U\nFlying\n2/4"
+    IDS_STRING5305          "Boomerang\n{UU}\nInstant\nLEG,C\nReturn target permanent to its owner's hand."
+    IDS_STRING5306          "Flash Counter\n{1U}\nInstant\nLEG,C\nCounter target instant spell."
+    IDS_STRING5307          "Force Spike\n{U}\nInstant\nLEG,C\nCounter target spell unless its controller pays {1}."
+    IDS_STRING5308          "Gaseous Form\n{2U}\nEnchantment - Aura\nLEG,C\nEnchant creature\rPrevent all combat damage that would be dealt to and dealt by enchanted creature."
+    IDS_STRING5309          "Juxtapose\n{3U}\nSorcery\nLEG,R\nYou and target player exchange control of the creature you each control with the highest converted mana cost. Then exchange control of artifacts the same way. If two or more permanents a player controls are tied for highest cost, their controller chooses one of them."
+    IDS_STRING5310          "Recall\n{XXU}\nSorcery\nLEG,R\nDiscard X cards, then return a card from your graveyard to your hand for each card discarded this way. Exile Recall."
+    IDS_STRING5311          "Remove Soul\n{1U}\nInstant\nLEG,C\nCounter target creature spell."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5312          "Alchor's Tomb\n{4}\nArtifact\nLEG,R\n{2}, {T}: Target permanent you control becomes the color of your choice."
+    IDS_STRING5313          "D'Avenant Archer\n{2W}\nCreature - Human Soldier Archer\nLEG,C\n{T}: D'Avenant Archer deals 1 damage to target attacking or blocking creature.\n1/2"
+    IDS_STRING5314          "Divine Transformation\n{2WW}\nEnchantment - Aura\nLEG,R\nEnchant creature\rEnchanted creature gets +3/+3."
+    IDS_STRING5315          "Holy Day\n{W}\nInstant\nLEG,C\nPrevent all combat damage that would be dealt this turn."
+    IDS_STRING5316          "Kismet\n{3W}\nEnchantment\nLEG,U\nArtifacts, creatures, and lands your opponents control enter the battlefield tapped."
+    IDS_STRING5317          "Shield Wall\n{1W}\nInstant\nLEG,U\nCreatures you control get +0/+2 until end of turn."
+    IDS_STRING5318          "Spirit Link\n{W}\nEnchantment - Aura\nLEG,U\nEnchant creature\rWhenever enchanted creature deals damage, you gain that much life."
+    IDS_STRING5319          "Tundra Wolves\n{W}\nCreature - Wolf\nLEG,C\nFirst strike\n1/1"
+    IDS_STRING5320          "Blight\n{BB}\nEnchantment - Aura\nLEG,U\nEnchant land\rWhen enchanted land becomes tapped, destroy it."
+    IDS_STRING5321          "Fallen Angel\n{3BB}\nCreature - Angel\nLEG,U\nFlying\rSacrifice a creature: Fallen Angel gets +2/+1 until end of turn.\n3/3"
+    IDS_STRING5322          "Greed\n{3B}\nEnchantment\nLEG,R\n{B}, Pay 2 life: Draw a card."
+    IDS_STRING5323          "Hell's Caretaker\n{3B}\nCreature - Horror\nLEG,R\n{T}, Sacrifice a creature: Return target creature card from your graveyard to the battlefield. Activate this ability only during your upkeep.\n1/1"
+    IDS_STRING5324          "Horror of Horrors\n{3BB}\nEnchantment\nLEG,U\nSacrifice a Swamp: Regenerate target black creature."
+    IDS_STRING5325          "Lost Soul\n{1BB}\nCreature - Spirit Minion\nLEG,C\nSwampwalk\n2/1"
+    IDS_STRING5326          "Syphon Soul\n{2B}\nSorcery\nLEG,C\nSyphon Soul deals 2 damage to each other player. You gain life equal to the damage dealt this way."
+    IDS_STRING5327          "Underworld Dreams\n{BBB}\nEnchantment\nLEG,U\nWhenever an opponent draws a card, Underworld Dreams deals 1 damage to him or her."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5328          "Vampire Bats\n{B}\nCreature - Bat\nLEG,C\nFlying\r{B}: Vampire Bats gets +1/+0 until end of turn. Activate this ability no more than twice each turn.\n0/1"
+    IDS_STRING5329          "Giant Strength\n{RR}\nEnchantment - Aura\nLEG,C\nEnchant creature\rEnchanted creature gets +2/+2."
+    IDS_STRING5330          "Pyrotechnics\n{4R}\nSorcery\nLEG,C\nPyrotechnics deals 4 damage divided as you choose among any number of target creatures and/or players."
+    IDS_STRING5331          "Cat Warriors\n{1GG}\nCreature - Cat Warrior\nLEG,C\nForestwalk\n2/2"
+    IDS_STRING5332          "Elven Riders\n{3GG}\nCreature - Elf\nLEG,R\nElven Riders can't be blocked except by Walls and/or creatures with flying.\n3/3"
+    IDS_STRING5333          "Moss Monster\n{3GG}\nCreature - Elemental\nLEG,C\n\n3/6"
+    IDS_STRING5334          "Radjan Spirit\n{3G}\nCreature - Spirit\nLEG,U\n{T}: Target creature loses flying until end of turn.\n3/2"
+    IDS_STRING5335          "Untamed Wilds\n{2G}\nSorcery\nLEG,U\nSearch your library for a basic land card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING5336          "Evil Eye of Orms-by-Gore\n{4B}\nCreature - Eye\nLEG,U\nNon-Eye creatures you control can't attack.\rEvil Eye of Orms-by-Gore can't be blocked except by Walls.\n3/6"
+    IDS_STRING5337          "Pradesh Gypsies\n{2G}\nCreature - Human Nomad\nLEG,U\n{1G}, {T}: Target creature gets -2/-0 until end of turn.\n1/1"
+    IDS_STRING5338          "Segovian Leviathan\n{4U}\nCreature - Leviathan\nLEG,U\nIslandwalk\n3/3"
+    IDS_STRING5339          "Abomination\n{3BB}\nCreature - Horror\nLEG,U\nWhenever Abomination blocks or becomes blocked by a green or white creature, destroy that creature at end of combat.\n2/6"
+    IDS_STRING5340          "Active Volcano\n{R}\nInstant\nLEG,C\nChoose one - Destroy target blue permanent; or return target Island to its owner's hand."
+    IDS_STRING5341          "Akron Legionnaire\n{6WW}\nCreature - Giant Soldier\nLEG,R\nExcept for creatures named Akron Legionnaire and artifact creatures, creatures you control can't attack.\n8/4"
+    IDS_STRING5342          "Zephyr Falcon\n{1U}\nCreature - Bird\nLEG,C\nFlying, vigilance\n1/1"
+    IDS_STRING5343          "Angus Mackenzie\n{GWU}\nLegendary Creature - Human Cleric\nLEG,R\n{GWU}, {T}: Prevent all combat damage that would be dealt this turn. Activate this ability only before the combat damage step.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5344          "Arcades Sabboth\n{2GGWWUU}\nLegendary Creature - Elder Dragon\nLEG,R\nFlying\rAt the beginning of your upkeep, sacrifice Arcades Sabboth unless you pay {GWU}.\rUntapped nonattacking creatures you control get +0/+2.\r{W}: Arcades Sabboth gets +0/+1 until end of turn.\n7/7"
+    IDS_STRING5345          "Arena of the Ancients\n{3}\nArtifact\nLEG,R\nLegendary creatures don't untap during their controllers' untap steps.\rWhen Arena of the Ancients enters the battlefield, tap all legendary creatures."
+    IDS_STRING5346          "Xira Arien\n{BRG}\nLegendary Creature - Insect Wizard\nLEG,R\nFlying\r{BRG}, {T}: Target player draws a card.\n1/2"
+    IDS_STRING5347          "Barbary Apes\n{1G}\nCreature - Ape\nLEG,C\n\n2/2"
+    IDS_STRING5348          "Barktooth Warbeard\n{4BRR}\nLegendary Creature - Human Warrior\nLEG,U\n\n6/5"
+    IDS_STRING5349          "Bartel Runeaxe\n{3BRG}\nLegendary Creature - Giant Warrior\nLEG,R\nVigilance\rBartel Runeaxe can't be the target of Aura spells.\n6/5"
+    IDS_STRING5350          "Wall of Opposition\n{3RR}\nCreature - Wall\nLEG,R\nDefender\r{1}: Wall of Opposition gets +1/+0 until end of turn.\n0/6"
+    IDS_STRING5351          "Boris Devilboon\n{3BR}\nLegendary Creature - Zombie Wizard\nLEG,R\n{2BR}, {T}: Put a 1/1 black and red Demon creature token named Minor Demon onto the battlefield.\n2/2"
+    IDS_STRING5352          "Carrion Ants\n{2BB}\nCreature - Insect\nLEG,R\n{1}: Carrion Ants gets +1/+1 until end of turn.\n0/1"
+    IDS_STRING5353          "Cleanse\n{2WW}\nSorcery\nLEG,R\nDestroy all black creatures."
+    IDS_STRING5354          "Crimson Manticore\n{2RR}\nCreature - Manticore\nLEG,R\nFlying\r{R}, {T}: Crimson Manticore deals 1 damage to target attacking or blocking creature.\n2/2"
+    IDS_STRING5355          "Cyclopean Mummy\n{1B}\nCreature - Zombie\nLEG,C\nWhen Cyclopean Mummy dies, exile it.\n2/1"
+    IDS_STRING5356          "Dakkon Blackblade\n{2WUUB}\nLegendary Creature - Human Warrior\nLEG,R\nDakkon Blackblade's power and toughness are each equal to the number of lands you control.\n*/*"
+    IDS_STRING5357          "Darkness\n{B}\nInstant\nLEG,C\nPrevent all combat damage that would be dealt this turn."
+    IDS_STRING5358          "Demonic Torment\n{2B}\nEnchantment - Aura\nLEG,U\nEnchant creature\rEnchanted creature can't attack.\rPrevent all combat damage that would be dealt by enchanted creature."
+    IDS_STRING5359          "Devouring Deep\n{2U}\nCreature - Fish\nLEG,C\nIslandwalk\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5360          "Durkwood Boars\n{4G}\nCreature - Boar\nLEG,C\n\n4/4"
+    IDS_STRING5361          "Emerald Dragonfly\n{1G}\nCreature - Insect\nLEG,C\nFlying\r{GG}: Emerald Dragonfly gains first strike until end of turn.\n1/1"
+    IDS_STRING5362          "Eternal Warrior\n{R}\nEnchantment - Aura\nLEG,U\nEnchant creature\rEnchanted creature has vigilance."
+    IDS_STRING5363          "Fire Sprites\n{1G}\nCreature - Faerie\nLEG,C\nFlying\r{G}, {T}: Add {R} to your mana pool.\n1/1"
+    IDS_STRING5364          "Flash Flood\n{U}\nInstant\nLEG,C\nChoose one - Destroy target red permanent; or return target Mountain to its owner's hand."
+    IDS_STRING5365          "Ghosts of the Damned\n{1BB}\nCreature - Spirit\nLEG,C\n{T}: Target creature gets -1/-0 until end of turn.\n0/2"
+    IDS_STRING5366          "Gwendlyn Di Corci\n{UBBR}\nLegendary Creature - Human Rogue\nLEG,R\n{T}: Target player discards a card at random. Activate this ability only during your turn.\n3/5"
+    IDS_STRING5367          "Headless Horseman\n{2B}\nCreature - Zombie Knight\nLEG,C\n\n2/2"
+    IDS_STRING5368          "Hell Swarm\n{B}\nInstant\nLEG,C\nAll creatures get -1/-0 until end of turn."
+    IDS_STRING5369          "Horn of Deafening\n{4}\nArtifact\nLEG,R\n{2}, {T}: Prevent all combat damage that would be dealt by target creature this turn."
+    IDS_STRING5370          "Hornet Cobra\n{1GG}\nCreature - Snake\nLEG,C\nFirst strike\n2/1"
+    IDS_STRING5371          "Hyperion Blacksmith\n{1RR}\nCreature - Human Artificer\nLEG,U\n{T}: You may tap or untap target artifact an opponent controls.\n2/2"
+    IDS_STRING5372          "Immolation\n{R}\nEnchantment - Aura\nLEG,C\nEnchant creature\rEnchanted creature gets +2/-2."
+    IDS_STRING5373          "Indestructible Aura\n{W}\nInstant\nLEG,C\nPrevent all damage that would be dealt to target creature this turn."
+    IDS_STRING5374          "Infernal Medusa\n{3BB}\nCreature - Gorgon\nLEG,U\nWhenever Infernal Medusa blocks a creature, destroy that creature at end of combat.\rWhenever Infernal Medusa becomes blocked by a non-Wall creature, destroy that creature at end of combat.\n2/4"
+    IDS_STRING5375          "Jacques le Vert\n{1RGW}\nLegendary Creature - Human Warrior\nLEG,R\nGreen creatures you control get +0/+2.\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5376          "Jasmine Boreal\n{3GW}\nLegendary Creature - Human\nLEG,U\n\n4/5"
+    IDS_STRING5377          "Jedit Ojanen\n{4WWU}\nLegendary Creature - Cat Warrior\nLEG,U\n\n5/5"
+    IDS_STRING5378          "Jerrard of the Closed Fist\n{3RGG}\nLegendary Creature - Human Knight\nLEG,U\n\n6/5"
+    IDS_STRING5379          "Wall of Light\n{2W}\nCreature - Wall\nLEG,U\nDefender\rProtection from black\n1/5"
+    IDS_STRING5380          "Kasimir the Lone Wolf\n{4WU}\nLegendary Creature - Human Warrior\nLEG,U\n\n5/3"
+    IDS_STRING5381          "Keepers of the Faith\n{1WW}\nCreature - Human Cleric\nLEG,C\n\n2/3"
+    IDS_STRING5382          "Kei Takahashi\n{2GW}\nLegendary Creature - Human Cleric\nLEG,R\n{T}: Prevent the next 2 damage that would be dealt to target creature this turn.\n2/2"
+    IDS_STRING5383          "Killer Bees\n{1GG}\nCreature - Insect\nLEG,R\nFlying\r{G}: Killer Bees gets +1/+1 until end of turn.\n0/1"
+    IDS_STRING5384          "Kobold Drill Sergeant\n{1R}\nCreature - Kobold Soldier\nLEG,U\nOther Kobold creatures you control get +0/+1 and have trample.\n1/2"
+    IDS_STRING5385          "Kobold Overlord\n{1R}\nCreature - Kobold\nLEG,R\nFirst strike\rOther Kobold creatures you control have first strike.\n1/2"
+    IDS_STRING5386          "Kobold Taskmaster\n{1R}\nCreature - Kobold\nLEG,U\nOther Kobold creatures you control get +1/+0.\n1/2"
+    IDS_STRING5387          "Lady Caleria\n{3GGWW}\nLegendary Creature - Human Archer\nLEG,R\n{T}: Lady Caleria deals 3 damage to target attacking or blocking creature.\n3/6"
+    IDS_STRING5388          "Lady Evangela\n{WUB}\nLegendary Creature - Human Cleric\nLEG,R\n{WB}, {T}: Prevent all combat damage that would be dealt by target creature this turn.\n1/2"
+    IDS_STRING5389          "Lady Orca\n{5BR}\nLegendary Creature - Demon\nLEG,U\n\n7/4"
+    IDS_STRING5390          "Lifeblood\n{2WW}\nEnchantment\nLEG,R\nWhenever a Mountain an opponent controls becomes tapped, you gain 1 life."
+    IDS_STRING5391          "Wall of Heat\n{2R}\nCreature - Wall\nLEG,C\nDefender\n2/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5392          "Moat\n{2WW}\nEnchantment\nLEG,R\nCreatures without flying can't attack."
+    IDS_STRING5393          "Mold Demon\n{5BB}\nCreature - Fungus Demon\nLEG,R\nWhen Mold Demon enters the battlefield, sacrifice it unless you sacrifice two Swamps.\n6/6"
+    IDS_STRING5394          "Mountain Yeti\n{2RR}\nCreature - Yeti\nLEG,U\nMountainwalk, protection from white\n3/3"
+    IDS_STRING5395          "Nicol Bolas\n{2UUBBRR}\nLegendary Creature - Elder Dragon\nLEG,R\nFlying\rAt the beginning of your upkeep, sacrifice Nicol Bolas unless you pay {UBR}.\rWhenever Nicol Bolas deals damage to an opponent, that player discards his or her hand.\n7/7"
+    IDS_STRING5396          "Palladia-Mors\n{2RRGGWW}\nLegendary Creature - Elder Dragon\nLEG,R\nFlying, trample\rAt the beginning of your upkeep, sacrifice Palladia-Mors unless you pay {RGW}.\n7/7"
+    IDS_STRING5397          "Pavel Maliki\n{4BR}\nLegendary Creature - Human\nLEG,U\n{BR}: Pavel Maliki gets +1/+0 until end of turn.\n5/3"
+    IDS_STRING5398          "Pixie Queen\n{2GG}\nCreature - Faerie\nLEG,R\nFlying\r{GGG}, {T}: Target creature gains flying until end of turn.\n1/1"
+    IDS_STRING5399          "Princess Lucrezia\n{3UUB}\nLegendary Creature - Human Wizard\nLEG,U\n{T}: Add {U} to your mana pool.\n5/4"
+    IDS_STRING5400          "Psionic Entity\n{4U}\nCreature - Illusion\nLEG,R\n{T}: Psionic Entity deals 2 damage to target creature or player and 3 damage to itself.\n2/2"
+    IDS_STRING5401          "Psychic Purge\n{U}\nSorcery\nLEG,C\nPsychic Purge deals 1 damage to target creature or player.\rWhen a spell or ability an opponent controls causes you to discard Psychic Purge, that player loses 5 life."
+    IDS_STRING5402          "Raging Bull\n{2R}\nCreature - Ox\nLEG,C\n\n2/2"
+    IDS_STRING5403          "Ragnar\n{GWU}\nLegendary Creature - Human Cleric\nLEG,R\n{GWU}, {T}: Regenerate target creature.\n2/2"
+    IDS_STRING5404          "Ramirez DePietro\n{3UBB}\nLegendary Creature - Human Pirate\nLEG,U\nFirst strike\n4/3"
+    IDS_STRING5405          "Relic Barrier\n{2}\nArtifact\nLEG,U\n{T}: Tap target artifact."
+    IDS_STRING5406          "Righteous Avengers\n{4W}\nCreature - Human Soldier\nLEG,U\nPlainswalk\n3/1"
+    IDS_STRING5407          "Riven Turnbull\n{5UB}\nLegendary Creature - Human Advisor\nLEG,U\n{T}: Add {B} to your mana pool.\n5/7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5408          "Seeker\n{2WW}\nEnchantment - Aura\nLEG,U\nEnchant creature\rEnchanted creature can't be blocked except by artifact creatures and/or white creatures."
+    IDS_STRING5409          "Sir Shandlar of Eberyn\n{4GW}\nLegendary Creature - Human Knight\nLEG,U\n\n4/7"
+    IDS_STRING5410          "Sivitri Scarzam\n{5UB}\nLegendary Creature - Human\nLEG,U\n\n6/4"
+    IDS_STRING5411          "Sol'kanar the Swamp King\n{2UBR}\nLegendary Creature - Demon\nLEG,R\nSwampwalk\rWhenever a player casts a black spell, you gain 1 life.\n5/5"
+    IDS_STRING5412          "Spinal Villain\n{2R}\nCreature - Beast\nLEG,R\n{T}: Destroy target blue creature.\n1/2"
+    IDS_STRING5413          "Storm Seeker\n{3G}\nInstant\nLEG,U\nStorm Seeker deals damage equal to the number of cards in target player's hand to that player."
+    IDS_STRING5414          "Sunastian Falconer\n{3RG}\nLegendary Creature - Human Shaman\nLEG,U\n{T}: Add {2} to your mana pool.\n4/4"
+    IDS_STRING5415          "Wall of Earth\n{1R}\nCreature - Wall\nLEG,C\nDefender\n0/6"
+    IDS_STRING5416          "Tetsuo Umezawa\n{UBR}\nLegendary Creature - Human Archer\nLEG,R\nTetsuo Umezawa can't be the target of Aura spells.\r{UBBR}, {T}: Destroy target tapped or blocking creature.\n3/3"
+    IDS_STRING5417          "The Lady of the Mountain\n{4RG}\nLegendary Creature - Giant\nLEG,U\n\n5/5"
+    IDS_STRING5418          "Thunder Spirit\n{1WW}\nCreature - Elemental Spirit\nLEG,R\nFlying, first strike\n2/2"
+    IDS_STRING5419          "Tobias Andrion\n{3WU}\nLegendary Creature - Human Advisor\nLEG,U\n\n4/4"
+    IDS_STRING5420          "Tor Wauki\n{2BBR}\nLegendary Creature - Human Archer\nLEG,U\n{T}: Tor Wauki deals 2 damage to target attacking or blocking creature.\n3/3"
+    IDS_STRING5421          "Torsten Von Ursus\n{3GGW}\nLegendary Creature - Human Soldier\nLEG,U\n\n5/5"
+    IDS_STRING5422          "Tuknir Deathlock\n{RRGG}\nLegendary Creature - Human Wizard\nLEG,R\nFlying\r{RG}, {T}: Target creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING5423          "Vaevictis Asmadi\n{2BBRRGG}\nLegendary Creature - Elder Dragon\nLEG,R\nFlying\rAt the beginning of your upkeep, sacrifice Vaevictis Asmadi unless you pay {BRG}.\r{B}: Vaevictis Asmadi gets +1/+0 until end of turn.\r{R}: Vaevictis Asmadi gets +1/+0 until end of turn.\r{G}: Vaevictis Asmadi gets +1/+0 until end of turn.\n7/7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5424          "Walking Dead\n{1B}\nCreature - Zombie\nLEG,C\n{B}: Regenerate Walking Dead.\n1/1"
+    IDS_STRING5425          "Axelrod Gunnarson\n{4BBRR}\nLegendary Creature - Giant\nLEG,R\nTrample\rWhenever a creature dealt damage by Axelrod Gunnarson this turn dies, you gain 1 life and Axelrod deals 1 damage to target player.\n5/5"
+    IDS_STRING5426          "Teleport\n{UUU}\nInstant\nLEG,R\nCast Teleport only after attackers are declared and before blockers are declared.\rTarget creature is unblockable this turn."
+    IDS_STRING5427          "Mirror Universe\n{6}\nArtifact\nLEG,R\n{T}, Sacrifice Mirror Universe: Exchange life totals with target opponent. Activate this ability only during your upkeep."
+    IDS_STRING5428          "Crimson Kobolds\n{0}\nCreature - Kobold\nLEG,C\n\n0/1"
+    IDS_STRING5429          "Crookshank Kobolds\n{0}\nCreature - Kobold\nLEG,C\n\n0/1"
+    IDS_STRING5430          "Kobolds of Kher Keep\n{0}\nCreature - Kobold\nLEG,C\n\n0/1"
+    IDS_STRING5431          "Karakas\n\nLegendary Land\nLEG,U\n{T}: Add {W} to your mana pool.\r{T}: Return target legendary creature to its owner's hand."
+    IDS_STRING5432          "Elder Land Wurm\n{4WWW}\nCreature - Dragon Wurm\nLEG,R\nDefender, trample\rWhen Elder Land Wurm blocks, it loses defender.\n5/5"
+    IDS_STRING5433          "Hammerheim\n\nLegendary Land\nLEG,U\n{T}: Add {R} to your mana pool.\r{T}: Target creature loses all landwalk abilities until end of turn."
+    IDS_STRING5434          "Pendelhaven\n\nLegendary Land\nLEG,U\n{T}: Add {G} to your mana pool.\r{T}: Target 1/1 creature gets +1/+2 until end of turn."
+    IDS_STRING5435          "Typhoon\n{2G}\nSorcery\nLEG,R\nTyphoon deals damage to each opponent equal to the number of Islands that player controls."
+    IDS_STRING5436          "Greater Realm of Preservation\n{1W}\nEnchantment\nLEG,U\n{1W}: The next time a black or red source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING5437          "Cosmic Horror\n{3BBB}\nCreature - Horror\nLEG,R\nFirst strike\rAt the beginning of your upkeep, destroy Cosmic Horror unless you pay {3BBB}. If Cosmic Horror is destroyed this way, it deals 7 damage to you.\n7/7"
+    IDS_STRING5438          "Dwarven Song\n{R}\nInstant\nLEG,U\nAny number of target creatures become red until end of turn."
+    IDS_STRING5439          "Heaven's Gate\n{W}\nInstant\nLEG,U\nAny number of target creatures become white until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5440          "Sea Kings' Blessing\n{U}\nInstant\nLEG,U\nAny number of target creatures become blue until end of turn."
+    IDS_STRING5441          "Sylvan Paradise\n{G}\nInstant\nLEG,U\nAny number of target creatures become green until end of turn."
+    IDS_STRING5442          "Touch of Darkness\n{B}\nInstant\nLEG,U\nAny number of target creatures become black until end of turn."
+    IDS_STRING5443          "Elder Spawn\n{4UUU}\nCreature - Spawn\nLEG,R\nAt the beginning of your upkeep, unless you sacrifice an Island, sacrifice Elder Spawn and it deals 6 damage to you.\rElder Spawn can't be blocked by red creatures.\n6/6"
+    IDS_STRING5444          "Land Tax\n{W}\nEnchantment\nLEG,U\nAt the beginning of your upkeep, if an opponent controls more lands than you, you may search your library for up to three basic land cards, reveal them, and put them into your hand. If you do, shuffle your library."
+    IDS_STRING5445          "Stangg\n{4RG}\nLegendary Creature - Human Warrior\nLEG,R\nWhen Stangg enters the battlefield, put a legendary 3/4 red and green Human Warrior creature token named Stangg Twin onto the battlefield. When Stangg leaves the battlefield, exile that token. When that token leaves the battlefield, sacrifice Stangg.\n3/4"
+    IDS_STRING5446          "Beasts of Bogardan\n{4R}\nCreature - Beast\nLEG,U\nProtection from red\rBeasts of Bogardan gets +1/+1 as long as an opponent controls a white permanent.\n3/3"
+    IDS_STRING5447          "Spirit Shackle\n{BB}\nEnchantment - Aura\nLEG,C\nEnchant creature\rWhenever enchanted creature becomes tapped, put a -0/-2 counter on it."
+    IDS_STRING5448          "Alabaster Potion\n{XWW}\nInstant\nLEG,C\nChoose one - Target player gains X life; or prevent the next X damage that would be dealt to target creature or player this turn."
+    IDS_STRING5449          "Ivory Guardians\n{4WW}\nCreature - Giant Cleric\nLEG,U\nProtection from red\rCreatures named Ivory Guardians get +1/+1 as long as an opponent controls a nontoken red permanent.\n3/3"
+    IDS_STRING5450          "Urborg\n\nLegendary Land\nLEG,U\n{T}: Add {B} to your mana pool.\r{T}: Target creature loses first strike or swampwalk until end of turn."
+    IDS_STRING5451          "Part Water\n{XXU}\nSorcery\nLEG,U\nX target creatures gain islandwalk until end of turn."
+    IDS_STRING5452          "AErathi Berserker\n{2RRR}\nCreature - Human Berserker\nLEG,U\nRampage 3\n2/4"
+    IDS_STRING5453          "Craw Giant\n{3GGGG}\nCreature - Giant\nLEG,U\nTrample\rRampage 2\n6/4"
+    IDS_STRING5454          "Chromium\n{2WWUUBB}\nLegendary Creature - Elder Dragon\nLEG,R\nFlying\rRampage 2\rAt the beginning of your upkeep, sacrifice Chromium unless you pay {WUB}.\n7/7"
+    IDS_STRING5455          "Frost Giant\n{3RRR}\nCreature - Giant\nLEG,U\nRampage 2\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5456          "Hunding Gjornersen\n{3WUU}\nLegendary Creature - Human Warrior\nLEG,U\nRampage 1\n5/4"
+    IDS_STRING5457          "Marhault Elsdragon\n{3RRG}\nLegendary Creature - Elf Warrior\nLEG,U\nRampage 1\n4/6"
+    IDS_STRING5458          "Wolverine Pack\n{2GG}\nCreature - Wolverine\nLEG\nRampage 2\n2/4"
+    IDS_STRING5459          "Triassic Egg\n{4}\nArtifact\nLEG,R\n{3}, {T}: Put a hatchling counter on Triassic Egg.\rSacrifice Triassic Egg: Choose one - You may put a creature card from your hand onto the battlefield; or return target creature card from your graveyard to the battlefield. Activate this ability only if two or more hatchling counters are on Triassic Egg."
+    IDS_STRING5460          "Glyph of Destruction\n{R}\nInstant\nLEG,C\nTarget blocking Wall you control gets +10/+0 until end of combat. Prevent all damage that would be dealt to it this turn. Destroy it at the beginning of the next end step."
+    IDS_STRING5461          "Life Chisel\n{4}\nArtifact\nLEG,U\nSacrifice a creature: You gain life equal to the sacrificed creature's toughness. Activate this ability only during your upkeep."
+    IDS_STRING5462          "Concordant Crossroads\n{G}\nWorld Enchantment\nLEG,R\nAll creatures have haste."
+    IDS_STRING5463          "Gravity Sphere\n{2R}\nWorld Enchantment\nLEG,R\nAll creatures lose flying."
+    IDS_STRING5464          "Living Plane\n{2GG}\nWorld Enchantment\nLEG,R\nAll lands are 1/1 creatures that are still lands."
+    IDS_STRING5465          "Storm World\n{R}\nWorld Enchantment\nLEG,R\nAt the beginning of each player's upkeep, Storm World deals X damage to that player, where X is 4 minus the number of cards in his or her hand."
+    IDS_STRING5466          "The Abyss\n{3B}\nWorld Enchantment\nLEG,R\nAt the beginning of each player's upkeep, destroy target nonartifact creature that player controls of his or her choice. It can't be regenerated."
+    IDS_STRING5467          "Wood Elemental\n{3G}\nCreature - Elemental\nLEG,R\nAs Wood Elemental enters the battlefield, sacrifice any number of untapped Forests. Wood Elemental's power and toughness are each equal to the number of Forests sacrificed as it entered the battlefield.\n*/*"
+    IDS_STRING5468          "Dream Coat\n{U}\nEnchantment - Aura\nLEG,U\nEnchant creature\r{0}: Enchanted creature becomes the color or colors of your choice. Activate this ability only once each turn."
+    IDS_STRING5469          "Winds of Change\n{R}\nSorcery\nLEG,U\nEach player shuffles the cards from his or her hand into his or her library, then draws that many cards."
+    IDS_STRING5470          "Divine Offering\n{1W}\nInstant\nLEG,C\nDestroy target artifact. You gain life equal to its converted mana cost."
+    IDS_STRING5471          "Ring of Immortals\n{5}\nArtifact\nLEG,R\n{3}, {T}: Counter target instant or Aura spell that targets a permanent you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5472          "Avoid Fate\n{G}\nInstant\nLEG,C\nCounter target instant or Aura spell that targets a permanent you control."
+    IDS_STRING5473          "Transmutation\n{1B}\nInstant\nLEG,C\nSwitch target creature's power and toughness until end of turn."
+    IDS_STRING5474          "The Tabernacle at Pendrell Vale\n\nLegendary Land\nLEG,R\nAll creatures have ""At the beginning of your upkeep, destroy this creature unless you pay {1}."""
+    IDS_STRING5475          "Pit Scorpion\n{2B}\nCreature - Scorpion\nLEG,C\nWhenever Pit Scorpion deals damage to a player, that player gets a poison counter.\n1/1"
+    IDS_STRING5476          "Serpent Generator\n{6}\nArtifact\nLEG,R\n{4}, {T}: Put a 1/1 colorless Snake artifact creature token onto the battlefield. This creature has ""Whenever this creature deals damage to a player, that player gets a poison counter."""
+    IDS_STRING5477          "Great Defender\n{W}\nInstant\nLEG,U\nTarget creature gets +0/+X until end of turn, where X is its converted mana cost."
+    IDS_STRING5478          "Blood Lust\n{1R}\nInstant\nLEG,U\nIf target creature has toughness 5 or greater, it gets +4/-4 until end of turn. Otherwise, it gets +4/-X until end of turn, where X is its toughness minus 1."
+    IDS_STRING5479          "Eureka\n{2GG}\nSorcery\nLEG,R\nStarting with you, each player may put a permanent card from his or her hand onto the battlefield. Repeat this process until no one puts a card onto the battlefield."
+    IDS_STRING5480          "Rust\n{G}\nInstant\nLEG\nCounter target activated ability from an artifact source."
+    IDS_STRING5481          "Rabid Wombat\n{2GG}\nCreature - Wombat\nLEG,U\nVigilance\rRabid Wombat gets +2/+2 for each Aura attached to it.\n0/1"
+    IDS_STRING5482          "The Brute\n{1R}\nEnchantment - Aura\nLEG\nEnchant creature\rEnchanted creature gets +1/+0.\r{RRR}: Regenerate enchanted creature."
+    IDS_STRING5483          "White Mana Battery\n{4}\nArtifact\nLEG,U\n{2},{T}: Put a charge counter on White Mana Battery.\r{T}, Remove any number of charge counters from White Mana Battery: Add {W} to your mana pool, then add an additional {W} to your mana pool for each charge counter removed this way."
+    IDS_STRING5484          "Blue Mana Battery\n{4}\nArtifact\nLEG,U\n{2},{T}: Put a charge counter on Blue Mana Battery.\r{T}, Remove any number of charge counters from Blue Mana Battery: Add {U} to your mana pool, then add an additional {U} to your mana pool for each charge counter removed this way."
+    IDS_STRING5485          "Black Mana Battery\n{4}\nArtifact\nLEG,U\n{2},{T}: Put a charge counter on Black Mana Battery.\r{T}, Remove any number of charge counters from Black Mana Battery: Add {B} to your mana pool, then add an additional {B} to your mana pool for each charge counter removed this way."
+    IDS_STRING5486          "Red Mana Battery\n{4}\nArtifact\nLEG,U\n{2},{T}: Put a charge counter on Red Mana Battery.\r{T}, Remove any number of charge counters from Red Mana Battery: Add {R} to your mana pool, then add an additional {R} to your mana pool for each charge counter removed this way."
+    IDS_STRING5487          "Green Mana Battery\n{4}\nArtifact\nLEG,U\n{2},{T}: Put a charge counter on Green Mana Battery.\r{T}, Remove any number of charge counters from Green Mana Battery: Add {G} to your mana pool, then add an additional {G} to your mana pool for each charge counter removed this way."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5488          "Jovial Evil\n{2B}\nSorcery\nLEG,R\nJovial Evil deals X damage to target opponent, where X is twice the number of white creatures that player controls."
+    IDS_STRING5489          "Livonya Silone\n{2RRGG}\nLegendary Creature - Human Warrior\nLEG,R\nFirst strike, legendary landwalk\n4/4"
+    IDS_STRING5490          "Gosta Dirk\n{3WWUU}\nLegendary Creature - Human Warrior\nLEG,R\nFirst strike\rCreatures with islandwalk can be blocked as though they didn't have islandwalk.\n4/4"
+    IDS_STRING5491          "Crevasse\n{2R}\nEnchantment\nLEG,U\nCreatures with mountainwalk can be blocked as though they didn't have mountainwalk."
+    IDS_STRING5492          "Deadfall\n{2G}\nEnchantment\nLEG,U\nCreatures with forestwalk can be blocked as though they didn't have forestwalk."
+    IDS_STRING5493          "Great Wall\n{2W}\nEnchantment\nLEG,U\nCreatures with plainswalk can be blocked as though they didn't have plainswalk."
+    IDS_STRING5494          "Quagmire\n{2B}\nEnchantment\nLEG,U\nCreatures with swampwalk can be blocked as though they didn't have swampwalk."
+    IDS_STRING5495          "Undertow\n{2U}\nEnchantment\nLEG,U\nCreatures with islandwalk can be blocked as though they didn't have islandwalk."
+    IDS_STRING5496          "Ur-Drago\n{3UUBB}\nLegendary Creature - Elemental\nLEG,R\nFirst strike\rCreatures with swampwalk can be blocked as though they didn't have swampwalk.\n4/4"
+    IDS_STRING5497          "Lord Magnus\n{3GWW}\nLegendary Creature - Human Druid\nLEG,U\nFirst strike\rCreatures with plainswalk can be blocked as though they didn't have plainswalk.\rCreatures with forestwalk can be blocked as though they didn't have forestwalk.\n4/3"
+    IDS_STRING5498          "Halfdane\n{1WUB}\nLegendary Creature - Shapeshifter\nLEG,R\nAt the beginning of your upkeep, Halfdane's power and toughness become equal to the power and toughness of target creature other than Halfdane until the end of your next upkeep.\n3/3"
+    IDS_STRING5499          "Ramses Overdark\n{2UUBB}\nLegendary Creature - Human Assassin\nLEG,R\n{T}: Destroy target enchanted creature.\n4/3"
+    IDS_STRING5500          "Gauntlets of Chaos\n{5}\nArtifact\nLEG,R\n{5}, Sacrifice Gauntlets of Chaos: Exchange control of target artifact, creature, or land you control and target permanent an opponent controls that shares one of those types with it. If those permanents are exchanged this way, destroy all Auras attached to them."
+    IDS_STRING5501          "Lesser Werewolf\n{3B}\nCreature - Werewolf\nLEG,U\n{B}: If Lesser Werewolf's power is 1 or more, it gets -1/-0 until end of turn and put a -0/-1 counter on target creature blocking or blocked by Lesser Werewolf. Activate this ability only during the declare blockers step.\n2/4"
+    IDS_STRING5502          "Mana Drain\n{UU}\nInstant\nLEG,U\nCounter target spell. At the beginning of your next main phase, add {X} to your mana pool, where X is that spell's converted mana cost."
+    IDS_STRING5503          "Energy Tap\n{U}\nSorcery\nLEG,C\nTap target untapped creature you control. If you do, add {X} to your mana pool, where X is that creature's converted mana cost."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5504          "Backfire\n{U}\nEnchantment - Aura\nLEG,U\nEnchant creature\rWhenever enchanted creature deals damage to you, Backfire deals that much damage to that creature's controller."
+    IDS_STRING5505          "Puppet Master\n{UUU}\nEnchantment - Aura\nLEG,U\nEnchant creature\rWhen enchanted creature dies, return that card to its owner's hand. If that card is returned to its owner's hand this way, you may pay {UUU}. If you do, return Puppet Master from your graveyard to your hand."
+    IDS_STRING5506          "Osai Vultures\n{1W}\nCreature - Bird\nLEG,C\nFlying\rAt the beginning of each end step, if a creature died this turn, put a carrion counter on Osai Vultures.\rRemove two carrion counters from Osai Vultures: Osai Vultures gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING5507          "Time Elemental\n{2U}\nCreature - Elemental\nLEG,R\nWhen Time Elemental attacks or blocks, at end of combat, sacrifice it and it deals 5 damage to you.\r{2UU}, {T}: Return target permanent that isn't enchanted to its owner's hand.\n0/2"
+    IDS_STRING5508          "Takklemaggot\n{2BB}\nEnchantment - Aura\nLEG,U\nEnchant creature\rAt the beginning of the upkeep of enchanted creature's controller, put a -0/-1 counter on that creature.\rWhen enchanted creature dies, that creature's controller chooses a creature that Takklemaggot could enchant. If he or she does, return Takklemaggot to the battlefield under your control attached to that creature. If he or she doesn't, return Takklemaggot to the battlefield under your control as a non-Aura enchantment. It loses ""enchant creature"" and gains ""At the beginning of that player's upkeep, Takklemaggot deals 1 damage to him or her."""
+    IDS_STRING5509          "All Hallow's Eve\n{2BB}\nSorcery\nLEG,R\nExile All Hallow's Eve with two scream counters on it.\rAt the beginning of your upkeep, if All Hallow's Eve is exiled with a scream counter on it, remove a scream counter from it. If there are no more scream counters on it, put it into your graveyard and each player returns all creature cards from his or her graveyard to the battlefield."
+    IDS_STRING5510          "Field of Dreams\n{U}\nWorld Enchantment\nLEG,R\nPlayers play with the top card of their libraries revealed."
+    IDS_STRING5511          "Angelic Voices\n{2WW}\nEnchantment\nLEG,R\nCreatures you control get +1/+1 as long as you control no nonartifact, nonwhite creatures."
+    IDS_STRING5512          "Disharmony\n{2R}\nInstant\nLEG,R\nCast Disharmony only during combat before blockers are declared.\rUntap target attacking creature and remove it from combat. Gain control of that creature until end of turn. "
+    IDS_STRING5513          "Visions\n{W}\nSorcery\nLEG,U\nLook at the top five cards of target player's library. You may then have that player shuffle that library."
+    IDS_STRING5514          "Sylvan Library\n{1G}\nEnchantment\nLEG,R\nAt the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library."
+    IDS_STRING5515          "Blazing Effigy\n{1R}\nCreature - Elemental\nLEG,C\nWhen Blazing Effigy dies, it deals X damage to target creature, where X is 3 plus the amount of damage dealt to Blazing Effigy this turn by other sources named Blazing Effigy.\n0/3"
+    IDS_STRING5516          "Giant Turtle\n{1GG}\nCreature - Turtle\nLEG,C\nGiant Turtle can't attack if it attacked during your last turn.\n2/4"
+    IDS_STRING5517          "Nebuchadnezzar\n{3UB}\nLegendary Creature - Human Wizard\nLEG,R\n{X}, {T}: Name a card. Target opponent reveals X cards at random from his or her hand. Then that player discards all cards with that name revealed this way. Activate this ability only during your turn.\n3/3"
+    IDS_STRING5518          "Petra Sphinx\n{2WWW}\nCreature - Sphinx\nLEG,R\n{T}: Target player names a card, then reveals the top card of his or her library. If that card is the named card, that player puts it into his or her hand. If it isn't, the player puts it into his or her graveyard.\n3/4"
+    IDS_STRING5519          "Knowledge Vault\n{4}\nArtifact\nLEG,R\n{2}, {T}: Exile the top card of your library face down.\r{0}: Sacrifice Knowledge Vault. If you do, discard your hand, then put all cards exiled with Knowledge Vault into their owner's hand.\rWhen Knowledge Vault leaves the battlefield, put all cards exiled with Knowledge Vault into their owner's graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5520          "Wall of Tombstones\n{1B}\nCreature - Wall\nLEG,U\nDefender\rAt the beginning of your upkeep, Wall of Tombstones's toughness becomes 1 plus the number of creature cards in your graveyard.\n0/1"
+    IDS_STRING5521          "Whirling Dervish\n{GG}\nCreature - Human Monk\nLEG,U\nProtection from black\rAt the beginning of each end step, if Whirling Dervish dealt damage to an opponent this turn, put a +1/+1 counter on it.\n1/1"
+    IDS_STRING5522          "Gabriel Angelfire\n{3GGWW}\nLegendary Creature - Angel\nLEG,R\nAt the beginning of your upkeep, choose flying, first strike, trample, or rampage 3. Gabriel Angelfire gains that ability until your next upkeep.\n4/4"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

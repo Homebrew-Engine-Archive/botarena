@@ -1,0 +1,72 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Jace, the Mind Sculptor (19670)
+
+// Creatures - 3 (5.00%)
+
+3 Oracle of Mul Daya (19542)
+
+// Instants - 6 (10.00%)
+
+4 Cryptic Command (18051)
+2 Mana Leak (21214)
+
+// Sorceries - 19 (31.67%)
+
+4 Explore (19647)
+Firespout (18674)
+3 Ponder (4208)
+4 Preordain (21152)
+4 Rampant Growth (4091)
+3 Scapeshift (18413)
+
+// Enchantments - 4 (6.67%)
+
+4 Prismatic Omen (18719)
+
+// Lands - 27 (45.00%)
+
+4 Flooded Grove (18914)
+Forest (21401)
+Forest (21400)
+Forest (21403)
+Forest (21402)
+3 Halimar Depths (19634)
+2 Island (21404)
+Island (21405)
+Island (21406)
+Island (21407)
+4 Misty Rainforest (19356)
+Mountain (21408)
+Scalding Tarn (19358)
+Tectonic Edge (19651)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Kitchen Finks (18593)
+Obstinate Baloth (21217)
+2 Vendilion Clique (18369)
+Wurmcoil Engine (21439)
+
+// Instants
+
+Dispel (19630)
+Into the Roil (19373)
+Mana Leak (21214)
+Spell Pierce (19377)
+
+// Sorceries
+
+2 Firespout (18674)
+2 Primal Command (18131)
+
+// Lands
+
+Tectonic Edge (19651)

@@ -1,0 +1,471 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "MercadianMasques.ico"
+IDI_LARGE_MODULE        ICON                    "MercadianMasquesLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Mercadian Masques"
+    IDS_EXPANSION_ABBREV    "MMQ"
+    IDS_FIRST_CARD          "11600"
+    IDS_TOTAL_CARD          "350"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "11950"
+    IDS_MODULE_LARGE_ICON_ID "11951"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "04-10-1999"
+    IDS_MWS_FOLDER          "MWS\\MMQ\\"
+    IDS_PRODUCT_LIST        """Mercadian Masques Starter Box"":R-3:U-10:C-32:BL-30,""Mercadian Masques Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11600         "Eye of Ramos\n{3}\nArtifact\nMMQ,R\n{T}: Add {U} to your mana pool.\rSacrifice Eye of Ramos: Add {U} to your mana pool."
+    IDS_STRING11601         "Heart of Ramos\n{3}\nArtifact\nMMQ,R\n{T}: Add {R} to your mana pool.\rSacrifice Heart of Ramos: Add {R} to your mana pool."
+    IDS_STRING11602         "Horn of Ramos\n{3}\nArtifact\nMMQ,R\n{T}: Add {G} to your mana pool.\rSacrifice Horn of Ramos: Add {G} to your mana pool."
+    IDS_STRING11603         "Skull of Ramos\n{3}\nArtifact\nMMQ,R\n{T}: Add {B} to your mana pool.\rSacrifice Skull of Ramos: Add {B} to your mana pool."
+    IDS_STRING11604         "Tooth of Ramos\n{3}\nArtifact\nMMQ,R\n{T}: Add {W} to your mana pool.\rSacrifice Tooth of Ramos: Add {W} to your mana pool."
+    IDS_STRING11605         "Henge of Ramos\n\nLand\nMMQ,U\n{T}: Add {1} to your mana pool.\r{2}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING11606         "Gerrard's Irregulars\n{4R}\nCreature - Human Soldier\nMMQ,C\nTrample, haste\n4/2"
+    IDS_STRING11607         "Rishadan Port\n\nLand\nMMQ,R\n{T}: Add {1} to your mana pool.\r{1}, {T}: Tap target land."
+    IDS_STRING11608         "Spidersilk Armor\n{2G}\nEnchantment\nMMQ,C\nCreatures you control get +0/+1 and have reach."
+    IDS_STRING11609         "Ballista Squad\n{3W}\nCreature - Human Rebel\nMMQ,U\n{XW}, {T}: Ballista Squad deals X damage to target attacking or blocking creature.\n2/2"
+    IDS_STRING11610         "Brainstorm\n{U}\nInstant\nMMQ,C\nDraw three cards, then put two cards from your hand on top of your library in any order."
+    IDS_STRING11611         "Bribery\n{3UU}\nSorcery\nMMQ,R\nSearch target opponent's library for a creature card and put that card onto the battlefield under your control. Then that player shuffles his or her library."
+    IDS_STRING11612         "Cho-Manno, Revolutionary\n{2WW}\nLegendary Creature - Human Rebel\nMMQ,R\nPrevent all damage that would be dealt to Cho-Manno, Revolutionary.\n2/2"
+    IDS_STRING11613         "Cloud Sprite\n{U}\nCreature - Faerie\nMMQ,C\nFlying\rCloud Sprite can block only creatures with flying.\n1/1"
+    IDS_STRING11614         "Coastal Piracy\n{2UU}\nEnchantment\nMMQ,U\nWhenever a creature you control deals combat damage to an opponent, you may draw a card."
+    IDS_STRING11615         "Collective Unconscious\n{4GG}\nSorcery\nMMQ,R\nDraw a card for each creature you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11616         "Counterspell\n{UU}\nInstant\nMMQ,C\nCounter target spell."
+    IDS_STRING11617         "Cowardice\n{3UU}\nEnchantment\nMMQ,R\nWhenever a creature becomes the target of a spell or ability, return that creature to its owner's hand."
+    IDS_STRING11618         "Crossbow Infantry\n{1W}\nCreature - Human Soldier Archer\nMMQ,C\n{T}: Crossbow Infantry deals 1 damage to target attacking or blocking creature.\n1/1"
+    IDS_STRING11619         "Dark Ritual\n{B}\nInstant\nMMQ,C\nAdd {BBB} to your mana pool."
+    IDS_STRING11620         "Deadly Insect\n{4G}\nCreature - Insect\nMMQ,C\nShroud\n6/1"
+    IDS_STRING11621         "Deathgazer\n{3B}\nCreature - Lizard\nMMQ,U\nWhenever Deathgazer blocks or becomes blocked by a nonblack creature, destroy that creature at end of combat.\n2/2"
+    IDS_STRING11622         "Deepwood Ghoul\n{2B}\nCreature - Zombie\nMMQ,C\nPay 2 life: Regenerate Deepwood Ghoul.\n2/1"
+    IDS_STRING11623         "Dehydration\n{3U}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING11624         "Desert Twister\n{4GG}\nSorcery\nMMQ,U\nDestroy target permanent."
+    IDS_STRING11625         "Disenchant\n{1W}\nInstant\nMMQ,C\nDestroy target artifact or enchantment."
+    IDS_STRING11626         "Distorting Lens\n{2}\nArtifact\nMMQ,R\n{T}: Target permanent becomes the color of your choice until end of turn."
+    IDS_STRING11627         "Forest\n\nBasic Land - Forest\nMMQ,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING11628         "Forest\n\nBasic Land - Forest\nMMQ,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING11629         "Forest\n\nBasic Land - Forest\nMMQ,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING11630         "Forest\n\nBasic Land - Forest\nMMQ,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING11631         "Groundskeeper\n{G}\nCreature - Human Druid\nMMQ,U\n{1G}: Return target basic land card from your graveyard to your hand.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11632         "Highway Robber\n{2BB}\nCreature - Human Rogue Mercenary\nMMQ,C\nWhen Highway Robber enters the battlefield, target opponent loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING11633         "Horned Troll\n{2G}\nCreature - Troll\nMMQ,C\n{G}: Regenerate Horned Troll.\n2/2"
+    IDS_STRING11634         "Hunted Wumpus\n{3G}\nCreature - Beast\nMMQ,U\nWhen Hunted Wumpus enters the battlefield, each other player may put a creature card from his or her hand onto the battlefield.\n6/6"
+    IDS_STRING11635         "Island\n\nBasic Land - Island\nMMQ,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING11636         "Island\n\nBasic Land - Island\nMMQ,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING11637         "Island\n\nBasic Land - Island\nMMQ,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING11638         "Island\n\nBasic Land - Island\nMMQ,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING11639         "Ivory Mask\n{2WW}\nEnchantment\nMMQ,R\nYou have shroud."
+    IDS_STRING11640         "Larceny\n{3BB}\nEnchantment\nMMQ,U\nWhenever a creature you control deals combat damage to a player, that player discards a card."
+    IDS_STRING11641         "Lure\n{1GG}\nEnchantment - Aura\nMMQ,U\nEnchant creature\rAll creatures able to block enchanted creature do so."
+    IDS_STRING11642         "Mountain\n\nBasic Land - Mountain\nMMQ,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING11643         "Mountain\n\nBasic Land - Mountain\nMMQ,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING11644         "Mountain\n\nBasic Land - Mountain\nMMQ,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING11645         "Mountain\n\nBasic Land - Mountain\nMMQ,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING11646         "Natural Affinity\n{2G}\nInstant\nMMQ,R\nAll lands become 2/2 creatures until end of turn. They're still lands."
+    IDS_STRING11647         "Noble Purpose\n{3WW}\nEnchantment\nMMQ,U\nWhenever a creature you control deals combat damage, you gain that much life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11648         "Ogre Taskmaster\n{3R}\nCreature - Ogre\nMMQ,U\nOgre Taskmaster can't block.\n4/3"
+    IDS_STRING11649         "Plains\n\nBasic Land - Plains\nMMQ,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING11650         "Plains\n\nBasic Land - Plains\nMMQ,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING11651         "Plains\n\nBasic Land - Plains\nMMQ,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING11652         "Plains\n\nBasic Land - Plains\nMMQ,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING11653         "Primeval Shambler\n{4B}\nCreature - Horror Mercenary\nMMQ,U\n{B}: Primeval Shambler gets +1/+1 until end of turn.\n3/3"
+    IDS_STRING11654         "Rain of Tears\n{1BB}\nSorcery\nMMQ,U\nDestroy target land."
+    IDS_STRING11655         "Revive\n{1G}\nSorcery\nMMQ,U\nReturn target green card from your graveyard to your hand."
+    IDS_STRING11656         "Rock Badger\n{4R}\nCreature - Badger Beast\nMMQ,U\nMountainwalk\n3/3"
+    IDS_STRING11657         "Rushwood Dryad\n{1G}\nCreature - Dryad\nMMQ,C\nForestwalk\n2/1"
+    IDS_STRING11658         "Sever Soul\n{3BB}\nSorcery\nMMQ,C\nDestroy target nonblack creature. It can't be regenerated. You gain life equal to its toughness."
+    IDS_STRING11659         "Shock Troops\n{3R}\nCreature - Human Soldier\nMMQ,C\nSacrifice Shock Troops: Shock Troops deals 2 damage to target creature or player.\n2/2"
+    IDS_STRING11660         "Sizzle\n{2R}\nSorcery\nMMQ,C\nSizzle deals 3 damage to each opponent."
+    IDS_STRING11661         "Squall\n{2G}\nSorcery\nMMQ,C\nSquall deals 2 damage to each creature with flying."
+    IDS_STRING11662         "Squee, Goblin Nabob\n{2R}\nLegendary Creature - Goblin\nMMQ,R\nAt the beginning of your upkeep, you may return Squee, Goblin Nabob from your graveyard to your hand.\n1/1"
+    IDS_STRING11663         "Steadfast Guard\n{WW}\nCreature - Human Rebel\nMMQ,C\nVigilance\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11664         "Stone Rain\n{2R}\nSorcery\nMMQ,C\nDestroy target land."
+    IDS_STRING11665         "Story Circle\n{1WW}\nEnchantment\nMMQ,U\nAs Story Circle enters the battlefield, choose a color.\r{W}: The next time a source of your choice of the chosen color would deal damage to you this turn, prevent that damage."
+    IDS_STRING11666         "Swamp\n\nBasic Land - Swamp\nMMQ,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING11667         "Swamp\n\nBasic Land - Swamp\nMMQ,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING11668         "Swamp\n\nBasic Land - Swamp\nMMQ,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING11669         "Swamp\n\nBasic Land - Swamp\nMMQ,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING11670         "Thieves' Auction\n{4RRR}\nSorcery\nMMQ,R\nExile all nontoken permanents. Starting with you, each player chooses one of the exiled cards and puts it onto the battlefield tapped under his or her control. Repeat this process until all cards exiled this way have been chosen."
+    IDS_STRING11671         "Tidal Kraken\n{5UUU}\nCreature - Kraken\nMMQ,R\nTidal Kraken is unblockable.\n6/6"
+    IDS_STRING11672         "Trade Routes\n{1U}\nEnchantment\nMMQ,R\n{1}: Return target land you control to its owner's hand.\r{1}, Discard a land card: Draw a card."
+    IDS_STRING11673         "Tranquility\n{2G}\nSorcery\nMMQ,C\nDestroy all enchantments."
+    IDS_STRING11674         "Tremor\n{R}\nSorcery\nMMQ,C\nTremor deals 1 damage to each creature without flying."
+    IDS_STRING11675         "Two-Headed Dragon\n{4RR}\nCreature - Dragon\nMMQ,R\nFlying\r{1R}: Two-Headed Dragon gets +2/+0 until end of turn.\rTwo-Headed Dragon can't be blocked except by two or more creatures.\rTwo-Headed Dragon can block an additional creature.\n4/4"
+    IDS_STRING11676         "Vine Trellis\n{1G}\nCreature - Plant Wall\nMMQ,C\nDefender\r{T}: Add {G} to your mana pool.\n0/4"
+    IDS_STRING11677         "Last Breath\n{1W}\nInstant\nMMQ,U\nExile target creature with power 2 or less. Its controller gains 4 life."
+    IDS_STRING11678         "Alabaster Wall\n{2W}\nCreature - Wall\nMMQ,C\nDefender\r{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n0/4"
+    IDS_STRING11679         "Alley Grifters\n{1BB}\nCreature - Human Mercenary\nMMQ,C\nWhenever Alley Grifters becomes blocked, defending player discards a card.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11680         "Arms Dealer\n{2R}\nCreature - Goblin Rogue\nMMQ,U\n{1R}, Sacrifice a Goblin: Arms Dealer deals 4 damage to target creature.\n1/1"
+    IDS_STRING11681         "Balloon Peddler\n{2U}\nCreature - Human Spellshaper\nMMQ,C\n{U}, {T}, Discard a card: Target creature gains flying until end of turn.\n2/2"
+    IDS_STRING11682         "Battle Rampart\n{2R}\nCreature - Wall\nMMQ,C\nDefender\r{T}: Target creature gains haste until end of turn.\n1/3"
+    IDS_STRING11683         "Battle Squadron\n{3RR}\nCreature - Goblin\nMMQ,R\nFlying\rBattle Squadron's power and toughness are each equal to the number of creatures you control.\n*/*"
+    IDS_STRING11684         "Blaster Mage\n{2R}\nCreature - Human Spellshaper\nMMQ,C\n{R}, {T}, Discard a card: Destroy target Wall.\n2/2"
+    IDS_STRING11685         "Blockade Runner\n{3U}\nCreature - Merfolk\nMMQ,C\n{U}: Blockade Runner is unblockable this turn.\n2/2"
+    IDS_STRING11686         "Boa Constrictor\n{4G}\nCreature - Snake\nMMQ,U\n{T}: Boa Constrictor gets +3/+3 until end of turn.\n3/3"
+    IDS_STRING11687         "Bog Smugglers\n{1BB}\nCreature - Human Mercenary\nMMQ,C\nSwampwalk\n2/2"
+    IDS_STRING11688         "Bog Witch\n{2B}\nCreature - Human Spellshaper\nMMQ,C\n{B}, {T}, Discard a card: Add {BBB} to your mana pool.\n1/1"
+    IDS_STRING11689         "Cackling Witch\n{1B}\nCreature - Human Spellshaper\nMMQ,U\n{XB}, {T}, Discard a card: Target creature gets +X/+0 until end of turn.\n1/1"
+    IDS_STRING11690         "Cateran Brute\n{2B}\nCreature - Horror Mercenary\nMMQ,C\n{2}, {T}: Search your library for a Mercenary permanent card with converted mana cost 2 or less and put it onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING11691         "Cateran Enforcer\n{3BB}\nCreature - Horror Mercenary\nMMQ,U\nFear\r{4}, {T}: Search your library for a Mercenary permanent card with converted mana cost 4 or less and put it onto the battlefield. Then shuffle your library.\n4/3"
+    IDS_STRING11692         "Cateran Kidnappers\n{2BB}\nCreature - Human Mercenary\nMMQ,U\n{3}, {T}: Search your library for a Mercenary permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n4/2"
+    IDS_STRING11693         "Cateran Overlord\n{4BBB}\nCreature - Horror Mercenary\nMMQ,R\nSacrifice a creature: Regenerate Cateran Overlord.\r{6}, {T}: Search your library for a Mercenary permanent card with converted mana cost 6 or less and put it onto the battlefield. Then shuffle your library.\n7/5"
+    IDS_STRING11694         "Cateran Persuader\n{BB}\nCreature - Human Mercenary\nMMQ,C\n{1}, {T}: Search your library for a Mercenary permanent card with converted mana cost 1 or less and put it onto the battlefield. Then shuffle your library.\n2/1"
+    IDS_STRING11695         "Cateran Slaver\n{4BB}\nCreature - Horror Mercenary\nMMQ,R\nSwampwalk\r{5}, {T}: Search your library for a Mercenary permanent card with converted mana cost 5 or less and put it onto the battlefield. Then shuffle your library.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11696         "Caustic Wasps\n{2G}\nCreature - Insect\nMMQ,U\nFlying\rWhenever Caustic Wasps deals combat damage to a player, you may destroy target artifact that player controls.\n1/1"
+    IDS_STRING11697         "Cavern Crawler\n{2R}\nCreature - Insect\nMMQ,C\nMountainwalk\r{R}: Cavern Crawler gets +1/-1 until end of turn.\n0/3"
+    IDS_STRING11698         "Ceremonial Guard\n{2R}\nCreature - Human Soldier\nMMQ,C\nWhen Ceremonial Guard attacks or blocks, destroy it at end of combat.\n3/4"
+    IDS_STRING11699         "Chambered Nautilus\n{2U}\nCreature - Nautilus Beast\nMMQ,U\nWhenever Chambered Nautilus becomes blocked, you may draw a card.\n2/2"
+    IDS_STRING11700         "Charm Peddler\n{W}\nCreature - Human Spellshaper\nMMQ,C\n{W}, {T}, Discard a card: The next time a source of your choice would deal damage to target creature this turn, prevent that damage.\n1/1"
+    IDS_STRING11701         "Charmed Griffin\n{3W}\nCreature - Griffin\nMMQ,U\nFlying\rWhen Charmed Griffin enters the battlefield, each other player may put an artifact or enchantment card onto the battlefield from his or her hand.\n3/3"
+    IDS_STRING11702         "Cho-Arrim Alchemist\n{W}\nCreature - Human Spellshaper\nMMQ,R\n{1WW}, {T}, Discard a card: The next time a source of your choice would deal damage to you this turn, prevent that damage. You gain life equal to the damage prevented this way.\n1/1"
+    IDS_STRING11703         "Cho-Arrim Bruiser\n{5W}\nCreature - Ogre Rebel\nMMQ,R\nWhenever Cho-Arrim Bruiser attacks, you may tap up to two target creatures.\n3/4"
+    IDS_STRING11704         "Cinder Elemental\n{3R}\nCreature - Elemental\nMMQ,U\n{XR}, {T}, Sacrifice Cinder Elemental: Cinder Elemental deals X damage to target creature or player.\n2/2"
+    IDS_STRING11705         "Corrupt Official\n{4B}\nCreature - Human Minion\nMMQ,R\n{2B}: Regenerate Corrupt Official.\rWhenever Corrupt Official becomes blocked, defending player discards a card at random.\n3/1"
+    IDS_STRING11706         "Darting Merfolk\n{1U}\nCreature - Merfolk\nMMQ,C\n{U}: Return Darting Merfolk to its owner's hand.\n1/1"
+    IDS_STRING11707         "Dawnstrider\n{1G}\nCreature - Dryad Spellshaper\nMMQ,R\n{G}, {T}, Discard a card: Prevent all combat damage that would be dealt this turn.\n1/1"
+    IDS_STRING11708         "Deepwood Drummer\n{1G}\nCreature - Human Spellshaper\nMMQ,C\n{G}, {T}, Discard a card: Target creature gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING11709         "Deepwood Tantiv\n{4G}\nCreature - Beast\nMMQ,U\nWhenever Deepwood Tantiv becomes blocked, you gain 2 life.\n2/4"
+    IDS_STRING11710         "Deepwood Wolverine\n{G}\nCreature - Wolverine\nMMQ,C\nWhenever Deepwood Wolverine becomes blocked, it gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING11711         "Delraich\n{6B}\nCreature - Horror\nMMQ,R\nTrample\rYou may sacrifice three black creatures rather than pay Delraich's mana cost.\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11712         "Devout Witness\n{2W}\nCreature - Human Spellshaper\nMMQ,C\n{1W}, {T}, Discard a card: Destroy target artifact or enchantment.\n2/2"
+    IDS_STRING11713         "Drake Hatchling\n{2U}\nCreature - Drake\nMMQ,C\nFlying\r{U}: Drake Hatchling gets +1/+0 until end of turn. Activate this ability only once each turn.\n1/3"
+    IDS_STRING11714         "Enslaved Horror\n{3B}\nCreature - Horror\nMMQ,U\nWhen Enslaved Horror enters the battlefield, each other player may return a creature card from his or her graveyard to the battlefield.\n4/4"
+    IDS_STRING11715         "Fountain Watch\n{3WW}\nCreature - Human Cleric\nMMQ,R\nArtifacts and enchantments you control have shroud.\n2/4"
+    IDS_STRING11716         "Fresh Volunteers\n{1W}\nCreature - Human Rebel\nMMQ,C\n\n2/2"
+    IDS_STRING11717         "Glowing Anemone\n{3U}\nCreature - Jellyfish Beast\nMMQ,U\nWhen Glowing Anemone enters the battlefield, you may return target land to its owner's hand.\n1/3"
+    IDS_STRING11718         "Howling Wolf\n{2GG}\nCreature - Wolf\nMMQ,C\nWhen Howling Wolf enters the battlefield, you may search your library for up to three cards named Howling Wolf, reveal them, and put them into your hand. If you do, shuffle your library.\n2/2"
+    IDS_STRING11719         "Jhovall Queen\n{4WW}\nCreature - Cat Rebel\nMMQ,R\nVigilance\n4/7"
+    IDS_STRING11720         "Jhovall Rider\n{4W}\nCreature - Human Rebel\nMMQ,U\nTrample\n3/3"
+    IDS_STRING11721         "Kris Mage\n{R}\nCreature - Human Spellshaper\nMMQ,C\n{R}, {T}, Discard a card: Kris Mage deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING11722         "Kyren Glider\n{1R}\nCreature - Goblin\nMMQ,C\nFlying\rKyren Glider can't block.\n1/1"
+    IDS_STRING11723         "Kyren Sniper\n{2R}\nCreature - Goblin\nMMQ,C\nAt the beginning of your upkeep, you may have Kyren Sniper deal 1 damage to target player.\n1/1"
+    IDS_STRING11724         "Lightning Hounds\n{2RR}\nCreature - Hound\nMMQ,C\nFirst strike\n3/2"
+    IDS_STRING11725         "Lithophage\n{3RR}\nCreature - Insect\nMMQ,R\nAt the beginning of your upkeep, sacrifice Lithophage unless you sacrifice a Mountain.\n7/7"
+    IDS_STRING11726         "Lumbering Satyr\n{2GG}\nCreature - Satyr Beast\nMMQ,U\nAll creatures have forestwalk.\n5/4"
+    IDS_STRING11727         "Misshapen Fiend\n{1B}\nCreature - Horror Mercenary\nMMQ,C\nFlying\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11728         "Molting Harpy\n{B}\nCreature - Harpy Mercenary\nMMQ,U\nFlying\rAt the beginning of your upkeep, sacrifice Molting Harpy unless you pay {2}.\n2/1"
+    IDS_STRING11729         "Nightwind Glider\n{2W}\nCreature - Human Rebel\nMMQ,C\nFlying, protection from black\n2/1"
+    IDS_STRING11730         "Notorious Assassin\n{3B}\nCreature - Human Spellshaper Assassin\nMMQ,R\n{2B}, {T}, Discard a card: Destroy target nonblack creature. It can't be regenerated.\n2/2"
+    IDS_STRING11731         "Overtaker\n{1U}\nCreature - Merfolk Spellshaper\nMMQ,R\n{3U}, {T}, Discard a card: Untap target creature and gain control of it until end of turn. That creature gains haste until end of turn.\n1/1"
+    IDS_STRING11732         "Pangosaur\n{2GG}\nCreature - Lizard\nMMQ,R\nWhenever a player plays a land, return Pangosaur to its owner's hand.\n6/6"
+    IDS_STRING11733         "Pious Warrior\n{3W}\nCreature - Human Rebel Warrior\nMMQ,C\nWhenever Pious Warrior is dealt combat damage, you gain that much life.\n2/3"
+    IDS_STRING11734         "Instigator\n{1B}\nCreature - Human Spellshaper\nMMQ,R\n{1BB}, {T}, Discard a card: Creatures target player controls attack this turn if able.\n1/1"
+    IDS_STRING11735         "Port Inspector\n{1U}\nCreature - Human\nMMQ,C\nWhenever Port Inspector becomes blocked, you may look at defending player's hand.\n1/2"
+    IDS_STRING11736         "Quagmire Lamprey\n{2B}\nCreature - Fish\nMMQ,U\nWhenever Quagmire Lamprey becomes blocked by a creature, put a -1/-1 counter on that creature.\n1/1"
+    IDS_STRING11737         "Ramosian Captain\n{1WW}\nCreature - Human Rebel\nMMQ,U\nFirst strike\r{5}, {T}: Search your library for a Rebel permanent card with converted mana cost 4 or less and put it onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING11738         "Ramosian Commander\n{2WW}\nCreature - Human Rebel\nMMQ,U\n{6}, {T}: Search your library for a Rebel permanent card with converted mana cost 5 or less and put it onto the battlefield. Then shuffle your library.\n2/4"
+    IDS_STRING11739         "Ramosian Lieutenant\n{1W}\nCreature - Human Rebel\nMMQ,C\n{4}, {T}: Search your library for a Rebel permanent card with converted mana cost 3 or less and put it onto the battlefield. Then shuffle your library.\n1/2"
+    IDS_STRING11740         "Ramosian Sergeant\n{W}\nCreature - Human Rebel\nMMQ,C\n{3}, {T}: Search your library for a Rebel permanent card with converted mana cost 2 or less and put it onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING11741         "Ramosian Sky Marshal\n{3WW}\nCreature - Human Rebel\nMMQ,R\nFlying\r{7}, {T}: Search your library for a Rebel permanent card with converted mana cost 6 or less and put it onto the battlefield. Then shuffle your library.\n3/3"
+    IDS_STRING11742         "Rampart Crawler\n{B}\nCreature - Lizard Mercenary\nMMQ,C\nRampart Crawler can't be blocked by Walls.\n1/1"
+    IDS_STRING11743         "Rappelling Scouts\n{2WW}\nCreature - Human Rebel Scout\nMMQ,R\nFlying\r{2W}: Rappelling Scouts gains protection from the color of your choice until end of turn.\n1/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11744         "Revered Elder\n{2W}\nCreature - Human Cleric\nMMQ,C\n{1}: Prevent the next 1 damage that would be dealt to Revered Elder this turn.\n1/2"
+    IDS_STRING11745         "Rishadan Airship\n{2U}\nCreature - Human Pirate\nMMQ,C\nFlying\rRishadan Airship can block only creatures with flying.\n3/1"
+    IDS_STRING11746         "Robber Fly\n{2R}\nCreature - Insect\nMMQ,U\nFlying\rWhenever Robber Fly becomes blocked, defending player discards all the cards in his or her hand, then draws that many cards.\n1/1"
+    IDS_STRING11747         "Rushwood Elemental\n{GGGGG}\nCreature - Elemental\nMMQ,R\nTrample\rAt the beginning of your upkeep, you may put a +1/+1 counter on Rushwood Elemental.\n4/4"
+    IDS_STRING11748         "Rushwood Herbalist\n{2G}\nCreature - Human Spellshaper\nMMQ,C\n{G}, {T}, Discard a card: Regenerate target creature.\n2/2"
+    IDS_STRING11749         "Sacred Prey\n{G}\nCreature - Horse\nMMQ,C\nWhenever Sacred Prey becomes blocked, you gain 1 life.\n1/1"
+    IDS_STRING11750         "Saprazzan Bailiff\n{3UU}\nCreature - Merfolk\nMMQ,R\nWhen Saprazzan Bailiff enters the battlefield, exile all artifact and enchantment cards from all graveyards.\rWhen Saprazzan Bailiff leaves the battlefield, return all artifact and enchantment cards from all graveyards to their owners' hands.\n2/2"
+    IDS_STRING11751         "Saprazzan Heir\n{1U}\nCreature - Merfolk\nMMQ,R\nWhenever Saprazzan Heir becomes blocked, you may draw three cards.\n1/1"
+    IDS_STRING11752         "Saprazzan Outrigger\n{3U}\nCreature - Merfolk\nMMQ,C\nWhen Saprazzan Outrigger attacks or blocks, put it on top of its owner's library at end of combat.\n5/5"
+    IDS_STRING11753         "Saprazzan Raider\n{2U}\nCreature - Merfolk\nMMQ,C\nWhen Saprazzan Raider becomes blocked, return it to its owner's hand.\n1/2"
+    IDS_STRING11754         "Seismic Mage\n{3R}\nCreature - Human Spellshaper\nMMQ,R\n{2R}, {T}, Discard a card: Destroy target land.\n1/1"
+    IDS_STRING11755         "Silent Assassin\n{BB}\nCreature - Human Mercenary Assassin\nMMQ,R\n{3B}: Destroy target blocking creature at end of combat.\n2/1"
+    IDS_STRING11756         "Silverglade Elemental\n{4G}\nCreature - Elemental\nMMQ,C\nWhen Silverglade Elemental enters the battlefield, you may search your library for a Forest card and put that card onto the battlefield. If you do, shuffle your library.\n4/4"
+    IDS_STRING11757         "Silverglade Pathfinder\n{1G}\nCreature - Dryad Spellshaper\nMMQ,U\n{1G}, {T}, Discard a card: Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\n1/1"
+    IDS_STRING11758         "Skulking Fugitive\n{2B}\nCreature - Horror Mercenary\nMMQ,C\nWhen Skulking Fugitive becomes the target of a spell or ability, sacrifice it.\n3/4"
+    IDS_STRING11759         "Snorting Gahr\n{2GG}\nCreature - Rhino Beast\nMMQ,C\nWhenever Snorting Gahr becomes blocked, it gets +2/+2 until end of turn.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11760         "Stinging Barrier\n{2UU}\nCreature - Wall\nMMQ,C\nDefender\r{U}, {T}: Stinging Barrier deals 1 damage to target creature or player.\n0/4"
+    IDS_STRING11761         "Strongarm Thug\n{2B}\nCreature - Human Mercenary\nMMQ,U\nWhen Strongarm Thug enters the battlefield, you may return target Mercenary card from your graveyard to your hand.\n1/1"
+    IDS_STRING11762         "Task Force\n{2W}\nCreature - Human Rebel\nMMQ,C\nWhenever Task Force becomes the target of a spell or ability, it gets +0/+3 until end of turn.\n1/3"
+    IDS_STRING11763         "Thermal Glider\n{2W}\nCreature - Human Rebel\nMMQ,C\nFlying, protection from red\n2/1"
+    IDS_STRING11764         "Thrashing Wumpus\n{3BB}\nCreature - Beast\nMMQ,R\n{B}: Thrashing Wumpus deals 1 damage to each creature and each player.\n3/3"
+    IDS_STRING11765         "Timid Drake\n{2U}\nCreature - Drake\nMMQ,U\nFlying\rWhen another creature enters the battlefield, return Timid Drake to its owner's hand.\n3/3"
+    IDS_STRING11766         "Tonic Peddler\n{1W}\nCreature - Human Spellshaper\nMMQ,U\n{W}, {T}, Discard a card: Target player gains 3 life.\n1/1"
+    IDS_STRING11767         "Undertaker\n{1B}\nCreature - Human Spellshaper\nMMQ,C\n{B}, {T}, Discard a card: Return target creature card from your graveyard to your hand.\n1/1"
+    IDS_STRING11768         "Venomous Dragonfly\n{3G}\nCreature - Insect\nMMQ,C\nFlying\rWhenever Venomous Dragonfly blocks or becomes blocked by a creature, destroy that creature at end of combat.\n1/1"
+    IDS_STRING11769         "Vine Dryad\n{3G}\nCreature - Dryad\nMMQ,R\nFlash\rForestwalk\rYou may exile a green card from your hand rather than pay Vine Dryad's mana cost.\n1/3"
+    IDS_STRING11770         "Wall of Distortion\n{2BB}\nCreature - Wall\nMMQ,C\nDefender\r{2B}, {T}: Target player discards a card. Activate this ability only any time you could cast a sorcery.\n1/3"
+    IDS_STRING11771         "Waterfront Bouncer\n{1U}\nCreature - Merfolk Spellshaper\nMMQ,C\n{U}, {T}, Discard a card: Return target creature to its owner's hand.\n1/1"
+    IDS_STRING11772         "Wild Jhovall\n{3R}\nCreature - Cat\nMMQ,C\n\n3/3"
+    IDS_STRING11773         "Crenellated Wall\n{4}\nArtifact Creature - Wall\nMMQ,U\nDefender\r{T}: Target creature gets +0/+4 until end of turn.\n0/4"
+    IDS_STRING11774         "Henge Guardian\n{5}\nArtifact Creature - Dragon Wurm\nMMQ,U\n{2}: Henge Guardian gains trample until end of turn.\n3/4"
+    IDS_STRING11775         "Dust Bowl\n\nLand\nMMQ,R\n{T}: Add {1} to your mana pool.\r{3}, {T}, Sacrifice a land: Destroy target nonbasic land."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11776         "High Market\n\nLand\nMMQ,R\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice a creature: You gain 1 life."
+    IDS_STRING11777         "Iron Lance\n{2}\nArtifact\nMMQ,U\n{3}, {T}: Target creature gains first strike until end of turn."
+    IDS_STRING11778         "Panacea\n{4}\nArtifact\nMMQ,U\n{XX}, {T}: Prevent the next X damage that would be dealt to target creature or player this turn."
+    IDS_STRING11779         "Power Matrix\n{4}\nArtifact\nMMQ,R\n{T}: Target creature gets +1/+1 and gains flying, first strike, and trample until end of turn."
+    IDS_STRING11780         "Puffer Extract\n{5}\nArtifact\nMMQ,U\n{X}, {T}: Target creature you control gets +X/+X until end of turn. Destroy it at the beginning of the next end step."
+    IDS_STRING11781         "Rishadan Pawnshop\n{2}\nArtifact\nMMQ,R\n{2}, {T}: Shuffle target nontoken permanent you control into its owner's library."
+    IDS_STRING11782         "Worry Beads\n{3}\nArtifact\nMMQ,R\nAt the beginning of each player's upkeep, that player puts the top card of his or her library into his or her graveyard."
+    IDS_STRING11783         "Armistice\n{2W}\nEnchantment\nMMQ,R\n{3WW}: You draw a card and target opponent gains 3 life."
+    IDS_STRING11784         "Briar Patch\n{1GG}\nEnchantment\nMMQ,U\nWhenever a creature attacks you, it gets -1/-0 until end of turn."
+    IDS_STRING11785         "Buoyancy\n{1U}\nEnchantment - Aura\nMMQ,C\nFlash\rEnchant creature\rEnchanted creature has flying."
+    IDS_STRING11786         "Cave Sense\n{1R}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rEnchanted creature gets +1/+1 and has mountainwalk."
+    IDS_STRING11787         "Close Quarters\n{2RR}\nEnchantment\nMMQ,U\nWhenever a creature you control becomes blocked, Close Quarters deals 1 damage to target creature or player."
+    IDS_STRING11788         "Diplomatic Immunity\n{1U}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rShroud\rEnchanted creature has shroud."
+    IDS_STRING11789         "Embargo\n{3U}\nEnchantment\nMMQ,R\nNonland permanents don't untap during their controllers' untap steps.\rAt the beginning of your upkeep, you lose 2 life."
+    IDS_STRING11790         "Ferocity\n{1G}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rWhenever enchanted creature blocks or becomes blocked, you may put a +1/+1 counter on it."
+    IDS_STRING11791         "Flaming Sword\n{1R}\nEnchantment - Aura\nMMQ,C\nFlash\rEnchant creature\rEnchanted creature gets +1/+0 and has first strike."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11792         "Furious Assault\n{2R}\nEnchantment\nMMQ,C\nWhenever you cast a creature spell, Furious Assault deals 1 damage to target player."
+    IDS_STRING11793         "Haunted Crossroads\n{2B}\nEnchantment\nMMQ,U\n{B}: Put target creature card from your graveyard on top of your library."
+    IDS_STRING11794         "High Seas\n{2U}\nEnchantment\nMMQ,U\nRed creature spells and green creature spells cost {1} more to cast."
+    IDS_STRING11795         "Crackdown\n{2W}\nEnchantment\nMMQ,R\nNonwhite creatures with power 3 or greater don't untap during their controllers' untap steps."
+    IDS_STRING11796         "Intimidation\n{2BBB}\nEnchantment\nMMQ,U\nCreatures you control have fear."
+    IDS_STRING11797         "Inviolability\n{1W}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rPrevent all damage that would be dealt to enchanted creature."
+    IDS_STRING11798         "Kyren Negotiations\n{2RR}\nEnchantment\nMMQ,U\nTap an untapped creature you control: Kyren Negotiations deals 1 damage to target player."
+    IDS_STRING11799         "Ley Line\n{3G}\nEnchantment\nMMQ,U\nAt the beginning of each player's upkeep, that player may put a +1/+1 counter on target creature of his or her choice."
+    IDS_STRING11800         "Liability\n{1BB}\nEnchantment\nMMQ,R\nWhenever a nontoken permanent is put into a player's graveyard from the battlefield, that player loses 1 life."
+    IDS_STRING11801         "Maggot Therapy\n{2B}\nEnchantment - Aura\nMMQ,C\nFlash\rEnchant creature\rEnchanted creature gets +2/-2."
+    IDS_STRING11802         "Magistrate's Veto\n{2R}\nEnchantment\nMMQ,U\nWhite creatures and blue creatures can't block."
+    IDS_STRING11803         "Moonlit Wake\n{2W}\nEnchantment\nMMQ,U\nWhenever a creature dies, you gain 1 life."
+    IDS_STRING11804         "Muzzle\n{1W}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rPrevent all damage that would be dealt by enchanted creature."
+    IDS_STRING11805         "Putrefaction\n{4B}\nEnchantment\nMMQ,U\nWhenever a player casts a green or white spell, that player discards a card."
+    IDS_STRING11806         "Pretender's Claim\n{1B}\nEnchantment - Aura\nMMQ,U\nEnchant creature\rWhenever enchanted creature becomes blocked, tap all lands defending player controls."
+    IDS_STRING11807         "Security Detail\n{3W}\nEnchantment\nMMQ,R\n{WW}: Put a 1/1 white Soldier creature token onto the battlefield. Activate this ability only if you control no creatures and only once each turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11808         "Snake Pit\n{3G}\nEnchantment\nMMQ,U\nWhenever an opponent casts a blue or black spell, you may put a 1/1 green Snake creature token onto the battlefield."
+    IDS_STRING11809         "Soul Channeling\n{2B}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rPay 2 life: Regenerate enchanted creature."
+    IDS_STRING11810         "Squeeze\n{3U}\nEnchantment\nMMQ,R\nSorcery spells cost {3} more to cast."
+    IDS_STRING11811         "Statecraft\n{3U}\nEnchantment\nMMQ,R\nPrevent all combat damage that would be dealt to and dealt by creatures you control."
+    IDS_STRING11812         "Sustenance\n{1G}\nEnchantment\nMMQ,U\n{1}, Sacrifice a land: Target creature gets +1/+1 until end of turn."
+    IDS_STRING11813         "Tiger Claws\n{2G}\nEnchantment - Aura\nMMQ,C\nFlash\rEnchant creature\rEnchanted creature gets +1/+1 and has trample."
+    IDS_STRING11814         "Uphill Battle\n{2R}\nEnchantment\nMMQ,U\nCreatures your opponents play enter the battlefield tapped."
+    IDS_STRING11815         "Thwart\n{2UU}\nInstant\nMMQ,U\nYou may return three Islands you control to their owner's hand rather than pay Thwart's mana cost.\rCounter target spell."
+    IDS_STRING11816         "Crash\n{2R}\nInstant\nMMQ,C\nYou may sacrifice a Mountain rather than pay Crash's mana cost.\rDestroy target artifact."
+    IDS_STRING11817         "Hoodwink\n{1U}\nInstant\nMMQ,C\nReturn target artifact, enchantment, or land to its owner's hand."
+    IDS_STRING11818         "Misdirection\n{3UU}\nInstant\nMMQ,R\nYou may exile a blue card from your hand rather than pay Misdirection's mana cost.\rChange the target of target spell with a single target."
+    IDS_STRING11819         "Reverent Mantra\n{3W}\nInstant\nMMQ,R\nYou may exile a white card from your hand rather than pay Reverent Mantra's mana cost.\rChoose a color. All creatures gain protection from the chosen color until end of turn."
+    IDS_STRING11820         "Soothing Balm\n{1W}\nInstant\nMMQ,C\nTarget player gains 5 life."
+    IDS_STRING11821         "Thunderclap\n{2R}\nInstant\nMMQ,C\nYou may sacrifice a Mountain rather than pay Thunderclap's mana cost.\rThunderclap deals 3 damage to target creature."
+    IDS_STRING11822         "Warpath\n{3R}\nInstant\nMMQ,U\nWarpath deals 3 damage to each blocking creature and each blocked creature."
+    IDS_STRING11823         "Cateran Summons\n{B}\nSorcery\nMMQ,U\nSearch your library for a Mercenary card, reveal that card, and put it into your hand. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11824         "Cave-In\n{3RR}\nSorcery\nMMQ,R\nYou may exile a red card from your hand rather than pay Cave-In's mana cost.\rCave-In deals 2 damage to each creature and each player."
+    IDS_STRING11825         "Pulverize\n{4RR}\nSorcery\nMMQ,R\nYou may sacrifice two Mountains rather than pay Pulverize's mana cost.\rDestroy all artifacts."
+    IDS_STRING11826         "Specter's Wail\n{1B}\nSorcery\nMMQ,C\nTarget player discards a card at random."
+    IDS_STRING11827         "Unmask\n{3B}\nSorcery\nMMQ,R\nYou may exile a black card from your hand rather than pay Unmask's mana cost.\rTarget player reveals his or her hand. You choose a nonland card from it. That player discards that card."
+    IDS_STRING11828         "Gush\n{4U}\nInstant\nMMQ,C\nYou may return two Islands you control to their owner's hand rather than pay Gush's mana cost.\rDraw two cards."
+    IDS_STRING11829         "Snuff Out\n{3B}\nInstant\nMMQ,C\nIf you control a Swamp, you may pay 4 life rather than pay Snuff Out's mana cost.\rDestroy target nonblack creature. It can't be regenerated."
+    IDS_STRING11830         "Righteous Aura\n{1W}\nEnchantment\nMMQ,U\n{W}, Pay 2 life: The next time a source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING11831         "Invigorate\n{2G}\nInstant\nMMQ,C\nIf you control a Forest, rather than pay Invigorate's mana cost, you may have an opponent gain 3 life.\rTarget creature gets +4/+4 until end of turn."
+    IDS_STRING11832         "Hickory Woodlot\n\nLand\nMMQ,C\nHickory Woodlot enters the battlefield tapped with two depletion counters on it.\r{T}, Remove a depletion counter from Hickory Woodlot: Add {GG} to your mana pool. If there are no depletion counters on Hickory Woodlot, sacrifice it."
+    IDS_STRING11833         "Peat Bog\n\nLand\nMMQ,C\nPeat Bog enters the battlefield tapped with two depletion counters on it.\r{T}, Remove a depletion counter from Peat Bog: Add {BB} to your mana pool. If there are no depletion counters on Peat Bog, sacrifice it."
+    IDS_STRING11834         "Remote Farm\n\nLand\nMMQ,C\nRemote Farm enters the battlefield tapped with two depletion counters on it.\r{T}, Remove a depletion counter from Remote Farm: Add {WW} to your mana pool. If there are no depletion counters on Remote Farm, sacrifice it."
+    IDS_STRING11835         "Sandstone Needle\n\nLand\nMMQ,C\nSandstone Needle enters the battlefield tapped with two depletion counters on it.\r{T}, Remove a depletion counter from Sandstone Needle: Add {RR} to your mana pool. If there are no depletion counters on Sandstone Needle, sacrifice it."
+    IDS_STRING11836         "Saprazzan Skerry\n\nLand\nMMQ,C\nSaprazzan Skerry enters the battlefield tapped with two depletion counters on it.\r{T}, Remove a depletion counter from Saprazzan Skerry: Add {UU} to your mana pool. If there are no depletion counters on Saprazzan Skerry, sacrifice it."
+    IDS_STRING11837         "Afterlife\n{2W}\nInstant\nMMQ,U\nDestroy target creature. It can't be regenerated. Its controller puts a 1/1 white Spirit creature token with flying onto the battlefield."
+    IDS_STRING11838         "Magistrate's Scepter\n{3}\nArtifact\nMMQ,R\n{4}, {T}: Put a charge counter on Magistrate's Scepter.\r{T}, Remove three charge counters from Magistrate's Scepter: Take an extra turn after this one."
+    IDS_STRING11839         "Hired Giant\n{3R}\nCreature - Giant\nMMQ,U\nWhen Hired Giant enters the battlefield, each other player may search his or her library for a land card and put that card onto the battlefield. Then each player who searched his or her library this way shuffles it.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11840         "Ignoble Soldier\n{2W}\nCreature - Human Soldier\nMMQ,U\nWhenever Ignoble Soldier becomes blocked, prevent all combat damage that would be dealt by it this turn.\n3/1"
+    IDS_STRING11841         "Ancestral Mask\n{2G}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rEnchanted creature gets +2/+2 for each other enchantment on the battlefield."
+    IDS_STRING11842         "Brawl\n{3RR}\nInstant\nMMQ,R\nUntil end of turn, all creatures gain ""{T}: This creature deals damage equal to its power to target creature."""
+    IDS_STRING11843         "Shoving Match\n{2U}\nInstant\nMMQ,U\nUntil end of turn, all creatures gain ""{T}: Tap target creature."""
+    IDS_STRING11844         "Nether Spirit\n{1BB}\nCreature - Spirit\nMMQ,R\nAt the beginning of your upkeep, if Nether Spirit is the only creature card in your graveyard, you may return Nether Spirit to the battlefield.\n2/2"
+    IDS_STRING11845         "Customs Depot\n{1U}\nEnchantment\nMMQ,U\nWhenever you cast a creature spell, you may pay {1}. If you do, draw a card, then discard a card."
+    IDS_STRING11846         "Vendetta\n{B}\nInstant\nMMQ,C\nDestroy target nonblack creature. It can't be regenerated. You lose life equal to that creature's toughness."
+    IDS_STRING11847         "Tidal Bore\n{1U}\nInstant\nMMQ,C\nYou may return an Island you control to its owner's hand rather than pay Tidal Bore's mana cost.\rYou may tap or untap target creature."
+    IDS_STRING11848         "Cho-Arrim Legate\n{2W}\nCreature - Human Soldier\nMMQ,U\nProtection from black\rIf an opponent controls a Swamp and you control a Plains, you may cast Cho-Arrim Legate without paying its mana cost.\n1/2"
+    IDS_STRING11849         "Deepwood Elder\n{GG}\nCreature - Dryad Spellshaper\nMMQ,R\n{XGG}, {T}, Discard a card: X target lands become Forests until end of turn.\n2/2"
+    IDS_STRING11850         "Deepwood Legate\n{3B}\nCreature - Shade\nMMQ,U\nIf an opponent controls a Forest and you control a Swamp, you may cast Deepwood Legate without paying its mana cost.\r{B}: Deepwood Legate gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING11851         "Erithizon\n{2GG}\nCreature - Beast\nMMQ,R\nWhenever Erithizon attacks, put a +1/+1 counter on target creature of defending player's choice.\n4/4"
+    IDS_STRING11852         "Kyren Legate\n{1R}\nCreature - Goblin\nMMQ,U\nHaste\rIf an opponent controls a Plains and you control a Mountain, you may cast Kyren Legate without paying its mana cost.\n1/1"
+    IDS_STRING11853         "Lunge\n{2R}\nInstant\nMMQ,C\nLunge deals 2 damage to target creature and 2 damage to target player."
+    IDS_STRING11854         "Misstep\n{1U}\nSorcery\nMMQ,C\nCreatures target player controls don't untap during that player's next untap step."
+    IDS_STRING11855         "Orim's Cure\n{1W}\nInstant\nMMQ,C\nIf you control a Plains, you may tap an untapped creature you control rather than pay the mana cost of Orim's Cure.\rPrevent the next 4 damage that would be dealt to target creature or player this turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11856         "Ramosian Rally\n{3W}\nInstant\nMMQ,C\nIf you control a Plains, you may tap an untapped creature you control rather than pay Ramosian Rally's mana cost.\rCreatures you control get +1/+1 until end of turn."
+    IDS_STRING11857         "Rouse\n{1B}\nInstant\nMMQ,C\nIf you control a Swamp, you may pay 2 life rather than pay Rouse's mana cost.\rTarget creature gets +2/+0 until end of turn."
+    IDS_STRING11858         "Rushwood Legate\n{2G}\nCreature - Dryad\nMMQ,U\nIf an opponent controls an Island and you control a Forest, you may cast Rushwood Legate without paying its mana cost.\n2/1"
+    IDS_STRING11859         "Saber Ants\n{3G}\nCreature - Insect\nMMQ,U\nWhenever Saber Ants is dealt damage, you may put that many 1/1 green Insect creature tokens onto the battlefield.\n2/3"
+    IDS_STRING11860         "Saprazzan Legate\n{3U}\nCreature - Merfolk Soldier\nMMQ,U\nFlying\rIf an opponent controls a Mountain and you control an Island, you may cast Saprazzan Legate without paying its mana cost.\n1/3"
+    IDS_STRING11861         "Land Grant\n{1G}\nSorcery\nMMQ,C\nIf you have no land cards in hand, you may reveal your hand rather than pay Land Grant's mana cost.\rSearch your library for a Forest card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING11862         "Spontaneous Generation\n{3G}\nSorcery\nMMQ,R\nPut a 1/1 green Saproling creature token onto the battlefield for each card in your hand."
+    IDS_STRING11863         "Word of Blasting\n{1R}\nInstant\nMMQ,U\nDestroy target Wall. It can't be regenerated. Word of Blasting deals damage equal to that Wall's converted mana cost to the Wall's controller."
+    IDS_STRING11864         "Energy Flux\n{2U}\nEnchantment\nMMQ,U\nAll artifacts have ""At the beginning of your upkeep, sacrifice this artifact unless you pay {2}."""
+    IDS_STRING11865         "Vernal Equinox\n{3G}\nEnchantment\nMMQ,R\nAny player may cast creature and enchantment cards as though they had flash."
+    IDS_STRING11866         "Giant Caterpillar\n{3G}\nCreature - Insect\nMMQ,C\n{G}, Sacrifice Giant Caterpillar: Put a 1/1 green Insect creature token with flying named Butterfly onto the battlefield at the beginning of the next end step.\n3/3"
+    IDS_STRING11867         "Arrest\n{2W}\nEnchantment - Aura\nMMQ,U\nEnchant creature\rEnchanted creature can't attack or block, and its activated abilities can't be activated."
+    IDS_STRING11868         "Ghoul's Feast\n{1B}\nInstant\nMMQ,U\nTarget creature gets +X/+0 until end of turn, where X is the number of creature cards in your graveyard."
+    IDS_STRING11869         "Forced March\n{XBBB}\nSorcery\nMMQ,R\nDestroy all creatures with converted mana cost X or less."
+    IDS_STRING11870         "Moment of Silence\n{W}\nInstant\nMMQ,C\nTarget player skips his or her next combat phase this turn."
+    IDS_STRING11871         "Stamina\n{2G}\nEnchantment - Aura\nMMQ,U\nEnchant creature\rEnchanted creature has vigilance.\rSacrifice Stamina: Regenerate enchanted creature."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11872         "Tower of the Magistrate\n\nLand\nMMQ,R\n{T}: Add {1} to your mana pool.\r{1},{T}: Target creature gains protection from artifacts until end of turn."
+    IDS_STRING11873         "Fountain of Cho\n\nLand\nMMQ,U\nFountain of Cho enters the battlefield tapped.\r{T}: Put a storage counter on Fountain of Cho.\r{T}, Remove any number of storage counters from Fountain of Cho: Add {W} to your mana pool for each storage counter removed this way."
+    IDS_STRING11874         "Mercadian Bazaar\n\nLand\nMMQ,U\nMercadian Bazaar enters the battlefield tapped.\r{T}: Put a storage counter on Mercadian Bazaar.\r{T}, Remove any number of storage counters from Mercadian Bazaar: Add {R} to your mana pool for each storage counter removed this way."
+    IDS_STRING11875         "Rushwood Grove\n\nLand\nMMQ,U\nRushwood Grove enters the battlefield tapped.\r{T}: Put a storage counter on Rushwood Grove.\r{T}, Remove any number of storage counters from Rushwood Grove: Add {G} to your mana pool for each storage counter removed this way."
+    IDS_STRING11876         "Saprazzan Cove\n\nLand\nMMQ,U\nSaprazzan Cove enters the battlefield tapped.\r{T}: Put a storage counter on Saprazzan Cove.\r{T}, Remove any number of storage counters from Saprazzan Cove: Add {U} to your mana pool for each storage counter removed this way."
+    IDS_STRING11877         "Subterranean Hangar\n\nLand\nMMQ,U\nSubterranean Hangar enters the battlefield tapped.\r{T}: Put a storage counter on Subterranean Hangar.\r{T}, Remove any number of storage counters from Subterranean Hangar: Add {B} to your mana pool for each storage counter removed this way."
+    IDS_STRING11878         "Blood Hound\n{2R}\nCreature - Hound\nMMQ,R\nWhenever you're dealt damage, you may put that many +1/+1 counters on Blood Hound.\rAt the beginning of your end step, remove all +1/+1 counters from Blood Hound.\n1/1"
+    IDS_STRING11879         "Insubordination\n{BB}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rAt the beginning of the end step of enchanted creature's controller, Insubordination deals 2 damage to that player unless that creature attacked this turn."
+    IDS_STRING11880         "Soothsaying\n{U}\nEnchantment\nMMQ,U\n{3UU}: Shuffle your library.\r{X}: Look at the top X cards of your library, then put them back in any order."
+    IDS_STRING11881         "False Demise\n{2U}\nEnchantment - Aura\nMMQ,C\nEnchant creature\rWhen enchanted creature dies, return that card to the battlefield under your control."
+    IDS_STRING11882         "Black Market\n{3BB}\nEnchantment\nMMQ,R\nWhenever a creature dies, put a charge counter on Black Market.\rAt the beginning of your precombat main phase, add {B} to your mana pool for each charge counter on Black Market."
+    IDS_STRING11883         "Bifurcate\n{3G}\nSorcery\nMMQ,R\nSearch your library for a permanent card with the same name as target nontoken creature and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING11884         "Wave of Reckoning\n{4W}\nSorcery\nMMQ,R\nEach creature deals damage to itself equal to its power."
+    IDS_STRING11885         "Tectonic Break\n{XRR}\nSorcery\nMMQ,R\nEach player sacrifices X lands."
+    IDS_STRING11886         "Hammer Mage\n{1R}\nCreature - Human Spellshaper\nMMQ,U\n{XR}, {T}, Discard a card: Destroy all artifacts with converted mana cost X or less.\n1/1"
+    IDS_STRING11887         "Puppet's Verdict\n{1RR}\nInstant\nMMQ,R\nFlip a coin. If you win the flip, destroy all creatures with power 2 or less. If you lose the flip, destroy all creatures with power 3 or greater."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11888         "Blood Oath\n{3R}\nInstant\nMMQ,R\nChoose a card type. Target opponent reveals his or her hand. Blood Oath deals 3 damage to that player for each card of the chosen type revealed this way."
+    IDS_STRING11889         "Credit Voucher\n{2}\nArtifact\nMMQ,U\n{2}, {T}, Sacrifice Credit Voucher: Shuffle any number of cards from your hand into your library, then draw that many cards."
+    IDS_STRING11890         "Renounce\n{1W}\nInstant\nMMQ,U\nSacrifice any number of permanents. You gain 2 life for each permanent sacrificed this way."
+    IDS_STRING11891         "Jeweled Torque\n{2}\nArtifact\nMMQ,U\nAs Jeweled Torque enters the battlefield, choose a color.\rWhenever a player casts a spell of the chosen color, you may pay {2}. If you do, you gain 2 life."
+    IDS_STRING11892         "Assembly Hall\n{5}\nArtifact\nMMQ,R\n{4}, {T}: Reveal a creature card in your hand. Search your library for a card with the same name as that card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING11893         "Clear the Land\n{2G}\nSorcery\nMMQ,R\nEach player reveals the top five cards of his or her library, puts all land cards revealed this way onto the battlefield tapped, and exiles the rest."
+    IDS_STRING11894         "Kyren Toy\n{3}\nArtifact\nMMQ,R\n{1}, {T}: Put a charge counter on Kyren Toy.\r{T}, Remove X charge counters from Kyren Toy: Add {X1} to your mana pool."
+    IDS_STRING11895         "Mercadian Lift\n{2}\nArtifact\nMMQ,R\n{1}, {T}: Put a winch counter on Mercadian Lift.\r{T}, Remove X winch counters from Mercadian Lift: You may put a creature card with converted mana cost X from your hand onto the battlefield."
+    IDS_STRING11896         "Extortion\n{3BB}\nSorcery\nMMQ,R\nLook at target player's hand and choose up to two cards from it. That player discards those cards."
+    IDS_STRING11897         "Kyren Archive\n{3}\nArtifact\nMMQ,R\nAt the beginning of your upkeep, you may exile the top card of your library face down.\r{5}, Discard your hand, Sacrifice Kyren Archive: Put all cards exiled with Kyren Archive into their owner's hand."
+    IDS_STRING11898         "Monkey Cage\n{5}\nArtifact\nMMQ,R\nWhen a creature enters the battlefield, sacrifice Monkey Cage and put X 2/2 green Ape creature tokens onto the battlefield, where X is that creature's converted mana cost."
+    IDS_STRING11899         "Karn's Touch\n{UU}\nInstant\nMMQ,R\nTarget noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost until end of turn."
+    IDS_STRING11900         "Toymaker\n{2}\nArtifact Creature - Spellshaper\nMMQ,U\n{1}, {T}, Discard a card: Target noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost until end of turn.\n1/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

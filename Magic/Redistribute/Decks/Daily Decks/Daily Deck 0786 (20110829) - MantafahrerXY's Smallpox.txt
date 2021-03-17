@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+2 Baneslayer Angel (21125)
+3 Bloodghast (19534)
+4 Dark Confidant (16449)
+4 Gatekeeper of Malakir (19442)
+3 Kitchen Finks (18593)
+4 Tarmogoyf (17704)
+4 Tidehollow Sculler (8721)
+
+// Instants - 3 (5.00%)
+
+3 Smother (19600)
+
+// Sorceries - 8 (13.33%)
+
+4 Smallpox (22151)
+4 Thoughtseize (17901)
+
+// Artifacts - 2 (3.33%)
+
+2 Sword of Fire and Ice (15222)
+
+// Lands - 23 (38.33%)
+
+4 Fetid Heath (18912)
+4 Flagstones of Trokair (17278)
+3 Godless Shrine (16808)
+4 Marsh Flats (19357)
+Overgrown Tomb (16445)
+Plains (22222)
+Swamp (22225)
+Swamp (22226)
+Urborg, Tomb of Yawgmoth (2606)
+3 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+Smother (19600)
+
+// Sorceries
+
+2 Damnation (2505)
+4 Deathmark (22241)
+4 Duress (21280)
+2 Stupor (17263)
+2 Timely Reinforcements (22315)

@@ -1,0 +1,122 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Starter2000.ico"
+IDI_LARGE_MODULE        ICON                    "Starter2000Large.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_EXPANSION           "Starter 2000"
+    IDS_EXPANSION_ABBREV    "S00"
+    IDS_FIRST_CARD          "20700"
+    IDS_TOTAL_CARD          "20"
+    IDS_WHITE_BORDER        "1"
+    IDS_MODULE_ICON_ID      "20720"
+    IDS_MODULE_LARGE_ICON_ID "20721"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-07-2000"
+    IDS_MWS_FOLDER          "MWS\\S00\\"
+    IDS_PRODUCT_LIST        """Starter 2000 Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING20700         "Durkwood Boars\n{4G}\nCreature - Boar\nS00,C\n\n4/4"
+    IDS_STRING20701         "Eager Cadet\n{W}\nCreature - Human Soldier\nS00,C\n\n1/1"
+    IDS_STRING20702         "Giant Octopus\n{3U}\nCreature - Octopus\nS00,C\n\n3/3"
+    IDS_STRING20703         "Knight Errant\n{1W}\nCreature - Human Knight\nS00,C\n\n2/2"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING20704         "Mons's Goblin Raiders\n{R}\nCreature - Goblin\nS00,C\n\n1/1"
+    IDS_STRING20705         "Moon Sprite\n{1G}\nCreature - Faerie\nS00,U\nFlying\n1/1"
+    IDS_STRING20706         "Ogre Warrior\n{3R}\nCreature - Ogre Warrior\nS00,C\n\n3/3"
+    IDS_STRING20707         "Rhox\n{4GG}\nCreature - Rhino Beast\nS00,R\nYou may have Rhox assign its combat damage as though it weren't blocked.\r{2G}: Regenerate Rhox.\n5/5"
+    IDS_STRING20708         "Royal Falcon\n{1W}\nCreature - Bird\nS00,C\nFlying\n1/1"
+    IDS_STRING20709         "Sea Eagle\n{1U}\nCreature - Bird\nS00,C\nFlying\n1/1"
+    IDS_STRING20710         "Trained Orgg\n{6R}\nCreature - Orgg\nS00,R\n\n6/6"
+    IDS_STRING20711         "Vizzerdrix\n{6U}\nCreature - Rabbit Beast\nS00,R\n\n6/6"
+    IDS_STRING20712         "Wild Griffin\n{2W}\nCreature - Griffin\nS00,C\nFlying\n2/2"
+    IDS_STRING20713         "Willow Elf\n{G}\nCreature - Elf\nS00,C\n\n1/1"
+    IDS_STRING20714         "Angelic Blessing\n{2W}\nSorcery\nS00,C\nTarget creature gets +3/+3 and gains flying until end of turn."
+    IDS_STRING20715         "Breath of Life\n{3W}\nSorcery\nS00,U\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING20716         "Hand of Death\n{2B}\nSorcery\nS00,C\nDestroy target nonblack creature."
+    IDS_STRING20717         "Lava Axe\n{4R}\nSorcery\nS00,C\nLava Axe deals 5 damage to target player."
+    IDS_STRING20718         "Monstrous Growth\n{1G}\nSorcery\nS00,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING20719         "Time Ebb\n{2U}\nSorcery\nS00,C\nPut target creature on top of its owner's library."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

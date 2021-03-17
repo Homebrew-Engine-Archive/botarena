@@ -1,0 +1,29 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Angel of Light (20500)
+Archangel (20516)
+2 Charging Paladin (20524)
+3 Foot Soldiers (20537)
+3 Knight Errant (20552)
+3 Venerable Monk (20579)
+2 Wild Griffin (20585)
+
+// Sorceries - 8 (20.00%)
+
+2 Angelic Blessing (20614)
+Armageddon (20615)
+Breath of Life (20618)
+False Peace (20669)
+2 Path of Peace (20637)
+Vengeance (20659)
+
+// Lands - 17 (42.50%)
+
+5 Plains (20601)
+4 Plains (20602)
+4 Plains (20603)
+4 Plains (20604)

@@ -1,0 +1,234 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Legions.ico"
+IDI_LARGE_MODULE        ICON                    "LegionsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Legions"
+    IDS_EXPANSION_ABBREV    "LGN"
+    IDS_FIRST_CARD          "14400"
+    IDS_TOTAL_CARD          "145"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "14545"
+    IDS_MODULE_LARGE_ICON_ID "14546"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "03-02-2003"
+    IDS_MWS_FOLDER          "MWS\\LGN\\"
+    IDS_PRODUCT_LIST        """Legions Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14400         "Akroma, Angel of Wrath\n{5WWW}\nLegendary Creature - Angel\nLGN,R\nFlying, first strike, vigilance, trample, haste, protection from black and from red\n6/6"
+    IDS_STRING14401         "Akroma's Devoted\n{3W}\nCreature - Human Cleric\nLGN,U\nCleric creatures have vigilance.\n2/4"
+    IDS_STRING14402         "Blade Sliver\n{2R}\nCreature - Sliver\nLGN,U\nAll Sliver creatures get +1/+0.\n2/2"
+    IDS_STRING14403         "Blood Celebrant\n{B}\nCreature - Human Cleric\nLGN,C\n{B}, Pay 1 life: Add one mana of any color to your mana pool.\n1/1"
+    IDS_STRING14404         "Brood Sliver\n{4G}\nCreature - Sliver\nLGN,R\nWhenever a Sliver deals combat damage to a player, its controller may put a 1/1 colorless Sliver creature token onto the battlefield.\n3/3"
+    IDS_STRING14405         "Cephalid Pathmage\n{2U}\nCreature - Cephalid Wizard\nLGN,C\nCephalid Pathmage is unblockable.\r{T}, Sacrifice Cephalid Pathmage: Target creature is unblockable this turn.\n1/2"
+    IDS_STRING14406         "Covert Operative\n{4U}\nCreature - Human Wizard\nLGN,C\nCovert Operative is unblockable.\n3/2"
+    IDS_STRING14407         "Essence Sliver\n{3W}\nCreature - Sliver\nLGN,R\nWhenever a Sliver deals damage, its controller gains that much life.\n3/3"
+    IDS_STRING14408         "Plated Sliver\n{W}\nCreature - Sliver\nLGN,C\nAll Sliver creatures get +0/+1.\n1/1"
+    IDS_STRING14409         "Root Sliver\n{3G}\nCreature - Sliver\nLGN,U\nRoot Sliver can't be countered.\rSliver spells can't be countered by spells or abilities.\n2/2"
+    IDS_STRING14410         "Shifting Sliver\n{3U}\nCreature - Sliver\nLGN,U\nSlivers can't be blocked except by Slivers.\n2/2"
+    IDS_STRING14411         "Synapse Sliver\n{4U}\nCreature - Sliver\nLGN,R\nWhenever a Sliver deals combat damage to a player, its controller may draw a card.\n3/3"
+    IDS_STRING14412         "Withered Wretch\n{BB}\nCreature - Zombie Cleric\nLGN,U\n{1}: Exile target card from a graveyard.\n2/2"
+    IDS_STRING14413         "Enormous Baloth\n{6G}\nCreature - Beast\nLGN,U\n\n7/7"
+    IDS_STRING14414         "Flamewave Invoker\n{2R}\nCreature - Goblin Mutant\nLGN,C\n{7R}: Flamewave Invoker deals 5 damage to target player.\n2/2"
+    IDS_STRING14415         "Fugitive Wizard\n{U}\nCreature - Human Wizard\nLGN,C\n\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14416         "Lavaborn Muse\n{3R}\nCreature - Spirit\nLGN,R\nAt the beginning of each opponent's upkeep, if that player has two or fewer cards in hand, Lavaborn Muse deals 3 damage to him or her.\n3/3"
+    IDS_STRING14417         "Merchant of Secrets\n{2U}\nCreature - Human Wizard\nLGN,C\nWhen Merchant of Secrets enters the battlefield, draw a card.\n1/1"
+    IDS_STRING14418         "Phage the Untouchable\n{3BBBB}\nLegendary Creature - Zombie Minion\nLGN,R\nWhen Phage the Untouchable enters the battlefield, if you didn't cast it from your hand, you lose the game.\rWhenever Phage deals combat damage to a creature, destroy that creature. It can't be regenerated.\rWhenever Phage deals combat damage to a player, that player loses the game.\n4/4"
+    IDS_STRING14419         "Seedborn Muse\n{3GG}\nCreature - Spirit\nLGN,R\nUntap all permanents you control during each other player's untap step.\n2/4"
+    IDS_STRING14420         "Starlight Invoker\n{1W}\nCreature - Human Cleric Mutant\nLGN,C\n{7W}: You gain 5 life.\n1/3"
+    IDS_STRING14421         "White Knight\n{WW}\nCreature - Human Knight\nLGN,U\nFirst strike\rProtection from black\n2/2"
+    IDS_STRING14422         "Scion of Darkness\n{5BBB}\nCreature - Avatar\nLGN,R\nTrample\rWhenever Scion of Darkness deals combat damage to a player, you may put target creature card from that player's graveyard onto the battlefield under your control.\rCycling {3}\n6/6"
+    IDS_STRING14423         "Aven Envoy\n{U}\nCreature - Bird Soldier\nLGN,C\nFlying\n0/2"
+    IDS_STRING14424         "Aven Redeemer\n{3W}\nCreature - Bird Cleric\nLGN,C\nFlying\r{T}: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n2/2"
+    IDS_STRING14425         "Clickslither\n{1RRR}\nCreature - Insect\nLGN,R\nHaste\rSacrifice a Goblin: Clickslither gets +2/+2 and gains trample until end of turn.\n3/3"
+    IDS_STRING14426         "Crookclaw Elder\n{5U}\nCreature - Bird Wizard\nLGN,U\nFlying\rTap two untapped Birds you control: Draw a card.\rTap two untapped Wizards you control: Target creature gains flying until end of turn.\n3/2"
+    IDS_STRING14427         "Deathmark Prelate\n{3B}\nCreature - Human Cleric\nLGN,U\n{2B}, {T}, Sacrifice a Zombie: Destroy target non-Zombie creature. It can't be regenerated. Activate this ability only any time you could cast a sorcery.\n2/3"
+    IDS_STRING14428         "Defiant Elf\n{G}\nCreature - Elf\nLGN,C\nTrample\n1/1"
+    IDS_STRING14429         "Dripping Dead\n{4BB}\nCreature - Zombie\nLGN,C\nDripping Dead can't block.\rWhenever Dripping Dead deals combat damage to a creature, destroy that creature. It can't be regenerated.\n4/1"
+    IDS_STRING14430         "Earthblighter\n{1B}\nCreature - Human Cleric\nLGN,U\n{2B}, {T}, Sacrifice a Goblin: Destroy target land.\n1/1"
+    IDS_STRING14431         "Frenetic Raptor\n{5R}\nCreature - Lizard Beast\nLGN,U\nBeasts can't block.\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14432         "Gempalm Avenger\n{5W}\nCreature - Human Soldier\nLGN,C\nCycling {2W}\rWhen you cycle Gempalm Avenger, Soldier creatures get +1/+1 and gain first strike until end of turn.\n3/5"
+    IDS_STRING14433         "Gempalm Sorcerer\n{2U}\nCreature - Human Wizard\nLGN,U\nCycling {2U}\rWhen you cycle Gempalm Sorcerer, Wizard creatures gain flying until end of turn.\n2/2"
+    IDS_STRING14434         "Gempalm Strider\n{1G}\nCreature - Elf\nLGN,U\nCycling {2GG}\rWhen you cycle Gempalm Strider, Elf creatures get +2/+2 until end of turn.\n2/2"
+    IDS_STRING14435         "Glintwing Invoker\n{4U}\nCreature - Human Wizard Mutant\nLGN,C\n{7U}: Glintwing Invoker gets +3/+3 and gains flying until end of turn.\n3/3"
+    IDS_STRING14436         "Glowrider\n{2W}\nCreature - Human Cleric\nLGN,R\nNoncreature spells cost {1} more to cast.\n2/1"
+    IDS_STRING14437         "Goblin Clearcutter\n{3R}\nCreature - Goblin\nLGN,U\n{T}, Sacrifice a Forest: Add three mana in any combination of {R} and/or {G} to your mana pool.\n3/3"
+    IDS_STRING14438         "Goblin Dynamo\n{5RR}\nCreature - Goblin Mutant\nLGN,U\n{T}: Goblin Dynamo deals 1 damage to target creature or player.\r{XR}, {T}, Sacrifice Goblin Dynamo: Goblin Dynamo deals X damage to target creature or player.\n4/4"
+    IDS_STRING14439         "Goblin Firebug\n{1R}\nCreature - Goblin\nLGN,C\nWhen Goblin Firebug leaves the battlefield, sacrifice a land.\n2/2"
+    IDS_STRING14440         "Goblin Lookout\n{1R}\nCreature - Goblin\nLGN,C\n{T}, Sacrifice a Goblin: Goblin creatures get +2/+0 until end of turn.\n1/2"
+    IDS_STRING14441         "Goblin Turncoat\n{1B}\nCreature - Goblin Mercenary\nLGN,C\nSacrifice a Goblin: Regenerate Goblin Turncoat.\n2/1"
+    IDS_STRING14442         "Havoc Demon\n{5BB}\nCreature - Demon\nLGN,R\nFlying\rWhen Havoc Demon dies, all creatures get -5/-5 until end of turn.\n5/5"
+    IDS_STRING14443         "Hundroog\n{6G}\nCreature - Beast\nLGN,C\nCycling {3}\n4/7"
+    IDS_STRING14444         "Keeneye Aven\n{3U}\nCreature - Bird Soldier\nLGN,C\nFlying\rCycling {2}\n2/3"
+    IDS_STRING14445         "Keeper of the Nine Gales\n{2U}\nCreature - Bird Wizard\nLGN,R\nFlying\r{T}, Tap two untapped Birds you control: Return target permanent to its owner's hand.\n1/2"
+    IDS_STRING14446         "Macetail Hystrodon\n{6R}\nCreature - Beast\nLGN,C\nFirst strike, haste\rCycling {3}\n4/4"
+    IDS_STRING14447         "Needleshot Gourna\n{4GG}\nCreature - Beast\nLGN,C\nReach\n3/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14448         "Noxious Ghoul\n{3BB}\nCreature - Zombie\nLGN,U\nWhenever Noxious Ghoul or another Zombie enters the battlefield, all non-Zombie creatures get -1/-1 until end of turn.\n3/3"
+    IDS_STRING14449         "Primoc Escapee\n{6U}\nCreature - Bird Beast\nLGN,U\nFlying\rCycling {2}\n4/4"
+    IDS_STRING14450         "Ridgetop Raptor\n{3R}\nCreature - Lizard Beast\nLGN,U\nDouble strike\n2/1"
+    IDS_STRING14451         "Riptide Director\n{2UU}\nCreature - Human Wizard\nLGN,R\n{2UU}, {T}: Draw a card for each Wizard you control.\n2/3"
+    IDS_STRING14452         "Smokespew Invoker\n{2B}\nCreature - Zombie Mutant\nLGN,C\n{7B}: Target creature gets -3/-3 until end of turn.\n3/1"
+    IDS_STRING14453         "Stonewood Invoker\n{1G}\nCreature - Elf Mutant\nLGN,C\n{7G}: Stonewood Invoker gets +5/+5 until end of turn.\n2/2"
+    IDS_STRING14454         "Sunstrike Legionnaire\n{1W}\nCreature - Human Soldier\nLGN,R\nSunstrike Legionnaire doesn't untap during your untap step.\rWhenever another creature enters the battlefield, untap Sunstrike Legionnaire.\r{T}: Tap target creature with converted mana cost 3 or less.\n1/2"
+    IDS_STRING14455         "Totem Speaker\n{4G}\nCreature - Elf Druid\nLGN,U\nWhenever a Beast enters the battlefield, you may gain 3 life.\n3/3"
+    IDS_STRING14456         "Wall of Hope\n{W}\nCreature - Wall\nLGN,C\nDefender\rWhenever Wall of Hope is dealt damage, you gain that much life.\n0/3"
+    IDS_STRING14457         "Wirewood Hivemaster\n{1G}\nCreature - Elf\nLGN,U\nWhenever another nontoken Elf enters the battlefield, you may put a 1/1 green Insect creature token onto the battlefield.\n1/1"
+    IDS_STRING14458         "Drinker of Sorrow\n{2B}\nCreature - Horror\nLGN,R\nDrinker of Sorrow can't block.\rWhenever Drinker of Sorrow deals combat damage, sacrifice a permanent.\n5/3"
+    IDS_STRING14459         "Crypt Sliver\n{1B}\nCreature - Sliver\nLGN,C\nAll Slivers have ""{T}: Regenerate target Sliver.""\n1/1"
+    IDS_STRING14460         "Spectral Sliver\n{2B}\nCreature - Sliver Spirit\nLGN,U\nAll Sliver creatures have ""{2}: This creature gets +1/+1 until end of turn.""\n2/2"
+    IDS_STRING14461         "Toxin Sliver\n{3B}\nCreature - Sliver\nLGN,R\nWhenever a Sliver deals combat damage to a creature, destroy that creature. It can't be regenerated.\n3/3"
+    IDS_STRING14462         "Berserk Murlodont\n{4G}\nCreature - Beast\nLGN,C\nWhenever a Beast becomes blocked, it gets +1/+1 until end of turn for each creature blocking it.\n3/3"
+    IDS_STRING14463         "Cloudreach Cavalry\n{1W}\nCreature - Human Soldier\nLGN,U\nAs long as you control a Bird, Cloudreach Cavalry gets +2/+2 and has flying.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14464         "Skirk Outrider\n{3R}\nCreature - Goblin\nLGN,C\nAs long as you control a Beast, Skirk Outrider gets +2/+2 and has trample.\n2/2"
+    IDS_STRING14465         "Gempalm Incinerator\n{2R}\nCreature - Goblin\nLGN,U\nCycling {1R}\rWhen you cycle Gempalm Incinerator, you may have it deal X damage to target creature, where X is the number of Goblins on the battlefield.\n2/1"
+    IDS_STRING14466         "Gempalm Polluter\n{5B}\nCreature - Zombie\nLGN,C\nCycling {BB}\rWhen you cycle Gempalm Polluter, you may have target player lose life equal to the number of Zombies on the battlefield.\n4/3"
+    IDS_STRING14467         "Graveborn Muse\n{2BB}\nCreature - Zombie Spirit\nLGN,R\nAt the beginning of your upkeep, you draw X cards and you lose X life, where X is the number of Zombies you control.\n3/3"
+    IDS_STRING14468         "Timberwatch Elf\n{2G}\nCreature - Elf\nLGN,C\n{T}: Target creature gets +X/+X until end of turn, where X is the number of Elves on the battlefield.\n1/2"
+    IDS_STRING14469         "Skirk Drill Sergeant\n{1R}\nCreature - Goblin\nLGN,U\nWhenever Skirk Drill Sergeant or another Goblin dies, you may pay {2R}. If you do, reveal the top card of your library. If it's a Goblin permanent card, put it onto the battlefield. Otherwise, put it into your graveyard.\n2/1"
+    IDS_STRING14470         "Corpse Harvester\n{3BB}\nCreature - Zombie Wizard\nLGN,U\n{1B}, {T}, Sacrifice a creature: Search your library for a Zombie card and a Swamp card, reveal them, and put them into your hand. Then shuffle your library.\n3/3"
+    IDS_STRING14471         "Goblin Goon\n{3R}\nCreature - Goblin Mutant\nLGN,R\nGoblin Goon can't attack unless you control more creatures than defending player.\rGoblin Goon can't block unless you control more creatures than attacking player.\n6/6"
+    IDS_STRING14472         "Magma Sliver\n{3R}\nCreature - Sliver\nLGN,R\nAll Slivers have ""{T}: Target Sliver creature gets +X/+0 until end of turn, where X is the number of Slivers on the battlefield.""\n3/3"
+    IDS_STRING14473         "Quick Sliver\n{1G}\nCreature - Sliver\nLGN,C\nFlash\rAny player may play Sliver cards as though they had flash.\n1/1"
+    IDS_STRING14474         "Wirewood Channeler\n{3G}\nCreature - Elf Druid\nLGN,U\n{T}: Add X mana of any one color to your mana pool, where X is the number of Elves on the battlefield.\n2/2"
+    IDS_STRING14475         "Aven Warhawk\n{4W}\nCreature - Bird Soldier\nLGN,U\nAmplify 1\rFlying\n2/2"
+    IDS_STRING14476         "Canopy Crawler\n{3G}\nCreature - Beast\nLGN,U\nAmplify 1\r{T}: Target creature gets +1/+1 until end of turn for each +1/+1 counter on Canopy Crawler.\n2/2"
+    IDS_STRING14477         "Daru Stinger\n{3W}\nCreature - Human Soldier\nLGN,C\nAmplify 1\r{T}: Daru Stinger deals damage equal to the number of +1/+1 counters on it to target attacking or blocking creature.\n1/1"
+    IDS_STRING14478         "Embalmed Brawler\n{2B}\nCreature - Zombie\nLGN,C\nAmplify 1\rWhenever Embalmed Brawler attacks or blocks, you lose 1 life for each +1/+1 counter on it.\n2/2"
+    IDS_STRING14479         "Ghastly Remains\n{BBB}\nCreature - Zombie\nLGN,R\nAmplify 1\rAt the beginning of your upkeep, if Ghastly Remains is in your graveyard, you may pay {BBB}. If you do, return Ghastly Remains to your hand.\n0/0"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14480         "Glowering Rogon\n{5G}\nCreature - Beast\nLGN,C\nAmplify 1\n4/4"
+    IDS_STRING14481         "Zombie Brute\n{6B}\nCreature - Zombie\nLGN,U\nAmplify 1\rTrample\n5/4"
+    IDS_STRING14482         "Kilnmouth Dragon\n{5RR}\nCreature - Dragon\nLGN,R\nAmplify 3\rFlying\r{T}: Kilnmouth Dragon deals damage equal to the number of +1/+1 counters on it to target creature or player.\n5/5"
+    IDS_STRING14483         "Dark Supplicant\n{B}\nCreature - Human Cleric\nLGN,U\n{T}, Sacrifice three Clerics: Search your graveyard, hand, and/or library for a card named Scion of Darkness and put it onto the battlefield. If you search your library this way, shuffle it.\n1/1"
+    IDS_STRING14484         "Aphetto Exterminator\n{2B}\nCreature - Human Wizard\nLGN,U\nMorph {3B}\rWhen Aphetto Exterminator is turned face up, target creature gets -3/-3 until end of turn.\n3/1"
+    IDS_STRING14485         "Windborn Muse\n{3W}\nCreature - Spirit\nLGN,R\nFlying\rCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you.\n2/3"
+    IDS_STRING14486         "Branchsnap Lorian\n{1GG}\nCreature - Beast\nLGN,U\nTrample\rMorph {G}\n4/1"
+    IDS_STRING14487         "Riptide Mangler\n{1U}\nCreature - Beast\nLGN,R\n{1U}: Change Riptide Mangler's power to target creature's power.\n0/3"
+    IDS_STRING14488         "Bloodstoke Howler\n{5R}\nCreature - Beast\nLGN\nMorph {6R}\rWhen Bloodstoke Howler is turned face up, Beast creatures you control get +3/+0 until end of turn.\n3/4"
+    IDS_STRING14489         "Defender of the Order\n{3W}\nCreature - Human Cleric\nLGN,R\nMorph {WW}\rWhen Defender of the Order is turned face up, creatures you control get +0/+2 until end of turn.\n2/4"
+    IDS_STRING14490         "Rockshard Elemental\n{5RR}\nCreature - Elemental\nLGN,R\nDouble strike\rMorph {4RR}\n4/3"
+    IDS_STRING14491         "Sootfeather Flock\n{4B}\nCreature - Bird\nLGN\nFlying\rMorph {3B}\n3/2"
+    IDS_STRING14492         "Chromeshell Crab\n{4U}\nCreature - Crab Beast\nLGN,R\nMorph {4U}\rWhen Chromeshell Crab is turned face up, you may exchange control of target creature you control and target creature an opponent controls.\n3/3"
+    IDS_STRING14493         "Daru Sanctifier\n{3W}\nCreature - Human Cleric\nLGN\nMorph {1W}\rWhen Daru Sanctifier is turned face up, destroy target enchantment.\n1/4"
+    IDS_STRING14494         "Echo Tracer\n{2U}\nCreature - Human Wizard\nLGN\nMorph {2U}\rWhen Echo Tracer is turned face up, return target creature to its owner's hand.\n2/2"
+    IDS_STRING14495         "Imperial Hellkite\n{5RR}\nCreature - Dragon\nLGN,R\nFlying\rMorph {6RR}\rWhen Imperial Hellkite is turned face up, you may search your library for a Dragon card, reveal it, and put it into your hand. If you do, shuffle your library.\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14496         "Liege of the Axe\n{3W}\nCreature - Human Soldier\nLGN,U\nVigilance\rMorph {1W}\rWhen Liege of the Axe is turned face up, untap it.\n2/3"
+    IDS_STRING14497         "Nantuko Vigilante\n{3G}\nCreature - Insect Druid Mutant\nLGN,C\nMorph {1G}\rWhen Nantuko Vigilante is turned face up, destroy target artifact or enchantment.\n3/2"
+    IDS_STRING14498         "Patron of the Wild\n{G}\nCreature - Elf\nLGN,C\nMorph {2G}\rWhen Patron of the Wild is turned face up, target creature gets +3/+3 until end of turn.\n1/1"
+    IDS_STRING14499         "Shaleskin Plower\n{3R}\nCreature - Beast\nLGN,C\nMorph {4R}\rWhen Shaleskin Plower is turned face up, destroy target land.\n3/2"
+    IDS_STRING14500         "Skinthinner\n{1B}\nCreature - Zombie\nLGN,C\nMorph {3BB}\rWhen Skinthinner is turned face up, destroy target nonblack creature. It can't be regenerated.\n2/1"
+    IDS_STRING14501         "Skirk Marauder\n{1R}\nCreature - Goblin\nLGN,C\nMorph {2R}\rWhen Skirk Marauder is turned face up, it deals 2 damage to target creature or player.\n2/1"
+    IDS_STRING14502         "Unstable Hulk\n{1RR}\nCreature - Goblin Mutant\nLGN,R\nMorph {3RR}\rWhen Unstable Hulk is turned face up, it gets +6/+6 and gains trample until end of turn. You skip your next turn.\n2/2"
+    IDS_STRING14503         "Voidmage Apprentice\n{1U}\nCreature - Human Wizard\nLGN,C\nMorph {2UU}\rWhen Voidmage Apprentice is turned face up, counter target spell.\n1/1"
+    IDS_STRING14504         "Wingbeat Warrior\n{2W}\nCreature - Bird Soldier Warrior\nLGN,C\nFlying\rMorph {2W}\rWhen Wingbeat Warrior is turned face up, target creature gains first strike until end of turn.\n2/1"
+    IDS_STRING14505         "Krosan Cloudscraper\n{7GGG}\nCreature - Beast Mutant\nLGN,R\nAt the beginning of your upkeep, sacrifice Krosan Cloudscraper unless you pay {GG}.\rMorph {7GG}\n13/13"
+    IDS_STRING14506         "Mistform Ultimus\n{3U}\nLegendary Creature - Illusion\nLGN,R\nMistform Ultimus is every creature type.\n3/3"
+    IDS_STRING14507         "Dreamborn Muse\n{2UU}\nCreature - Spirit\nLGN,R\nAt the beginning of each player's upkeep, that player puts the top X cards of his or her library into his or her graveyard, where X is the number of cards in his or her hand.\n2/2"
+    IDS_STRING14508         "Goblin Assassin\n{3RR}\nCreature - Goblin Assassin\nLGN,U\nWhenever Goblin Assassin or another Goblin enters the battlefield, each player flips a coin. Each player whose coin comes up tails sacrifices a creature.\n2/2"
+    IDS_STRING14509         "Vile Deacon\n{2BB}\nCreature - Human Cleric\nLGN,C\nWhenever Vile Deacon attacks, it gets +X/+X until end of turn, where X is the number of Clerics on the battlefield.\n2/2"
+    IDS_STRING14510         "Celestial Gatekeeper\n{3WW}\nCreature - Bird Cleric\nLGN,R\nFlying\rWhen Celestial Gatekeeper dies, exile it, then return up to two target Bird and/or Cleric permanent cards from your graveyard to the battlefield.\n3/3"
+    IDS_STRING14511         "Ward Sliver\n{4W}\nCreature - Sliver\nLGN,U\nAs Ward Sliver enters the battlefield, choose a color.\rAll Slivers have protection from the chosen color.\n2/2"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

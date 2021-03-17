@@ -1,0 +1,291 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Planechase2.ico"
+IDI_LARGE_MODULE        ICON                    "Planechase2Large.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Planechase 2012 Edition"
+    IDS_EXPANSION_ABBREV    "PC2"
+    IDS_FIRST_CARD          "24850"
+    IDS_TOTAL_CARD          "197"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "24848"
+    IDS_MODULE_LARGE_ICON_ID "24849"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-06-2012"
+    IDS_MWS_FOLDER          "MWS\\PC2\\"
+    IDS_PRODUCT_LIST        """Planechase 2012 Edition Starter Box"":R-3:U-10:C-32:BL-30,""Planechase 2012 Edition Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24850         "Forest\n\nBasic Land - Forest\nPC2,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24851         "Forest\n\nBasic Land - Forest\nPC2,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24852         "Forest\n\nBasic Land - Forest\nPC2,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24853         "Forest\n\nBasic Land - Forest\nPC2,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24854         "Forest\n\nBasic Land - Forest\nPC2,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24855         "Forest\n\nBasic Land - Forest\nPC2,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24856         "Island\n\nBasic Land - Island\nPC2,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24857         "Island\n\nBasic Land - Island\nPC2,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24858         "Island\n\nBasic Land - Island\nPC2,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24859         "Island\n\nBasic Land - Island\nPC2,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24860         "Island\n\nBasic Land - Island\nPC2,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24861         "Mountain\n\nBasic Land - Mountain\nPC2,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24862         "Mountain\n\nBasic Land - Mountain\nPC2,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24863         "Mountain\n\nBasic Land - Mountain\nPC2,BL\n{T}: Add {R} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24864         "Mountain\n\nBasic Land - Mountain\nPC2,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24865         "Plains\n\nBasic Land - Plains\nPC2,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24866         "Plains\n\nBasic Land - Plains\nPC2,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24867         "Plains\n\nBasic Land - Plains\nPC2,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24868         "Plains\n\nBasic Land - Plains\nPC2,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24869         "Plains\n\nBasic Land - Plains\nPC2,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24870         "Swamp\n\nBasic Land - Swamp\nPC2,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24871         "Swamp\n\nBasic Land - Swamp\nPC2,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24872         "Swamp\n\nBasic Land - Swamp\nPC2,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24873         "Swamp\n\nBasic Land - Swamp\nPC2,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24874         "Swamp\n\nBasic Land - Swamp\nPC2,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24875         "Illusory Angel\n{2U}\nCreature - Angel Illusion\nPC2,U\nFlying\rCast Illusory Angel only if you've cast another spell this turn.\n4/4"
+    IDS_STRING24876         "Arc Trail\n{1R}\nSorcery\nPC2,U\nArc Trail deals 2 damage to target creature or player and 1 damage to another target creature or player."
+    IDS_STRING24877         "Armillary Sphere\n{2}\nArtifact\nPC2,C\n{2}, {T}, Sacrifice Armillary Sphere: Search your library for up to two basic land cards, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING24878         "Armored Griffin\n{3W}\nCreature - Griffin\nPC2,U\nFlying, vigilance\n2/3"
+    IDS_STRING24879         "Assassinate\n{2B}\nSorcery\nPC2,C\nDestroy target tapped creature."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24880         "Augury Owl\n{1U}\nCreature - Bird\nPC2,C\nFlying\rWhen Augury Owl enters the battlefield, scry 3.\n1/1"
+    IDS_STRING24881         "Aura Gnarlid\n{2G}\nCreature - Beast\nPC2,C\nCreatures with power less than Aura Gnarlid's power can't block it.\rAura Gnarlid gets +1/+1 for each Aura on the battlefield.\n2/2"
+    IDS_STRING24882         "Auramancer\n{2W}\nCreature - Human Wizard\nPC2,C\nWhen Auramancer enters the battlefield, you may return target enchantment card from your graveyard to your hand.\n2/2"
+    IDS_STRING24883         "Awakening Zone\n{2G}\nEnchantment\nPC2,R\nAt the beginning of your upkeep, you may put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING24884         "Baleful Strix\n{UB}\nArtifact Creature - Bird\nPC2,U\nFlying, deathtouch\rWhen Baleful Strix enters the battlefield, draw a card.\n1/1"
+    IDS_STRING24885         "Beast Within\n{2G}\nInstant\nPC2,U\nDestroy target permanent. Its controller puts a 3/3 green Beast creature token onto the battlefield."
+    IDS_STRING24886         "Beetleback Chief\n{2RR}\nCreature - Goblin Warrior\nPC2,U\nWhen Beetleback Chief enters the battlefield, put two 1/1 red Goblin creature tokens onto the battlefield.\n2/2"
+    IDS_STRING24887         "Bituminous Blast\n{3BR}\nInstant\nPC2,U\nCascade\rBituminous Blast deals 4 damage to target creature."
+    IDS_STRING24888         "Bloodbraid Elf\n{2RG}\nCreature - Elf Berserker\nPC2,U\nHaste\rCascade\n3/2"
+    IDS_STRING24889         "Boar Umbra\n{2G}\nEnchantment - Aura\nPC2,U\nEnchant creature\rEnchanted creature gets +3/+3.\rTotem armor"
+    IDS_STRING24890         "Bramble Elemental\n{3GG}\nCreature - Elemental\nPC2,C\nWhenever an Aura becomes attached to Bramble Elemental or enters the battlefield attached to Bramble Elemental, put two 1/1 green Saproling creature tokens onto the battlefield.\n4/4"
+    IDS_STRING24891         "Brindle Shoat\n{1G}\nCreature - Boar\nPC2,U\nWhen Brindle Shoat dies, put a 3/3 green Boar creature token onto the battlefield.\n1/1"
+    IDS_STRING24892         "Cadaver Imp\n{1BB}\nCreature - Imp\nPC2,C\nFlying\rWhen Cadaver Imp enters the battlefield, you may return target creature card from your graveyard to your hand.\n1/1"
+    IDS_STRING24893         "Cage of Hands\n{2W}\nEnchantment - Aura\nPC2,C\nEnchant creature\rEnchanted creature can't attack or block.\r{1W}: Return Cage of Hands to its owner's hand."
+    IDS_STRING24894         "Cancel\n{1UU}\nInstant\nPC2,C\nCounter target spell."
+    IDS_STRING24895         "Celestial Ancient\n{3WW}\nCreature - Elemental\nPC2,R\nFlying\rWhenever you cast an enchantment spell, put a +1/+1 counter on each creature you control.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24896         "Concentrate\n{2UU}\nSorcery\nPC2,U\nDraw three cards."
+    IDS_STRING24897         "Cultivate\n{2G}\nSorcery\nPC2,C\nSearch your library for up to two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Then shuffle your library."
+    IDS_STRING24898         "Dark Hatchling\n{4BB}\nCreature - Horror\nPC2,R\nFlying\rWhen Dark Hatchling enters the battlefield, destroy target nonblack creature. It can't be regenerated.\n3/3"
+    IDS_STRING24899         "Deny Reality\n{3UB}\nSorcery\nPC2,C\nCascade\rReturn target permanent to its owner's hand."
+    IDS_STRING24900         "Dimir Aqueduct\n\nLand\nPC2,C\nDimir Aqueduct enters the battlefield tapped.\rWhen Dimir Aqueduct enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {UB} to your mana pool."
+    IDS_STRING24901         "Dimir Infiltrator\n{UB}\nCreature - Spirit\nPC2,C\nDimir Infiltrator is unblockable.\rTransmute {1UB}\n1/3"
+    IDS_STRING24902         "Dowsing Shaman\n{4G}\nCreature - Centaur Shaman\nPC2,U\n{2G}, {T}: Return target enchantment card from your graveyard to your hand.\n3/4"
+    IDS_STRING24903         "Dragonlair Spider\n{2RRGG}\nCreature - Spider\nPC2,R\nReach\rWhenever an opponent casts a spell, put a 1/1 green Insect creature token onto the battlefield.\n5/6"
+    IDS_STRING24904         "Dreampod Druid\n{1G}\nCreature - Human Druid\nPC2,U\nAt the beginning of each upkeep, if Dreampod Druid is enchanted, put a 1/1 green Saproling creature token onto the battlefield.\n2/2"
+    IDS_STRING24905         "Enlisted Wurm\n{4GW}\nCreature - Wurm\nPC2,U\nCascade\n5/5"
+    IDS_STRING24906         "Etherium-Horn Sorcerer\n{4UR}\nArtifact Creature - Minotaur Wizard\nPC2,R\n{1}{U}{R}: Return Etherium-Horn Sorcerer to its owner's hand.\rCascade\n3/6"
+    IDS_STRING24907         "Exotic Orchard\n\nLand\nPC2,R\n{T}: Add to your mana pool one mana of any color that a land an opponent controls could produce."
+    IDS_STRING24908         "Fiery Conclusion\n{1R}\nInstant\nPC2,C\nAs an additional cost to cast Fiery Conclusion, sacrifice a creature.\rFiery Conclusion deals 5 damage to target creature."
+    IDS_STRING24909         "Fiery Fall\n{5R}\nInstant\nPC2,C\nFiery Fall deals 5 damage to target creature.\rBasic landcycling {1R}"
+    IDS_STRING24910         "Fires of Yavimaya\n{1RG}\nEnchantment\nPC2,U\nCreatures you control have haste.\rSacrifice Fires of Yavimaya: Target creature gets +2/+2 until end of turn."
+    IDS_STRING24911         "Flayer Husk\n{1}\nArtifact - Equipment\nPC2,C\nLiving weapon\rEquipped creature gets +1/+1.\rEquip {2}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24912         "Fling\n{1R}\nInstant\nPC2,C\nAs an additional cost to cast Fling, sacrifice a creature.\rFling deals damage equal to the sacrificed creature's power to target creature or player."
+    IDS_STRING24913         "Fusion Elemental\n{WUBRG}\nCreature - Elemental\nPC2,U\n\n8/8"
+    IDS_STRING24914         "Ghostly Prison\n{2W}\nEnchantment\nPC2,U\nCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
+    IDS_STRING24915         "Glen Elendra Liege\n{1CCC}\nCreature - Faerie Knight\nPC2,R\nFlying\rOther blue creatures you control get +1/+1.\rOther black creatures you control get +1/+1.\n2/3"
+    IDS_STRING24916         "Gluttonous Slime\n{2G}\nCreature - Ooze\nPC2,U\nFlash\rDevour 1\n2/2"
+    IDS_STRING24917         "Graypelt Refuge\n\nLand\nPC2,U\nGraypelt Refuge enters the battlefield tapped.\rWhen Graypelt Refuge enters the battlefield, you gain 1 life.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING24918         "Gruul Turf\n\nLand\nPC2,C\nGruul Turf enters the battlefield tapped.\rWhen Gruul Turf enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {RG} to your mana pool."
+    IDS_STRING24919         "Guard Gomazoa\n{2U}\nCreature - Jellyfish\nPC2,U\nDefender, flying\rPrevent all combat damage that would be dealt to Guard Gomazoa.\n1/3"
+    IDS_STRING24920         "Hellkite Hatchling\n{2RG}\nCreature - Dragon\nPC2,U\nDevour 1\rHellkite Hatchling has flying and trample if it devoured a creature.\n2/2"
+    IDS_STRING24921         "Higure, the Still Wind\n{3UU}\nLegendary Creature -  Human Ninja\nPC2,R\nNinjutsu {2UU}\rWhenever Higure deals combat damage to a player, you may search your library for a Ninja card, reveal it, and put it into your hand. If you do, shuffle your library\r{2}: Target Ninja creature is unblockable this turn.\n3/4"
+    IDS_STRING24922         "Hissing Iguanar\n{2R}\nCreature - Lizard\nPC2,C\nWhenever another creature dies, you may have Hissing Iguanar deal 1 damage to target player.\n3/1"
+    IDS_STRING24923         "Hyena Umbra\n{W}\nEnchantment - Aura\nPC2,C\nEnchant creature\rEnchanted creature gets +1/+1 and has first strike.\rTotem armor"
+    IDS_STRING24924         "Indrik Umbra\n{4GW}\nEnchantment - Aura\nPC2,R\nEnchant creature\rEnchanted creature gets +4/+4 and has first strike, and all creatures able to block it do so. \rTotem armor"
+    IDS_STRING24925         "Ink-Eyes, Servant of Oni\n{4BB}\nLegendary Creature - Rat Ninja\nPC2,R\nNinjutsu {3BB}\rWhenever Ink-Eyes, Servant of Oni deals combat damage to a player, you may put target creature card from that player's graveyard onto the battlefield under your control.\r{1B}: Regenerate Ink-Eyes.\n5/4"
+    IDS_STRING24926         "Jwar Isle Refuge\n\nLand\nPC2,U\nJwar Isle Refuge enters the battlefield tapped.\rWhen Jwar Isle Refuge enters the battlefield, you gain 1 life.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING24927         "Kathari Remnant\n{2UB}\nCreature - Bird Skeleton\nPC2,U\nFlying\r{B}: Regenerate Kathari Remnant\rCascade\n0/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24928         "Kazandu Refuge\n\nLand\nPC2,U\nKazandu Refuge enters the battlefield tapped.\rWhen Kazandu Refuge enters the battlefield, you gain 1 life.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING24929         "Khalni Garden\n\nLand\nPC2,C\nKhalni Garden enters the battlefield tapped.\rWhen Khalni Garden enters the battlefield, put a 0/1 green Plant creature token onto the battlefield.\r{T}: Add {G} to your mana pool."
+    IDS_STRING24930         "Kor Spiritdancer\n{1W}\nCreature - Kor Wizard\nPC2,R\nKor Spiritdancer gets +2/+2 for each Aura attached to it.\rWhenever you cast an Aura spell, you may draw a card.\n0/2"
+    IDS_STRING24931         "Krosan Verge\n\nLand\nPC2,U\nKrosan Verge enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{2}, {T}, Sacrifice Krosan Verge: Search your library for a Forest card and a Plains card and put them onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING24932         "Liliana's Specter\n{1BB}\nCreature - Specter\nPC2,C\nFlying\rWhen Liliana's Specter enters the battlefield, each opponent discards a card.\n2/1"
+    IDS_STRING24933         "Lumberknot\n{2GG}\nCreature - Treefolk\nPC2,U\nHexproof\rWhenever a creature dies, put a +1/+1 counter on Lumberknot.\n1/1"
+    IDS_STRING24934         "Maelstrom Wanderer\n{5URG}\nLegendary Creature - Elemental\nPC2,MR\nCreatures you control have haste.\rCascade, cascade\n7/5"
+    IDS_STRING24935         "Mammoth Umbra\n{4W}\nEnchantment - Aura\nPC2,U\nEnchant creature\rEnchanted creature gets +3/+3 and has vigilance.\rTotem armor"
+    IDS_STRING24936         "Mark of Mutiny\n{2R}\nSorcery\nPC2,U\nGain control of target creature until end of turn. Put a +1/+1 counter on it and untap it. That creature gains haste until end of turn."
+    IDS_STRING24937         "Mistblade Shinobi\n{2U}\nCreature - Human Ninja\nPC2,C\nNinjutsu {U}\rWhenever Mistblade Shinobi deals combat damage to a player, you may return target creature that player controls to its owner's hand.\n1/1"
+    IDS_STRING24938         "Mitotic Slime\n{4G}\nCreature - Ooze\nPC2,R\nWhen Mitotic Slime dies, put two 2/2 green Ooze creature tokens onto the battlefield. They have ""When this creature dies, put two 1/1 green Ooze creature tokens onto the battlefield.""\n4/4"
+    IDS_STRING24939         "Mudbutton Torchrunner\n{2R}\nCreature - Goblin Warrior\nPC2,C\nWhen Mudbutton Torchrunner dies, it deals 3 damage to target creature or player.\n1/1"
+    IDS_STRING24940         "Mycoloth\n{3GG}\nCreature - Fungus\nPC2,R\nDevour 2\rAt the beginning of your upkeep, put a 1/1 green Saproling creature token onto the battlefield for each +1/+1 counter on Mycoloth.\n4/4"
+    IDS_STRING24941         "Nest Invader\n{1G}\nCreature - Eldrazi Drone\nPC2,C\nWhen Nest Invader enters the battlefield, put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool.""\n2/2"
+    IDS_STRING24942         "Ninja of the Deep Hours\n{3U}\nCreature - Human Ninja\nPC2,C\nNinjutsu {1U}\rWhenever Ninja of the Deep Hours deals combat damage to a player, you may draw a card.\n2/2"
+    IDS_STRING24943         "Noggle Ransacker\n{2I}\nCreature - Noggle Rogue\nPC2,U\nWhen Noggle Ransacker enters the battlefield, each player draws two cards, then discards a card at random.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24944         "Okiba-Gang Shinobi\n{3BB}\nCreature - Rat Ninja\nPC2,C\nNinjutsu {3B}\rWhenever Okiba-Gang Shinobi deals combat damage to a player, that player discards two cards.\n3/2"
+    IDS_STRING24945         "Ondu Giant\n{3G}\nCreature - Giant Druid\nPC2,C\nWhen Ondu Giant enters the battlefield, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.\n2/4"
+    IDS_STRING24946         "Overrun\n{2GGG}\nSorcery\nPC2,U\nCreatures you control get +3/+3 and gain trample until end of turn."
+    IDS_STRING24947         "Penumbra Spider\n{2GG}\nCreature - Spider\nPC2,C\nReach\rWhen Penumbra Spider dies, put a 2/4 black Spider creature token with reach onto the battlefield.\n2/4"
+    IDS_STRING24948         "Peregrine Drake\n{4U}\nCreature - Drake\nPC2,U\nFlying\rWhen Peregrine Drake enters the battlefield, untap up to five lands.\n2/3"
+    IDS_STRING24949         "Pollenbright Wings\n{4GW}\nEnchantment - Aura\nPC2,U\nEnchant creature\rEnchanted creature has flying.\rWhenever enchanted creature deals combat damage to a player, put that many 1/1 green Saproling creature tokens onto the battlefield."
+    IDS_STRING24950         "Predatory Urge\n{3G}\nEnchantment - Aura\nPC2,R\nEnchant creature\rEnchanted creature has ""{T}: This creature deals damage equal to its power to target creature. That creature deals damage equal to its power to this creature."""
+    IDS_STRING24951         "Preyseizer Dragon\n{4RR}\nCreature - Dragon\nPC2,R\nFlying\rDevour 2\rWhenever Preyseizer Dragon attacks, it deals damage to target creature or player equal to the number of +1/+1 counters on Preyseizer Dragon.\n4/4"
+    IDS_STRING24952         "Primal Plasma\n{3U}\nCreature - Elemental Shapeshifter\nPC2,C\nAs Primal Plasma enters the battlefield, it becomes your choice of a 3/3 creature, a 2/2 creature with flying, or a 1/6 creature with defender.\n*/*"
+    IDS_STRING24953         "Quietus Spike\n{3}\nArtifact - Equipment\nPC2,R\nEquipped creature has deathtouch.\rWhenever equipped creature deals combat damage to a player, that player loses half his or her life, rounded up.\rEquip {3}"
+    IDS_STRING24954         "Rancor\n{G}\nEnchantment - Aura\nPC2,C\nEnchant creature\rEnchanted creature gets +2/+0 and has trample.\rWhen Rancor is put into a graveyard from the battlefield, return Rancor to its owner's hand."
+    IDS_STRING24955         "Rupture Spire\n\nLand\nPC2,C\nRupture Spire enters the battlefield tapped.\rWhen Rupture Spire enters the battlefield, sacrifice it unless you pay {1}.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING24956         "Sai of the Shinobi\n{1}\nArtifact - Equipment\nPC2,U\nEquipped creature gets +1/+1.\rWhenever a creature enters the battlefield under your control, you may attach Sai of the Shinobi to it.\rEquip {2}"
+    IDS_STRING24957         "See Beyond\n{1U}\nSorcery\nPC2,C\nDraw two cards, then shuffle a card from your hand into your library."
+    IDS_STRING24958         "Selesnya Sanctuary\n\nLand\nPC2,C\nSelesnya Sanctuary enters the battlefield tapped.\rWhen Selesnya Sanctuary enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {GW} to your mana pool."
+    IDS_STRING24959         "Shardless Agent\n{1GU}\nArtifact Creature - Human Rogue\nPC2,U\nCascade\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24960         "Shimmering Grotto\n\nLand\nPC2,C\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING24961         "Sigil of the Empty Throne\n{3WW}\nEnchantment\nPC2,R\nWhenever you cast an enchantment spell, put a 4/4 white Angel creature token with flying onto the battlefield."
+    IDS_STRING24962         "Silhana Ledgewalker\n{1G}\nCreature - Elf Rogue\nPC2,C\nHexproof\rSilhana Ledgewalker can't be blocked except by creatures with flying.\n1/1"
+    IDS_STRING24963         "Skarrg, the Rage Pits\n\nLand\nPC2,U\n{T}: Add {1} to your mana pool.\r{RG}, {T}: Target creature gets +1/+1 and gains trample until end of turn."
+    IDS_STRING24964         "Skullsnatcher\n{1B}\nCreature - Rat Ninja\nPC2,C\nNinjutsu {B}\rWhenever Skullsnatcher deals combat damage to a player, exile up to two target cards from that player's graveyard.\n2/1"
+    IDS_STRING24965         "Snake Umbra\n{2G}\nEnchantment - Aura\nPC2,C\nEnchant creature\rEnchanted creature gets +1/+1 and has ""Whenever this creature deals damage to an opponent, you may draw a card.""\rTotem armor"
+    IDS_STRING24966         "Sunken Hope\n{3UU}\nEnchantment\nPC2,R\nAt the beginning of each player's upkeep, that player returns a creature he or she controls to its owner's hand."
+    IDS_STRING24967         "Tainted Isle\n\nLand\nPC2,U\n{T}: Add {1} to your mana pool.\r{T}: Add {U} or {B} to your mana pool. Activate this ability only if you control a Swamp."
+    IDS_STRING24968         "Terramorphic Expanse\n\nLand\nPC2,C\n{T}, Sacrifice Terramorphic Expanse: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING24969         "Thorn-Thrash Viashino\n{3R}\nCreature - Viashino Warrior\nPC2,C\nDevour 2\r{G}: Thorn-Thrash Viashino gains trample until end of turn.\n2/2"
+    IDS_STRING24970         "Thran Golem\n{5}\nArtifact Creature - Golem\nPC2,R\nAs long as Thran Golem is enchanted, it gets +2/+2 and has flying, first strike, and trample.\n3/3"
+    IDS_STRING24971         "Throat Slitter\n{4B}\nCreature - Rat Ninja\nPC2,U\nNinjutsu {2B}\rWhenever Throat Slitter deals combat damage to a player, destroy target nonblack creature that player controls.\n2/2"
+    IDS_STRING24972         "Thromok the Insatiable\n{3RG}\nLegendary Creature - Hellion\nPC2,MR\nDevour X, where X is the number of creatures devoured this way\n0/0"
+    IDS_STRING24973         "Thunder-Thrash Elder\n{2R}\nCreature - Viashino Warrior\nPC2,U\nDevour 3\n1/1"
+    IDS_STRING24974         "Tormented Soul\n{B}\nCreature - Spirit\nPC2,C\nTormented Soul can't block and is unblockable.\n1/1"
+    IDS_STRING24975         "Tukatongue Thallid\n{G}\nCreature - Fungus\nPC2,C\nWhen Tukatongue Thallid dies, put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24976         "Vela the Night-Clad\n{4UB}\nLegendary Creature - Human Wizard\nPC2,MR\nIntimidate\rOther creatures you control have intimidate.\rWhenever Vela the Night-Clad or another creature you control leaves the battlefield, each opponent loses 1 life.\n4/4"
+    IDS_STRING24977         "Viridian Emissary\n{1G}\nCreature - Elf Scout\nPC2,C\nWhen Viridian Emissary dies, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.\n2/1"
+    IDS_STRING24978         "Vitu-Ghazi, the City-Tree\n\nLand\nPC2,U\n{T}: Add {1} to your mana pool.\r{2GW}, {T}: Put a 1/1 green Saproling creature token onto the battlefield."
+    IDS_STRING24979         "Vivid Creek\n\nLand\nPC2,U\nVivid Creek enters the battlefield tapped with two charge counters on it.\r{T}: Add {U} to your mana pool.\r{T}, Remove a charge counter from Vivid Creek: Add one mana of any color to your mana pool."
+    IDS_STRING24980         "Walker of Secret Ways\n{2U}\nCreature - Human Ninja\nPC2,U\nNinjutsu {1U}\rWhenever Walker of Secret Ways deals combat damage to a player, look at that player's hand\r{1U}: Return target Ninja you control to its owner's hand. Activate this ability only during your turn.\n1/2"
+    IDS_STRING24981         "Wall of Blossoms\n{1G}\nCreature - Plant Wall\nPC2,U\nDefender\rWhen Wall of Blossoms enters the battlefield, draw a card.\n0/4"
+    IDS_STRING24982         "Wall of Frost\n{1UU}\nCreature - Wall\nPC2,U\nDefender\rWhenever Wall of Frost blocks a creature, that creature doesn't untap during its controller's next untap step.\n0/7"
+    IDS_STRING24983         "Warstorm Surge\n{5R}\nEnchantment\nPC2,R\nWhenever a creature enters the battlefield under your control, it deals damage equal to its power to target creature or player."
+    IDS_STRING24984         "Whirlpool Warrior\n{2U}\nCreature - Merfolk Warrior\nPC2,R\nWhen Whirlpool Warrior enters the battlefield, shuffle the cards from your hand into your library, then draw that many cards.\r{R}, Sacrifice Whirlpool Warrior: Each player shuffles the cards from his or her hand into his or her library, then draws that many cards.\n2/2"
+    IDS_STRING24985         "Whispersilk Cloak\n{3}\nArtifact - Equipment\nPC2,U\nEquipped creature is unblockable.\rEquipped creature has shroud.\rEquip {2}"
+    IDS_STRING24986         "Krond the Dawn-Clad\n{GGGWWW}\nLegendary Creature - Archon\nPC2,MR\nFlying, vigilance\rWhenever Krond the Dawn-Clad attacks, if it's enchanted, exile target permanent.\n6/6"
+    IDS_STRING24987         "Mutual Epiphany\n\nPhenomenon\nPC2,S\nWhen you encounter Mutual Epiphany each player draws four cards."
+    IDS_STRING24988         "Chaotic AEther\n\nPhenomenon\nPC2,S\nWhen you encounter Chaotic AEther, each blank roll of the planar die is roll until a player planeswalk away from a plane."
+    IDS_STRING24989         "Spatial Merging\n\nPhenomenon\nPC2,S\nWhen you encounter Spatial Merging, reveal cards from the top of your planar deck until you reveal two plane cards. Simultaneously planeswalk to both of them. Put all other cards revealed this way on the bottom of your planar deck in any order."
+    IDS_STRING24990         "Stairs to Infinity\n\nPlane - Xerex\nPC2,S\nPlayers have no maximum hand size.\rWhenever you roll the planar die, draw a card.\rWhenever you roll {C}, reveal the top card of your planar deck. You may put it on the bottom of your planar deck."
+    IDS_STRING24991         "Akoum\n\nPlane - Zendikar\nPC2,S\nPlayers may cast enchantment cards as though they had flash.\rWhenever you roll {C}, destroy target creature that isn't enchanted. "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24992         "Interplanar Tunnel\n\nPhenomenon\nPC2,S\nWhen you encounter Interplanar Tunnel, reveal cards from the top of your planar deck until you reveal five plane cards. Put a plane card from among them on top of your planar deck, then put the rest of the revealed cards on the bottom in a random order. (Then planeswalk away from this phenomenon.)"
+    IDS_STRING24993         "Planewide Disaster\n\nPhenomenon\nPC2,S\nWhen you encounter Planewide Disaster, destroy all creatures. (Then planeswalk away from this phenomenon.)"
+    IDS_STRING24994         "Reality Shaping\n\nPhenomenon\nPC2,S\nWhen you encounter Reality Shaping, starting with you, each player may put a permanent card from his or her hand onto the battlefield. (Then planeswalk away from this phenomenon.)"
+    IDS_STRING24995         "Morphic Tide\n\nPhenomenon\nPC2,S\nWhen you encounter Morphic Tide, each player shuffles all permanents he or she owns into his or her library, then reveals that many cards from the top of his or her library. Each player puts all artifact, creature, land and planeswalker cards revealed this way onto the battlefield, then does the same for enchantment cards, then puts all cards revealed this way that weren't put onto the battlefield on the bottom of his or her library in any order. (Then planeswalk away from this phenomenon.)"
+    IDS_STRING24996         "Glen Elendra\n\nPlane - Lorwyn\nPC2,S\nAt end of combat, you may exchange control of target creature you control that dealt combat damage to a player this combat and target creature that player controls.\rWhenever you roll {C}, gain control of target creature you own."
+    IDS_STRING24997         "Fractured Powerstone\n{2}\nArtifact\nPC2,C\n{T}: Add {1} to your mana pool.\r{T}: Roll the planar die. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING24998         "Bloodhill Bastion\n\nPlane - Equilor\nPC2,S\nWhenever a creature enters the battlefield, it gains double strike and haste until end of turn.\rWhenever you roll {C}, exile target nontoken creature you control, then return it to the battlefield under your control."
+    IDS_STRING24999         "Hellion Eruption\n{5R}\nSorcery\nPC2,R\nSacrifice all creatures you control, then put that many 4/4 red Hellion creature tokens onto the battlefield."
+    IDS_STRING25000         "Silent-Blade Oni\n{3UUBB}\nCreature - Demon Ninja\nPC2,R\nNijutsu {4UB}\rWhenever Silent-Blade Oni deals combat damage to a player, look at that player's hand. You may cast a nonland card in it without paying that card's mana cost.\n6/5"
+    IDS_STRING25001         "Last Stand\n{WUBRG}\nSorcery\nPC2,R\nTarget opponent loses 2 life for each Swamp you control. Last Stand deals damage equal to the number of Mountains you control to target creature. Put a 1/1 green Saproling creature token onto the battlefield for each Forest you control. You gain 2 life for each Plains you control. Draw a card for each Island you control, then discard that many cards."
+    IDS_STRING25002         "Onakke Catacomb\n\nPlane - Shandalar\nPC2,S\nAll creatures are black and have deathtouch.\rWhenever you roll {C}, creatures you control get +1/+0 and gain first strike until end of turn."
+    IDS_STRING25003         "Erratic Explosion\n{2R}\nSorcery\nPC2,C\nChoose target creature or player. Reveal cards from the top of your library until you reveal a nonland card. Erratic Explosion deals damage equal to that card's converted mana cost to that creature or player. Put the revealed cards on the bottom of your library in any order."
+    IDS_STRING25004         "Grove of the Dreampods\n\nPlane - Fabacin\nPC2,S\nWhen you planeswalk to Grove of the Dreampods or at the beginning of your upkeep, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and the rest on the bottom of your library in a random order.\rWhenever you roll {C}, return target creature card from your graveyard to the battlefield."
+    IDS_STRING25005         "Three Dreams\n{4W}\nSorcery\nPC2,R\nSearch your library for up to three Aura cards with different names, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING25006         "Mass Mutiny\n{3RR}\nSorcery\nPC2,R\nFor each opponent, gain control of up to one target creature that player controls until end of turn. Untap those creatures. They gain haste until end of turn."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

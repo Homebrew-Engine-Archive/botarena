@@ -1,0 +1,70 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Jace, the Mind Sculptor (19670)
+
+// Creatures - 6 (10.00%)
+
+4 Wall of Omens (20842)
+2 Wurmcoil Engine (21439)
+
+// Instants - 19 (31.67%)
+
+4 Cryptic Command (18051)
+4 Esper Charm (8567)
+4 Lightning Bolt (21124)
+4 Mana Leak (21214)
+Path to Exile (8897)
+2 Volcanic Fallout (8860)
+
+// Sorceries - 7 (11.67%)
+
+2 Cruel Ultimatum (8707)
+Day of Judgment (21263)
+4 Preordain (21152)
+
+// Lands - 26 (43.33%)
+
+Cascade Bluffs (18907)
+2 Creeping Tar Pit (19622)
+Island (21405)
+Island (21404)
+Island (21406)
+Mountain (21408)
+2 Mystic Gate (18564)
+4 Reflecting Pool (18571)
+2 Scalding Tarn (19358)
+2 Sunken Ruins (18580)
+Vivid Crag (18031)
+4 Vivid Creek (18032)
+2 Vivid Marsh (18034)
+2 Vivid Meadow (18035)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Vendilion Clique (18369)
+
+// Instants
+
+Celestial Purge (21131)
+2 Condemn (21180)
+Negate (21192)
+Volcanic Fallout (8860)
+
+// Sorceries
+
+Day of Judgment (21263)
+2 Thoughtseize (17901)
+
+// Enchantments
+
+2 Runed Halo (18683)
+
+// Artifacts
+
+2 Relic of Progenitus (8725)

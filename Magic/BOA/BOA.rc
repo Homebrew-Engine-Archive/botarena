@@ -1,0 +1,131 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "BOA.ico"
+IDI_LARGE_MODULE        ICON                    "BOALarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "BotArena"
+    IDS_EXPANSION_ABBREV    "BOA"
+    IDS_FIRST_CARD          "3401"
+    IDS_TOTAL_CARD          "99"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "3500"
+    IDS_MODULE_LARGE_ICON_ID "3501"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RELEASE_DATE        "15-1-3001"
+    IDS_MWS_FOLDER          "MWS\\BOA\\"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING3401          "Plague of Damnation\n{XBG}\nSorcery\nBOA,R\nDestroy each artifact, creature, and enchantment with converted mana cost X. Then target opponent reveals his or her hand and discards each artifact, creature, and enchantment with converted mana cost X."
+    IDS_STRING3402          "Guardian of the Stars\n{1WW}\nCreature - Human Cleric\nBOA,R\nWhen Guardian of the Stars enters the battlefield, you may sacrifice a land. If you do, search your library for up to two Plains cards and put them onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING3403          "AEther Portal\n{5}\nArtifact\nBOA,R\n∆ther Portal enters the battlefield tapped.\r{4}, {T}, Sacrifice ∆ther Portal: Return all permanents to their owners' hands."
+    IDS_STRING3404          "Reflecting Mox\n{0}\nArtifact\nBOA,R\nReflecting Mox enters the battlefield tapped.\r{T}: Add to your mana pool one mana of any color a basic land you control could produce."
+    IDS_STRING3405          "Island\n\nBasic Land - Island\nBOA,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING3406          "Forest\n\nBasic Land - Forest\nBOA,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING3407          "Swamp\n\nBasic Land - Swamp\nBOA,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING3408          "Plains\n\nBasic Land - Plains\nBOA,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING3409          "Mountain\n\nBasic Land - Mountain\nBOA,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING3410          "Silenciate\n{2UU}\nInstant\nBOA,R\nSplit second\rCounter target spell."
+    IDS_STRING3411          "Nameless Desolation\n{4UU}\nCreature - Sphinx\nBOA,R\nFlying\rWhenever Nameless Desolation deals combat damage to a player, that player skips his or her next untap step.\n2/4"
+    IDS_STRING3412          "Give and Take\n{6}\nArtifact\nBOA,R\n{2}, {T}, Sacrifice a permanent: Target opponent sacrifices a permanent with the same card type as the sacrificed permanent."
+    IDS_STRING3413          "Mold Spore\n{2BG}\nEnchantment\nBOA,R\n{BG}: Put a 1/1 black and green Saproling token onto the battlefield.\r{XBG}: Put X 1/1 black and green Saproling token onto the battlefield. X can't be greater than the number of Saprolings you control. Activate this ability only during your upkeep."
+    IDS_STRING3414          "Survival of the Sickest\n{4BG}\nInstant\nBOA,R\nCreatures you control get +3/+3 and gain trample, reach, deathtouch and ""{B}/{G}: Regenerate this creature"" until end of turn.\rAt the beginning of the next end step, destroy those creatures if they attacked or blocked this turn."
+    IDS_STRING3415          "Moldeaza, Lord of the Spores\n{X2BBG}\nLegendary Creature - Fungus\nBOA,R\nWhen Moldeaza, Lord of the Spores enters the battlefield, sacrifice X Saprolings.\rMoldeaza's power and toughness are each equal to the number of Saprolings sacrificed this way.\r{2}, Sacrifice a Saproling: Moldeaza gets +2/+1 and gains ""{B}: Regenerate this creature"" until end of turn.\nX/X"
+    IDS_STRING3416          "Island\n\nBasic Land - Island\nBOA,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING3417          "Island\n\nBasic Land - Island\nBOA,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING3418          "Island\n\nBasic Land - Island\nBOA,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING3419          "Forest\n\nBasic Land - Forest\nBOA,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING3420          "Forest\n\nBasic Land - Forest\nBOA,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING3421          "Forest\n\nBasic Land - Forest\nBOA,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING3422          "Swamp\n\nBasic Land - Swamp\nBOA,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING3423          "Swamp\n\nBasic Land - Swamp\nBOA,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING3424          "Swamp\n\nBasic Land - Swamp\nBOA,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING3425          "Plains\n\nBasic Land - Plains\nBOA,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING3426          "Plains\n\nBasic Land - Plains\nBOA,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING3427          "Plains\n\nBasic Land - Plains\nBOA,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING3428          "Mountain\n\nBasic Land - Mountain\nBOA,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING3429          "Mountain\n\nBasic Land - Mountain\nBOA,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING3430          "Mountain\n\nBasic Land - Mountain\nBOA,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING3431          "Sheila, Recycler of Dreams\n{J}{J}{J}\nPlaneswalker - Sheila\nBOA,R\nRetrace, consume 1 (As this enters the battlefield, you may sacrifice any number of creatures. This planeswalker enters the battlefield with that many loyalty counters on it.)\r[+2]: Put a 1/1 black and green Worm creature token onto the battlefield.\r[-1]: Return up to three target land cards from your graveyard to your hand. Then put the top three cards of your library into your graveyard.\r[-10]: Reveal cards from the top of your library until you reveal four creature cards. Put two of them onto the battlefield and shuffle the rest into your library.\n0"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

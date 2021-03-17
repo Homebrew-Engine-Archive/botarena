@@ -1,0 +1,57 @@
+// Naya Domain
+// Conflux Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 11 (26.83%)
+
+Aven Trailblazer (8861)
+Beacon Behemoth (8807)
+Ember Weaver (8905)
+Kranioceros (8817)
+2 Matca Rioters (8869)
+Meglonoth (8913)
+Paleoloth (8867)
+Vagrant Plowbeasts (8828)
+Wandering Goblins (8919)
+Woolly Thoctar (8572)
+
+// Instants - 5 (12.20%)
+
+Drag Down (8889)
+Might of Alara (8912)
+Path to Exile (8897)
+2 Sylvan Bounty (8880)
+
+// Sorceries - 5 (12.20%)
+
+2 Rampant Growth (3134)
+Shard Convergence (8900)
+2 Spore Burst (8925)
+
+// Enchantments - 1 (2.44%)
+
+Pacifism (3119)
+
+// Artifacts - 2 (4.88%)
+
+Kaleidostone (8849)
+Manaforce Mace (8911)
+
+// Lands - 17 (41.46%)
+
+2 Forest (8511)
+2 Forest (8510)
+Forest (8509)
+Forest (8512)
+Island (8514)
+Mountain (8521)
+Mountain (8519)
+Mountain (8518)
+Plains (8523)
+Plains (8524)
+Plains (8525)
+Swamp (8530)
+3 Terramorphic Expanse (3278)

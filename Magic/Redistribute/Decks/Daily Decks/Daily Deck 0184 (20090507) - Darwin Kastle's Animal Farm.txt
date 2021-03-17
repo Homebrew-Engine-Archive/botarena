@@ -1,0 +1,45 @@
+// Total cards in deck - 60
+
+// Creatures - 36 (60.00%)
+
+4 Birds of Paradise (804)
+4 Blastoderm (12077)
+4 Flametongue Kavu (12824)
+4 Kavu Titan (12511)
+4 Shivan Wurm (12840)
+4 Thornscape Battlemage (12891)
+4 Thornscape Familiar (12896)
+4 Thunderscape Battlemage (12892)
+4 Utopia Tree (12471)
+
+// Lands - 24 (40.00%)
+
+2 Brushland (812)
+2 Forest (763)
+2 Forest (762)
+Forest (765)
+Forest (764)
+4 Karplusan Forest (806)
+4 Rishadan Port (11607)
+4 Shivan Oasis (12461)
+4 Sulfurous Springs (809)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Yavimaya Barbarian (12419)
+
+// Instants
+
+4 Urza's Rage (12655)
+
+// Sorceries
+
+3 Duress (795)
+
+// Artifacts
+
+4 Chimeric Idol (12281)

@@ -1,0 +1,41 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Bonesplitter Sliver (17200)
+2 Homing Sliver (17826)
+Llanowar Empath (17768)
+2 Reflex Sliver (2523)
+Spinneret Sliver (17204)
+2 Stingscourger (2582)
+3 Two-Headed Sliver (17205)
+3 Virulent Sliver (17794)
+
+// Instants - 5 (12.50%)
+
+DeadGone (2564)
+2 Ghostfire (17725)
+Orcish Cannonade (17371)
+Pact of the Titan (17792)
+
+// Sorceries - 2 (5.00%)
+
+Grapeshot (17481)
+Shivan Meteor (2619)
+
+// Enchantments - 1 (2.50%)
+
+Flowstone Embrace (17722)
+
+// Lands - 17 (42.50%)
+
+2 Forest (17212)
+2 Forest (17214)
+2 Forest (17213)
+2 Forest (17211)
+3 Mountain (17219)
+2 Mountain (17220)
+2 Mountain (17221)
+2 Mountain (17222)

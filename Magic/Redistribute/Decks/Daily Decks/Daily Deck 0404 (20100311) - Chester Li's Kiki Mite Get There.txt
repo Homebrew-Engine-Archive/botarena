@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Creatures - 17 (28.33%)
+
+3 Kiki-Jiki, Mirror Breaker (15800)
+3 Mistbind Clique (18055)
+4 Pestermite (18123)
+4 Spellstutter Sprite (18095)
+3 Vendilion Clique (18369)
+
+// Instants - 14 (23.33%)
+
+2 Cryptic Command (18051)
+4 Lightning Bolt (4060)
+3 Mana Leak (2101)
+3 Repeal (16793)
+2 Spell Snare (23883)
+
+// Sorceries - 4 (6.67%)
+
+4 Ancestral Vision (17492)
+
+// Artifacts - 2 (3.33%)
+
+2 Chrome Mox (15001)
+
+// Lands - 23 (38.33%)
+
+3 Cascade Bluffs (18907)
+2 Island (19308)
+Island (19310)
+Island (19311)
+Island (19309)
+4 Misty Rainforest (19356)
+Mountain (19316)
+3 Mutavault (18368)
+4 Scalding Tarn (19358)
+3 Steam Vents (16809)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Glen Elendra Archmage (18938)
+Vendilion Clique (18369)
+
+// Instants
+
+Repeal (16793)
+2 Spell Snare (23883)
+
+// Sorceries
+
+2 Firespout (18674)
+
+// Enchantments
+
+3 Blood Moon (2351)
+2 Threads of Disloyalty (19169)
+
+// Artifacts
+
+2 Umezawa's Jitte (19149)

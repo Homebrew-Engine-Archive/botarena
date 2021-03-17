@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{ca2864f0-d21a-4ef0-89a8-7912021a968a}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="Bars">
+      <UniqueIdentifier>{b20bf72b-2d0e-4c7c-904f-3d12327c262c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs">
+      <UniqueIdentifier>{4653ecf3-cdcd-41e5-8ff1-2bfa11a73ff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Elements">
+      <UniqueIdentifier>{9c4c8e4c-77e8-4223-b283-7988c07cb41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI Commons">
+      <UniqueIdentifier>{9fc0720f-476f-40a0-ba29-51b0a0fcce8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Threads">
+      <UniqueIdentifier>{6bf96a5b-e66a-460d-8d98-6ba0e8683758}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\AlwaysPass.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AlwaysStop.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\arrow_down_blue.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\arrow_up_blue.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ArtifactCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ArtifactCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ArtifactD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ArtifactU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Attack.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Attack.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackButtonDown.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackButtonUp.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackButtonUp2.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackF.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\AttackX.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Background.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Background1.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Background2.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Background3.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BasicLandD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BasicLandU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BeginningCombat.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BeginningCombat2.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BeginningCombatGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\bitmap2.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\bitmap3.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlackCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlackCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlackD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlackU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlueCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlueCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlueD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlueU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\boc.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\bug.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ButtonDown.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ButtonUp.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\ButtonUp2.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CardBackLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CardBackSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CB_ATTACKX.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\combatdamage.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CombatDamage.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CombatDamage2.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CombatDamageGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CommonD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CommonU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Computer.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CreatureD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\CreatureU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\debug.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\decide.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\deck.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\deck_readonly.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\declareattackers.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DeclareAttackers.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DeclareAttackers2.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DeclareAttackersGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\declareblockers.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DeclareBlockers.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DeclareBlockers2.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DeclareBlockersGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Default.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DefaultD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DefaultF.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DefaultU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DefaultX.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\down.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\draw.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Draw.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\DrawGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EnchantmentD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EnchantmentU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EndOfCombat.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EndOfCombat2.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EndOfCombatGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EndOfTurn.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\EndOfTurnGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\eoc.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\eot.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\FolderD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\FolderU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GoldCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GoldCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\graveyard.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GraveyardHigh.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GreenCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GreenCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GreenD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GreenU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\hand.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\HandHi.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\HandHigh.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\hdrdown.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\hdrup.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\human.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\icon1.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\InstantD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\InstantU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\LandD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\LandU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\library.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\LibraryHigh.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MagicWand.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MagicWandDoc.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\main.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MainPostcombat.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MainPostcombatGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MainPreCombat.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MainPreCombatGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\manapool.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\move.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\NetToolBar.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\okay.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Pass.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\PassButtonDown.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\PassButtonUp.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\PassButtonUp2.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RareD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RareU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RedCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RedCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RedD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RedU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Shield.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\SorceryD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\SorceryU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\stop.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\sword.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\toolbar1.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\trick.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\UncommonD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\UncommonU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\untap.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Untap.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\UntapGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\UP.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\upkeep.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Upkeep.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\UpkeepGray.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\WhiteBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\WhiteCardLarge.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\WhiteCardSmall.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\WhiteD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\WhiteU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resize.inl">
+      <Filter>GUI Commons</Filter>
+    </None>
+    <None Include="res\BlackBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BlueBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GenericBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\GreenBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\RedBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\PlaneswalkerU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\PlaneswalkerD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\SpecialU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\SpecialD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MythicRareU.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MythicRareD.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\BotArenaLogo.bmp">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\Emblem.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\MulticolorBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\LandBall.ico">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\MagicWand.manifest">
+      <Filter>Resources</Filter>
+    </Manifest>
+    <Manifest Include="XPStyle.Manifest">
+      <Filter>Resources</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MagicWand.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatDialogBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphDialogBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="ManaStatic.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageDialogBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStatisticDialogBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressStatusBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundButton.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionDialogBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionListCtrl.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="AppearanceDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationSettingsDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="AvatarDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="CardDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectToComputerDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="DeckDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="DeckInfoDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="DeckRenameDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EditUsageEntryDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="FileComboBox.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSettingsDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSummaryDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadCardStoreDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderCardDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SealedDeckInfoDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTimerDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="StackDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="StartDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="StarterBoosterDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UsageAbilityDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UsageEntryDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UsagePatternDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitingForDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementManager.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicElementManager.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UIAvatar.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UICard.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElementGroup.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UIImage.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UILink.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UISelection.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UIText.h">
+      <Filter>Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="ClrButton.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogEx.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageButtonWithStyle.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="ListViewCtrlEx.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="memdc.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="MListCtrl.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="MListCtrl2.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="resize.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="sizecbar.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="UICardTip.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameThread.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicWand.h" />
+    <ClInclude Include="MagicWandDoc.h" />
+    <ClInclude Include="MagicWandView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="ProjectCommon.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="HotkeysDialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EStringAutoComplete.h">
+      <Filter>GUI Commons</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChatDialogBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphDialogBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="ManaStatic.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageDialogBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStatisticDialogBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressStatusBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundButton.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionDialogBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionListCtrl.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="AppearanceDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationSettingsDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="AvatarDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="CardDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectToComputerDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="DeckDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="DeckInfoDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="DeckRenameDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EditUsageEntryDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="FileComboBox.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSettingsDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSummaryDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadCardStoreDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderCardDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SealedDeckInfoDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTimerDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="StackDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="StartDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="StarterBoosterDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UsageAbilityDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UsageEntryDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UsagePatternDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitingForDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementManager.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicElementManager.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UIAvatar.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UICard.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElementGroup.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UIImage.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UILink.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UISelection.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UIText.cpp">
+      <Filter>Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="ClrButton.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogEx.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageButtonWithStyle.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="ListViewCtrlEx.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="MListCtrl.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="MListCtrl2.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="resize.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="sizecbar.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="UICardTip.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="GameThread.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicWand.cpp" />
+    <ClCompile Include="MagicWandDoc.cpp" />
+    <ClCompile Include="MagicWandView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="HotkeysDialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EStringAutoComplete.cpp">
+      <Filter>GUI Commons</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

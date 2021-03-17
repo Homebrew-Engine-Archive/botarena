@@ -1,0 +1,61 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Elspeth, Knight-Errant (8722)
+
+// Creatures - 18 (30.00%)
+
+2 Baneslayer Angel (4224)
+4 Captain of the Watch (4011)
+2 Felidar Sovereign (19454)
+4 Knight of the White Orchid (8657)
+4 Kor Cartographer (19367)
+2 Wall of Reverence (8923)
+
+// Instants - 4 (6.67%)
+
+4 Path to Exile (8897)
+
+// Sorceries - 3 (5.00%)
+
+3 Day of Judgment (19340)
+
+// Enchantments - 6 (10.00%)
+
+3 Journey to Nowhere (19524)
+3 Oblivion Ring (8718)
+
+// Artifacts - 2 (3.33%)
+
+2 Eldrazi Monument (19530)
+
+// Lands - 23 (38.33%)
+
+4 Emeria, the Sky Ruin (19348)
+4 Plains (19327)
+5 Plains (19326)
+5 Plains (19325)
+5 Plains (19324)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 White Knight (4120)
+
+// Instants
+
+4 Celestial Purge (4014)
+
+// Sorceries
+
+4 Martial Coup (8886)
+
+// Enchantments
+
+Journey to Nowhere (19524)
+2 Luminarch Ascension (19527)
+Oblivion Ring (8718)

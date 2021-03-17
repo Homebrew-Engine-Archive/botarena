@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Creatures - 17 (28.33%)
+
+4 Avacyn's Pilgrim (23373)
+4 Birds of Paradise (22236)
+4 Elesh Norn, Grand Cenobite (21901)
+2 Inferno Titan (22167)
+Llanowar Elves (22181)
+2 Wurmcoil Engine (21439)
+
+// Sorceries - 20 (33.33%)
+
+4 Faithless Looting (23600)
+4 Lingering Souls (23626)
+4 Mulch (23413)
+4 Tracker's Instincts (23711)
+4 Unburial Rites (23399)
+
+// Lands - 23 (38.33%)
+
+4 Blackcleave Cliffs (21470)
+4 Copperline Gorge (21471)
+2 Darkslick Shores (21469)
+2 Forest (23323)
+2 Forest (23322)
+2 Forest (23321)
+Mountain (23327)
+Plains (23330)
+4 Razorverge Thicket (21472)
+Rootbound Crag (22205)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Jin-Gitaxias, Core Augur (22013)
+Thrun, the Last Troll (21716)
+2 Wurmcoil Engine (21439)
+
+// Instants
+
+4 Ancient Grudge (23468)
+2 Memory's Journey (23448)
+Purify the Grave (23432)
+3 Ray of Revelation (23602)

@@ -1,0 +1,69 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 6 (9.84%)
+
+3 Ajani Vengeant (8720)
+3 Elspeth, Knight-Errant (8722)
+
+// Creatures - 9 (14.75%)
+
+3 Broodmate Dragon (8543)
+2 Caldera Hellion (8665)
+4 Druid of the Anima (8564)
+
+// Instants - 11 (18.03%)
+
+2 Bant Charm (8536)
+Cancel (8506)
+2 Esper Charm (8567)
+2 Jund Charm (8587)
+2 Magma Spray (8735)
+2 Naya Charm (8599)
+
+// Sorceries - 6 (9.84%)
+
+3 Cruel Ultimatum (8707)
+Kiss of the Amesha (8650)
+2 Violent Ultimatum (8562)
+
+// Enchantments - 4 (6.56%)
+
+4 Oblivion Ring (8718)
+
+// Lands - 25 (40.98%)
+
+4 Arcane Sanctum (8534)
+4 Crumbling Necropolis (8553)
+Forest (8509)
+Island (8514)
+3 Jungle Shrine (8588)
+Mountain (8518)
+Mountain (8519)
+Plains (8523)
+4 Savage Lands (8615)
+4 Seaside Citadel (8618)
+Swamp (8527)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Caldera Hellion (8665)
+
+// Instants
+
+Cancel (8506)
+2 Jund Charm (8587)
+2 Magma Spray (8735)
+
+// Sorceries
+
+3 Blightning (8641)
+2 Kiss of the Amesha (8650)
+Violent Ultimatum (8562)
+
+// Artifacts
+
+3 Relic of Progenitus (8725)

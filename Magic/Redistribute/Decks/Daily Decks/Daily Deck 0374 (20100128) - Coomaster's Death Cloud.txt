@@ -1,0 +1,67 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Garruk Wildspeaker (4204)
+
+// Creatures - 12 (20.00%)
+
+2 Eternal Witness (15428)
+4 Kitchen Finks (18593)
+4 Sakura-Tribe Elder (15605)
+2 Shriekmaw (18025)
+
+// Instants - 4 (6.67%)
+
+4 Putrefy (16408)
+
+// Sorceries - 16 (26.67%)
+
+2 Cranial Extraction (15781)
+3 Damnation (2505)
+3 Death Cloud (15277)
+4 Duress (4033)
+3 Primal Command (18131)
+Thoughtseize (17901)
+
+// Lands - 25 (41.67%)
+
+Forest (19303)
+Forest (19300)
+Forest (19301)
+Forest (19302)
+Ghost Quarter (23829)
+Golgari Rot Farm (16405)
+2 Oran-Rief, the Vastwood (19531)
+3 Overgrown Tomb (16445)
+2 Swamp (19332)
+Swamp (19333)
+Swamp (19334)
+Swamp (19335)
+3 Treetop Village (3308)
+2 Twilight Mire (18929)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Gatekeeper of Malakir (19442)
+
+// Instants
+
+Extirpate (2594)
+2 Fracturing Gust (18736)
+
+// Sorceries
+
+2 Cranial Extraction (15781)
+2 Maelstrom Pulse (9055)
+Primal Command (18131)
+
+// Enchantments
+
+4 Leyline of the Void (16893)
+2 Night of Souls' Betrayal (15707)

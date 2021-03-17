@@ -1,0 +1,40 @@
+// Expulsion
+// 8th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+2 Abyssal Specter (1500)
+2 Deathgazer (1754)
+2 Dusk Imp (1694)
+3 Maggot Carrier (1803)
+4 Ravenous Rats (1781)
+2 Severed Legion (1722)
+
+// Instants - 2 (5.00%)
+
+2 Dark Banishing (1530)
+
+// Sorceries - 2 (5.00%)
+
+Coercion (1688)
+Sever Soul (1767)
+
+// Enchantments - 3 (7.50%)
+
+Larceny (1808)
+2 Megrim (1590)
+
+// Artifacts - 1 (2.50%)
+
+Disrupting Scepter (1533)
+
+// Lands - 17 (42.50%)
+
+5 Swamp (1655)
+4 Swamp (1656)
+4 Swamp (1657)
+4 Swamp (1658)

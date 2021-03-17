@@ -1,0 +1,73 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 2 (3.28%)
+
+2 Ajani Vengeant (8720)
+
+// Creatures - 12 (19.67%)
+
+3 Bogardan Hellkite (4227)
+3 Kitchen Finks (18593)
+4 Mulldrifter (18023)
+2 Wall of Denial (9023)
+
+// Instants - 15 (24.59%)
+
+4 Cryptic Command (18051)
+4 Esper Charm (8567)
+Naya Charm (8599)
+Negate (4016)
+Path to Exile (8897)
+2 Terminate (9001)
+2 Volcanic Fallout (8860)
+
+// Sorceries - 4 (6.56%)
+
+2 Cruel Ultimatum (8707)
+2 Hallowed Burial (19013)
+
+// Enchantments - 1 (1.64%)
+
+Runed Halo (18683)
+
+// Lands - 27 (44.26%)
+
+2 Cascade Bluffs (18907)
+2 Exotic Orchard (8843)
+Island (4054)
+Island (4052)
+Island (4053)
+4 Mystic Gate (18564)
+4 Reflecting Pool (18571)
+2 Sunken Ruins (18580)
+2 Vivid Crag (18031)
+4 Vivid Creek (18032)
+2 Vivid Marsh (18034)
+2 Vivid Meadow (18035)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Ethersworn Canonist (8728)
+
+// Instants
+
+2 Celestial Purge (4014)
+2 Negate (4016)
+Volcanic Fallout (8860)
+
+// Sorceries
+
+2 Banefire (8932)
+Hallowed Burial (19013)
+
+// Enchantments
+
+2 Runed Halo (18683)
+
+// Artifacts
+
+2 Pithing Needle (4081)

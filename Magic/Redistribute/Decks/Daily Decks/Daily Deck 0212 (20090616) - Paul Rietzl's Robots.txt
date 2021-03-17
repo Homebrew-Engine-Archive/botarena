@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures - 29 (48.33%)
+
+4 Court Homunculus (8865)
+4 Esper Stormblade (9084)
+4 Ethersworn Canonist (8728)
+Ethersworn Shieldmage (9075)
+4 Glaze Fiend (8573)
+4 Master of Etherium (8594)
+4 Tidehollow Sculler (8721)
+4 Vedalken Outlander (8842)
+
+// Artifacts - 12 (20.00%)
+
+4 Fieldmist Borderpost (9091)
+4 Mistvein Borderpost (9094)
+4 Thopter Foundry (9062)
+
+// Lands - 17 (28.33%)
+
+4 Arcane Sanctum (8534)
+Island (8516)
+Island (8515)
+Island (8514)
+2 Plains (8524)
+2 Plains (8523)
+Plains (8525)
+Plains (8526)
+Swamp (8528)
+Swamp (8529)
+Swamp (8530)
+Swamp (8527)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Sanctum Gargoyle (8614)
+3 Zombie Outlander (8832)
+
+// Instants
+
+3 Countersquall (8890)
+3 Path to Exile (8897)
+2 Soul Manipulation (9070)

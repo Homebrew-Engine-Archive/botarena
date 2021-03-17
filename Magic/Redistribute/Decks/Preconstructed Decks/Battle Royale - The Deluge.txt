@@ -1,0 +1,54 @@
+// The Deluge
+// Battle Royale
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 14 (35.00%)
+
+Advance Scout (10111)
+Angelic Page (10813)
+Argothian Elder (10899)
+Armored Pegasus (10014)
+Dirtcowl Wurm (10120)
+Elvish Lyrist (10831)
+Master Decoy (10061)
+Sanctum Custodian (10930)
+Sanctum Guardian (10878)
+Scaled Wurm (6362)
+Seasoned Marshal (10879)
+Soltari Foot Soldier (10243)
+Spike Colony (10497)
+Spike Worker (10500)
+
+// Instants - 2 (5.00%)
+
+Giant Growth (341)
+Sandstorm (5031)
+
+// Sorceries - 2 (5.00%)
+
+Catastrophe (10801)
+Hurricane (20224)
+
+// Enchantments - 5 (12.50%)
+
+Fecundity (10833)
+Fertile Ground (10834)
+Land Tax (7869)
+Pacifism (9225)
+Sun Clasp (9703)
+
+// Lands - 17 (42.50%)
+
+Drifting Meadow (10956)
+2 Forest (10835)
+2 Forest (10836)
+Forest (10837)
+Forest (10838)
+3 Plains (10869)
+2 Plains (10870)
+2 Plains (10871)
+2 Plains (10872)
+Vec Townships (10263)

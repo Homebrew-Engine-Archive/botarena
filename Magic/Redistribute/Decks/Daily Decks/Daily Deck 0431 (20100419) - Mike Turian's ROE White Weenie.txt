@@ -1,0 +1,35 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Gideon Jura (20966)
+
+// Creatures - 18 (30.00%)
+
+4 Baneslayer Angel (4224)
+2 Kor Firewalker (19606)
+2 Lone Missionary (20882)
+3 Transcendent Master (20964)
+4 Wall of Omens (20842)
+3 World Queller (19537)
+
+// Instants - 4 (6.67%)
+
+4 Path to Exile (8897)
+
+// Sorceries - 4 (6.67%)
+
+4 Day of Judgment (19340)
+
+// Artifacts - 4 (6.67%)
+
+4 Everflowing Chalice (19677)
+
+// Lands - 26 (43.33%)
+
+Emeria, the Sky Ruin (19348)
+5 Plains (20813)
+6 Plains (20812)
+5 Plains (20815)
+5 Plains (20814)
+4 Tectonic Edge (19651)

@@ -1,0 +1,46 @@
+// Sacrificial Bam
+// Mirrodin Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 26 (43.33%)
+
+2 Atog (14822)
+2 Cathodion (14870)
+3 Disciple of the Vault (14902)
+Dross Scorpion (14910)
+3 Goblin Replica (14913)
+2 Iron Myr (14803)
+2 Krark-Clan Grunt (14878)
+2 Leaden Myr (14804)
+Megatog (14811)
+2 Myr Retriever (14918)
+3 Nim Replica (14919)
+Pentavus (15000)
+2 Rust Elemental (14921)
+
+// Instants - 3 (5.00%)
+
+2 Irradiate (14973)
+Shrapnel Blast (14976)
+
+// Artifacts - 8 (13.33%)
+
+2 Necrogen Spellbomb (14944)
+Nuisance Engine (14946)
+2 Pyrite Spellbomb (14948)
+Skeleton Shard (14949)
+2 Talisman of Indulgence (14954)
+
+// Lands - 23 (38.33%)
+
+4 Great Furnace (14929)
+2 Mountain (14843)
+2 Mountain (14844)
+2 Mountain (14845)
+2 Mountain (14842)
+2 Swamp (14856)
+2 Swamp (14857)
+2 Swamp (14858)
+Swamp (14859)
+4 Vault of Whispers (14932)

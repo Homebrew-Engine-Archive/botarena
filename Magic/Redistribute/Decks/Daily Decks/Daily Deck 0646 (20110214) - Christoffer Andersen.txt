@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Guide (19456)
+4 Goblin Wardriver (21735)
+4 Memnite (21440)
+4 Ornithopter (21306)
+4 Signal Pest (21709)
+
+// Instants - 1 (1.67%)
+
+Lightning Bolt (21124)
+
+// Sorceries - 9 (15.00%)
+
+2 Devastating Summons (20990)
+3 Forked Bolt (20847)
+4 Kuldotha Rebirth (21499)
+
+// Artifacts - 6 (10.00%)
+
+3 Chimeric Mass (21609)
+3 Mox Opal (21434)
+
+// Lands - 20 (33.33%)
+
+4 Contested War Zone (21792)
+8 Mountain (21773)
+8 Mountain (21772)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Phyrexian Revoker (21727)
+3 Tuktuk the Explorer (20843)
+
+// Instants
+
+Lightning Bolt (21124)
+
+// Sorceries
+
+4 Arc Trail (21554)
+2 Devastating Summons (20990)
+
+// Artifacts
+
+4 Jinxed Idol (21324)

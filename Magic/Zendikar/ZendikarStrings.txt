@@ -1,0 +1,109 @@
+Archive Trap\n{3UU}\nInstant - Trap\nZEN,R\nIf an opponent searched his or her library this turn, you may pay {0} rather than pay Archive Trap's mana cost.\rTarget opponent puts the top thirteen cards of his or her library into his or her graveyard.
+
+Archmage Ascension\n{2U}\nEnchantment\nZEN,R\nAt the beginning of each end step, if you drew two or more cards this turn, you may put a quest counter on Archmage Ascension.\rAs long as Archmage Ascension has six or more quest counters on it, if you would draw a card, you may instead search your library for a card, put that card into your hand, then shuffle your library.
+
+Armament Master\n{WW}\nCreature - Kor Soldier\nZEN,R\nOther Kor creatures you control get +2/+2 for each Equipment attached to Armament Master.\n2/2
+
+Baloth Cage Trap\n{3GG}\nInstant - Trap\nZEN,U\nIf an opponent had an artifact enter the battlefield under his or her control this turn, you may pay {1G} rather than pay Baloth Cage Trap's mana cost.\rPut a 4/4 green Beast creature token onto the battlefield.
+
+Beastmaster Ascension\n{2G}\nEnchantment\nZEN,R\nWhenever a creature you control attacks, you may put a quest counter on Beastmaster Ascension.\rAs long as Beastmaster Ascension has seven or more quest counters on it, creatures you control get +5/+5.
+
+Bloodchief Ascension\n{B}\nEnchantment\nZEN,R\nAt the beginning of each end step, if an opponent lost 2 or more life this turn, you may put a quest counter on Bloodchief Ascension.\rWhenever a card is put into an opponent's graveyard from anywhere, if Bloodchief Ascension has three or more quest counters on it, you may have that player lose 2 life. If you do, you gain 2 life.
+
+Bloodghast\n{BB}\nCreature - Vampire Spirit\nZEN,R\nBloodghast can't block.\rBloodghast has haste as long as an opponent has 10 or less life.\rLandfall - Whenever a land enters the battlefield under your control, you may return Bloodghast from your graveyard to the battlefield.\n2/1
+
+Celestial Mantle\n{3WWW}\nEnchantment - Aura\nZEN,R\nEnchant creature\rEnchanted creature gets +3/+3.\rWhenever enchanted creature deals combat damage to a player, double its controller's life total.
+
+Chandra Ablaze\n{4RR}\nPlaneswalker - Chandra\nZEN,MR\n+1: Discard a card. If a red card is discarded this way, Chandra Ablaze deals 4 damage to target creature or player.\r-2: Each player discards his or her hand, then draws three cards.\r-7: Cast any number of red instant and/or sorcery cards from your graveyard without paying their mana costs.\n5
+
+Cobra Trap\n{4GG}\nInstant - Trap\nZEN,U\nIf a noncreature permanent under your control was destroyed this turn by a spell or ability an opponent controlled, you may pay {G} rather than pay Cobra Trap's mana cost.\rPut four 1/1 green Snake creature tokens onto the battlefield.
+
+Cosi's Trickster\n{U}\nCreature - Merfolk Wizard\nZEN,R\nWhenever an opponent shuffles his or her library, you may put a +1/+1 counter on Cosi's Trickster.\n1/1
+
+Eldrazi Monument\n{5}\nArtifact\nZEN,MR\nCreatures you control get +1/+1, have flying, and are indestructible.\rAt the beginning of your upkeep, sacrifice a creature. If you can't, sacrifice Eldrazi Monument.
+
+Eternity Vessel\n{6}\nArtifact\nZEN,MR\nEternity Vessel enters the battlefield with X charge counters on it, where X is your life total.\rLandfall - Whenever a land enters the battlefield under your control, you may have your life total become the number of charge counters on Eternity Vessel.
+
+Gigantiform\n{3GG}\nEnchantment - Aura\nZEN,R\nKicker {4}\rEnchant creature\rEnchanted creature is 8/8 and has trample.\rWhen Gigantiform enters the battlefield, if it was kicked, you may search your library for a card named Gigantiform, put it onto the battlefield, then shuffle your library.
+
+Gomazoa\n{2U}\nCreature - Jellyfish\nZEN,U\nDefender, flying\r{T}: Put Gomazoa and each creature it's blocking on top of their owners' libraries, then those players shuffle their libraries.\n0/3
+
+Grappling Hook\n{4}\nArtifact - Equipment\nZEN,R\nEquipped creature has double strike.\rWhenever equipped creature attacks, you may have target creature block it this turn if able.\rEquip {4}
+
+Inferno Trap\n{3R}\nInstant - Trap\nZEN,U\nIf you've been dealt damage by two or more creatures this turn, you may pay {R} rather than pay Inferno Trap's mana cost.\rInferno Trap deals 4 damage to target creature.
+
+Ior Ruin Expedition\n{1U}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Ior Ruin Expedition.\rRemove three quest counters from Ior Ruin Expedition and sacrifice it: Draw two cards.
+
+Journey to Nowhere\n{1W}\nEnchantment\nZEN,C\nWhen Journey to Nowhere enters the battlefield, exile target creature.\rWhen Journey to Nowhere leaves the battlefield, return the exiled card to the battlefield under its owner's control.
+
+Khalni Heart Expedition\n{1G}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Khalni Heart Expedition.\rRemove three quest counters from Khalni Heart Expedition and sacrifice it: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle your library.
+
+Kor Duelist\n{W}\nCreature - Kor Soldier\nZEN,U\nAs long as Kor Duelist is equipped, it has double strike.\n1/1
+
+Kor Hookmaster\n{2W}\nCreature - Kor Soldier\nZEN,C\nWhen Kor Hookmaster enters the battlefield, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.\n2/2
+
+Kor Outfitter\n{WW}\nCreature - Kor Soldier\nZEN,C\nWhen Kor Outfitter enters the battlefield, you may attach target Equipment you control to target creature you control.\n2/2
+
+Lavaball Trap\n{6RR}\nInstant - Trap\nZEN,R\nIf an opponent had two or more lands enter the battlefield under his or her control this turn, you may pay {3RR} rather than pay Lavaball Trap's mana cost.\rDestroy two target lands. Lavaball Trap deals 4 damage to each creature.
+
+Lorthos, the Tidemaker\n{5UUU}\nLegendary Creature - Octopus\nZEN,MR\nWhenever Lorthos, the Tidemaker attacks, you may pay {8}. If you do, tap up to eight target permanents. Those permanents don't untap during their controllers' next untap steps.\n8/8
+
+Lullmage Mentor\n{1UU}\nCreature - Merfolk Wizard\nZEN,R\nWhenever a spell or ability you control counters a spell, you may put a 1/1 blue Merfolk creature token onto the battlefield.\rTap seven untapped Merfolk you control: Counter target spell.\n2/2
+
+Luminarch Ascension\n{1W}\nEnchantment\nZEN,R\nAt the beginning of each opponent's end step, if you didn't lose life this turn, you may put a quest counter on Luminarch Ascension.\r{1W}: Put a 4/4 white Angel creature token with flying onto the battlefield. Activate this ability only if Luminarch Ascension has four or more quest counters on it.
+
+Magosi, the Waterveil\n\nLand\nZEN,R\nMagosi, the Waterveil enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\r{U}, {T}: Put an eon counter on Magosi, the Waterveil. Skip your next turn.\r{T}, Remove an eon counter from Magosi, the Waterveil and return it to its owner's hand: Take an extra turn after this one.
+
+Needlebite Trap\n{5BB}\nInstant - Trap\nZEN,U\nIf an opponent gained life this turn, you may pay {B} rather than pay Needlebite Trap's mana cost.\rTarget player loses 5 life and you gain 5 life.
+
+Obsidian Fireheart\n{1RRR}\nCreature - Elemental\nZEN,MR\n{1RR}: Put a blaze counter on target land without a blaze counter on it. For as long as that land has a blaze counter on it, it has "At the beginning of your upkeep, this land deals 1 damage to you."\n4/4
+
+Oracle of Mul Daya\n{3G}\nCreature - Elf Shaman\nZEN,R\nYou may play an additional land on each of your turns.\rPlay with the top card of your library revealed.\rYou may play the top card of your library if it's a land card.\n2/2
+
+Oran-Rief, the Vastwood\n\nLand\nZEN,R\nOran-Rief, the Vastwood enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\r{T}: Put a +1/+1 counter on each green creature that entered the battlefield this turn.
+
+Punishing Fire\n{1R}\nInstant\nZEN,U\nPunishing Fire deals 2 damage to target creature or player.\rWhenever an opponent gains life, you may pay {R}. If you do, return Punishing Fire from your graveyard to your hand.
+
+Pyromancer Ascension\n{1R}\nEnchantment\nZEN,R\nWhenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.\rWhenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy.
+
+Quest for Ancient Secrets\n{U}\nEnchantment\nZEN,U\nWhenever a card is put into your graveyard from anywhere, you may put a quest counter on Quest for Ancient Secrets.\rRemove five quest counters from Quest for Ancient Secrets and sacrifice it: Target player shuffles his or her graveyard into his or her library.
+
+Quest for Pure Flame\n{R}\nEnchantment\nZEN,U\nWhenever a source you control deals damage to an opponent, you may put a quest counter on Quest for Pure Flame.\rRemove four quest counters from Quest for Pure Flame and sacrifice it: If any source you control would deal damage to a creature or player this turn, it deals double that damage to that creature or player instead.
+
+Quest for the Gemblades\n{1G}\nEnchantment\nZEN,U\nWhenever a creature you control deals combat damage to a creature, you may put a quest counter on Quest for the Gemblades.\rRemove a quest counter from Quest for the Gemblades and sacrifice it: Put four +1/+1 counters on target creature.
+
+Quest for the Gravelord\n{B}\nEnchantment\nZEN,U\nWhenever a creature is put into a graveyard from the battlefield, you may put a quest counter on Quest for the Gravelord.\rRemove three quest counters from Quest for the Gravelord and sacrifice it: Put a 5/5 black Zombie Giant creature token onto the battlefield.
+
+Quest for the Holy Relic\n{W}\nEnchantment\nZEN,U\nWhenever you cast a creature spell, you may put a quest counter on Quest for the Holy Relic.\rRemove five quest counters from Quest for the Holy Relic and sacrifice it: Search your library for an Equipment card, put it onto the battlefield, and attach it to a creature you control. Then shuffle your library.
+
+Ravenous Trap\n{2BB}\nInstant - Trap\nZEN,U\nIf an opponent had three or more cards put into his or her graveyard from anywhere this turn, you may pay {0} rather than pay Ravenous Trap's mana cost.\rExile all cards from target player's graveyard.
+
+Rite of Replication\n{2UU}\nSorcery\nZEN,R\nKicker {5}\rPut a token onto the battlefield that's a copy of target creature. If Rite of Replication was kicked, put five of those tokens onto the battlefield instead.
+
+Roil Elemental\n{3UUU}\nCreature - Elemental\nZEN,R\nFlying\rLandfall - Whenever a land enters the battlefield under your control, you may gain control of target creature for as long as you control Roil Elemental.\n3/2
+
+Savage Silhouette\n{2G}\nEnchantment - Aura\nZEN,C\nEnchant creature\rEnchanted creature gets +2/+2 and has "{1G}: Regenerate this creature."
+
+Sorin Markov\n{3BBB}\nPlaneswalker - Sorin\nZEN,MR\n+2: Sorin Markov deals 2 damage to target creature or player and you gain 2 life.\r-3: Target opponent's life total becomes 10.\r-7: You control target player's next turn.\n4
+
+Soul Stair Expedition\n{B}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Soul Stair Expedition.\rRemove three quest counters from Soul Stair Expedition and sacrifice it: Return up to two target creature cards from your graveyard to your hand.
+
+Summoning Trap\n{4GG}\nInstant - Trap\nZEN,R\nIf a creature spell you cast this turn was countered by a spell or ability an opponent controlled, you may pay {0} rather than pay Summoning Trap's mana cost.\rLook at the top seven cards of your library. You may put a creature card from among them onto the battlefield. Put the rest on the bottom of your library in any order.
+
+Sunspring Expedition\n{W}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Sunspring Expedition.\rRemove three quest counters from Sunspring Expedition and sacrifice it: You gain 8 life.
+
+Trapfinder's Trick\n{1U}\nSorcery\nZEN,C\nTarget player reveals his or her hand and discards all Trap cards.
+
+Trapmaker's Snare\n{1U}\nInstant\nZEN,U\nSearch your library for a Trap card, reveal it, and put it into your hand. Then shuffle your library.
+
+Turntimber Basilisk\n{1GG}\nCreature - Basilisk\nZEN,U\nDeathtouch\rLandfall - Whenever a land enters the battlefield under your control, you may have target creature block Turntimber Basilisk this turn if able.\n2/1
+
+Unstable Footing\n{R}\nInstant\nZEN,U\nKicker {3R}\rDamage can't be prevented this turn. If Unstable Footing was kicked, it deals 5 damage to target player.
+
+Vampire's Bite\n{B}\nInstant\nZEN,C\nKicker {2B}\rTarget creature gets +3/+0 until end of turn. If Vampire's Bite was kicked, that creature gains lifelink until end of turn.
+
+Whiplash Trap\n{3UU}\nInstant - Trap\nZEN,C\nIf an opponent had two or more creatures enter the battlefield under his or her control this turn, you may pay {U} rather than pay Whiplash Trap's mana cost.\rReturn two target creatures to their owners' hands.
+
+World Queller\n{3WW}\nCreature - Avatar\nZEN,R\nAt the beginning of your upkeep, you may choose a card type. If you do, each player sacrifices a permanent of that type.\n4/4
+
+Zektar Shrine Expedition\n{1R}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Zektar Shrine Expedition.\rRemove three quest counters from Zektar Shrine Expedition and sacrifice it: Put a 7/1 red Elemental creature token with trample and haste onto the battlefield. Exile it at the beginning of the next end step.

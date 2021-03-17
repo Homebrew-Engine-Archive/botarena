@@ -1,0 +1,59 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 3 (4.92%)
+
+3 Ajani Vengeant (8720)
+
+// Creatures - 28 (45.90%)
+
+Burrenton Forge-Tender (18054)
+4 Figure of Destiny (19006)
+Flamekin Harbinger (17947)
+4 Knight of the White Orchid (8657)
+4 Mogg Fanatic (3254)
+2 Murderous Redcap (18646)
+3 Ranger of Eos (8642)
+3 Reveillark (18341)
+3 Siege-Gang Commander (3326)
+3 Stillmoon Cavalier (18957)
+
+// Enchantments - 3 (4.92%)
+
+3 Oblivion Ring (8718)
+
+// Artifacts - 4 (6.56%)
+
+4 Mind Stone (3242)
+
+// Lands - 23 (37.70%)
+
+4 Battlefield Forge (3012)
+Mountain (8520)
+Mountain (8519)
+Mountain (8518)
+Plains (8524)
+Plains (8525)
+Plains (8526)
+2 Plains (8523)
+3 Reflecting Pool (18571)
+4 Rugged Prairie (18922)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+3 Elspeth, Knight-Errant (8722)
+
+// Creatures
+
+2 Burrenton Forge-Tender (18054)
+3 Kitchen Finks (18593)
+3 Knight-Captain of Eos (8591)
+Wispmare (18027)
+
+// Sorceries
+
+3 Wrath of God (3200)

@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+4 Birds of Paradise (351)
+4 Blastoderm (12077)
+3 Jade Leech (12505)
+4 Llanowar Elves (322)
+3 Two-Headed Dragon (11675)
+
+// Sorceries - 5 (8.33%)
+
+4 AssaultBattery (12615)
+Earthquake (494)
+
+// Enchantments - 8 (13.33%)
+
+4 Fires of Yavimaya (12404)
+4 Saproling Burst (12105)
+
+// Artifacts - 4 (6.67%)
+
+4 Chimeric Idol (12281)
+
+// Lands - 25 (41.67%)
+
+2 Dust Bowl (11775)
+3 Forest (12428)
+2 Forest (12429)
+2 Forest (12430)
+3 Forest (12427)
+4 Karplusan Forest (535)
+2 Mountain (12441)
+Mountain (12442)
+Mountain (12443)
+Mountain (12444)
+4 Rishadan Port (11607)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Kavu Chameleon (12508)
+
+// Instants
+
+2 Tangle (12667)
+
+// Sorceries
+
+3 Earthquake (494)
+3 Flashfires (444)
+Obliterate (12445)
+2 Reverent Silence (12097)

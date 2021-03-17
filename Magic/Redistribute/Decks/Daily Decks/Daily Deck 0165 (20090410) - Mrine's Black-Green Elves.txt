@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+2 Garruk Wildspeaker (18029)
+2 Liliana Vess (18048)
+
+// Creatures - 24 (40.00%)
+
+4 Civic Wayfinder (3324)
+2 Cloudthresher (18015)
+2 Imperious Perfect (17961)
+2 Leaf Gilder (17971)
+4 Llanowar Elves (3092)
+2 Murderous Redcap (18646)
+2 Shriekmaw (18025)
+2 Wren's Run Packmaster (18044)
+4 Wren's Run Vanquisher (18077)
+
+// Sorceries - 6 (10.00%)
+
+2 Mind Shatter (18304)
+4 Profane Command (18127)
+
+// Artifacts - 2 (3.33%)
+
+2 Loxodon Warhammer (3096)
+
+// Lands - 24 (40.00%)
+
+2 Forest (8510)
+Forest (8512)
+2 Forest (8509)
+Forest (8511)
+4 Gilt-Leaf Palace (18092)
+4 Llanowar Wastes (3093)
+2 Mutavault (18368)
+Swamp (8527)
+Swamp (8528)
+Swamp (8529)
+Swamp (8530)
+4 Treetop Village (3308)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Cloudthresher (18015)
+2 Graveborn Muse (3353)
+2 Kitchen Finks (18593)
+Platinum Angel (3224)
+2 Shriekmaw (18025)
+
+// Sorceries
+
+4 Infest (8584)
+2 Thoughtseize (17901)

@@ -1,0 +1,31 @@
+// Impaler
+// Starter 1999 Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 17 (42.50%)
+
+2 Bull Hippo (20523)
+3 Durkwood Boars (20532)
+3 Grizzly Bears (20547)
+2 Lone Wolf (20553)
+3 Norwood Archers (20561)
+Pride of Lions (20565)
+Thorn Elemental (20577)
+2 Wild Ox (20586)
+
+// Sorceries - 6 (15.00%)
+
+2 Monstrous Growth (20633)
+2 Nature's Lore (20636)
+Renewing Touch (20642)
+Whirlwind (20661)
+
+// Lands - 17 (42.50%)
+
+5 Forest (20589)
+4 Forest (20590)
+4 Forest (20591)
+4 Forest (20592)

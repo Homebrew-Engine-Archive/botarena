@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Birds of Paradise (3013)
+4 Dark Confidant (16449)
+4 Doran, the Siege Tower (18133)
+4 Kitchen Finks (18593)
+Noble Hierarch (8819)
+4 Tarmogoyf (17704)
+
+// Instants - 7 (11.67%)
+
+4 Path to Exile (8897)
+3 Putrefy (16408)
+
+// Sorceries - 6 (10.00%)
+
+2 Profane Command (18127)
+4 Thoughtseize (17901)
+
+// Artifacts - 4 (6.67%)
+
+Chrome Mox (15001)
+3 Umezawa's Jitte (19149)
+
+// Lands - 22 (36.67%)
+
+4 Bloodstained Mire (14002)
+Forest (8510)
+Forest (8509)
+Godless Shrine (16808)
+3 Overgrown Tomb (16445)
+Plains (8523)
+Shizo, Death's Storehouse (15639)
+Swamp (8527)
+Temple Garden (16447)
+4 Treetop Village (3308)
+4 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Ajani Goldmane (18047)
+
+// Creatures
+
+Ethersworn Canonist (8728)
+Gaddock Teeg (18062)
+2 Kataki, War's Wage (16284)
+Loxodon Hierarch (16606)
+2 Wilt-Leaf Liege (18644)
+
+// Instants
+
+3 Darkblast (16596)
+2 Krosan Grip (17369)
+Slaughter Pact (17789)
+
+// Artifacts
+
+Thorn of Amethyst (18000)

@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Ajani Vengeant (8720)
+
+// Creatures - 9 (15.00%)
+
+4 Baneslayer Angel (4224)
+Magma Phoenix (4213)
+4 Swans of Bryn Argoll (18708)
+
+// Instants - 18 (30.00%)
+
+4 Flame Javelin (18642)
+4 Intimidation Bolt (9098)
+4 Lightning Bolt (4060)
+3 Path to Exile (8897)
+3 Volcanic Fallout (8860)
+
+// Sorceries - 5 (8.33%)
+
+2 Banefire (8932)
+3 Hallowed Burial (19013)
+
+// Lands - 24 (40.00%)
+
+4 Jungle Shrine (8588)
+Mountain (4071)
+2 Mountain (4070)
+Mountain (4072)
+Mountain (4073)
+4 Mutavault (18368)
+Plains (4082)
+Plains (4083)
+Plains (4084)
+Plains (4085)
+3 Reflecting Pool (18571)
+4 Rugged Prairie (18922)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures
+
+3 Ethersworn Canonist (8728)
+3 Kitchen Finks (18593)
+
+// Instants
+
+Volcanic Fallout (8860)
+
+// Sorceries
+
+Banefire (8932)
+
+// Enchantments
+
+2 Manabarbs (4064)
+3 Runed Halo (18683)

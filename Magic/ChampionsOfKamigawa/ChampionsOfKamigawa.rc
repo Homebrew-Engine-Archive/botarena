@@ -1,0 +1,403 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "ChampionsOfKamigawa.ico"
+IDI_LARGE_MODULE        ICON                    "ChampionsOfKamigawaLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Champions of Kamigawa"
+    IDS_EXPANSION_ABBREV    "CHK"
+    IDS_FIRST_CARD          "15600"
+    IDS_TOTAL_CARD          "307"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "15907"
+    IDS_MODULE_LARGE_ICON_ID "15908"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-10-2004"
+    IDS_MWS_FOLDER          "MWS\\CHK\\"
+    IDS_PRODUCT_LIST        """Champions of Kamigawa Starter Box"":R-3:U-10:C-32:BL-30,""Champions of Kamigawa Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15600         "Azami, Lady of Scrolls\n{2UUU}\nLegendary Creature - Human Wizard\nCHK,R\nTap an untapped Wizard you control: Draw a card.\n0/2"
+    IDS_STRING15601         "Azusa, Lost but Seeking\n{2G}\nLegendary Creature - Human Monk\nCHK,R\nYou may play two additional lands on each of your turns.\n1/2"
+    IDS_STRING15602         "Hair-Strung Koto\n{6}\nArtifact\nCHK,R\nTap an untapped creature you control: Target player puts the top card of his or her library into his or her graveyard."
+    IDS_STRING15603         "Isamaru, Hound of Konda\n{W}\nLegendary Creature - Hound\nCHK,R\n\n2/2"
+    IDS_STRING15604         "Kodama of the North Tree\n{2GGG}\nLegendary Creature - Spirit\nCHK,R\nTrample; shroud\n6/4"
+    IDS_STRING15605         "Sakura-Tribe Elder\n{1G}\nCreature - Snake Shaman\nCHK,C\nSacrifice Sakura-Tribe Elder: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library.\n1/1"
+    IDS_STRING15606         "Befoul\n{2BB}\nSorcery\nCHK,C\nDestroy target land or nonblack creature. It can't be regenerated."
+    IDS_STRING15607         "Commune with Nature\n{G}\nSorcery\nCHK,C\nLook at the top five cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order."
+    IDS_STRING15608         "Counsel of the Soratami\n{2U}\nSorcery\nCHK,C\nDraw two cards."
+    IDS_STRING15609         "Distress\n{BB}\nSorcery\nCHK,C\nTarget player reveals his or her hand. You choose a nonland card from it. That player discards that card."
+    IDS_STRING15610         "Forest\n\nBasic Land - Forest\nCHK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING15611         "Forest\n\nBasic Land - Forest\nCHK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING15612         "Forest\n\nBasic Land - Forest\nCHK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING15613         "Forest\n\nBasic Land - Forest\nCHK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING15614         "Island\n\nBasic Land - Island\nCHK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING15615         "Island\n\nBasic Land - Island\nCHK,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15616         "Island\n\nBasic Land - Island\nCHK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING15617         "Island\n\nBasic Land - Island\nCHK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING15618         "Kami of Old Stone\n{3W}\nCreature - Spirit\nCHK,U\n\n1/7"
+    IDS_STRING15619         "Lure\n{1GG}\nEnchantment - Aura\nCHK,U\nEnchant creature\rAll creatures able to block enchanted creature do so."
+    IDS_STRING15620         "Mountain\n\nBasic Land - Mountain\nCHK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING15621         "Mountain\n\nBasic Land - Mountain\nCHK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING15622         "Mountain\n\nBasic Land - Mountain\nCHK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING15623         "Mountain\n\nBasic Land - Mountain\nCHK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING15624         "Order of the Sacred Bell\n{3G}\nCreature - Human Monk\nCHK,C\n\n4/3"
+    IDS_STRING15625         "Plains\n\nBasic Land - Plains\nCHK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING15626         "Plains\n\nBasic Land - Plains\nCHK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING15627         "Plains\n\nBasic Land - Plains\nCHK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING15628         "Plains\n\nBasic Land - Plains\nCHK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING15629         "Stone Rain\n{2R}\nSorcery\nCHK,C\nDestroy target land."
+    IDS_STRING15630         "Swamp\n\nBasic Land - Swamp\nCHK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING15631         "Swamp\n\nBasic Land - Swamp\nCHK,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15632         "Swamp\n\nBasic Land - Swamp\nCHK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING15633         "Swamp\n\nBasic Land - Swamp\nCHK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING15634         "Uncontrollable Anger\n{2RR}\nEnchantment - Aura\nCHK,C\nFlash\rEnchant creature\rEnchanted creature gets +2/+2 and attacks each turn if able."
+    IDS_STRING15635         "Lava Spike\n{R}\nSorcery - Arcane\nCHK,C\nLava Spike deals 3 damage to target player."
+    IDS_STRING15636         "General's Kabuto\n{4}\nArtifact - Equipment\nCHK,R\nEquipped creature has shroud.\rPrevent all combat damage that would be dealt to equipped creature.\rEquip {2}"
+    IDS_STRING15637         "Dosan the Falling Leaf\n{1GG}\nLegendary Creature - Human Monk\nCHK,R\nPlayers can cast spells only during their own turns.\n2/2"
+    IDS_STRING15638         "Minamo, School at Water's Edge\n\nLegendary Land\nCHK,R\n{T}: Add {U} to your mana pool.\r{U}, {T}: Untap target legendary permanent."
+    IDS_STRING15639         "Shizo, Death's Storehouse\n\nLegendary Land\nCHK,R\n{T}: Add {B} to your mana pool.\r{B}, {T}: Target legendary creature gains fear until end of turn."
+    IDS_STRING15640         "Sensei's Divining Top\n{1}\nArtifact\nCHK,U\n{1}: Look at the top three cards of your library, then put them back in any order.\r{T}: Draw a card, then put Sensei's Divining Top on top of its owner's library."
+    IDS_STRING15641         "Akki Avalanchers\n{R}\nCreature - Goblin Warrior\nCHK,C\nSacrifice a land: Akki Avalanchers gets +2/+0 until end of turn. Activate this ability only once each turn.\n1/1"
+    IDS_STRING15642         "Akki Coalflinger\n{1RR}\nCreature - Goblin Shaman\nCHK,U\nFirst strike\r{R}, {T}: Attacking creatures gain first strike until end of turn.\n2/2"
+    IDS_STRING15643         "Akki Rockspeaker\n{1R}\nCreature - Goblin Shaman\nCHK,C\nWhen Akki Rockspeaker enters the battlefield, add {R} to your mana pool.\n1/1"
+    IDS_STRING15644         "Akki Underminer\n{3R}\nCreature - Goblin Rogue Shaman\nCHK,U\nWhenever Akki Underminer deals combat damage to a player, that player sacrifices a permanent.\n1/1"
+    IDS_STRING15645         "Battle-Mad Ronin\n{1R}\nCreature - Human Samurai\nCHK,C\nBushido 2\rBattle-Mad Ronin attacks each turn if able.\n1/1"
+    IDS_STRING15646         "Burr Grafter\n{3G}\nCreature - Spirit\nCHK,C\nSacrifice Burr Grafter: Target creature gets +2/+2 until end of turn.\rSoulshift 3\n2/2"
+    IDS_STRING15647         "Cursed Ronin\n{3B}\nCreature - Human Samurai\nCHK,C\nBushido 1\r{B}: Cursed Ronin gets +1/+1 until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15648         "Deathcurse Ogre\n{5B}\nCreature - Ogre Warrior\nCHK,C\nWhen Deathcurse Ogre dies, each player loses 3 life.\n3/3"
+    IDS_STRING15649         "Devoted Retainer\n{W}\nCreature - Human Samurai\nCHK,C\nBushido 1\n1/1"
+    IDS_STRING15650         "Gibbering Kami\n{3B}\nCreature - Spirit\nCHK,C\nFlying\rSoulshift 3\n2/2"
+    IDS_STRING15651         "Graceful Adept\n{2U}\nCreature - Human Wizard\nCHK,U\nYou have no maximum hand size.\n1/3"
+    IDS_STRING15652         "He Who Hungers\n{4B}\nLegendary Creature - Spirit\nCHK,R\nFlying\r{1}, Sacrifice a Spirit: Target opponent reveals his or her hand. You choose a card from it. That player discards that card. Activate this ability only any time you could cast a sorcery.\rSoulshift 4\n3/2"
+    IDS_STRING15653         "Horobi, Death's Wail\n{2BB}\nLegendary Creature - Spirit\nCHK,R\nFlying\rWhenever a creature becomes the target of a spell or ability, destroy that creature.\n4/4"
+    IDS_STRING15654         "Humble Budoka\n{1G}\nCreature - Human Monk\nCHK,C\nShroud\n2/2"
+    IDS_STRING15655         "Hundred-Talon Kami\n{4W}\nCreature - Spirit\nCHK,C\nFlying\rSoulshift 4\n2/3"
+    IDS_STRING15656         "Iname, Death Aspect\n{4BB}\nLegendary Creature - Spirit\nCHK,R\nWhen Iname, Death Aspect enters the battlefield, you may search your library for any number of Spirit cards and put them into your graveyard. If you do, shuffle your library.\n4/4"
+    IDS_STRING15657         "Jukai Messenger\n{G}\nCreature - Human Monk\nCHK,C\nForestwalk\n1/1"
+    IDS_STRING15658         "Kabuto Moth\n{2W}\nCreature - Spirit\nCHK,C\nFlying\r{T}: Target creature gets +1/+2 until end of turn.\n1/2"
+    IDS_STRING15659         "Kami of Ancient Law\n{1W}\nCreature - Spirit\nCHK,C\nSacrifice Kami of Ancient Law: Destroy target enchantment.\n2/2"
+    IDS_STRING15660         "Kami of Lunacy\n{4BB}\nCreature - Spirit\nCHK,U\nFlying\rSoulshift 5\n4/1"
+    IDS_STRING15661         "Kami of the Palace Fields\n{5W}\nCreature - Spirit\nCHK,U\nFlying, first strike\rSoulshift 5\n3/2"
+    IDS_STRING15662         "Kami of Twisted Reflection\n{1UU}\nCreature - Spirit\nCHK,C\nSacrifice Kami of Twisted Reflection: Return target creature you control to its owner's hand.\n2/2"
+    IDS_STRING15663         "Kitsune Blademaster\n{2W}\nCreature - Fox Samurai\nCHK,C\nFirst strike\rBushido 1\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15664         "Kitsune Diviner\n{W}\nCreature - Fox Cleric\nCHK,C\n{T}: Tap target Spirit.\n0/1"
+    IDS_STRING15665         "Kitsune Healer\n{3W}\nCreature - Fox Cleric\nCHK,C\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\r{T}: Prevent all damage that would be dealt to target legendary creature this turn.\n2/2"
+    IDS_STRING15666         "Kuro, Pitlord\n{6BBB}\nLegendary Creature - Demon Spirit\nCHK,R\nAt the beginning of your upkeep, sacrifice Kuro, Pitlord unless you pay {BBBB}.\rPay 1 life: Target creature gets -1/-1 until end of turn.\n9/9"
+    IDS_STRING15667         "Lantern Kami\n{W}\nCreature - Spirit\nCHK,C\nFlying\n1/1"
+    IDS_STRING15668         "Moss Kami\n{5G}\nCreature - Spirit\nCHK,C\nTrample\n5/5"
+    IDS_STRING15669         "Mothrider Samurai\n{3W}\nCreature - Human Samurai\nCHK,C\nFlying\rBushido 1\n2/2"
+    IDS_STRING15670         "Nagao, Bound by Honor\n{3W}\nLegendary Creature - Human Samurai\nCHK,U\nBushido 1\rWhenever Nagao, Bound by Honor attacks, Samurai creatures you control get +1/+1 until end of turn.\n3/3"
+    IDS_STRING15671         "Nezumi Bone-Reader\n{1B}\nCreature - Rat Shaman\nCHK,U\n{B}, Sacrifice a creature: Target player discards a card. Activate this ability only any time you could cast a sorcery.\n1/1"
+    IDS_STRING15672         "Nezumi Cutthroat\n{1B}\nCreature - Rat Warrior\nCHK,C\nFear\rNezumi Cutthroat can't block.\n2/1"
+    IDS_STRING15673         "Nezumi Ronin\n{2B}\nCreature - Rat Samurai\nCHK,C\nBushido 1\n3/1"
+    IDS_STRING15674         "Numai Outcast\n{3B}\nCreature - Human Samurai\nCHK,U\nBushido 2\r{B}, Pay 5 life: Regenerate Numai Outcast.\n1/1"
+    IDS_STRING15675         "Orochi Leafcaller\n{G}\nCreature - Snake Shaman\nCHK,C\n{G}: Add one mana of any color to your mana pool.\n1/1"
+    IDS_STRING15676         "Orochi Sustainer\n{1G}\nCreature - Snake Shaman\nCHK,C\n{T}: Add {G} to your mana pool.\n1/2"
+    IDS_STRING15677         "Pain Kami\n{2R}\nCreature - Spirit\nCHK,U\n{XR}, Sacrifice Pain Kami: Pain Kami deals X damage to target creature.\n2/2"
+    IDS_STRING15678         "Rag Dealer\n{B}\nCreature - Human Rogue\nCHK,C\n{2B}, {T}: Exile up to three target cards from a single graveyard.\n1/1"
+    IDS_STRING15679         "River Kaijin\n{2U}\nCreature - Spirit\nCHK,C\n\n1/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15680         "Ronin Houndmaster\n{2R}\nCreature - Human Samurai\nCHK,C\nHaste\rBushido 1\n2/2"
+    IDS_STRING15681         "Rootrunner\n{2GG}\nCreature - Spirit\nCHK,U\n{GG}, Sacrifice Rootrunner: Put target land on top of its owner's library.\rSoulshift 3\n3/3"
+    IDS_STRING15682         "Ryusei, the Falling Star\n{5R}\nLegendary Creature - Dragon Spirit\nCHK,R\nFlying\rWhen Ryusei, the Falling Star dies, it deals 5 damage to each creature without flying.\n5/5"
+    IDS_STRING15683         "Samurai Enforcers\n{4WW}\nCreature - Human Samurai\nCHK,U\nBushido 2\n4/4"
+    IDS_STRING15684         "Scuttling Death\n{4B}\nCreature - Spirit\nCHK,C\nSacrifice Scuttling Death: Target creature gets -1/-1 until end of turn.\rSoulshift 4\n4/2"
+    IDS_STRING15685         "Seizan, Perverter of Truth\n{3BB}\nLegendary Creature - Demon Spirit\nCHK,R\nAt the beginning of each player's upkeep, that player loses 2 life and draws two cards.\n6/5"
+    IDS_STRING15686         "Seshiro the Anointed\n{4GG}\nLegendary Creature - Snake Monk\nCHK,R\nOther Snake creatures you control get +2/+2.\rWhenever a Snake you control deals combat damage to a player, you may draw a card.\n3/4"
+    IDS_STRING15687         "Shisato, Whispering Hunter\n{3G}\nLegendary Creature - Snake Warrior\nCHK,R\nAt the beginning of your upkeep, sacrifice a Snake.\rWhenever Shisato, Whispering Hunter deals combat damage to a player, that player skips his or her next untap step.\n2/2"
+    IDS_STRING15688         "Sokenzan Bruiser\n{4R}\nCreature - Ogre Warrior\nCHK,C\nMountainwalk\n3/3"
+    IDS_STRING15689         "Thousand-legged Kami\n{6GG}\nCreature - Spirit\nCHK,U\nSoulshift 7\n6/6"
+    IDS_STRING15690         "Venerable Kumo\n{4G}\nCreature - Spirit\nCHK,C\nReach\rSoulshift 4\n2/3"
+    IDS_STRING15691         "Vine Kami\n{6G}\nCreature - Spirit\nCHK,C\nVine Kami can't be blocked except by two or more creatures.\rSoulshift 6\n4/4"
+    IDS_STRING15692         "Wandering Ones\n{U}\nCreature - Spirit\nCHK,C\n\n1/1"
+    IDS_STRING15693         "Zo-Zu the Punisher\n{1RR}\nLegendary Creature - Goblin Warrior\nCHK,R\nWhenever a land enters the battlefield, Zo-Zu the Punisher deals 2 damage to that land's controller.\n2/2"
+    IDS_STRING15694         "Eiganjo Castle\n\nLegendary Land\nCHK,R\n{T}: Add {W} to your mana pool.\r{W}, {T}: Prevent the next 2 damage that would be dealt to target legendary creature this turn."
+    IDS_STRING15695         "Forbidden Orchard\n\nLand\nCHK,R\n{T}: Add one mana of any color to your mana pool.\rWhenever you tap Forbidden Orchard for mana, put a 1/1 colorless Spirit creature token onto the battlefield under target opponent's control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15696         "Okina, Temple to the Grandfathers\n\nLegendary Land\nCHK,R\n{T}: Add {G} to your mana pool.\r{G}, {T}: Target legendary creature gets +1/+1 until end of turn."
+    IDS_STRING15697         "Shinka, the Bloodsoaked Keep\n\nLegendary Land\nCHK,R\n{T}: Add {R} to your mana pool.\r{R}, {T}: Target legendary creature gains first strike until end of turn."
+    IDS_STRING15698         "Honor-Worn Shaku\n{3}\nArtifact\nCHK,U\n{T}: Add {1} to your mana pool.\rTap an untapped legendary permanent you control: Untap Honor-Worn Shaku."
+    IDS_STRING15699         "Imi Statue\n{3}\nArtifact\nCHK,R\nPlayers can't untap more than one artifact during their untap steps."
+    IDS_STRING15700         "Journeyer's Kite\n{2}\nArtifact\nCHK,R\n{3}, {T}: Search your library for a basic land card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING15701         "No-Dachi\n{2}\nArtifact - Equipment\nCHK,U\nEquipped creature gets +2/+0 and has first strike.\rEquip {3}"
+    IDS_STRING15702         "Reito Lantern\n{2}\nArtifact\nCHK,U\n{3}: Put target card from a graveyard on the bottom of its owner's library."
+    IDS_STRING15703         "Blood Rites\n{3RR}\nEnchantment\nCHK,U\n{1R}, Sacrifice a creature: Blood Rites deals 2 damage to target creature or player."
+    IDS_STRING15704         "Cage of Hands\n{2W}\nEnchantment - Aura\nCHK,C\nEnchant creature\rEnchanted creature can't attack or block.\r{1W}: Return Cage of Hands to its owner's hand."
+    IDS_STRING15705         "Field of Reality\n{2U}\nEnchantment - Aura\nCHK,C\nEnchant creature\rEnchanted creature can't be blocked by Spirits.\r{1U}: Return Field of Reality to its owner's hand."
+    IDS_STRING15706         "Indomitable Will\n{1W}\nEnchantment - Aura\nCHK,C\nFlash\rEnchant creature\rEnchanted creature gets +1/+2."
+    IDS_STRING15707         "Night of Souls' Betrayal\n{2BB}\nLegendary Enchantment\nCHK,R\nAll creatures get -1/-1."
+    IDS_STRING15708         "Vigilance\n{W}\nEnchantment - Aura\nCHK,C\nEnchant creature\rEnchanted creature has vigilance."
+    IDS_STRING15709         "Blind with Anger\n{3R}\nInstant - Arcane\nCHK,U\nUntap target nonlegendary creature and gain control of it until end of turn. That creature gains haste until end of turn."
+    IDS_STRING15710         "Call to Glory\n{1W}\nInstant\nCHK,C\nUntap all creatures you control. Samurai creatures you control get +1/+1 until end of turn."
+    IDS_STRING15711         "Crushing Pain\n{1R}\nInstant - Arcane\nCHK,C\nCrushing Pain deals 6 damage to target creature that was dealt damage this turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15712         "Ethereal Haze\n{W}\nInstant - Arcane\nCHK,C\nPrevent all damage that would be dealt by creatures this turn."
+    IDS_STRING15713         "Hold the Line\n{1WW}\nInstant\nCHK,R\nBlocking creatures get +7/+7 until end of turn."
+    IDS_STRING15714         "Part the Veil\n{3U}\nInstant - Arcane\nCHK,R\nReturn all creatures you control to their owner's hand."
+    IDS_STRING15715         "Peer Through Depths\n{1U}\nInstant - Arcane\nCHK,C\nLook at the top five cards of your library. You may reveal an instant or sorcery card from among them and put it into your hand. Put the rest on the bottom of your library in any order."
+    IDS_STRING15716         "Pull Under\n{5B}\nInstant - Arcane\nCHK,C\nTarget creature gets -5/-5 until end of turn."
+    IDS_STRING15717         "Quiet Purity\n{W}\nInstant - Arcane\nCHK,C\nDestroy target enchantment."
+    IDS_STRING15718         "Reach Through Mists\n{U}\nInstant - Arcane\nCHK,C\nDraw a card."
+    IDS_STRING15719         "Rend Flesh\n{2B}\nInstant - Arcane\nCHK,C\nDestroy target non-Spirit creature."
+    IDS_STRING15720         "Rend Spirit\n{2B}\nInstant\nCHK,C\nDestroy target Spirit."
+    IDS_STRING15721         "Thoughtbind\n{2U}\nInstant\nCHK,C\nCounter target spell with converted mana cost 4 or less."
+    IDS_STRING15722         "Unnatural Speed\n{R}\nInstant - Arcane\nCHK,C\nTarget creature gains haste until end of turn."
+    IDS_STRING15723         "Cleanfall\n{2W}\nSorcery - Arcane\nCHK,U\nDestroy all enchantments."
+    IDS_STRING15724         "Dance of Shadows\n{3BB}\nSorcery - Arcane\nCHK,U\nCreatures you control get +1/+0 and gain fear until end of turn."
+    IDS_STRING15725         "Eye of Nowhere\n{UU}\nSorcery - Arcane\nCHK,C\nReturn target permanent to its owner's hand."
+    IDS_STRING15726         "Gale Force\n{4G}\nSorcery\nCHK,U\nGale Force deals 5 damage to each creature with flying."
+    IDS_STRING15727         "Joyous Respite\n{3G}\nSorcery - Arcane\nCHK,C\nYou gain 1 life for each land you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15728         "Terashi's Cry\n{3W}\nSorcery - Arcane\nCHK,C\nTap up to three target creatures."
+    IDS_STRING15729         "Time of Need\n{1G}\nSorcery\nCHK,U\nSearch your library for a legendary creature card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING15730         "Unearthly Blizzard\n{2R}\nSorcery - Arcane\nCHK,C\nUp to three target creatures can't block this turn."
+    IDS_STRING15731         "Waking Nightmare\n{2B}\nSorcery - Arcane\nCHK,C\nTarget player discards two cards."
+    IDS_STRING15732         "Kokusho, the Evening Star\n{4BB}\nLegendary Creature - Dragon Spirit\nCHK,R\nFlying\rWhen Kokusho, the Evening Star dies, each opponent loses 5 life. You gain life equal to the life lost this way.\n5/5"
+    IDS_STRING15733         "Sachi, Daughter of Seshiro\n{2GG}\nLegendary Creature - Snake Shaman\nCHK,U\nOther Snake creatures you control get +0/+1.\rShamans you control have ""{T}: Add {GG} to your mana pool.""\n1/3"
+    IDS_STRING15734         "Sosuke, Son of Seshiro\n{2GG}\nLegendary Creature - Snake Warrior\nCHK,U\nOther Snake creatures you control get +1/+0.\rWhenever a Warrior you control deals combat damage to a creature, destroy that creature at end of combat.\n3/4"
+    IDS_STRING15735         "Aura of Dominion\n{UU}\nEnchantment - Aura\nCHK,U\nEnchant creature\r{1}, Tap an untapped creature you control: Untap enchanted creature."
+    IDS_STRING15736         "Midnight Covenant\n{1B}\nEnchantment - Aura\nCHK,C\nEnchant creature\rEnchanted creature has ""{B}: This creature gets +1/+1 until end of turn."""
+    IDS_STRING15737         "Ragged Veins\n{1B}\nEnchantment - Aura\nCHK,C\nFlash\rEnchant creature\rWhenever enchanted creature is dealt damage, its controller loses that much life."
+    IDS_STRING15738         "Iname, Life Aspect\n{4GG}\nLegendary Creature - Spirit\nCHK,R\nWhen Iname, Life Aspect dies, you may exile it. If you do, return any number of target Spirit cards from your graveyard to your hand.\n4/4"
+    IDS_STRING15739         "Keiga, the Tide Star\n{5U}\nLegendary Creature - Dragon Spirit\nCHK,R\nFlying\rWhen Keiga, the Tide Star dies, gain control of target creature.\n5/5"
+    IDS_STRING15740         "Konda's Hatamoto\n{1W}\nCreature - Human Samurai\nCHK,U\nBushido 1\rAs long as you control a legendary Samurai, Konda's Hatamoto gets +1/+2 and has vigilance.\n1/2"
+    IDS_STRING15741         "Honden of Cleansing Fire\n{3W}\nLegendary Enchantment - Shrine\nCHK,U\nAt the beginning of your upkeep, you gain 2 life for each Shrine you control."
+    IDS_STRING15742         "Honden of Infinite Rage\n{2R}\nLegendary Enchantment - Shrine\nCHK,U\nAt the beginning of your upkeep, Honden of Infinite Rage deals damage to target creature or player equal to the number of Shrines you control."
+    IDS_STRING15743         "Honden of Life's Web\n{4G}\nLegendary Enchantment - Shrine\nCHK,U\nAt the beginning of your upkeep, put a 1/1 colorless Spirit creature token onto the battlefield for each Shrine you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15744         "Honden of Night's Reach\n{3B}\nLegendary Enchantment - Shrine\nCHK,U\nAt the beginning of your upkeep, target opponent discards a card for each Shrine you control."
+    IDS_STRING15745         "Honden of Seeing Winds\n{4U}\nLegendary Enchantment - Shrine\nCHK,U\nAt the beginning of your upkeep, draw a card for each Shrine you control."
+    IDS_STRING15746         "Swallowing Plague\n{XBB}\nSorcery - Arcane\nCHK,U\nSwallowing Plague deals X damage to target creature and you gain X life."
+    IDS_STRING15747         "Sire of the Storm\n{4UU}\nCreature - Spirit\nCHK,U\nFlying\rWhenever you cast a Spirit or Arcane spell, you may draw a card.\n3/3"
+    IDS_STRING15748         "Konda, Lord of Eiganjo\n{5WW}\nLegendary Creature - Human Samurai\nCHK,R\nVigilance\rBushido 5\rKonda, Lord of Eiganjo is indestructible.\n3/3"
+    IDS_STRING15749         "Earthshaker\n{4RR}\nCreature - Spirit\nCHK,U\nWhenever you cast a Spirit or Arcane spell, Earthshaker deals 2 damage to each creature without flying.\n4/5"
+    IDS_STRING15750         "Guardian of Solitude\n{1U}\nCreature - Spirit\nCHK,U\nWhenever you cast a Spirit or Arcane spell, target creature gains flying until end of turn.\n1/2"
+    IDS_STRING15751         "Innocence Kami\n{3WW}\nCreature - Spirit\nCHK,U\n{W}, {T}: Tap target creature.\rWhenever you cast a Spirit or Arcane spell, untap Innocence Kami.\n2/3"
+    IDS_STRING15752         "Kami of Fire's Roar\n{3R}\nCreature - Spirit\nCHK,C\nWhenever you cast a Spirit or Arcane spell, target creature can't block this turn.\n2/3"
+    IDS_STRING15753         "Kami of the Hunt\n{2G}\nCreature - Spirit\nCHK,C\nWhenever you cast a Spirit or Arcane spell, Kami of the Hunt gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING15754         "Kami of the Waning Moon\n{2B}\nCreature - Spirit\nCHK,C\nFlying\rWhenever you cast a Spirit or Arcane spell, target creature gains fear until end of turn.\n1/1"
+    IDS_STRING15755         "Kodama of the South Tree\n{2GG}\nLegendary Creature - Spirit\nCHK,R\nWhenever you cast a Spirit or Arcane spell, each other creature you control gets +1/+1 and gains trample until end of turn.\n4/4"
+    IDS_STRING15756         "Orbweaver Kumo\n{4GG}\nCreature - Spirit\nCHK,U\nReach\rWhenever you cast a Spirit or Arcane spell, Orbweaver Kumo gains forestwalk until end of turn.\n3/4"
+    IDS_STRING15757         "Ore Gorger\n{3RR}\nCreature - Spirit\nCHK,U\nWhenever you cast a Spirit or Arcane spell, you may destroy target nonbasic land.\n3/1"
+    IDS_STRING15758         "Soul of Magma\n{3RR}\nCreature - Spirit\nCHK,C\nWhenever you cast a Spirit or Arcane spell, Soul of Magma deals 1 damage to target creature.\n2/2"
+    IDS_STRING15759         "Thief of Hope\n{2B}\nCreature - Spirit\nCHK,U\nWhenever you cast a Spirit or Arcane spell, target opponent loses 1 life and you gain 1 life.\rSoulshift 2\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15760         "Hisoka's Defiance\n{1U}\nInstant\nCHK,C\nCounter target Spirit or Arcane spell."
+    IDS_STRING15761         "Meloku the Clouded Mirror\n{4U}\nLegendary Creature - Moonfolk Wizard\nCHK,R\nFlying\r{1}, Return a land you control to its owner's hand: Put a 1/1 blue Illusion creature token with flying onto the battlefield.\n2/4"
+    IDS_STRING15762         "Soratami Cloudskater\n{1U}\nCreature - Moonfolk Rogue\nCHK,C\nFlying\r{2}, Return a land you control to its owner's hand: Draw a card, then discard a card.\n1/1"
+    IDS_STRING15763         "Soratami Mirror-Guard\n{3U}\nCreature - Moonfolk Wizard\nCHK,C\nFlying\r{2}, Return a land you control to its owner's hand: Target creature with power 2 or less is unblockable this turn.\n3/1"
+    IDS_STRING15764         "Soratami Mirror-Mage\n{3U}\nCreature - Moonfolk Wizard\nCHK,U\nFlying\r{3}, Return three lands you control to their owner's hand: Return target creature to its owner's hand.\n2/1"
+    IDS_STRING15765         "Soratami Rainshaper\n{2U}\nCreature - Moonfolk Wizard\nCHK,C\nFlying\r{3}, Return a land you control to its owner's hand: Target creature you control gains shroud until end of turn.\n2/1"
+    IDS_STRING15766         "Soratami Savant\n{2UU}\nCreature - Moonfolk Wizard\nCHK,U\nFlying\r{3}, Return a land you control to its owner's hand: Counter target spell unless its controller pays {3}.\n2/2"
+    IDS_STRING15767         "Kitsune Riftwalker\n{1WW}\nCreature - Fox Wizard\nCHK,C\nProtection from Spirits and from Arcane\n2/1"
+    IDS_STRING15768         "Teller of Tales\n{3UU}\nCreature - Spirit\nCHK,C\nFlying\rWhenever you cast a Spirit or Arcane spell, you may tap or untap target creature.\n3/3"
+    IDS_STRING15769         "Hana Kami\n{G}\nCreature - Spirit\nCHK,U\n{1G}, Sacrifice Hana Kami: Return target Arcane card from your graveyard to your hand.\n1/1"
+    IDS_STRING15770         "The Unspeakable\n{6UUU}\nLegendary Creature - Spirit\nCHK,R\nFlying, trample\rWhenever The Unspeakable deals combat damage to a player, you may return target Arcane card from your graveyard to your hand.\n6/7"
+    IDS_STRING15771         "Eerie Procession\n{2U}\nSorcery - Arcane\nCHK,U\nSearch your library for an Arcane card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING15772         "Hikari, Twilight Guardian\n{3WW}\nLegendary Creature - Spirit\nCHK,R\nFlying\rWhenever you cast a Spirit or Arcane spell, you may exile Hikari, Twilight Guardian. If you do, return it to the battlefield under its owner's control at the beginning of the next end step.\n4/4"
+    IDS_STRING15773         "Cloudcrest Lake\n\nLand\nCHK,U\n{T}: Add {1} to your mana pool.\r{T}: Add {W} or {U} to your mana pool. Cloudcrest Lake doesn't untap during your next untap step."
+    IDS_STRING15774         "Lantern-Lit Graveyard\n\nLand\nCHK,U\n{T}: Add {1} to your mana pool.\r{T}: Add {B} or {R} to your mana pool. Lantern-Lit Graveyard doesn't untap during your next untap step."
+    IDS_STRING15775         "Pinecrest Ridge\n\nLand\nCHK,U\n{T}: Add {1} to your mana pool.\r{T}: Add {R} or {G} to your mana pool. Pinecrest Ridge doesn't untap during your next untap step."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15776         "Tranquil Garden\n\nLand\nCHK,U\n{T}: Add {1} to your mana pool.\r{T}: Add {G} or {W} to your mana pool. Tranquil Garden doesn't untap during your next untap step."
+    IDS_STRING15777         "Waterveil Cavern\n\nLand\nCHK,U\n{T}: Add {1} to your mana pool.\r{T}: Add {U} or {B} to your mana pool. Waterveil Cavern doesn't untap during your next untap step."
+    IDS_STRING15778         "Marrow-Gnawer\n{3BB}\nLegendary Creature - Rat Rogue\nCHK,R\nRat creatures have fear.\r{T}, Sacrifice a Rat: Put X 1/1 black Rat creature tokens onto the battlefield, where X is the number of Rats you control.\n2/3"
+    IDS_STRING15779         "Orochi Hatchery\n{XX}\nArtifact\nCHK,R\nOrochi Hatchery enters the battlefield with X charge counters on it.\r{5}, {T}: Put a 1/1 green Snake creature token onto the battlefield for each charge counter on Orochi Hatchery."
+    IDS_STRING15780         "Hanabi Blast\n{1RR}\nInstant\nCHK,U\nHanabi Blast deals 2 damage to target creature or player. Return Hanabi Blast to its owner's hand, then discard a card at random."
+    IDS_STRING15781         "Cranial Extraction\n{3B}\nSorcery\nCHK,R\nName a nonland card. Search target player's graveyard, hand, and library for all cards with that name and exile them. Then that player shuffles his or her library."
+    IDS_STRING15782         "Long-Forgotten Gohei\n{3}\nArtifact\nCHK,R\nArcane spells you cast cost {1} less to cast.\rSpirit creatures you control get +1/+1."
+    IDS_STRING15783         "Blood Speaker\n{3B}\nCreature - Ogre Shaman\nCHK,U\nAt the beginning of your upkeep, you may sacrifice Blood Speaker. If you do, search your library for a Demon card, reveal that card, and put it into your hand. Then shuffle your library.\rWhenever a Demon enters the battlefield under your control, return Blood Speaker from your graveyard to your hand.\n3/2"
+    IDS_STRING15784         "Bloodthirsty Ogre\n{2B}\nCreature - Ogre Warrior Shaman\nCHK,U\n{T}: Put a devotion counter on Bloodthirsty Ogre.\r{T}: Target creature gets -X/-X until end of turn, where X is the number of devotion counters on Bloodthirsty Ogre. Activate this ability only if you control a Demon.\n3/1"
+    IDS_STRING15785         "Gutwrencher Oni\n{3BB}\nCreature - Demon Spirit\nCHK,U\nTrample\rAt the beginning of your upkeep, discard a card if you don't control an Ogre.\n5/4"
+    IDS_STRING15786         "Kami of the Painted Road\n{4W}\nCreature - Spirit\nCHK,C\nWhenever you cast a Spirit or Arcane spell, Kami of the Painted Road gains protection from the color of your choice until end of turn.\n3/3"
+    IDS_STRING15787         "Horizon Seed\n{4W}\nCreature - Spirit\nCHK,U\nWhenever you cast a Spirit or Arcane spell, regenerate target creature.\n2/1"
+    IDS_STRING15788         "Painwracker Oni\n{3BB}\nCreature - Demon Spirit\nCHK,U\nFear\rAt the beginning of your upkeep, sacrifice a creature if you don't control an Ogre.\n5/4"
+    IDS_STRING15789         "Junkyo Bell\n{4}\nArtifact\nCHK,R\nAt the beginning of your upkeep, you may have target creature you control get +X/+X until end of turn, where X is the number of creatures you control. If you do, sacrifice that creature at the beginning of the next end step."
+    IDS_STRING15790         "Strength of Cedars\n{4G}\nInstant - Arcane\nCHK,U\nTarget creature gets +X/+X until end of turn, where X is the number of lands you control."
+    IDS_STRING15791         "Brutal Deceiver\n{2R}\nCreature - Spirit\nCHK,C\n{1}: Look at the top card of your library.\r{2}: Reveal the top card of your library. If it's a land card, Brutal Deceiver gets +1/+0 and gains first strike until end of turn. Activate this ability only once each turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15792         "Callous Deceiver\n{2U}\nCreature - Spirit\nCHK,C\n{1}: Look at the top card of your library.\r{2}: Reveal the top card of your library. If it's a land card, Callous Deceiver gets +1/+0 and gains flying until end of turn. Activate this ability only once each turn.\n1/3"
+    IDS_STRING15793         "Feral Deceiver\n{3G}\nCreature - Spirit\nCHK,C\n{1}: Look at the top card of your library.\r{2}: Reveal the top card of your library. If it's a land card, Feral Deceiver gets +2/+2 and gains trample until end of turn. Activate this ability only once each turn.\n3/2"
+    IDS_STRING15794         "Harsh Deceiver\n{3W}\nCreature - Spirit\nCHK,C\n{1}: Look at the top card of your library.\r{2}: Reveal the top card of your library. If it's a land card, untap Harsh Deceiver and it gets +1/+1 until end of turn. Activate this ability only once each turn.\n1/4"
+    IDS_STRING15795         "Cruel Deceiver\n{1B}\nCreature - Spirit\nCHK,C\n{1}: Look at the top card of your library.\r{2}: Reveal the top card of your library. If it's a land card, Cruel Deceiver gains ""Whenever Cruel Deceiver deals damage to a creature, destroy that creature"" until end of turn. Activate this ability only once each turn.\n2/1"
+    IDS_STRING15796         "Eight-and-a-Half-Tails\n{WW}\nLegendary Creature - Fox Cleric\nCHK,R\n{1W}: Target permanent you control gains protection from white until end of turn.\r{1}: Target spell or permanent becomes white until end of turn.\n2/2"
+    IDS_STRING15797         "Pious Kitsune\n{2W}\nCreature - Fox Cleric\nCHK,C\nAt the beginning of your upkeep, put a devotion counter on Pious Kitsune. Then if a creature named Eight-and-a-Half-Tails is on the battlefield, you gain 1 life for each devotion counter on Pious Kitsune.\r{T}, Remove a devotion counter from Pious Kitsune: You gain 1 life.\n1/2"
+    IDS_STRING15798         "Kodama's Reach\n{2G}\nSorcery - Arcane\nCHK,C\nSearch your library for two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Then shuffle your library."
+    IDS_STRING15799         "Gifts Ungiven\n{3U}\nInstant\nCHK,R\nSearch your library for four cards with different names and reveal them. Target opponent chooses two of those cards. Put the chosen cards into your graveyard and the rest into your hand. Then shuffle your library."
+    IDS_STRING15800         "Kiki-Jiki, Mirror Breaker\n{2RRR}\nLegendary Creature - Goblin Shaman\nCHK,R\nHaste\r{T}: Put a token that's a copy of target nonlegendary creature you control onto the battlefield. That token has haste. Sacrifice it at the beginning of the next end step.\n2/2"
+    IDS_STRING15801         "Myojin of Cleansing Fire\n{5WWW}\nLegendary Creature - Spirit\nCHK,R\nMyojin of Cleansing Fire enters the battlefield with a divinity counter on it if you cast it from your hand.\rMyojin of Cleansing Fire is indestructible as long as it has a divinity counter on it.\rRemove a divinity counter from Myojin of Cleansing Fire: Destroy all other creatures.\n4/6"
+    IDS_STRING15802         "Myojin of Infinite Rage\n{7RRR}\nLegendary Creature - Spirit\nCHK,R\nMyojin of Infinite Rage enters the battlefield with a divinity counter on it if you cast it from your hand.\rMyojin of Infinite Rage is indestructible as long as it has a divinity counter on it.\rRemove a divinity counter from Myojin of Infinite Rage: Destroy all lands.\n7/4"
+    IDS_STRING15803         "Myojin of Life's Web\n{6GGG}\nLegendary Creature - Spirit\nCHK,R\nMyojin of Life's Web enters the battlefield with a divinity counter on it if you cast it from your hand.\rMyojin of Life's Web is indestructible as long as it has a divinity counter on it.\rRemove a divinity counter from Myojin of Life's Web: Put any number of creature cards from your hand onto the battlefield.\n8/8"
+    IDS_STRING15804         "Myojin of Night's Reach\n{5BBB}\nLegendary Creature - Spirit\nCHK,R\nMyojin of Night's Reach enters the battlefield with a divinity counter on it if you cast it from your hand.\rMyojin of Night's Reach is indestructible as long as it has a divinity counter on it.\rRemove a divinity counter from Myojin of Night's Reach: Each opponent discards his or her hand.\n5/2"
+    IDS_STRING15805         "Myojin of Seeing Winds\n{7UUU}\nLegendary Creature - Spirit\nCHK,R\nMyojin of Seeing Winds enters the battlefield with a divinity counter on it if you cast it from your hand.\rMyojin of Seeing Winds is indestructible as long as it has a divinity counter on it.\rRemove a divinity counter from Myojin of Seeing Winds: Draw a card for each permanent you control.\n3/3"
+    IDS_STRING15806         "Glimpse of Nature\n{G}\nSorcery\nCHK,R\nWhenever you cast a creature spell this turn, draw a card."
+    IDS_STRING15807         "Shimatsu the Bloodcloaked\n{3R}\nLegendary Creature - Demon Spirit\nCHK,R\nAs Shimatsu the Bloodcloaked enters the battlefield, sacrifice any number of permanents. Shimatsu enters the battlefield with that many +1/+1 counters on it.\n0/0"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15808         "Squelch\n{1U}\nInstant\nCHK,U\nCounter target activated ability. (Mana abilities can't be targeted.)\rDraw a card."
+    IDS_STRING15809         "Masako the Humorless\n{2W}\nLegendary Creature - Human Advisor\nCHK,R\nFlash\rTapped creatures you control can block as though they were untapped.\n2/1"
+    IDS_STRING15810         "Hearth Kami\n{2R}\nCreature - Spirit\nCHK\n{X}, Sacrifice Hearth Kami: Destroy target artifact with converted mana cost X.\n2/2"
+    IDS_STRING15811         "Serpent Skin\n{2G}\nEnchantment - Aura\nCHK\nEnchant creature\rFlash\rEnchanted creature gets +1/+1.\r{G}: Regenerate enchanted creature."
+    IDS_STRING15812         "Heartbeat of Spring\n{2G}\nEnchantment\nCHK,R\nWhenever a player taps a land for mana, that player adds one mana to his or her mana pool of any type that land produced."
+    IDS_STRING15813         "Yosei, the Morning Star\n{4WW}\nLegendary Creature - Dragon Spirit\nCHK,R\nFlying\rWhen Yosei, the Morning Star dies, target player skips his or her next untap step. Tap up to five target permanents that player controls.\n5/5"
+    IDS_STRING15814         "Hinder\n{1UU}\nInstant\nCHK,U\nCounter target spell. If that spell is countered this way, put that card on the top or bottom of its owner's library instead of into that player's graveyard."
+    IDS_STRING15815         "Mystic Restraints\n{2UU}\nEnchantment - Aura\nCHK,C\nFlash\rEnchant creature\rWhen Mystic Restraints enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING15816         "Hankyu\n{1}\nArtifact - Equipment\nCHK,U\nEquipped creature has ""{T}: Put an aim counter on Hankyu"" and ""{T}, Remove all aim counters from Hankyu: This creature deals damage to target creature or player equal to the number of aim counters removed this way.""\rEquip {4}"
+    IDS_STRING15817         "Soulblast\n{3RRR}\nInstant\nCHK,R\nAs an additional cost to cast Soulblast, sacrifice all creatures you control.\rSoulblast deals damage to target creature or player equal to the total power of the sacrificed creatures."
+    IDS_STRING15818         "Orochi Eggwatcher\n{2G}\nCreature - Snake Shaman\nCHK,U\n{2G}, {T}: Put a 1/1 green Snake creature token onto the battlefield. If you control ten or more creatures, flip Orochi Eggwatcher.\r--Shidako, Broodmistress\rLegendary Creature - Snake Shaman 3/3\r{G}, Sacrifice a creature: Target creature gets +3/+3 until end of turn.\n1/1"
+    IDS_STRING15819         "Nezumi Shortfang\n{1B}\nCreature - Rat Rogue\nCHK,R\n{1B}, {T}: Target opponent discards a card. Then if that player has no cards in hand, flip Nezumi Shortfang.\r--Stabwhisker the Odious\rLegendary Creature - Rat Shaman 3/3\rAt the beginning of each opponent's upkeep, that player loses 1 life for each card fewer than three in his or her hand.\n1/1"
+    IDS_STRING15820         "Akki Lavarunner\n{3R}\nCreature - Goblin Warrior\nCHK,R\nHaste\rWhenever Akki Lavarunner deals damage to an opponent, flip it.\r--Tok-Tok, Volcano Born\rLegendary Creature - Goblin Shaman 2/2\rProtection from red\rIf a red source would deal damage to a player, it deals that much damage plus 1 to that player instead.\n1/1"
+    IDS_STRING15821         "Otherworldly Journey\n{1W}\nInstant - Arcane\nCHK,U\nExile target creature. At the beginning of the next end step, return that card to the battlefield under its owner's control with a +1/+1 counter on it."
+    IDS_STRING15822         "Budoka Gardener\n{1G}\nCreature - Human Monk\nCHK,R\n{T}: You may put a land card from your hand onto the battlefield. If you control ten or more lands, flip Budoka Gardener.\r--Dokai, Weaver of Life\rLegendary Creature - Human Monk 3/3\r{4GG}, {T}: Put an X/X green Elemental creature token onto the battlefield, where X is the number of lands you control.\n2/1"
+    IDS_STRING15823         "Bushi Tenderfoot\n{W}\nCreature - Human Soldier\nCHK,U\nWhen a creature dealt damage by Bushi Tenderfoot this turn dies, flip Bushi Tenderfoot.\r--Kenzo the Hardhearted\rLegendary Creature - Human Samurai 3/4\rDouble strike; bushido 2\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15824         "Initiate of Blood\n{1G}\nCreature - Ogre Shaman\nCHK,U\n{T}: Initiate of Blood deals 1 damage to target creature that was dealt damage this turn. When that creature dies this turn, flip Initiate of Blood.\r--Goka the Unjust\rLegendary Creature - Ogre Shaman 4/4\r{T}: Goka the Unjust deals 4 damage to target creature that was dealt damage this turn.\n2/2"
+    IDS_STRING15825         "Jushi Apprentice\n{1U}\nCreature - Human Wizard\nCHK,R\n{2U}, {T}: Draw a card. If you have nine or more cards in hand, flip Jushi Apprentice.\r--Tomoya the Revealer\rLegendary Creature - Human Wizard 2/3\r{3UU}, {T}: Target player draws X cards, where X is the number of cards in your hand.\n1/2"
+    IDS_STRING15826         "Ghostly Prison\n{2W}\nEnchantment\nCHK,U\nCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
+    IDS_STRING15827         "Nezumi Graverobber\n{1B}\nCreature - Rat Rogue\nCHK,U\n{1B}: Exile target card from an opponent's graveyard. If no cards are in that graveyard, flip Nezumi Graverobber.\r--Nighteyes the Desecrator\rLegendary Creature - Rat Wizard 4/2\r{4B}: Put target creature card in a graveyard into play under your control.\n2/1"
+    IDS_STRING15828         "Student of Elements\n{1U}\nCreature - Human Wizard\nCHK,U\nWhen Student of Elements has flying, flip it.\r--Tobita, Master of Winds\rLegendary Creature - Human Wizard 3/3\rCreatures you control have flying.\n1/1"
+    IDS_STRING15829         "Devouring Greed\n{2BB}\nSorcery - Arcane\nCHK,C\nAs an additional cost to cast Devouring Greed, you may sacrifice any number of Spirits.\rTarget player loses 2 life plus 2 life for each Spirit sacrificed this way. You gain that much life."
+    IDS_STRING15830         "Devouring Rage\n{4R}\nInstant - Arcane\nCHK,C\nAs an additional cost to cast Devouring Rage, you may sacrifice any number of Spirits.\rTarget creature gets +3/+0 until end of turn. For each Spirit sacrificed this way, that creature gets an additional +3/+0 until end of turn."
+    IDS_STRING15831         "Night Dealings\n{2BB}\nEnchantment\nCHK,R\nWhenever a source you control deals damage to another player, put that many theft counters on Night Dealings.\r{2BB}, Remove X theft counters from Night Dealings: Search your library for a nonland card with converted mana cost X, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING15832         "Kiku, Night's Flower\n{BB}\nLegendary Creature - Human Assassin\nCHK,R\n{2BB}, {T}: Target creature deals damage to itself equal to its power.\n1/1"
+    IDS_STRING15833         "Hisoka, Minamo Sensei\n{2UU}\nLegendary Creature - Human Wizard\nCHK,R\n{2U}, Discard a card: Counter target spell if it has the same converted mana cost as the discarded card.\n1/3"
+    IDS_STRING15834         "Yamabushi's Flame\n{2R}\nInstant\nCHK,C\nYamabushi's Flame deals 3 damage to target creature or player. If a creature dealt damage this way would die this turn, exile it instead."
+    IDS_STRING15835         "Yamabushi's Storm\n{1R}\nSorcery\nCHK,C\nYamabushi's Storm deals 1 damage to each creature. If a creature dealt damage this way would die this turn, exile it instead."
+    IDS_STRING15836         "Ben-Ben, Akki Hermit\n{2RR}\nLegendary Creature - Goblin Shaman\nCHK,R\n{T}: Ben-Ben, Akki Hermit deals damage to target attacking creature equal to the number of untapped Mountains you control.\n1/1"
+    IDS_STRING15837         "Uyo, Silent Prophet\n{4UU}\nLegendary Creature - Moonfolk Wizard\nCHK,R\nFlying\r{2}, Return two lands you control to their owner's hand: Copy target instant or sorcery spell. You may choose new targets for the copy.\n4/4"
+    IDS_STRING15838         "Samurai of the Pale Curtain\n{WW}\nCreature - Fox Samurai\nCHK,U\nBushido 1\rIf a permanent would be put into a graveyard, exile it instead.\n2/2"
+    IDS_STRING15839         "Mana Seism\n{1R}\nSorcery\nCHK,U\nSacrifice any number of lands. Add {1} to your mana pool for each land sacrificed this way."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15840         "Brothers Yamazaki\n{2R}\nLegendary Creature - Human Samurai\nCHK,U\nBushido 1\rIf there are exactly two permanents named Brothers Yamazaki on the battlefield, the ""legend rule"" doesn't apply to them.\rEach other creature named Brothers Yamazaki gets +2/+2 and has haste.\n2/1"
+    IDS_STRING15841         "Brothers Yamazaki\n{2R}\nLegendary Creature - Human Samurai\nCHK,U\nBushido 1\rIf there are exactly two permanents named Brothers Yamazaki on the battlefield, the ""legend rule"" doesn't apply to them.\rEach other creature named Brothers Yamazaki gets +2/+2 and has haste.\n2/1"
+    IDS_STRING15842         "Mindblaze\n{5R}\nSorcery\nCHK,R\nName a nonland card and choose a number greater than 0. Target player reveals his or her library. If that library contains exactly the chosen number of the named card, Mindblaze deals 8 damage to that player. Then that player shuffles his or her library."
+    IDS_STRING15843         "Time Stop\n{4UU}\nInstant\nCHK,R\nEnd the turn."
+    IDS_STRING15844         "Soilshaper\n{1G}\nCreature - Spirit\nCHK,U\nWhenever you cast a Spirit or Arcane spell, target land becomes a 3/3 creature until end of turn. It's still a land."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

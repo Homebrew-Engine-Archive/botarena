@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Creatures - 15 (25.00%)
+
+4 Augur of Skulls (17709)
+4 Dark Confidant (16449)
+3 Nyxathid (8914)
+4 Tarmogoyf (17704)
+
+// Instants - 7 (11.67%)
+
+3 Darkblast (16596)
+3 Slaughter Pact (17789)
+Smother (14159)
+
+// Sorceries - 11 (18.33%)
+
+4 Smallpox (17309)
+3 Stupor (17263)
+4 Thoughtseize (17901)
+
+// Artifacts - 5 (8.33%)
+
+2 Chrome Mox (15001)
+3 Umezawa's Jitte (19149)
+
+// Lands - 22 (36.67%)
+
+2 Bloodstained Mire (14002)
+4 Mutavault (18368)
+3 Overgrown Tomb (16445)
+4 Polluted Delta (14000)
+Swamp (8529)
+Swamp (8528)
+Swamp (8527)
+Swamp (8530)
+4 Treetop Village (3308)
+Urborg, Tomb of Yawgmoth (2606)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+4 Extirpate (2594)
+4 Putrefy (16408)
+
+// Sorceries
+
+2 Damnation (2505)
+
+// Enchantments
+
+3 Bitterblossom (18338)
+
+// Artifacts
+
+2 Engineered Explosives (15510)

@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Creatures - 31 (51.67%)
+
+2 Chameleon Colossus (18361)
+4 Doran, the Siege Tower (18133)
+4 Gaddock Teeg (18062)
+2 Kitchen Finks (18593)
+4 Noble Hierarch (8819)
+2 Ranger of Eos (8642)
+Scattershot Archer (8825)
+4 Treefolk Harbinger (18003)
+4 Wilt-Leaf Liege (18644)
+4 Wren's Run Vanquisher (18077)
+
+// Instants - 4 (6.67%)
+
+4 Nameless Inversion (18108)
+
+// Enchantments - 3 (5.00%)
+
+3 Oblivion Ring (8718)
+
+// Lands - 22 (36.67%)
+
+4 Brushland (3020)
+Forest (8509)
+4 Gilt-Leaf Palace (18092)
+2 Llanowar Wastes (3093)
+4 Murmuring Bosk (18387)
+4 Treetop Village (3308)
+3 Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Burrenton Forge-Tender (18054)
+3 Cloudthresher (18015)
+2 Wall of Reverence (8923)
+
+// Instants
+
+Guttural Response (18548)
+
+// Sorceries
+
+3 Thoughtseize (17901)
+
+// Artifacts
+
+3 Pithing Needle (3301)

@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Creatures - 15 (25.00%)
+
+4 Mistbind Clique (18055)
+4 Scion of Oona (17988)
+3 Sower of Temptation (18074)
+4 Spellstutter Sprite (18095)
+
+// Instants - 13 (21.67%)
+
+2 Agony Warp (8704)
+4 Broken Ambitions (18057)
+4 Cryptic Command (18051)
+Remove Soul (3139)
+2 Terror (3181)
+
+// Sorceries - 2 (3.33%)
+
+2 Thoughtseize (17901)
+
+// Enchantments - 4 (6.67%)
+
+4 Bitterblossom (18338)
+
+// Lands - 26 (43.33%)
+
+Faerie Conclave (3304)
+2 Island (8514)
+Island (8517)
+2 Island (8515)
+Island (8516)
+4 Mutavault (18368)
+4 Secluded Glen (18093)
+4 Sunken Ruins (18580)
+Swamp (8527)
+Swamp (8529)
+Swamp (8528)
+4 Underground River (3189)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+3 Jace Beleren (18011)
+
+// Creatures
+
+Sower of Temptation (18074)
+4 Stillmoon Cavalier (18957)
+
+// Instants
+
+Agony Warp (8704)
+2 Flashfreeze (3234)
+
+// Sorceries
+
+2 Infest (8584)
+2 Thoughtseize (17901)

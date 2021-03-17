@@ -1,0 +1,61 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Birds of Paradise (22236)
+3 Garruk's Companion (22178)
+4 Huntmaster of the Fells (23725)
+4 Llanowar Elves (22181)
+4 Strangleroot Geist (23649)
+2 Thrun, the Last Troll (21716)
+Viridian Corrupter (21719)
+
+// Instants - 6 (10.00%)
+
+3 Brimstone Volley (23505)
+2 Dismember (21951)
+Shock (22170)
+
+// Sorceries - 4 (6.67%)
+
+4 Green Sun's Zenith (21720)
+
+// Artifacts - 4 (6.67%)
+
+4 Sword of War and Peace (21999)
+
+// Lands - 24 (40.00%)
+
+4 Copperline Gorge (21471)
+4 Forest (23321)
+3 Forest (23323)
+4 Forest (23322)
+4 Kessig Wolf Run (23370)
+Mountain (23327)
+4 Rootbound Crag (22205)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Daybreak Ranger (23565)
+Viridian Corrupter (21719)
+
+// Instants
+
+3 Ancient Grudge (23468)
+2 Combust (22237)
+
+// Sorceries
+
+3 Increasing Savagery (23648)
+
+// Enchantments
+
+2 Manabarbs (22257)
+
+// Artifacts
+
+2 Sword of Feast and Famine (21762)

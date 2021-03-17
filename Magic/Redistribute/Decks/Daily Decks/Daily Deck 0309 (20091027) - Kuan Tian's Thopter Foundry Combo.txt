@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Instants - 20 (33.33%)
+
+3 Gifts Ungiven (15799)
+4 Mana Leak (2101)
+3 Mana Tithe (2509)
+3 Muddle the Mixture (16559)
+3 Path to Exile (8897)
+4 Thirst for Knowledge (15016)
+
+// Sorceries - 3 (5.00%)
+
+Life from the Loam (16597)
+2 Wrath of God (3200)
+
+// Enchantments - 1 (1.67%)
+
+Oblivion Ring (8718)
+
+// Artifacts - 11 (18.33%)
+
+3 Engineered Explosives (15510)
+4 Sword of the Meek (17784)
+4 Thopter Foundry (9062)
+
+// Lands - 25 (41.67%)
+
+Academy Ruins (17277)
+Breeding Pool (23840)
+3 Hallowed Fountain (23841)
+Island (19311)
+Island (19309)
+Island (19310)
+Island (19308)
+4 Misty Rainforest (19356)
+2 Mystic Gate (18564)
+4 Scalding Tarn (19358)
+4 Seat of the Synod (14930)
+Temple Garden (16447)
+Tolaria West (17751)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Baneslayer Angel (4224)
+2 Kataki, War's Wage (16284)
+3 Meddling Mage (9016)
+4 Tarmogoyf (17704)
+
+// Enchantments
+
+3 Threads of Disloyalty (19169)
+
+// Artifacts
+
+Umezawa's Jitte (19149)

@@ -1,0 +1,248 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Planeshift.ico"
+IDI_LARGE_MODULE        ICON                    "PlaneshiftLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Planeshift"
+    IDS_EXPANSION_ABBREV    "PLS"
+    IDS_FIRST_CARD          "12800"
+    IDS_TOTAL_CARD          "146"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "12946"
+    IDS_MODULE_LARGE_ICON_ID "12947"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "05-02-2001"
+    IDS_MWS_FOLDER          "MWS\\PLS\\"
+    IDS_PRODUCT_LIST        """Planeshift Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12800         "Diabolic Intent\n{1B}\nSorcery\nPLS,R\nAs an additional cost to cast Diabolic Intent, sacrifice a creature.\rSearch your library for a card and put that card into your hand. Then shuffle your library."
+    IDS_STRING12801         "Eladamri's Call\n{GW}\nInstant\nPLS,R\nSearch your library for a creature card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING12802         "Ertai, the Corrupted\n{2WUB}\nLegendary Creature - Human Wizard\nPLS,R\n{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.\n3/4"
+    IDS_STRING12803         "Ertai, the Corrupted\n{2WUB}\nLegendary Creature - Human Wizard\nPLS,R\n{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.\n3/4"
+    IDS_STRING12804         "Meddling Mage\n{WU}\nCreature - Human Wizard\nPLS,R\nAs Meddling Mage enters the battlefield, name a nonland card.\rThe named card can't be cast.\n2/2"
+    IDS_STRING12805         "Gaea's Herald\n{1G}\nCreature - Elf\nPLS,R\nCreature spells can't be countered.\n1/1"
+    IDS_STRING12806         "Lord of the Undead\n{1BB}\nCreature - Zombie\nPLS,R\nOther Zombie creatures get +1/+1.\r{1B}, {T}: Return target Zombie card from your graveyard to your hand.\n2/2"
+    IDS_STRING12807         "Maggot Carrier\n{B}\nCreature - Zombie\nPLS,C\nWhen Maggot Carrier enters the battlefield, each player loses 1 life.\n1/1"
+    IDS_STRING12808         "Mana Cylix\n{1}\nArtifact\nPLS,U\n{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING12809         "Mogg Sentry\n{R}\nCreature - Goblin Warrior\nPLS,R\nWhenever an opponent casts a spell, Mogg Sentry gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING12810         "Quirion Dryad\n{1G}\nCreature - Dryad\nPLS,R\nWhenever you cast a white, blue, black, or red spell, put a +1/+1 counter on Quirion Dryad.\n1/1"
+    IDS_STRING12811         "Shifting Sky\n{2U}\nEnchantment\nPLS,U\nAs Shifting Sky enters the battlefield, choose a color.\rAll nonland permanents are the chosen color."
+    IDS_STRING12812         "Slay\n{2B}\nInstant\nPLS,U\nDestroy target green creature. It can't be regenerated.\rDraw a card."
+    IDS_STRING12813         "Star Compass\n{2}\nArtifact\nPLS,U\nStar Compass enters the battlefield tapped.\r{T}: Add to your mana pool one mana of any color that a basic land you control could produce."
+    IDS_STRING12814         "Sunken Hope\n{3UU}\nEnchantment\nPLS,R\nAt the beginning of each player's upkeep, that player returns a creature he or she controls to its owner's hand."
+    IDS_STRING12815         "Terminate\n{BR}\nInstant\nPLS,C\nDestroy target creature. It can't be regenerated."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12816         "Warped Devotion\n{2B}\nEnchantment\nPLS,U\nWhenever a permanent is returned to a player's hand, that player discards a card."
+    IDS_STRING12817         "Phyrexian Scuta\n{3B}\nCreature - Zombie\nPLS,R\nKicker-Pay 3 life.\rIf Phyrexian Scuta was kicked, it enters the battlefield with two +1/+1 counters on it.\n3/3"
+    IDS_STRING12818         "Alpha Kavu\n{2G}\nCreature - Kavu\nPLS,U\n{1G}: Target Kavu creature gets -1/+1 until end of turn.\n2/2"
+    IDS_STRING12819         "Amphibious Kavu\n{2G}\nCreature - Kavu\nPLS,C\nWhenever Amphibious Kavu blocks or becomes blocked by one or more blue and/or black creatures, Amphibious Kavu gets +3/+3 until end of turn.\n2/2"
+    IDS_STRING12820         "Ancient Spider\n{2GW}\nCreature - Spider\nPLS,R\nFirst strike; reach\n2/5"
+    IDS_STRING12821         "Aurora Griffin\n{3W}\nCreature - Griffin\nPLS,C\nFlying\r{W}: Target permanent becomes white until end of turn.\n2/2"
+    IDS_STRING12822         "Caldera Kavu\n{2R}\nCreature - Kavu\nPLS,C\n{1B}: Caldera Kavu gets +1/+1 until end of turn.\r{G}: Caldera Kavu becomes the color of your choice until end of turn.\n2/2"
+    IDS_STRING12823         "Cavern Harpy\n{UB}\nCreature - Harpy Beast\nPLS,C\nFlying\rWhen Cavern Harpy enters the battlefield, return a blue or black creature you control to its owner's hand.\rPay 1 life: Return Cavern Harpy to its owner's hand.\n2/1"
+    IDS_STRING12824         "Flametongue Kavu\n{3R}\nCreature - Kavu\nPLS,U\nWhen Flametongue Kavu enters the battlefield, it deals 4 damage to target creature.\n4/2"
+    IDS_STRING12825         "Fleetfoot Panther\n{1GW}\nCreature - Cat\nPLS,U\nFlash\rWhen Fleetfoot Panther enters the battlefield, return a green or white creature you control to its owner's hand.\n3/4"
+    IDS_STRING12826         "Horned Kavu\n{RG}\nCreature - Kavu\nPLS,C\nWhen Horned Kavu enters the battlefield, return a red or green creature you control to its owner's hand.\n3/4"
+    IDS_STRING12827         "Hunting Drake\n{4U}\nCreature - Drake\nPLS,C\nFlying\rWhen Hunting Drake enters the battlefield, put target red or green creature on top of its owner's library.\n2/2"
+    IDS_STRING12828         "Kavu Recluse\n{2R}\nCreature - Kavu\nPLS,C\n{T}: Target land becomes a Forest until end of turn.\n2/2"
+    IDS_STRING12829         "Lava Zombie\n{1BR}\nCreature - Zombie\nPLS,C\nWhen Lava Zombie enters the battlefield, return a black or red creature you control to its owner's hand.\r{2}: Lava Zombie gets +1/+0 until end of turn.\n4/3"
+    IDS_STRING12830         "Marsh Crocodile\n{2UB}\nCreature - Crocodile\nPLS,U\nWhen Marsh Crocodile enters the battlefield, return a blue or black creature you control to its owner's hand.\rWhen Marsh Crocodile enters the battlefield, each player discards a card.\n4/4"
+    IDS_STRING12831         "Mire Kavu\n{3R}\nCreature - Kavu\nPLS,C\nMire Kavu gets +1/+1 as long as you control a Swamp.\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12832         "Mirrorwood Treefolk\n{3G}\nCreature - Treefolk\nPLS,U\n{2RW}: The next time damage would be dealt to Mirrorwood Treefolk this turn, that damage is dealt to target creature or player instead.\n2/4"
+    IDS_STRING12833         "Morgue Toad\n{2B}\nCreature - Frog\nPLS,C\nSacrifice Morgue Toad: Add {UR} to your mana pool.\n2/2"
+    IDS_STRING12834         "Nemata, Grove Guardian\n{4GG}\nLegendary Creature - Treefolk\nPLS,R\n{2G}: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Saproling creatures get +1/+1 until end of turn.\n4/5"
+    IDS_STRING12835         "Phyrexian Bloodstock\n{4B}\nCreature - Zombie\nPLS,C\nWhen Phyrexian Bloodstock leaves the battlefield, destroy target white creature. It can't be regenerated.\n3/3"
+    IDS_STRING12836         "Quirion Explorer\n{1G}\nCreature - Elf Druid Scout\nPLS,C\n{T}: Add to your mana pool one mana of any color that a land an opponent controls could produce.\n1/1"
+    IDS_STRING12837         "Razing Snidd\n{4BR}\nCreature - Beast\nPLS,U\nWhen Razing Snidd enters the battlefield, return a black or red creature you control to its owner's hand.\rWhen Razing Snidd enters the battlefield, each player sacrifices a land.\n3/3"
+    IDS_STRING12838         "Root Greevil\n{3G}\nCreature - Beast\nPLS,C\n{2G}, {T}, Sacrifice Root Greevil: Destroy all enchantments of the color of your choice.\n2/3"
+    IDS_STRING12839         "Sea Snidd\n{4U}\nCreature - Beast\nPLS,C\n{T}: Target land becomes the basic land type of your choice until end of turn.\n3/3"
+    IDS_STRING12840         "Shivan Wurm\n{3RG}\nCreature - Wurm\nPLS,R\nTrample\rWhen Shivan Wurm enters the battlefield, return a red or green creature you control to its owner's hand.\n7/7"
+    IDS_STRING12841         "Silver Drake\n{1WU}\nCreature - Drake\nPLS,C\nFlying\rWhen Silver Drake enters the battlefield, return a white or blue creature you control to its owner's hand.\n3/3"
+    IDS_STRING12842         "Slingshot Goblin\n{2R}\nCreature - Goblin\nPLS,C\n{R}, {T}: Slingshot Goblin deals 2 damage to target blue creature.\n2/2"
+    IDS_STRING12843         "Sparkcaster\n{2RG}\nCreature - Kavu\nPLS,U\nWhen Sparkcaster enters the battlefield, return a red or green creature you control to its owner's hand.\rWhen Sparkcaster enters the battlefield, it deals 1 damage to target player.\n5/3"
+    IDS_STRING12844         "Steel Leaf Paladin\n{4GW}\nCreature - Elf Knight\nPLS,C\nFirst strike\rWhen Steel Leaf Paladin enters the battlefield, return a green or white creature you control to its owner's hand.\n4/4"
+    IDS_STRING12845         "Stone Kavu\n{4G}\nCreature - Kavu\nPLS,C\n{R}: Stone Kavu gets +1/+0 until end of turn.\r{W}: Stone Kavu gets +0/+1 until end of turn.\n3/3"
+    IDS_STRING12846         "Tahngarth, Talruum Hero\n{3RR}\nLegendary Creature - Minotaur Warrior\nPLS,R\nVigilance\r{1R}, {T}: Tahngarth, Talruum Hero deals damage equal to its power to target creature. That creature deals damage equal to its power to Tahngarth.\n4/4"
+    IDS_STRING12847         "Tahngarth, Talruum Hero\n{3RR}\nLegendary Creature - Minotaur Warrior\nPLS,R\nVigilance\r{1R}, {T}: Tahngarth, Talruum Hero deals damage equal to its power to target creature. That creature deals damage equal to its power to Tahngarth.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12848         "Volcano Imp\n{3B}\nCreature - Imp\nPLS,C\nFlying\r{1R}: Volcano Imp gains first strike until end of turn.\n2/2"
+    IDS_STRING12849         "Terminal Moraine\n\nLand\nPLS,U\n{T}: Add {1} to your mana pool.\r{2}, {T}, Sacrifice Terminal Moraine: Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING12850         "Deadapult\n{2R}\nEnchantment\nPLS,R\n{R}, Sacrifice a Zombie: Deadapult deals 2 damage to target creature or player."
+    IDS_STRING12851         "Destructive Flow\n{BRG}\nEnchantment\nPLS,R\nAt the beginning of each player's upkeep, that player sacrifices a nonbasic land."
+    IDS_STRING12852         "Escape Routes\n{2U}\nEnchantment\nPLS,C\n{2U}: Return target white or black creature you control to its owner's hand."
+    IDS_STRING12853         "Insolence\n{2R}\nEnchantment - Aura\nPLS,C\nEnchant creature\rWhenever enchanted creature becomes tapped, Insolence deals 2 damage to that creature's controller."
+    IDS_STRING12854         "Natural Emergence\n{2RG}\nEnchantment\nPLS,R\nWhen Natural Emergence enters the battlefield, return a red or green enchantment you control to its owner's hand.\rLands you control are 2/2 creatures with first strike. They're still lands."
+    IDS_STRING12855         "Aura Blast\n{1W}\nInstant\nPLS,C\nDestroy target enchantment.\rDraw a card."
+    IDS_STRING12856         "Crosis's Charm\n{UBR}\nInstant\nPLS,U\nChoose one - Return target permanent to its owner's hand; or destroy target nonblack creature, and it can't be regenerated; or destroy target artifact."
+    IDS_STRING12857         "Darigaaz's Charm\n{BRG}\nInstant\nPLS,U\nChoose one - Return target creature card from your graveyard to your hand; or Darigaaz's Charm deals 3 damage to target creature or player; or target creature gets +3/+3 until end of turn."
+    IDS_STRING12858         "Daring Leap\n{1WU}\nInstant\nPLS,C\nTarget creature gets +1/+1 and gains flying and first strike until end of turn."
+    IDS_STRING12859         "Death Bomb\n{3B}\nInstant\nPLS,C\nAs an additional cost to cast Death Bomb, sacrifice a creature.\rDestroy target nonblack creature. It can't be regenerated. Its controller loses 2 life."
+    IDS_STRING12860         "Dromar's Charm\n{WUB}\nInstant\nPLS,U\nChoose one - You gain 5 life; or counter target spell; or target creature gets -2/-2 until end of turn."
+    IDS_STRING12861         "Falling Timber\n{2G}\nInstant\nPLS,C\nKicker-Sacrifice a land.\rPrevent all combat damage target creature would deal this turn. If Falling Timber was kicked, prevent all combat damage another target creature would deal this turn."
+    IDS_STRING12862         "Gaea's Might\n{G}\nInstant\nPLS,C\nDomain - Target creature gets +1/+1 until end of turn for each basic land type among lands you control."
+    IDS_STRING12863         "Gainsay\n{1U}\nInstant\nPLS,U\nCounter target blue spell."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12864         "Gerrard's Command\n{GW}\nInstant\nPLS,C\nUntap target creature. It gets +3/+3 until end of turn."
+    IDS_STRING12865         "Magma Burst\n{3R}\nInstant\nPLS,C\nKicker-Sacrifice two lands.\rMagma Burst deals 3 damage to target creature or player. If Magma Burst was kicked, it deals 3 damage to another target creature or player."
+    IDS_STRING12866         "Pollen Remedy\n{W}\nInstant\nPLS,C\nKicker-Sacrifice a land.\rPrevent the next 3 damage that would be dealt this turn to any number of target creatures and/or players, divided as you choose. If Pollen Remedy was kicked, prevent the next 6 damage this way instead."
+    IDS_STRING12867         "Rushing River\n{2U}\nInstant\nPLS,C\nKicker-Sacrifice a land.\rReturn target nonland permanent to its owner's hand. If Rushing River was kicked, return another target nonland permanent to its owner's hand."
+    IDS_STRING12868         "Shriek of Dread\n{1B}\nInstant\nPLS,C\nTarget creature gains fear until end of turn."
+    IDS_STRING12869         "Skyshroud Blessing\n{1G}\nInstant\nPLS,U\nLands gain shroud until end of turn.\rDraw a card."
+    IDS_STRING12870         "Treva's Charm\n{GWU}\nInstant\nPLS,U\nChoose one - Destroy target enchantment; or exile target attacking creature; or draw a card, then discard a card."
+    IDS_STRING12871         "Bog Down\n{2B}\nSorcery\nPLS,C\nKicker-Sacrifice two lands.\rTarget player discards two cards. If Bog Down was kicked, that player discards three cards instead."
+    IDS_STRING12872         "Implode\n{4R}\nSorcery\nPLS,U\nDestroy target land.\rDraw a card."
+    IDS_STRING12873         "Primal Growth\n{2G}\nSorcery\nPLS,C\nKicker-Sacrifice a creature.\rSearch your library for a basic land card, put that card onto the battlefield, then shuffle your library. If Primal Growth was kicked, instead search your library for two basic land cards, put them onto the battlefield, then shuffle your library."
+    IDS_STRING12874         "Strafe\n{R}\nSorcery\nPLS,U\nStrafe deals 3 damage to target nonred creature."
+    IDS_STRING12875         "Urza's Guilt\n{2UB}\nSorcery\nPLS,R\nEach player draws two cards, then discards three cards, then loses 4 life."
+    IDS_STRING12876         "Radiant Kavu\n{RGW}\nCreature - Kavu\nPLS,R\n{RGW}: Prevent all combat damage blue creatures and black creatures would deal this turn.\n3/3"
+    IDS_STRING12877         "Sisay's Ingenuity\n{U}\nEnchantment - Aura\nPLS,C\nEnchant creature\rWhen Sisay's Ingenuity enters the battlefield, draw a card.\rEnchanted creature has ""{2U}: Target creature becomes the color of your choice until end of turn."""
+    IDS_STRING12878         "Multani's Harmony\n{G}\nEnchantment - Aura\nPLS,U\nEnchant creature\rEnchanted creature has ""{T}: Add one mana of any color to your mana pool."""
+    IDS_STRING12879         "Mogg Jailer\n{1R}\nCreature - Goblin\nPLS,U\nMogg Jailer can't attack if defending player controls an untapped creature with power 2 or less.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12880         "Arctic Merfolk\n{1U}\nCreature - Merfolk\nPLS,C\nKicker-Return a creature you control to its owner's hand.\rIf Arctic Merfolk was kicked, it enters the battlefield with a +1/+1 counter on it.\n1/1"
+    IDS_STRING12881         "Disciple of Kangee\n{2W}\nCreature - Human Wizard\nPLS,C\n{U}, {T}: Target creature gains flying and becomes blue until end of turn.\n2/2"
+    IDS_STRING12882         "Honorable Scout\n{W}\nCreature - Human Soldier Scout\nPLS,C\nWhen Honorable Scout enters the battlefield, you gain 2 life for each black and/or red creature target opponent controls.\n1/1"
+    IDS_STRING12883         "Pygmy Kavu\n{3G}\nCreature - Kavu\nPLS,C\nWhen Pygmy Kavu enters the battlefield, draw a card for each black creature your opponents control.\n1/2"
+    IDS_STRING12884         "Hobble\n{2W}\nEnchantment - Aura\nPLS,C\nEnchant creature\rWhen Hobble enters the battlefield, draw a card.\rEnchanted creature can't attack.\rEnchanted creature can't block if it's black."
+    IDS_STRING12885         "Malicious Advice\n{XUB}\nInstant\nPLS,C\nTap X target artifacts, creatures, and/or lands. You lose X life."
+    IDS_STRING12886         "Singe\n{R}\nInstant\nPLS,C\nSinge deals 1 damage to target creature. That creature becomes black until end of turn."
+    IDS_STRING12887         "Hull Breach\n{RG}\nSorcery\nPLS,C\nChoose one - Destroy target artifact; or destroy target enchantment; or destroy target artifact and target enchantment."
+    IDS_STRING12888         "Nightscape Battlemage\n{2B}\nCreature - Zombie Wizard\nPLS,U\nKicker {2U} and/or {2R}\rWhen Nightscape Battlemage enters the battlefield, if it was kicked with its {2U} kicker, return up to two target nonblack creatures to their owners' hands.\rWhen Nightscape Battlemage enters the battlefield, if it was kicked with its {2R} kicker, destroy target land.\n2/2"
+    IDS_STRING12889         "Stormscape Battlemage\n{2U}\nCreature - Metathran Wizard\nPLS,U\nKicker {W} and/or {2B}\rWhen Stormscape Battlemage enters the battlefield, if it was kicked with its {W} kicker, you gain 3 life.\rWhen Stormscape Battlemage enters the battlefield, if it was kicked with its {2B} kicker, destroy target nonblack creature. That creature can't be regenerated.\n2/2"
+    IDS_STRING12890         "Sunscape Battlemage\n{2W}\nCreature - Human Wizard\nPLS,U\nKicker {1G} and/or {2U}\rWhen Sunscape Battlemage enters the battlefield, if it was kicked with its {1G} kicker, destroy target creature with flying.\rWhen Sunscape Battlemage enters the battlefield, if it was kicked with its {2U} kicker, draw two cards.\n2/2"
+    IDS_STRING12891         "Thornscape Battlemage\n{2G}\nCreature - Elf Wizard\nPLS,U\nKicker {R} and/or {W}\rWhen Thornscape Battlemage enters the battlefield, if it was kicked with its {R} kicker, it deals 2 damage to target creature or player.\rWhen Thornscape Battlemage enters the battlefield, if it was kicked with its {W} kicker, destroy target artifact.\n2/2"
+    IDS_STRING12892         "Thunderscape Battlemage\n{2R}\nCreature - Human Wizard\nPLS,U\nKicker {1B} and/or {G}\rWhen Thunderscape Battlemage enters the battlefield, if it was kicked with its {1B} kicker, target player discards two cards.\rWhen Thunderscape Battlemage enters the battlefield, if it was kicked with its {G} kicker, destroy target enchantment.\n2/2"
+    IDS_STRING12893         "Nightscape Familiar\n{1B}\nCreature - Zombie\nPLS,C\nBlue spells and red spells you cast cost {1} less to cast.\r{1B}: Regenerate Nightscape Familiar.\n1/1"
+    IDS_STRING12894         "Stormscape Familiar\n{1U}\nCreature - Bird\nPLS,C\nFlying\rWhite spells and black spells you cast cost {1} less to cast.\n1/1"
+    IDS_STRING12895         "Sunscape Familiar\n{1W}\nCreature - Wall\nPLS,C\nDefender\rGreen spells and blue spells you cast cost {1} less to cast.\n0/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12896         "Thornscape Familiar\n{1G}\nCreature - Insect\nPLS,C\nRed spells and white spells you cast cost {1} less to cast.\n2/1"
+    IDS_STRING12897         "Thunderscape Familiar\n{1R}\nCreature - Kavu\nPLS,C\nFirst strike\rBlack spells and green spells you cast cost {1} less to cast.\n1/1"
+    IDS_STRING12898         "Voice of All\n{2WW}\nCreature - Angel\nPLS,U\nFlying\rAs Voice of All enters the battlefield, choose a color.\rVoice of All has protection from the chosen color.\n2/2"
+    IDS_STRING12899         "Allied Strategies\n{4U}\nSorcery\nPLS,U\nDomain - Target player draws a card for each basic land type among lands he or she controls."
+    IDS_STRING12900         "Exotic Disease\n{4B}\nSorcery\nPLS,U\nDomain - Target player loses X life and you gain X life, where X is the number of basic land types among lands you control."
+    IDS_STRING12901         "Orim's Chant\n{W}\nInstant\nPLS,R\nKicker {W}\rTarget player can't cast spells this turn.\rIf Orim's Chant was kicked, creatures can't attack this turn."
+    IDS_STRING12902         "Crosis's Catacombs\n\nLand - Lair\nPLS,U\nWhen Crosis's Catacombs enters the battlefield, sacrifice it unless you return a non-Lair land you control to its owner's hand.\r{T}: Add {U}, {B}, or {R} to your mana pool."
+    IDS_STRING12903         "Darigaaz's Caldera\n\nLand - Lair\nPLS,U\nWhen Darigaaz's Caldera enters the battlefield, sacrifice it unless you return a non-Lair land you control to its owner's hand.\r{T}: Add {B}, {R}, or {G} to your mana pool."
+    IDS_STRING12904         "Dromar's Cavern\n\nLand - Lair\nPLS,U\nWhen Dromar's Cavern enters the battlefield, sacrifice it unless you return a non-Lair land you control to its owner's hand.\r{T}: Add {W}, {U}, or {B} to your mana pool."
+    IDS_STRING12905         "Rith's Grove\n\nLand - Lair\nPLS,U\nWhen Rith's Grove enters the battlefield, sacrifice it unless you return a non-Lair land you control to its owner's hand.\r{T}: Add {R}, {G}, or {W} to your mana pool."
+    IDS_STRING12906         "Treva's Ruins\n\nLand - Lair\nPLS,U\nWhen Treva's Ruins enters the battlefield, sacrifice it unless you return a non-Lair land you control to its owner's hand.\r{T}: Add {G}, {W}, or {U} to your mana pool."
+    IDS_STRING12907         "Dralnu's Pet\n{1UU}\nCreature - Shapeshifter\nPLS,R\nKicker-{2B}, Discard a creature card.\rIf Dralnu's Pet was kicked, it enters the battlefield with flying and with X +1/+1 counters on it, where X is the discarded card's converted mana cost.\n2/2"
+    IDS_STRING12908         "Cloud Cover\n{2WU}\nEnchantment\nPLS,R\nWhenever another permanent you control becomes the target of a spell or ability an opponent controls, you may return that permanent to its owner's hand."
+    IDS_STRING12909         "Sleeping Potion\n{1U}\nEnchantment - Aura\nPLS,C\nEnchant creature\rWhen Sleeping Potion enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step.\rWhen enchanted creature becomes the target of a spell or ability, sacrifice Sleeping Potion."
+    IDS_STRING12910         "Questing Phelddagrif\n{1GWU}\nCreature - Phelddagrif\nPLS,R\n{G}: Questing Phelddagrif gets +1/+1 until end of turn. Target opponent puts a 1/1 green Hippo creature token onto the battlefield.\r{W}: Questing Phelddagrif gains protection from black and from red until end of turn. Target opponent gains 2 life.\r{U}: Questing Phelddagrif gains flying until end of turn. Target opponent may draw a card.\n4/4"
+    IDS_STRING12911         "Samite Elder\n{2W}\nCreature - Human Cleric\nPLS,R\n{T}: Creatures you control gain protection from the colors of target permanent you control until end of turn.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12912         "Sawtooth Loon\n{2WU}\nCreature - Bird\nPLS,U\nFlying\rWhen Sawtooth Loon enters the battlefield, return a white or blue creature you control to its owner's hand.\rWhen Sawtooth Loon enters the battlefield, draw two cards, then put two cards from your hand on the bottom of your library.\n2/2"
+    IDS_STRING12913         "Phyrexian Tyranny\n{UBR}\nEnchantment\nPLS,R\nFlying\rWhenever a player draws a card, that player loses 2 life unless he or she pays {2}."
+    IDS_STRING12914         "Forsaken City\n\nLand\nPLS,R\nForsaken City doesn't untap during your untap step.\rAt the beginning of your upkeep, you may exile a card from your hand. If you do, untap Forsaken City.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING12915         "Planeswalker's Favor\n{2G}\nEnchantment\nPLS,R\n{3G}: Target opponent reveals a card at random from his or her hand. Target creature gets +X/+X until end of turn, where X is the revealed card's converted mana cost."
+    IDS_STRING12916         "Planeswalker's Fury\n{2R}\nEnchantment\nPLS,R\n{3R}: Target opponent reveals a card at random from his or her hand. Planeswalker's Fury deals damage equal to that card's converted mana cost to that player. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING12917         "Planeswalker's Mirth\n{2W}\nEnchantment\nPLS,R\n{3W}: Target opponent reveals a card at random from his or her hand. You gain life equal to that card's converted mana cost."
+    IDS_STRING12918         "Planeswalker's Scorn\n{2B}\nEnchantment\nPLS,R\n{3B}: Target opponent reveals a card at random from his or her hand. Target creature gets -X/-X until end of turn, where X is the revealed card's converted mana cost. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING12919         "Magnigoth Treefolk\n{4G}\nCreature - Treefolk\nPLS,R\nDomain - For each basic land type among lands you control, Magnigoth Treefolk has landwalk of that type.\n2/6"
+    IDS_STRING12920         "Dominaria's Judgment\n{2W}\nInstant\nPLS,R\nUntil end of turn, creatures you control gain protection from white if you control a Plains, from blue if you control an Island, from black if you control a Swamp, from red if you control a Mountain, and from green if you control a Forest."
+    IDS_STRING12921         "Meteor Crater\n\nLand\nPLS,R\n{T}: Choose a color of a permanent you control. Add one mana of that color to your mana pool."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

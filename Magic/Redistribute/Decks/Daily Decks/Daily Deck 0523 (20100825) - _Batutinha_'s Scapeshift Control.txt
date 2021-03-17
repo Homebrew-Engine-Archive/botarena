@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 12 (20.00%)
+
+4 Bloodbraid Elf (9105)
+4 Kitchen Finks (18593)
+4 Tarmogoyf (17704)
+
+// Instants - 7 (11.67%)
+
+3 Lightning Bolt (4060)
+4 Punishing Fire (19544)
+
+// Sorceries - 15 (25.00%)
+
+3 Harmonize (2514)
+4 Rampant Growth (4091)
+4 Scapeshift (18413)
+4 Search for Tomorrow (17508)
+
+// Lands - 26 (43.33%)
+
+4 Fire-Lit Thicket (18542)
+Forest (19301)
+Forest (19300)
+4 Grove of the Burnwillows (17782)
+3 Mountain (19317)
+2 Mountain (19318)
+2 Mountain (19319)
+3 Mountain (19316)
+Oran-Rief, the Vastwood (19531)
+3 Treetop Village (3308)
+2 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Great Sable Stag (4013)
+
+// Instants
+
+4 Volcanic Fallout (8860)
+
+// Sorceries
+
+2 Thought Hemorrhage (9101)
+
+// Artifacts
+
+4 Relic of Progenitus (8725)
+
+// Lands
+
+Swamp (19332)
+	

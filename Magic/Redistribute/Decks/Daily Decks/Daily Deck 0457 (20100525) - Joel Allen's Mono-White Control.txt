@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+2 Iona, Shield of Emeria (19468)
+3 Kor Cartographer (19367)
+4 Kor Skyfisher (19368)
+3 Lone Missionary (20882)
+4 Pilgrim's Eye (19620)
+4 Wall of Omens (20842)
+
+// Instants - 4 (6.67%)
+
+4 Path to Exile (8897)
+
+// Sorceries - 6 (10.00%)
+
+4 Day of Judgment (19340)
+2 Martial Coup (8886)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 3 (5.00%)
+
+3 Everflowing Chalice (19677)
+
+// Lands - 23 (38.33%)
+
+4 Emeria, the Sky Ruin (19348)
+5 Plains (20812)
+5 Plains (20813)
+5 Plains (20814)
+4 Plains (20815)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Devout Lightcaster (19360)
+4 Kor Firewalker (19606)
+
+// Enchantments
+
+4 Luminarch Ascension (19527)
+
+// Artifacts
+
+3 Pithing Needle (4081)

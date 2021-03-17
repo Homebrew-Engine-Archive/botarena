@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 12 (20.00%)
+
+4 Ajani Vengeant (8720)
+3 Chandra Nalaar (4209)
+2 Elspeth, Knight-Errant (8722)
+3 Garruk Wildspeaker (4204)
+
+// Creatures - 8 (13.33%)
+
+4 Acidic Slime (4182)
+4 Goblin Ruinblaster (19457)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (4060)
+
+// Sorceries - 10 (16.67%)
+
+2 Day of Judgment (19340)
+2 Earthquake (4034)
+2 Martial Coup (8886)
+4 Rampant Growth (4091)
+
+// Enchantments - 3 (5.00%)
+
+3 Trace of Abundance (9090)
+
+// Lands - 23 (38.33%)
+
+4 Arid Mesa (19349)
+Forest (19303)
+Forest (19302)
+2 Forest (19300)
+Forest (19301)
+Mountain (19316)
+Mountain (19317)
+Mountain (19318)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+4 Rootbound Crag (4201)
+4 Sunpetal Grove (4202)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Baneslayer Angel (4224)
+
+// Instants
+
+3 Celestial Purge (4014)
+4 Volcanic Fallout (8860)
+
+// Sorceries
+
+Day of Judgment (19340)
+Earthquake (4034)
+
+// Enchantments
+
+2 Luminarch Ascension (19527)

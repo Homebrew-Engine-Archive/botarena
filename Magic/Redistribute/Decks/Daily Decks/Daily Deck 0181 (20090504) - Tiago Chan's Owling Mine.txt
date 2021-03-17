@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 4 (6.67%)
+
+4 Kami of the Crescent Moon (16219)
+
+// Instants - 14 (23.33%)
+
+4 Boomerang (2018)
+2 Evacuation (2049)
+4 Remand (16443)
+4 Sudden Impact (2176)
+
+// Sorceries - 12 (20.00%)
+
+4 Exhaustion (2345)
+4 Eye of Nowhere (15725)
+4 Sleight of Hand (2166)
+
+// Artifacts - 8 (13.33%)
+
+4 Ebony Owl Netsuke (16282)
+4 Howling Mine (2083)
+
+// Lands - 22 (36.67%)
+
+3 Island (16420)
+3 Island (16421)
+2 Island (16422)
+2 Island (16423)
+2 Mikokoro, Center of the Sea (16240)
+Mountain (16425)
+Mountain (16424)
+4 Shivan Reef (2243)
+4 Steam Vents (16809)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Meloku the Clouded Mirror (15761)
+
+// Instants
+
+3 Mana Leak (2101)
+
+// Sorceries
+
+3 Pyroclasm (2136)
+
+// Enchantments
+
+3 Blood Moon (2351)
+4 Threads of Disloyalty (19169)

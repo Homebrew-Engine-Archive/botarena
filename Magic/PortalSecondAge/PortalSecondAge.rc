@@ -1,0 +1,295 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "PortalSecondAge.ico"
+IDI_LARGE_MODULE        ICON                    "PortalSecondAgeLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Portal Second Age"
+    IDS_EXPANSION_ABBREV    "P02"
+    IDS_FIRST_CARD          "20100"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "20265"
+    IDS_MODULE_LARGE_ICON_ID "20266"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-06-1998"
+    IDS_MWS_FOLDER          "MWS\\P02\\"
+    IDS_PRODUCT_LIST        """Portal Second Age Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20100         "Abyssal Nightstalker\n{3B}\nCreature - Nightstalker\nP02,U\nWhenever Abyssal Nightstalker attacks and isn't blocked, defending player discards a card.\n2/2"
+    IDS_STRING20101         "Alaborn Cavalier\n{2WW}\nCreature - Human Knight\nP02,U\nWhenever Alaborn Cavalier attacks, you may tap target creature.\n2/2"
+    IDS_STRING20102         "Alaborn Grenadier\n{WW}\nCreature - Human Soldier\nP02,C\nVigilance\n2/2"
+    IDS_STRING20103         "Alaborn Musketeer\n{1W}\nCreature - Human Soldier\nP02,C\nReach\n2/1"
+    IDS_STRING20104         "Alaborn Trooper\n{2W}\nCreature - Human Soldier\nP02,C\n\n2/3"
+    IDS_STRING20105         "Alaborn Veteran\n{2W}\nCreature - Human Knight\nP02,R\n{T}: Target creature gets +2/+2 until end of turn. Activate this ability only during your turn, before attackers are declared.\n2/2"
+    IDS_STRING20106         "Alaborn Zealot\n{W}\nCreature - Human Soldier\nP02,U\nWhen Alaborn Zealot blocks a creature, destroy that creature and Alaborn Zealot.\n1/1"
+    IDS_STRING20107         "Ancient Craving\n{3B}\nSorcery\nP02,R\nYou draw three cards and you lose 3 life."
+    IDS_STRING20108         "Angel of Fury\n{4WW}\nCreature - Angel\nP02,R\nFlying\rWhen Angel of Fury is put into your graveyard from the battlefield, you may shuffle it into your library.\n3/5"
+    IDS_STRING20109         "Apprentice Sorcerer\n{2U}\nCreature - Human Wizard\nP02,U\n{T}: Apprentice Sorcerer deals 1 damage to target creature or player. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20110         "Armored Galleon\n{4U}\nCreature - Human Pirate\nP02,U\nArmored Galleon can't attack unless defending player controls an Island.\n5/4"
+    IDS_STRING20111         "Armored Griffin\n{3W}\nCreature - Griffin\nP02,U\nFlying, vigilance\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20112         "Barbtooth Wurm\n{5G}\nCreature - Wurm\nP02,C\n\n6/4"
+    IDS_STRING20113         "Bargain\n{2W}\nSorcery\nP02,U\nTarget opponent draws a card.\rYou gain 7 life."
+    IDS_STRING20114         "Bear Cub\n{1G}\nCreature - Bear\nP02,C\n\n2/2"
+    IDS_STRING20115         "Bloodcurdling Scream\n{XB}\nSorcery\nP02,U\nTarget creature gets +X/+0 until end of turn."
+    IDS_STRING20116         "Brimstone Dragon\n{6RR}\nCreature - Dragon\nP02,R\nFlying, haste\n6/6"
+    IDS_STRING20117         "Brutal Nightstalker\n{3BB}\nCreature - Nightstalker\nP02,U\nWhen Brutal Nightstalker enters the battlefield, you may have target opponent discard a card.\n3/2"
+    IDS_STRING20118         "Chorus of Woe\n{B}\nSorcery\nP02,C\nCreatures you control get +1/+0 until end of turn."
+    IDS_STRING20119         "Dakmor Bat\n{1B}\nCreature - Bat\nP02,C\nFlying\n1/1"
+    IDS_STRING20120         "Dakmor Plague\n{3BB}\nSorcery\nP02,U\nDakmor Plague deals 3 damage to each creature and each player."
+    IDS_STRING20121         "Dakmor Scorpion\n{1B}\nCreature - Scorpion\nP02,C\n\n2/1"
+    IDS_STRING20122         "Dakmor Sorceress\n{5B}\nCreature - Human Wizard\nP02,R\nDakmor Sorceress's power is equal to the number of Swamps you control.\n*/4"
+    IDS_STRING20123         "Dark Offering\n{4BB}\nSorcery\nP02,U\nDestroy target nonblack creature. You gain 3 life."
+    IDS_STRING20124         "Deathcoil Wurm\n{6GG}\nCreature - Wurm\nP02,R\nYou may have Deathcoil Wurm assign its combat damage as though it weren't blocked.\n7/6"
+    IDS_STRING20125         "Extinguish\n{1U}\nInstant\nP02,C\nCounter target sorcery spell."
+    IDS_STRING20126         "False Summoning\n{1U}\nInstant\nP02,C\nCounter target creature spell."
+    IDS_STRING20127         "Festival of Trokin\n{W}\nSorcery\nP02,C\nYou gain 2 life for each creature you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20128         "Foul Spirit\n{2B}\nCreature - Spirit\nP02,U\nFlying\rWhen Foul Spirit enters the battlefield, sacrifice a land.\n3/2"
+    IDS_STRING20129         "Goblin Cavaliers\n{2R}\nCreature - Goblin\nP02,C\n\n3/2"
+    IDS_STRING20130         "Goblin Firestarter\n{R}\nCreature - Goblin\nP02,U\nSacrifice Goblin Firestarter: Goblin Firestarter deals 1 damage to target creature or player. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20131         "Goblin General\n{1RR}\nCreature - Goblin Warrior\nP02,R\nWhenever Goblin General attacks, Goblin creatures you control get +1/+1 until end of turn.\n1/1"
+    IDS_STRING20132         "Golden Bear\n{3G}\nCreature - Bear\nP02,C\n\n4/3"
+    IDS_STRING20133         "Ironhoof Ox\n{3GG}\nCreature - Ox\nP02,U\nIronhoof Ox can't be blocked by more than one creature.\n4/4"
+    IDS_STRING20134         "Kiss of Death\n{4BB}\nSorcery\nP02,U\nKiss of Death deals 4 damage to target opponent. You gain 4 life."
+    IDS_STRING20135         "Lurking Nightstalker\n{BB}\nCreature - Nightstalker\nP02,C\nWhenever Lurking Nightstalker attacks, it gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING20136         "Lynx\n{1G}\nCreature - Cat\nP02,C\nForestwalk\n2/1"
+    IDS_STRING20137         "Moaning Spirit\n{2B}\nCreature - Spirit\nP02,C\nFlying\n2/1"
+    IDS_STRING20138         "Nightstalker Engine\n{4B}\nCreature - Nightstalker\nP02,R\nNightstalker Engine's power is equal to the number of creature cards in your graveyard.\n*/3"
+    IDS_STRING20139         "Norwood Archers\n{3G}\nCreature - Elf Archer\nP02,C\nReach\n3/3"
+    IDS_STRING20140         "Norwood Riders\n{3G}\nCreature - Elf\nP02,C\nNorwood Riders can't be blocked by more than one creature.\n3/3"
+    IDS_STRING20141         "Norwood Warrior\n{2G}\nCreature - Elf Warrior\nP02,C\nWhenever Norwood Warrior becomes blocked, it gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING20142         "Obsidian Giant\n{4R}\nCreature - Giant\nP02,U\n\n4/4"
+    IDS_STRING20143         "Ogre Arsonist\n{4R}\nCreature - Ogre\nP02,U\nWhen Ogre Arsonist enters the battlefield, destroy target land.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20144         "Ogre Berserker\n{4R}\nCreature - Ogre Berserker\nP02,C\nHaste\n4/2"
+    IDS_STRING20145         "Ogre Warrior\n{3R}\nCreature - Ogre Warrior\nP02,C\n\n3/3"
+    IDS_STRING20146         "Plated Wurm\n{4G}\nCreature - Wurm\nP02,C\n\n4/5"
+    IDS_STRING20147         "Prowling Nightstalker\n{3B}\nCreature - Nightstalker\nP02,C\nProwling Nightstalker can't be blocked except by black creatures.\n2/2"
+    IDS_STRING20148         "Raiding Nightstalker\n{2B}\nCreature - Nightstalker\nP02,C\nSwampwalk\n2/2"
+    IDS_STRING20149         "Razorclaw Bear\n{2GG}\nCreature - Bear\nP02,R\nWhenever Razorclaw Bear becomes blocked, it gets +2/+2 until end of turn.\n3/3"
+    IDS_STRING20150         "Renewing Touch\n{G}\nSorcery\nP02,U\nShuffle any number of target creature cards from your graveyard into your library."
+    IDS_STRING20151         "Return of the Nightstalkers\n{5BB}\nSorcery\nP02,R\nReturn all Nightstalker permanent cards from your graveyard to the battlefield. Then destroy all Swamps you control."
+    IDS_STRING20152         "Righteous Charge\n{1WW}\nSorcery\nP02,C\nCreatures you control get +2/+2 until end of turn."
+    IDS_STRING20153         "Salvage\n{G}\nSorcery\nP02,C\nPut target card from your graveyard on top of your library."
+    IDS_STRING20154         "Sea Drake\n{2U}\nCreature - Drake\nP02,U\nFlying\rWhen Sea Drake enters the battlefield, return two target lands you control to their owner's hand.\n4/3"
+    IDS_STRING20155         "Steam Frigate\n{2U}\nCreature - Human Pirate\nP02,C\nSteam Frigate can't attack unless defending player controls an Island.\n3/3"
+    IDS_STRING20156         "Sylvan Yeti\n{2GG}\nCreature - Yeti\nP02,R\nSylvan Yeti's power is equal to the number of cards in your hand.\n*/4"
+    IDS_STRING20157         "Talas Air Ship\n{3U}\nCreature - Human Pirate\nP02,C\nFlying\n3/2"
+    IDS_STRING20158         "Talas Explorer\n{1U}\nCreature - Human Pirate Scout\nP02,C\nFlying\rWhen Talas Explorer enters the battlefield, look at target opponent's hand.\n1/1"
+    IDS_STRING20159         "Talas Merchant\n{1U}\nCreature - Human Pirate\nP02,C\n\n1/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20160         "Talas Researcher\n{4U}\nCreature - Human Pirate Wizard\nP02,R\n{T}: Draw a card. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20161         "Talas Scout\n{1U}\nCreature - Human Pirate Scout\nP02,C\nFlying\n1/2"
+    IDS_STRING20162         "Talas Warrior\n{1UU}\nCreature - Human Pirate Warrior\nP02,R\nTalas Warrior is unblockable.\n2/2"
+    IDS_STRING20163         "Temple Acolyte\n{1W}\nCreature - Human Cleric\nP02,C\nWhen Temple Acolyte enters the battlefield, you gain 3 life.\n1/3"
+    IDS_STRING20164         "Temporal Manipulation\n{3UU}\nSorcery\nP02,R\nTake an extra turn after this one."
+    IDS_STRING20165         "Town Sentry\n{2W}\nCreature - Human Soldier\nP02,C\nWhenever Town Sentry blocks, it gets +0/+2 until end of turn.\n2/2"
+    IDS_STRING20166         "Trokin High Guard\n{3W}\nCreature - Human Knight\nP02,C\n\n3/3"
+    IDS_STRING20167         "Volunteer Militia\n{W}\nCreature - Human Soldier\nP02,C\n\n1/2"
+    IDS_STRING20168         "Wild Ox\n{3G}\nCreature - Ox\nP02,U\nSwampwalk\n3/3"
+    IDS_STRING20169         "Wind Sail\n{1U}\nSorcery\nP02,C\nOne or two target creatures gain flying until end of turn."
+    IDS_STRING20170         "Predatory Nightstalker\n{3BB}\nCreature - Nightstalker\nP02,U\nWhen Predatory Nightstalker enters the battlefield, you may have target opponent sacrifice a creature.\n3/2"
+    IDS_STRING20171         "Air Elemental\n{3UU}\nCreature - Elemental\nP02,U\nFlying\n4/4"
+    IDS_STRING20172         "Angel of Mercy\n{4W}\nCreature - Angel\nP02,U\nFlying\rWhen Angel of Mercy enters the battlefield, you gain 3 life.\n3/3"
+    IDS_STRING20173         "Angelic Wall\n{1W}\nCreature - Wall\nP02,C\nDefender, flying\n0/4"
+    IDS_STRING20174         "Archangel\n{5WW}\nCreature - Angel\nP02,R\nFlying, vigilance\n5/5"
+    IDS_STRING20175         "Denizen of the Deep\n{6UU}\nCreature - Serpent\nP02,R\nWhen Denizen of the Deep enters the battlefield, return each other creature you control to its owner's hand.\n11/11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20176         "Goblin Glider\n{1R}\nCreature - Goblin\nP02,C\nFlying\rGoblin Glider can't block.\n1/1"
+    IDS_STRING20177         "Goblin Matron\n{2R}\nCreature - Goblin\nP02,U\nWhen Goblin Matron enters the battlefield, you may search your library for a Goblin card, reveal that card, and put it into your hand. If you do, shuffle your library.\n1/1"
+    IDS_STRING20178         "Goblin Mountaineer\n{R}\nCreature - Goblin Scout\nP02,C\nMountainwalk\n1/1"
+    IDS_STRING20179         "Goblin Piker\n{1R}\nCreature - Goblin Warrior\nP02,C\n\n2/1"
+    IDS_STRING20180         "Goblin Raider\n{1R}\nCreature - Goblin Warrior\nP02,C\nGoblin Raider can't block.\n2/2"
+    IDS_STRING20181         "Hidden Horror\n{1BB}\nCreature - Horror\nP02,R\nWhen Hidden Horror enters the battlefield, sacrifice it unless you discard a creature card.\n4/4"
+    IDS_STRING20182         "Lone Wolf\n{2G}\nCreature - Wolf\nP02,U\nYou may have Lone Wolf assign its combat damage as though it weren't blocked.\n2/2"
+    IDS_STRING20183         "Magma Giant\n{5RR}\nCreature - Giant\nP02,R\nWhen Magma Giant enters the battlefield, it deals 2 damage to each creature and each player.\n5/5"
+    IDS_STRING20184         "Muck Rats\n{B}\nCreature - Rat\nP02,C\n\n1/1"
+    IDS_STRING20185         "Norwood Ranger\n{G}\nCreature - Elf Scout\nP02,C\n\n1/2"
+    IDS_STRING20186         "Ogre Taskmaster\n{3R}\nCreature - Ogre\nP02,U\nOgre Taskmaster can't block.\n4/3"
+    IDS_STRING20187         "Raging Goblin\n{R}\nCreature - Goblin Berserker\nP02,C\nHaste\n1/1"
+    IDS_STRING20188         "Ravenous Rats\n{1B}\nCreature - Rat\nP02,C\nWhen Ravenous Rats enters the battlefield, target opponent discards a card.\n1/1"
+    IDS_STRING20189         "River Bear\n{3G}\nCreature - Bear\nP02,U\nIslandwalk\n3/3"
+    IDS_STRING20190         "Swarm of Rats\n{1B}\nCreature - Rat\nP02,C\nSwarm of Rats's power is equal to the number of Rats you control.\n*/1"
+    IDS_STRING20191         "Sylvan Basilisk\n{3GG}\nCreature - Basilisk\nP02,R\nWhenever Sylvan Basilisk becomes blocked by a creature, destroy that creature.\n2/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20192         "Tree Monkey\n{G}\nCreature - Ape\nP02,C\nReach\n1/1"
+    IDS_STRING20193         "Vampiric Spirit\n{2BB}\nCreature - Spirit\nP02,R\nFlying\rWhen Vampiric Spirit enters the battlefield, you lose 4 life.\n4/3"
+    IDS_STRING20194         "Wild Griffin\n{2W}\nCreature - Griffin\nP02,C\nFlying\n2/2"
+    IDS_STRING20195         "Forest\n\nBasic Land - Forest\nP02,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20196         "Forest\n\nBasic Land - Forest\nP02,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20197         "Forest\n\nBasic Land - Forest\nP02,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20198         "Island\n\nBasic Land - Island\nP02,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20199         "Island\n\nBasic Land - Island\nP02,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20200         "Island\n\nBasic Land - Island\nP02,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20201         "Mountain\n\nBasic Land - Mountain\nP02,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20202         "Mountain\n\nBasic Land - Mountain\nP02,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20203         "Mountain\n\nBasic Land - Mountain\nP02,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20204         "Plains\n\nBasic Land - Plains\nP02,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20205         "Plains\n\nBasic Land - Plains\nP02,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20206         "Plains\n\nBasic Land - Plains\nP02,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20207         "Swamp\n\nBasic Land - Swamp\nP02,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20208         "Swamp\n\nBasic Land - Swamp\nP02,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20209         "Swamp\n\nBasic Land - Swamp\nP02,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20210         "Mystic Denial\n{1UU}\nInstant\nP02,U\nCounter target creature or sorcery spell."
+    IDS_STRING20211         "Alluring Scent\n{1GG}\nSorcery\nP02,R\nAll creatures able to block target creature this turn do so."
+    IDS_STRING20212         "Angelic Blessing\n{2W}\nSorcery\nP02,C\nTarget creature gets +3/+3 and gains flying until end of turn."
+    IDS_STRING20213         "Armageddon\n{3W}\nSorcery\nP02,R\nDestroy all lands."
+    IDS_STRING20214         "Bee Sting\n{3G}\nSorcery\nP02,U\nBee Sting deals 2 damage to target creature or player."
+    IDS_STRING20215         "Blaze\n{XR}\nSorcery\nP02,U\nBlaze deals X damage to target creature or player."
+    IDS_STRING20216         "Breath of Life\n{3W}\nSorcery\nP02,C\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING20217         "Coercion\n{2B}\nSorcery\nP02,U\nTarget opponent reveals his or her hand. You choose a card from it. That player discards that card."
+    IDS_STRING20218         "Cruel Edict\n{1B}\nSorcery\nP02,C\nTarget opponent sacrifices a creature."
+    IDS_STRING20219         "Déjà Vu\n{2U}\nSorcery\nP02,C\nReturn target sorcery card from your graveyard to your hand."
+    IDS_STRING20220         "Earthquake\n{XR}\nSorcery\nP02,R\nEarthquake deals X damage to each creature without flying and each player."
+    IDS_STRING20221         "Exhaustion\n{2U}\nSorcery\nP02,R\nCreatures and lands target opponent controls don't untap during his or her next untap step."
+    IDS_STRING20222         "Goblin War Strike\n{R}\nSorcery\nP02,C\nGoblin War Strike deals damage equal to the number of Goblins you control to target player."
+    IDS_STRING20223         "Hand of Death\n{2B}\nSorcery\nP02,C\nDestroy target nonblack creature."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20224         "Hurricane\n{XG}\nSorcery\nP02,R\nHurricane deals X damage to each creature with flying and each player."
+    IDS_STRING20225         "Jagged Lightning\n{3RR}\nSorcery\nP02,U\nJagged Lightning deals 3 damage to each of two target creatures."
+    IDS_STRING20226         "Lava Axe\n{4R}\nSorcery\nP02,C\nLava Axe deals 5 damage to target player."
+    IDS_STRING20227         "Mind Rot\n{2B}\nSorcery\nP02,C\nTarget player discards two cards."
+    IDS_STRING20228         "Monstrous Growth\n{1G}\nSorcery\nP02,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING20229         "Natural Spring\n{3GG}\nSorcery\nP02,C\nTarget player gains 8 life."
+    IDS_STRING20230         "Nature's Lore\n{1G}\nSorcery\nP02,C\nSearch your library for a Forest card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING20231         "Path of Peace\n{3W}\nSorcery\nP02,C\nDestroy target creature. Its owner gains 4 life."
+    IDS_STRING20232         "Raise Dead\n{B}\nSorcery\nP02,C\nReturn target creature card from your graveyard to your hand."
+    IDS_STRING20233         "Relentless Assault\n{2RR}\nSorcery\nP02,R\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING20234         "Sleight of Hand\n{U}\nSorcery\nP02,C\nLook at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library."
+    IDS_STRING20235         "Spitting Earth\n{1R}\nSorcery\nP02,C\nSpitting Earth deals damage to target creature equal to the number of Mountains you control."
+    IDS_STRING20236         "Stone Rain\n{2R}\nSorcery\nP02,C\nDestroy target land."
+    IDS_STRING20237         "Theft of Dreams\n{2U}\nSorcery\nP02,U\nDraw a card for each tapped creature target opponent controls."
+    IDS_STRING20238         "Tidal Surge\n{1U}\nSorcery\nP02,C\nTap up to three target creatures without flying."
+    IDS_STRING20239         "Time Ebb\n{2U}\nSorcery\nP02,C\nPut target creature on top of its owner's library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20240         "Touch of Brilliance\n{3U}\nSorcery\nP02,C\nDraw two cards."
+    IDS_STRING20241         "Tremor\n{R}\nSorcery\nP02,C\nTremor deals 1 damage to each creature without flying."
+    IDS_STRING20242         "Undo\n{1UU}\nSorcery\nP02,U\nReturn two target creatures to their owners' hands."
+    IDS_STRING20243         "Untamed Wilds\n{2G}\nSorcery\nP02,U\nSearch your library for a basic land card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING20244         "Vengeance\n{3W}\nSorcery\nP02,U\nDestroy target tapped creature."
+    IDS_STRING20245         "Volcanic Hammer\n{1R}\nSorcery\nP02,C\nVolcanic Hammer deals 3 damage to target creature or player."
+    IDS_STRING20246         "Wildfire\n{4RR}\nSorcery\nP02,R\nEach player sacrifices four lands. Wildfire deals 4 damage to each creature."
+    IDS_STRING20247         "Norwood Priestess\n{2GG}\nCreature - Elf Druid\nP02,R\n{T}: You may put a green creature card from your hand onto the battlefield. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20248         "Steam Catapult\n{3WW}\nCreature - Human Soldier\nP02,R\n{T}: Destroy target tapped creature. Activate this ability only during your turn, before attackers are declared.\n2/3"
+    IDS_STRING20249         "Temple Elder\n{2W}\nCreature - Human Cleric\nP02,U\n{T}: You gain 1 life. Activate this ability only during your turn, before attackers are declared.\n1/2"
+    IDS_STRING20250         "Screeching Drake\n{3U}\nCreature - Drake\nP02,C\nFlying\rWhen Screeching Drake enters the battlefield, draw a card, then discard a card.\n2/2"
+    IDS_STRING20251         "Eye Spy\n{U}\nSorcery\nP02,U\nLook at the top card of target player's library. You may put that card into his or her graveyard."
+    IDS_STRING20252         "Goblin Lore\n{1R}\nSorcery\nP02,U\nDraw four cards, then discard three cards at random."
+    IDS_STRING20253         "Coastal Wizard\n{2UU}\nCreature - Human Wizard\nP02,R\n{T}: Return Coastal Wizard and another target creature to their owners' hands. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20254         "Rain of Daggers\n{4BB}\nSorcery\nP02,R\nDestroy all creatures target opponent controls. You lose 2 life for each creature destroyed this way."
+    IDS_STRING20255         "Righteous Fury\n{4WW}\nSorcery\nP02,R\nDestroy all tapped creatures. You gain 2 life for each creature destroyed this way."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20256         "Harmony of Nature\n{2G}\nSorcery\nP02,U\nTap any number of untapped creatures you control. You gain 4 life for each creature tapped this way."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

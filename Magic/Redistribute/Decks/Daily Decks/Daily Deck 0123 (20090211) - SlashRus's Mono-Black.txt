@@ -1,0 +1,47 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Chittering Rats (15224)
+4 Crypt Rats (918)
+2 Okiba-Gang Shinobi (19195)
+4 Phyrexian Rager (3267)
+4 Twisted Abomination (17271)
+4 Warren Pilferers (18118)
+
+// Instants - 7 (11.67%)
+
+4 Diabolic Edict (10182)
+3 Tendrils of Corruption (17231)
+
+// Sorceries - 7 (11.67%)
+
+4 Corrupt (954)
+3 Distress (3262)
+
+// Lands - 24 (40.00%)
+
+6 Swamp (17922)
+6 Swamp (17921)
+6 Swamp (17920)
+6 Swamp (17919)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Dross Golem (15307)
+Okiba-Gang Shinobi (19195)
+
+// Instants
+
+Death Denied (16250)
+4 Echoing Decay (15268)
+Tendrils of Corruption (17231)
+
+// Sorceries
+
+Distress (3262)
+4 Duress (795)

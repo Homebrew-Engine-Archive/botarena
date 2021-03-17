@@ -1,0 +1,46 @@
+// Lofty Heights
+// 9th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 14 (35.00%)
+
+Archivist (2006)
+Aven Fisher (2008)
+Aven Windreader (2299)
+Azure Drake (2215)
+3 Horned Turtle (2082)
+Mahamoti Djinn (2100)
+Puppeteer (2135)
+Storm Crow (2173)
+Thieving Magpie (2187)
+3 Wind Drake (2202)
+
+// Instants - 4 (10.00%)
+
+2 Boomerang (2018)
+Mana Leak (2101)
+Remove Soul (2146)
+
+// Sorceries - 1 (2.50%)
+
+Sleight of Hand (2166)
+
+// Enchantments - 2 (5.00%)
+
+Confiscate (2025)
+Telepathy (2185)
+
+// Artifacts - 2 (5.00%)
+
+Kraken's Eye (2281)
+Rod of Ruin (2149)
+
+// Lands - 17 (42.50%)
+
+5 Island (2087)
+4 Island (2088)
+4 Island (2089)
+4 Island (2090)

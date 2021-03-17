@@ -1,0 +1,57 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Coralhelm Commander (20948)
+4 Cursecatcher (18534)
+4 Lord of Atlantis (17249)
+4 Merrow Reejerey (18082)
+4 Silvergill Adept (18089)
+
+// Instants - 11 (18.33%)
+
+4 Daze (12089)
+4 Force of Will (6759)
+3 Spell Pierce (19377)
+
+// Enchantments - 4 (6.67%)
+
+4 Standstill (13312)
+
+// Artifacts - 4 (6.67%)
+
+4 AEther Vial (15278)
+
+// Lands - 21 (35.00%)
+
+2 Flooded Strand (14001)
+Island (20805)
+Island (20804)
+2 Misty Rainforest (19356)
+4 Mutavault (18368)
+Polluted Delta (14000)
+2 Scalding Tarn (19358)
+4 Underground Sea (7388)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+3 Submerge (12100)
+
+// Sorceries
+
+2 Nature's Ruin (19848)
+Perish (394)
+
+// Enchantments
+
+4 Engineered Plague (1042)
+
+// Artifacts
+
+3 Tormod's Crypt (17265)
+2 Umezawa's Jitte (19149)

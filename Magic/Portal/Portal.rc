@@ -1,0 +1,363 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Portal.ico"
+IDI_LARGE_MODULE        ICON                    "PortalLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Portal"
+    IDS_EXPANSION_ABBREV    "POR"
+    IDS_FIRST_CARD          "19800"
+    IDS_TOTAL_CARD          "222"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "20022"
+    IDS_MODULE_LARGE_ICON_ID "20023"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-06-1997"
+    IDS_MWS_FOLDER          "MWS\\POR\\"
+    IDS_PRODUCT_LIST        """Portal Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19800         "Alluring Scent\n{1GG}\nSorcery\nPOR,R\nAll creatures able to block target creature this turn do so."
+    IDS_STRING19801         "Arrogant Vampire\n{3BB}\nCreature - Vampire\nPOR,U\nFlying\n4/3"
+    IDS_STRING19802         "Bee Sting\n{3G}\nSorcery\nPOR,U\nBee Sting deals 2 damage to target creature or player."
+    IDS_STRING19803         "Border Guard\n{2W}\nCreature - Human Soldier\nPOR,C\n\n1/4"
+    IDS_STRING19804         "Charging Bandits\n{4B}\nCreature - Human Rogue\nPOR,U\nWhenever Charging Bandits attacks, it gets +2/+0 until end of turn.\n3/3"
+    IDS_STRING19805         "Cloak of Feathers\n{U}\nSorcery\nPOR,C\nTarget creature gains flying until end of turn.\rDraw a card."
+    IDS_STRING19806         "Cloud Dragon\n{5U}\nCreature - Illusion Dragon\nPOR,R\nFlying\rCloud Dragon can block only creatures with flying.\n5/4"
+    IDS_STRING19807         "Cloud Pirates\n{U}\nCreature - Human Pirate\nPOR,C\nFlying\rCloud Pirates can block only creatures with flying.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19808         "Craven Knight\n{1B}\nCreature - Human Knight\nPOR,C\nCraven Knight can't block.\n2/2"
+    IDS_STRING19809         "Cruel Bargain\n{BBB}\nSorcery\nPOR,R\nDraw four cards. You lose half your life, rounded up."
+    IDS_STRING19810         "Cruel Tutor\n{2B}\nSorcery\nPOR,R\nSearch your library for a card, then shuffle your library and put that card on top of it. You lose 2 life."
+    IDS_STRING19811         "Deep-Sea Serpent\n{4UU}\nCreature - Serpent\nPOR,U\nDeep-Sea Serpent can't attack unless defending player controls an Island.\n5/5"
+    IDS_STRING19812         "Deja Vu\n{2U}\nSorcery\nPOR,C\nReturn target sorcery card from your graveyard to your hand."
+    IDS_STRING19813         "Desert Drake\n{3R}\nCreature - Drake\nPOR,U\nFlying\n2/2"
+    IDS_STRING19814         "Devastation\n{5RR}\nSorcery\nPOR,R\nDestroy all creatures and lands."
+    IDS_STRING19815         "Devoted Hero\n{W}\nCreature - Elf Soldier\nPOR,C\n\n1/2"
+    IDS_STRING19816         "Djinn of the Lamp\n{5UU}\nCreature - Djinn\nPOR,R\nFlying\n5/6"
+    IDS_STRING19817         "Dread Charge\n{3B}\nSorcery\nPOR,R\nUntil end of turn, black creatures you control can be blocked only by black creatures."
+    IDS_STRING19818         "Dread Reaper\n{3BBB}\nCreature - Horror\nPOR,R\nFlying\rWhen Dread Reaper enters the battlefield, you lose 5 life.\n6/5"
+    IDS_STRING19819         "Ebon Dragon\n{5BB}\nCreature - Dragon\nPOR,R\nFlying\rWhen Ebon Dragon enters the battlefield, you may have target opponent discard a card.\n5/4"
+    IDS_STRING19820         "Elite Cat Warrior\n{2G}\nCreature - Cat Warrior\nPOR,C\nForestwalk\n2/3"
+    IDS_STRING19821         "Elite Cat Warrior\n{2G}\nCreature - Cat Warrior\nPOR,C\nForestwalk\n2/3"
+    IDS_STRING19822         "Endless Cockroaches\n{1BB}\nCreature - Insect\nPOR,R\nWhen Endless Cockroaches dies, return it to its owner's hand.\n1/1"
+    IDS_STRING19823         "Fire Imp\n{2R}\nCreature - Imp\nPOR,U\nWhen Fire Imp enters the battlefield, it deals 2 damage to target creature.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19824         "Fire Snake\n{4R}\nCreature - Snake\nPOR,C\nWhen Fire Snake dies, destroy target land.\n3/1"
+    IDS_STRING19825         "Fire Tempest\n{5RR}\nSorcery\nPOR,R\nFire Tempest deals 6 damage to each creature and each player."
+    IDS_STRING19826         "Fleet-Footed Monk\n{1W}\nCreature - Human Monk\nPOR,C\nFleet-Footed Monk can't be blocked by creatures with power 2 or greater.\n1/1"
+    IDS_STRING19827         "Forked Lightning\n{3R}\nSorcery\nPOR,R\nForked Lightning deals 4 damage divided as you choose among one, two, or three target creatures."
+    IDS_STRING19828         "Goblin Bully\n{1R}\nCreature - Goblin\nPOR,C\n\n2/1"
+    IDS_STRING19829         "Hand of Death\n{2B}\nSorcery\nPOR,C\nDestroy target nonblack creature."
+    IDS_STRING19830         "Hand of Death\n{2B}\nSorcery\nPOR,C\nDestroy target nonblack creature."
+    IDS_STRING19831         "Highland Giant\n{2RR}\nCreature - Giant\nPOR,C\n\n3/4"
+    IDS_STRING19832         "Howling Fury\n{2B}\nSorcery\nPOR,C\nTarget creature gets +4/+0 until end of turn."
+    IDS_STRING19833         "Hulking Goblin\n{1R}\nCreature - Goblin\nPOR,C\nHulking Goblin can't block.\n2/2"
+    IDS_STRING19834         "Ingenious Thief\n{1U}\nCreature - Human Rogue\nPOR,U\nFlying.\rWhen Ingenious Thief enters the battlefield, look at target player's hand.\n1/1"
+    IDS_STRING19835         "Jungle Lion\n{G}\nCreature - Cat\nPOR,C\nJungle Lion can't block.\n2/1"
+    IDS_STRING19836         "Keen-Eyed Archers\n{2W}\nCreature - Elf Archer\nPOR,C\nReach\n2/2"
+    IDS_STRING19837         "Last Chance\n{RR}\nSorcery\nPOR,R\nTake an extra turn after this one. At the beginning of that turn's end step, you lose the game."
+    IDS_STRING19838         "Lava Flow\n{3RR}\nSorcery\nPOR,U\nDestroy target creature or land."
+    IDS_STRING19839         "Lizard Warrior\n{3R}\nCreature - Lizard Warrior\nPOR,C\n\n4/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19840         "Mercenary Knight\n{2B}\nCreature - Human Mercenary Knight\nPOR,R\nWhen Mercenary Knight enters the battlefield, sacrifice it unless you discard a creature card.\n4/4"
+    IDS_STRING19841         "Mind Knives\n{1B}\nSorcery\nPOR,C\nTarget opponent discards a card at random."
+    IDS_STRING19842         "Minotaur Warrior\n{2R}\nCreature - Minotaur Warrior\nPOR,C\n\n2/3"
+    IDS_STRING19843         "Mobilize\n{G}\nSorcery\nPOR,C\nUntap all creatures you control."
+    IDS_STRING19844         "Moon Sprite\n{1G}\nCreature - Faerie\nPOR,U\nFlying\n1/1"
+    IDS_STRING19845         "Muck Rats\n{B}\nCreature - Rat\nPOR,C\n\n1/1"
+    IDS_STRING19846         "Mystic Denial\n{1UU}\nInstant\nPOR,U\nCounter target creature or sorcery spell."
+    IDS_STRING19847         "Nature's Cloak\n{2G}\nSorcery\nPOR,R\nGreen creatures you control gain forestwalk until end of turn."
+    IDS_STRING19848         "Nature's Ruin\n{2B}\nSorcery\nPOR,U\nDestroy all green creatures."
+    IDS_STRING19849         "Noxious Toad\n{2B}\nCreature - Frog\nPOR,U\nWhen Noxious Toad dies, each opponent discards a card.\n1/1"
+    IDS_STRING19850         "Personal Tutor\n{U}\nSorcery\nPOR,U\nSearch your library for a sorcery card and reveal that card. Shuffle your library, then put the card on top of it."
+    IDS_STRING19851         "Pillaging Horde\n{2RR}\nCreature - Human Barbarian\nPOR,R\nWhen Pillaging Horde enters the battlefield, sacrifice it unless you discard a card at random.\n5/5"
+    IDS_STRING19852         "Plant Elemental\n{1G}\nCreature - Plant Elemental\nPOR,U\nWhen Plant Elemental enters the battlefield, sacrifice it unless you sacrifice a Forest.\n3/4"
+    IDS_STRING19853         "Raging Cougar\n{2R}\nCreature - Cat\nPOR,C\nHaste\n2/2"
+    IDS_STRING19854         "Raging Minotaur\n{2RR}\nCreature - Minotaur Berserker\nPOR,C\nHaste\n3/3"
+    IDS_STRING19855         "Renewing Dawn\n{1W}\nSorcery\nPOR,U\nYou gain 2 life for each Mountain target opponent controls."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19856         "Rowan Treefolk\n{3G}\nCreature - Treefolk\nPOR,C\n\n3/4"
+    IDS_STRING19857         "Sacred Knight\n{3W}\nCreature - Human Knight\nPOR,C\nSacred Knight can't be blocked by black and/or red creatures.\n3/2"
+    IDS_STRING19858         "Scorching Spear\n{R}\nSorcery\nPOR,C\nScorching Spear deals 1 damage to target creature or player."
+    IDS_STRING19859         "Serpent Assassin\n{3BB}\nCreature - Snake Assassin\nPOR,R\nWhen Serpent Assassin enters the battlefield, you may destroy target nonblack creature.\n2/2"
+    IDS_STRING19860         "Skeletal Crocodile\n{3B}\nCreature - Crocodile Skeleton\nPOR,C\n\n5/1"
+    IDS_STRING19861         "Skeletal Snake\n{1B}\nCreature - Snake Skeleton\nPOR,C\n\n2/1"
+    IDS_STRING19862         "Sorcerous Sight\n{U}\nSorcery\nPOR,C\nLook at target opponent's hand.\rDraw a card."
+    IDS_STRING19863         "Soul Shred\n{3BB}\nSorcery\nPOR,C\nSoul Shred deals 3 damage to target nonblack creature. You gain 3 life."
+    IDS_STRING19864         "Spiritual Guardian\n{3WW}\nCreature - Spirit\nPOR,R\nWhen Spiritual Guardian enters the battlefield, you gain 4 life.\n3/4"
+    IDS_STRING19865         "Spotted Griffin\n{3W}\nCreature - Griffin\nPOR,C\nFlying\n2/3"
+    IDS_STRING19866         "Starlit Angel\n{3WW}\nCreature - Angel\nPOR,U\nFlying\n3/4"
+    IDS_STRING19867         "Steadfastness\n{1W}\nSorcery\nPOR,C\nCreatures you control get +0/+3 until end of turn."
+    IDS_STRING19868         "Sylvan Tutor\n{G}\nSorcery\nPOR,R\nSearch your library for a creature card and reveal that card. Shuffle your library, then put the card on top of it."
+    IDS_STRING19869         "Symbol of Unsummoning\n{2U}\nSorcery\nPOR,C\nReturn target creature to its owner's hand.\rDraw a card."
+    IDS_STRING19870         "Thing from the Deep\n{6UUU}\nCreature - Leviathan\nPOR,R\nWhenever Thing from the Deep attacks, sacrifice it unless you sacrifice an Island.\n9/9"
+    IDS_STRING19871         "Thundering Wurm\n{2G}\nCreature - Wurm\nPOR,R\nWhen Thundering Wurm enters the battlefield, sacrifice it unless you discard a land card.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19872         "Touch of Brilliance\n{3U}\nSorcery\nPOR,C\nDraw two cards."
+    IDS_STRING19873         "Undying Beast\n{3B}\nCreature - Beast\nPOR,C\nWhen Undying Beast dies, put it on top of its owner's library.\n3/2"
+    IDS_STRING19874         "Valorous Charge\n{1WW}\nSorcery\nPOR,U\nWhite creatures get +2/+0 until end of turn."
+    IDS_STRING19875         "Vampiric Feast\n{5BB}\nSorcery\nPOR,U\nVampiric Feast deals 4 damage to target creature or player and you gain 4 life."
+    IDS_STRING19876         "Vampiric Touch\n{2B}\nSorcery\nPOR,C\nVampiric Touch deals 2 damage to target opponent and you gain 2 life."
+    IDS_STRING19877         "Virtue's Ruin\n{2B}\nSorcery\nPOR,U\nDestroy all white creatures."
+    IDS_STRING19878         "Wall of Granite\n{2R}\nCreature - Wall\nPOR,U\nDefender\n0/7"
+    IDS_STRING19879         "Warrior's Charge\n{2W}\nSorcery\nPOR,C\nCreatures you control get +1/+1 until end of turn."
+    IDS_STRING19880         "Warrior's Charge\n{2W}\nSorcery\nPOR,C\nCreatures you control get +1/+1 until end of turn."
+    IDS_STRING19881         "Whiptail Wurm\n{6G}\nCreature - Wurm\nPOR,U\n\n8/5"
+    IDS_STRING19882         "Wicked Pact\n{1BB}\nSorcery\nPOR,R\nDestroy two target nonblack creatures. You lose 5 life."
+    IDS_STRING19883         "Willow Dryad\n{G}\nCreature - Dryad\nPOR,C\nForestwalk\n1/1"
+    IDS_STRING19884         "Alabaster Dragon\n{4WW}\nCreature - Dragon\nPOR,R\nFlying\rWhen Alabaster Dragon dies, shuffle it into its owner's library.\n4/4"
+    IDS_STRING19885         "Anaconda\n{3G}\nCreature - Snake\nPOR,U\nSwampwalk\n3/3"
+    IDS_STRING19886         "Archangel\n{5WW}\nCreature - Angel\nPOR,R\nFlying, vigilance\n5/5"
+    IDS_STRING19887         "Ardent Militia\n{4W}\nCreature - Human Soldier\nPOR,U\nVigilance\n2/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19888         "Armored Pegasus\n{1W}\nCreature - Pegasus\nPOR,C\nFlying\n1/2"
+    IDS_STRING19889         "Bog Imp\n{1B}\nCreature - Imp\nPOR,C\nFlying\n1/1"
+    IDS_STRING19890         "Bog Raiders\n{2B}\nCreature - Zombie\nPOR,C\nSwampwalk\n2/2"
+    IDS_STRING19891         "Bog Wraith\n{3B}\nCreature - Wraith\nPOR,U\nSwampwalk\n3/3"
+    IDS_STRING19892         "Bull Hippo\n{3G}\nCreature - Hippo\nPOR,U\nIslandwalk\n3/3"
+    IDS_STRING19893         "Charging Paladin\n{2W}\nCreature - Human Knight\nPOR,U\nWhenever Charging Paladin attacks, it gets +0/+3 until end of turn.\n2/2"
+    IDS_STRING19894         "Charging Rhino\n{3GG}\nCreature - Rhino\nPOR,R\nCharging Rhino can't be blocked by more than one creature.\n4/4"
+    IDS_STRING19895         "Cloud Spirit\n{2U}\nCreature - Spirit\nPOR,U\nFlying\rCloud Spirit can block only creatures with flying.\n3/1"
+    IDS_STRING19896         "Coral Eel\n{1U}\nCreature - Fish\nPOR,C\n\n2/1"
+    IDS_STRING19897         "Craven Giant\n{2R}\nCreature - Giant\nPOR,C\nCraven Giant can't block.\n4/1"
+    IDS_STRING19898         "Elvish Ranger\n{2G}\nCreature - Elf\nPOR,C\n\n4/1"
+    IDS_STRING19899         "Feral Shadow\n{2B}\nCreature - Nightstalker\nPOR,C\nFlying\n2/1"
+    IDS_STRING19900         "Foot Soldiers\n{3W}\nCreature - Human Soldier\nPOR,C\n\n2/4"
+    IDS_STRING19901         "Giant Octopus\n{3U}\nCreature - Octopus\nPOR,C\n\n3/3"
+    IDS_STRING19902         "Giant Spider\n{3G}\nCreature - Spider\nPOR,C\nReach\n2/4"
+    IDS_STRING19903         "Gorilla Warrior\n{2G}\nCreature - Ape Warrior\nPOR,C\n\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19904         "Gravedigger\n{3B}\nCreature - Zombie\nPOR,U\nWhen Gravedigger enters the battlefield, you may return target creature card from your graveyard to your hand.\n2/2"
+    IDS_STRING19905         "Grizzly Bears\n{1G}\nCreature - Bear\nPOR,C\n\n2/2"
+    IDS_STRING19906         "Hill Giant\n{3R}\nCreature - Giant\nPOR,C\n\n3/3"
+    IDS_STRING19907         "Horned Turtle\n{2U}\nCreature - Turtle\nPOR,C\n\n1/4"
+    IDS_STRING19908         "Hulking Cyclops\n{3RR}\nCreature - Cyclops\nPOR,U\nHulking Cyclops can't block.\n5/5"
+    IDS_STRING19909         "Knight Errant\n{1W}\nCreature - Human Knight\nPOR,C\n\n2/2"
+    IDS_STRING19910         "Man-o'-War\n{2U}\nCreature - Jellyfish\nPOR,U\nWhen Man-o'-War enters the battlefield, return target creature to its owner's hand.\n2/2"
+    IDS_STRING19911         "Merfolk of the Pearl Trident\n{U}\nCreature - Merfolk\nPOR,C\n\n1/1"
+    IDS_STRING19912         "Mountain Goat\n{R}\nCreature - Goat\nPOR,U\nMountainwalk\n1/1"
+    IDS_STRING19913         "Panther Warriors\n{4G}\nCreature - Cat Warrior\nPOR,C\n\n6/3"
+    IDS_STRING19914         "Phantom Warrior\n{1UU}\nCreature - Illusion Warrior\nPOR,R\nPhantom Warrior is unblockable.\n2/2"
+    IDS_STRING19915         "Primeval Force\n{2GGG}\nCreature - Elemental\nPOR,R\nWhen Primeval Force enters the battlefield, sacrifice it unless you sacrifice three Forests.\n8/8"
+    IDS_STRING19916         "Python\n{1BB}\nCreature - Snake\nPOR,C\n\n3/2"
+    IDS_STRING19917         "Raging Goblin\n{R}\nCreature - Goblin Berserker\nPOR,C\nHaste\n1/1"
+    IDS_STRING19918         "Redwood Treefolk\n{4G}\nCreature - Treefolk\nPOR,C\n\n3/6"
+    IDS_STRING19919         "Regal Unicorn\n{2W}\nCreature - Unicorn\nPOR,C\n\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19920         "Seasoned Marshal\n{2WW}\nCreature - Human Soldier\nPOR,U\nWhenever Seasoned Marshal attacks, you may tap target creature.\n2/2"
+    IDS_STRING19921         "Serpent Warrior\n{2B}\nCreature - Snake Warrior\nPOR,C\nWhen Serpent Warrior enters the battlefield, you lose 3 life.\n3/3"
+    IDS_STRING19922         "Snapping Drake\n{3U}\nCreature - Drake\nPOR,C\nFlying\n3/2"
+    IDS_STRING19923         "Spined Wurm\n{4G}\nCreature - Wurm\nPOR,C\n\n5/4"
+    IDS_STRING19924         "Stalking Tiger\n{3G}\nCreature - Cat\nPOR,C\nStalking Tiger can't be blocked by more than one creature.\n3/3"
+    IDS_STRING19925         "Storm Crow\n{1U}\nCreature - Bird\nPOR,C\nFlying\n1/2"
+    IDS_STRING19926         "Thundermare\n{5R}\nCreature - Elemental Horse\nPOR,R\nHaste\rWhen Thundermare enters the battlefield, tap all other creatures.\n5/5"
+    IDS_STRING19927         "Venerable Monk\n{2W}\nCreature - Human Monk Cleric\nPOR,U\nWhen Venerable Monk enters the battlefield, you gain 2 life.\n2/2"
+    IDS_STRING19928         "Volcanic Dragon\n{4RR}\nCreature - Dragon\nPOR,R\nFlying, haste\n4/4"
+    IDS_STRING19929         "Wall of Swords\n{3W}\nCreature - Wall\nPOR,U\nDefender, flying\n3/5"
+    IDS_STRING19930         "Wind Drake\n{2U}\nCreature - Drake\nPOR,C\nFlying\n2/2"
+    IDS_STRING19931         "Wood Elves\n{2G}\nCreature - Elf Scout\nPOR,R\nWhen Wood Elves enters the battlefield, search your library for a Forest card and put that card onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING19932         "Forest\n\nBasic Land - Forest\nPOR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19933         "Forest\n\nBasic Land - Forest\nPOR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19934         "Forest\n\nBasic Land - Forest\nPOR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19935         "Forest\n\nBasic Land - Forest\nPOR,BL\n{T}: Add {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19936         "Island\n\nBasic Land - Island\nPOR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19937         "Island\n\nBasic Land - Island\nPOR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19938         "Island\n\nBasic Land - Island\nPOR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19939         "Island\n\nBasic Land - Island\nPOR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19940         "Mountain\n\nBasic Land - Mountain\nPOR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19941         "Mountain\n\nBasic Land - Mountain\nPOR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19942         "Mountain\n\nBasic Land - Mountain\nPOR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19943         "Mountain\n\nBasic Land - Mountain\nPOR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19944         "Plains\n\nBasic Land - Plains\nPOR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19945         "Plains\n\nBasic Land - Plains\nPOR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19946         "Plains\n\nBasic Land - Plains\nPOR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19947         "Plains\n\nBasic Land - Plains\nPOR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19948         "Swamp\n\nBasic Land - Swamp\nPOR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19949         "Swamp\n\nBasic Land - Swamp\nPOR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19950         "Swamp\n\nBasic Land - Swamp\nPOR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19951         "Swamp\n\nBasic Land - Swamp\nPOR,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19952         "Blessed Reversal\n{1W}\nInstant\nPOR,R\nYou gain 3 life for each creature attacking you."
+    IDS_STRING19953         "Ancestral Memories\n{2UUU}\nSorcery\nPOR,R\nLook at the top seven cards of your library. Put two of them into your hand and the rest into your graveyard."
+    IDS_STRING19954         "Angelic Blessing\n{2W}\nSorcery\nPOR,C\nTarget creature gets +3/+3 and gains flying until end of turn."
+    IDS_STRING19955         "Armageddon\n{3W}\nSorcery\nPOR,R\nDestroy all lands."
+    IDS_STRING19956         "Balance of Power\n{3UU}\nSorcery\nPOR,R\nIf target opponent has more cards in hand than you, draw cards equal to the difference."
+    IDS_STRING19957         "Baleful Stare\n{2U}\nSorcery\nPOR,U\nTarget opponent reveals his or her hand. You draw a card for each Mountain and red card in it."
+    IDS_STRING19958         "Blaze\n{XR}\nSorcery\nPOR,U\nBlaze deals X damage to target creature or player."
+    IDS_STRING19959         "Blaze\n{XR}\nSorcery\nPOR,U\nBlaze deals X damage to target creature or player."
+    IDS_STRING19960         "Blinding Light\n{2W}\nSorcery\nPOR,R\nTap all nonwhite creatures."
+    IDS_STRING19961         "Boiling Seas\n{3R}\nSorcery\nPOR,U\nDestroy all Islands."
+    IDS_STRING19962         "Breath of Life\n{3W}\nSorcery\nPOR,C\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING19963         "Dry Spell\n{1B}\nSorcery\nPOR,U\nDry Spell deals 1 damage to each creature and each player."
+    IDS_STRING19964         "Earthquake\n{XR}\nSorcery\nPOR,R\nEarthquake deals X damage to each creature without flying and each player."
+    IDS_STRING19965         "Elven Cache\n{2GG}\nSorcery\nPOR,C\nReturn target card from your graveyard to your hand."
+    IDS_STRING19966         "Exhaustion\n{2U}\nSorcery\nPOR,R\nCreatures and lands target opponent controls don't untap during his or her next untap step."
+    IDS_STRING19967         "Flashfires\n{3R}\nSorcery\nPOR,U\nDestroy all Plains."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19968         "Gift of Estates\n{1W}\nSorcery\nPOR,R\nIf an opponent has more lands than you, search your library for up to three Plains cards, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING19969         "Hurricane\n{XG}\nSorcery\nPOR,R\nHurricane deals X damage to each creature with flying and each player."
+    IDS_STRING19970         "Lava Axe\n{4R}\nSorcery\nPOR,C\nLava Axe deals 5 damage to target player."
+    IDS_STRING19971         "Mind Rot\n{2B}\nSorcery\nPOR,C\nTarget player discards two cards."
+    IDS_STRING19972         "Monstrous Growth\n{1G}\nSorcery\nPOR,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING19973         "Natural Order\n{2GG}\nSorcery\nPOR,R\nAs an additional cost to cast Natural Order, sacrifice a green creature.\rSearch your library for a green creature card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING19974         "Natural Spring\n{3GG}\nSorcery\nPOR,U\nTarget player gains 8 life."
+    IDS_STRING19975         "Nature's Lore\n{1G}\nSorcery\nPOR,C\nSearch your library for a Forest card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING19976         "Needle Storm\n{2G}\nSorcery\nPOR,U\nNeedle Storm deals 4 damage to each creature with flying."
+    IDS_STRING19977         "Path of Peace\n{3W}\nSorcery\nPOR,C\nDestroy target creature. Its owner gains 4 life."
+    IDS_STRING19978         "Prosperity\n{XU}\nSorcery\nPOR,R\nEach player draws X cards."
+    IDS_STRING19979         "Pyroclasm\n{1R}\nSorcery\nPOR,R\nPyroclasm deals 2 damage to each creature."
+    IDS_STRING19980         "Rain of Salt\n{4RR}\nSorcery\nPOR,U\nDestroy two target lands."
+    IDS_STRING19981         "Rain of Tears\n{1BB}\nSorcery\nPOR,U\nDestroy target land."
+    IDS_STRING19982         "Raise Dead\n{B}\nSorcery\nPOR,C\nReturn target creature card from your graveyard to your hand."
+    IDS_STRING19983         "Sacred Nectar\n{1W}\nSorcery\nPOR,C\nYou gain 4 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19984         "Spitting Earth\n{1R}\nSorcery\nPOR,C\nSpitting Earth deals damage to target creature equal to the number of Mountains you control."
+    IDS_STRING19985         "Starlight\n{1W}\nSorcery\nPOR,U\nYou gain 3 life for each black creature target opponent controls."
+    IDS_STRING19986         "Stone Rain\n{2R}\nSorcery\nPOR,C\nDestroy target land."
+    IDS_STRING19987         "Summer Bloom\n{1G}\nSorcery\nPOR,R\nYou may play up to three additional lands this turn."
+    IDS_STRING19988         "Theft of Dreams\n{2U}\nSorcery\nPOR,U\nDraw a card for each tapped creature target opponent controls."
+    IDS_STRING19989         "Tidal Surge\n{1U}\nSorcery\nPOR,C\nTap up to three target creatures without flying."
+    IDS_STRING19990         "Time Ebb\n{2U}\nSorcery\nPOR,C\nPut target creature on top of its owner's library."
+    IDS_STRING19991         "Untamed Wilds\n{2G}\nSorcery\nPOR,U\nSearch your library for a basic land card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING19992         "Vengeance\n{3W}\nSorcery\nPOR,U\nDestroy target tapped creature."
+    IDS_STRING19993         "Volcanic Hammer\n{1R}\nSorcery\nPOR,C\nVolcanic Hammer deals 3 damage to target creature or player."
+    IDS_STRING19994         "Winter's Grasp\n{1GG}\nSorcery\nPOR,U\nDestroy target land."
+    IDS_STRING19995         "Withering Gaze\n{2U}\nSorcery\nPOR,U\nTarget opponent reveals his or her hand. You draw a card for each Forest and green card in it."
+    IDS_STRING19996         "Wrath of God\n{2WW}\nSorcery\nPOR,R\nDestroy all creatures. They can't be regenerated."
+    IDS_STRING19997         "Anaconda\n{3G}\nCreature - Snake\nPOR,U\nSwampwalk\n3/3"
+    IDS_STRING19998         "Raging Goblin\n{R}\nCreature - Goblin Berserker\nPOR,C\nHaste\n1/1"
+    IDS_STRING19999         "Monstrous Growth\n{1G}\nSorcery\nPOR,C\nTarget creature gets +4/+4 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20000         "Capricious Sorcerer\n{2U}\nCreature - Human Wizard\nPOR,R\n{T}: Capricious Sorcerer deals 1 damage to target creature or player. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20001         "King's Assassin\n{1BB}\nCreature - Human Assassin\nPOR,R\n{T}: Destroy target tapped creature. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20002         "Stern Marshal\n{2W}\nCreature - Human Soldier\nPOR,R\n{T}: Target creature gets +2/+2 until end of turn. Activate this ability only during your turn, before attackers are declared.\n2/2"
+    IDS_STRING20003         "Owl Familiar\n{1U}\nCreature - Bird\nPOR,C\nFlying\rWhen Owl Familiar enters the battlefield, draw a card, then discard a card.\n1/1"
+    IDS_STRING20004         "Fire Dragon\n{6RRR}\nCreature - Dragon\nPOR,R\nFlying\rWhen Fire Dragon enters the battlefield, it deals damage equal to the number of Mountains you control to target creature.\n6/6"
+    IDS_STRING20005         "Burning Cloak\n{R}\nSorcery\nPOR,C\nTarget creature gets +2/+0 until end of turn. Burning Cloak deals 2 damage to that creature."
+    IDS_STRING20006         "Cruel Fate\n{4U}\nSorcery\nPOR,R\nLook at the top five cards of target opponent's library. Put one of those cards into that player's graveyard, and the rest on top of his or her library in any order."
+    IDS_STRING20007         "Final Strike\n{2BB}\nSorcery\nPOR,R\nAs an additional cost to cast Final Strike, sacrifice a creature.\rFinal Strike deals damage to target opponent equal to the sacrificed creature's power."
+    IDS_STRING20008         "Fruition\n{G}\nSorcery\nPOR,C\nYou gain 1 life for each Forest on the battlefield."
+    IDS_STRING20009         "Omen\n{1U}\nSorcery\nPOR,C\nLook at the top three cards of your library, then put them back in any order. You may shuffle your library.\rDraw a card."
+    IDS_STRING20010         "Winds of Change\n{R}\nSorcery\nPOR,R\nEach player shuffles the cards from his or her hand into his or her library, then draws that many cards."
+    IDS_STRING20011         "False Peace\n{W}\nSorcery\nPOR,C\nTarget player skips all combat phases of his or her next turn."
+    IDS_STRING20012         "Flux\n{2U}\nSorcery\nPOR,U\nEach player discards any number of cards, then draws that many cards.\rDraw a card."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

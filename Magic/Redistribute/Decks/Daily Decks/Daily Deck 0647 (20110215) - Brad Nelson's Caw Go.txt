@@ -1,0 +1,68 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 7 (11.67%)
+
+3 Gideon Jura (20966)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+4 Squadron Hawk (21218)
+4 Stoneforge Mystic (19638)
+
+// Instants - 9 (15.00%)
+
+Deprive (20934)
+2 Mana Leak (21214)
+4 Spell Pierce (19377)
+2 Stoic Rebuttal (21456)
+
+// Sorceries - 8 (13.33%)
+
+4 Day of Judgment (21263)
+4 Preordain (21152)
+
+// Artifacts - 2 (3.33%)
+
+Sword of Feast and Famine (21762)
+Sylvok Lifestaff (21557)
+
+// Lands - 26 (43.33%)
+
+4 Celestial Colonnade (19602)
+4 Glacial Fortress (21128)
+2 Island (21771)
+2 Island (21770)
+Marsh Flats (19357)
+2 Plains (21775)
+2 Plains (21774)
+Scalding Tarn (19358)
+4 Seachrome Coast (21459)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth Tirel (21433)
+
+// Creatures
+
+Baneslayer Angel (21125)
+
+// Instants
+
+Deprive (20934)
+2 Divine Offering (21783)
+2 Flashfreeze (21133)
+
+// Sorceries
+
+4 Oust (20981)
+
+// Artifacts
+
+3 Ratchet Bomb (21528)
+Sword of Body and Mind (21420)

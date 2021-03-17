@@ -1,0 +1,38 @@
+// Infestation
+// 7th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+Fire Elemental (734)
+2 Goblin Chariot (739)
+2 Goblin Digging Team (732)
+2 Goblin Gardener (955)
+Goblin Glider (745)
+Goblin King (731)
+Goblin Matron (959)
+2 Goblin Raider (740)
+Patagia Golem (735)
+2 Raging Goblin (733)
+Trained Orgg (746)
+
+// Instants - 3 (7.50%)
+
+Lightning Blast (703)
+2 Shock (736)
+
+// Sorceries - 5 (12.50%)
+
+Blaze (738)
+2 Pillage (737)
+2 Spitting Earth (953)
+
+// Lands - 16 (40.00%)
+
+4 Mountain (741)
+4 Mountain (742)
+4 Mountain (743)
+4 Mountain (744)

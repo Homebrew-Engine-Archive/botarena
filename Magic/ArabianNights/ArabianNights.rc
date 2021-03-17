@@ -1,0 +1,180 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "ArabianNights.ico"
+IDI_LARGE_MODULE        ICON                    "ArabianNightsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Arabian Nights"
+    IDS_EXPANSION_ABBREV    "ARN"
+    IDS_FIRST_CARD          "5000"
+    IDS_TOTAL_CARD          "92"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "5092"
+    IDS_MODULE_LARGE_ICON_ID "5093"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-12-1993"
+    IDS_MWS_FOLDER          "MWS\\ARN\\"
+    IDS_PRODUCT_LIST        """Arabian Nights Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5000          "Aladdin's Ring\n{8}\nArtifact\nARN,R\n{8}, {T}: Aladdin's Ring deals 4 damage to target creature or player."
+    IDS_STRING5001          "Bottle of Suleiman\n{4}\nArtifact\nARN,R\n{1}, Sacrifice Bottle of Suleiman: Flip a coin. If you lose the flip, Bottle of Suleiman deals 5 damage to you. If you win the flip, put a 5/5 colorless Djinn artifact creature token with flying onto the battlefield."
+    IDS_STRING5002          "City of Brass\n\nLand\nARN,U\nWhenever City of Brass becomes tapped, it deals 1 damage to you.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING5003          "Dancing Scimitar\n{4}\nArtifact Creature - Spirit\nARN,R\nFlying\n1/5"
+    IDS_STRING5004          "Fishliver Oil\n{1U}\nEnchantment - Aura\nARN,C\nEnchant creature\rEnchanted creature has islandwalk."
+    IDS_STRING5005          "Flying Carpet\n{4}\nArtifact\nARN,U\n{2}, {T}: Target creature gains flying until end of turn."
+    IDS_STRING5006          "Jandor's Saddlebags\n{2}\nArtifact\nARN,R\n{3}, {T}: Untap target creature."
+    IDS_STRING5007          "Kird Ape\n{R}\nCreature - Ape\nARN,C\nKird Ape gets +1/+2 as long as you control a Forest.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5008          "Mountain\n\nBasic Land - Mountain\nARN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING5009          "Rukh Egg\n{3R}\nCreature - Bird\nARN,C\nWhen Rukh Egg dies, put a 4/4 red Bird creature token with flying onto the battlefield at the beginning of the next end step.\n0/3"
+    IDS_STRING5010          "Bazaar of Baghdad\n\nLand\nARN,U\n{T}: Draw two cards, then discard three cards."
+    IDS_STRING5011          "Ali from Cairo\n{2RR}\nCreature - Human\nARN,R\nDamage that would reduce your life total to less than 1 reduces it to 1 instead.\n0/1"
+    IDS_STRING5012          "Juzám Djinn\n{2BB}\nCreature - Djinn\nARN,R\nAt the beginning of your upkeep, Juzám Djinn deals 1 damage to you.\n5/5"
+    IDS_STRING5013          "Serendib Efreet\n{2U}\nCreature - Efreet\nARN,R\nFlying\rAt the beginning of your upkeep, Serendib Efreet deals 1 damage to you.\n3/4"
+    IDS_STRING5014          "Wyluli Wolf\n{1G}\nCreature - Wolf\nARN,C\n{T}: Target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING5015          "Dandân\n{UU}\nCreature - Fish\nARN,C\nDandân can't attack unless defending player controls an Island.\rWhen you control no Islands, sacrifice Dandân.\n4/1"
+    IDS_STRING5016          "Flying Men\n{U}\nCreature - Human\nARN,C\nFlying\n1/1"
+    IDS_STRING5017          "Bird Maiden\n{2R}\nCreature - Human Bird\nARN,C\nFlying\n1/2"
+    IDS_STRING5018          "Junún Efreet\n{1BB}\nCreature - Efreet\nARN,R\nFlying\rAt the beginning of your upkeep, sacrifice Junún Efreet unless you pay {BB}.\n1/2"
+    IDS_STRING5019          "Sindbad\n{1U}\nCreature - Human\nARN,U\n{T}: Draw a card and reveal it. If it isn't a land card, discard it.\n1/1"
+    IDS_STRING5020          "Army of Allah\n{1WW}\nInstant\nARN,C\nAttacking creatures get +2/+0 until end of turn."
+    IDS_STRING5021          "Desert Twister\n{4GG}\nSorcery\nARN,U\nDestroy target permanent."
+    IDS_STRING5022          "Ali Baba\n{R}\nCreature - Human Rogue\nARN,U\n{R}: Tap target Wall.\n1/1"
+    IDS_STRING5023          "Desert\n\nLand - Desert\nARN,C\n{T}: Add {1} to your mana pool.\r{T}: Desert deals 1 damage to target attacking creature. Activate this ability only during the end of combat step."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5024          "Elephant Graveyard\n\nLand\nARN,R\n{T}: Add {1} to your mana pool.\r{T}: Regenerate target Elephant."
+    IDS_STRING5025          "Stone-Throwing Devils\n{B}\nCreature - Devil\nARN,C\nFirst strike\n1/1"
+    IDS_STRING5026          "King Suleiman\n{1W}\nCreature - Human\nARN,R\n{T}: Destroy target Djinn or Efreet.\n1/1"
+    IDS_STRING5027          "Moorish Cavalry\n{2WW}\nCreature - Human Knight\nARN,C\nTrample\n3/3"
+    IDS_STRING5028          "Oasis\n\nLand\nARN,U\n{T}: Prevent the next 1 damage that would be dealt to target creature this turn."
+    IDS_STRING5029          "Piety\n{2W}\nInstant\nARN,C\nBlocking creatures get +0/+3 until end of turn."
+    IDS_STRING5030          "Repentant Blacksmith\n{1W}\nCreature - Human\nARN,R\nProtection from red\n1/2"
+    IDS_STRING5031          "Sandstorm\n{G}\nInstant\nARN,C\nSandstorm deals 1 damage to each attacking creature."
+    IDS_STRING5032          "Hasran Ogress\n{BB}\nCreature - Ogre\nARN,C\nWhenever Hasran Ogress attacks, it deals 3 damage to you unless you pay {2}.\n3/2"
+    IDS_STRING5033          "El-Hajjâj\n{1BB}\nCreature - Human Wizard\nARN,R\nWhenever El-Hajjâj deals damage, you gain that much life.\n1/1"
+    IDS_STRING5034          "Brass Man\n{1}\nArtifact Creature - Construct\nARN,U\nBrass Man doesn't untap during your untap step.\rAt the beginning of your upkeep, you may pay {1}. If you do, untap Brass Man.\n1/3"
+    IDS_STRING5035          "Hasran Ogress\n{BB}\nCreature - Ogre\nARN,C\nWhenever Hasran Ogress attacks, it deals 3 damage to you unless you pay {2}.\n3/2"
+    IDS_STRING5036          "Stone-Throwing Devils\n{B}\nCreature - Devil\nARN,C\nFirst strike\n1/1"
+    IDS_STRING5037          "Fishliver Oil\n{1U}\nEnchantment - Aura\nARN,C\nEnchant creature\rEnchanted creature has islandwalk."
+    IDS_STRING5038          "Wyluli Wolf\n{1G}\nCreature - Wolf\nARN,C\n{T}: Target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING5039          "Bird Maiden\n{2R}\nCreature - Human Bird\nARN,C\nFlying\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5040          "Rukh Egg\n{3R}\nCreature - Bird\nARN,C\nWhen Rukh Egg dies, put a 4/4 red Bird creature token with flying onto the battlefield at the beginning of the next end step.\n0/3"
+    IDS_STRING5041          "Army of Allah\n{1WW}\nInstant\nARN,C\nAttacking creatures get +2/+0 until end of turn."
+    IDS_STRING5042          "Moorish Cavalry\n{2WW}\nCreature - Human Knight\nARN,C\nTrample\n3/3"
+    IDS_STRING5043          "Piety\n{2W}\nInstant\nARN,C\nBlocking creatures get +0/+3 until end of turn."
+    IDS_STRING5044          "Giant Tortoise\n{1U}\nCreature - Turtle\nARN,C\nGiant Tortoise gets +0/+3 as long as it's untapped.\n1/1"
+    IDS_STRING5045          "Giant Tortoise\n{1U}\nCreature - Turtle\nARN,C\nGiant Tortoise gets +0/+3 as long as it's untapped.\n1/1"
+    IDS_STRING5046          "Ebony Horse\n{3}\nArtifact\nARN,R\n{2}, {T}: Untap target attacking creature you control. Prevent all combat damage that would be dealt to and dealt by that creature this turn."
+    IDS_STRING5047          "Library of Alexandria\n\nLand\nARN,U\n{T}: Add {1} to your mana pool.\r{T}: Draw a card. Activate this ability only if you have exactly seven cards in hand."
+    IDS_STRING5048          "Island Fish Jasconius\n{4UUU}\nCreature - Fish\nARN,R\nIsland Fish Jasconius can't attack unless defending player controls an Island.\rIsland Fish Jasconius doesn't untap during your untap step.\rAt the beginning of your upkeep, you may pay {UUU}. If you do, untap Island Fish Jasconius.\rWhen you control no Islands, sacrifice Island Fish Jasconius.\n6/8"
+    IDS_STRING5049          "Sorceress Queen\n{1BB}\nCreature - Human Wizard\nARN,U\n{T}: Target creature other than Sorceress Queen becomes 0/2 until end of turn.\n1/1"
+    IDS_STRING5050          "Island of Wak-Wak\n\nLand\nARN,R\n{T}: The power of target creature with flying becomes 0 until end of turn."
+    IDS_STRING5051          "Singing Tree\n{3G}\nCreature - Plant\nARN,R\n{T}: Target attacking creature's power becomes 0 until end of turn.\n0/3"
+    IDS_STRING5052          "Hurr Jackal\n{R}\nCreature - Hound\nARN,C\n{T}: Target creature can't be regenerated this turn.\n1/1"
+    IDS_STRING5053          "Merchant Ship\n{U}\nCreature - Human\nARN,U\nMerchant Ship can't attack unless defending player controls an Island.\rWhenever Merchant Ship attacks and isn't blocked, you gain 2 life.\rWhen you control no Islands, sacrifice Merchant Ship.\n0/2"
+    IDS_STRING5054          "Diamond Valley\n\nLand\nARN,U\n{T}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness."
+    IDS_STRING5055          "Unstable Mutation\n{U}\nEnchantment - Aura\nARN,C\nEnchant creature\rEnchanted creature gets +3/+3.\rAt the beginning of the upkeep of enchanted creature's controller, put a -1/-1 counter on that creature."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5056          "Drop of Honey\n{G}\nEnchantment\nARN,R\nAt the beginning of your upkeep, destroy the creature with the least power. It can't be regenerated. If two or more creatures are tied for least power, you choose one of them.\rWhen there are no creatures on the battlefield, sacrifice Drop of Honey."
+    IDS_STRING5057          "Erhnam Djinn\n{3G}\nCreature - Djinn\nARN,R\nAt the beginning of your upkeep, target non-Wall creature an opponent controls gains forestwalk until your next upkeep.\n4/5"
+    IDS_STRING5058          "Erg Raiders\n{1B}\nCreature - Human Warrior\nARN,C\nAt the beginning of your end step, if Erg Raiders didn't attack this turn, Erg Raiders deals 2 damage to you unless it came under your control this turn.\n2/3"
+    IDS_STRING5059          "Erg Raiders\n{1B}\nCreature - Human Warrior\nARN,C\nAt the beginning of your end step, if Erg Raiders didn't attack this turn, Erg Raiders deals 2 damage to you unless it came under your control this turn.\n2/3"
+    IDS_STRING5060          "Khabál Ghoul\n{2B}\nCreature - Zombie\nARN,U\nAt the beginning of each end step, put a +1/+1 counter on Khabál Ghoul for each creature that died this turn.\n1/1"
+    IDS_STRING5061          "Aladdin\n{2RR}\nCreature - Human Rogue\nARN,R\n{1RR}, {T}: Gain control of target artifact for as long as you control Aladdin.\n1/1"
+    IDS_STRING5062          "Ghazbán Ogre\n{G}\nCreature - Ogre\nARN,C\nAt the beginning of your upkeep, if a player has more life than each other player, the player with the most life gains control of Ghazbán Ogre.\n2/2"
+    IDS_STRING5063          "Mijae Djinn\n{RRR}\nCreature - Djinn\nARN,R\nWhenever Mijae Djinn attacks, flip a coin. If you lose the flip, remove Mijae Djinn from combat and tap it.\n6/3"
+    IDS_STRING5064          "Jandor's Ring\n{6}\nArtifact\nARN,R\n{2}, {T}, Discard the last card you drew this turn: Draw a card."
+    IDS_STRING5065          "Serendib Djinn\n{2UU}\nCreature - Djinn\nARN,R\nFlying\rAt the beginning of your upkeep, sacrifice a land. If you sacrifice an Island this way, Serendib Djinn deals 3 damage to you.\rWhen you control no lands, sacrifice Serendib Djinn.\n5/6"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,187 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Antiquities.ico"
+IDI_LARGE_MODULE        ICON                    "AntiquitiesLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Antiquities"
+    IDS_EXPANSION_ABBREV    "ATQ"
+    IDS_FIRST_CARD          "5100"
+    IDS_TOTAL_CARD          "100"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "5200"
+    IDS_MODULE_LARGE_ICON_ID "5201"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-03-1994"
+    IDS_MWS_FOLDER          "MWS\\ATQ\\"
+    IDS_PRODUCT_LIST        """Antiquities Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5100          "The Rack\n{1}\nArtifact\nATQ,U\nAs The Rack enters the battlefield, choose an opponent.\rAt the beginning of the chosen player's upkeep, The Rack deals X damage to that player, where X is 3 minus the number of cards in his or her hand."
+    IDS_STRING5101          "Atog\n{1R}\nCreature - Atog\nATQ,C\nSacrifice an artifact: Atog gets +2/+2 until end of turn.\n1/2"
+    IDS_STRING5102          "Strip Mine\n\nLand\nATQ,R\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Strip Mine: Destroy target land."
+    IDS_STRING5103          "Urza's Tower\n\nLand - Urza's Tower\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5104          "Urza's Power Plant\n\nLand - Urza's Power-Plant\nATQ,C\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5105          "Urza's Mine\n\nLand - Urza's Mine\nATQ,C\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5106          "Yawgmoth Demon\n{4BB}\nCreature - Demon\nATQ,R\nFlying\rFirst strike\rAt the beginning of your upkeep, you may sacrifice an artifact. If you don't, tap Yawgmoth Demon and it deals 2 damage to you.\n6/6"
+    IDS_STRING5107          "Wall of Spears\n{3}\nArtifact Creature - Wall\nATQ,U\nDefender\rFirst strike\n2/3"
+    IDS_STRING5108          "Shatterstorm\n{2RR}\nSorcery\nATQ,R\nDestroy all artifacts. They can't be regenerated."
+    IDS_STRING5109          "Sage of Lat-Nam\n{1U}\nCreature - Human Artificer\nATQ,C\n{T}, Sacrifice an artifact: Draw a card.\n1/2"
+    IDS_STRING5110          "Primal Clay\n{4}\nArtifact Creature - Shapeshifter\nATQ,U\nAs Primal Clay enters the battlefield, it becomes your choice of a 3/3 artifact creature, a 2/2 artifact creature with flying, or a 1/6 Wall artifact creature with defender in addition to its other types.\n*/*"
+    IDS_STRING5111          "Ornithopter\n{0}\nArtifact Creature - Thopter\nATQ,C\nFlying\n0/2"
+    IDS_STRING5112          "Millstone\n{2}\nArtifact\nATQ,U\n{2}, {T}: Target player puts the top two cards of his or her library into his or her graveyard."
+    IDS_STRING5113          "Jalum Tome\n{3}\nArtifact\nATQ,U\n{2}, {T}: Draw a card, then discard a card."
+    IDS_STRING5114          "Grapeshot Catapult\n{4}\nArtifact Creature - Construct\nATQ,C\n{T}: Grapeshot Catapult deals 1 damage to target creature with flying.\n2/3"
+    IDS_STRING5115          "Dragon Engine\n{3}\nArtifact Creature - Construct\nATQ,C\n{2}: Dragon Engine gets +1/+0 until end of turn.\n1/3"
+    IDS_STRING5116          "Colossus of Sardia\n{9}\nArtifact Creature - Golem\nATQ,R\nTrample\rColossus of Sardia doesn't untap during your untap step.\r{9}: Untap Colossus of Sardia. Activate this ability only during your upkeep.\n9/9"
+    IDS_STRING5117          "Ashnod's Altar\n{3}\nArtifact\nATQ,U\nSacrifice a creature: Add {2} to your mana pool."
+    IDS_STRING5118          "Amulet of Kroog\n{2}\nArtifact\nATQ,C\n{2}, {T}: Prevent the next 1 damage that would be dealt to target creature or player this turn."
+    IDS_STRING5119          "Ivory Tower\n{1}\nArtifact\nATQ,U\nAt the beginning of your upkeep, you gain X life, where X is the number of cards in your hand minus four."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5120          "Yotian Soldier\n{3}\nArtifact Creature - Soldier\nATQ,C\nVigilance\n1/4"
+    IDS_STRING5121          "Clay Statue\n{4}\nArtifact Creature - Golem\nATQ,C\n{2}: Regenerate Clay Statue.\n3/1"
+    IDS_STRING5122          "Argivian Archaeologist\n{1WW}\nCreature - Human Artificer\nATQ,R\n{WW}, {T}: Return target artifact card from your graveyard to your hand.\n1/1"
+    IDS_STRING5123          "Staff of Zegon\n{4}\nArtifact\nATQ,C\n{3}, {T}: Target creature gets -2/-0 until end of turn."
+    IDS_STRING5124          "Weakstone\n{4}\nArtifact\nATQ,U\nAttacking creatures get -1/-0."
+    IDS_STRING5125          "Mightstone\n{4}\nArtifact\nATQ,U\nAttacking creatures get +1/+0."
+    IDS_STRING5126          "Reconstruction\n{U}\nSorcery\nATQ,C\nReturn target artifact card from your graveyard to your hand."
+    IDS_STRING5127          "Strip Mine\n\nLand\nATQ,R\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Strip Mine: Destroy target land."
+    IDS_STRING5128          "Strip Mine\n\nLand\nATQ,U\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Strip Mine: Destroy target land."
+    IDS_STRING5129          "Strip Mine\n\nLand\nATQ,R\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Strip Mine: Destroy target land."
+    IDS_STRING5130          "Urza's Tower\n\nLand - Urza's Tower\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING5131          "Urza's Tower\n\nLand - Urza's Tower\nATQ,C\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING5132          "Urza's Tower\n\nLand - Urza's Tower\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Power-Plant, add {3} to your mana pool instead."
+    IDS_STRING5133          "Urza's Power Plant\n\nLand - Urza's Power-Plant\nATQ,C\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5134          "Urza's Power Plant\n\nLand - Urza's Power-Plant\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5135          "Urza's Power Plant\n\nLand - Urza's Power-Plant\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Mine and an Urza's Tower, add {2} to your mana pool instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5136          "Urza's Mine\n\nLand - Urza's Mine\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5137          "Urza's Mine\n\nLand - Urza's Mine\nATQ,C\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5138          "Urza's Mine\n\nLand - Urza's Mine\nATQ,U\n{T}: Add {1} to your mana pool. If you control an Urza's Power-Plant and an Urza's Tower, add {2} to your mana pool instead."
+    IDS_STRING5139          "Argivian Blacksmith\n{1WW}\nCreature - Human Artificer\nATQ,C\n{T}: Prevent the next 2 damage that would be dealt to target artifact creature this turn.\n2/2"
+    IDS_STRING5140          "Artifact Blast\n{R}\nInstant\nATQ,C\nCounter target artifact spell."
+    IDS_STRING5141          "Citanul Druid\n{1G}\nCreature - Human Druid\nATQ,U\nWhenever an opponent casts an artifact spell, put a +1/+1 counter on Citanul Druid.\n1/1"
+    IDS_STRING5142          "Gate to Phyrexia\n{BB}\nEnchantment\nATQ,U\nSacrifice a creature: Destroy target artifact. Activate this ability only during your upkeep and only once each turn."
+    IDS_STRING5143          "Mishra's Factory\n\nLand\nATQ,R\n{T}: Add {1} to your mana pool.\r{1}: Mishra's Factory becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land.\r{T}: Target Assembly-Worker creature gets +1/+1 until end of turn."
+    IDS_STRING5144          "Mishra's Factory\n\nLand\nATQ,R\n{T}: Add {1} to your mana pool.\r{1}: Mishra's Factory becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land.\r{T}: Target Assembly-Worker creature gets +1/+1 until end of turn."
+    IDS_STRING5145          "Mishra's Factory\n\nLand\nATQ,R\n{T}: Add {1} to your mana pool.\r{1}: Mishra's Factory becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land.\r{T}: Target Assembly-Worker creature gets +1/+1 until end of turn."
+    IDS_STRING5146          "Mishra's Factory\n\nLand\nATQ,U\n{T}: Add {1} to your mana pool.\r{1}: Mishra's Factory becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land.\r{T}: Target Assembly-Worker creature gets +1/+1 until end of turn."
+    IDS_STRING5147          "Onulet\n{3}\nArtifact Creature - Construct\nATQ,U\nWhen Onulet dies, you gain 2 life.\n2/2"
+    IDS_STRING5148          "Orcish Mechanics\n{2R}\nCreature - Orc\nATQ,C\n{T}, Sacrifice an artifact: Orcish Mechanics deals 2 damage to target creature or player.\n1/1"
+    IDS_STRING5149          "Tablet of Epityr\n{1}\nArtifact\nATQ,C\nWhenever an artifact you control is put into a graveyard from the battlefield, you may pay {1}. If you do, you gain 1 life."
+    IDS_STRING5150          "Tawnos's Wand\n{4}\nArtifact\nATQ,U\n{2}, {T}: Target creature with power 2 or less is unblockable this turn."
+    IDS_STRING5151          "Urza's Chalice\n{1}\nArtifact\nATQ,C\nWhenever a player casts an artifact spell, you may pay {1}. If you do, you gain 1 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5152          "Candelabra of Tawnos\n{1}\nArtifact\nATQ,R\n{X}, {T}: Untap X target lands."
+    IDS_STRING5153          "Hurkyl's Recall\n{1U}\nInstant\nATQ,R\nReturn all artifacts target player owns to his or her hand."
+    IDS_STRING5154          "Obelisk of Undoing\n{1}\nArtifact\nATQ,R\n{6}, {T}: Return target permanent you both own and control to your hand."
+    IDS_STRING5155          "Su-Chi\n{4}\nArtifact Creature - Construct\nATQ,U\nWhen Su-Chi dies, add {4} to your mana pool.\n4/4"
+    IDS_STRING5156          "Dwarven Weaponsmith\n{1R}\nCreature - Dwarf Artificer\nATQ,U\n{T}, Sacrifice an artifact: Put a +1/+1 counter on target creature. Activate this ability only during your upkeep.\n1/1"
+    IDS_STRING5157          "Shapeshifter\n{6}\nArtifact Creature - Shapeshifter\nATQ,R\nAs Shapeshifter enters the battlefield, choose a number between 0 and 7.\rAt the beginning of your upkeep, you may choose a number between 0 and 7.\rShapeshifter's power is equal to the last chosen number and its toughness is equal to 7 minus that number.\n*/7-*"
+    IDS_STRING5158          "Gaea's Avenger\n{1GG}\nCreature - Treefolk\nATQ,R\nGaea's Avenger's power and toughness are each equal to 1 plus the number of artifacts your opponents control.\n1+*/1+*"
+    IDS_STRING5159          "Damping Field\n{2W}\nEnchantment\nATQ,U\nPlayers can't untap more than one artifact during their untap steps."
+    IDS_STRING5160          "Triskelion\n{6}\nArtifact Creature - Construct\nATQ,R\nTriskelion enters the battlefield with three +1/+1 counters on it.\rRemove a +1/+1 counter from Triskelion: Triskelion deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING5161          "Ashnod's Transmogrant\n{1}\nArtifact\nATQ,U\n{T}, Sacrifice Ashnod's Transmogrant: Put a +1/+1 counter on target nonartifact creature. That creature becomes an artifact in addition to its other types."
+    IDS_STRING5162          "Rakalite\n{6}\nArtifact\nATQ,U\n{2}: Prevent the next 1 damage that would be dealt to target creature or player this turn. Return Rakalite to its owner's hand at the beginning of the next end step."
+    IDS_STRING5163          "Crumble\n{G}\nInstant\nATQ,C\nDestroy target artifact. It can't be regenerated. That artifact's controller gains life equal to its converted mana cost."
+    IDS_STRING5164          "Feldon's Cane\n{1}\nArtifact\nATQ,U\n{T}, Exile Feldon's Cane: Shuffle your graveyard into your library."
+    IDS_STRING5165          "Energy Flux\n{2U}\nEnchantment\nATQ,U\nAll artifacts have ""At the beginning of your upkeep, sacrifice this artifact unless you pay {2}."""
+    IDS_STRING5166          "Detonate\n{XR}\nSorcery\nATQ,U\nDestroy target artifact with converted mana cost X. It can't be regenerated. Detonate deals X damage to that artifact's controller."
+    IDS_STRING5167          "Rocket Launcher\n{4}\nArtifact\nATQ,U\n{2}: Rocket Launcher deals 1 damage to target creature or player. Destroy Rocket Launcher at the beginning of the next end step. Activate this ability only if you've controlled Rocket Launcher continuously since the beginning of your most recent turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5168          "Xenic Poltergeist\n{1BB}\nCreature - Spirit\nATQ,U\n{T}: Until your next upkeep, target noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost.\n1/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,34 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Gideon Jura (20966)
+
+// Creatures - 27 (45.00%)
+
+4 Accorder Paladin (21710)
+4 Hero of Bladehold (21706)
+4 Knight Exemplar (21211)
+4 Mirran Crusader (21703)
+Molten-Tail Masticore (21437)
+2 Stoneforge Mystic (19638)
+4 Student of Warfare (20963)
+4 White Knight (21268)
+
+// Enchantments - 3 (5.00%)
+
+3 Journey to Nowhere (19524)
+
+// Artifacts - 4 (6.67%)
+
+2 Flayer Husk (21763)
+Sword of Body and Mind (21420)
+Sword of Feast and Famine (21762)
+
+// Lands - 25 (41.67%)
+
+Emeria, the Sky Ruin (19348)
+11 Plains (21774)
+11 Plains (21775)
+Sejiri Steppe (19691)
+Tectonic Edge (19651)

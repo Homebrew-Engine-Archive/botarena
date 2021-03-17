@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 18 (30.00%)
+
+4 Bloodbraid Elf (9105)
+3 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+4 Pestermite (18123)
+2 Vendilion Clique (18369)
+Wurmcoil Engine (21439)
+
+// Instants - 8 (13.33%)
+
+4 Cryptic Command (18051)
+4 Lightning Bolt (21124)
+
+// Sorceries - 4 (6.67%)
+
+4 Preordain (21152)
+
+// Enchantments - 2 (3.33%)
+
+2 Splinter Twin (20998)
+
+// Lands - 24 (40.00%)
+
+3 Cascade Bluffs (18907)
+4 Copperline Gorge (21471)
+3 Flooded Grove (18914)
+Forest (21401)
+Forest (21400)
+Forest (21402)
+Island (21405)
+Island (21404)
+4 Misty Rainforest (19356)
+Mountain (21408)
+Mountain (21409)
+3 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Jace Beleren (21258)
+
+// Creatures
+
+3 Great Sable Stag (4013)
+3 Kitchen Finks (18593)
+
+// Instants
+
+4 Nature's Claim (19662)
+3 Spell Pierce (19377)
+
+// Enchantments
+
+Splinter Twin (20998)

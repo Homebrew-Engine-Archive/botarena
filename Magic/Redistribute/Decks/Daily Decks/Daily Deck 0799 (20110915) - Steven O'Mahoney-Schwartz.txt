@@ -1,0 +1,36 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 10 (25.00%)
+
+Blood Vassal (10800)
+Bog Raiders (10904)
+Cackling Fiend (10905)
+2 Carrion Beetles (10906)
+2 Hollow Dogs (10847)
+2 Phyrexian Ghoul (10927)
+Unworthy Dead (10945)
+
+// Instants - 1 (2.50%)
+
+Dark Ritual (10824)
+
+// Sorceries - 9 (22.50%)
+
+3 Befoul (10816)
+3 Corrupt (10823)
+Duress (10828)
+2 Unnerve (11037)
+
+// Enchantments - 2 (5.00%)
+
+Despondency (10974)
+Pestilence (10866)
+
+// Lands - 18 (45.00%)
+
+5 Swamp (10883)
+4 Swamp (10885)
+4 Swamp (10886)
+5 Swamp (10884)

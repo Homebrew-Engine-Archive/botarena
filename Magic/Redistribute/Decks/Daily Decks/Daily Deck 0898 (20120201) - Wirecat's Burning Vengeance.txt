@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+Garruk Wildspeaker (21205)
+4 Liliana of the Veil (23562)
+
+// Creatures - 7 (11.67%)
+
+3 Haakon, Stromgald Scourge (7027)
+4 Tarmogoyf (17704)
+
+// Instants - 3 (5.00%)
+
+3 Nameless Inversion (18108)
+
+// Sorceries - 18 (30.00%)
+
+3 Death Cloud (15277)
+4 Inquisition of Kozilek (20846)
+4 Life from the Loam (16597)
+3 Raven's Crime (18970)
+4 Smallpox (22151)
+
+// Enchantments - 3 (5.00%)
+
+3 Burning Vengeance (23567)
+
+// Lands - 24 (40.00%)
+
+4 Blackcleave Cliffs (21470)
+2 Blood Crypt (23839)
+2 Graven Cairns (18547)
+Lavaclaw Reaches (19698)
+2 Overgrown Tomb (16445)
+Swamp (23333)
+Swamp (23334)
+Swamp (23335)
+Tectonic Edge (19651)
+4 Twilight Mire (18929)
+Urborg, Tomb of Yawgmoth (2606)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+2 Ancient Grudge (23468)
+3 Nature's Claim (19662)
+2 Victim of Night (23403)
+
+// Sorceries
+
+3 Damnation (2505)
+
+// Artifacts
+
+Engineered Explosives (15510)
+3 Nihil Spellbomb (21540)
+
+// Lands
+
+Forest (23321)

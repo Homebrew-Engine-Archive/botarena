@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+4 Arcbound Ravager (15300)
+4 Arcbound Worker (15304)
+2 Atog (14822)
+4 Frogmite (15007)
+3 Master of Etherium (8594)
+4 Myr Enforcer (15010)
+4 Ornithopter (3117)
+
+// Instants - 1 (1.67%)
+
+Fatal Frenzy (2595)
+
+// Sorceries - 4 (6.67%)
+
+4 Thoughtcast (15014)
+
+// Artifacts - 12 (20.00%)
+
+4 Chromatic Star (3280)
+4 Cranial Plating (15458)
+4 Springleaf Drum (17994)
+
+// Lands - 18 (30.00%)
+
+4 Ancient Den (14926)
+2 Blinkmoth Nexus (15249)
+4 Great Furnace (14929)
+4 Seat of the Synod (14930)
+4 Vault of Whispers (14932)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Ethersworn Canonist (8728)
+
+// Instants
+
+4 Ancient Grudge (17272)
+3 Path to Exile (8897)
+
+// Sorceries
+
+4 Thoughtseize (17901)

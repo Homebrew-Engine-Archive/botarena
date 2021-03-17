@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 32 (53.33%)
+
+4 Bramblewood Paragon (18412)
+2 Elvish Champion (3041)
+4 Elvish Visionary (8507)
+4 Heritage Druid (18307)
+4 Imperious Perfect (17961)
+4 Llanowar Elves (3092)
+4 Nettle Sentinel (18902)
+3 Regal Force (19018)
+3 Wolf-Skull Shaman (18395)
+
+// Instants - 3 (5.00%)
+
+3 Manamorphose (18561)
+
+// Sorceries - 9 (15.00%)
+
+3 Elvish Promenade (18115)
+2 Hunting Triad (18377)
+4 Overrun (3309)
+
+// Lands - 16 (26.67%)
+
+4 Forest (8510)
+4 Forest (8509)
+4 Forest (8512)
+4 Forest (8511)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Garruk Wildspeaker (18029)
+
+// Creatures
+
+Wolf-Skull Shaman (18395)
+4 Wren's Run Vanquisher (18077)
+
+// Instants
+
+4 Guttural Response (18548)
+
+// Artifacts
+
+4 Thorn of Amethyst (18000)

@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+2 Ajani Goldmane (18047)
+2 Garruk Wildspeaker (18029)
+
+// Creatures - 22 (36.67%)
+
+4 Cloudgoat Ranger (17923)
+2 Elvish Visionary (8507)
+4 Kitchen Finks (18593)
+4 Noble Hierarch (8819)
+4 Steward of Valeron (8628)
+4 Wilt-Leaf Liege (18644)
+
+// Instants - 2 (3.33%)
+
+2 Path to Exile (8897)
+
+// Sorceries - 8 (13.33%)
+
+2 Martial Coup (8886)
+2 Overrun (3309)
+4 Spectral Procession (18640)
+
+// Lands - 24 (40.00%)
+
+4 Brushland (3020)
+Forest (8512)
+Forest (8511)
+Forest (8510)
+Forest (8509)
+Plains (8523)
+Plains (8525)
+Plains (8526)
+Plains (8524)
+4 Treetop Village (3308)
+4 Windbrisk Heights (18152)
+4 Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Burrenton Forge-Tender (18054)
+3 Cloudthresher (18015)
+
+// Instants
+
+3 Guttural Response (18548)
+2 Path to Exile (8897)
+
+// Enchantments
+
+3 Eyes of the Wisent (18136)

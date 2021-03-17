@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Creatures - 31 (51.67%)
+
+4 Bloodghast (19534)
+4 Bloodthrone Vampire (21277)
+3 Gatekeeper of Malakir (19442)
+4 Kalastria Highborn (19648)
+4 Pawn of Ulamog (20828)
+4 Pulse Tracker (19658)
+4 Vampire Lacerator (19494)
+4 Viscera Seer (21243)
+
+// Instants - 4 (6.67%)
+
+4 Vendetta (20859)
+
+// Artifacts - 3 (5.00%)
+
+3 Blade of the Bloodchief (19443)
+
+// Lands - 22 (36.67%)
+
+4 Marsh Flats (19357)
+4 Swamp (21417)
+4 Swamp (21416)
+3 Swamp (21419)
+3 Swamp (21418)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Gatekeeper of Malakir (19442)
+2 Skinrender (21525)
+
+// Instants
+
+Disfigure (19379)
+4 Doom Blade (21198)
+3 Smother (19600)
+
+// Enchantments
+
+4 Dark Tutelage (21245)

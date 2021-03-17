@@ -1,0 +1,266 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "AlaraReborn.ico"
+IDI_LARGE_MODULE        ICON                    "AlaraRebornLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Alara Reborn"
+    IDS_EXPANSION_ABBREV    "ARB"
+    IDS_FIRST_CARD          "9000"
+    IDS_TOTAL_CARD          "145"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "9145"
+    IDS_MODULE_LARGE_ICON_ID "9146"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "30-04-2009"
+    IDS_MWS_FOLDER          "MWS\\ARB\\"
+    IDS_PRODUCT_LIST        """Alara Reborn Booster Pack"":MR-8:R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9000          "Lord of Extinction\n{3BG}\nCreature - Elemental\nARB,MR\nLord of Extinction's power and toughness are each equal to the number of cards in all graveyards.\n*/*"
+    IDS_STRING9001          "Terminate\n{BR}\nInstant\nARB,C\nDestroy target creature. It can't be regenerated."
+    IDS_STRING9002          "Time Sieve\n{UB}\nArtifact\nARB,R\n{T}, Sacrifice five artifacts: Take an extra turn after this one."
+    IDS_STRING9003          "Behemoth Sledge\n{1GW}\nArtifact - Equipment\nARB,U\nEquipped creature gets +2/+2 and has trample and lifelink.\rEquip {3}"
+    IDS_STRING9004          "Brainbite\n{2UB}\nSorcery\nARB,C\nTarget opponent reveals his or her hand. You choose a card from it. That player discards that card.\rDraw a card."
+    IDS_STRING9005          "Breath of Malfegor\n{3BR}\nInstant\nARB,C\nBreath of Malfegor deals 5 damage to each opponent."
+    IDS_STRING9006          "Cerodon Yearling\n{RW}\nCreature - Beast\nARB,C\nVigilance, haste\n2/2"
+    IDS_STRING9007          "Colossal Might\n{RG}\nInstant\nARB,C\nTarget creature gets +4/+2 and gains trample until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9008          "Ethercaste Knight\n{1WU}\nArtifact Creature - Human Knight\nARB,C\nExalted\n1/3"
+    IDS_STRING9009          "Godtracker of Jund\n{1RG}\nCreature - Elf Shaman\nARB,C\nWhenever a creature with power 5 or greater enters the battlefield under your control, you may put a +1/+1 counter on Godtracker of Jund.\n2/2"
+    IDS_STRING9010          "Grizzled Leotau\n{GW}\nCreature - Cat\nARB,C\n\n1/5"
+    IDS_STRING9011          "Jenara, Asura of War\n{GWU}\nLegendary Creature - Angel\nARB,MR\nFlying\r{1W}: Put a +1/+1 counter on Jenara, Asura of War.\n3/3"
+    IDS_STRING9012          "Leonin Armorguard\n{2GW}\nCreature - Cat Soldier\nARB,C\nWhen Leonin Armorguard enters the battlefield, creatures you control get +1/+1 until end of turn.\n3/3"
+    IDS_STRING9013          "Lorescale Coatl\n{1GU}\nCreature - Snake\nARB,U\nWhenever you draw a card, you may put a +1/+1 counter on Lorescale Coatl.\n2/2"
+    IDS_STRING9014          "Madrush Cyclops\n{1BRG}\nCreature - Cyclops Warrior\nARB,R\nCreatures you control have haste.\n3/4"
+    IDS_STRING9015          "Magefire Wings\n{UR}\nEnchantment - Aura\nARB,C\nEnchant creature\rEnchanted creature gets +2/+0 and has flying."
+    IDS_STRING9016          "Meddling Mage\n{WU}\nCreature - Human Wizard\nARB,R\nAs Meddling Mage enters the battlefield, name a nonland card.\rThe named card can't be cast.\n2/2"
+    IDS_STRING9017          "Putrid Leech\n{BG}\nCreature - Zombie Leech\nARB,C\nPay 2 life: Putrid Leech gets +2/+2 until end of turn. Activate this ability only once each turn.\n2/2"
+    IDS_STRING9018          "Qasali Pridemage\n{GW}\nCreature - Cat Wizard\nARB,C\nExalted\r{1}, Sacrifice Qasali Pridemage: Destroy target artifact or enchantment.\n2/2"
+    IDS_STRING9019          "Rhox Brute\n{2RG}\nCreature - Rhino Warrior\nARB,C\n\n4/4"
+    IDS_STRING9020          "Sigiled Behemoth\n{4GW}\nCreature - Beast\nARB,C\nExalted\n5/4"
+    IDS_STRING9021          "Talon Trooper\n{1WU}\nCreature - Bird Scout\nARB,C\nFlying\n2/3"
+    IDS_STRING9022          "Vithian Renegades\n{1RG}\nCreature - Human Shaman\nARB,U\nWhen Vithian Renegades enters the battlefield, destroy target artifact.\n3/2"
+    IDS_STRING9023          "Wall of Denial\n{1WU}\nCreature - Wall\nARB,U\nDefender, flying, shroud\n0/8"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9024          "Winged Coatl\n{1GU}\nCreature - Snake\nARB,C\nFlash\rFlying\rDeathtouch\n1/1"
+    IDS_STRING9025          "Unbender Tine\n{2WU}\nArtifact\nARB,U\n{T}: Untap another target permanent."
+    IDS_STRING9026          "Offering to Asha\n{2WU}\nInstant\nARB,C\nCounter target spell unless its controller pays {4}. You gain 4 life."
+    IDS_STRING9027          "Lavalanche\n{XBRG}\nSorcery\nARB,R\nLavalanche deals X damage to target player and each creature he or she controls."
+    IDS_STRING9028          "Bant Sojourners\n{1GWU}\nCreature - Human Soldier\nARB,C\nWhen you cycle Bant Sojourners or it dies, you may put a 1/1 white Soldier creature token onto the battlefield.\rCycling {2W}\n2/4"
+    IDS_STRING9029          "Deadshot Minotaur\n{3RG}\nCreature - Minotaur\nARB,C\nWhen Deadshot Minotaur enters the battlefield, it deals 3 damage to target creature with flying.\rCycling {E}\n3/4"
+    IDS_STRING9030          "Glassdust Hulk\n{3WU}\nArtifact Creature - Golem\nARB,C\nWhenever another artifact enters the battlefield under your control, Glassdust Hulk gets +1/+1 until end of turn and is unblockable this turn.\rCycling {A}\n3/4"
+    IDS_STRING9031          "Sanctum Plowbeast\n{4WU}\nArtifact Creature - Beast\nARB,C\nDefender\rPlainscycling {2}, islandcycling {2}\n3/6"
+    IDS_STRING9032          "Illusory Demon\n{1UB}\nCreature - Demon Illusion\nARB,U\nFlying\rWhen you cast a spell, sacrifice Illusory Demon.\n4/3"
+    IDS_STRING9033          "Jhessian Zombies\n{4UB}\nCreature - Zombie\nARB,C\nFear\rIslandcycling {2}, swampcycling {2}\n2/4"
+    IDS_STRING9034          "Mask of Riddles\n{UB}\nArtifact - Equipment\nARB,U\nEquipped creature has fear.\rWhenever equipped creature deals combat damage to a player, you may draw a card.\rEquip {2}"
+    IDS_STRING9035          "Gloryscale Viashino\n{1RGW}\nCreature - Viashino Soldier\nARB,U\nWhenever you cast a multicolored spell, Gloryscale Viashino gets +3/+3 until end of turn.\n3/3"
+    IDS_STRING9036          "Igneous Pouncer\n{4BR}\nCreature - Elemental\nARB,C\nHaste\rSwampcycling {2}, mountaincycling {2}\n5/1"
+    IDS_STRING9037          "Monstrous Carabid\n{3BR}\nCreature - Insect\nARB,C\nMonstrous Carabid attacks each turn if able.\rCycling {D}\n4/4"
+    IDS_STRING9038          "Sanity Gnawers\n{1BR}\nCreature - Rat\nARB,U\nWhen Sanity Gnawers enters the battlefield, target player discards a card at random.\n1/1"
+    IDS_STRING9039          "Spellbreaker Behemoth\n{1RGG}\nCreature - Beast\nARB,R\nSpellbreaker Behemoth can't be countered.\rCreature spells you control with power 5 or greater can't be countered.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9040          "Valley Rannet\n{4RG}\nCreature - Beast\nARB,C\nMountaincycling {2}, forestcycling {2}\n6/3"
+    IDS_STRING9041          "Mycoid Shepherd\n{1GGW}\nCreature - Fungus\nARB,R\nWhenever Mycoid Shepherd or another creature you control with power 5 or greater dies, you may gain 5 life.\n5/4"
+    IDS_STRING9042          "Pale Recluse\n{4GW}\nCreature - Spider\nARB,C\nReach\rForestcycling {2}, plainscycling {2}\n4/5"
+    IDS_STRING9043          "Reborn Hope\n{GW}\nSorcery\nARB,U\nReturn target multicolored card from your graveyard to your hand."
+    IDS_STRING9044          "Vedalken Heretic\n{GU}\nCreature - Vedalken Rogue\nARB,R\nWhenever Vedalken Heretic deals damage to an opponent, you may draw a card.\n1/1"
+    IDS_STRING9045          "Fight to the Death\n{RW}\nInstant\nARB,R\nDestroy all blocking creatures and all blocked creatures."
+    IDS_STRING9046          "Stun Sniper\n{RW}\nCreature - Human Archer\nARB,U\n{1}, {T}: Stun Sniper deals 1 damage to target creature. Tap that creature.\n1/1"
+    IDS_STRING9047          "Nulltread Gargantuan\n{1GU}\nCreature - Beast\nARB,U\nWhen Nulltread Gargantuan enters the battlefield, put a creature you control on top of its owner's library.\n5/6"
+    IDS_STRING9048          "Anathemancer\n{1BR}\nCreature - Zombie Wizard\nARB,U\nWhen Anathemancer enters the battlefield, it deals damage to target player equal to the number of nonbasic lands that player controls.\rUnearth {5BR}\n2/2"
+    IDS_STRING9049          "Dragon Broodmother\n{2RRRG}\nCreature - Dragon\nARB, MR\nFlying\rAt the beginning of each upkeep, put a 1/1 red and green Dragon creature token with flying and devour 2 onto the battlefield.\n4/4"
+    IDS_STRING9050          "Drastic Revelation\n{2UBR}\nSorcery\nARB,U\nDiscard your hand. Draw seven cards, then discard three cards at random."
+    IDS_STRING9051          "Etherium Abomination\n{3UB}\nCreature - Horror\nARB,C\nUnearth {1UB}\n4/3"
+    IDS_STRING9052          "Gorger Wurm\n{3RG}\nCreature - Wurm\nARB,C\nDevour 1\n5/5"
+    IDS_STRING9053          "Messenger Falcons\n{2LW}\nCreature - Bird\nARB,U\nFlying\rWhen Messenger Falcons enters the battlefield, draw a card.\n2/2"
+    IDS_STRING9054          "Sewn-Eye Drake\n{2IB}\nCreature - Zombie Drake\nARB,C\nFlying, haste\n3/1"
+    IDS_STRING9055          "Maelstrom Pulse\n{1BG}\nSorcery\nARB,R\nDestroy target nonland permanent and all other permanents with the same name as that permanent."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9056          "Architects of Will\n{2UB}\nArtifact Creature - Human Wizard\nARB,C\nWhen Architects of Will enters the battlefield, look at the top three cards of target player's library, then put them back in any order.\rCycling {C}\n3/3"
+    IDS_STRING9057          "Sphinx of the Steel Wind\n{6WUB}\nArtifact Creature - Sphinx\nARB,MR\nFlying, first strike, vigilance, lifelink, protection from red and from green\n6/6"
+    IDS_STRING9058          "Nemesis of Reason\n{3UB}\nCreature - Leviathan Horror\nARB,R\nWhenever Nemesis of Reason attacks, defending player puts the top ten cards of his or her library into his or her graveyard.\n3/7"
+    IDS_STRING9059          "Grixis Sojourners\n{1UBR}\nCreature - Zombie Ogre\nARB,C\nWhen you cycle Grixis Sojourners or it dies, you may exile target card from a graveyard.\rCycling {2B}\n4/3"
+    IDS_STRING9060          "Jund Sojourners\n{BRG}\nCreature - Viashino Shaman\nARB,C\nWhen you cycle Jund Sojourners or it dies, you may have it deal 1 damage to target creature or player.\rCycling {2R}\n3/2"
+    IDS_STRING9061          "Vedalken Ghoul\n{UB}\nCreature - Vedalken Zombie\nARB,C\nWhenever Vedalken Ghoul becomes blocked, defending player loses 4 life.\n1/1"
+    IDS_STRING9062          "Thopter Foundry\n{HU}\nArtifact\nARB,U\n{1}, Sacrifice a nontoken artifact: Put a 1/1 blue Thopter artifact creature token with flying onto the battlefield. You gain 1 life."
+    IDS_STRING9063          "Blitz Hellion\n{3RG}\nCreature - Hellion\nARB,R\nTrample, haste\rAt the beginning of the end step, Blitz Hellion's owner shuffles it into his or her library.\n7/7"
+    IDS_STRING9064          "Kathari Bomber\n{1BR}\nCreature - Bird Shaman\nARB,C\nFlying\rWhen Kathari Bomber deals combat damage to a player, put two 1/1 red Goblin creature tokens onto the battlefield and sacrifice Kathari Bomber.\rUnearth {3BR}\n2/2"
+    IDS_STRING9065          "Double Negative\n{UUR}\nInstant\nARB,U\nCounter up to two target spells."
+    IDS_STRING9066          "Marrow Chomper\n{3BG}\nCreature - Zombie Lizard\nARB,U\nDevour 2\rWhen Marrow Chomper enters the battlefield, you gain 2 life for each creature it devoured.\n3/3"
+    IDS_STRING9067          "Marisi's Twinclaws\n{2KG}\nCreature - Cat Warrior\nARB,U\nDouble strike\n2/4"
+    IDS_STRING9068          "Naya Sojourners\n{2RGW}\nCreature - Elf Shaman\nARB,C\nWhen you cycle Naya Sojourners or it dies, you may put a +1/+1 counter on target creature.\rCycling {2G}\n5/3"
+    IDS_STRING9069          "Sigil of the Nayan Gods\n{1GW}\nEnchantment - Aura\nARB,C\nEnchant creature\rEnchanted creature gets +1/+1 for each creature you control.\rCycling {F}"
+    IDS_STRING9070          "Soul Manipulation\n{1UB}\nInstant\nARB,C\nChoose one or both - Counter target creature spell; and/or return target creature card from your graveyard to your hand."
+    IDS_STRING9071          "Zealous Persecution\n{WB}\nInstant\nARB,U\nUntil end of turn, creatures you control get +1/+1 and creatures your opponents control get -1/-1."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9072          "Soulquake\n{3UUBB}\nSorcery\nARB,R\nReturn all creatures on the battlefield and all creature cards in graveyards to their owners' hands."
+    IDS_STRING9073          "Filigree Angel\n{5WWU}\nArtifact Creature - Angel\nARB,R\nFlying\rWhen Filigree Angel enters the battlefield, you gain 3 life for each artifact you control.\n4/4"
+    IDS_STRING9074          "Lightning Reaver\n{3BR}\nCreature - Zombie Beast\nARB,R\nHaste; fear\rWhenever Lightning Reaver deals combat damage to a player, put a charge counter on it.\rAt the beginning of your end step, Lightning Reaver deals damage equal to the number of charge counters on it to each opponent.\n3/3"
+    IDS_STRING9075          "Ethersworn Shieldmage\n{1WU}\nArtifact Creature - Vedalken Wizard\nARB\nFlash\rWhen Ethersworn Shieldmage enters the battlefield, prevent all damage that would be dealt to artifact creatures this turn.\n2/2"
+    IDS_STRING9076          "Deathbringer Thoctar\n{4BR}\nCreature - Zombie Beast\nARB,R\nWhenever another creature dies, you may put a +1/+1 counter on Deathbringer Thoctar.\rRemove a +1/+1 counter from Deathbringer Thoctar: Deathbringer Thoctar deals 1 damage to target creature or player.\n3/3"
+    IDS_STRING9077          "Mind Funeral\n{1UB}\nSorcery\nARB,U\nTarget opponent reveals cards from the top of his or her library until four land cards are revealed. That player puts all cards revealed this way into his or her graveyard."
+    IDS_STRING9078          "Identity Crisis\n{2WWBB}\nSorcery\nARB,R\nExile all cards from target player's hand and graveyard."
+    IDS_STRING9079          "Slave of Bolas\n{3IB}\nSorcery\nARB,U\nGain control of target creature. Untap that creature. It gains haste until end of turn. Sacrifice it at the beginning of the next end step."
+    IDS_STRING9080          "Bant Sureblade\n{LW}\nCreature - Human Soldier\nARB,C\nAs long as you control another multicolored permanent, Bant Sureblade gets +1/+1 and has first strike.\n2/1"
+    IDS_STRING9081          "Grixis Grimblade\n{IB}\nCreature - Zombie Warrior\nARB,C\nAs long as you control another multicolored permanent, Grixis Grimblade gets +1/+1 and has deathtouch.\n2/1"
+    IDS_STRING9082          "Jund Hackblade\n{JR}\nCreature - Goblin Berserker\nARB,C\nAs long as you control another multicolored permanent, Jund Hackblade gets +1/+1 and has haste.\n2/1"
+    IDS_STRING9083          "Naya Hushblade\n{KG}\nCreature - Elf Rogue\nARB,C\nAs long as you control another multicolored permanent, Naya Hushblade gets +1/+1 and has shroud.\n2/1"
+    IDS_STRING9084          "Esper Stormblade\n{HU}\nArtifact Creature - Vedalken Wizard\nARB,C\nAs long as you control another multicolored permanent, Esper Stormblade gets +1/+1 and has flying.\n2/1"
+    IDS_STRING9085          "Dauntless Escort\n{1GW}\nCreature - Rhino Soldier\nARB,R\nSacrifice Dauntless Escort: Creatures you control are indestructible this turn.\n3/3"
+    IDS_STRING9086          "Finest Hour\n{2GWU}\nEnchantment\nARB,R\nExalted\rWhenever a creature you control attacks alone, if it's the first combat phase of the turn, untap that creature. After this phase, there is an additional combat phase."
+    IDS_STRING9087          "Wildfield Borderpost\n{1GW}\nArtifact\nARB,C\nYou may pay {1} and return a basic land you control to its owner's hand rather than pay Wildfield Borderpost's mana cost.\rWildfield Borderpost enters the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9088          "Knotvine Paladin\n{GW}\nCreature - Human Knight\nARB,R\nWhenever Knotvine Paladin attacks, it gets +1/+1 until end of turn for each untapped creature you control.\n2/2"
+    IDS_STRING9089          "Crystallization\n{LW}\nEnchantment - Aura\nARB,C\nEnchant creature\rEnchanted creature can't attack or block.\rWhen enchanted creature becomes the target of a spell or ability, exile that creature."
+    IDS_STRING9090          "Trace of Abundance\n{KG}\nEnchantment - Aura\nARB,C\nEnchant land\rEnchanted land has shroud.\rWhenever enchanted land is tapped for mana, its controller adds one mana of any color to his or her mana pool."
+    IDS_STRING9091          "Fieldmist Borderpost\n{1WU}\nArtifact\nARB,C\nYou may pay {1} and return a basic land you control to its owner's hand rather than pay Fieldmist Borderpost's mana cost.\rFieldmist Borderpost enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING9092          "Firewild Borderpost\n{1RG}\nArtifact\nARB,C\nYou may pay {1} and return a basic land you control to its owner's hand rather than pay Firewild Borderpost's mana cost.\rFirewild Borderpost's enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING9093          "Veinfire Borderpost\n{1BR}\nArtifact\nARB,C\nYou may pay {1} and return a basic land you control to its owner's hand rather than pay Veinfire Borderpost's mana cost.\rVeinfire Borderpost enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING9094          "Mistvein Borderpost\n{1UB}\nArtifact\nARB,C\nYou may pay {1} and return a basic land you control to its owner's hand rather than pay Mistvein Borderpost's mana cost.\rMistvein Borderpost enters the battlefield tapped.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING9095          "Shield of the Righteous\n{WU}\nArtifact - Equipment\nARB,U\nEquipped creature gets +0/+2 and has vigilance.\rWhenever equipped creature blocks a creature, that creature doesn't untap during its controller's next untap step.\rEquip {2}"
+    IDS_STRING9096          "Esper Sojourners\n{WUB}\nArtifact Creature - Vedalken Wizard\nARB,C\nWhen you cycle Esper Sojourners or it dies, you may tap or untap target permanent.\rCycling {2U}\n2/3"
+    IDS_STRING9097          "Morbid Bloom\n{4BG}\nSorcery\nARB,U\nExile target creature card from a graveyard, then put X 1/1 green Saproling creature tokens onto the battlefield, where X is the exiled card's toughness."
+    IDS_STRING9098          "Intimidation Bolt\n{1RW}\nInstant\nARB,U\nIntimidation Bolt deals 3 damage to target creature. Other creatures can't attack this turn."
+    IDS_STRING9099          "Mage Slayer\n{1RG}\nArtifact - Equipment\nARB,U\nWhenever equipped creature attacks, it deals damage equal to its power to defending player.\rEquip {3}"
+    IDS_STRING9100          "Sovereigns of Lost Alara\n{4WU}\nCreature - Spirit\nARB,R\nExalted\rWhenever a creature you control attacks alone, you may search your library for an Aura card that could enchant that creature, put it onto the battlefield attached to that creature, then shuffle your library.\n4/5"
+    IDS_STRING9101          "Thought Hemorrhage\n{2BR}\nSorcery\nARB,R\nName a nonland card. Target player reveals his or her hand. Thought Hemorrhage deals 3 damage to that player for each card with that name revealed this way. Search that player's graveyard, hand, and library for all cards with that name and exile them. Then that player shuffles his or her library."
+    IDS_STRING9102          "Sangrite Backlash\n{JR}\nEnchantment - Aura\nARB,C\nEnchant creature\rEnchanted creature gets +3/-3."
+    IDS_STRING9103          "Dragon Appeasement\n{3BRG}\nEnchantment\nARB,U\nSkip your draw step.\rWhenever you sacrifice a creature, you may draw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9104          "Thraximundar\n{4UBR}\nLegendary Creature - Zombie Assassin\nARB,MR\nHaste\rWhenever Thraximundar attacks, defending player sacrifices a creature.\rWhenever a player sacrifices a creature, you may put a +1/+1 counter on Thraximundar.\n6/6"
+    IDS_STRING9105          "Bloodbraid Elf\n{2RG}\nCreature - Elf Berserker\nARB,U\nHaste\rCascade\n3/2"
+    IDS_STRING9106          "Enlisted Wurm\n{4GW}\nCreature - Wurm\nARB,U\nCascade\n5/5"
+    IDS_STRING9107          "Bituminous Blast\n{3BR}\nInstant\nARB,U\nCascade\rBituminous Blast deals 4 damage to target creature."
+    IDS_STRING9108          "Captured Sunlight\n{2GW}\nSorcery\nARB,C\nCascade\rYou gain 4 life."
+    IDS_STRING9109          "Ardent Plea\n{1WU}\nEnchantment\nARB,U\nExalted\rCascade"
+    IDS_STRING9110          "Demonic Dread\n{1BR}\nSorcery\nARB,C\nCascade\rTarget creature can't block this turn."
+    IDS_STRING9111          "Deny Reality\n{3UB}\nSorcery\nARB,C\nCascade\rReturn target permanent to its owner's hand."
+    IDS_STRING9112          "Kathari Remnant\n{2UB}\nCreature - Bird Skeleton\nARB,U\nFlying\r{B}: Regenerate Kathari Remnant\rCascade\n0/1"
+    IDS_STRING9113          "Stormcaller's Boon\n{2WU}\nEnchantment\nARB\nSacrifice Stormcaller's Boon: Creatures you control gain flying until end of turn.\rCascade"
+    IDS_STRING9114          "Violent Outburst\n{1RG}\nInstant\nARB\nCascade\rCreatures you control get +1/+0 until end of turn."
+    IDS_STRING9115          "Knight of New Alara\n{2GW}\nCreature - Human Knight\nARB,R\nEach other multicolored creature you control gets +1/+1 for each of its colors.\n2/2"
+    IDS_STRING9116          "Maelstrom Nexus\n{WUBRG}\nEnchantment\nARB,MR\nThe first spell you cast each turn has cascade."
+    IDS_STRING9117          "Wargate\n{XGWU}\nSorcery\nARB,R\nSearch your library for a permanent card with converted mana cost X or less, put it onto the battlefield, then shuffle your library."
+    IDS_STRING9118          "Arsenal Thresher\n{2HU}\nArtifact Creature - Construct\nARB,C\nAs Arsenal Thresher enters the battlefield, you may reveal any number of other artifact cards from your hand. Arsenal Thresher enters the battlefield with a +1/+1 counter on it for each card revealed this way.\n2/2"
+    IDS_STRING9119          "Uril, the Miststalker\n{2RGW}\nLegendary Creature - Beast\nARB,MR\nHexproof\rUril gets +2/+2 for each Aura attached to it.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9120          "Vengeful Rebirth\n{4RG}\nSorcery\nARB,U\nReturn target card from your graveyard to your hand. If you return a nonland card to your hand this way, Vengeful Rebirth deals damage equal to that card's converted mana cost to target creature or player.\rExile Vengeful Rebirth."
+    IDS_STRING9121          "Retaliator Griffin\n{1RGW}\nCreature - Griffin\nARB,R\nFlying\rWhenever a source an opponent controls deals damage to you, you may put that many +1/+1 counters on Retaliator Griffin.\n2/2"
+    IDS_STRING9122          "Tainted Sigil\n{1WB}\nArtifact\nARB,U\n{T}, Sacrifice Tainted Sigil: You gain life equal to the total life lost by all players this turn."
+    IDS_STRING9123          "Lich Lord of Unx\n{1UB}\nCreature - Zombie Wizard\nARB,R\n{UB}, {T}: Put a 1/1 blue and black Zombie Wizard creature token onto the battlefield.\r{UUBB}: Target player loses X life and puts the top X cards of his or her library into his or her graveyard, where X is the number of Zombies you control.\n2/2"
+    IDS_STRING9124          "Defiler of Souls\n{3BBR}\nCreature - Demon\nARB,MR\nFlying\rAt the beginning of each player's upkeep, that player sacrifices a monocolored creature.\n5/5"
+    IDS_STRING9125          "Cloven Casting\n{5UR}\nEnchantment\nARB,R\nWhenever you cast a multicolored instant or sorcery spell, you may pay {1}. If you do, copy that spell. You may choose new targets for the copy."
+    IDS_STRING9126          "Karrthus, Tyrant of Jund\n{4BRG}\nLegendary Creature - Dragon\nARB,MR\nFlying, haste\rWhen Karrthus, Tyrant of Jund enters the battlefield, gain control of all Dragons, then untap all Dragons.\rOther Dragon creatures you control have haste.\n7/7"
+    IDS_STRING9127          "Mayael's Aria\n{RGW}\nEnchantment\nARB,R\nAt the beginning of your upkeep, put a +1/+1 counter on each creature you control if you control a creature with power 5 or greater. Then you gain 10 life if you control a creature with power 10 or greater. Then you win the game if you control a creature with power 20 or greater."
+    IDS_STRING9128          "Necromancer's Covenant\n{3WBB}\nEnchantment\nARB,R\nWhen Necromancer's Covenant enters the battlefield, exile all creature cards from target player's graveyard, then put a 2/2 black Zombie creature token onto the battlefield for each card exiled this way.\rZombies you control have lifelink."
+    IDS_STRING9129          "Skyclaw Thrash\n{3UR}\nArtifact Creature - Viashino Warrior\nARB,U\nWhenever Skyclaw Thrash attacks, flip a coin. If you win the flip, Skyclaw Thrash gets +1/+1 and gains flying until end of turn.\n4/4"
+    IDS_STRING9130          "Spellbound Dragon\n{3UR}\nCreature - Dragon\nARB,R\nFlying\rWhenever Spellbound Dragon attacks, draw a card, then discard a card. Spellbound Dragon gets +X/+0 until end of turn, where X is the discarded card's converted mana cost.\n3/5"
+    IDS_STRING9131          "Vectis Dominator\n{1WB}\nArtifact Creature - Human Wizard\nARB,C\n{T}: Tap target creature unless its controller pays 2 life.\n0/2"
+    IDS_STRING9132          "Singe-Mind Ogre\n{2BR}\nCreature - Ogre Mutant\nARB,C\nWhen Singe-Mind Ogre enters the battlefield, target player reveals a card at random from his or her hand, then loses life equal to that card's converted mana cost.\n3/2"
+    IDS_STRING9133          "Sigil Captain\n{1GWW}\nCreature - Rhino Soldier\nARB,U\nWhenever a creature enters the battlefield under your control, if that creature is 1/1, put two +1/+1 counters on it.\n3/3"
+    IDS_STRING9134          "Flurry of Wings\n{GWU}\nInstant\nARB,U\nPut X 1/1 white Bird Soldier creature tokens with flying onto the battlefield, where X is the number of attacking creatures."
+    IDS_STRING9135          "Etherwrought Page\n{1WUB}\nArtifact\nARB,U\nAt the beginning of your upkeep, choose one - You gain 2 life; or look at the top card of your library, then you may put that card into your graveyard; or each opponent loses 1 life."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

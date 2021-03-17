@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures - 27 (45.00%)
+
+Birds of Paradise (21103)
+4 Bloodbraid Elf (9105)
+4 Boggart Ram-Gang (18659)
+2 Fauna Shaman (21239)
+4 Figure of Destiny (19006)
+4 Noble Hierarch (8819)
+4 Qasali Pridemage (9018)
+4 Vengevine (20939)
+
+// Instants - 7 (11.67%)
+
+4 Lightning Bolt (21124)
+3 Path to Exile (8897)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+4 Copperline Gorge (21471)
+Forest (21402)
+Forest (21400)
+Forest (21401)
+Mountain (21408)
+Mountain (21409)
+Mountain (21410)
+Plains (21412)
+2 Raging Ravine (19699)
+4 Razorverge Thicket (21472)
+3 Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Great Sable Stag (4013)
+4 Kitchen Finks (18593)
+2 Linvala, Keeper of Silence (20881)
+
+// Instants
+
+2 Nature's Claim (19662)
+Path to Exile (8897)
+
+// Sorceries
+
+2 Arc Trail (21554)

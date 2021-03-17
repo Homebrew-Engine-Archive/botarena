@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 17 (28.33%)
+
+4 Chandra's Phoenix (22310)
+4 Goblin Guide (19456)
+4 Grim Lavamancer (22165)
+2 Hero of Oxid Ridge (21758)
+3 Kargan Dragonlord (20955)
+
+// Instants - 11 (18.33%)
+
+4 Lightning Bolt (21124)
+4 Searing Blaze (19697)
+3 Staggershock (20984)
+
+// Sorceries - 5 (8.33%)
+
+2 Arc Trail (21554)
+3 Forked Bolt (20847)
+
+// Artifacts - 4 (6.67%)
+
+4 Shrine of Burning Rage (22001)
+
+// Lands - 23 (38.33%)
+
+4 Arid Mesa (19349)
+3 Mountain (22215)
+3 Mountain (22216)
+3 Mountain (22217)
+2 Mountain (22218)
+4 Scalding Tarn (19358)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Manic Vandal (22169)
+3 Vulshok Refugee (21947)
+
+// Instants
+
+3 Act of Aggression (21933)
+3 Combust (22237)
+2 Dismember (21951)
+
+// Sorceries
+
+Arc Trail (21554)

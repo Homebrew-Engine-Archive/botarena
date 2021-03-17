@@ -1,0 +1,264 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Darksteel.ico"
+IDI_LARGE_MODULE        ICON                    "DarksteelLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Darksteel"
+    IDS_EXPANSION_ABBREV    "DST"
+    IDS_FIRST_CARD          "15200"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "15365"
+    IDS_MODULE_LARGE_ICON_ID "15366"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "06-02-2004"
+    IDS_MWS_FOLDER          "MWS\\DST\\"
+    IDS_PRODUCT_LIST        """Darksteel Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15200         "Nemesis Mask\n{3}\nArtifact - Equipment\nDST,U\nAll creatures able to block equipped creature do so.\rEquip {3}"
+    IDS_STRING15201         "Oxidize\n{G}\nInstant\nDST,U\nDestroy target artifact. It can't be regenerated."
+    IDS_STRING15202         "Rebuking Ceremony\n{3GG}\nSorcery\nDST,R\nPut two target artifacts on top of their owners' libraries."
+    IDS_STRING15203         "Retract\n{U}\nInstant\nDST,R\nReturn all artifacts you control to their owner's hand."
+    IDS_STRING15204         "Roaring Slagwurm\n{5GG}\nCreature - Wurm\nDST,R\nWhenever Roaring Slagwurm attacks, tap all artifacts.\n6/4"
+    IDS_STRING15205         "Soulscour\n{7WWW}\nSorcery\nDST,R\nDestroy all nonartifact permanents."
+    IDS_STRING15206         "Skullclamp\n{1}\nArtifact - Equipment\nDST,U\nEquipped creature gets +1/-1.\rWhenever equipped creature dies, draw two cards.\rEquip {1}"
+    IDS_STRING15207         "Angel's Feather\n{2}\nArtifact\nDST,U\nWhenever a player casts a white spell, you may gain 1 life."
+    IDS_STRING15208         "Demon's Horn\n{2}\nArtifact\nDST,U\nWhenever a player casts a black spell, you may gain 1 life."
+    IDS_STRING15209         "Dragon's Claw\n{2}\nArtifact\nDST,U\nWhenever a player casts a red spell, you may gain 1 life."
+    IDS_STRING15210         "Essence Drain\n{4B}\nSorcery\nDST,C\nEssence Drain deals 3 damage to target creature or player and you gain 3 life."
+    IDS_STRING15211         "Juggernaut\n{4}\nArtifact Creature - Juggernaut\nDST,U\nJuggernaut attacks each turn if able.\rJuggernaut can't be blocked by Walls.\n5/3"
+    IDS_STRING15212         "Kraken's Eye\n{2}\nArtifact\nDST,U\nWhenever a player casts a blue spell, you may gain 1 life."
+    IDS_STRING15213         "Loxodon Mystic\n{3WW}\nCreature - Elephant Cleric\nDST,C\n{W}, {T}: Tap target creature.\n3/3"
+    IDS_STRING15214         "Shunt\n{1RR}\nInstant\nDST,R\nChange the target of target spell with a single target."
+    IDS_STRING15215         "Tangle Spider\n{4GG}\nCreature - Spider\nDST,C\nFlash\rReach\n3/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15216         "Ur-Golem's Eye\n{4}\nArtifact\nDST,C\n{T}: Add {2} to your mana pool."
+    IDS_STRING15217         "Vulshok Morningstar\n{2}\nArtifact - Equipment\nDST,C\nEquipped creature gets +2/+2.\rEquip {2}"
+    IDS_STRING15218         "Whispersilk Cloak\n{3}\nArtifact - Equipment\nDST,C\nEquipped creature is unblockable.\rEquipped creature has shroud.\rEquip {2}"
+    IDS_STRING15219         "Wurm's Tooth\n{2}\nArtifact\nDST,U\nWhenever a player casts a green spell, you may gain 1 life."
+    IDS_STRING15220         "Echoing Truth\n{1U}\nInstant\nDST,C\nReturn target nonland permanent and all other permanents with the same name as that permanent to their owners' hands."
+    IDS_STRING15221         "Inflame\n{R}\nInstant\nDST,C\nInflame deals 2 damage to each creature dealt damage this turn."
+    IDS_STRING15222         "Sword of Fire and Ice\n{3}\nArtifact - Equipment\nDST,R\nEquip {2}\rEquipped creature gets +2/+2 and has protection from red and from blue.\rWhenever equipped creature deals combat damage to a player, Sword of Fire and Ice deals 2 damage to target creature or player and you draw a card."
+    IDS_STRING15223         "Ageless Entity\n{3GG}\nCreature - Elemental\nDST,R\nWhenever you gain life, put that many +1/+1 counters on Ageless Entity.\n4/4"
+    IDS_STRING15224         "Chittering Rats\n{1BB}\nCreature - Rat\nDST,C\nWhen Chittering Rats enters the battlefield, target opponent puts a card from his or her hand on top of his or her library.\n2/2"
+    IDS_STRING15225         "Crazed Goblin\n{R}\nCreature - Goblin Warrior\nDST,C\nCrazed Goblin attacks each turn if able.\n1/1"
+    IDS_STRING15226         "Fangren Firstborn\n{1GGG}\nCreature - Beast\nDST,R\nWhenever Fangren Firstborn attacks, put a +1/+1 counter on each attacking creature.\n4/2"
+    IDS_STRING15227         "Greater Harvester\n{2BBB}\nCreature - Horror\nDST,R\nAt the beginning of your upkeep, sacrifice a permanent.\rWhenever Greater Harvester deals combat damage to a player, that player sacrifices two permanents.\n5/6"
+    IDS_STRING15228         "Grimclaw Bats\n{1B}\nCreature - Bat\nDST,C\nFlying\r{B}, Pay 1 life: Grimclaw Bats gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING15229         "Hoverguard Observer\n{2UU}\nCreature - Drone\nDST,U\nFlying\rHoverguard Observer can block only creatures with flying.\n3/3"
+    IDS_STRING15230         "Krark-Clan Stoker\n{2R}\nCreature - Goblin Shaman\nDST,C\n{T}, Sacrifice an artifact: Add {RR} to your mana pool.\n2/2"
+    IDS_STRING15231         "Leonin Battlemage\n{3W}\nCreature - Cat Wizard\nDST,U\n{T}: Target creature gets +1/+1 until end of turn.\rWhenever you cast a spell, you may untap Leonin Battlemage.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15232         "Mephitic Ooze\n{4B}\nCreature - Ooze\nDST,R\nMephitic Ooze gets +1/+0 for each artifact you control.\rWhenever Mephitic Ooze deals combat damage to a creature, destroy that creature. The creature can't be regenerated.\n0/5"
+    IDS_STRING15233         "Neurok Prodigy\n{2U}\nCreature - Human Wizard\nDST,C\nFlying\rDiscard an artifact card: Return Neurok Prodigy to its owner's hand.\n2/1"
+    IDS_STRING15234         "Nim Abomination\n{2B}\nCreature - Zombie\nDST,U\nAt the beginning of your end step, if Nim Abomination is untapped, you lose 3 life.\n3/4"
+    IDS_STRING15235         "Pteron Ghost\n{1W}\nCreature - Spirit\nDST,C\nFlying\rSacrifice Pteron Ghost: Regenerate target artifact.\n1/1"
+    IDS_STRING15236         "Scavenging Scarab\n{3B}\nCreature - Insect\nDST,C\nScavenging Scarab can't block.\n3/3"
+    IDS_STRING15237         "Steelshaper Apprentice\n{2WW}\nCreature - Human Soldier\nDST,R\n{W}, {T}, Return Steelshaper Apprentice to its owner's hand: Search your library for an Equipment card, reveal that card, and put it into your hand. Then shuffle your library.\n1/3"
+    IDS_STRING15238         "Synod Artificer\n{2U}\nCreature - Vedalken Artificer\nDST,R\n{X}, {T}: Tap X target noncreature artifacts.\r{X}, {T}: Untap X target noncreature artifacts.\n1/2"
+    IDS_STRING15239         "Tel-Jilad Wolf\n{2G}\nCreature - Wolf\nDST,C\nWhenever Tel-Jilad Wolf becomes blocked by an artifact creature, Tel-Jilad Wolf gets +3/+3 until end of turn.\n2/2"
+    IDS_STRING15240         "Viridian Acolyte\n{G}\nCreature - Elf Shaman\nDST,C\n{1}, {T}: Add one mana of any color to your mana pool.\n1/1"
+    IDS_STRING15241         "Viridian Zealot\n{GG}\nCreature - Elf Warrior\nDST,R\n{1G}, Sacrifice Viridian Zealot: Destroy target artifact or enchantment.\n2/1"
+    IDS_STRING15242         "Vulshok War Boar\n{2RR}\nCreature - Boar Beast\nDST,U\nWhen Vulshok War Boar enters the battlefield, sacrifice it unless you sacrifice an artifact.\n5/5"
+    IDS_STRING15243         "Eater of Days\n{4}\nArtifact Creature - Leviathan\nDST,R\nFlying, trample\rWhen Eater of Days enters the battlefield, you skip your next two turns.\n9/8"
+    IDS_STRING15244         "Memnarch\n{7}\nLegendary Artifact Creature - Wizard\nDST,R\n{1UU}: Target permanent becomes an artifact in addition to its other types.\r{3U}: Gain control of target artifact.\n4/5"
+    IDS_STRING15245         "Myr Landshaper\n{3}\nArtifact Creature - Myr\nDST,C\n{T}: Target land becomes an artifact in addition to its other types until end of turn.\n1/1"
+    IDS_STRING15246         "Neurok Transmuter\n{2U}\nCreature - Human Wizard\nDST,U\n{U}: Target creature becomes an artifact in addition to its other types until end of turn.\r{U}: Until end of turn, target artifact creature becomes blue and isn't an artifact.\n2/2"
+    IDS_STRING15247         "Myr Moonvessel\n{1}\nArtifact Creature - Myr\nDST,C\nWhen Myr Moonvessel dies, add {1} to your mana pool.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15248         "Voltaic Construct\n{4}\nArtifact Creature - Golem Construct\nDST,U\n{2}: Untap target artifact creature.\n2/2"
+    IDS_STRING15249         "Blinkmoth Nexus\n\nLand\nDST,R\n{T}: Add {1} to your mana pool.\r{1}: Blinkmoth Nexus becomes a 1/1 Blinkmoth artifact creature with flying until end of turn. It's still a land.\r{1}, {T}: Target Blinkmoth creature gets +1/+1 until end of turn."
+    IDS_STRING15250         "Genesis Chamber\n{2}\nArtifact\nDST,U\nWhenever a nontoken creature enters the battlefield, if Genesis Chamber is untapped, that creature's controller puts a 1/1 colorless Myr artifact creature token onto the battlefield."
+    IDS_STRING15251         "Geth's Grimoire\n{4}\nArtifact\nDST,U\nWhenever an opponent discards a card, you may draw a card."
+    IDS_STRING15252         "Specter's Shroud\n{2}\nArtifact - Equipment\nDST,U\nEquipped creature gets +1/+0.\rWhenever equipped creature deals combat damage to a player, that player discards a card.\rEquip {1}"
+    IDS_STRING15253         "Sword of Light and Shadow\n{3}\nArtifact - Equipment\nDST,R\nEquipped creature gets +2/+2 and has protection from white and from black.\rWhenever equipped creature deals combat damage to a player, you gain 3 life and you may return up to one target creature card from your graveyard to your hand.\rEquip {2}"
+    IDS_STRING15254         "Wand of the Elements\n{4}\nArtifact\nDST,R\n{T}, Sacrifice an Island: Put a 2/2 blue Elemental creature token with flying onto the battlefield.\r{T}, Sacrifice a Mountain: Put a 3/3 red Elemental creature token onto the battlefield."
+    IDS_STRING15255         "Barbed Lightning\n{2R}\nInstant\nDST,C\nChoose one - Barbed Lightning deals 3 damage to target creature; or Barbed Lightning deals 3 damage to target player.\rEntwine {2}"
+    IDS_STRING15256         "Echoing Calm\n{1W}\nInstant\nDST,C\nDestroy target enchantment and all other enchantments with the same name as that enchantment."
+    IDS_STRING15257         "Magnetic Flux\n{2U}\nInstant\nDST,C\nArtifact creatures you control gain flying until end of turn."
+    IDS_STRING15258         "Metal Fatigue\n{2W}\nInstant\nDST,C\nTap all artifacts."
+    IDS_STRING15259         "Nourish\n{GG}\nInstant\nDST,C\nYou gain 6 life."
+    IDS_STRING15260         "Purge\n{1W}\nInstant\nDST,U\nDestroy target artifact creature or black creature. It can't be regenerated."
+    IDS_STRING15261         "Stand Together\n{3GG}\nInstant\nDST,U\nPut two +1/+1 counters on target creature and two +1/+1 counters on another target creature."
+    IDS_STRING15262         "Echoing Ruin\n{1R}\nSorcery\nDST,C\nDestroy target artifact and all other artifacts with the same name as that artifact."
+    IDS_STRING15263         "Flamebreak\n{RRR}\nSorcery\nDST,R\nFlamebreak deals 3 damage to each creature without flying and each player. Creatures dealt damage this way can't be regenerated this turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15264         "Hunger of the Nim\n{1B}\nSorcery\nDST,C\nTarget creature gets +1/+0 until end of turn for each artifact you control."
+    IDS_STRING15265         "Reap and Sow\n{3G}\nSorcery\nDST,C\nChoose one - Destroy target land; or search your library for a land card, put that card onto the battlefield, then shuffle your library.\rEntwine {1G}"
+    IDS_STRING15266         "Ritual of Restoration\n{W}\nSorcery\nDST,C\nReturn target artifact card from your graveyard to your hand."
+    IDS_STRING15267         "Echoing Courage\n{1G}\nInstant\nDST,C\nTarget creature and all other creatures with the same name as that creature get +2/+2 until end of turn."
+    IDS_STRING15268         "Echoing Decay\n{1B}\nInstant\nDST,C\nTarget creature and all other creatures with the same name as that creature get -2/-2 until end of turn."
+    IDS_STRING15269         "Last Word\n{2UU}\nInstant\nDST,R\nLast Word can't be countered by spells or abilities.\rCounter target spell."
+    IDS_STRING15270         "Mirrodin's Core\n\nLand\nDST,U\n{T}: Add {1} to your mana pool.\r{T}: Put a charge counter on Mirrodin's Core.\r{T}, Remove a charge counter from Mirrodin's Core: Add one mana of any color to your mana pool."
+    IDS_STRING15271         "Arcane Spyglass\n{4}\nArtifact\nDST,C\n{2}, {T}, Sacrifice a land: Draw a card and put a charge counter on Arcane Spyglass.\rRemove three charge counters from Arcane Spyglass: Draw a card."
+    IDS_STRING15272         "Spawning Pit\n{2}\nArtifact\nDST,U\nSacrifice a creature: Put a charge counter on Spawning Pit.\r{1}, Remove two charge counters from Spawning Pit: Put a 2/2 colorless Spawn artifact creature token onto the battlefield."
+    IDS_STRING15273         "Chimeric Egg\n{3}\nArtifact\nDST,U\nWhenever an opponent casts a nonartifact spell, put a charge counter on Chimeric Egg.\rRemove three charge counters from Chimeric Egg: Chimeric Egg becomes a 6/6 Construct artifact creature with trample until end of turn."
+    IDS_STRING15274         "Coretapper\n{2}\nArtifact Creature - Myr\nDST,U\n{T}: Put a charge counter on target artifact.\rSacrifice Coretapper: Put two charge counters on target artifact.\n1/1"
+    IDS_STRING15275         "Karstoderm\n{2GG}\nCreature - Beast\nDST,U\nKarstoderm enters the battlefield with five +1/+1 counters on it.\rWhenever an artifact enters the battlefield, remove a +1/+1 counter from Karstoderm.\n0/0"
+    IDS_STRING15276         "Spincrusher\n{2}\nArtifact Creature - Construct\nDST,U\nWhenever Spincrusher blocks, put a +1/+1 counter on it.\rRemove a +1/+1 counter from Spincrusher: Spincrusher is unblockable this turn.\n0/2"
+    IDS_STRING15277         "Death Cloud\n{XBBB}\nSorcery\nDST,R\nEach player loses X life, discards X cards, sacrifices X creatures, then sacrifices X lands."
+    IDS_STRING15278         "AEther Vial\n{1}\nArtifact\nDST,U\nAt the beginning of your upkeep, you may put a charge counter on Æther Vial.\r{T}: You may put a creature card with converted mana cost equal to the number of charge counters on Æther Vial from your hand onto the battlefield."
+    IDS_STRING15279         "Darksteel Colossus\n{11}\nArtifact Creature - Golem\nDST,R\nTrample\rDarksteel Colossus is indestructible.\rIf Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.\n11/11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15280         "Slobad, Goblin Tinkerer\n{1R}\nLegendary Creature - Goblin Artificer\nDST,R\nSacrifice an artifact: Target artifact is indestructible this turn.\n1/2"
+    IDS_STRING15281         "Darksteel Gargoyle\n{7}\nArtifact Creature - Gargoyle\nDST,U\nFlying\rDarksteel Gargoyle is indestructible.\n3/3"
+    IDS_STRING15282         "Darksteel Citadel\n\nArtifact Land\nDST,C\nDarksteel Citadel is indestructible.\r{T}: Add {1} to your mana pool."
+    IDS_STRING15283         "Darksteel Brute\n{2}\nArtifact\nDST,U\nDarksteel Brute is indestructible.\r{3}: Darksteel Brute becomes a 2/2 Beast artifact creature until end of turn."
+    IDS_STRING15284         "Darksteel Forge\n{9}\nArtifact\nDST,R\nArtifacts you control are indestructible."
+    IDS_STRING15285         "Darksteel Ingot\n{3}\nArtifact\nDST,C\nDarksteel Ingot is indestructible.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING15286         "Darksteel Pendant\n{2}\nArtifact\nDST,C\nDarksteel Pendant is indestructible.\r{1}, {T}: Look at the top card of your library. You may put that card on the bottom of your library."
+    IDS_STRING15287         "Myr Matrix\n{5}\nArtifact\nDST,R\nMyr Matrix is indestructible.\rMyr creatures get +1/+1.\r{5}: Put a 1/1 colorless Myr artifact creature token onto the battlefield."
+    IDS_STRING15288         "Shield of Kaldra\n{4}\nLegendary Artifact - Equipment\nDST,R\nEquipment named Sword of Kaldra, Shield of Kaldra, and Helm of Kaldra are indestructible.\rEquipped creature is indestructible.\rEquip {4}"
+    IDS_STRING15289         "Infested Roothold\n{4G}\nCreature - Wall\nDST,U\nDefender\rProtection from artifacts\rWhenever an opponent casts an artifact spell, you may put a 1/1 green Insect creature token onto the battlefield.\n0/3"
+    IDS_STRING15290         "Tel-Jilad Outrider\n{3G}\nCreature - Elf Warrior\nDST,C\nProtection from artifacts\n3/1"
+    IDS_STRING15291         "Pulse of the Tangle\n{1GG}\nSorcery\nDST,R\nPut a 3/3 green Beast creature token onto the battlefield. Then if an opponent controls more creatures than you, return Pulse of the Tangle to its owner's hand."
+    IDS_STRING15292         "Pulse of the Grid\n{1UU}\nInstant\nDST,R\nDraw two cards, then discard a card. Then if an opponent has more cards in hand than you, return Pulse of the Grid to its owner's hand."
+    IDS_STRING15293         "Pulse of the Dross\n{1BB}\nSorcery\nDST,R\nTarget player reveals three cards from his or her hand and you choose one of them. That player discards that card. Then if that player has more cards in hand than you, return Pulse of the Dross to its owner's hand."
+    IDS_STRING15294         "Pulse of the Fields\n{1WW}\nInstant\nDST,R\nYou gain 4 life. Then if an opponent has more life than you, return Pulse of the Fields to its owner's hand."
+    IDS_STRING15295         "Pulse of the Forge\n{1RR}\nInstant\nDST,R\nPulse of the Forge deals 4 damage to target player. Then if that player has more life than you, return Pulse of the Forge to its owner's hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15296         "Arcbound Bruiser\n{5}\nArtifact Creature - Golem\nDST,C\nModular 3\n0/0"
+    IDS_STRING15297         "Arcbound Crusher\n{4}\nArtifact Creature - Juggernaut\nDST,U\nTrample\rWhenever another artifact enters the battlefield, put a +1/+1 counter on Arcbound Crusher.\rModular 1\n0/0"
+    IDS_STRING15298         "Arcbound Hybrid\n{4}\nArtifact Creature - Beast\nDST,C\nHaste\rModular 2\n0/0"
+    IDS_STRING15299         "Arcbound Lancer\n{7}\nArtifact Creature - Beast\nDST,U\nFirst strike\rModular 4\n0/0"
+    IDS_STRING15300         "Arcbound Ravager\n{2}\nArtifact Creature - Beast\nDST,R\nSacrifice an artifact: Put a +1/+1 counter on Arcbound Ravager.\rModular 1\n0/0"
+    IDS_STRING15301         "Arcbound Reclaimer\n{4}\nArtifact Creature - Golem\nDST,R\nRemove a +1/+1 counter from Arcbound Reclaimer: Put target artifact card from your graveyard on top of your library.\rModular 2\n0/0"
+    IDS_STRING15302         "Arcbound Slith\n{2}\nArtifact Creature - Slith\nDST,U\nWhenever Arcbound Slith deals combat damage to a player, put a +1/+1 counter on it.\rModular 1\n0/0"
+    IDS_STRING15303         "Arcbound Stinger\n{2}\nArtifact Creature - Insect\nDST,C\nFlying\rModular 1\n0/0"
+    IDS_STRING15304         "Arcbound Worker\n{1}\nArtifact Creature - Construct\nDST,C\nModular 1\n0/0"
+    IDS_STRING15305         "Arcbound Overseer\n{8}\nArtifact Creature - Golem\nDST,R\nAt the beginning of your upkeep, put a +1/+1 counter on each creature with modular you control.\rModular 6\n0/0"
+    IDS_STRING15306         "Quicksilver Behemoth\n{6U}\nCreature - Beast\nDST,C\nAffinity for artifacts\rWhen Quicksilver Behemoth attacks or blocks, return it to its owner's hand at end of combat.\n4/5"
+    IDS_STRING15307         "Dross Golem\n{5}\nArtifact Creature - Golem\nDST,C\nAffinity for Swamps\rFear\n3/2"
+    IDS_STRING15308         "Oxidda Golem\n{6}\nArtifact Creature - Golem\nDST,C\nAffinity for Mountains\rHaste\n3/2"
+    IDS_STRING15309         "Razor Golem\n{6}\nArtifact Creature - Golem\nDST,C\nAffinity for Plains\rVigilance\n3/4"
+    IDS_STRING15310         "Spire Golem\n{6}\nArtifact Creature - Golem\nDST,C\nAffinity for Islands\rFlying\n2/4"
+    IDS_STRING15311         "Tangle Golem\n{7}\nArtifact Creature - Golem\nDST,C\nAffinity for Forests\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15312         "Chromescale Drake\n{6UUU}\nCreature - Drake\nDST,R\nAffinity for artifacts\rFlying\rWhen Chromescale Drake enters the battlefield, reveal the top three cards of your library. Put all artifact cards revealed this way into your hand and the rest into your graveyard.\n3/4"
+    IDS_STRING15313         "AEther Snap\n{3BB}\nSorcery\nDST,R\nRemove all counters from all permanents and exile all tokens."
+    IDS_STRING15314         "Emissary of Despair\n{1BB}\nCreature - Spirit\nDST,U\nFlying\rWhenever Emissary of Despair deals combat damage to a player, that player loses 1 life for each artifact he or she controls.\n2/1"
+    IDS_STRING15315         "Emissary of Hope\n{1WW}\nCreature - Spirit\nDST,U\nFlying\rWhenever Emissary of Hope deals combat damage to a player, you gain 1 life for each artifact that player controls.\n2/1"
+    IDS_STRING15316         "Drill-Skimmer\n{4}\nArtifact Creature - Thopter\nDST,C\nFlying\rDrill-Skimmer has shroud as long as you control another artifact creature.\n2/1"
+    IDS_STRING15317         "Furnace Dragon\n{6RRR}\nCreature - Dragon\nDST,R\nAffinity for artifacts\rFlying\rWhen Furnace Dragon enters the battlefield, if you cast it from your hand, exile all artifacts.\n5/5"
+    IDS_STRING15318         "Drooling Ogre\n{1R}\nCreature - Ogre\nDST,C\nWhenever a player casts an artifact spell, that player gains control of Drooling Ogre.\n3/3"
+    IDS_STRING15319         "Auriok Glaivemaster\n{W}\nCreature - Human Soldier\nDST\nAs long as Auriok Glaivemaster is equipped, it gets +1/+1 and has first strike.\n1/1"
+    IDS_STRING15320         "Reshape\n{XUU}\nSorcery\nDST,R\nAs an additional cost to cast Reshape, sacrifice an artifact.\rSearch your library for an artifact card with converted mana cost X or less and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING15321         "Pristine Angel\n{4WW}\nCreature - Angel\nDST,R\nFlying\rAs long as Pristine Angel is untapped, it has protection from artifacts and from all colors.\rWhenever you cast a spell, you may untap Pristine Angel.\n4/4"
+    IDS_STRING15322         "Psychic Overload\n{3U}\nEnchantment - Aura\nDST,C\nEnchant permanent\rWhen Psychic Overload enters the battlefield, tap enchanted permanent.\rEnchanted permanent doesn't untap during its controller's untap step.\rEnchanted permanent has ""Discard two artifact cards: Untap this permanent."""
+    IDS_STRING15323         "Tanglewalker\n{2G}\nCreature - Dryad\nDST,U\nEach creature you control is unblockable as long as defending player controls an artifact land.\n2/2"
+    IDS_STRING15324         "Fireball\n{XR}\nSorcery\nDST,U\nFireball deals X damage divided evenly, rounded down, among any number of target creatures and/or players.\rFireball costs {1} more to cast for each target beyond the first."
+    IDS_STRING15325         "Unforge\n{2R}\nInstant\nDST,C\nDestroy target Equipment. If that Equipment was attached to a creature, Unforge deals 2 damage to that creature."
+    IDS_STRING15326         "Murderous Spoils\n{5B}\nInstant\nDST,U\nDestroy target nonblack creature. It can't be regenerated. You gain control of all Equipment that was attached to it."
+    IDS_STRING15327         "Screams from Within\n{1BB}\nEnchantment - Aura\nDST,U\nEnchant creature\rEnchanted creature gets -1/-1.\rWhen enchanted creature dies, return Screams from Within from your graveyard to the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING15328         "Darksteel Reactor\n{4}\nArtifact\nDST,R\nDarksteel Reactor is indestructible.\rAt the beginning of your upkeep, you may put a charge counter on Darksteel Reactor.\rWhen Darksteel Reactor has twenty or more charge counters on it, you win the game."
+    IDS_STRING15329         "Sundering Titan\n{8}\nArtifact Creature - Golem\nDST,R\nWhen Sundering Titan enters the battlefield or leaves the battlefield, choose a land of each basic land type, then destroy those lands.\n7/10"
+    IDS_STRING15330         "Goblin Archaeologist\n{1R}\nCreature - Goblin Artificer\nDST,U\n{R}, {T}: Flip a coin. If you win the flip, destroy target artifact and untap Goblin Archaeologist. If you lose the flip, sacrifice Goblin Archaeologist.\n1/2"
+    IDS_STRING15331         "Wirefly Hive\n{3}\nArtifact\nDST,U\n{3}, {T}: Flip a coin. If you win the flip, put a 2/2 colorless Insect artifact creature token with flying named Wirefly onto the battlefield. If you lose the flip, destroy all permanents named Wirefly."
+    IDS_STRING15332         "Second Sight\n{2U}\nInstant\nDST,U\nChoose one - Look at the top five cards of target opponent's library, then put them back in any order; or look at the top five cards of your library, then put them back in any order.\rEntwine {U}"
+    IDS_STRING15333         "Arcbound Fiend\n{6}\nArtifact Creature - Horror\nDST,U\nFear\rAt the beginning of your upkeep, you may move a +1/+1 counter from target creature onto Arcbound Fiend.\rModular 3\n0/0"
+    IDS_STRING15334         "Thought Dissector\n{4}\nArtifact\nDST,R\n{X}, {T}: Target opponent reveals cards from the top of his or her library until an artifact card or X cards are revealed, whichever comes first. If an artifact card is revealed this way, put it onto the battlefield under your control and sacrifice Thought Dissector. Put the rest of the revealed cards into that player's graveyard."
+    IDS_STRING15335         "Machinate\n{1UU}\nInstant\nDST,C\nLook at the top X cards of your library, where X is the number of artifacts you control. Put one of those cards into your hand and the rest on the bottom of your library in any order."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

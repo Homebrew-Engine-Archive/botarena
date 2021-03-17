@@ -1,0 +1,48 @@
+// Bait and Bludgeon
+// Mirrodin Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+2 Bottle Gnomes (14823)
+Broodstar (15008)
+3 Frogmite (15007)
+2 Leaden Myr (14804)
+Lodestone Myr (14806)
+3 Myr Enforcer (15010)
+2 Myr Retriever (14918)
+2 Nim Shrieker (14890)
+2 Silver Myr (14805)
+2 Somber Hoverguard (15009)
+2 Steel Wall (14817)
+
+// Instants - 6 (10.00%)
+
+2 Assert Authority (15013)
+2 Irradiate (14973)
+2 Thirst for Knowledge (15016)
+
+// Sorceries - 1 (1.67%)
+
+Thoughtcast (15014)
+
+// Artifacts - 9 (15.00%)
+
+Scale of Chiss-Goria (15011)
+Serum Tank (14987)
+4 Talisman of Dominance (14952)
+Tooth of Chiss-Goria (15012)
+2 AEther Spellbomb (14933)
+
+// Lands - 22 (36.67%)
+
+3 Island (14834)
+2 Island (14837)
+3 Island (14835)
+3 Island (14836)
+4 Seat of the Synod (14930)
+Swamp (14856)
+Swamp (14857)
+Swamp (14858)
+4 Vault of Whispers (14932)

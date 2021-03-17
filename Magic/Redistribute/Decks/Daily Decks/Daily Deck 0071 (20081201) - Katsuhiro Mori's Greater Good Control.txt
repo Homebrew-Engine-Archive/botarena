@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+3 Arashi, the Sky Asunder (16205)
+Birds of Paradise (16411)
+3 Kodama of the North Tree (15604)
+3 Llanowar Elves (2097)
+4 Loxodon Hierarch (16606)
+4 Selesnya Guildmage (16502)
+4 Wood Elves (2203)
+2 Yosei, the Morning Star (15813)
+
+// Instants - 4 (6.67%)
+
+2 Congregation at Dawn (16552)
+2 Seed Spark (16575)
+
+// Enchantments - 3 (5.00%)
+
+3 Glare of Subdual (16544)
+
+// Artifacts - 6 (10.00%)
+
+3 Pithing Needle (16200)
+3 Umezawa's Jitte (19149)
+
+// Lands - 23 (38.33%)
+
+4 Brushland (2019)
+Forest (16416)
+Forest (16417)
+Forest (16418)
+2 Forest (16415)
+Okina, Temple to the Grandfathers (15696)
+Plains (16428)
+4 Selesnya Sanctuary (16409)
+4 Temple Garden (16447)
+4 Vitu-Ghazi, the City-Tree (16532)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Carven Caryatid (16464)
+3 Hokori, Dust Drinker (19114)
+Kodama of the North Tree (15604)
+Seedborn Muse (2329)
+2 Yosei, the Morning Star (15813)
+
+// Instants
+
+2 Naturalize (2115)
+
+// Sorceries
+
+Kodama's Reach (15798)
+Wrath of God (2205)
+
+// Enchantments
+
+2 Greater Good (2332)

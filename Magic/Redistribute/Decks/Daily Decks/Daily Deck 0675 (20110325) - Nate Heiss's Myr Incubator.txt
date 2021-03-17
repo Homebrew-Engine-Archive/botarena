@@ -1,0 +1,31 @@
+
+// Total cards in deck - 60
+
+// Instants - 4 (6.67%)
+
+4 Thirst for Knowledge (15016)
+
+// Sorceries - 12 (20.00%)
+
+4 Fabricate (14827)
+4 Serum Visions (15504)
+4 Thoughtcast (15014)
+
+// Artifacts - 25 (41.67%)
+
+4 Chromatic Sphere (14873)
+Goblin Cannon (15505)
+4 Krark-Clan Ironworks (15463)
+4 Myr Incubator (15035)
+4 Pentad Prism (15491)
+4 Talisman of Dominance (14952)
+4 Talisman of Progress (14955)
+
+// Lands - 19 (31.67%)
+
+2 Ancient Den (14926)
+4 Darksteel Citadel (15282)
+4 Great Furnace (14929)
+4 Seat of the Synod (14930)
+3 Tree of Tales (14931)
+2 Vault of Whispers (14932)

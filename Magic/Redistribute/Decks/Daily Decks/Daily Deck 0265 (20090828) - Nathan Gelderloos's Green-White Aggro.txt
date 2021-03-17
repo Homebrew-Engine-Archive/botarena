@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Elspeth, Knight-Errant (8722)
+
+// Creatures - 24 (40.00%)
+
+2 Heartmender (18673)
+4 Kitchen Finks (18593)
+2 Knight of New Alara (9115)
+4 Knotvine Paladin (9088)
+4 Noble Hierarch (8819)
+4 Qasali Pridemage (9018)
+4 Wilt-Leaf Liege (18644)
+
+// Instants - 3 (5.00%)
+
+3 Path to Exile (8897)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 2 (3.33%)
+
+2 Behemoth Sledge (9003)
+
+// Lands - 24 (40.00%)
+
+Forest (4042)
+Forest (4043)
+Forest (4040)
+Forest (4041)
+3 Jungle Shrine (8588)
+Plains (4082)
+Plains (4084)
+Plains (4083)
+Plains (4085)
+2 Sunpetal Grove (4202)
+3 Terramorphic Expanse (4111)
+4 Windbrisk Heights (18152)
+4 Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Burrenton Forge-Tender (18054)
+2 Dauntless Escort (9085)
+4 Great Sable Stag (4013)
+3 Oversoul of Dusk (18610)
+
+// Artifacts
+
+2 Pithing Needle (4081)

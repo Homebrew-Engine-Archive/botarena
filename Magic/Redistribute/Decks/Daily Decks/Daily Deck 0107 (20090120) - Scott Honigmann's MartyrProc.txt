@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Creatures - 10 (16.67%)
+
+2 Crovax, Ascendant Hero (2538)
+4 Eternal Dragon (14623)
+4 Martyr of Sands (7083)
+
+// Instants - 3 (5.00%)
+
+3 Condemn (3291)
+
+// Sorceries - 11 (18.33%)
+
+2 Akroma's Vengeance (14083)
+3 Decree of Justice (14647)
+2 Proclamation of Rebirth (16973)
+4 Wrath of God (3200)
+
+// Enchantments - 8 (13.33%)
+
+4 Oblivion Ring (18040)
+4 Runed Halo (18683)
+
+// Artifacts - 3 (5.00%)
+
+3 Chalice of the Void (15015)
+
+// Lands - 25 (41.67%)
+
+2 Godless Shrine (16808)
+Mistveil Plains (18562)
+4 Plains (18519)
+4 Plains (18520)
+4 Plains (18517)
+4 Plains (18518)
+2 Sacred Foundry (16446)
+4 Temple of the False God (14645)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Exalted Angel (14191)
+
+// Instants
+
+2 Angel's Grace (17475)
+3 Boil (1515)
+3 Disenchant (17240)
+3 Extirpate (2594)
+2 Gilded Light (14630)

@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Garruk, Primal Hunter (22307)
+
+// Creatures - 15 (25.00%)
+
+Acidic Slime (22174)
+Birds of Paradise (22236)
+3 Primeval Titan (22185)
+3 Solemn Simulacrum (22199)
+4 Viridian Emissary (21743)
+3 Wurmcoil Engine (21439)
+
+// Instants - 4 (6.67%)
+
+4 Beast Within (21958)
+
+// Sorceries - 11 (18.33%)
+
+4 Green Sun's Zenith (21720)
+4 Rampant Growth (22186)
+3 Slagstorm (21756)
+
+// Lands - 26 (43.33%)
+
+4 Copperline Gorge (21471)
+3 Forest (23321)
+3 Forest (23323)
+3 Forest (23322)
+4 Inkmoth Nexus (21745)
+2 Kessig Wolf Run (23370)
+Mountain (23327)
+Mountain (23328)
+Mountain (23329)
+4 Rootbound Crag (22205)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Thrun, the Last Troll (21716)
+2 Tree of Redemption (23496)
+Viridian Corrupter (21719)
+
+// Instants
+
+4 Ancient Grudge (23468)
+
+// Sorceries
+
+Slagstorm (21756)
+
+// Artifacts
+
+Ratchet Bomb (21528)
+3 Sword of Feast and Famine (21762)

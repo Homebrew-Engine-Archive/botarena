@@ -1,0 +1,26 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+4 Memnite (21440)
+4 Ornithopter (21306)
+4 Palladium Myr (21442)
+4 Riddlesmith (21479)
+4 Silver Myr (21425)
+4 Steel Overseer (21219)
+
+// Sorceries - 4 (6.67%)
+
+4 Time Reversal (21212)
+
+// Artifacts - 7 (11.67%)
+
+3 Mox Opal (21434)
+4 Semblance Anvil (21458)
+
+// Lands - 25 (41.67%)
+
+7 Island (21404)
+6 Island (21407)
+6 Island (21406)
+6 Island (21405)

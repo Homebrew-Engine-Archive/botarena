@@ -1,0 +1,32 @@
+// Deadly Instinct
+// Starter 1999 Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 13 (32.50%)
+
+Dakmor Lancer (20526)
+2 Dakmor Scorpion (20527)
+2 Feral Shadow (20535)
+2 Gravedigger (20546)
+2 Hollow Dogs (20548)
+2 Ravenous Rats (20567)
+2 Serpent Warrior (20570)
+
+// Sorceries - 10 (25.00%)
+
+Ancient Craving (20613)
+2 Chorus of Woe (20619)
+Dakmor Plague (20621)
+3 Hand of Death (20627)
+2 Mind Rot (20632)
+Soul Feast (20647)
+
+// Lands - 17 (42.50%)
+
+5 Swamp (20605)
+4 Swamp (20606)
+4 Swamp (20607)
+4 Swamp (20608)

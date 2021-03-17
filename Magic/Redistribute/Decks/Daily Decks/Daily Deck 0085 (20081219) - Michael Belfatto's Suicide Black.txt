@@ -1,0 +1,61 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+2 Crypt Creeper (13320)
+4 Dark Confidant (16449)
+4 Hand of Cruelty (16213)
+2 Hypnotic Specter (2289)
+Order of the Ebon Hand (5916)
+Order of the Ebon Hand (5915)
+Order of the Ebon Hand (5901)
+3 Plague Sliver (17308)
+2 Stromgald Crusader (7017)
+
+// Instants - 7 (11.67%)
+
+3 Contagion (6790)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 8 (13.33%)
+
+4 Duress (795)
+Hymn to Tourach (5914)
+Hymn to Tourach (5900)
+Hymn to Tourach (5912)
+Hymn to Tourach (5913)
+
+// Artifacts - 2 (3.33%)
+
+2 Umezawa's Jitte (19149)
+
+// Lands - 23 (38.33%)
+
+3 Bloodstained Mire (14002)
+Flooded Strand (14001)
+Polluted Delta (14000)
+3 Scrubland (7356)
+4 Swamp (17227)
+4 Swamp (17228)
+3 Swamp (17229)
+3 Swamp (17230)
+Underground Sea (7388)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+2 Extirpate (2594)
+
+// Enchantments
+
+3 Engineered Plague (1042)
+4 Leyline of the Void (16893)
+
+// Artifacts
+
+3 Pithing Needle (16200)
+2 Tormod's Crypt (17265)
+Umezawa's Jitte (19149)

@@ -1,0 +1,68 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Deadshot Minotaur (9029)
+Dryad Arbor (17804)
+3 Fulminator Mage (18600)
+3 Jungle Weaver (8648)
+4 Monstrous Carabid (9037)
+Obstinate Baloth (21217)
+Shriekmaw (18025)
+4 Street Wraith (17747)
+
+// Instants - 12 (20.00%)
+
+3 Beast Within (21958)
+3 Dismember (21951)
+2 Jund Charm (8587)
+4 Violent Outburst (9114)
+
+// Sorceries - 7 (11.67%)
+
+4 Demonic Dread (9110)
+3 Living End (17502)
+
+// Lands - 20 (33.33%)
+
+2 Blood Crypt (23839)
+Bojuka Bog (19672)
+3 Copperline Gorge (21471)
+Forest (23321)
+Forest (23322)
+Kessig Wolf Run (23370)
+Mountain (23327)
+Mountain (23328)
+Mountain (23329)
+Stomping Ground (16810)
+Swamp (23334)
+Swamp (23335)
+Swamp (23333)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Brindle Boar (22175)
+2 Faerie Macabre (18539)
+Fulminator Mage (18600)
+2 Ingot Chewer (18018)
+Obstinate Baloth (21217)
+Shriekmaw (18025)
+
+// Instants
+
+Beast Within (21958)
+Gnaw to the Bone (23488)
+Krosan Grip (17369)
+
+// Sorceries
+
+2 Shatterstorm (3156)
+
+// Artifacts
+
+2 Damping Matrix (14993)

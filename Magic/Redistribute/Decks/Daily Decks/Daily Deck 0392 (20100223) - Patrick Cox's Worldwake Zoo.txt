@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+4 Kird Ape (2312)
+3 Knight of the Reliquary (8815)
+4 Loam Lion (19628)
+3 Qasali Pridemage (9018)
+2 Ranger of Eos (8642)
+4 Tarmogoyf (17704)
+4 Wild Nacatl (8504)
+
+// Instants - 14 (23.33%)
+
+2 Bant Charm (8536)
+4 Lightning Bolt (4060)
+4 Lightning Helix (16450)
+4 Path to Exile (8897)
+
+// Lands - 22 (36.67%)
+
+4 Arid Mesa (19349)
+Forest (19300)
+Hallowed Fountain (17008)
+4 Misty Rainforest (19356)
+Plains (19324)
+Sacred Foundry (16446)
+4 Scalding Tarn (19358)
+Steam Vents (16809)
+Stomping Ground (16810)
+2 Temple Garden (16447)
+Treetop Village (3308)
+Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Meddling Mage (9016)
+Ranger of Eos (8642)
+
+// Instants
+
+2 Bant Charm (8536)
+3 Negate (4016)
+
+// Artifacts
+
+2 Damping Matrix (14993)
+2 Umezawa's Jitte (19149)
+
+// Lands
+
+Ghost Quarter (16996)

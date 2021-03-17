@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Ajani Vengeant (8720)
+
+// Creatures - 11 (18.33%)
+
+4 Bloodbraid Elf (9105)
+3 Sphinx of Jwar Isle (19378)
+4 Sphinx of Lost Truths (19508)
+
+// Sorceries - 8 (13.33%)
+
+4 Captured Sunlight (9108)
+4 Day of Judgment (19340)
+
+// Enchantments - 11 (18.33%)
+
+4 Ardent Plea (9109)
+3 Convincing Mirage (4140)
+4 Spreading Seas (19430)
+
+// Lands - 26 (43.33%)
+
+4 Arid Mesa (19349)
+Forest (19300)
+Island (19309)
+Island (19308)
+Island (19310)
+2 Jungle Shrine (8588)
+4 Misty Rainforest (19356)
+Mountain (19316)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Scalding Tarn (19358)
+4 Seaside Citadel (8618)
+3 Terramorphic Expanse (4111)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Deft Duelist (8558)
+4 Rhox War Monk (8694)
+3 Wall of Reverence (8923)
+
+// Instants
+
+4 Celestial Purge (4014)

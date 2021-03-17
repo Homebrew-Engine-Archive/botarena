@@ -1,0 +1,310 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Starter1999.ico"
+IDI_LARGE_MODULE        ICON                    "Starter1999Large.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Starter 1999"
+    IDS_EXPANSION_ABBREV    "S99"
+    IDS_FIRST_CARD          "20500"
+    IDS_TOTAL_CARD          "173"
+    IDS_WHITE_BORDER        "1"
+    IDS_MODULE_ICON_ID      "20673"
+    IDS_MODULE_LARGE_ICON_ID "20674"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-07-1999"
+    IDS_MWS_FOLDER          "MWS\\S99\\"
+    IDS_PRODUCT_LIST        """Starter 1999 Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20500         "Angel of Light\n{4W}\nCreature - Angel\nS99,U\nFlying, vigilance\n3/3"
+    IDS_STRING20501         "Cinder Storm\n{6R}\nSorcery\nS99,U\nCinder Storm deals 7 damage to target creature or player."
+    IDS_STRING20502         "Dakmor Ghoul\n{2BB}\nCreature - Zombie\nS99,U\nWhen Dakmor Ghoul enters the battlefield, target opponent loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING20503         "Devout Monk\n{W}\nCreature - Human Monk Cleric\nS99,C\nWhen Devout Monk enters the battlefield, you gain 1 life.\n1/1"
+    IDS_STRING20504         "Goblin Commando\n{4R}\nCreature - Goblin\nS99,U\nWhen Goblin Commando enters the battlefield, it deals 2 damage to target creature.\n2/2"
+    IDS_STRING20505         "Goblin Settler\n{3R}\nCreature - Goblin\nS99,U\nWhen Goblin Settler enters the battlefield, destroy target land.\n1/1"
+    IDS_STRING20506         "Grim Tutor\n{1BB}\nSorcery\nS99,R\nSearch your library for a card and put that card into your hand, then shuffle your library. You lose 3 life."
+    IDS_STRING20507         "Royal Falcon\n{1W}\nCreature - Bird\nS99,C\nFlying\n1/1"
+    IDS_STRING20508         "Royal Trooper\n{2W}\nCreature - Human Soldier\nS99,U\nWhenever Royal Trooper blocks, it gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING20509         "Shrieking Specter\n{5B}\nCreature - Specter\nS99,U\nFlying\rWhenever Shrieking Specter attacks, defending player discards a card.\n2/2"
+    IDS_STRING20510         "Stream of Acid\n{2BB}\nSorcery\nS99,U\nDestroy target land or nonblack creature."
+    IDS_STRING20511         "Thunder Dragon\n{5RR}\nCreature - Dragon\nS99,R\nFlying\rWhen Thunder Dragon enters the battlefield, it deals 3 damage to each creature without flying.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20512         "Willow Elf\n{G}\nCreature - Elf\nS99,C\n\n1/1"
+    IDS_STRING20513         "Abyssal Horror\n{4BB}\nCreature - Horror\nS99,R\nFlying\rWhen Abyssal Horror enters the battlefield, target player discards two cards.\n2/2"
+    IDS_STRING20514         "Air Elemental\n{3UU}\nCreature - Elemental\nS99,U\nFlying\n4/4"
+    IDS_STRING20515         "Angel of Mercy\n{4W}\nCreature - Angel\nS99,U\nFlying\rWhen Angel of Mercy enters the battlefield, you gain 3 life.\n3/3"
+    IDS_STRING20516         "Archangel\n{5WW}\nCreature - Angel\nS99,R\nFlying, vigilance\n5/5"
+    IDS_STRING20517         "Ardent Militia\n{4W}\nCreature - Human Soldier\nS99,U\nVigilance\n2/5"
+    IDS_STRING20518         "Barbtooth Wurm\n{5G}\nCreature - Wurm\nS99,C\n\n6/4"
+    IDS_STRING20519         "Bog Imp\n{1B}\nCreature - Imp\nS99,C\nFlying\n1/1"
+    IDS_STRING20520         "Bog Raiders\n{2B}\nCreature - Zombie\nS99,C\nSwampwalk\n2/2"
+    IDS_STRING20521         "Bog Wraith\n{3B}\nCreature - Wraith\nS99,U\nSwampwalk\n3/3"
+    IDS_STRING20522         "Border Guard\n{2W}\nCreature - Human Soldier\nS99,C\n\n1/4"
+    IDS_STRING20523         "Bull Hippo\n{3G}\nCreature - Hippo\nS99,U\nIslandwalk\n3/3"
+    IDS_STRING20524         "Charging Paladin\n{2W}\nCreature - Human Knight\nS99,U\nWhenever Charging Paladin attacks, it gets +0/+3 until end of turn.\n2/2"
+    IDS_STRING20525         "Coral Eel\n{1U}\nCreature - Fish\nS99,C\n\n2/1"
+    IDS_STRING20526         "Dakmor Lancer\n{4BB}\nCreature - Human Knight\nS99,R\nWhen Dakmor Lancer enters the battlefield, destroy target nonblack creature.\n3/3"
+    IDS_STRING20527         "Dakmor Scorpion\n{1B}\nCreature - Scorpion\nS99,C\n\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20528         "Dakmor Sorceress\n{5B}\nCreature - Human Wizard\nS99,R\nDakmor Sorceress's power is equal to the number of Swamps you control.\n*/4"
+    IDS_STRING20529         "Denizen of the Deep\n{6UU}\nCreature - Serpent\nS99,R\nWhen Denizen of the Deep enters the battlefield, return each other creature you control to its owner's hand.\n11/11"
+    IDS_STRING20530         "Devoted Hero\n{W}\nCreature - Elf Soldier\nS99,C\n\n1/2"
+    IDS_STRING20531         "Dread Reaper\n{3BBB}\nCreature - Horror\nS99,R\nFlying\rWhen Dread Reaper enters the battlefield, you lose 5 life.\n6/5"
+    IDS_STRING20532         "Durkwood Boars\n{4G}\nCreature - Boar\nS99,C\n\n4/4"
+    IDS_STRING20533         "Eager Cadet\n{W}\nCreature - Human Soldier\nS99,C\n\n1/1"
+    IDS_STRING20534         "Earth Elemental\n{3RR}\nCreature - Elemental\nS99,U\n\n4/5"
+    IDS_STRING20535         "Feral Shadow\n{2B}\nCreature - Nightstalker\nS99,C\nFlying\n2/1"
+    IDS_STRING20536         "Fire Elemental\n{3RR}\nCreature - Elemental\nS99,U\n\n5/4"
+    IDS_STRING20537         "Foot Soldiers\n{3W}\nCreature - Human Soldier\nS99,C\n\n2/4"
+    IDS_STRING20538         "Giant Octopus\n{3U}\nCreature - Octopus\nS99,C\n\n3/3"
+    IDS_STRING20539         "Goblin Cavaliers\n{2R}\nCreature - Goblin\nS99,C\n\n3/2"
+    IDS_STRING20540         "Goblin Chariot\n{2R}\nCreature - Goblin Warrior\nS99,C\nHaste\n2/2"
+    IDS_STRING20541         "Goblin General\n{1RR}\nCreature - Goblin Warrior\nS99,U\nWhenever Goblin General attacks, Goblin creatures you control get +1/+1 until end of turn.\n1/1"
+    IDS_STRING20542         "Goblin Glider\n{1R}\nCreature - Goblin\nS99,U\nFlying\rGoblin Glider can't block.\n1/1"
+    IDS_STRING20543         "Goblin Hero\n{2R}\nCreature - Goblin\nS99,R\n\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20544         "Goblin Mountaineer\n{R}\nCreature - Goblin Scout\nS99,C\nMountainwalk\n1/1"
+    IDS_STRING20545         "Gorilla Warrior\n{2G}\nCreature - Ape Warrior\nS99,C\n\n3/2"
+    IDS_STRING20546         "Gravedigger\n{3B}\nCreature - Zombie\nS99,U\nWhen Gravedigger enters the battlefield, you may return target creature card from your graveyard to your hand.\n2/2"
+    IDS_STRING20547         "Grizzly Bears\n{1G}\nCreature - Bear\nS99,C\n\n2/2"
+    IDS_STRING20548         "Hollow Dogs\n{4B}\nCreature - Zombie Hound\nS99,C\nWhenever Hollow Dogs attacks, it gets +2/+0 until end of turn.\n3/3"
+    IDS_STRING20549         "Hulking Goblin\n{1R}\nCreature - Goblin\nS99,C\nHulking Goblin can't block.\n2/2"
+    IDS_STRING20550         "Hulking Ogre\n{2R}\nCreature - Ogre\nS99,U\nHulking Ogre can't block.\n3/3"
+    IDS_STRING20551         "Ingenious Thief\n{1U}\nCreature - Human Rogue\nS99,C\nFlying.\rWhen Ingenious Thief enters the battlefield, look at target player's hand.\n1/1"
+    IDS_STRING20552         "Knight Errant\n{1W}\nCreature - Human Knight\nS99,C\n\n2/2"
+    IDS_STRING20553         "Lone Wolf\n{2G}\nCreature - Wolf\nS99,C\nYou may have Lone Wolf assign its combat damage as though it weren't blocked.\n2/2"
+    IDS_STRING20554         "Loyal Sentry\n{W}\nCreature - Human Soldier\nS99,R\nWhen Loyal Sentry blocks a creature, destroy that creature and Loyal Sentry.\n1/1"
+    IDS_STRING20555         "Lynx\n{1G}\nCreature - Cat\nS99,U\nForestwalk\n2/1"
+    IDS_STRING20556         "Man-o'-War\n{2U}\nCreature - Jellyfish\nS99,U\nWhen Man-o'-War enters the battlefield, return target creature to its owner's hand.\n2/2"
+    IDS_STRING20557         "Merfolk of the Pearl Trident\n{U}\nCreature - Merfolk\nS99,C\n\n1/1"
+    IDS_STRING20558         "Mons's Goblin Raiders\n{R}\nCreature - Goblin\nS99,R\n\n1/1"
+    IDS_STRING20559         "Moon Sprite\n{1G}\nCreature - Faerie\nS99,U\nFlying\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20560         "Muck Rats\n{B}\nCreature - Rat\nS99,C\n\n1/1"
+    IDS_STRING20561         "Norwood Archers\n{3G}\nCreature - Elf Archer\nS99,C\nReach\n3/3"
+    IDS_STRING20562         "Norwood Ranger\n{G}\nCreature - Elf Scout\nS99,C\n\n1/2"
+    IDS_STRING20563         "Ogre Warrior\n{3R}\nCreature - Ogre Warrior\nS99,C\n\n3/3"
+    IDS_STRING20564         "Phantom Warrior\n{1UU}\nCreature - Illusion Warrior\nS99,R\nPhantom Warrior is unblockable.\n2/2"
+    IDS_STRING20565         "Pride of Lions\n{3GG}\nCreature - Cat\nS99,U\nYou may have Pride of Lions assign its combat damage as though it weren't blocked.\n4/4"
+    IDS_STRING20566         "Raging Goblin\n{R}\nCreature - Goblin Berserker\nS99,C\nHaste\n1/1"
+    IDS_STRING20567         "Ravenous Rats\n{1B}\nCreature - Rat\nS99,U\nWhen Ravenous Rats enters the battlefield, target opponent discards a card.\n1/1"
+    IDS_STRING20568         "Scathe Zombies\n{2B}\nCreature - Zombie\nS99,C\n\n2/2"
+    IDS_STRING20569         "Sea Eagle\n{1U}\nCreature - Bird\nS99,C\nFlying\n1/1"
+    IDS_STRING20570         "Serpent Warrior\n{2B}\nCreature - Snake Warrior\nS99,C\nWhen Serpent Warrior enters the battlefield, you lose 3 life.\n3/3"
+    IDS_STRING20571         "Silverback Ape\n{3GG}\nCreature - Ape\nS99,U\n\n5/5"
+    IDS_STRING20572         "Snapping Drake\n{3U}\nCreature - Drake\nS99,C\nFlying\n3/2"
+    IDS_STRING20573         "Southern Elephant\n{3G}\nCreature - Elephant\nS99,C\n\n3/4"
+    IDS_STRING20574         "Storm Crow\n{1U}\nCreature - Bird\nS99,C\nFlying\n1/2"
+    IDS_STRING20575         "Sylvan Basilisk\n{3GG}\nCreature - Basilisk\nS99,R\nWhenever Sylvan Basilisk becomes blocked by a creature, destroy that creature.\n2/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20576         "Sylvan Yeti\n{2GG}\nCreature - Yeti\nS99,R\nSylvan Yeti's power is equal to the number of cards in your hand.\n*/4"
+    IDS_STRING20577         "Thorn Elemental\n{5GG}\nCreature - Elemental\nS99,R\nYou may have Thorn Elemental assign its combat damage as though it weren't blocked.\n7/7"
+    IDS_STRING20578         "Trained Orgg\n{6R}\nCreature - Orgg\nS99,R\n\n6/6"
+    IDS_STRING20579         "Venerable Monk\n{2W}\nCreature - Human Monk Cleric\nS99,C\nWhen Venerable Monk enters the battlefield, you gain 2 life.\n2/2"
+    IDS_STRING20580         "Veteran Cavalier\n{WW}\nCreature - Human Knight\nS99,U\nVigilance\n2/2"
+    IDS_STRING20581         "Vizzerdrix\n{6U}\nCreature - Rabbit Beast\nS99,R\n\n6/6"
+    IDS_STRING20582         "Volcanic Dragon\n{4RR}\nCreature - Dragon\nS99,R\nFlying, haste\n4/4"
+    IDS_STRING20583         "Water Elemental\n{3UU}\nCreature - Elemental\nS99,U\n\n5/4"
+    IDS_STRING20584         "Whiptail Wurm\n{6G}\nCreature - Wurm\nS99,U\n\n8/5"
+    IDS_STRING20585         "Wild Griffin\n{2W}\nCreature - Griffin\nS99,C\nFlying\n2/2"
+    IDS_STRING20586         "Wild Ox\n{3G}\nCreature - Ox\nS99,U\nSwampwalk\n3/3"
+    IDS_STRING20587         "Wind Drake\n{2U}\nCreature - Drake\nS99,C\nFlying\n2/2"
+    IDS_STRING20588         "Wood Elves\n{2G}\nCreature - Elf Scout\nS99,U\nWhen Wood Elves enters the battlefield, search your library for a Forest card and put that card onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING20589         "Forest\n\nBasic Land - Forest\nS99,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20590         "Forest\n\nBasic Land - Forest\nS99,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20591         "Forest\n\nBasic Land - Forest\nS99,BL\n{T}: Add {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20592         "Forest\n\nBasic Land - Forest\nS99,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20593         "Island\n\nBasic Land - Island\nS99,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20594         "Island\n\nBasic Land - Island\nS99,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20595         "Island\n\nBasic Land - Island\nS99,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20596         "Island\n\nBasic Land - Island\nS99,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20597         "Mountain\n\nBasic Land - Mountain\nS99,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20598         "Mountain\n\nBasic Land - Mountain\nS99,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20599         "Mountain\n\nBasic Land - Mountain\nS99,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20600         "Mountain\n\nBasic Land - Mountain\nS99,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20601         "Plains\n\nBasic Land - Plains\nS99,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20602         "Plains\n\nBasic Land - Plains\nS99,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20603         "Plains\n\nBasic Land - Plains\nS99,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20604         "Plains\n\nBasic Land - Plains\nS99,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20605         "Swamp\n\nBasic Land - Swamp\nS99,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20606         "Swamp\n\nBasic Land - Swamp\nS99,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20607         "Swamp\n\nBasic Land - Swamp\nS99,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20608         "Swamp\n\nBasic Land - Swamp\nS99,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20609         "Counterspell\n{UU}\nInstant\nS99,U\nCounter target spell."
+    IDS_STRING20610         "Extinguish\n{1U}\nInstant\nS99,C\nCounter target sorcery spell."
+    IDS_STRING20611         "Remove Soul\n{1U}\nInstant\nS99,C\nCounter target creature spell."
+    IDS_STRING20612         "Alluring Scent\n{1GG}\nSorcery\nS99,R\nAll creatures able to block target creature this turn do so."
+    IDS_STRING20613         "Ancient Craving\n{3B}\nSorcery\nS99,R\nYou draw three cards and you lose 3 life."
+    IDS_STRING20614         "Angelic Blessing\n{2W}\nSorcery\nS99,C\nTarget creature gets +3/+3 and gains flying until end of turn."
+    IDS_STRING20615         "Armageddon\n{3W}\nSorcery\nS99,R\nDestroy all lands."
+    IDS_STRING20616         "Bargain\n{2W}\nSorcery\nS99,U\nTarget opponent draws a card.\rYou gain 7 life."
+    IDS_STRING20617         "Blinding Light\n{2W}\nSorcery\nS99,R\nTap all nonwhite creatures."
+    IDS_STRING20618         "Breath of Life\n{3W}\nSorcery\nS99,U\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING20619         "Chorus of Woe\n{B}\nSorcery\nS99,C\nCreatures you control get +1/+0 until end of turn."
+    IDS_STRING20620         "Coercion\n{2B}\nSorcery\nS99,U\nTarget opponent reveals his or her hand. You choose a card from it. That player discards that card."
+    IDS_STRING20621         "Dakmor Plague\n{3BB}\nSorcery\nS99,U\nDakmor Plague deals 3 damage to each creature and each player."
+    IDS_STRING20622         "Dark Offering\n{4BB}\nSorcery\nS99,U\nDestroy target nonblack creature. You gain 3 life."
+    IDS_STRING20623         "Devastation\n{5RR}\nSorcery\nS99,R\nDestroy all creatures and lands."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20624         "Exhaustion\n{2U}\nSorcery\nS99,U\nCreatures and lands target opponent controls don't untap during his or her next untap step."
+    IDS_STRING20625         "Fire Tempest\n{5RR}\nSorcery\nS99,R\nFire Tempest deals 6 damage to each creature and each player."
+    IDS_STRING20626         "Gerrard's Wisdom\n{2WW}\nSorcery\nS99,R\nYou gain 2 life for each card in your hand."
+    IDS_STRING20627         "Hand of Death\n{2B}\nSorcery\nS99,C\nDestroy target nonblack creature."
+    IDS_STRING20628         "Howling Fury\n{2B}\nSorcery\nS99,U\nTarget creature gets +4/+0 until end of turn."
+    IDS_STRING20629         "Jagged Lightning\n{3RR}\nSorcery\nS99,U\nJagged Lightning deals 3 damage to each of two target creatures."
+    IDS_STRING20630         "Last Chance\n{RR}\nSorcery\nS99,R\nTake an extra turn after this one. At the beginning of that turn's end step, you lose the game."
+    IDS_STRING20631         "Lava Axe\n{4R}\nSorcery\nS99,C\nLava Axe deals 5 damage to target player."
+    IDS_STRING20632         "Mind Rot\n{2B}\nSorcery\nS99,C\nTarget player discards two cards."
+    IDS_STRING20633         "Monstrous Growth\n{1G}\nSorcery\nS99,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING20634         "Natural Spring\n{3GG}\nSorcery\nS99,U\nTarget player gains 8 life."
+    IDS_STRING20635         "Nature's Cloak\n{2G}\nSorcery\nS99,R\nGreen creatures you control gain forestwalk until end of turn."
+    IDS_STRING20636         "Nature's Lore\n{1G}\nSorcery\nS99,C\nSearch your library for a Forest card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING20637         "Path of Peace\n{3W}\nSorcery\nS99,C\nDestroy target creature. Its owner gains 4 life."
+    IDS_STRING20638         "Psychic Transfer\n{4U}\nSorcery\nS99,R\nIf the difference between your life total and target player's life total is 5 or less, exchange life totals with that player."
+    IDS_STRING20639         "Raise Dead\n{B}\nSorcery\nS99,C\nReturn target creature card from your graveyard to your hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20640         "Relearn\n{1UU}\nSorcery\nS99,U\nReturn target instant or sorcery card from your graveyard to your hand."
+    IDS_STRING20641         "Relentless Assault\n{2RR}\nSorcery\nS99,R\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING20642         "Renewing Touch\n{G}\nSorcery\nS99,U\nShuffle any number of target creature cards from your graveyard into your library."
+    IDS_STRING20643         "Righteous Charge\n{1WW}\nSorcery\nS99,U\nCreatures you control get +2/+2 until end of turn."
+    IDS_STRING20644         "Sacred Nectar\n{1W}\nSorcery\nS99,C\nYou gain 4 life."
+    IDS_STRING20645         "Scorching Spear\n{R}\nSorcery\nS99,C\nScorching Spear deals 1 damage to target creature or player."
+    IDS_STRING20646         "Sleight of Hand\n{U}\nSorcery\nS99,c\nLook at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library."
+    IDS_STRING20647         "Soul Feast\n{3BB}\nSorcery\nS99,U\nTarget player loses 4 life and you gain 4 life."
+    IDS_STRING20648         "Spitting Earth\n{1R}\nSorcery\nS99,U\nSpitting Earth deals damage to target creature equal to the number of Mountains you control."
+    IDS_STRING20649         "Squall\n{2G}\nSorcery\nS99,C\nSquall deals 2 damage to each creature with flying."
+    IDS_STRING20650         "Steadfastness\n{1W}\nSorcery\nS99,C\nCreatures you control get +0/+3 until end of turn."
+    IDS_STRING20651         "Stone Rain\n{2R}\nSorcery\nS99,C\nDestroy target land."
+    IDS_STRING20652         "Summer Bloom\n{1G}\nSorcery\nS99,R\nYou may play up to three additional lands this turn."
+    IDS_STRING20653         "Tidings\n{3UU}\nSorcery\nS99,U\nDraw four cards."
+    IDS_STRING20654         "Time Ebb\n{2U}\nSorcery\nS99,C\nPut target creature on top of its owner's library."
+    IDS_STRING20655         "Touch of Brilliance\n{3U}\nSorcery\nS99,C\nDraw two cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20656         "Tremor\n{R}\nSorcery\nS99,C\nTremor deals 1 damage to each creature without flying."
+    IDS_STRING20657         "Undo\n{1UU}\nSorcery\nS99,U\nReturn two target creatures to their owners' hands."
+    IDS_STRING20658         "Untamed Wilds\n{2G}\nSorcery\nS99,U\nSearch your library for a basic land card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING20659         "Vengeance\n{3W}\nSorcery\nS99,U\nDestroy target tapped creature."
+    IDS_STRING20660         "Volcanic Hammer\n{1R}\nSorcery\nS99,C\nVolcanic Hammer deals 3 damage to target creature or player."
+    IDS_STRING20661         "Whirlwind\n{2GG}\nSorcery\nS99,R\nDestroy all creatures with flying."
+    IDS_STRING20662         "Wicked Pact\n{1BB}\nSorcery\nS99,R\nDestroy two target nonblack creatures. You lose 5 life."
+    IDS_STRING20663         "Wind Sail\n{1U}\nSorcery\nS99,U\nOne or two target creatures gain flying until end of turn."
+    IDS_STRING20664         "Eye Spy\n{U}\nSorcery\nS99,U\nLook at the top card of target player's library. You may put that card into his or her graveyard."
+    IDS_STRING20665         "Owl Familiar\n{1U}\nCreature - Bird\nS99,U\nFlying\rWhen Owl Familiar enters the battlefield, draw a card, then discard a card.\n1/1"
+    IDS_STRING20666         "Goblin Lore\n{1R}\nSorcery\nS99,U\nDraw four cards, then discard three cards at random."
+    IDS_STRING20667         "Time Warp\n{3UU}\nSorcery\nS99,R\nTarget player takes an extra turn after this one."
+    IDS_STRING20668         "Ransack\n{3U}\nSorcery\nS99,R\nLook at the top five cards of target player's library. Put any number of them on the bottom of that library in any order and the rest on top of the library in any order."
+    IDS_STRING20669         "False Peace\n{W}\nSorcery\nS99,U\nTarget player skips all combat phases of his or her next turn."
+    IDS_STRING20670         "Champion Lancer\n{4WW}\nCreature - Human Knight\nS99,R\nPrevent all damage that would be dealt to Champion Lancer by creatures.\n3/3"
+    IDS_STRING20671         "Righteous Fury\n{4WW}\nSorcery\nS99,R\nDestroy all tapped creatures. You gain 2 life for each creature destroyed this way."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

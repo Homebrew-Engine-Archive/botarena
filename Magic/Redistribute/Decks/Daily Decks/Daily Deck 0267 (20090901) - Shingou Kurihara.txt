@@ -1,0 +1,51 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 14 (35.00%)
+
+Alluring Siren (4183)
+Blinding Mage (4127)
+Elite Vanguard (4010)
+Griffin Sentinel (4130)
+Horned Turtle (4049)
+Razorfoot Griffin (4092)
+Serra Angel (4098)
+Siege Mastodon (4134)
+Snapping Drake (4102)
+Stormfront Pegasus (4136)
+Veteran Armorsmith (4137)
+Veteran Swordsmith (4138)
+White Knight (4120)
+Wind Drake (4121)
+
+// Instants - 4 (10.00%)
+
+Divine Verdict (4128)
+Essence Scatter (4143)
+Negate (4016)
+Safe Passage (4220)
+
+// Sorceries - 2 (5.00%)
+
+2 Excommunicate (4015)
+
+// Enchantments - 3 (7.50%)
+
+Honor of the Pure (4008)
+2 Pacifism (4078)
+
+// Artifacts - 1 (2.50%)
+
+Magebane Armor (4197)
+
+// Lands - 16 (40.00%)
+
+2 Island (4052)
+2 Island (4053)
+Island (4054)
+Island (4055)
+3 Plains (4082)
+3 Plains (4083)
+2 Plains (4084)
+2 Plains (4085)

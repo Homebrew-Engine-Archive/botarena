@@ -1,0 +1,77 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Jace, the Mind Sculptor (19670)
+
+// Creatures - 12 (20.00%)
+
+4 Mistbind Clique (18055)
+2 Scion of Oona (17988)
+4 Spellstutter Sprite (18095)
+2 Vendilion Clique (18369)
+
+// Instants - 13 (21.67%)
+
+4 Cryptic Command (18051)
+3 Disfigure (19379)
+4 Mana Leak (21214)
+2 Smother (19600)
+
+// Sorceries - 5 (8.33%)
+
+Inquisition of Kozilek (20846)
+4 Thoughtseize (17901)
+
+// Enchantments - 4 (6.67%)
+
+4 Bitterblossom (18338)
+
+// Lands - 25 (41.67%)
+
+3 Creeping Tar Pit (19622)
+4 Darkslick Shores (21469)
+Island (21406)
+Island (21405)
+Island (21404)
+4 Mutavault (18368)
+4 Secluded Glen (18093)
+3 Sunken Ruins (18580)
+Swamp (21416)
+Swamp (21417)
+Swamp (21418)
+Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Jace, the Mind Sculptor (19670)
+
+// Creatures
+
+2 Glen Elendra Archmage (18938)
+Scion of Oona (17988)
+Vendilion Clique (18369)
+2 Wurmcoil Engine (21439)
+
+// Instants
+
+Disfigure (19379)
+Smother (19600)
+
+// Sorceries
+
+Infest (8584)
+2 Inquisition of Kozilek (20846)
+
+// Artifacts
+
+2 Ratchet Bomb (21528)
+
+// Lands
+
+Tectonic Edge (19651)
+	

@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+2 Drooling Groodion (16618)
+2 Elves of Deep Shadow (16414)
+Elvish Skysweeper (16477)
+2 Golgari Brownscale (16588)
+Golgari Grave-Troll (16589)
+Golgari Guildmage (16482)
+2 Golgari Rotwurm (16483)
+3 Greater Mossdog (16592)
+2 Infectious Host (16490)
+Savra, Queen of the Golgari (16602)
+2 Shambling Shell (16593)
+2 Stinkweed Imp (16594)
+Thoughtpicker Witch (16599)
+2 Woodwraith Strangler (16584)
+
+// Instants - 6 (10.00%)
+
+2 Darkblast (16596)
+2 Last Gasp (16557)
+2 Putrefy (16408)
+
+// Sorceries - 4 (6.67%)
+
+2 Recollect (16432)
+Rolling Spoil (16578)
+Vigor Mortis (16600)
+
+// Enchantments - 2 (3.33%)
+
+Moldervine Cloak (16595)
+Necromantic Thirst (16546)
+
+// Lands - 24 (40.00%)
+
+3 Forest (16416)
+2 Forest (16418)
+3 Forest (16415)
+3 Forest (16417)
+Golgari Rot Farm (16405)
+Svogthos, the Restless Tomb (16615)
+3 Swamp (16439)
+2 Swamp (16440)
+3 Swamp (16437)
+3 Swamp (16438)

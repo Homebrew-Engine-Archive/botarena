@@ -1,0 +1,317 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Planechase.ico"
+IDI_LARGE_MODULE        ICON                    "PlanechaseLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Planechase"
+    IDS_EXPANSION_ABBREV    "HOP"
+    IDS_FIRST_CARD          "24600"
+    IDS_TOTAL_CARD          "214"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "24598"
+    IDS_MODULE_LARGE_ICON_ID "24599"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "04-09-2009"
+    IDS_MWS_FOLDER          "MWS\\HOP\\"
+    IDS_PRODUCT_LIST        """Planechase Starter Box"":R-3:U-10:C-32:BL-30,""Planechase Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24600         "Forest\n\nBasic Land - Forest\nHOP,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24601         "Forest\n\nBasic Land - Forest\nHOP,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24602         "Forest\n\nBasic Land - Forest\nHOP,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24603         "Forest\n\nBasic Land - Forest\nHOP,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24604         "Forest\n\nBasic Land - Forest\nHOP,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING24605         "Island\n\nBasic Land - Island\nHOP,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24606         "Island\n\nBasic Land - Island\nHOP,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24607         "Island\n\nBasic Land - Island\nHOP,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24608         "Island\n\nBasic Land - Island\nHOP,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING24609         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24610         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24611         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24612         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24613         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24614         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24615         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24616         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24617         "Mountain\n\nBasic Land - Mountain\nHOP,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING24618         "Plains\n\nBasic Land - Plains\nHOP,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24619         "Plains\n\nBasic Land - Plains\nHOP,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24620         "Plains\n\nBasic Land - Plains\nHOP,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24621         "Plains\n\nBasic Land - Plains\nHOP,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24622         "Plains\n\nBasic Land - Plains\nHOP,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING24623         "Swamp\n\nBasic Land - Swamp\nHOP,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24624         "Swamp\n\nBasic Land - Swamp\nHOP,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24625         "Swamp\n\nBasic Land - Swamp\nHOP,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24626         "Swamp\n\nBasic Land - Swamp\nHOP,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24627         "Swamp\n\nBasic Land - Swamp\nHOP,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING24628         "Akroma's Vengeance\n{4WW}\nSorcery\nHOP,R\nDestroy all artifacts, creatures, and enchantments.\rCycling {3}"
+    IDS_STRING24629         "Ancient Den\n\nArtifact Land\nHOP,C\n{T}: Add {W} to your mana pool."
+    IDS_STRING24630         "Arcbound Crusher\n{4}\nArtifact Creature - Juggernaut\nHOP,U\nTrample\rWhenever another artifact enters the battlefield, put a +1/+1 counter on Arcbound Crusher.\rModular 1\n0/0"
+    IDS_STRING24631         "Arcbound Slith\n{2}\nArtifact Creature - Slith\nHOP,U\nWhenever Arcbound Slith deals combat damage to a player, put a +1/+1 counter on it.\rModular 1\n0/0"
+    IDS_STRING24632         "Arc Lightning\n{2R}\nSorcery\nHOP,C\nArc Lightning deals 3 damage divided as you choose among one, two, or three target creatures and/or players."
+    IDS_STRING24633         "Arsenal Thresher\n{2HU}\nArtifact Creature - Construct\nHOP,C\nAs Arsenal Thresher enters the battlefield, you may reveal any number of other artifact cards from your hand. Arsenal Thresher enters the battlefield with a +1/+1 counter on it for each card revealed this way.\n2/2"
+    IDS_STRING24634         "Ascendant Evincar\n{4BB}\nLegendary Creature - Vampire\nHOP,R\nFlying\rOther black creatures get +1/+1.\rNonblack creatures get -1/-1.\n3/3"
+    IDS_STRING24635         "AssaultBattery\n{R} // {3G}\nSorcery // Sorcery\nHOP,U\nASSAULT: Assault deals 2 damage to target creature or player.\rBATTERY: Put a 3/3 green Elephant creature token onto the battlefield."
+    IDS_STRING24636         "Balefire Liege\n{2KKK}\nCreature - Spirit Horror\nHOP,R\nOther red creatures you control get +1/+1.\rOther white creatures you control get +1/+1.\rWhenever you cast a red spell, Balefire Liege deals 3 damage to target player.\rWhenever you cast a white spell, you gain 3 life.\n2/4"
+    IDS_STRING24637         "Battlegate Mimic\n{1K}\nCreature - Shapeshifter\nHOP,C\nWhenever you cast a spell that's both red and white, Battlegate Mimic becomes 4/2 and gains first strike until end of turn.\n2/1"
+    IDS_STRING24638         "Beacon of Unrest\n{3BB}\nSorcery\nHOP,R\nPut target artifact or creature card from a graveyard onto the battlefield under your control. Shuffle Beacon of Unrest into its owner's library."
+    IDS_STRING24639         "Beast Hunt\n{3G}\nSorcery\nHOP,C\nReveal the top three cards of your library. Put all creature cards revealed this way into your hand and the rest into your graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24640         "Beseech the Queen\n{OOO}\nSorcery\nHOP,U\nSearch your library for a card with converted mana cost less than or equal to the number of lands you control, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING24641         "Blaze\n{XR}\nSorcery\nHOP,U\nBlaze deals X damage to target creature or player."
+    IDS_STRING24642         "Bogardan Firefiend\n{2R}\nCreature - Elemental Spirit\nHOP,C\nWhen Bogardan Firefiend dies, it deals 2 damage to target creature.\n2/1"
+    IDS_STRING24643         "Bogardan Rager\n{5R}\nCreature - Elemental\nHOP,C\nFlash\rWhen Bogardan Rager enters the battlefield, target creature gets +4/+0 until end of turn.\n3/4"
+    IDS_STRING24644         "Boros Garrison\n\nLand\nHOP,C\nBoros Garrison enters the battlefield tapped.\rWhen Boros Garrison enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {RW} to your mana pool."
+    IDS_STRING24645         "Boros Guildmage\n{KK}\nCreature - Human Wizard\nHOP,U\n{1R}: Target creature gains haste until end of turn.\r{1W}: Target creature gains first strike until end of turn.\n2/2"
+    IDS_STRING24646         "Boros Signet\n{2}\nArtifact\nHOP,C\n{1}, {T}: Add {RW} to your mana pool."
+    IDS_STRING24647         "Boros Swiftblade\n{RW}\nCreature - Human Soldier\nHOP,U\nDouble strike\n1/2"
+    IDS_STRING24648         "Bosh, Iron Golem\n{8}\nLegendary Artifact Creature - Golem\nHOP,R\nTrample\r{3R}, Sacrifice an artifact: Bosh, Iron Golem deals damage equal to the sacrificed artifact's converted mana cost to target creature or player.\n6/7"
+    IDS_STRING24649         "Branching Bolt\n{1RG}\nInstant\nHOP,C\nChoose one or both - Branching Bolt deals 3 damage to target creature with flying; and/or Branching Bolt deals 3 damage to target creature without flying."
+    IDS_STRING24650         "Briarhorn\n{3G}\nCreature - Elemental\nHOP,U\nFlash\rWhen Briarhorn enters the battlefield, target creature gets +3/+3 until end of turn.\rEvoke {1G}\n3/3"
+    IDS_STRING24651         "Broodstar\n{8UU}\nCreature - Beast\nHOP,R\nAffinity for artifacts\rFlying\rBroodstar's power and toughness are each equal to the number of artifacts you control.\n*/*"
+    IDS_STRING24652         "Bull Cerodon\n{4RW}\nCreature - Beast\nHOP,U\nVigilance, haste\n5/5"
+    IDS_STRING24653         "Cabal Coffers\n\nLand\nHOP,U\n{2}, {T}: Add {B} to your mana pool for each Swamp you control."
+    IDS_STRING24654         "Cadaverous Knight\n{2B}\nCreature - Zombie Knight\nHOP,C\nFlanking\r{1BB}: Regenerate Cadaverous Knight.\n2/2"
+    IDS_STRING24655         "Cerodon Yearling\n{RW}\nCreature - Beast\nHOP,C\nVigilance, haste\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24656         "Cinder Elemental\n{3R}\nCreature - Elemental\nHOP,U\n{XR}, {T}, Sacrifice Cinder Elemental: Cinder Elemental deals X damage to target creature or player.\n2/2"
+    IDS_STRING24657         "Congregate\n{3W}\nInstant\nHOP,C\nTarget player gains 2 life for each creature on the battlefield."
+    IDS_STRING24658         "Consume Spirit\n{X1B}\nSorcery\nHOP,C\nSpend only black mana on X.\rConsume Spirit deals X damage to target creature or player and you gain X life."
+    IDS_STRING24659         "Copper Myr\n{2}\nArtifact Creature - Myr\nHOP,C\n{T}: Add {G} to your mana pool.\n1/1"
+    IDS_STRING24660         "Corpse Harvester\n{3BB}\nCreature - Zombie Wizard\nHOP,U\n{1B}, {T}, Sacrifice a creature: Search your library for a Zombie card and a Swamp card, reveal them, and put them into your hand. Then shuffle your library.\n3/3"
+    IDS_STRING24661         "Cranial Plating\n{2}\nArtifact - Equipment\nHOP,C\nEquipped creature gets +1/+0 for each artifact you control.\r{BB}: Attach Cranial Plating to target creature you control.\rEquip {1}"
+    IDS_STRING24662         "Cruel Revival\n{4B}\nInstant\nHOP,C\nDestroy target non-Zombie creature. It can't be regenerated. Return up to one target Zombie card from your graveyard to your hand."
+    IDS_STRING24663         "Dark Ritual\n{B}\nInstant\nHOP,C\nAdd {BBB} to your mana pool."
+    IDS_STRING24664         "Darksteel Forge\n{9}\nArtifact\nHOP,R\nArtifacts you control are indestructible."
+    IDS_STRING24665         "Death Baron\n{1BB}\nCreature - Zombie Wizard\nHOP,R\nSkeleton creatures you control and other Zombie creatures you control get +1/+1 and have deathtouch.\n2/2"
+    IDS_STRING24666         "Door to Nothingness\n{5}\nArtifact\nHOP,R\nDoor to Nothingness enters the battlefield tapped.\r{WWUUBBRRGG}, {T}, Sacrifice Door to Nothingness: Target player loses the game."
+    IDS_STRING24667         "Double Cleave\n{1K}\nInstant\nHOP,C\nTarget creature gains double strike until end of turn."
+    IDS_STRING24668         "Dregscape Zombie\n{1B}\nCreature - Zombie\nHOP,C\nUnearth {B}\n2/1"
+    IDS_STRING24669         "Duergar Hedge-Mage\n{2K}\nCreature - Dwarf Shaman\nHOP,U\nWhen Duergar Hedge-Mage enters the battlefield, if you control two or more Mountains, you may destroy target artifact.\rWhen Duergar Hedge-Mage enters the battlefield, if you control two or more Plains, you may destroy target enchantment.\n2/2"
+    IDS_STRING24670         "Etched Oracle\n{4}\nArtifact Creature - Wizard\nHOP,U\nSunburst\r{1}, Remove four +1/+1 counters from Etched Oracle: Target player draws three cards.\n0/0"
+    IDS_STRING24671         "Explosive Vegetation\n{3G}\nSorcery\nHOP,U\nSearch your library for up to two basic land cards and put them onto the battlefield tapped. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24672         "Fabricate\n{2U}\nSorcery\nHOP,U\nSearch your library for an artifact card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING24673         "Fertile Ground\n{1G}\nEnchantment - Aura\nHOP,C\nEnchant land\rWhenever enchanted land is tapped for mana, its controller adds one mana of any color to his or her mana pool."
+    IDS_STRING24674         "Fertilid\n{2G}\nCreature - Elemental\nHOP,C\nFertilid enters the battlefield with two +1/+1 counters on it.\r{1G}, Remove a +1/+1 counter from Fertilid: Target player searches his or her library for a basic land card and puts it onto the battlefield tapped. Then that player shuffles his or her library.\n0/0"
+    IDS_STRING24675         "Festering Goblin\n{B}\nCreature - Zombie Goblin\nHOP,C\nWhen Festering Goblin dies, target creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING24676         "Fires of Yavimaya\n{1RG}\nEnchantment\nHOP,U\nCreatures you control have haste.\rSacrifice Fires of Yavimaya: Target creature gets +2/+2 until end of turn."
+    IDS_STRING24677         "Flamekin Harbinger\n{R}\nCreature - Elemental Shaman\nHOP,U\nWhen Flamekin Harbinger enters the battlefield, you may search your library for an Elemental card, reveal it, then shuffle your library and put that card on top of it.\n1/1"
+    IDS_STRING24678         "Flametongue Kavu\n{3R}\nCreature - Kavu\nHOP,U\nWhen Flametongue Kavu enters the battlefield, it deals 4 damage to target creature.\n4/2"
+    IDS_STRING24679         "Furnace of Rath\n{1RRR}\nEnchantment\nHOP,R\nIf a source would deal damage to a creature or player, it deals double that damage to that creature or player instead."
+    IDS_STRING24680         "Goblin Offensive\n{X1RR}\nSorcery\nHOP,U\nPut X 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING24681         "Gold Myr\n{2}\nArtifact Creature - Myr\nHOP,C\n{T}: Add {W} to your mana pool.\n1/1"
+    IDS_STRING24682         "Grave Pact\n{1BBB}\nEnchantment\nHOP,R\nWhenever a creature you control dies, each other player sacrifices a creature."
+    IDS_STRING24683         "Gravedigger\n{3B}\nCreature - Zombie\nHOP,C\nWhen Gravedigger enters the battlefield, you may return target creature card from your graveyard to your hand.\n2/2"
+    IDS_STRING24684         "Great Furnace\n\nArtifact Land\nHOP,C\n{T}: Add {R} to your mana pool."
+    IDS_STRING24685         "Gruul Turf\n\nLand\nHOP,C\nGruul Turf enters the battlefield tapped.\rWhen Gruul Turf enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {RG} to your mana pool."
+    IDS_STRING24686         "Hearthfire Hobgoblin\n{KKK}\nCreature - Goblin Soldier\nHOP,U\nDouble strike\n2/2"
+    IDS_STRING24687         "Helldozer\n{3BBB}\nCreature - Zombie Giant\nHOP,R\n{BBB}, {T}: Destroy target land. If that land was nonbasic, untap Helldozer.\n6/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24688         "Hideous End\n{1BB}\nInstant\nHOP,C\nDestroy target nonblack creature. Its controller loses 2 life."
+    IDS_STRING24689         "Hull Breach\n{RG}\nSorcery\nHOP,C\nChoose one - Destroy target artifact; or destroy target enchantment; or destroy target artifact and target enchantment."
+    IDS_STRING24690         "Innocent Blood\n{B}\nSorcery\nHOP,C\nEach player sacrifices a creature."
+    IDS_STRING24691         "Insurrection\n{5RRR}\nSorcery\nHOP,R\nUntap all creatures and gain control of them until end of turn. They gain haste until end of turn."
+    IDS_STRING24692         "Iron Myr\n{2}\nArtifact Creature - Myr\nHOP,C\n{T}: Add {R} to your mana pool.\n1/1"
+    IDS_STRING24693         "Ivy Elemental\n{XG}\nCreature - Elemental\nHOP,R\nIvy Elemental enters the battlefield with X +1/+1 counters on it.\n0/0"
+    IDS_STRING24694         "Keep Watch\n{2U}\nInstant\nHOP,C\nDraw a card for each attacking creature."
+    IDS_STRING24695         "Keldon Champion\n{2RR}\nCreature - Human Barbarian\nHOP,U\nHaste\rEcho {2RR}\rWhen Keldon Champion enters the battlefield, it deals 3 damage to target player.\n3/2"
+    IDS_STRING24696         "Kor Sanctifiers\n{2W}\nCreature - Kor Cleric\nHOP,C\nKicker {W}\rWhen Kor Sanctifiers enters the battlefield, if it was kicked, destroy target artifact or enchantment.\n2/3"
+    IDS_STRING24697         "Leaden Myr\n{2}\nArtifact Creature - Myr\nHOP,C\n{T}: Add {B} to your mana pool.\n1/1"
+    IDS_STRING24698         "Leechridden Swamp\n\nLand - Swamp\nHOP,U\nLeechridden Swamp enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\r{B}, {T}: Each opponent loses 1 life. Activate this ability only if you control two or more black permanents."
+    IDS_STRING24699         "Lightning Helix\n{RW}\nInstant\nHOP,U\nLightning Helix deals 3 damage to target creature or player and you gain 3 life."
+    IDS_STRING24700         "Living Hive\n{6GG}\nCreature - Elemental Insect\nHOP,R\nTrample\rWhenever Living Hive deals combat damage to a player, put that many 1/1 green Insect creature tokens onto the battlefield.\n6/6"
+    IDS_STRING24701         "Lodestone Myr\n{4}\nArtifact Creature - Myr\nHOP,R\nTrample\rTap an untapped artifact you control: Lodestone Myr gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING24702         "Loxodon Warhammer\n{3}\nArtifact - Equipment\nHOP,R\nEquipped creature gets +3/+0 and has trample and lifelink.\rEquip {3}"
+    IDS_STRING24703         "Mage Slayer\n{1RG}\nArtifact - Equipment\nHOP,U\nWhenever equipped creature attacks, it deals damage equal to its power to defending player.\rEquip {3}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24704         "Mask of Memory\n{2}\nArtifact - Equipment\nHOP,U\nWhenever equipped creature deals combat damage to a player, you may draw two cards. If you do, discard a card.\rEquip {1}"
+    IDS_STRING24705         "Master of Etherium\n{2U}\nArtifact Creature - Vedalken Wizard\nHOP,R\nMaster of Etherium's power and toughness are each equal to the number of artifacts you control.\rOther artifact creatures you control get +1/+1.\n*/*"
+    IDS_STRING24706         "Myr Enforcer\n{7}\nArtifact Creature - Myr\nHOP,C\nAffinity for artifacts\n4/4"
+    IDS_STRING24707         "Nefashu\n{4BB}\nCreature - Zombie Mutant\nHOP,R\nWhenever Nefashu attacks, up to five target creatures each get -1/-1 until end of turn.\n5/3"
+    IDS_STRING24708         "Noxious Ghoul\n{3BB}\nCreature - Zombie\nHOP,U\nWhenever Noxious Ghoul or another Zombie enters the battlefield, all non-Zombie creatures get -1/-1 until end of turn.\n3/3"
+    IDS_STRING24709         "Nuisance Engine\n{3}\nArtifact\nHOP,U\n{2}, {T}: Put a 0/1 colorless Pest artifact creature token onto the battlefield."
+    IDS_STRING24710         "Oblivion Ring\n{2W}\nEnchantment\nHOP,C\nWhen Oblivion Ring enters the battlefield, exile another target nonland permanent.\rWhen Oblivion Ring leaves the battlefield, return the exiled card to the battlefield under its owner's control."
+    IDS_STRING24711         "OrderChaos\n{3W} // {2R}\nInstant // Instant\nHOP,U\nORDER: Exile target attacking creature.\rCHAOS: Creatures can't block this turn."
+    IDS_STRING24712         "Pentad Prism\n{2}\nArtifact\nHOP,C\nSunburst\rRemove a charge counter from Pentad Prism: Add one mana of any color to your mana pool."
+    IDS_STRING24713         "Pentavus\n{7}\nArtifact Creature - Construct\nHOP,R\nPentavus enters the battlefield with five +1/+1 counters on it.\r{1}, Remove a +1/+1 counter from Pentavus: Put a 1/1 colorless Pentavite artifact creature token with flying onto the battlefield.\r{1}, Sacrifice a Pentavite: Put a +1/+1 counter on Pentavus.\n0/0"
+    IDS_STRING24714         "Phyrexian Arena\n{1BB}\nEnchantment\nHOP,R\nAt the beginning of your upkeep, you draw a card and you lose 1 life."
+    IDS_STRING24715         "Phyrexian Ghoul\n{2B}\nCreature - Zombie\nHOP,C\nSacrifice a creature: Phyrexian Ghoul gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING24716         "Profane Command\n{XBB}\nSorcery\nHOP,R\nChoose two - Target player loses X life; or return target creature card with converted mana cost X or less from your graveyard to the battlefield; or target creature gets -X/-X until end of turn; or up to X target creatures gain fear until end of turn."
+    IDS_STRING24717         "Pyrotechnics\n{4R}\nSorcery\nHOP,C\nPyrotechnics deals 4 damage divided as you choose among any number of target creatures and/or players."
+    IDS_STRING24718         "Qumulox\n{6UU}\nCreature - Beast\nHOP,U\nAffinity for artifacts\rFlying\n5/4"
+    IDS_STRING24719         "Rampant Growth\n{1G}\nSorcery\nHOP,C\nSearch your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24720         "Reckless Charge\n{R}\nSorcery\nHOP,C\nTarget creature gets +3/+0 and gains haste until end of turn.\rFlashback {2R}"
+    IDS_STRING24721         "Relentless Assault\n{2RR}\nSorcery\nHOP,R\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING24722         "Relic of Progenitus\n{1}\nArtifact\nHOP,C\n{T}: Target player exiles a card from his or her graveyard.\r{1}, Exile Relic of Progenitus: Exile all cards from all graveyards. Draw a card."
+    IDS_STRING24723         "Rockslide Elemental\n{2R}\nCreature - Elemental\nHOP,U\nFirst strike\rWhenever another creature dies, you may put a +1/+1 counter on Rockslide Elemental.\n1/1"
+    IDS_STRING24724         "Rolling Thunder\n{XRR}\nSorcery\nHOP,C\nRolling Thunder deals X damage divided as you choose among any number of target creatures and/or players."
+    IDS_STRING24725         "Rorix Bladewing\n{3RRR}\nLegendary Creature - Dragon\nHOP,R\nFlying, haste\n6/5"
+    IDS_STRING24726         "Rotting Rats\n{1B}\nCreature - Zombie Rat\nHOP,C\nWhen Rotting Rats enters the battlefield, each player discards a card.\rUnearth {1B}\n1/1"
+    IDS_STRING24727         "Rumbling Slum\n{1RGG}\nCreature - Elemental\nHOP,R\nAt the beginning of your upkeep, Rumbling Slum deals 1 damage to each player.\n5/5"
+    IDS_STRING24728         "Sarcomite Myr\n{2U}\nArtifact Creature - Myr\nHOP,C\n{2}: Sarcomite Myr gains flying until end of turn.\r{2}, Sacrifice Sarcomite Myr: Draw a card.\n2/1"
+    IDS_STRING24729         "Savage Twister\n{XRG}\nSorcery\nHOP,U\nSavage Twister deals X damage to each creature."
+    IDS_STRING24730         "Search for Tomorrow\n{2G}\nSorcery\nHOP,C\nSearch your library for a basic land card and put it onto the battlefield. Then shuffle your library.\rSuspend 2-{G}"
+    IDS_STRING24731         "Seat of the Synod\n\nArtifact Land\nHOP,C\n{T}: Add {U} to your mana pool."
+    IDS_STRING24732         "Serum Tank\n{3}\nArtifact\nHOP,U\nWhenever Serum Tank or another artifact enters the battlefield, put a charge counter on Serum Tank.\r{3}, {T}, Remove a charge counter from Serum Tank: Draw a card."
+    IDS_STRING24733         "Shivan Oasis\n\nLand\nHOP,U\nShivan Oasis enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING24734         "Silver Myr\n{2}\nArtifact Creature - Myr\nHOP,C\n{T}: Add {U} to your mana pool.\n1/1"
+    IDS_STRING24735         "Silverglade Elemental\n{4G}\nCreature - Elemental\nHOP,C\nWhen Silverglade Elemental enters the battlefield, you may search your library for a Forest card and put that card onto the battlefield. If you do, shuffle your library.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24736         "Skeleton Shard\n{3}\nArtifact\nHOP,U\n{3}, {T} or {B}, {T}: Return target artifact creature card from your graveyard to your hand."
+    IDS_STRING24737         "Sludge Strider\n{1WUB}\nArtifact Creature - Insect\nHOP,U\nWhenever another artifact enters the battlefield under your control or another artifact you control leaves the battlefield, you may pay {1}. If you do, target player loses 1 life and you gain 1 life.\n3/3"
+    IDS_STRING24738         "Soul Warden\n{W}\nCreature - Human Cleric\nHOP,C\nWhenever another creature enters the battlefield, you gain 1 life.\n1/1"
+    IDS_STRING24739         "Soulless One\n{3B}\nCreature - Zombie Avatar\nHOP,U\nSoulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards.\n*/*"
+    IDS_STRING24740         "Sunhome, Fortress of the Legion\n\nLand\nHOP,U\n{T}: Add {1} to your mana pool.\r{2RW}, {T}: Target creature gains double strike until end of turn."
+    IDS_STRING24741         "Suntouched Myr\n{3}\nArtifact Creature - Myr\nHOP, C\nSunburst\n0/0"
+    IDS_STRING24742         "Syphon Soul\n{2B}\nSorcery\nHOP,C\nSyphon Soul deals 2 damage to each other player. You gain life equal to the damage dealt this way."
+    IDS_STRING24743         "Taurean Mauler\n{2R}\nCreature - Shapeshifter\nHOP,R\nChangeling\rWhenever an opponent casts a spell, you may put a +1/+1 counter on Taurean Mauler.\n2/2"
+    IDS_STRING24744         "Terramorphic Expanse\n\nLand\nHOP,C\n{T}, Sacrifice Terramorphic Expanse: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING24745         "Thirst for Knowledge\n{2U}\nInstant\nHOP,U\nDraw three cards. Then discard two cards unless you discard an artifact card."
+    IDS_STRING24746         "Tornado Elemental\n{5GG}\nCreature - Elemental\nHOP,R\nWhen Tornado Elemental enters the battlefield, it deals 6 damage to each creature with flying.\rYou may have Tornado Elemental assign its combat damage as though it weren't blocked.\n6/6"
+    IDS_STRING24747         "Tree of Tales\n\nArtifact Land\nHOP,C\n{T}: Add {G} to your mana pool."
+    IDS_STRING24748         "Undead Warchief\n{2BB}\nCreature - Zombie\nHOP,U\nZombie spells you cast cost {1} less to cast.\rZombie creatures you control get +2/+1.\n1/1"
+    IDS_STRING24749         "Vault of Whispers\n\nArtifact Land\nHOP,C\n{T}: Add {B} to your mana pool."
+    IDS_STRING24750         "Verdant Force\n{5GGG}\nCreature - Elemental\nHOP,R\nAt the beginning of each upkeep, put a 1/1 green Saproling creature token onto the battlefield.\n7/7"
+    IDS_STRING24751         "Withered Wretch\n{BB}\nCreature - Zombie Cleric\nHOP,U\n{1}: Exile target card from a graveyard.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING24752         "Wizard Replica\n{3}\nArtifact Creature - Wizard\nHOP,C\nFlying\r{U}, Sacrifice Wizard Replica: Counter target spell unless its controller pays {2}.\n1/3"
+    IDS_STRING24753         "Planechase\n{0}\nRules Enforce Card\nHOP,S\nAdd this to your main deck to play Planechase game"
+    IDS_STRING24754         "Llanowar\n\nPlane - Dominaria\nHOP,S\nAll creatures have:""{T}: Add {GG} to your mana pool.""\rWhenever  you roll {C}, untap all creatures you control."
+    IDS_STRING24755         "The Great Forest\n\nPlane - Lorwyn\nHOP,S\nEach creature assigns it's damage equal to it's toughness rather then it's power\rWhenever you roll {C}, creatures you control get +0/+2 and gain trample."
+    IDS_STRING24756         "Feeding Grounds\n\nPlane - Muraganda\nHOP,S\nRed spells cost {1} less to cast.\rGreen spells cost {1} less to cast.\rWhenever you roll {C}, put X +1/+1 counters on target creature, where X is that creature's converted mana cost."
+    IDS_STRING24757         "Goldmeadow\n\nPlane - Lorwyn\nHOP,S\nWhenever a land enters the battlefield, that land's controller puts three 0/1 white goat creature tokens onto the batllefield\rWhenever you roll, put 0/1 white goat creature token onto the battlefield"
+    IDS_STRING24758         "Fields of Summer\n\nPlane - Moag\nHOP,S\nWhever a player casts a spell that player, may gain 2 life.\rWhenever you roll, you may gain 10 life"
+    IDS_STRING24759         "Pools of Becoming\n\nPlane - Bolas's Meditation Realm\nHOP,S\nAt the beginning of your end step, put the cards in your hand on the bottom of your library in any order, then draw that many cards.\rWhenever you roll , reveal the top three cards of your planar deck. Each of the revealed cards'  abilities triggers. Then put the revealed cards on the bottom of your planar deck in any order."
+    IDS_STRING24760         "Bant\n\nPlane - Alara\nHOP,S\nAll creatures have exalted. (Whenever a creature attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents its controller controls.)\rWhenever you roll , put a divinity counter on target green, white, or blue creature. That creature is indestructible as long as it has a divinity counter on it."
+    IDS_STRING24761         "Skybreen\n\nPlane - Kaldheim\nHOP,S\nPlayers play with the top card of their libraries revealed.\rSpells that share a card type with the top card of a library can't be cast.\rWhenever you roll , target player loses life equal to the number of cards in his or her hand."
+    IDS_STRING24762         "Velis Vel\n\nPlane - Lorwyn\nHOP,S\nEach creature gets +1/+1 for each other creature on the battlefield that shares at least one creature type with it. (For example, if two Elemental Shamans and an Elemental Spirit are on the battlefield, each gets +2/+2.)\rWhenever you roll , target creature gains all creature types until end of turn."
+    IDS_STRING24763         "The Hippodrome\n\nPlane - Segovia\nHOP,S\nAll creatures get -5/-0.\rWhenever you roll , you may destroy target creature if its power is 0 or less."
+    IDS_STRING24764         "Academy at Tolaria West\n\nPlane - Dominaria\nHOP,S\nAt the beginning of your end step, if you have no cards in hand, draw seven cards.\rWhenever you roll , discard your hand."
+    IDS_STRING24765         "Krosa\n\nPlane - Dominaria\nHOP,S\nAll creatures get +2/+2.\rWhenever you roll {C}, you may add {WUBRG} to your mana pool."
+	IDS_STRING24766         "Shepherd of Rot\n{1B}\nCreature - Zombie Cleric\nHOP,C\n{T}: Each player loses 1 life for each Zombie on the battlefield.\n1/1"
+	IDS_STRING24767         "Shiv\n\nPlane - Dominaria\nHOP,S\nAll creatures have ""{R}: This creature gets +1/+0 until end of turn.""\rWhenever you roll {C}, put a 5/5 red Dragon creature token with flying onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING24768         "Browbeat\n{2R}\nSorcery\nHOP,U\nAny player may have Browbeat deal 5 damage to him or her. If no one does, target player draws three cards."
+    IDS_STRING24769         "Forgotten Ancient\n{3G}\nCreature - Elemental\nHOP,R\nWhenever a player casts a spell, you may put a +1/+1 counter on Forgotten Ancient.\rAt the beginning of your upkeep, you may move any number of +1/+1 counters from Forgotten Ancient onto other creatures.\n0/3"
+    IDS_STRING24770         "Orim's Thunder\n{2W}\nInstant\nHOP,C\nKicker {R}\rDestroy target artifact or enchantment. If Orim's Thunder was kicked, it deals damage equal to that permanent's converted mana cost to target creature."
+    IDS_STRING24771         "Syphon Mind\n{3B}\nSorcery\nHOP,C\nEach other player discards a card. You draw a card for each card discarded this way."
+    IDS_STRING24772         "The AEther Flues\n\nPlane - Iquatana\nHOP,S\nWhen you planeswalk to The AEther Flues or at the beginning of your upkeep, you may sacrifice a creature. If you do, reveal cards from the top of your library until you reveal a creature card, put that card onto the battlefield, then shuffle all other cards revealed this way into your library.\rWhenever you roll {C}, you may put a creature card from your hand onto the battlefield."
+    IDS_STRING24773         "Isle of Vesuva\n\nPlane - Dominaria\nHOP,S\nWhenever a nontoken creature enters the battlefield, its controller puts a token onto the battlefield that's a copy of that creature.\rWhenever you roll {C}, destroy target creature and all other creatures with the same name as that creature."
+    IDS_STRING24774         "Murasa\n\nPlane - Zendikar\nHOP,S\nWhenever a nontoken creature enters the battlefield, its controller may search his or her library for a basic land card, put it onto the battlefield tapped, then shuffle his or her library.\rWhenever you roll {C}, target land becomes a 4/4 creature that's still a land."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

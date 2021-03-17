@@ -1,0 +1,376 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "RiseOfTheEldrazi.ico"
+IDI_LARGE_MODULE        ICON                    "RiseOfTheEldraziLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Rise of the Eldrazi"
+    IDS_EXPANSION_ABBREV    "ROE"
+    IDS_FIRST_CARD          "20800"
+    IDS_TOTAL_CARD          "248"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "21048"
+    IDS_MODULE_LARGE_ICON_ID "21049"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "23-04-2010"
+    IDS_MWS_FOLDER          "MWS\\ROE\\"
+    IDS_PRODUCT_LIST        """Rise of the Eldrazi Starter Box"":MR-8:R-3:U-10:C-32:BL-30,""Rise of the Eldrazi Booster Pack"":MR-8:R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20800         "Forest\n\nBasic Land - Forest\nROE,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20801         "Forest\n\nBasic Land - Forest\nROE,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20802         "Forest\n\nBasic Land - Forest\nROE,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20803         "Forest\n\nBasic Land - Forest\nROE,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20804         "Island\n\nBasic Land - Island\nROE,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20805         "Island\n\nBasic Land - Island\nROE,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20806         "Island\n\nBasic Land - Island\nROE,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20807         "Island\n\nBasic Land - Island\nROE,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20808         "Mountain\n\nBasic Land - Mountain\nROE,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20809         "Mountain\n\nBasic Land - Mountain\nROE,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20810         "Mountain\n\nBasic Land - Mountain\nROE,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20811         "Mountain\n\nBasic Land - Mountain\nROE,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20812         "Plains\n\nBasic Land - Plains\nROE,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20813         "Plains\n\nBasic Land - Plains\nROE,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20814         "Plains\n\nBasic Land - Plains\nROE,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20815         "Plains\n\nBasic Land - Plains\nROE,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20816         "Swamp\n\nBasic Land - Swamp\nROE,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20817         "Swamp\n\nBasic Land - Swamp\nROE,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20818         "Swamp\n\nBasic Land - Swamp\nROE,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20819         "Swamp\n\nBasic Land - Swamp\nROE,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20820         "Corpsehatch\n{3BB}\nSorcery\nROE,U\nDestroy target nonblack creature. Put two 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING20821         "Mnemonic Wall\n{4U}\nCreature - Wall\nROE,C\nDefender\rWhen Mnemonic Wall enters the battlefield, you may return target instant or sorcery card from your graveyard to your hand.\n0/4"
+    IDS_STRING20822         "Pathrazer of Ulamog\n{11}\nCreature - Eldrazi\nROE,U\nAnnihilator 3\rPathrazer of Ulamog can't be blocked except by three or more creatures.\n9/9"
+    IDS_STRING20823         "Kozilek, Butcher of Truth\n{10}\nLegendary Creature - Eldrazi\nROE,MR\nWhen you cast Kozilek, Butcher of Truth, draw four cards.\rAnnihilator 4\rWhen Kozilek is put into a graveyard from anywhere, its owner shuffles his or her graveyard into his or her library.\n12/12"
+    IDS_STRING20824         "Naturalize\n{1G}\nInstant\nROE,C\nDestroy target artifact or enchantment."
+    IDS_STRING20825         "Ulamog's Crusher\n{8}\nCreature - Eldrazi\nROE,C\nAnnihilator 2\rUlamog's Crusher attacks each turn if able.\n8/8"
+    IDS_STRING20826         "Guard Duty\n{W}\nEnchantment - Aura\nROE,C\nEnchant creature\rEnchanted creature has defender."
+    IDS_STRING20827         "Emrakul's Hatcher\n{4R}\nCreature - Eldrazi Drone\nROE,C\nWhen Emrakul's Hatcher enters the battlefield, put three 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool.""\n3/3"
+    IDS_STRING20828         "Pawn of Ulamog\n{1BB}\nCreature - Vampire Shaman\nROE,U\nWhenever Pawn of Ulamog or another nontoken creature you control dies, you may put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool.""\n2/2"
+    IDS_STRING20829         "Skittering Invasion\n{7}\nTribal Sorcery - Eldrazi\nROE,U\nPut five 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING20830         "All Is Dust\n{7}\nTribal Sorcery - Eldrazi\nROE,MR\nEach player sacrifices all colored permanents he or she controls."
+    IDS_STRING20831         "Artisan of Kozilek\n{9}\nCreature - Eldrazi\nROE,U\nWhen you cast Artisan of Kozilek, you may return target creature card from your graveyard to the battlefield.\rAnnihilator 2\n10/9"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20832         "Near-Death Experience\n{2WWW}\nEnchantment\nROE,R\nAt the beginning of your upkeep, if you have exactly 1 life, you win the game."
+    IDS_STRING20833         "Traitorous Instinct\n{3R}\nSorcery\nROE,U\nGain control of target creature until end of turn. Untap that creature. Until end of turn, it gets +2/+0 and gains haste."
+    IDS_STRING20834         "Dreamstone Hedron\n{6}\nArtifact\nROE,U\n{T}: Add {3} to your mana pool.\r{3}, {T}, Sacrifice Dreamstone Hedron: Draw three cards."
+    IDS_STRING20835         "Affa Guard Hound\n{2W}\nCreature - Hound\nROE,U\nFlash\rWhen Affa Guard Hound enters the battlefield, target creature gets +0/+3 until end of turn.\n2/2"
+    IDS_STRING20836         "Nirkana Revenant\n{4BB}\nCreature - Vampire Shade\nROE,MR\nWhenever you tap a Swamp for mana, add {B} to your mana pool.\r{B}: Nirkana Revenant gets +1/+1 until end of turn.\n4/4"
+    IDS_STRING20837         "Magmaw\n{3RR}\nCreature - Elemental\nROE,R\n{1}, Sacrifice a nonland permanent: Magmaw deals 1 damage to target creature or player.\n4/4"
+    IDS_STRING20838         "Sphinx of Magosi\n{3UUU}\nCreature - Sphinx\nROE,R\nFlying\r{2U}: Draw a card, then put a +1/+1 counter on Sphinx of Magosi.\n6/6"
+    IDS_STRING20839         "Pelakka Wurm\n{4GGG}\nCreature - Wurm\nROE,U\nTrample\rWhen Pelakka Wurm enters the battlefield, you gain 7 life.\rWhen Pelakka Wurm dies, draw a card.\n7/7"
+    IDS_STRING20840         "Pestilence Demon\n{5BBB}\nCreature - Demon\nROE,R\nFlying\r{B}: Pestilence Demon deals 1 damage to each creature and each player.\n7/6"
+    IDS_STRING20841         "Kozilek's Predator\n{3G}\nCreature - Eldrazi Drone\nROE,C\nWhen Kozilek's Predator enters the battlefield, put two 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool.""\n3/3"
+    IDS_STRING20842         "Wall of Omens\n{1W}\nCreature - Wall\nROE,U\nDefender\rWhen Wall of Omens enters the battlefield, draw a card.\n0/4"
+    IDS_STRING20843         "Tuktuk the Explorer\n{2R}\nLegendary Creature - Goblin\nROE,R\nHaste\rWhen Tuktuk the Explorer dies, put a legendary 5/5 colorless Goblin Golem artifact creature token named Tuktuk the Returned onto the battlefield.\n1/1"
+    IDS_STRING20844         "Consume the Meek\n{3BB}\nInstant\nROE,R\nDestroy each creature with converted mana cost 3 or less. They can't be regenerated."
+    IDS_STRING20845         "Hand of Emrakul\n{9}\nCreature - Eldrazi\nROE,C\nYou may sacrifice four Eldrazi Spawn rather than pay Hand of Emrakul's mana cost.\rAnnihilator 1\n7/7"
+    IDS_STRING20846         "Inquisition of Kozilek\n{B}\nSorcery\nROE,U\nTarget player reveals his or her hand. You choose a nonland card from it with converted mana cost 3 or less. That player discards that card."
+    IDS_STRING20847         "Forked Bolt\n{R}\nSorcery\nROE,U\nForked Bolt deals 2 damage divided as you choose among one or two target creatures and/or players."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20848         "Gloomhunter\n{2B}\nCreature - Bat\nROE,C\nFlying\n2/1"
+    IDS_STRING20849         "Luminous Wake\n{2W}\nEnchantment - Aura\nROE,U\nEnchant creature\rWhenever enchanted creature attacks or blocks, you gain 4 life."
+    IDS_STRING20850         "Sea Gate Oracle\n{2U}\nCreature - Human Wizard\nROE,C\nWhen Sea Gate Oracle enters the battlefield, look at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library.\n1/3"
+    IDS_STRING20851         "Awakening Zone\n{2G}\nEnchantment\nROE,R\nAt the beginning of your upkeep, you may put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING20852         "Broodwarden\n{3GG}\nCreature - Eldrazi Drone\nROE,U\nEldrazi Spawn creatures you control get +2/+1.\n4/4"
+    IDS_STRING20853         "Sarkhan the Mad\n{3BR}\nPlaneswalker - Sarkhan\nROE,MR\n[0]: Reveal the top card of your library and put it into your hand. Sarkhan the Mad deals damage to himself equal to that card's converted mana cost.\r[-2]: Target creature's controller sacrifices it, then that player puts a 5/5 red Dragon creature token with flying onto the battlefield.\r[-4]: Each Dragon creature you control deals damage equal to its power to target player.\n7"
+    IDS_STRING20854         "Demystify\n{W}\nInstant\nROE,C\nDestroy target enchantment."
+    IDS_STRING20855         "Glory Seeker\n{1W}\nCreature - Human Soldier\nROE,C\n\n2/2"
+    IDS_STRING20856         "Smite\n{W}\nInstant\nROE,C\nDestroy target blocked creature."
+    IDS_STRING20857         "Regress\n{2U}\nInstant\nROE,C\nReturn target permanent to its owner's hand."
+    IDS_STRING20858         "Heat Ray\n{XR}\nInstant\nROE,C\nHeat Ray deals X damage to target creature."
+    IDS_STRING20859         "Vendetta\n{B}\nInstant\nROE,C\nDestroy target nonblack creature. It can't be regenerated. You lose life equal to that creature's toughness."
+    IDS_STRING20860         "Battle Rampart\n{2R}\nCreature - Wall\nROE,C\nDefender\r{T}: Target creature gains haste until end of turn.\n1/3"
+    IDS_STRING20861         "Akoum Boulderfoot\n{4RR}\nCreature - Giant Warrior\nROE,U\nWhen Akoum Boulderfoot enters the battlefield, it deals 1 damage to target creature or player.\n4/5"
+    IDS_STRING20862         "Bala Ged Scorpion\n{3B}\nCreature - Scorpion\nROE,C\nWhen Bala Ged Scorpion enters the battlefield, you may destroy target creature with power 1 or less.\n2/3"
+    IDS_STRING20863         "Bloodrite Invoker\n{2B}\nCreature - Vampire Shaman\nROE,C\n{8}: Target player loses 3 life and you gain 3 life.\n3/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20864         "Bloodthrone Vampire\n{1B}\nCreature - Vampire\nROE,C\nSacrifice a creature: Bloodthrone Vampire gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING20865         "Bramblesnap\n{1G}\nCreature - Elemental\nROE,U\nTrample\rTap an untapped creature you control: Bramblesnap gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING20866         "Cadaver Imp\n{1BB}\nCreature - Imp\nROE,C\nFlying\rWhen Cadaver Imp enters the battlefield, you may return target creature card from your graveyard to your hand.\n1/1"
+    IDS_STRING20867         "Daggerback Basilisk\n{2G}\nCreature - Basilisk\nROE,C\nDeathtouch\n2/2"
+    IDS_STRING20868         "Death Cultist\n{B}\nCreature - Human Wizard\nROE,C\nSacrifice Death Cultist: Target player loses 1 life and you gain 1 life.\n1/1"
+    IDS_STRING20869         "Dread Drone\n{4B}\nCreature - Eldrazi Drone\nROE,C\nWhen Dread Drone enters the battlefield, put two 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool.""\n4/1"
+    IDS_STRING20870         "Escaped Null\n{3B}\nCreature - Zombie Berserker\nROE,U\nLifelink\rWhenever Escaped Null blocks or becomes blocked, it gets +5/+0 until end of turn.\n1/2"
+    IDS_STRING20871         "Frostwind Invoker\n{4U}\nCreature - Merfolk Wizard\nROE,C\nFlying\r{8}: Creatures you control gain flying until end of turn.\n3/3"
+    IDS_STRING20872         "Goblin Arsonist\n{R}\nCreature - Goblin Shaman\nROE,C\nWhen Goblin Arsonist dies, you may have it deal 1 damage to target creature or player.\n1/1"
+    IDS_STRING20873         "Goblin Tunneler\n{1R}\nCreature - Goblin Rogue\nROE,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING20874         "Guard Gomazoa\n{2U}\nCreature - Jellyfish\nROE,U\nDefender, flying\rPrevent all combat damage that would be dealt to Guard Gomazoa.\n1/3"
+    IDS_STRING20875         "Haze Frog\n{3GG}\nCreature - Frog\nROE,C\nFlash\rWhen Haze Frog enters the battlefield, prevent all combat damage that other creatures would deal this turn.\n2/1"
+    IDS_STRING20876         "Jwari Scuttler\n{2U}\nCreature - Crab\nROE,C\n\n2/3"
+    IDS_STRING20877         "Kiln Fiend\n{1R}\nCreature - Elemental Beast\nROE,C\nWhenever you cast an instant or sorcery spell, Kiln Fiend gets +3/+0 until end of turn.\n1/2"
+    IDS_STRING20878         "Kor Line-Slinger\n{1W}\nCreature - Kor Scout\nROE,C\n{T}: Tap target creature with power 3 or less.\n0/1"
+    IDS_STRING20879         "Lagac Lizard\n{3R}\nCreature - Lizard\nROE,C\n\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20880         "Lavafume Invoker\n{2R}\nCreature - Goblin Shaman\nROE,C\n{8}: Creatures you control get +3/+0 until end of turn.\n2/2"
+    IDS_STRING20881         "Linvala, Keeper of Silence\n{2WW}\nLegendary Creature - Angel\nROE,MR\nFlying\rActivated abilities of creatures your opponents control can't be activated.\n3/4"
+    IDS_STRING20882         "Lone Missionary\n{1W}\nCreature - Kor Monk\nROE,C\nWhen Lone Missionary enters the battlefield, you gain 4 life.\n2/1"
+    IDS_STRING20883         "Makindi Griffin\n{3W}\nCreature - Griffin\nROE,C\nFlying\n2/4"
+    IDS_STRING20884         "Merfolk Observer\n{1U}\nCreature - Merfolk Rogue\nROE,C\nWhen Merfolk Observer enters the battlefield, look at the top card of target player's library.\n2/1"
+    IDS_STRING20885         "Merfolk Skyscout\n{2UU}\nCreature - Merfolk Scout\nROE,U\nFlying\rWhenever Merfolk Skyscout attacks or blocks, untap target permanent.\n2/3"
+    IDS_STRING20886         "Nema Siltlurker\n{4G}\nCreature - Lizard\nROE,C\n\n3/5"
+    IDS_STRING20887         "Nest Invader\n{1G}\nCreature - Eldrazi Drone\nROE,C\nWhen Nest Invader enters the battlefield, put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool.""\n2/2"
+    IDS_STRING20888         "Ogre Sentry\n{1R}\nCreature - Ogre Warrior\nROE,C\nDefender\n3/3"
+    IDS_STRING20889         "Ondu Giant\n{3G}\nCreature - Giant Druid\nROE,C\nWhen Ondu Giant enters the battlefield, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.\n2/4"
+    IDS_STRING20890         "Overgrown Battlement\n{1G}\nCreature - Wall\nROE,C\nDefender\r{T}: Add {G} to your mana pool for each creature with defender you control.\n0/4"
+    IDS_STRING20891         "Phantasmal Abomination\n{1UU}\nCreature - Illusion\nROE,U\nDefender\rWhen Phantasmal Abomination becomes the target of a spell or ability, sacrifice it.\n5/5"
+    IDS_STRING20892         "Rage Nimbus\n{2R}\nCreature - Elemental\nROE,R\nDefender, flying\r{1R}: Target creature attacks this turn if able.\n5/3"
+    IDS_STRING20893         "Skeletal Wurm\n{7B}\nCreature - Skeleton Wurm\nROE,U\n{B}: Regenerate Skeletal Wurm.\n7/6"
+    IDS_STRING20894         "Soulbound Guardians\n{4W}\nCreature - Kor Spirit\nROE,U\nDefender, flying\n4/5"
+    IDS_STRING20895         "Soul's Attendant\n{W}\nCreature - Human Cleric\nROE,C\nWhenever another creature enters the battlefield, you may gain 1 life.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20896         "Soulsurge Elemental\n{3R}\nCreature - Elemental\nROE,U\nFirst strike\rSoulsurge Elemental's power is equal to the number of creatures you control.\n*/1"
+    IDS_STRING20897         "Sporecap Spider\n{2G}\nCreature - Spider\nROE,C\nReach\n1/5"
+    IDS_STRING20898         "Stalwart Shield-Bearers\n{1W}\nCreature - Human Soldier\nROE,C\nDefender\rOther creatures you control with defender get +0/+2.\n0/3"
+    IDS_STRING20899         "Stomper Cub\n{3GG}\nCreature - Beast\nROE,C\nTrample\n5/3"
+    IDS_STRING20900         "Totem-Guide Hartebeest\n{4W}\nCreature - Antelope\nROE,C\nWhen Totem-Guide Hartebeest enters the battlefield, you may search your library for an Aura card, reveal it, put it into your hand, then shuffle your library.\n2/5"
+    IDS_STRING20901         "Wildheart Invoker\n{2GG}\nCreature - Elf Shaman\nROE,C\n{8}: Target creature gets +5/+5 and gains trample until end of turn.\n4/3"
+    IDS_STRING20902         "Zof Shade\n{3B}\nCreature - Shade\nROE,C\n{2B}: Zof Shade gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING20903         "Enatu Golem\n{6}\nArtifact Creature - Golem\nROE,U\nWhen Enatu Golem dies, you gain 4 life.\n3/5"
+    IDS_STRING20904         "Reinforced Bulwark\n{3}\nArtifact Creature - Wall\nROE,C\nDefender\r{T}: Prevent the next 1 damage that would be dealt to you this turn.\n0/4"
+    IDS_STRING20905         "Evolving Wilds\n\nLand\nROE,C\n{T}, Sacrifice Evolving Wilds: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING20906         "Ogre's Cleaver\n{2}\nArtifact - Equipment\nROE,U\nEquipped creature gets +5/+0.\rEquip {5}"
+    IDS_STRING20907         "Pennon Blade\n{3}\nArtifact - Equipment\nROE,U\nEquipped creature gets +1/+1 for each creature you control.\rEquip {4}"
+    IDS_STRING20908         "Prophetic Prism\n{2}\nArtifact\nROE,C\nWhen Prophetic Prism enters the battlefield, draw a card.\r{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING20909         "Eldrazi Conscription\n{8}\nTribal Enchantment - Eldrazi Aura\nROE,R\nEnchant creature\rEnchanted creature gets +10/+10 and has trample and annihilator 2."
+    IDS_STRING20910         "Gravitational Shift\n{3UU}\nEnchantment\nROE,R\nCreatures with flying get +2/+0.\rCreatures without flying get -2/-0."
+    IDS_STRING20911         "Gravity Well\n{1GG}\nEnchantment\nROE,U\nWhenever a creature with flying attacks, it loses flying until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20912         "Lust for War\n{2R}\nEnchantment - Aura\nROE,U\nEnchant creature\rWhenever enchanted creature becomes tapped, Lust for War deals 3 damage to that creature's controller.\rEnchanted creature attacks each turn if able."
+    IDS_STRING20913         "Fleeting Distraction\n{U}\nInstant\nROE,C\nTarget creature gets -1/-0 until end of turn.\rDraw a card."
+    IDS_STRING20914         "Harmless Assault\n{2WW}\nInstant\nROE,C\nPrevent all combat damage that would be dealt this turn by attacking creatures."
+    IDS_STRING20915         "Last Kiss\n{2B}\nInstant\nROE,C\nLast Kiss deals 2 damage to target creature and you gain 2 life."
+    IDS_STRING20916         "Leaf Arrow\n{G}\nInstant\nROE,C\nLeaf Arrow deals 3 damage to target creature with flying."
+    IDS_STRING20917         "Might of the Masses\n{G}\nInstant\nROE,C\nTarget creature gets +1/+1 until end of turn for each creature you control."
+    IDS_STRING20918         "Puncturing Light\n{1W}\nInstant\nROE,C\nDestroy target attacking or blocking creature with power 3 or less."
+    IDS_STRING20919         "Reality Spasm\n{XUU}\nInstant\nROE,U\nChoose one - Tap X target permanents; or untap X target permanents."
+    IDS_STRING20920         "Repel the Darkness\n{2W}\nInstant\nROE,C\nTap up to two target creatures.\rDraw a card."
+    IDS_STRING20921         "Spawning Breath\n{1R}\nInstant\nROE,C\nSpawning Breath deals 1 damage to target creature or player. Put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING20922         "Essence Feed\n{5B}\nSorcery\nROE,C\nTarget player loses 3 life. You gain 3 life and put three 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING20923         "Fissure Vent\n{3RR}\nSorcery\nROE,C\nChoose one or both - Destroy target artifact; and/or destroy target nonbasic land."
+    IDS_STRING20924         "Flame Slash\n{R}\nSorcery\nROE,C\nFlame Slash deals 4 damage to target creature."
+    IDS_STRING20925         "Growth Spasm\n{2G}\nSorcery\nROE,C\nSearch your library for a basic land card, put it onto the battlefield tapped, then shuffle your library. Put a 0/1 colorless Eldrazi Spawn creature token onto the battlefield. It has ""Sacrifice this creature: Add {1} to your mana pool."""
+    IDS_STRING20926         "Nighthaze\n{B}\nSorcery\nROE,C\nTarget creature gains swampwalk until end of turn.\rDraw a card."
+    IDS_STRING20927         "Shared Discovery\n{U}\nSorcery\nROE,C\nAs an additional cost to cast Shared Discovery, tap four untapped creatures you control.\rDraw three cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20928         "Shrivel\n{1B}\nSorcery\nROE,C\nAll creatures get -1/-1 until end of turn."
+    IDS_STRING20929         "Wrap in Flames\n{3R}\nSorcery\nROE,C\nWrap in Flames deals 1 damage to each of up to three target creatures. Those creatures can't block this turn."
+    IDS_STRING20930         "Runed Servitor\n{2}\nArtifact Creature - Construct\nROE,U\nWhen Runed Servitor dies, each player draws a card.\n2/2"
+    IDS_STRING20931         "Deathless Angel\n{4WW}\nCreature - Angel\nROE,R\nFlying\r{WW}: Target creature is indestructible this turn.\n5/7"
+    IDS_STRING20932         "Ulamog, the Infinite Gyre\n{11}\nLegendary Creature - Eldrazi\nROE,MR\nWhen you cast Ulamog, the Infinite Gyre, destroy target permanent.\rAnnihilator 4\rUlamog is indestructible.\rWhen Ulamog is put into a graveyard from anywhere, its owner shuffles his or her graveyard into his or her library.\n10/10"
+    IDS_STRING20933         "Rapacious One\n{5R}\nCreature - Eldrazi Drone\nROE,U\nTrample\rWhenever Rapacious One deals combat damage to a player, put that many 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool.\n5/4"
+    IDS_STRING20934         "Deprive\n{UU}\nInstant\nROE\nAs an additional cost to cast Deprive, return a land you control to its owner's hand.\rCounter target spell."
+    IDS_STRING20935         "See Beyond\n{1U}\nSorcery\nROE\nDraw two cards, then shuffle a card from your hand into your library."
+    IDS_STRING20936         "Conquering Manticore\n{4RR}\nCreature - Manticore\nROE,R\nFlying\rWhen Conquering Manticore enters the battlefield, gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.\n5/5"
+    IDS_STRING20937         "Emrakul, the Aeons Torn\n{15}\nLegendary Creature - Eldrazi\nROE,MR\nEmrakul, the Aeons Torn can't be countered.\rWhen you cast Emrakul, take an extra turn after this one.\rFlying, protection from colored spells, annihilator 6\rWhen Emrakul is put into a graveyard from anywhere, its owner shuffles his or her graveyard into his or her library.\n15/15"
+    IDS_STRING20938         "Momentous Fall\n{2GG}\nInstant\nROE,R\nAs an additional cost to cast Momentous Fall, sacrifice a creature.\rYou draw cards equal to the sacrificed creature's power, then you gain life equal to its toughness."
+    IDS_STRING20939         "Vengevine\n{2GG}\nCreature - Elemental\nROE,MR\nHaste\rWhenever you cast a spell, if it's the second creature spell you cast this turn, you may return Vengevine from your graveyard to the battlefield.\n4/3"
+    IDS_STRING20940         "Valakut Fireboar\n{4R}\nCreature - Elemental Boar\nROE,U\nWhenever Valakut Fireboar attacks, switch its power and toughness until end of turn.\n1/7"
+    IDS_STRING20941         "Vent Sentinel\n{3R}\nCreature - Elemental\nROE,C\nDefender\r{1R}, {T}: Vent Sentinel deals damage to target player equal to the number of creatures with defender you control.\n2/4"
+    IDS_STRING20942         "Mortician Beetle\n{B}\nCreature - Insect\nROE,R\nWhenever a player sacrifices a creature, you may put a +1/+1 counter on Mortician Beetle.\n1/1"
+    IDS_STRING20943         "Caravan Escort\n{W}\nCreature - Human Knight\nROE,C\nLevel up {2}\rLEVEL 1-4\r2/2\rLEVEL 5+\r5/5\rFirst strike\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20944         "Venerated Teacher\n{2U}\nCreature - Human Wizard\nROE,C\nWhen Venerated Teacher enters the battlefield, put two level counters on each creature you control with level up.\n2/2"
+    IDS_STRING20945         "Joraga Treespeaker\n{G}\nCreature - Elf Druid\nROE,U\nLevel Up {1G}\rLEVEL 1-4\r1/2\r{T}: Add {GG} to your mana pool.\rLEVEL 5+\r1/4\rElves you control have ""{T}: Add {GG} to your mana pool.""\n1/1"
+    IDS_STRING20946         "Beastbreaker of Bala Ged\n{1G}\nCreature - Human Warrior\nROE,U\nLevel up {2G}\rLEVEL 1-3\r4/4\rLEVEL 4+\r6/6\rTrample\n2/2"
+    IDS_STRING20947         "Brimstone Mage\n{2R}\nCreature - Human Shaman\nROE,U\nLevel up {3R}\rLEVEL 1-2\r2/3\r{T}: Brimstone Mage deals 1 damage to target creature or player.\rLEVEL 3+\r2/4\r{T}: Brimstone Mage deals 3 damage to target creature or player.\n2/2"
+    IDS_STRING20948         "Coralhelm Commander\n{UU}\nCreature - Merfolk Soldier\nROE,R\nLevel up {1}\rLEVEL 2-3\r3/3\rFlying\rLEVEL 4+\r4/4\rFlying\rOther Merfolk creatures you control get +1/+1.\n2/2"
+    IDS_STRING20949         "Enclave Cryptologist\n{U}\nCreature - Merfolk Wizard\nROE,U\nLevel up {1U}\rLEVEL 1-2\r0/1\r{T}: Draw a card, then discard a card.\rLEVEL 3+\r0/1\r{T}: Draw a card.\n0/1"
+    IDS_STRING20950         "Guul Draz Assassin\n{B}\nCreature - Vampire Assassin\nROE,R\nLevel up {1B}\rLEVEL 2-3\r2/2\r{B}, {T}: Target creature gets -2/-2 until end of turn.\rLEVEL 4+\r4/4\r{B}, {T}: Target creature gets -4/-4 until end of turn.\n1/1"
+    IDS_STRING20951         "Hada Spy Patrol\n{1U}\nCreature - Human Rogue\nROE,U\nLevel up {2U}\rLEVEL 1-2\r2/2\rHada Spy Patrol is unblockable.\rLEVEL 3+\r3/3\rShroud\rHada Spy Patrol is unblockable.\n1/1"
+    IDS_STRING20952         "Halimar Wavewatch\n{1U}\nCreature - Merfolk Soldier\nROE,C\nLevel up {2}\rLEVEL 1-4\r0/6\rLEVEL 5+\r6/6\rIslandwalk\n0/3"
+    IDS_STRING20953         "Ikiral Outrider\n{1W}\nCreature - Human Soldier\nROE,C\nLevel up {4}\rLEVEL 1-3\r2/6\rVigilance\rLEVEL 4+\r3/10\rVigilance\n1/2"
+    IDS_STRING20954         "Kabira Vindicator\n{3W}\nCreature - Human Knight\nROE,U\nLevel up {2W}\rLEVEL 2-4\r3/6\rOther creatures you control get +1/+1.\rLEVEL 5+\r4/8\rOther creatures you control get +2/+2.\n2/4"
+    IDS_STRING20955         "Kargan Dragonlord\n{RR}\nCreature - Human Warrior\nROE,MR\nLevel up {R}\rLEVEL 4-7\r4/4\rFlying\rLEVEL 8+\r8/8\rFlying, trample\r{R}: Kargan Dragonlord gets +1/+0 until end of turn.\n2/2"
+    IDS_STRING20956         "Kazandu Tuskcaller\n{1G}\nCreature - Human Shaman\nROE,R\nLevel up {1G}\rLEVEL 2-5\r1/1\r{T}: Put a 3/3 green Elephant creature token onto the battlefield.\rLEVEL 6+\r1/1\r{T}: Put two 3/3 green Elephant creature tokens onto the battlefield.\n1/1"
+    IDS_STRING20957         "Knight of Cliffhaven\n{1W}\nCreature - Kor Knight\nROE,C\nLevel up {3}\rLEVEL 1-3\r2/3\rFlying\rLEVEL 4+\r4/4\rFlying, vigilance\n2/2"
+    IDS_STRING20958         "Lighthouse Chronologist\n{1U}\nCreature - Human Wizard\nROE,MR\nLevel up {U}\rLEVEL 4-6\r2/4\rLEVEL 7+\r3/5\rAt the beginning of each end step, if it's not your turn, take an extra turn after this one.\n1/3"
+    IDS_STRING20959         "Lord of Shatterskull Pass\n{3R}\nCreature - Minotaur Shaman\nROE,R\nLevel up {1R}\rLEVEL 1-5\r6/6\rLEVEL 6+\r6/6\rWhenever Lord of Shatterskull Pass attacks, it deals 6 damage to each creature defending player controls.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20960         "Nirkana Cutthroat\n{2B}\nCreature - Vampire Warrior\nROE,U\nLevel up {2B}\rLEVEL 1-2\r4/3\rDeathtouch\rLEVEL 3+\r5/4\rFirst strike, deathtouch\n3/2"
+    IDS_STRING20961         "Null Champion\n{1B}\nCreature - Zombie Warrior\nROE,C\nLevel up {3}\rLEVEL 1-3\r4/2\rLEVEL 4+\r7/3\r{B}: Regenerate Null Champion.\n1/1"
+    IDS_STRING20962         "Skywatcher Adept\n{U}\nCreature - Merfolk Wizard\nROE,C\nLevel up {3}\rLEVEL 1-2\r2/2\rFlying\rLEVEL 3+\r4/2\rFlying\n1/1"
+    IDS_STRING20963         "Student of Warfare\n{W}\nCreature - Human Knight\nROE,R\nLevel up {W}\rLEVEL 2-6\r3/3\rFirst strike\rLEVEL 7+\r4/4\rDouble strike\n1/1"
+    IDS_STRING20964         "Transcendent Master\n{1WW}\nCreature - Human Cleric Avatar\nROE,MR\nLevel up {1}\rLEVEL 6-11\r6/6\rLifelink\rLEVEL 12+\r9/9\rLifelink\rTranscendent Master is indestructible.\n3/3"
+    IDS_STRING20965         "Zulaport Enforcer\n{B}\nCreature - Human Warrior\nROE,C\nLevel up {4}\rLEVEL 1-2\r3/3\rLEVEL 3+\r5/5\rZulaport Enforcer can't be blocked except by black creatures.\n1/1"
+    IDS_STRING20966         "Gideon Jura\n{3WW}\nPlaneswalker - Gideon\nROE,MR\n[+2]: During target opponent's next turn, creatures that player controls attack Gideon Jura if able.\r[-2]: Destroy target tapped creature.\r[0]: Until end of turn, Gideon Jura becomes a 6/6 Human Soldier creature that's still a planeswalker. Prevent all damage that would be dealt to him this turn.\n6"
+    IDS_STRING20967         "Boar Umbra\n{2G}\nEnchantment - Aura\nROE,U\nEnchant creature\rEnchanted creature gets +3/+3.\rTotem armor"
+    IDS_STRING20968         "Bear Umbra\n{2GG}\nEnchantment - Aura\nROE,R\nEnchant creature\rEnchanted creature gets +2/+2 and has ""Whenever this creature attacks, untap all lands you control.""\rTotem armor"
+    IDS_STRING20969         "Crab Umbra\n{U}\nEnchantment - Aura\nROE,U\nEnchant creature\r{2U}: Untap enchanted creature.\rTotem armor"
+    IDS_STRING20970         "Drake Umbra\n{4U}\nEnchantment - Aura\nROE,U\nEnchant creature\rEnchanted creature gets +3/+3 and has flying.\rTotem armor"
+    IDS_STRING20971         "Eel Umbra\n{1U}\nEnchantment - Aura\nROE,C\nFlash\rEnchant creature\rEnchanted creature gets +1/+1.\rTotem armor"
+    IDS_STRING20972         "Eland Umbra\n{1W}\nEnchantment - Aura\nROE,C\nEnchant creature\rEnchanted creature gets +0/+4.\rTotem armor"
+    IDS_STRING20973         "Hyena Umbra\n{W}\nEnchantment - Aura\nROE,C\nEnchant creature\rEnchanted creature gets +1/+1 and has first strike.\rTotem armor"
+    IDS_STRING20974         "Mammoth Umbra\n{4W}\nEnchantment - Aura\nROE,U\nEnchant creature\rEnchanted creature gets +3/+3 and has vigilance.\rTotem armor"
+    IDS_STRING20975         "Snake Umbra\n{2G}\nEnchantment - Aura\nROE,C\nEnchant creature\rEnchanted creature gets +1/+1 and has ""Whenever this creature deals damage to an opponent, you may draw a card.""\rTotem armor"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20976         "Spider Umbra\n{G}\nEnchantment - Aura\nROE,C\nEnchant creature\rEnchanted creature gets +1/+1 and has reach.\rTotem armor"
+    IDS_STRING20977         "Gigantomancer\n{7G}\nCreature - Human Shaman\nROE,R\n{1}: Target creature you control becomes 7/7 until end of turn.\n1/1"
+    IDS_STRING20978         "Baneful Omen\n{4BBB}\nEnchantment\nROE,R\nAt the beginning of your end step, you may reveal the top card of your library. If you do, each opponent loses life equal to that card's converted mana cost."
+    IDS_STRING20979         "It That Betrays\n{12}\nCreature - Eldrazi\nROE,R\nAnnihilator 2\rWhenever an opponent sacrifices a nontoken permanent, put that card onto the battlefield under your control.\n11/11"
+    IDS_STRING20980         "Realms Uncharted\n{2G}\nInstant\nROE,R\nSearch your library for four land cards with different names and reveal them. An opponent chooses two of those cards. Put the chosen cards into your graveyard and the rest into your hand. Then shuffle your library."
+    IDS_STRING20981         "Oust\n{W}\nSorcery\nROE,U\nPut target creature into its owner's library second from the top. Its controller gains 3 life."
+    IDS_STRING20982         "Ancient Stirrings\n{G}\nSorcery\nROE,C\nLook at the top five cards of your library. You may reveal a colorless card from among them and put it into your hand. Then put the rest on the bottom of your library in any order. (Cards with no colored mana in their mana costs are colorless. Lands are also colorless.)"
+    IDS_STRING20983         "Unified Will\n{1U}\nInstant\nROE,U\nCounter target spell if you control more creatures than that spell's controller."
+    IDS_STRING20984         "Staggershock\n{2R}\nInstant\nROE,C\nStaggershock deals 2 damage to target creature or player.\rRebound"
+    IDS_STRING20985         "Distortion Strike\n{U}\nSorcery\nROE,C\nTarget creature gets +1/+0 until end of turn and is unblockable this turn.\rRebound"
+    IDS_STRING20986         "Consuming Vapors\n{3B}\nSorcery\nROE,R\nTarget player sacrifices a creature. You gain life equal to that creature's toughness.\rRebound"
+    IDS_STRING20987         "Emerge Unscathed\n{W}\nInstant\nROE,U\nTarget creature you control gains protection from the color of your choice until end of turn.\rRebound"
+    IDS_STRING20988         "Nomads' Assembly\n{4WW}\nSorcery\nROE,R\nPut a 1/1 white Kor Soldier creature token onto the battlefield for each creature you control.\rRebound"
+    IDS_STRING20989         "Survival Cache\n{2W}\nSorcery\nROE,U\nYou gain 2 life. Then if you have more life than an opponent, draw a card.\rRebound"
+    IDS_STRING20990         "Devastating Summons\n{R}\nSorcery\nROE,R\nAs an additional cost to cast Devastating Summons, sacrifice X lands.\rPut two X/X red Elemental creature tokens onto the battlefield."
+    IDS_STRING20991         "Time of Heroes\n{1W}\nEnchantment\nROE,U\nEach creature you control with a level counter on it gets +2/+2.\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20992         "Demonic Appetite\n{B}\nEnchantment - Aura\nROE,C\nEnchant creature you control\rEnchanted creature gets +3/+3.\rAt the beginning of your upkeep, sacrifice a creature."
+    IDS_STRING20993         "Virulent Swipe\n{B}\nInstant\nROE,U\nTarget creature gets +2/+0 and gains deathtouch until end of turn.\rRebound"
+    IDS_STRING20994         "Kor Spiritdancer\n{1W}\nCreature - Kor Wizard\nROE,R\nKor Spiritdancer gets +2/+2 for each Aura attached to it.\rWhenever you cast an Aura spell, you may draw a card.\n0/2"
+    IDS_STRING20995         "Arrogant Bloodlord\n{1BB}\nCreature - Vampire Knight\nROE,U\nWhenever Arrogant Bloodlord blocks or becomes blocked by a creature with power 1 or less, destroy Arrogant Bloodlord at end of combat.\n4/4"
+    IDS_STRING20996         "Prey's Vengeance\n{G}\nInstant\nROE,U\nTarget creature gets +2/+2 until end of turn.\rRebound"
+    IDS_STRING20997         "Dawnglare Invoker\n{2W}\nCreature - Kor Wizard\nROE, C\nFlying\r{8}: Tap all creatures target player controls.\n2/1"
+    IDS_STRING20998         "Splinter Twin\n{2RR}\nEnchantment - Aura\nROE,R\nEnchant creature\rEnchanted creature has ""{T}: Put a token that's a copy of this creature onto the battlefield. That token has haste. Exile it at the beginning of the next end step."""
+    IDS_STRING20999         "Khalni Hydra\n{GGGGGGGG}\nCreature - Hydra\nROE,MR\nKhalni Hydra costs {G} less to cast for each green creature you control.\rTrample\n8/8"
+    IDS_STRING21000         "Angelheart Vial\n{5}\nArtifact\nROE,R\nWhenever you're dealt damage, you may put that many charge counters on Angelheart Vial.\r{2}, {T}, Remove four charge counters from Angelheart Vial: You gain 2 life and draw a card."
+    IDS_STRING21001         "Repay in Kind\n{5BB}\nSorcery\nROE,R\nEach player's life total becomes the lowest life total among all players."
+    IDS_STRING21002         "Domestication\n{2UU}\nEnchantment - Aura\nROE,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your end step, if enchanted creature's power is 4 or greater, sacrifice Domestication."
+    IDS_STRING21003         "Keening Stone\n{6}\nArtifact\nROE,R\n{5}, {T}: Target player puts the top X cards of his or her library into his or her graveyard, where X is the number of cards in that player's graveyard."
+    IDS_STRING21004         "Narcolepsy\n{1U}\nEnchantment - Aura\nROE,C\nEnchant creature\rAt the beginning of each upkeep, if enchanted creature is untapped, tap it."
+    IDS_STRING21005         "Brood Birthing\n{1R}\nSorcery\nROE,C\nIf you control an Eldrazi Spawn, put three 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool."" Otherwise, put one of those tokens onto the battlefield."
+    IDS_STRING21006         "Raid Bombardment\n{2R}\nEnchantment\nROE,C\nWhenever a creature you control with power 2 or less attacks, Raid Bombardment deals 1 damage to defending player."
+    IDS_STRING21007         "Hedron Matrix\n{4}\nArtifact - Equipment\nROE,R\nEquipped creature gets +X/+X, where X is its converted mana cost.\rEquip {4}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21008         "Aura Gnarlid\n{2G}\nCreature - Beast\nROE,C\nCreatures with power less than Aura Gnarlid's power can't block it.\rAura Gnarlid gets +1/+1 for each Aura on the battlefield.\n2/2"
+    IDS_STRING21009         "Mul Daya Channelers\n{1GG}\nCreature - Elf Druid Shaman\nROE,R\nPlay with the top card of your library revealed.\rAs long as the top card of your library is a creature card, Mul Daya Channelers gets +3/+3.\rAs long as the top card of your library is a land card, Mul Daya Channelers has ""{T}: Add two mana of any one color to your mana pool.""\n2/2"
+    IDS_STRING21010         "Hellion Eruption\n{5R}\nSorcery\nROE,R\nSacrifice all creatures you control, then put that many 4/4 red Hellion creature tokens onto the battlefield."
+    IDS_STRING21011         "Warmonger's Chariot\n{2}\nArtifact - Equipment\nROE,U\nEquipped creature gets +2/+2.\rAs long as equipped creature has defender, it can attack as though it didn't have defender.\rEquip {3}"
+    IDS_STRING21012         "Champion's Drake\n{1U}\nCreature - Drake\nROE,C\nFlying\rChampion's Drake gets +3/+3 as long as you control a creature with three or more level counters on it.\n1/1"
+    IDS_STRING21013         "Grotag Siege-Runner\n{1R}\nCreature - Goblin Rogue\nROE,C\n{R}, Sacrifice Grotag Siege-Runner: Destroy target creature with defender. Grotag Siege-Runner deals 2 damage to that creature's controller.\n2/1"
+    IDS_STRING21014         "Battle-Rattle Shaman\n{3R}\nCreature - Goblin Shaman\nROE,C\nAt the beginning of combat on your turn, you may have target creature get +2/+0 until end of turn.\n2/2"
+    IDS_STRING21015         "Drana, Kalastria Bloodchief\n{3BB}\nLegendary Creature - Vampire Shaman\nROE,R\nFlying\r{XBB}: Target creature gets -0/-X until end of turn and Drana, Kalastria Bloodchief gets +X/+0 until end of turn.\n4/4"
+    IDS_STRING21016         "Jaddi Lifestrider\n{4G}\nCreature - Elemental\nROE,U\nWhen Jaddi Lifestrider enters the battlefield, you may tap any number of untapped creatures you control. You gain 2 life for each creature tapped this way.\n2/8"
+    IDS_STRING21017         "Spawnsire of Ulamog\n{10}\nCreature - Eldrazi\nROE,R\nAnnihilator 1\r{4}: Put two 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool.""\r{20}: Cast any number of Eldrazi cards you own from outside the game without paying their mana costs.\n7/11"
+    IDS_STRING21018         "Lay Bare\n{2UU}\nInstant\nROE,C\nCounter target spell. Look at its controller's hand."
+    IDS_STRING21019         "Curse of Wizardry\n{2BB}\nEnchantment\nROE,U\nAs Curse of Wizardry enters the battlefield, choose a color.\rWhenever a player casts a spell of the chosen color, that player loses 1 life."
+    IDS_STRING21020         "Explosive Revelation\n{3RR}\nSorcery\nROE,U\nChoose target creature or player. Reveal cards from the top of your library until you reveal a nonland card. Explosive Revelation deals damage equal to that card's converted mana cost to that creature or player. Put the nonland card into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING21021         "Recurring Insight\n{4UU}\nSorcery\nROE,R\nDraw cards equal to the number of cards in target opponent's hand.\rRebound"
+    IDS_STRING21022         "Surreal Memoir\n{3R}\nSorcery\nROE,U\nReturn an instant card at random from your graveyard to your hand.\rRebound"
+    IDS_STRING21023         "Sphinx-Bone Wand\n{7}\nArtifact\nROE,R\nWhenever you cast an instant or sorcery spell, you may put a charge counter on Sphinx-Bone Wand. If you do, Sphinx-Bone Wand deals damage equal to the number of charge counters on it to target creature or player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING21024         "Thought Gorger\n{2BB}\nCreature - Horror\nROE,R\nTrample\rWhen Thought Gorger enters the battlefield, put a +1/+1 counter on it for each card in your hand. If you do, discard your hand.\rWhen Thought Gorger leaves the battlefield, draw a card for each +1/+1 counter on it.\n2/2"
+    IDS_STRING21025         "Contaminated Ground\n{1B}\nEnchantment - Aura\nROE,C\nEnchant land\rEnchanted land is a Swamp.\rWhenever enchanted land becomes tapped, its controller loses 2 life."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

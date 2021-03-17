@@ -1,0 +1,30 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Birds of Paradise (3013)
+3 Broodmate Dragon (8543)
+4 Chameleon Colossus (18361)
+3 Changeling Berserker (18066)
+4 Taurean Mauler (18366)
+4 Wren's Run Vanquisher (18077)
+
+// Instants - 8 (13.33%)
+
+4 Jund Charm (8587)
+4 Nameless Inversion (18108)
+
+// Enchantments - 5 (8.33%)
+
+4 Crucible of Fire (8552)
+Dragon Roost (3259)
+
+// Lands - 25 (41.67%)
+
+3 Fire-Lit Thicket (18542)
+4 Gilt-Leaf Palace (18092)
+3 Graven Cairns (18547)
+3 Karplusan Forest (3086)
+4 Mutavault (18368)
+4 Reflecting Pool (18571)
+4 Savage Lands (8615)

@@ -1,0 +1,69 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Koth of the Hammer (21435)
+
+// Creatures - 22 (36.67%)
+
+4 Goblin Guide (19456)
+4 Plated Geopede (19345)
+3 Spikeshot Elder (21467)
+4 Squadron Hawk (21218)
+4 Steppe Lynx (19371)
+3 Stoneforge Mystic (19638)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (21124)
+
+// Enchantments - 3 (5.00%)
+
+3 Journey to Nowhere (19524)
+
+// Artifacts - 4 (6.67%)
+
+3 Adventuring Gear (19438)
+Sword of Body and Mind (21420)
+
+// Lands - 25 (41.67%)
+
+4 Arid Mesa (19349)
+Evolving Wilds (20905)
+4 Marsh Flats (19357)
+Mountain (21411)
+2 Mountain (21408)
+Mountain (21409)
+Mountain (21410)
+2 Plains (21412)
+Plains (21414)
+Plains (21415)
+Plains (21413)
+4 Scalding Tarn (19358)
+2 Terramorphic Expanse (21309)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Koth of the Hammer (21435)
+
+// Creatures
+
+4 Cunning Sparkmage (19608)
+3 Goblin Ruinblaster (19457)
+
+// Sorceries
+
+2 Arc Trail (21554)
+3 Mark of Mutiny (19497)
+
+// Artifacts
+
+Basilisk Collar (19687)
+
+// Lands
+
+Tectonic Edge (19651)

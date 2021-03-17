@@ -1,0 +1,69 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Elspeth, Knight-Errant (8723)
+
+// Creatures - 24 (40.00%)
+
+Chameleon Colossus (18361)
+4 Doran, the Siege Tower (18133)
+4 Knight of the Reliquary (8815)
+3 Loam Lion (19628)
+4 Putrid Leech (9017)
+4 Tarmogoyf (17704)
+4 Treefolk Harbinger (18003)
+
+// Instants - 1 (1.67%)
+
+Nameless Inversion (18108)
+
+// Sorceries - 11 (18.33%)
+
+3 Duress (21280)
+4 Maelstrom Pulse (9055)
+4 Thoughtseize (17901)
+
+// Lands - 23 (38.33%)
+
+Forest (21106)
+Forest (21105)
+Forest (21104)
+4 Misty Rainforest (19356)
+4 Murmuring Bosk (18387)
+3 Reflecting Pool (18571)
+Swamp (21120)
+3 Treetop Village (3308)
+Twilight Mire (18929)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth, Knight-Errant (8723)
+
+// Creatures
+
+2 Reveillark (18341)
+
+// Instants
+
+2 Slaughter Pact (17789)
+2 Zealous Persecution (9071)
+
+// Enchantments
+
+3 Leyline of the Void (21314)
+3 Rule of Law (3229)
+
+// Artifacts
+
+Basilisk Collar (19687)
+
+// Lands
+
+Bojuka Bog (19672)
+	

@@ -1,0 +1,44 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Chandra's Phoenix (22310)
+4 Goblin Guide (19456)
+4 Grim Lavamancer (22165)
+2 Hero of Oxid Ridge (21758)
+4 Kargan Dragonlord (20955)
+3 Kiln Fiend (20877)
+
+// Instants - 12 (20.00%)
+
+4 Burst Lightning (19384)
+4 Galvanic Blast (21493)
+4 Lightning Bolt (21124)
+
+// Sorceries - 4 (6.67%)
+
+4 Forked Bolt (20847)
+
+// Lands - 23 (38.33%)
+
+5 Mountain (22215)
+4 Mountain (22218)
+5 Mountain (22216)
+5 Mountain (22217)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Hero of Oxid Ridge (21758)
+2 Manic Vandal (22169)
+2 Vulshok Refugee (21947)
+
+// Instants
+
+2 Act of Aggression (21933)
+4 Combust (22237)
+4 Dismember (21951)

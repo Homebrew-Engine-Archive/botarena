@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 16 (26.67%)
+
+4 Acidic Slime (21311)
+2 Frost Titan (21322)
+3 Grave Titan (21222)
+4 Lotus Cobra (19389)
+3 Oracle of Mul Daya (19542)
+
+// Instants - 4 (6.67%)
+
+2 Doom Blade (21198)
+2 Jace's Ingenuity (21147)
+
+// Sorceries - 7 (11.67%)
+
+3 Explore (19647)
+4 Preordain (21152)
+
+// Enchantments - 4 (6.67%)
+
+4 Spreading Seas (19430)
+
+// Lands - 26 (43.33%)
+
+4 Creeping Tar Pit (19622)
+2 Drowned Catacomb (21127)
+Evolving Wilds (20905)
+Forest (21106)
+Forest (21105)
+2 Forest (21104)
+Forest (21107)
+2 Halimar Depths (19634)
+Island (21109)
+Island (21108)
+4 Misty Rainforest (19356)
+Swamp (21120)
+Swamp (21121)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Frost Titan (21322)
+3 Nest Invader (20887)
+
+// Instants
+
+2 Consume the Meek (20844)
+2 Doom Blade (21198)
+4 Mana Leak (21214)
+3 Spell Pierce (19377)

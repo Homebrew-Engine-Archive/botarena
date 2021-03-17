@@ -1,0 +1,20 @@
+#LIFE 40
+
+// Total cards in deck - 99
+
+// Lands - 99 (100.00%)
+
+25 Mountain (17911)
+25 Mountain (17912)
+25 Mountain (17913)
+24 Mountain (17914)
+
+Commander (23000)
+
+#STARTEMBLEMS
+
+// Total cards in starting emblems - 1
+
+// Creatures
+
+Ashling the Pilgrim (18073)

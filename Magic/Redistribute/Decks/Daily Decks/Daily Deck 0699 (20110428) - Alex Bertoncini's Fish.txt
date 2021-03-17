@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+4 Coralhelm Commander (20948)
+4 Cursecatcher (18534)
+2 Kira, Great Glass-Spinner (19190)
+4 Lord of Atlantis (17249)
+2 Merfolk Sovereign (4007)
+4 Merrow Reejerey (18082)
+4 Silvergill Adept (18089)
+Sower of Temptation (18074)
+
+// Instants - 9 (15.00%)
+
+4 Daze (12089)
+4 Force of Will (6759)
+Spell Pierce (19377)
+
+// Artifacts - 4 (6.67%)
+
+4 AEther Vial (15278)
+
+// Lands - 22 (36.67%)
+
+4 Island (20804)
+3 Island (20805)
+3 Island (20807)
+3 Island (20806)
+Mishra's Factory (7745)
+4 Mutavault (18368)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Llawan, Cephalid Empress (13622)
+Sower of Temptation (18074)
+
+// Instants
+
+2 Hydroblast (8134)
+2 Spell Pierce (19377)
+3 Submerge (12100)
+
+// Artifacts
+
+3 Relic of Progenitus (8725)
+2 Umezawa's Jitte (19149)

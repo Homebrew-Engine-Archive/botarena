@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 12 (20,00%)
+
+3 Ajani Vengeant (8720)
+3 Chandra Nalaar (18028)
+3 Elspeth, Knight-Errant (8722)
+3 Garruk Wildspeaker (18029)
+
+// Creatures - 10 (16,67%)
+
+4 Birds of Paradise (3013)
+4 Kitchen Finks (18593)
+2 Realm Razer (8724)
+
+// Sorceries - 6 (10,00%)
+
+2 Firespout (18674)
+4 Wrath of God (3200)
+
+// Enchantments - 4 (6,67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 3 (5,00%)
+
+3 Mind Stone (3242)
+
+// Lands - 25 (41,67%)
+
+4 Battlefield Forge (3012)
+4 Brushland (3020)
+3 Fire-Lit Thicket (18542)
+2 Forbidding Watchtower (3305)
+Forest (8509)
+Forest (8510)
+4 Jungle Shrine (8588)
+3 Rugged Prairie (18922)
+3 Treetop Village (3308)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Figure of Destiny (19006)
+4 Vexing Shusher (18682)
+
+// Instants
+
+3 Crib Swap (18078)
+4 Guttural Response (18548)

@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+4 Jace, the Mind Sculptor (19670)
+Nicol Bolas, Planeswalker (8924)
+
+// Instants - 14 (23.33%)
+
+3 Repeal (16793)
+4 Terminate (9001)
+4 Thirst for Knowledge (15016)
+3 Wrecking Ball (17053)
+
+// Sorceries - 7 (11.67%)
+
+3 Compulsive Research (16605)
+4 Damnation (2505)
+
+// Enchantments - 6 (10.00%)
+
+4 Blood Moon (2351)
+2 Night of Souls' Betrayal (15707)
+
+// Artifacts - 8 (13.33%)
+
+4 Chrome Mox (15001)
+2 Dimir Signet (16535)
+2 Rakdos Signet (17043)
+
+// Lands - 20 (33.33%)
+
+Blood Crypt (17006)
+Island (19310)
+Island (19311)
+2 Island (19308)
+Island (19309)
+Mountain (19316)
+4 Scalding Tarn (19358)
+Steam Vents (16809)
+2 Swamp (19333)
+Swamp (19334)
+2 Swamp (19332)
+Swamp (19335)
+Verdant Catacombs (19359)
+Watery Grave (16448)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Akroma, Angel of Fury (2625)
+
+// Instants
+
+4 Negate (4016)
+
+// Sorceries
+
+3 Deathmark (4028)
+2 Thought Hemorrhage (9101)
+4 Thoughtseize (17901)

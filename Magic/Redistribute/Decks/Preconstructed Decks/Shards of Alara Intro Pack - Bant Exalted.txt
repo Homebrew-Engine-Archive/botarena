@@ -1,0 +1,39 @@
+// Bant Exalted
+// Shards of Alara Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 18 (43.90%)
+
+2 Akrasan Squire (8500)
+Battlegrace Angel (8729)
+2 Guardians of Akrasa (8580)
+2 Knight of the Skyward Eye (8590)
+Knight-Captain of Eos (8591)
+2 Rhox War Monk (8694)
+Sigiled Paladin (8624)
+2 Steward of Valeron (8628)
+2 Suntail Hawk (3174)
+Waveskimmer Aven (8559)
+2 Wild Griffin (3208)
+
+// Sorceries - 3 (7.32%)
+
+2 Excommunicate (8508)
+Kiss of the Amesha (8650)
+
+// Enchantments - 3 (7.32%)
+
+Angelic Benediction (8532)
+2 Pacifism (3119)
+
+// Lands - 17 (41.46%)
+
+2 Bant Panorama (8636)
+3 Forest (8512)
+3 Island (8514)
+4 Plains (8524)
+3 Plains (8525)
+2 Seaside Citadel (8618)

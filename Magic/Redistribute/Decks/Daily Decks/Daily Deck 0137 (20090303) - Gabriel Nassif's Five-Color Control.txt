@@ -1,0 +1,64 @@
+// Total cards in deck - 61
+
+// Creatures - 13 (21.31%)
+
+3 Broodmate Dragon (8543)
+4 Mulldrifter (18023)
+3 Plumeveil (18611)
+3 Wall of Reverence (8923)
+
+// Instants - 18 (29.51%)
+
+4 Broken Ambitions (18057)
+Celestial Purge (8801)
+4 Cryptic Command (18051)
+4 Esper Charm (8567)
+Terror (3181)
+4 Volcanic Fallout (8860)
+
+// Sorceries - 2 (3.28%)
+
+2 Cruel Ultimatum (8707)
+
+// Artifacts - 1 (1.64%)
+
+Pithing Needle (3301)
+
+// Lands - 27 (44.26%)
+
+2 Cascade Bluffs (18907)
+2 Exotic Orchard (8843)
+Island (8514)
+Island (8515)
+Island (8516)
+Mystic Gate (18564)
+4 Reflecting Pool (18571)
+4 Sunken Ruins (18580)
+2 Vivid Crag (18031)
+4 Vivid Creek (18032)
+3 Vivid Marsh (18034)
+2 Vivid Meadow (18035)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Wispmare (18027)
+2 Wydwen, the Biting Gale (17977)
+
+// Instants
+
+Celestial Purge (4014)
+2 Negate (18305)
+Remove Soul (3139)
+
+// Sorceries
+
+2 Infest (8584)
+2 Wrath of God (3200)
+
+// Artifacts
+
+4 Scepter of Fugue (8853)

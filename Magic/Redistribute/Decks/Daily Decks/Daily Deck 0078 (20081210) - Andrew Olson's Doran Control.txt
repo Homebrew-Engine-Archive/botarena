@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Doran, the Siege Tower (18133)
+4 Figure of Destiny (19006)
+3 Gaddock Teeg (18062)
+4 Kitchen Finks (18593)
+2 Reveillark (18341)
+4 Tidehollow Sculler (8721)
+
+// Instants - 4 (6.67%)
+
+4 Unmake (18930)
+
+// Sorceries - 8 (13.33%)
+
+4 Profane Command (18127)
+4 Thoughtseize (17901)
+
+// Enchantments - 4 (6.67%)
+
+4 Bitterblossom (18338)
+
+// Lands - 23 (38.33%)
+
+4 Caves of Koilos (3022)
+2 Fetid Heath (18912)
+Llanowar Wastes (3093)
+4 Murmuring Bosk (18387)
+Plains (8523)
+4 Reflecting Pool (18571)
+4 Treetop Village (3308)
+3 Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Burrenton Forge-Tender (18054)
+Cloudthresher (18015)
+Gaddock Teeg (18062)
+2 Ranger of Eos (8642)
+
+// Sorceries
+
+Deathmark (3217)
+2 Mind Shatter (18304)
+4 Wrath of God (3200)
+
+// Enchantments
+
+2 Oblivion Ring (8718)

@@ -1,0 +1,253 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Guildpact.ico"
+IDI_LARGE_MODULE        ICON                    "GuildpactLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Guildpact"
+    IDS_EXPANSION_ABBREV    "GPT"
+    IDS_FIRST_CARD          "16778"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "16965"
+    IDS_MODULE_LARGE_ICON_ID "16966"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "03-02-2006"
+    IDS_MWS_FOLDER          "MWS\\GPT\\"
+    IDS_PRODUCT_LIST        """Guildpact Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16800         "Abyssal Nocturnus\n{1BB}\nCreature - Horror\nGPT,R\nWhenever an opponent discards a card, Abyssal Nocturnus gets +2/+2 and gains fear until end of turn.\n2/2"
+    IDS_STRING16801         "Angel of Despair\n{3WWBB}\nCreature - Angel\nGPT,R\nFlying\rWhen Angel of Despair enters the battlefield, destroy target permanent.\n5/5"
+    IDS_STRING16802         "Gruul Turf\n\nLand\nGPT,C\nGruul Turf enters the battlefield tapped.\rWhen Gruul Turf enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {RG} to your mana pool."
+    IDS_STRING16803         "Izzet Boilerworks\n\nLand\nGPT,C\nIzzet Boilerworks enters the battlefield tapped.\rWhen Izzet Boilerworks enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {UR} to your mana pool."
+    IDS_STRING16804         "Niv-Mizzet, the Firemind\n{2UURR}\nLegendary Creature - Dragon Wizard\nGPT,R\nFlying\rWhenever you draw a card, Niv-Mizzet, the Firemind deals 1 damage to target creature or player.\r{T}: Draw a card.\n4/4"
+    IDS_STRING16805         "Orzhov Basilica\n\nLand\nGPT,C\nOrzhov Basilica enters the battlefield tapped.\rWhen Orzhov Basilica enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {WB} to your mana pool."
+    IDS_STRING16806         "Ghost Warden\n{1W}\nCreature - Spirit\nGPT,C\n{T}: Target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING16807         "Savage Twister\n{XRG}\nSorcery\nGPT,U\nSavage Twister deals X damage to each creature."
+    IDS_STRING16808         "Godless Shrine\n\nLand - Plains Swamp\nGPT,R\n{T}: Add {W} or {B} to your mana pool.\rAs Godless Shrine enters the battlefield, you may pay 2 life. If you don't, Godless Shrine enters the battlefield tapped."
+    IDS_STRING16809         "Steam Vents\n\nLand - Island Mountain\nGPT,R\n{T}: Add {U} or {R} to your mana pool.\rAs Steam Vents enters the battlefield, you may pay 2 life. If you don't, Steam Vents enters the battlefield tapped."
+    IDS_STRING16810         "Stomping Ground\n\nLand - Mountain Forest\nGPT,R\n{T}: Add {R} or {G} to your mana pool.\rAs Stomping Ground enters the battlefield, you may pay 2 life. If you don't, Stomping Ground enters the battlefield tapped."
+    IDS_STRING16811         "Debtors' Knell\n{4HHH}\nEnchantment\nGPT,R\nAt the beginning of your upkeep, put target creature card from a graveyard onto the battlefield under your control."
+    IDS_STRING16812         "Silhana Ledgewalker\n{1G}\nCreature - Elf Rogue\nGPT,C\nHexproof\rSilhana Ledgewalker can't be blocked except by creatures with flying.\n1/1"
+    IDS_STRING16813         "Cremate\n{B}\nInstant\nGPT,C\nExile target card from a graveyard.\rDraw a card."
+    IDS_STRING16814         "Borborygmos\n{3RRGG}\nLegendary Creature - Cyclops\nGPT,R\nTrample\rWhenever Borborygmos deals combat damage to a player, put a +1/+1 counter on each creature you control.\n6/7"
+    IDS_STRING16815         "Crystal Seer\n{4U}\nCreature - Vedalken Wizard\nGPT,C\nWhen Crystal Seer enters the battlefield, look at the top four cards of your library, then put them back in any order.\r{4U}: Return Crystal Seer to its owner's hand.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16816         "Daggerclaw Imp\n{2B}\nCreature - Imp\nGPT,U\nFlying\rDaggerclaw Imp can't block.\n3/1"
+    IDS_STRING16817         "Drowned Rusalka\n{U}\nCreature - Spirit\nGPT,U\n{U}, Sacrifice a creature: Discard a card, then draw a card.\n1/1"
+    IDS_STRING16818         "Gelectrode\n{1UR}\nCreature - Weird\nGPT,U\n{T}: Gelectrode deals 1 damage to target creature or player.\rWhenever you cast an instant or sorcery spell, you may untap Gelectrode.\n0/1"
+    IDS_STRING16819         "Ghor-Clan Bloodscale\n{3R}\nCreature - Viashino Warrior\nGPT,U\nFirst strike\r{3G}: Ghor-Clan Bloodscale gets +2/+2 until end of turn. Activate this ability only once each turn.\n2/1"
+    IDS_STRING16820         "Giant Solifuge\n{2EE}\nCreature - Insect\nGPT,R\nTrample; haste; shroud\n4/1"
+    IDS_STRING16821         "Gruul Guildmage\n{EE}\nCreature - Human Shaman\nGPT,U\n{3R}, Sacrifice a land: Gruul Guildmage deals 2 damage to target player.\r{3G}: Target creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING16822         "Gruul Nodorog\n{4GG}\nCreature - Beast\nGPT,C\n{R}: Gruul Nodorog can't be blocked this turn except by two or more creatures.\n4/4"
+    IDS_STRING16823         "Harrier Griffin\n{5W}\nCreature - Griffin\nGPT,U\nFlying\rAt the beginning of your upkeep, tap target creature.\n3/3"
+    IDS_STRING16824         "Izzet Chronarch\n{3UR}\nCreature - Human Wizard\nGPT,C\nWhen Izzet Chronarch enters the battlefield, return target instant or sorcery card from your graveyard to your hand.\n2/2"
+    IDS_STRING16825         "Lionheart Maverick\n{W}\nCreature - Human Knight\nGPT,C\nVigilance\r{4W}: Lionheart Maverick gets +1/+2 until end of turn.\n1/1"
+    IDS_STRING16826         "Martyred Rusalka\n{W}\nCreature - Spirit\nGPT,U\n{W}, Sacrifice a creature: Target creature can't attack this turn.\n1/1"
+    IDS_STRING16827         "Mourning Thrull\n{1H}\nCreature - Thrull\nGPT,C\nFlying\rWhenever Mourning Thrull deals damage, you gain that much life.\n1/1"
+    IDS_STRING16828         "Orzhov Guildmage\n{HH}\nCreature - Human Wizard\nGPT,U\n{2W}: Target player gains 1 life.\r{2B}: Each player loses 1 life.\n2/2"
+    IDS_STRING16829         "Ostiary Thrull\n{3B}\nCreature - Thrull\nGPT,C\n{W}, {T}: Tap target creature.\n2/2"
+    IDS_STRING16830         "Petrahydrox\n{3I}\nCreature - Weird\nGPT,C\nWhen Petrahydrox becomes the target of a spell or ability, return Petrahydrox to its owner's hand.\n3/3"
+    IDS_STRING16831         "Plagued Rusalka\n{B}\nCreature - Spirit\nGPT,U\n{B}, Sacrifice a creature: Target creature gets -1/-1 until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16832         "Poisonbelly Ogre\n{4B}\nCreature - Ogre Warrior\nGPT,C\nWhenever another creature enters the battlefield, its controller loses 1 life.\n3/3"
+    IDS_STRING16833         "Restless Bones\n{2B}\nCreature - Skeleton\nGPT,C\n{3B}, {T}: Target creature gains swampwalk until end of turn.\r{1B}: Regenerate Restless Bones.\n1/1"
+    IDS_STRING16834         "Rumbling Slum\n{1RGG}\nCreature - Elemental\nGPT,R\nAt the beginning of your upkeep, Rumbling Slum deals 1 damage to each player.\n5/5"
+    IDS_STRING16835         "Scorched Rusalka\n{R}\nCreature - Spirit\nGPT,U\n{R}, Sacrifice a creature: Scorched Rusalka deals 1 damage to target player.\n1/1"
+    IDS_STRING16836         "Skeletal Vampire\n{4BB}\nCreature - Vampire Skeleton\nGPT,R\nFlying\rWhen Skeletal Vampire enters the battlefield, put two 1/1 black Bat creature tokens with flying onto the battlefield.\r{3BB}, Sacrifice a Bat: Put two 1/1 black Bat creature tokens with flying onto the battlefield.\rSacrifice a Bat: Regenerate Skeletal Vampire.\n3/3"
+    IDS_STRING16837         "Skyrider Trainee\n{4W}\nCreature - Human Soldier\nGPT,C\nSkyrider Trainee has flying as long as it's enchanted.\n3/3"
+    IDS_STRING16838         "Smogsteed Rider\n{2BB}\nCreature - Human Wizard\nGPT,U\nWhenever Smogsteed Rider attacks, each other attacking creature gains fear until end of turn.\n2/2"
+    IDS_STRING16839         "Starved Rusalka\n{G}\nCreature - Spirit\nGPT,U\n{G}, Sacrifice a creature: You gain 1 life.\n1/1"
+    IDS_STRING16840         "Stratozeppelid\n{4U}\nCreature - Beast\nGPT,U\nFlying\rStratozeppelid can block only creatures with flying.\n4/4"
+    IDS_STRING16841         "Streetbreaker Wurm\n{3RG}\nCreature - Wurm\nGPT,C\n\n6/4"
+    IDS_STRING16842         "Teysa, Orzhov Scion\n{1WB}\nLegendary Creature - Human Advisor\nGPT,R\nSacrifice three white creatures: Exile target creature.\rWhenever another black creature you control dies, put a 1/1 white Spirit creature token with flying onto the battlefield.\n2/3"
+    IDS_STRING16843         "Tibor and Lumia\n{2UR}\nLegendary Creature - Human Wizard\nGPT,R\nWhenever you cast a blue spell, target creature gains flying until end of turn.\rWhenever you cast a red spell, Tibor and Lumia deals 1 damage to each creature without flying.\n3/3"
+    IDS_STRING16844         "Torch Drake\n{3U}\nCreature - Drake\nGPT,C\nFlying\r{1R}: Torch Drake gets +1/+0 until end of turn.\n2/2"
+    IDS_STRING16845         "Wee Dragonauts\n{1UR}\nCreature - Faerie Wizard\nGPT,C\nFlying\rWhenever you cast an instant or sorcery spell, Wee Dragonauts gets +2/+0 until end of turn.\n1/3"
+    IDS_STRING16846         "Wild Cantor\n{E}\nCreature - Human Druid\nGPT,C\nSacrifice Wild Cantor: Add one mana of any color to your mana pool.\n1/1"
+    IDS_STRING16847         "Orzhova, the Church of Deals\n\nLand\nGPT,U\n{T}: Add {1} to your mana pool.\r{3WB}, {T}: Target player loses 1 life and you gain 1 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16848         "Skarrg, the Rage Pits\n\nLand\nGPT,U\n{T}: Add {1} to your mana pool.\r{RG}, {T}: Target creature gets +1/+1 and gains trample until end of turn."
+    IDS_STRING16849         "Gruul Signet\n{2}\nArtifact\nGPT,C\n{1}, {T}: Add {RG} to your mana pool."
+    IDS_STRING16850         "Gruul War Plow\n{4}\nArtifact\nGPT,R\nCreatures you control have trample.\r{1RG}: Gruul War Plow becomes a 4/4 Juggernaut artifact creature until end of turn."
+    IDS_STRING16851         "Izzet Signet\n{2}\nArtifact\nGPT,C\n{1}, {T}: Add {UR} to your mana pool."
+    IDS_STRING16852         "Orzhov Signet\n{2}\nArtifact\nGPT,C\n{1}, {T}: Add {WB} to your mana pool."
+    IDS_STRING16853         "Hatching Plans\n{1U}\nEnchantment\nGPT,R\nWhen Hatching Plans is put into a graveyard from the battlefield, draw three cards."
+    IDS_STRING16854         "Hissing Miasma\n{1BB}\nEnchantment\nGPT,U\nWhenever a creature attacks you, its controller loses 1 life."
+    IDS_STRING16855         "Hypervolt Grasp\n{2R}\nEnchantment - Aura\nGPT,U\nEnchant creature\rEnchanted creature has ""{T}: This creature deals 1 damage to target creature or player.""\r{1U}: Return Hypervolt Grasp to its owner's hand."
+    IDS_STRING16856         "Sinstriker's Will\n{3W}\nEnchantment - Aura\nGPT,U\nEnchant creature\rEnchanted creature has ""{T}: This creature deals damage equal to its power to target attacking or blocking creature."""
+    IDS_STRING16857         "Douse in Gloom\n{2B}\nInstant\nGPT,C\nDouse in Gloom deals 2 damage to target creature and you gain 2 life."
+    IDS_STRING16858         "Electrolyze\n{1UR}\nInstant\nGPT,U\nElectrolyze deals 2 damage divided as you choose among one or two target creatures and/or players.\rDraw a card."
+    IDS_STRING16859         "Frazzle\n{3U}\nInstant\nGPT,U\nCounter target nonblue spell."
+    IDS_STRING16860         "Mortify\n{1WB}\nInstant\nGPT,U\nDestroy target creature or enchantment."
+    IDS_STRING16861         "Runeboggle\n{2U}\nInstant\nGPT,C\nCounter target spell unless its controller pays {1}.\rDraw a card."
+    IDS_STRING16862         "To Arms!\n{1W}\nInstant\nGPT,U\nUntap all creatures you control.\rDraw a card."
+    IDS_STRING16863         "Wildsize\n{2G}\nInstant\nGPT,C\nTarget creature gets +2/+2 and gains trample until end of turn.\rDraw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16864         "Withstand\n{2W}\nInstant\nGPT,C\nPrevent the next 3 damage that would be dealt to target creature or player this turn.\rDraw a card."
+    IDS_STRING16865         "Castigate\n{WB}\nSorcery\nGPT,C\nTarget opponent reveals his or her hand. You choose a nonland card from it and exile that card."
+    IDS_STRING16866         "Caustic Rain\n{2BB}\nSorcery\nGPT,U\nExile target land."
+    IDS_STRING16867         "Culling Sun\n{2WWB}\nSorcery\nGPT,R\nDestroy each creature with converted mana cost 3 or less."
+    IDS_STRING16868         "Invoke the Firemind\n{XUUR}\nSorcery\nGPT,R\nChoose one - Draw X cards; or Invoke the Firemind deals X damage to target creature or player."
+    IDS_STRING16869         "Predatory Focus\n{3GG}\nSorcery\nGPT,U\nYou may have creatures you control assign their combat damage this turn as though they weren't blocked."
+    IDS_STRING16870         "Primeval Light\n{3G}\nSorcery\nGPT,U\nDestroy all enchantments target player controls."
+    IDS_STRING16871         "Wreak Havoc\n{2RG}\nSorcery\nGPT,U\nWreak Havoc can't be countered by spells or abilities.\rDestroy target artifact or land."
+    IDS_STRING16872         "Agent of Masks\n{3WB}\nCreature - Human Advisor\nGPT,U\nAt the beginning of your upkeep, each opponent loses 1 life. You gain life equal to the life lost this way.\n2/3"
+    IDS_STRING16873         "Cryptwailing\n{3B}\nEnchantment\nGPT,U\n{1}, Exile two creature cards from your graveyard: Target player discards a card. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING16874         "Witch-Maw Nephilim\n{GWUB}\nCreature - Nephilim\nGPT,R\nWhenever you cast a spell, you may put two +1/+1 counters on Witch-Maw Nephilim.\rWhenever Witch-Maw Nephilim attacks, it gains trample until end of turn if its power is 10 or greater.\n1/1"
+    IDS_STRING16875         "Gruul Scrapper\n{3G}\nCreature - Human Berserker\nGPT,C\nWhen Gruul Scrapper enters the battlefield, if {R} was spent to cast Gruul Scrapper, it gains haste until end of turn.\n3/2"
+    IDS_STRING16876         "Ogre Savant\n{4R}\nCreature - Ogre Wizard\nGPT,C\nWhen Ogre Savant enters the battlefield, if {U} was spent to cast Ogre Savant, return target creature to its owner's hand.\n3/2"
+    IDS_STRING16877         "Shrieking Grotesque\n{2W}\nCreature - Gargoyle\nGPT,C\nFlying\rWhen Shrieking Grotesque enters the battlefield, if {B} was spent to cast it, target player discards a card.\n2/1"
+    IDS_STRING16878         "Steamcore Weird\n{3U}\nCreature - Weird\nGPT,C\nWhen Steamcore Weird enters the battlefield, if {R} was spent to cast Steamcore Weird, it deals 2 damage to target creature or player.\n1/3"
+    IDS_STRING16879         "Tin Street Hooligan\n{1R}\nCreature - Goblin Rogue\nGPT,C\nWhen Tin Street Hooligan enters the battlefield, if {G} was spent to cast Tin Street Hooligan, destroy target artifact.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16880         "Glint-Eye Nephilim\n{UBRG}\nCreature - Nephilim\nGPT,R\nWhenever Glint-Eye Nephilim deals combat damage to a player, draw that many cards.\r{1}, Discard a card: Glint-Eye Nephilim gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING16881         "Dune-Brood Nephilim\n{WBRG}\nCreature - Nephilim\nGPT,R\nWhenever Dune-Brood Nephilim deals combat damage to a player, put a 1/1 colorless Sand creature token onto the battlefield for each land you control.\n3/3"
+    IDS_STRING16882         "Bloodscale Prowler\n{2R}\nCreature - Viashino Warrior\nGPT,C\nBloodthirst 1\n3/1"
+    IDS_STRING16883         "Ghor-Clan Savage\n{3GG}\nCreature - Centaur Berserker\nGPT,C\nBloodthirst 3\n2/3"
+    IDS_STRING16884         "Scab-Clan Mauler\n{RG}\nCreature - Human Berserker\nGPT,C\nBloodthirst 2\rTrample\n1/1"
+    IDS_STRING16885         "Skarrgan Skybreaker\n{4RRG}\nCreature - Giant Shaman\nGPT,U\nBloodthirst 3\r{1}, Sacrifice Skarrgan Skybreaker: Skarrgan Skybreaker deals damage equal to its power to target creature or player.\n3/3"
+    IDS_STRING16886         "Skarrgan Firebird\n{4RR}\nCreature - Phoenix\nGPT,R\nBloodthirst 3\rFlying\r{RRR}: Return Skarrgan Firebird from your graveyard to your hand. Activate this ability only if an opponent was dealt damage this turn.\n3/3"
+    IDS_STRING16887         "Ulasht, the Hate Seed\n{2RG}\nLegendary Creature - Hellion Hydra\nGPT,R\nUlasht, the Hate Seed enters the battlefield with a +1/+1 counter on it for each other red creature you control and a +1/+1 counter on it for each other green creature you control.\r{1}, Remove a +1/+1 counter from Ulasht: Choose one - Ulasht deals 1 damage to target creature; or put a 1/1 green Saproling creature token onto the battlefield.\n0/0"
+    IDS_STRING16888         "Pillory of the Sleepless\n{1WB}\nEnchantment - Aura\nGPT,C\nEnchant creature\rEnchanted creature can't attack or block.\rEnchanted creature has ""At the beginning of your upkeep, you lose 1 life."""
+    IDS_STRING16889         "Ghost Council of Orzhova\n{WWBB}\nLegendary Creature - Spirit\nGPT,R\nWhen Ghost Council of Orzhova enters the battlefield, target opponent loses 1 life and you gain 1 life.\r{1}, Sacrifice a creature: Exile Ghost Council of Orzhova. Return it to the battlefield under its owner's control at the beginning of the next end step.\n4/4"
+    IDS_STRING16890         "Storm Herd\n{8WW}\nSorcery\nGPT,R\nPut X 1/1 white Pegasus creature tokens with flying onto the battlefield, where X is your life total."
+    IDS_STRING16891         "Gristleback\n{2G}\nCreature - Boar Beast\nGPT,U\nBloodthirst 1\rSacrifice Gristleback: You gain life equal to Gristleback's power.\n2/2"
+    IDS_STRING16892         "Schismotivate\n{1UR}\nInstant\nGPT,U\nTarget creature gets +4/+0 until end of turn. Another target creature gets -4/-0 until end of turn."
+    IDS_STRING16893         "Leyline of the Void\n{2BB}\nEnchantment\nGPT,R\nIf Leyline of the Void is in your opening hand, you may begin the game with it on the battlefield.\rIf a card would be put into an opponent's graveyard from anywhere, exile it instead."
+    IDS_STRING16894         "Leyline of Lifeforce\n{2GG}\nEnchantment\nGPT,R\nIf Leyline of Lifeforce is in your opening hand, you may begin the game with it on the battlefield.\rCreature spells can't be countered."
+    IDS_STRING16895         "Leyline of Lightning\n{2RR}\nEnchantment\nGPT,R\nIf Leyline of Lightning is in your opening hand, you may begin the game with it on the battlefield.\rWhenever you cast a spell, you may pay {1}. If you do, Leyline of Lightning deals 1 damage to target player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16896         "Leyline of Singularity\n{2UU}\nEnchantment\nGPT,R\nIf Leyline of Singularity is in your opening hand, you may begin the game with it on the battlefield.\rAll nonland permanents are legendary."
+    IDS_STRING16897         "Leyline of the Meek\n{2WW}\nEnchantment\nGPT,R\nIf Leyline of the Meek is in your opening hand, you may begin the game with it on the battlefield.\rCreature tokens get +1/+1."
+    IDS_STRING16898         "Order of the Stars\n{W}\nCreature - Human Cleric\nGPT,U\nDefender\rAs Order of the Stars enters the battlefield, choose a color.\rOrder of the Stars has protection from the chosen color.\n0/1"
+    IDS_STRING16899         "Bioplasm\n{3GG}\nCreature - Ooze\nGPT,R\nWhenever Bioplasm attacks, exile the top card of your library. If it's a creature card, Bioplasm gets +X/+Y until end of turn, where X is the exiled creature card's power and Y is its toughness.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING16784         "Skarrgan Pit-Skulk\n{G}\nCreature - Human Warrior\nGPT,C\nBloodthirst 1\rCreatures with power less than Skarrgan Pit-Skulk's power can't block it.\n1/1"
+    IDS_STRING16785         "Wurmweaver Coil\n{4GG}\nEnchantment - Aura\nGPT,R\nEnchant green creature\rEnchanted creature gets +6/+6.\r{GGG}, Sacrifice Wurmweaver Coil: Put a 6/6 green Wurm creature token onto the battlefield."
+    IDS_STRING16786         "Dryad Sophisticate\n{1G}\nCreature - Dryad\nGPT,U\nNonbasic landwalk\n2/1"
+    IDS_STRING16787         "Vedalken Plotter\n{2U}\nCreature - Vedalken Wizard\nGPT,U\nWhen Vedalken Plotter enters the battlefield, exchange control of target land you control and target land an opponent controls.\n1/1"
+    IDS_STRING16788         "Revenant Patriarch\n{4B}\nCreature - Spirit\nGPT,U\nWhen Revenant Patriarch enters the battlefield, if {W} was spent to cast it, target player skips his or her next combat phase.\rRevenant Patriarch can't block.\n4/3"
+    IDS_STRING16789         "Sky Swallower\n{3UU}\nCreature - Leviathan\nGPT,R\nFlying\rWhen Sky Swallower enters the battlefield, target opponent gains control of all other permanents you control.\n8/8"
+    IDS_STRING16790         "Gatherer of Graces\n{1G}\nCreature - Human Druid\nGPT,U\nGatherer of Graces gets +1/+1 for each Aura attached to it.\rSacrifice an Aura: Regenerate Gatherer of Graces\n1/2"
+    IDS_STRING16791         "Yore-Tiller Nephilim\n{WUBR}\nCreature - Nephilim\nGPT,R\nWhenever Yore-Tiller Nephilim attacks, return target creature card from your graveyard to the battlefield tapped and attacking.\n2/2"
+    IDS_STRING16792         "Quicken\n{U}\nInstant\nGPT,R\nThe next sorcery card you cast this turn can be cast as though it had flash.\rDraw a card."
+    IDS_STRING16793         "Repeal\n{XU}\nInstant\nGPT,C\nReturn target nonland permanent with converted mana cost X to its owner's hand.\rDraw a card."
+    IDS_STRING16794         "Parallectric Feedback\n{3R}\nInstant\nGPT,R\nParallectric Feedback deals damage to target spell's controller equal to that spell's converted mana cost."
+    IDS_STRING16795         "Crash Landing\n{2G}\nInstant\nGPT,U\nTarget creature with flying loses flying until end of turn. Crash Landing deals damage to that creature equal to the number of Forests you control."
+    IDS_STRING16796         "Shadow Lance\n{W}\nEnchantment - Aura\nGPT,U\nEnchant creature\rEnchanted creature has first strike.\r{1B}: Enchanted creature gets +2/+2 until end of turn."
+    IDS_STRING16797         "Feral Animist\n{1RG}\nCreature - Goblin Shaman\nGPT,U\n{3}: Feral Animist gets +X/+0 until end of turn, where X is its power.\n2/1"
+    IDS_STRING16798         "Petrified Wood-Kin\n{6G}\nCreature - Elemental Warrior\nGPT,R\nPetrified Wood-Kin can't be countered.\rBloodthirst X\rProtection from instants\n3/3"
+    IDS_STRING16799         "Sanguine Praetor\n{6BB}\nCreature - Avatar Praetor\nGPT,R\n{B}, Sacrifice a creature: Destroy each creature with the same converted mana cost as the sacrificed creature.\n7/5"
+END
+
+STRINGTABLE
+BEGIN
+    //IDS_STRING16781         "Blind Hunter\n{2WB}\nCreature - Bat\nGPT,C\nFlying\rHaunt\rWhen Blind Hunter enters the battlefield or the creature it haunts dies, target player loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING16778         "Moratorium Stone\n{1}\nArtifact\nGPT,R\n{2}, {T}: Exile target card from a graveyard.\r{2WB}, {T}, Sacrifice Moratorium Stone: Exile target nonland card from a graveyard, all other cards from graveyards with the same name as that card, and all permanents with that name."
+    IDS_STRING16779         "Silhana Starfletcher\n{2G}\nCreature - Elf Druid Archer\nGPT,C\nReach\rAs Silhana Starfletcher enters the battlefield, choose a color.\r{T}: Add one mana of the chosen color to your mana pool.\n1/3"
+    IDS_STRING16780         "Cerebral Vortex\n{1UR}\nInstant\nGPT,R\nTarget player draws two cards, then Cerebral Vortex deals damage to that player equal to the number of cards he or she has drawn this turn."
+    IDS_STRING16781         "Stitch in Time\n{1UR}\nSorcery\nGPT,R\nFlip a coin. If you win the flip, take an extra turn after this one."
+    IDS_STRING16782         "Izzet Guildmage\n{II}\nCreature - Human Wizard\nGPT,U\n{2U}: Copy target instant spell you control with converted mana cost 2 or less. You may choose new targets for the copy.\r{2R}: Copy target sorcery spell you control with converted mana cost 2 or less. You may choose new targets for the copy.\n2/2"
+    IDS_STRING16783         "Battering Wurm\n{6G}\nCreature - Wurm\nGPT,U\nBloodthirst 1\rCreatures with power less than Battering Wurm's power can't block it.\n4/3"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

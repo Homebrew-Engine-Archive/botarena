@@ -1,0 +1,169 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "ATokens.ico"
+IDI_LARGE_MODULE        ICON                    "ATokens.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "ATokens"
+    IDS_EXPANSION_ABBREV    "ATK"
+    IDS_FIRST_CARD          "64000"
+    IDS_TOTAL_CARD          "998"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "64998"
+    IDS_MODULE_LARGE_ICON_ID "64999"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "31-12-2010"
+    IDS_MWS_FOLDER          "MWS\\ATK\\"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+STRINGTABLE
+BEGIN
+	IDS_STRING64000          "Animated Artifact (A)\n{1}\nArtifact Creature\nToken\n\n5/5"
+	IDS_STRING64001          "Animated Forest (A)\n{1}\nCreature\nToken\n\n2/3"
+	IDS_STRING64002          "Animated Forest (B)\n\nCreature\nToken\n\n1/1"
+    IDS_STRING64003          "Bird (AA)\n{2}\nCreature - Bird\nToken\nFlying\n2/2"
+	IDS_STRING64004          "Bird (AB)\n{1WU}\nArtifact Creature - Bird\nToken\nFlying\n2/2"
+	IDS_STRING64005          "Animated Gideon Jura\n{3WW}\nCreature - Human Soldier\nToken\nPrevent all damage that would be dealt to Gideon Jura this turn.\n6/6"
+	IDS_STRING64006          "Animated Gideon, Champion of Justice\n{2WW}\nCreature - Human Soldier\nToken\nGideon, Champion of Justice's power and toughness are each equal to the number of loyalty counters on him.\rGideon, Champion of Justice is indestructible.\rGideon, Champion of Justice is cool.\rPrevent all damage that would be dealt to Gideon, Champion of Justice this turn.\n*/*"
+	IDS_STRING64007          "Animated Land (A)\n{1}\nCreature\nToken\nFirst strike\n2/2"
+	IDS_STRING64008          "Animated Land (B)\n\nCreature\nToken\n\n2/2"
+	IDS_STRING64009          "Animated Land (C)\n{1}\nCreature\nToken\n\n1/1"
+	IDS_STRING64010          "Animated Swamp\n{B}\nCreature\nToken\n\n1/1"
+    IDS_STRING64011          "Ape (AA)\n{G}\nCreature - Ape\nToken\nTrample\n3/3"
+	IDS_STRING64012          "Angel (AA)\n{W}\nArtifact Creature - Angel\nToken\nFlying\n3/3"
+	IDS_STRING64013          "Assembly-Worker (AA)\n{1}\nArtifact Creature - Assembly-Worker\nToken\n\n2/2"
+	IDS_STRING64014          "Atog (AA)\n{2U}\nArtifact Creature - Atog\nToken\n\n1/2"
+	IDS_STRING64015          "Beast (AA)\n{2}\nArtifact Creature - Beast\nToken\nThis creature is indestructible.\n2/2"
+END    
+
+STRINGTABLE
+BEGIN
+	IDS_STRING64016          "Beast (AB)\n{R}\nCreature - Beast\nToken\nTrample\n4/2"
+	IDS_STRING64017          "Beast (AC)\n{1RG}\nArtifact Creature - Beast\nToken\nTrample\n3/2"
+	IDS_STRING64018          "Blinkmoth (AA)\n\nArtifact Creature - Blinkmoth\nToken\nFlying\n1/1"
+	IDS_STRING64019          "Blinkmoth (AB)\n\nArtifact Creature - Blinkmoth\nToken\nFlying, infect\n1/1"
+	IDS_STRING64020          "Centaur (AA)\n{1GG}\nCreature - Centaur\nToken\n\n4/3"
+	IDS_STRING64021          "Construct (AA)\n{3}\nArtifact Creature - Construct\nToken\nFlying\n2/1"
+    IDS_STRING64022          "Construct (AB)\n{3}\nArtifact Creature - Construct\nToken\n\n3/2"
+	IDS_STRING64023          "Construct (AC)\n{3}\nArtifact Creature - Construct\nToken\nTrample\n6/6"
+	IDS_STRING64024          "Construct (AD)\n{1}\nArtifact Creature - Construct\nToken\nThis creature's power and toughness are each equal to the number of charge counters on it.\nX/X"
+	IDS_STRING64025          "Thrull (AA)\n{1WB}\nArtifact Creature - Thrull\nToken\nLifelink\n1/4"
+	IDS_STRING64026          "Crab (AA)\n{1GU}\nArtifact Creature - Crab\nToken\nHexproof\n2/3"
+	IDS_STRING64027          "Horror (AA)\n{2B}\nArtifact Creature - Horror\nToken\nTrample\n5/5"
+	IDS_STRING64028          "Horror (AB)\n{1UB}\nArtifact Creature - Horror\nToken\n\n2/2"
+	IDS_STRING64029          "Devil (AA)\n{1BR}\nArtifact Creature - Devil\nToken\nFirst strike\n3/1"
+    IDS_STRING64030          "Ooze (AA)\n{B}\nCreature - Ooze\nToken\n\n3/3"
+	IDS_STRING64031          "Elemental (AA)\n{R}\nCreature - Elemental\nToken\n\n4/4"
+END    
+
+STRINGTABLE
+BEGIN
+	IDS_STRING64032          "Elemental (AB)\n{WU}\nCreature - Elemental\nToken\nFlying, vigilance\n4/4"
+	IDS_STRING64033          "Elemental (AC)\n{UB}\nCreature - Elemental\nToken\n\n3/2"
+	IDS_STRING64034          "Elemental (AD)\n{GW}\nCreature - Elemental\nToken\nReach\n3/4"
+	IDS_STRING64035          "Elemental (AE)\n{G}\nCreature - Elemental\nToken\n\n6/4"
+	IDS_STRING64036          "Elemental (AF)\n{U}\nCreature - Elemental\nToken\nFlying\n2/2"
+	IDS_STRING64037          "Elemental (AG)\n\nArtifact Creature - Elemental\nToken\n\n3/3"
+	IDS_STRING64038          "Elemental (AH)\n{BR}\nCreature - Elemental\nToken\n{X}: This creature gets +X/+0 until end of turn.\n2/2"
+	IDS_STRING64039          "Elemental (AI)\n{RG}\nCreature - Elemental\nToken\nWhenever this creature attacks, put a +1/+1 counter on it.\n3/3"
+	IDS_STRING64040          "Elemental (AJ)\n{1UR}\nArtifact Creature - Elemental\nToken\n\n2/1"
+	IDS_STRING64041          "Elemental (AK)\n\nCreature - Elemental\nToken\n\n4/4"
+	IDS_STRING64042          "Elf (AA)\n{G}\nCreature - Elf\nToken\n\n1/1"
+	IDS_STRING64043          "Faerie (AA)\n{U}\nCreature - Faerie\nToken\nFlying\n2/1"
+	IDS_STRING64044          "Giant (AA)\n{2R}\nArtifact Creature - Giant\nToken\nTrample\n4/4"
+	IDS_STRING64045          "Golem (AA)\n{2}\nArtifact Creature - Golem\nToken\n\n2/2"
+	IDS_STRING64046          "Golem (AB)\n{8}\nArtifact Creature - Golem\nToken\nTrample\n8/8"
+	IDS_STRING64047          "Golem (AC)\n\nArtifact Creature - Golem\nToken\n\n4/2"
+END    
+
+STRINGTABLE
+BEGIN
+	IDS_STRING64048          "Golem (AD)\n{4}\nArtifact Creature - Golem\nToken\n\n3/6"
+	IDS_STRING64049          "Animated Land (D)\n{1}\nCreature\nToken\n\n3/3"
+	IDS_STRING64050          "Animated Land (E)\n{1}\nArtifact Creature\nToken\n\n3/3"
+	IDS_STRING64051          "Animated Land (F)\n{1}\nCreature\nToken\n\n4/4"
+	IDS_STRING64052          "Animated Land (G)\n{G}\nCreature\nToken\n\n2/2"
+	IDS_STRING64053          "Treefolk (AA)\n{1}\nCreature - Treefolk\nToken\n\n*/*"
+	IDS_STRING64054          "Elemental Horror (AA)\n{BG}\nCreature - Elemental Horror\nToken\n\n4/4"
+	IDS_STRING64055          "Elemental (AL)\n{1}\nCreature - Elemental\nToken\n\n*/*"
+	IDS_STRING64056          "Treefolk Warrior (AA)\n{1}\nCreature - Treefolk Warrior\nToken\n\n3/5"
+	IDS_STRING64057          "Animated Land (H)\n{G}\nCreature\nToken\nHaste\n3/3"
+	IDS_STRING64058          "Animated Artifact (B)\n{1}\nArtifact Creature\nToken\n\n*/*"
+	IDS_STRING64059          "Elemental (AM)\n{1}\nCreature - Elemental\nToken\nFlying\n3/3"
+	IDS_STRING64060          "Insect (AA)\n{1BG}\nArtifact Creature - Insect\nToken\nDeathtouch\n2/2"
+	IDS_STRING64061          "Insect Monk (AA)\n{GW}\nCreature - Insect Monk\nToken\nFirst strike\n4/4"
+END    
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

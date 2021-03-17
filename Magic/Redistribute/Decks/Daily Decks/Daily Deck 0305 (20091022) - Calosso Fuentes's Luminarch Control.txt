@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 12 (20.00%)
+
+4 Ajani Vengeant (8720)
+2 Chandra Nalaar (4209)
+3 Elspeth, Knight-Errant (8722)
+3 Jace Beleren (4210)
+
+// Instants - 12 (20.00%)
+
+4 Lightning Bolt (4060)
+3 Negate (4016)
+4 Path to Exile (8897)
+Volcanic Fallout (8860)
+
+// Sorceries - 6 (10.00%)
+
+4 Day of Judgment (19340)
+2 Martial Coup (8886)
+
+// Enchantments - 4 (6.67%)
+
+4 Luminarch Ascension (19527)
+
+// Lands - 26 (43.33%)
+
+4 Arid Mesa (19349)
+4 Glacial Fortress (4200)
+Island (19309)
+Island (19308)
+Mountain (19316)
+Mountain (19317)
+Mountain (19318)
+2 Plains (19324)
+2 Plains (19325)
+Plains (19326)
+Plains (19327)
+3 Rupture Spire (8884)
+4 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Chandra Nalaar (4209)
+Jace Beleren (4210)
+
+// Creatures
+
+4 Baneslayer Angel (4224)
+
+// Instants
+
+4 Celestial Purge (4014)
+2 Flashfreeze (4038)
+Negate (4016)
+Volcanic Fallout (8860)
+
+// Sorceries
+
+Telemin Performance (8927)

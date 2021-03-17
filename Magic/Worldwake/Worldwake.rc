@@ -1,0 +1,250 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Worldwake.ico"
+IDI_LARGE_MODULE        ICON                    "WorldwakeLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Worldwake"
+    IDS_EXPANSION_ABBREV    "WWK"
+    IDS_FIRST_CARD          "19600"
+    IDS_TOTAL_CARD          "145"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "19745"
+    IDS_MODULE_LARGE_ICON_ID "19746"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "05-02-2010"
+    IDS_MWS_FOLDER          "MWS\\WWK\\"
+    IDS_PRODUCT_LIST        """Worldwake Booster Pack"":MR-8:R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19600         "Smother\n{1B}\nInstant\nWWK,U\nDestroy target creature with converted mana cost 3 or less. It can't be regenerated."
+    IDS_STRING19601         "Leatherback Baloth\n{GGG}\nCreature - Beast\nWWK,U\n\n4/5"
+    IDS_STRING19602         "Celestial Colonnade\n\nLand\nWWK,R\nCelestial Colonnade enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool.\r{3WU}: Until end of turn, Celestial Colonnade becomes a 4/4 white and blue Elemental creature with flying and vigilance. It's still a land."
+    IDS_STRING19603         "Quicksand\n\nLand\nWWK,C\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Quicksand: Target attacking creature without flying gets -1/-2 until end of turn."
+    IDS_STRING19604         "Dread Statuary\n\nLand\nWWK,U\n{T}: Add {1} to your mana pool.\r{4}: Dread Statuary becomes a 4/2 Golem artifact creature until end of turn. It's still a land."
+    IDS_STRING19605         "Join the Ranks\n{3W}\nInstant\nWWK, C\nPut two 1/1 white Soldier Ally creature tokens onto the battlefield."
+    IDS_STRING19606         "Kor Firewalker\n{WW}\nCreature - Kor Soldier\nWWK,U\nProtection from red\rWhenever a player casts a red spell, you may gain 1 life.\n2/2"
+    IDS_STRING19607         "Lodestone Golem\n{4}\nArtifact Creature - Golem\nWWK,R\nNonartifact spells cost {1} more to cast.\n5/3"
+    IDS_STRING19608         "Cunning Sparkmage\n{2R}\nCreature - Human Shaman\nWWK,U\nHaste\r{T}: Cunning Sparkmage deals 1 damage to target creature or player.\n0/1"
+    IDS_STRING19609         "Selective Memory\n{3U}\nSorcery\nWWK,R\nSearch your library for any number of nonland cards and exile them. Then shuffle your library."
+    IDS_STRING19610         "Bojuka Brigand\n{1B}\nCreature - Human Warrior Ally\nWWK,C\nBojuka Brigand can't block.\rWhenever Bojuka Brigand or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Bojuka Brigand.\n1/1"
+    IDS_STRING19611         "Jagwasp Swarm\n{3B}\nCreature - Insect\nWWK,C\nFlying\n3/2"
+    IDS_STRING19612         "Bull Rush\n{R}\nInstant\nWWK,C\nTarget creature gets +2/+0 until end of turn."
+    IDS_STRING19613         "Goblin Roughrider\n{2R}\nCreature - Goblin Knight\nWWK,C\n\n3/2"
+    IDS_STRING19614         "Ruthless Cullblade\n{1B}\nCreature - Vampire Warrior\nWWK,C\nRuthless Cullblade gets +2/+1 as long as an opponent has 10 or less life.\n2/1"
+    IDS_STRING19615         "Arbor Elf\n{G}\nCreature - Elf Druid\nWWK,C\n{T}: Untap target Forest.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19616         "Grappler Spider\n{1G}\nCreature - Spider\nWWK,C\nReach\n2/1"
+    IDS_STRING19617         "Snapping Creeper\n{2G}\nCreature - Plant\nWWK,C\nLandfall - Whenever a land enters the battlefield under your control, Snapping Creeper gains vigilance until end of turn.\n2/3"
+    IDS_STRING19618         "Hedron Rover\n{4}\nArtifact Creature - Construct\nWWK,C\nLandfall - Whenever a land enters the battlefield under your control, Hedron Rover gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING19619         "Kitesail\n{2}\nArtifact - Equipment\nWWK,C\nEquipped creature gets +1/+0 and has flying.\rEquip {2}"
+    IDS_STRING19620         "Pilgrim's Eye\n{3}\nArtifact Creature - Thopter\nWWK,C\nFlying\rWhen Pilgrim's Eye enters the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.\n1/1"
+    IDS_STRING19621         "Khalni Garden\n\nLand\nWWK,C\nKhalni Garden enters the battlefield tapped.\rWhen Khalni Garden enters the battlefield, put a 0/1 green Plant creature token onto the battlefield.\r{T}: Add {G} to your mana pool."
+    IDS_STRING19622         "Creeping Tar Pit\n\nLand\nWWK,R\nCreeping Tar Pit enters the battlefield tapped.\r{T}: Add {B} or {U} to your mana pool.\r{1UB}: Until end of turn, Creeping Tar Pit becomes a 3/2 blue and black Elemental creature and is unblockable. It's still a land."
+    IDS_STRING19623         "Stirring Wildwood\n\nLand\nWWK,R\nStirring Wildwood the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool.\r{1GW}: Until end of turn, Stirring Wildwood becomes a 3/4 green and white Elemental creature with reach. It's still a land."
+    IDS_STRING19624         "Smoldering Spires\n\nLand\nWWK,C\nSmoldering Spires enters the battlefield tapped.\rWhen Smoldering Spires enters the battlefield, target creature can't block this turn.\r{T}: Add {R} to your mana pool."
+    IDS_STRING19625         "Battle Hurda\n{4W}\nCreature - Giant\nWWK,C\nFirst strike\n3/3"
+    IDS_STRING19626         "Fledgling Griffin\n{1W}\nCreature - Griffin\nWWK,C\nLandfall - Whenever a land enters the battlefield under your control, Fledgling Griffin gains flying until end of turn.\n2/2"
+    IDS_STRING19627         "Hada Freeblade\n{W}\nCreature - Human Soldier Ally\nWWK,U\nWhenever Hada Freeblade or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Hada Freeblade.\n0/1"
+    IDS_STRING19628         "Loam Lion\n{W}\nCreature - Cat\nWWK,U\nLoam Lion gets +1/+2 as long as you control a Forest.\n1/1"
+    IDS_STRING19629         "Marsh Threader\n{1W}\nCreature - Kor Scout\nWWK,C\nSwampwalk\n2/1"
+    IDS_STRING19630         "Dispel\n{U}\nInstant\nWWK, C\nCounter target instant spell."
+    IDS_STRING19631         "Goliath Sphinx\n{5UU}\nCreature - Sphinx\nWWK,R\nFlying\n8/7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19632         "Graypelt Hunter\n{3G}\nCreature - Human Warrior Ally\nWWK,C\nTrample\rWhenever Graypelt Hunter or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Graypelt Hunter.\n2/2"
+    IDS_STRING19633         "Twitch\n{2U}\nInstant\nWWK,C\nYou may tap or untap target artifact, creature, or land.\rDraw a card."
+    IDS_STRING19634         "Halimar Depths\n\nLand\nWWK,C\nHalimar Depths enters the battlefield tapped.\rWhen Halimar Depths enters the battlefield, look at the top three cards of your library, then put them back in any order.\r{T}: Add {U} to your mana pool."
+    IDS_STRING19635         "Iona's Judgment\n{4W}\nSorcery\nWWK,C\nExile target creature or enchantment."
+    IDS_STRING19636         "Walking Atlas\n{2}\nArtifact Creature - Construct\nWWK,C\n{T}: You may put a land card from your hand onto the battlefield.\n1/1"
+    IDS_STRING19637         "Novablast Wurm\n{3GGWW}\nCreature - Wurm\nWWK,MR\nWhenever Novablast Wurm attacks, destroy all other creatures.\n1/1"
+    IDS_STRING19638         "Stoneforge Mystic\n{1W}\nCreature - Kor Artificer\nWWK,R\nWhen Stoneforge Mystic enters the battlefield, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle your library.\r{1W}, {T}: You may put an Equipment card from your hand onto the battlefield.\n1/2"
+    IDS_STRING19639         "Veteran's Reflexes\n{W}\nInstant\nWWK,C\nTarget creature gets +1/+1 until end of turn. Untap that creature."
+    IDS_STRING19640         "Abyssal Persecutor\n{2BB}\nCreature - Demon\nWWK,MR\nFlying, trample\rYou can't win the game and your opponents can't lose the game.\n6/6"
+    IDS_STRING19641         "Slavering Nulls\n{1R}\nCreature - Goblin Zombie\nWWK,U\nWhenever Slavering Nulls deals combat damage to a player, if you control a Swamp, you may have that player discard a card.\n2/1"
+    IDS_STRING19642         "Shoreline Salvager\n{3B}\nCreature - Surrakar\nWWK,U\nWhenever Shoreline Salvager deals combat damage to a player, if you control an Island, you may draw a card.\n3/3"
+    IDS_STRING19643         "Admonition Angel\n{3WWW}\nCreature - Angel\nWWK,MR\nFlying\rLandfall - Whenever a land enters the battlefield under your control, you may exile target nonland permanent other than Admonition Angel.\rWhen Admonition Angel leaves the battlefield, return all cards exiled with it to the battlefield under their owners' control.\n6/6"
+    IDS_STRING19644         "Dragonmaster Outcast\n{R}\nCreature - Human Shaman\nWWK,MR\nAt the beginning of your upkeep, if you control six or more lands, put a 5/5 red Dragon creature token with flying onto the battlefield.\n1/1"
+    IDS_STRING19645         "Cosi's Ravager\n{3R}\nCreature - Elemental\nWWK,C\nLandfall - Whenever a land enters the battlefield under your control, you may have Cosi's Ravager deal 1 damage to target player.\n2/2"
+    IDS_STRING19646         "Caustic Crawler\n{3BB}\nCreature - Insect\nWWK,U\nLandfall - Whenever a land enters the battlefield under your control, you may have target creature get -1/-1 until end of turn.\n4/3"
+    IDS_STRING19647         "Explore\n{1G}\nSorcery\nWWK,C\nYou may play an additional land this turn.\rDraw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19648         "Kalastria Highborn\n{BB}\nCreature - Vampire Shaman\nWWK,R\nWhenever Kalastria Highborn or another Vampire you control dies, you may pay {B}. If you do, target player loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING19649         "Seer's Sundial\n{4}\nArtifact\nWWK,R\nLandfall - Whenever a land enters the battlefield under your control, you may pay {2}. If you do, draw a card."
+    IDS_STRING19650         "Butcher of Malakir\n{5BB}\nCreature - Vampire Warrior\nWWK,R\nFlying\rWhenever Butcher of Malakir or another creature you control dies, each opponent sacrifices a creature.\n5/4"
+    IDS_STRING19651         "Tectonic Edge\n\nLand\nWWK,U\n{T}: Add {1} to your mana pool.\r{1}, {T}, Sacrifice Tectonic Edge: Destroy target nonbasic land. Activate this ability only if an opponent controls four or more lands."
+    IDS_STRING19652         "Tideforce Elemental\n{2U}\nCreature - Elemental\nWWK,U\n{U}, {T}: You may tap or untap another target creature.\rLandfall - Whenever a land enters the battlefield under your control, you may untap Tideforce Elemental.\n2/1"
+    IDS_STRING19653         "Surrakar Banisher\n{4U}\nCreature - Surrakar\nWWK,C\nWhen Surrakar Banisher enters the battlefield, you may return target tapped creature to its owner's hand.\n3/3"
+    IDS_STRING19654         "Akoum Battlesinger\n{1R}\nCreature - Human Berserker Ally\nWWK,C\nHaste\rWhenever Akoum Battlesinger or another Ally enters the battlefield under your control, you may have Ally creatures you control get +1/+0 until end of turn.\n1/1"
+    IDS_STRING19655         "Anowon, the Ruin Sage\n{3BB}\nLegendary Creature - Vampire Shaman\nWWK,R\nAt the beginning of your upkeep, each player sacrifices a non-Vampire creature.\n4/3"
+    IDS_STRING19656         "Archon of Redemption\n{3WW}\nCreature - Archon\nWWK,R\nFlying\rWhenever Archon of Redemption or another creature with flying enters the battlefield under your control, you may gain life equal to that creature's power.\n3/4"
+    IDS_STRING19657         "Grotag Thrasher\n{4R}\nCreature - Lizard\nWWK,C\nWhenever Grotag Thrasher attacks, target creature can't block this turn.\n3/3"
+    IDS_STRING19658         "Pulse Tracker\n{B}\nCreature - Vampire Rogue\nWWK,C\nWhenever Pulse Tracker attacks, each opponent loses 1 life.\n1/1"
+    IDS_STRING19659         "Hammer of Ruin\n{2}\nArtifact - Equipment\nWWK,U\nEquipped creature gets +2/+0.\rWhenever equipped creature deals combat damage to a player, you may destroy target Equipment that player controls.\rEquip {2}"
+    IDS_STRING19660         "Brink of Disaster\n{2BB}\nEnchantment - Aura\nWWK,C\nEnchant creature or land\rWhen enchanted permanent becomes tapped, destroy it."
+    IDS_STRING19661         "Vapor Snare\n{4U}\nEnchantment - Aura\nWWK,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your upkeep, sacrifice Vapor Snare unless you return a land you control to its owner's hand."
+    IDS_STRING19662         "Nature's Claim\n{G}\nInstant\nWWK,C\nDestroy target artifact or enchantment. Its controller gains 4 life."
+    IDS_STRING19663         "Bestial Menace\n{3GG}\nSorcery\nWWK,U\nPut a 1/1 green Snake creature token, a 2/2 green Wolf creature token, and a 3/3 green Elephant creature token onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19664         "Avenger of Zendikar\n{5GG}\nCreature - Elemental\nWWK,MR\nWhen Avenger of Zendikar enters the battlefield, put a 0/1 green Plant creature token onto the battlefield for each land you control.\rLandfall - Whenever a land enters the battlefield under your control, you may put a +1/+1 counter on each Plant creature you control.\n5/5"
+    IDS_STRING19665         "Quest for the Nihil Stone\n{B}\nEnchantment\nWWK,R\nWhenever an opponent discards a card, you may put a quest counter on Quest for the Nihil Stone.\rAt the beginning of each opponent's upkeep, if that player has no cards in hand and Quest for the Nihil Stone has two or more quest counters on it, you may have that player lose 5 life."
+    IDS_STRING19666         "Quest for Renewal\n{1G}\nEnchantment\nWWK,U\nWhenever a creature you control becomes tapped, you may put a quest counter on Quest for Renewal.\rAs long as there are four or more quest counters on Quest for Renewal, untap all creatures you control during each other player's untap step."
+    IDS_STRING19667         "Wolfbriar Elemental\n{2GG}\nCreature - Elemental\nWWK,R\nMultikicker {G}\rWhen Wolfbriar Elemental enters the battlefield, put a 2/2 green Wolf creature token onto the battlefield for each time it was kicked.\n4/4"
+    IDS_STRING19668         "Bloodhusk Ritualist\n{2B}\nCreature - Vampire Shaman\nWWK,U\nMultikicker {B}\rWhen Bloodhusk Ritualist enters the battlefield, target opponent discards a card for each time it was kicked.\n2/2"
+    IDS_STRING19669         "Halimar Excavator\n{1U}\nCreature - Human Wizard Ally\nWWK,C\nWhenever Halimar Excavator or another Ally enters the battlefield under your control, target player puts the top X cards of his or her library into his or her graveyard, where X is the number of Allies you control.\n1/3"
+    IDS_STRING19670         "Jace, the Mind Sculptor\n{2UU}\nPlaneswalker - Jace\nWWK,MR\n[+2]: Look at the top card of target player's library. You may put that card on the bottom of that player's library.\r[0]: Draw three cards, then put two cards from your hand on top of your library in any order.\r[-1]: Return target creature to its owner's hand.\r[-12]: Exile all cards from target player's library, then that player shuffles his or her hand into his or her library.\n3"
+    IDS_STRING19671         "Death's Shadow\n{B}\nCreature - Avatar\nWWK,R\nDeath's Shadow gets -X/-X, where X is your life total.\n13/13"
+    IDS_STRING19672         "Bojuka Bog\n\nLand\nWWK,C\nBojuka Bog enters the battlefield tapped.\rWhen Bojuka Bog enters the battlefield, exile all cards from target player's graveyard.\r{T}: Add {B} to your mana pool."
+    IDS_STRING19673         "Treasure Hunt\n{1U}\nSorcery\nWWK\nReveal cards from the top of your library until you reveal a nonland card, then put all cards revealed this way into your hand."
+    IDS_STRING19674         "Summit Apes\n{3G}\nCreature - Ape\nWWK,U\nAs long as you control a Mountain, Summit Apes can't be blocked except by two or more creatures.\n5/2"
+    IDS_STRING19675         "Harabaz Druid\n{1G}\nCreature - Human Druid Ally\nWWK,R\n{T}: Add X mana of any one color to your mana pool, where X is the number of Allies you control.\n0/1"
+    IDS_STRING19676         "Terra Eternal\n{2W}\nEnchantment\nWWK,R\nAll lands are indestructible."
+    IDS_STRING19677         "Everflowing Chalice\n{0}\nArtifact\nWWK,U\nMultikicker {2}\rEverflowing Chalice enters the battlefield with a charge counter on it for each time it was kicked.\r{T}: Add {1} to your mana pool for each charge counter on Everflowing Chalice."
+    IDS_STRING19678         "Horizon Drake\n{1UU}\nCreature - Drake\nWWK,U\nFlying, protection from lands\n3/1"
+    IDS_STRING19679         "Canopy Cover\n{1G}\nEnchantment - Aura\nWWK,U\nEnchant creature\rEnchanted creature can't be blocked except by creatures with flying or reach.\rEnchanted creature can't be the target of spells or abilities your opponents control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19680         "Claws of Valakut\n{1RR}\nEnchantment - Aura\nWWK,C\nEnchant creature\rEnchanted creature gets +1/+0 for each Mountain you control and has first strike."
+    IDS_STRING19681         "Eye of Ugin\n\nLegendary Land\nWWK,MR\nColorless Eldrazi spells you cast cost {2} less to cast.\r{7}, {T}: Search your library for a colorless creature card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING19682         "Corrupted Zendikon\n{1B}\nEnchantment - Aura\nWWK,C\nEnchant land\rEnchanted land is a 3/3 black Ooze creature. It's still a land.\rWhen enchanted land dies, return that card to its owner's hand."
+    IDS_STRING19683         "Crusher Zendikon\n{2R}\nEnchantment - Aura\nWWK\nEnchant Land\rEnchanted land is a 4/2 red Beast creature with trample. It's still a land.\rWhen enchanted land dies, return that card to its owner's hand."
+    IDS_STRING19684         "Guardian Zendikon\n{2W}\nEnchantment - Aura\nWWK\nEnchant Land\rEnchanted land is a 2/6 white Wall creature with defender. It's still a land.\rWhen enchanted land dies, return that card to its owner's hand."
+    IDS_STRING19685         "Vastwood Zendikon\n{4G}\nEnchantment - Aura\nWWK\nEnchant Land\rEnchanted land is a 6/4 green Elemental creature. It's still a land.\rWhen enchanted land dies, return that card to its owner's hand."
+    IDS_STRING19686         "Wind Zendikon\n{U}\nEnchantment - Aura\nWWK\nEnchant Land\rEnchanted land is a 2/2 blue Elemental creature with flying. It's still a land.\rWhen enchanted land dies, return that card to its owner's hand."
+    IDS_STRING19687         "Basilisk Collar\n{1}\nArtifact - Equipment\nWWK,R\nEquipped creature has deathtouch and lifelink.\rEquip {2}"
+    IDS_STRING19688         "Talus Paladin\n{3W}\nCreature - Human Knight Ally\nWWK,R\nWhenever Talus Paladin or another Ally enters the battlefield under your control, you may have Allies you control gain lifelink until end of turn, and you may put a +1/+1 counter on Talus Paladin.\n2/3"
+    IDS_STRING19689         "Calcite Snapper\n{1UU}\nCreature - Turtle\nWWK,C\nShroud\rLandfall - Whenever a land enters the battlefield under your control, you may switch Calcite Snapper's power and toughness until end of turn.\n1/4"
+    IDS_STRING19690         "AEther Tradewinds\n{2U}\nInstant\nWWK,C\nReturn target permanent you control and target permanent you don't control to their owners' hands."
+    IDS_STRING19691         "Sejiri Steppe\n\nLand\nWWK,C\nSejiri Steppe enters the battlefield tapped.\rWhen Sejiri Steppe enters the battlefield, target creature you control gains protection from the color of your choice until end of turn.\r{T}: Add {W} to your mana pool."
+    IDS_STRING19692         "Scrib Nibblers\n{2B}\nCreature - Rat\nWWK,U\n{T}: Exile the top card of target player's library. If it's a land card, you gain 1 life.\rLandfall - Whenever a land enters the battlefield under your control, you may untap Scrib Nibblers.\n1/1"
+    IDS_STRING19693         "Rest for the Weary\n{1W}\nInstant\nWWK,C\nTarget player gains 4 life.\rLandfall - If you had a land enter the battlefield under your control this turn, that player gains 8 life instead."
+    IDS_STRING19694         "Groundswell\n{G}\nInstant\nWWK,C\nTarget creature gets +2/+2 until end of turn.\rLandfall - If you had a land enter the battlefield under your control this turn, that creature gets +4/+4 until end of turn instead."
+    IDS_STRING19695         "Mysteries of the Deep\n{4U}\nInstant\nWWK,C\nDraw two cards.\rLandfall - If you had a land enter the battlefield under your control this turn, draw three cards instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19696         "Tomb Hex\n{2B}\nInstant\nWWK,C\nTarget creature gets -2/-2 until end of turn.\rLandfall - If you had a land enter the battlefield under your control this turn, that creature gets -4/-4 until end of turn instead."
+    IDS_STRING19697         "Searing Blaze\n{RR}\nInstant\nWWK,C\nSearing Blaze deals 1 damage to target player and 1 damage to target creature that player controls.\rLandfall - If you had a land enter the battlefield under your control this turn, Searing Blaze deals 3 damage to that player and 3 damage to that creature instead."
+    IDS_STRING19698         "Lavaclaw Reaches\n\nLand\nWWK,R\nLavaclaw Reaches enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool.\r{1BR}: Until end of turn, Lavaclaw Reaches becomes a 2/2 black and red Elemental creature with ""{X}: This creature gets +X/+0 until end of turn."" It's still a land."
+    IDS_STRING19699         "Raging Ravine\n\nLand\nWWK,R\nRaging Ravine enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool.\r{2RG}: : Until end of turn, Raging Ravine becomes a 3/3 red and green Elemental creature with ""Whenever this creature attacks, put a +1/+1 counter on it."" It's still a land."
+    IDS_STRING19700         "Amulet of Vigor\n{1}\nArtifact\nWWK,R\nWhenever a permanent enters the battlefield tapped and under your control, untap it."
+    IDS_STRING19701         "Bazaar Trader\n{1R}\nCreature - Goblin\nWWK,R\n{T}: Target player gains control of target artifact, creature, or land you control.\n1/1"
+    IDS_STRING19702         "Perimeter Captain\n{W}\nCreature - Human Soldier\nWWK,U\nDefender\rWhenever a creature you control with defender blocks, you may gain 2 life.\n0/4"
+    IDS_STRING19703         "Kitesail Apprentice\n{W}\nCreature - Kor Soldier\nWWK\nAs long as Kitesail Apprentice is equipped, it gets +1/+1 and has flying.\n1/1"
+    IDS_STRING19704         "Quest for the Goblin Lord\n{R}\nEnchantment\nWWK,U\nWhenever a Goblin enters the battlefield under your control, you may put a quest counter on Quest for the Goblin Lord.\rAs long as Quest for the Goblin Lord has five or more quest counters on it, creatures you control get +2/+0."
+    IDS_STRING19705         "Ruin Ghost\n{1W}\nCreature - Spirit\nWWK,U\n{W},{T}: Exile target land you control, then return it to the battlefield under your control.\n1/1"
+    IDS_STRING19706         "Sejiri Merfolk\n{1U}\nCreature - Merfolk Soldier\nWWK,U\nAs long as you control a Plains, Sejiri Merfolk has first strike and lifelink.\n2/1"
+    IDS_STRING19707         "Apex Hawks\n{2W}\nCreature - Bird\nWWK, C\nMultikicker {1W}\rFlying\rApex Hawks enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n2/2"
+    IDS_STRING19708         "Enclave Elite\n{2U}\nCreature - Merfolk Soldier\nWWK, C\nMultikicker {1U}\rIslandwalk\rEnclave Elite enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n2/2"
+    IDS_STRING19709         "Gnarlid Pack\n{1G}\nCreature - Beast\nWWK, C\nMultikicker {1G}\rGnarlid Pack enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n2/2"
+    IDS_STRING19710         "Quag Vampires\n{B}\nCreature - Vampire Rogue\nWWK, C\nMultikicker {1B}\rSwampwalk\rQuag Vampires enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n1/1"
+    IDS_STRING19711         "Skitter of Lizards\n{R}\nCreature - Lizard\nWWK, C\nMultikicker {1R}\rHaste\rSkitter of Lizards enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19712         "Joraga Warcaller\n{G}\nCreature - Elf Warrior\nWWK, R\nMultikicker {1G}\rJoraga Warcaller enters the battlefield with a +1/+1 counter on it for each time it was kicked.\rOther Elf creatures you control get +1/+1 for each +1/+1 counter on Joraga Warcaller.\n1/1"
+    IDS_STRING19713         "Lightkeeper of Emeria\n{2W}\nCreature - Angel\nWWK,U\nMultikicker {W}\rFlying\rWhen Lightkeeper of Emeria enters the battlefield, you gain 2 life for each time it was kicked.\n2/4"
+    IDS_STRING19714         "Chain Reaction\n{2RR}\nSorcery\nWWK,R\nChain Reaction deals X damage to each creature, where X is the number of creatures on the battlefield."
+    IDS_STRING19715         "Terastodon\n{6GG}\nCreature - Elephant\nWWK,R\nWhen Terastodon enters the battlefield, you may destroy up to three target noncreature permanents. For each permanent put into a graveyard this way, its controller puts a 3/3 green Elephant creature token onto the battlefield.\n9/9"
+    IDS_STRING19716         "Agadeem Occultist\n{2B}\nCreature - Human Shaman Ally\nWWK,R\n{T}: Put target creature card from an opponent's graveyard onto the battlefield under your control if its converted mana cost is less than or equal to the number of Allies you control.\n0/2"
+    IDS_STRING19717         "Kazuul, Tyrant of the Cliffs\n{3RR}\nLegendary Creature - Ogre Warrior\nWWK,R\nWhenever a creature an opponent controls attacks, if you're the defending player, put a 3/3 red Ogre creature token onto the battlefield unless that creature's controller pays {3}.\n5/4"
+	IDS_STRING19718         "Urge to Feed\n{BB}\nInstant\nWWK,U\nTarget creature gets -3/-3 until end of turn. You may tap any number of untapped Vampire creatures you control. If you do, put a +1/+1 counter on each of those Vampires."
+	IDS_STRING19719         "Quest for Ula's Temple\n{U}\nEnchantment\nWWK,R\nAt the beginning of your upkeep, you may look at the top card of your library. If it's a creature card, you may reveal it and put a quest counter on Quest for Ula's Temple.\rAt the beginning of each end step, if there are three or more quest counters on Quest for Ula's Temple, you may put a Kraken, Leviathan, Octopus, or Serpent creature card from your hand onto the battlefield."
+	IDS_STRING19720         "Dead Reckoning\n{1BB}\nSorcery\nWWK,C\nYou may put target creature card from your graveyard on top of your library. If you do, Dead Reckoning deals damage equal to that card's power to target creature."
+	IDS_STRING19721         "Mire's Toll\n{B}\nSorcery\nWWK,C\nTarget player reveals a number of cards from his or her hand equal to the number of Swamps you control. You choose one of them. That player discards that card."
+	IDS_STRING19722         "Mordant Dragon\n{3RRR}\nCreature - Dragon\nWWK,R\nFlying\r{1}{R}: Mordant Dragon gets +1/+0 until end of turn.\rWhenever Mordant Dragon deals combat damage to a player, you may have it deal that much damage to target creature that player controls.\n5/5"
+	IDS_STRING19723         "Vastwood Animist\n{2G}\nCreature - Elf Shaman Ally\nWWK,U\n{T}: Target land you control becomes an X/X Elemental creature until end of turn, where X is the number of Allies you control. It's still a land.\n1/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+Admonition Angel (19643)
+2 Avenger of Zendikar (19664)
+Iona, Shield of Emeria (19468)
+4 Knight of the Reliquary (8815)
+3 Knight of the White Orchid (8657)
+Loam Lion (19628)
+2 Noble Hierarch (8819)
+Perimeter Captain (19702)
+2 Ranger of Eos (8642)
+2 Scute Mob (19362)
+Soul Warden (4103)
+Stoneforge Mystic (19638)
+Terastodon (19715)
+3 Wall of Reverence (8923)
+
+// Instants - 4 (6.67%)
+
+4 Summoning Trap (19540)
+
+// Sorceries - 2 (3.33%)
+
+2 Martial Coup (8886)
+
+// Enchantments - 1 (1.67%)
+
+Khalni Heart Expedition (19516)
+
+// Artifacts - 4 (6.67%)
+
+Behemoth Sledge (9003)
+3 Wildfield Borderpost (9087)
+
+// Lands - 24 (40.00%)
+
+Arid Mesa (19349)
+2 Emeria, the Sky Ruin (19348)
+Forest (19302)
+Forest (19301)
+Forest (19300)
+3 Misty Rainforest (19356)
+2 Plains (19326)
+2 Plains (19327)
+3 Plains (19324)
+2 Plains (19325)
+Sejiri Steppe (19691)
+Stirring Wildwood (19623)
+4 Terramorphic Expanse (4111)

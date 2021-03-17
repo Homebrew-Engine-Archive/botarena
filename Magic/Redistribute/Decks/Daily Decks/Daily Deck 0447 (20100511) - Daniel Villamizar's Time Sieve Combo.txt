@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Tezzeret the Seeker (8727)
+
+// Creatures - 4 (6.67%)
+
+4 Pilgrim's Eye (19620)
+
+// Instants - 4 (6.67%)
+
+4 Angelsong (8635)
+
+// Sorceries - 8 (13.33%)
+
+4 Open the Vaults (4194)
+4 Time Warp (4217)
+
+// Artifacts - 25 (41.67%)
+
+Dispeller's Capsule (8560)
+4 Fieldmist Borderpost (9091)
+4 Howling Mine (4050)
+4 Kaleidostone (8849)
+4 Mistvein Borderpost (9094)
+4 Prophetic Prism (20908)
+Thopter Foundry (9062)
+3 Time Sieve (9002)
+
+// Lands - 16 (26.67%)
+
+2 Island (20804)
+Island (20805)
+Island (20806)
+Island (20807)
+2 Plains (20812)
+2 Plains (20813)
+2 Plains (20814)
+Plains (20815)
+Swamp (20816)
+Swamp (20817)
+Swamp (20818)
+Swamp (20819)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Vedalken Outlander (8842)
+
+// Instants
+
+4 Negate (4016)
+Spell Pierce (19377)
+
+// Sorceries
+
+4 Day of Judgment (19340)
+
+// Artifacts
+
+Executioner's Capsule (8569)
+Time Sieve (9002)

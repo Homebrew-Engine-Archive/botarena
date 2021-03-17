@@ -1,0 +1,50 @@
+// Elves
+// Elves VS Goblins
+
+// Total cards in deck - 60
+
+// Creatures - 29 (48.33%)
+
+Allosaurus Rider (7029)
+Ambush Commander (14609)
+2 Elvish Eulogist (17936)
+Elvish Harbinger (17938)
+3 Elvish Warrior (18301)
+2 Gempalm Strider (14434)
+Heedless One (14108)
+2 Imperious Perfect (17961)
+3 Llanowar Elves (3092)
+2 Lys Alana Huntmaster (17973)
+Stonewood Invoker (14453)
+Sylvan Messenger (13064)
+Timberwatch Elf (14468)
+Voice of the Woods (14075)
+2 Wellwisher (14067)
+Wirewood Herald (14124)
+Wirewood Symbiote (14655)
+2 Wood Elves (2203)
+Wren's Run Vanquisher (18077)
+
+// Instants - 3 (5.00%)
+
+2 Giant Growth (3059)
+Wildsize (16863)
+
+// Sorceries - 2 (3.33%)
+
+Elvish Promenade (18115)
+Harmonize (2514)
+
+// Artifacts - 4 (6.67%)
+
+3 Moonglove Extract (17978)
+Slate of Ancestry (14057)
+
+// Lands - 22 (36.67%)
+
+5 Forest (17905)
+5 Forest (17903)
+5 Forest (17904)
+4 Forest (17906)
+2 Tranquil Thicket (14135)
+Wirewood Lodge (14137)

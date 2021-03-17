@@ -1,0 +1,307 @@
+Benevolent Unicorn\n{1W}\nCreature - Unicorn\nMRG,C\nIf a spell would deal damage to a creature or player, it deals that much damage minus 1 to that creature or player instead.\n1/2
+
+Celestial Dawn\n{1WW}\nEnchantment\nMRG,R\nLands you control are Plains.\rNonland cards you own that aren't on the battlefield, spells you control, and nonland permanents you control are white.\rYou may spend white mana as though it were mana of any color. You may spend other mana only as though it were colorless mana.
+
+Dazzling Beauty\n{2W}\nInstant\nMRG,C\nCast Dazzling Beauty only during the declare blockers step.\rTarget attacking unblocked creature becomes blocked.\rDraw a card at the beginning of the next turn's upkeep.
+
+Divine Offering\n{1W}\nInstant\nMRG,C\nDestroy target artifact. You gain life equal to its converted mana cost.
+
+Divine Retribution\n{1W}\nInstant\nMRG,R\nDivine Retribution deals damage to target attacking creature equal to the number of attacking creatures.
+
+Favorable Destiny\n{1W}\nEnchantment - Aura\nMRG,U\nEnchant creature\rEnchanted creature gets +1/+2 as long as it's white.\rEnchanted creature has shroud as long as its controller controls another creature.
+
+Femeref Knight\n{2W}\nCreature - Human Knight\nMRG,C\nFlanking\r{W}: Femeref Knight gains vigilance until end of turn.\n2/2
+
+Illumination\n{WW}\nInstant\nMRG,U\nCounter target artifact or enchantment spell. Its controller gains life equal to its converted mana cost.
+
+Jabari's Influence\n{3WW}\nInstant\nMRG,R\nCast Jabari's Influence only after combat.\rGain control of target nonartifact, nonblack creature that attacked you this turn and put a -1/-0 counter on it.
+
+Mangara's Blessing\n{2W}\nInstant\nMRG,U\nYou gain 5 life.\rWhen a spell or ability an opponent controls causes you to discard Mangara's Blessing, you gain 2 life, and you return Mangara's Blessing from your graveyard to your hand at the beginning of the next end step.
+
+Mangara's Equity\n{1WW}\nEnchantment\nMRG,U\nAs Mangara's Equity enters the battlefield, choose black or red.\rAt the beginning of your upkeep, sacrifice Mangara's Equity unless you pay {1W}.\rWhenever a creature of the chosen color deals damage to you or a white creature you control, Mangara's Equity deals that much damage to that creature.
+
+Mtenda Herder\n{W}\nCreature - Human Scout\nMRG,C\nFlanking\n1/1
+
+Noble Elephant\n{3W}\nCreature - Elephant\nMRG,C\nTrample, banding\n2/2
+
+Null Chamber
+
+Prismatic Circle\n{2W}\nEnchantment\nMRG,C\nCumulative upkeep {1}\rAs Prismatic Circle enters the battlefield, choose a color.\r{1}: The next time a source of your choice of the chosen color would deal damage to you this turn, prevent that damage.
+
+Ritual of Steel\n{2W}\nEnchantment - Aura\nMRG,C\nEnchant creature\rWhen Ritual of Steel enters the battlefield, draw a card at the beginning of the next turn's upkeep.\rEnchanted creature gets +0/+2.
+
+Sidar Jabari\n{3W}\nLegendary Creature - Human Knight\nMRG,R\nFlanking\rWhenever Sidar Jabari attacks, tap target creature defending player controls.\n2/2
+
+Soul Echo\n{XWW}\nEnchantment\nMRG,R\nSoul Echo enters the battlefield with X echo counters on it.\rYou don't lose the game for having 0 or less life.\rAt the beginning of your upkeep, sacrifice Soul Echo if there are no echo counters on it. Otherwise, an opponent may choose that for each 1 damage that would be dealt to you until your next upkeep, you remove 1 echo counter from Soul Echo instead.
+
+Teremko Griffin\n{3W}\nCreature - Griffin\nMRG,C\nFlying, banding\n2/2
+
+Vigilant Martyr\n{W}\nCreature - Human Cleric\nMRG,U\nSacrifice Vigilant Martyr: Regenerate target creature.\r{WW}, {T}, Sacrifice Vigilant Martyr: Counter target spell that targets an enchantment.\n1/1
+
+Ward of Lights\n{WW}\nEnchantment - Aura\nMRG,C\nYou may cast Ward of Lights any time you could cast an instant. If it was cast any time a sorcery couldn't have been cast, sacrifice it at the beginning of the next cleanup step.\rEnchant creature\rAs Ward of Lights enters the battlefield, choose a color.\rEnchanted creature has protection from the chosen color. This effect doesn't remove Ward of Lights.
+
+Yare\n{2W}\nInstant\nMRG,R\nTarget creature defending player controls gets +3/+0 until end of turn. That creature can block up to two additional creatures this turn.
+
+Zhalfirin Commander\n{2W}\nCreature - Human Knight\nMRG,U\nFlanking\r{1WW}: Target Knight creature gets +1/+1 until end of turn.\n2/2
+
+Zhalfirin Knight\n{2W}\nCreature - Human Knight\nMRG,C\nFlanking\r{WW}: Zhalfirin Knight gains first strike until end of turn.\n2/2
+
+
+
+Bazaar of Wonders\n{3UU}\nWorld Enchantment\nMRG,R\nWhen Bazaar of Wonders enters the battlefield, exile all cards from all graveyards.\rWhenever a player casts a spell, counter it if a card with the same name is in a graveyard or a nontoken permanent with the same name is on the battlefield.
+
+Cloak of Invisibility\n{U}\nEnchantment - Aura\nMRG,C\nEnchant creature\rEnchanted creature has phasing and can't be blocked except by Walls.
+
+Coral Fighters\n{1U}\nCreature - Merfolk Soldier\nMRG,U\nWhenever Coral Fighters attacks and isn't blocked, look at the top card of defending player's library. You may put that card on the bottom of that player's library.\n1/1
+
+Dream Fighter\n{2U}\nCreature - Human Soldier\nMRG,C\nWhenever Dream Fighter blocks or becomes blocked by a creature, Dream Fighter and that creature phase out.\n1/1
+
+Energy Vortex\n{3UU}\nEnchantment\nMRG,R\nAs Energy Vortex enters the battlefield, choose an opponent.\rAt the beginning of your upkeep, remove all energy counters from Energy Vortex.\rAt the beginning of the chosen player's upkeep, Energy Vortex deals 3 damage to that player unless he or she pays {1} for each energy counter on Energy Vortex.\r{X}: Put X energy counters on Energy Vortex. Activate this ability only during your upkeep.
+
+Ether Well\n{3U}\nInstant\nMRG,U\nPut target creature on top of its owner's library. If that creature is red, you may put it on the bottom of its owner's library instead.
+
+Floodgate\n{3U}\nCreature - Wall\nMRG,U\nDefender\rWhen Floodgate has flying, sacrifice it.\rWhen Floodgate leaves the battlefield, it deals 1 damage for each two Islands you control to each nonblue creature without flying.\n0/5
+
+Hakim, Loreweaver\n{3UU}\nLegendary Creature - Human Wizard\nMRG,R\nFlying\r{UU}: Return target Aura card from your graveyard to the battlefield attached to Hakim, Loreweaver. Activate this ability only during your upkeep and only if Hakim isn't enchanted.\r{UU}, {T}: Destroy all Auras attached to Hakim.\n2/4
+
+Jolt\n{2U}\nInstant\nMRG,C\nYou may tap or untap target artifact, creature, or land.\rDraw a card at the beginning of the next turn's upkeep.
+
+Kukemssa Pirates\n{3U}\nCreature - Human Pirate\nMRG,R\nWhenever Kukemssa Pirates attacks and isn't blocked, you may gain control of target artifact defending player controls. If you do, Kukemssa Pirates assigns no combat damage this turn.\n2/2
+
+Meddle\n{1U}\nInstant\nMRG,U\nIf target spell has only one target and that target is a creature, change that spell's target to another creature.
+
+Merfolk Raiders\n{1U}\nCreature - Merfolk Soldier\nMRG,C\nIslandwalk\rPhasing\n2/3
+
+Mind Bend\n{U}\nInstant\nMRG,U\nChange the text of target permanent by replacing all instances of one color word with another or one basic land type with another.
+
+Mind Harness\n{U}\nEnchantment - Aura\nMRG,U\nEnchant red or green creature\rCumulative upkeep {1}\rYou control enchanted creature.
+
+Mist Dragon\n{4UU}\nCreature - Dragon\nMRG,R\n{0}: Mist Dragon gains flying.\r{0}: Mist Dragon loses flying.\r{3UU}: Mist Dragon phases out.\n4/4
+
+Political Trickery\n{2U}\nSorcery\nMRG,R\nExchange control of target land you control and target land an opponent controls.
+
+Prismatic Lace\n{U}\nInstant\nMRG,R\nTarget permanent becomes the color or colors of your choice.
+
+Ray of Command\n{3U}\n\nMRG,C\nUntap target creature an opponent controls and gain control of it until end of turn. That creature gains haste until end of turn. When you lose control of the creature, tap it.
+
+Reality Ripple\n{1U}\nInstant\nMRG,C\nTarget artifact, creature, or land phases out.
+
+Sandbar Crocodile\n{4U}\nCreature - Crocodile\nMRG,C\nPhasing\n6/5
+
+Sapphire Charm\n{U}\nInstant\nMRG,C\nChoose one - Target player draws a card at the beginning of the next turn's upkeep; or target creature gains flying until end of turn; or target creature an opponent controls phases out.
+
+Shimmer\n{2UU}\nEnchantment\nMRG,R\nAs Shimmer enters the battlefield, choose a land type.\rEach land of the chosen type has phasing.
+
+Soar\n{1U}\nEnchantment - Aura\nMRG,C\nYou may cast Soar any time you could cast an instant.\rIf it was cast any time a sorcery couldn't have been cast, sacrifice it at the beginning of the next cleanup step.\rEnchant creature\rEnchanted creature gets +0/+1 and has flying.
+
+Taniwha\n{3UU}\nLegendary Creature - Serpent\nMRG,R\nTrample\rPhasing\rAt the beginning of your upkeep, all lands you control phase out.\n7/7
+
+Teferi's Curse\n{1U}\nEnchantment - Aura\nMRG,C\nEnchant artifact or creature\rEnchanted permanent has phasing.
+
+Teferi's Drake\n{2U}\nCreature - Drake\nMRG,C\nFlying\rPhasing\n3/2
+
+Teferi's Imp\n{2U}\nCreature - Imp\nMRG,R\nFlying\rPhasing\rWhenever Teferi's Imp phases out, discard a card.\rWhenever Teferi's Imp phases in, draw a card.\n1/1
+
+Thirst\n{2U}\nEnchantment - Aura\nMRG,C\nEnchant creature\rWhen Thirst enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step.\rAt the beginning of your upkeep, sacrifice Thirst unless you pay {U}.
+
+Vaporous Djinn\n{2UU}\nCreature - Djinn\nMRG,U\nFlying\rAt the beginning of your upkeep, Vaporous Djinn phases out unless you pay {UU}.\n3/4
+
+
+
+Binding Agony\n{1B}\nEnchantment - Aura\nMRG,C\nEnchant creature\rWhenever enchanted creature is dealt damage, Binding Agony deals that much damage to that creature's controller.
+
+Bone Harvest\n{2B}\nInstant\nMRG,C\nPut any number of target creature cards from your graveyard on top of your library.\rDraw a card at the beginning of the next turn's upkeep.
+
+Cadaverous Knight\n{2B}\nCreature - Zombie Knight\nMRG,C\nFlanking\r{1BB}: Regenerate Cadaverous Knight.\n2/2
+
+Carrion\n{1BB}\nInstant\nMRG,R\nAs an additional cost to cast Carrion, sacrifice a creature.\rPut X 0/1 black Insect creature tokens onto the battlefield, where X is the sacrificed creature's power.
+
+Catacomb Dragon\n{4BB}\nCreature - Dragon\nMRG,R\nFlying\rWhenever Catacomb Dragon becomes blocked by a nonartifact, non-Dragon creature, that creature gets -X/-0 until end of turn, where X is half the creature's power, rounded down.\n4/4
+
+Choking Sands\n{1BB}\nSorcery\nMRG,C\nDestroy target non-Swamp land. If that land was nonbasic, Choking Sands deals 2 damage to the land's controller.
+
+Crypt Cobra\n{3B}\nCreature - Snake\nMRG,U\nWhenever Crypt Cobra attacks and isn't blocked, defending player gets a poison counter.\n3/3
+
+Drain Life\n{X1B}\nSorcery\nMRG,C\nSpend only black mana on X.\rDrain Life deals X damage to target creature or player. You gain life equal to the damage dealt, but not more life than the player's life total before Drain Life dealt damage or the creature's toughness.
+
+Forbidden Crypt\n{3BB}\nEnchantment\nMRG,R\nIf you would draw a card, return a card from your graveyard to your hand instead. If you can't, you lose the game.\rIf a card would be put into your graveyard from anywhere, exile that card instead.
+
+Forsaken Wastes\n{2B}\nWorld Enchantment\nMRG,R\nPlayers can't gain life.\rAt the beginning of each player's upkeep, that player loses 1 life.\rWhenever Forsaken Wastes becomes the target of a spell, that spell's controller loses 5 life.
+
+Grave Servitude\n{1B}\nEnchantment - Aura\nMRG,C\nYou may cast Grave Servitude any time you could cast an instant. If it was cast any time a sorcery couldn't have been cast, sacrifice it at the beginning of the next cleanup step.\rEnchant creature\rEnchanted creature gets +3/-1 and is black.
+
+Ravenous Vampire\n{3BB}\nCreature - Vampire\nMRG,U\nFlying\rAt the beginning of your upkeep, you may sacrifice a nonartifact creature. If you do, put a +1/+1 counter on Ravenous Vampire. If you don't, tap Ravenous Vampire.\n3/3
+
+Reign of Terror\n{3BB}\nSorcery\nMRG,U\nDestroy all green creatures or all white creatures. They can't be regenerated. You lose 2 life for each creature put into a graveyard this way.
+
+Shallow Grave\n{1B}\nInstant\nMRG,R\nReturn the top creature card of your graveyard to the battlefield. That creature gains haste until end of turn. Exile it at the beginning of the next end step.
+
+Shauku, Endbringer\n{5BB}\nLegendary Creature - Vampire\nMRG,R\nFlying\rShauku, Endbringer can't attack if there's another creature on the battlefield.\rAt the beginning of your upkeep, you lose 3 life.\r{T}: Exile target creature and put a +1/+1 counter on Shauku.\n5/5
+
+Soulshriek\n{B}\nInstant\nMRG,C\nTarget creature you control gets +X/+0 until end of turn, where X is the number of creature cards in your graveyard. Sacrifice that creature at the beginning of the next end step.
+
+Tainted Specter\n{3B}\nCreature - Specter\nMRG,R\nFlying\r{1BB}, {T}: Target player discards a card unless he or she puts a card from his or her hand on top of his or her library. If that player discards a card this way, Tainted Specter deals 1 damage to each creature and each player. Activate this ability only any time you could cast a sorcery.\n2/2
+
+Tombstone Stairwell\n{2BB}\nWorld Enchantment\nMRG,R\nCumulative upkeep {1B}\rAt the beginning of each upkeep, if Tombstone Stairwell is on the battlefield, each player puts a 2/2 black Zombie creature token with haste named Tombspawn onto the battlefield for each creature card in his or her graveyard.\rAt the beginning of the end step or when Tombstone Stairwell leaves the battlefield, destroy all tokens put onto the battlefield with Tombstone Stairwell. They can't be regenerated.
+
+Urborg Panther\n{2B}\nCreature - Nightstalker Cat\nMRG,C\n{B}, Sacrifice Urborg Panther: Destroy target creature blocking Urborg Panther.\rSacrifice a creature named Feral Shadow, a creature named Breathstealer, and Urborg Panther: Search your library for a card named Spirit of the Night and put that card onto the battlefield. Then shuffle your library.\n2/2
+
+Wall of Corpses\n{1B}\nCreature - Wall\nMRG,C\nDefender\r{B}, Sacrifice Wall of Corpses: Destroy target creature Wall of Corpses is blocking.\n0/2
+
+Zombie Mob\n{2BB}\nCreature - Zombie\nMRG,U\nZombie Mob enters the battlefield with a +1/+1 counter on it for each creature card in your graveyard.\rWhen Zombie Mob enters the battlefield, exile all creature cards from your graveyard.\n2/0
+
+
+
+Agility\n{1R}\nEnchantment - Aura\nMRG,C\nEnchant creature\rEnchanted creature gets +1/+1 and has flanking.
+
+Aleatory\n{1R}\nInstant\nMRG,U\nCast Aleatory only during combat after blockers are declared.\rFlip a coin. If you win the flip, target creature gets +1/+1 until end of turn.\rDraw a card at the beginning of the next turn's upkeep.
+
+Barreling Attack\n{2RR}\nInstant\nMRG,R\nTarget creature gets +1/+1 for each creature blocking it and gains trample until end of turn.
+
+Blind Fury\n{2RR}\nInstant\nMRG,U\nCast Blind Fury only before the combat damage step.\rAll creatures lose trample until end of turn. If a creature would deal combat damage to a creature this turn, it deals double that damage to that creature instead.
+
+Builder's Bane\n{XXR}\nSorcery\nMRG,C\nDestroy X target artifacts. Builder's Bane deals damage to each player equal to the number of artifacts he or she controlled destroyed this way.
+
+Burning Shield Askari\n{2R}\nCreature - Human Knight\nMRG,C\nFlanking\r{RR}: Burning Shield Askari gains first strike until end of turn.\n2/2
+
+Chaosphere\n{2R}\nWorld Enchantment\nMRG,R\nCreatures with flying can block only creatures with flying.\rCreatures without flying have reach.
+
+Cinder Cloud\n{3RR}\nInstant\nMRG,U\nDestroy target creature. If a white creature is put into a graveyard this way, Cinder Cloud deals damage to that creature's controller equal to the creature's power.
+
+Consuming Ferocity\n{1R}\nEnchantment - Aura\nMRG,U\nEnchant non-Wall creature\rEnchanted creature gets +1/+0.\rAt the beginning of your upkeep, put a +1/+0 counter on enchanted creature. If that creature has three or more +1/+0 counters on it, it deals damage equal to its power to its controller, then destroy that creature and it can't be regenerated.
+
+Ekundu Cyclops\n{3R}\nCreature - Cyclops\nMRG,C\nIf a creature you control attacks, Ekundu Cyclops also attacks if able.\n3/4
+
+Emberwilde Djinn\n{2RR}\nCreature - Djinn\nMRG,R\nFlying\rAt the beginning of each player's upkeep, that player may pay {RR} or 2 life. If he or she does, the player gains control of Emberwilde Djinn.\n5/4
+
+Flare\n{2R}\nInstant\nMRG,C\nFlare deals 1 damage to target creature or player.\rDraw a card at the beginning of the next turn's upkeep.
+
+Goblin Tinkerer\n{1R}\nCreature - Goblin Artificer\nMRG,C\n{R}, {T}: Destroy target artifact. That artifact deals damage equal to its converted mana cost to Goblin Tinkerer.\n1/2
+
+Hivis of the Scale\n{3RR}\nLegendary Creature - Viashino Shaman\nMRG,R\nYou may choose not to untap Hivis of the Scale during your untap step.\r{T}: Gain control of target Dragon for as long as you control Hivis and Hivis remains tapped.\n3/4
+
+Illicit Auction\n{3RR}\nSorcery\nMRG,R\nEach player may bid life for control of target creature. You start the bidding with a bid of 0. In turn order, each player may top the high bid. The bidding ends if the high bid stands. The high bidder loses life equal to the high bid and gains control of the creature.
+
+Kaervek's Torch\n{XR}\nSorcery\nMRG,C\nAs long as Kaervek's Torch is on the stack, spells that target it cost {2} more to cast.\rKaervek's Torch deals X damage to target creature or player.
+
+Lightning Reflexes\n{1R}\nEnchantment - Aura\nMRG,C\nYou may cast Lightning Reflexes any time you could cast an instant. If it was cast any time a sorcery couldn't have been cast, sacrifice it at the beginning of the next cleanup step.\rEnchant creature\rEnchanted creature gets +1/+0 and has first strike.
+
+Raging Spirit\n{3R}\nCreature - Spirit\nMRG,C\n{2}: Raging Spirit becomes colorless until end of turn.\n3/3
+
+Reign of Chaos\n{2RR}\nSorcery\nMRG,U\nChoose one - Destroy target Plains and target white creature; or destroy target Island and target blue creature.
+
+Searing Spear Askari\n{2R}\nCreature - Human Knight\nMRG,C\nFlanking\r{1R}: Searing Spear Askari can't be blocked except by two or more creatures this turn.\n2/2
+
+Sirocco\n{1R}\nInstant\nMRG,U\nTarget player reveals his or her hand. For each blue instant card revealed this way, that player discards that card unless he or she pays 4 life.
+
+Telim'Tor\n{4R}\nLegendary Creature - Human Knight\nMRG,R\nFlanking\rWhenever Telim'Tor attacks, all attacking creatures with flanking get +1/+1 until end of turn.\n2/2
+
+Telim'Tor's Edict\n{R}\nInstant\nMRG,R\nExile target permanent you own or control.\rDraw a card at the beginning of the next turn's upkeep.
+
+Torrent of Lava\n{XRR}\nSorcery\nMRG,R\nTorrent of Lava deals X damage to each creature without flying.\rAs long as Torrent of Lava is on the stack, each creature has "{T}: Prevent the next 1 damage that would be dealt to this creature by Torrent of Lava this turn."
+
+Zirilan of the Claw\n{3RR}\nLegendary Creature - Viashino Shaman\nMRG,R\n{1RR}, {T}: Search your library for a Dragon permanent card and put that card onto the battlefield. Then shuffle your library. That Dragon gains haste until end of turn. Exile it at the beginning of the next end step.\n3/4
+
+
+
+Afiya Grove\n{1G}\nEnchantment\nMRG,R\nAfiya Grove enters the battlefield with three +1/+1 counters on it.\rAt the beginning of your upkeep, move a +1/+1 counter from Afiya Grove onto target creature.\rWhen Afiya Grove has no +1/+1 counters on it, sacrifice it.
+
+Armor of Thorns\n{1G}\nEnchantment - Aura\nMRG,C\nYou may cast Armor of Thorns any time you could cast an instant. If it was cast any time a sorcery couldn't have been cast, sacrifice it at the beginning of the next cleanup step.\rEnchant nonblack creature\rEnchanted creature gets +2/+2.
+
+Barbed Foliage\n{2GG}\nEnchantment\nMRG,U\nWhenever a creature attacks you, it loses flanking until end of turn.\rWhenever a creature without flying attacks you, Barbed Foliage deals 1 damage to it.
+
+Cycle of Life\n{1GG}\nEnchantment\nMRG,R\nReturn Cycle of Life to its owner's hand: Target creature you cast this turn becomes 0/1 until your next upkeep. At the beginning of your next upkeep, put a +1/+1 counter on that creature.
+
+Decomposition\n{1G}\nEnchantment - Aura\nMRG,U\nEnchant black creature\rEnchanted creature has "Cumulative upkeep - Pay 1 life."\rWhen enchanted creature is put into a graveyard, its controller loses 2 life.
+
+Hall of Gemstone\n{1GG}\nWorld Enchantment\nMRG,R\nAt the beginning of each player's upkeep, that player chooses a color. Until end of turn, lands tapped for mana produce mana of the chosen color instead of any other color.
+
+Jolrael's Centaur\n{1GG}\nCreature - Centaur Archer\nMRG,C\nShroud\rFlanking\n2/2
+
+Jungle Wurm\n{3GG}\nCreature - Wurm\nMRG,C\nWhenever Jungle Wurm becomes blocked, it gets -1/-1 until end of turn for each creature blocking it beyond the first.\n5/5
+
+Lure of Prey\n{2GG}\nInstant\nMRG,R\nCast Lure of Prey only if an opponent cast a creature spell this turn.\rYou may put a green creature card from your hand onto the battlefield.
+
+Mindbender Spores\n{2G}\nCreature - Fungus Wall\nMRG,R\nDefender\rFlying\rWhenever Mindbender Spores blocks a creature, put four fungus counters on that creature. The creature gains "This creature doesn't untap during your untap step if it has a fungus counter on it" and "At the beginning of your upkeep, remove a fungus counter from this creature."\n0/1
+
+Mtenda Lion\n{G}\nCreature - Cat\nMRG,C\nWhenever Mtenda Lion attacks, defending player may pay {U}. If that player does, prevent all combat damage that would be dealt by Mtenda Lion this turn.\n2/1
+
+Natural Balance\n{2GG}\nSorcery\nMRG,R\nEach player who controls six or more lands chooses five lands he or she controls and sacrifices the rest. Each player who controls four or fewer lands may search his or her library for X basic land cards and put them onto the battlefield, where X is five minus the number of lands he or she controls. Then each player who searched his or her library this way shuffles it.
+
+Preferred Selection\n{2GG}\nEnchantment\nMRG,R\nAt the beginning of your upkeep, look at the top two cards of your library. You may sacrifice Preferred Selection and pay {2GG}. If you do, put one of those cards into your hand. If you don't, put one of those cards on the bottom of your library.
+
+Quirion Elves\n{1G}\nCreature - Elf Druid\nMRG,C\nAs Quirion Elves enters the battlefield, choose a color.\r{T}: Add {G} to your mana pool.\r{T}: Add one mana of the chosen color to your mana pool.\n1/1
+
+Roots of Life\n{1GG}\nEnchantment\nMRG,U\nAs Roots of Life enters the battlefield, choose Islands or Swamps.\rWhenever a land of the chosen type an opponent controls becomes tapped, you gain 1 life.
+
+Sabertooth Cobra\n{2G}\nCreature - Snake\nMRG,C\nWhenever Sabertooth Cobra deals damage to a player, he or she gets a poison counter. That player gets another poison counter at the beginning of his or her next upkeep unless he or she pays {2} before that turn.\n2/2
+
+Seeds of Innocence\n{1GG}\nSorcery\nMRG,R\nDestroy all artifacts. They can't be regenerated. The controller of each artifact destroyed this way gains life equal to its converted mana cost.
+
+Superior Numbers\n{GG}\nSorcery\nMRG,U\nSuperior Numbers deals damage to target creature equal to the number of creatures you control in excess of the number of creatures target opponent controls.
+
+Reparations\n{1WU}\nEnchantment\nMRG,R\nWhenever an opponent casts a spell that targets you or a creature you control, you may draw a card.
+
+Purgatory\n{2WB}\nEnchantment\nMRG,R\nWhenever a nontoken creature is put into your graveyard from the battlefield, exile that card.\rAt the beginning of your upkeep, you may pay {4} and 2 life. If you do, return a card exiled with Purgatory to the battlefield.
+
+Sealed Fate\n{XUB}\nSorcery\nMRG,U\nLook at the top X cards of target opponent's library. Exile one of those cards and put the rest back on top of that player's library in any order.
+
+Spatial Binding\n{UB}\nEnchantment\nMRG,U\nPay 1 life: Until your next upkeep, target permanent can't phase out.
+
+Frenetic Efreet\n{1UR}\nCreature - Efreet\nMRG,R\nFlying\r{0}: Flip a coin. If you win the flip, Frenetic Efreet phases out. If you lose the flip, sacrifice Frenetic Efreet.\n2/1
+
+Delirium\n{1BR}\nInstant\nMRG,U\nCast Delirium only during an opponent's turn.\rTap target creature that player controls. That creature deals damage equal to its power to the player. Prevent all combat damage that would be dealt to and dealt by the creature this turn.
+
+Discordant Spirit\n{2BR}\nCreature - Spirit\nMRG,R\nAt the beginning of the end step, if it's an opponent's turn, put a +1/+1 counter on Discordant Spirit for each 1 damage dealt to you this turn.\rAt the beginning of your end step, remove all +1/+1 counters on Discordant Spirit.\n2/2
+
+Kaervek's Purge\n{XBR}\nSorcery\nMRG,U\nDestroy target creature with converted mana cost X. If that creature is put into a graveyard this way, Kaervek's Purge deals damage equal to the creature's power to the creature's controller.
+
+Phyrexian Purge\n{2BR}\nSorcery\nMRG,R\nDestroy any number of target creatures.\rPhyrexian Purge costs 3 life more to cast for each target.
+
+Grim Feast\n{1BG}\nEnchantment\nMRG,R\nAt the beginning of your upkeep, Grim Feast deals 1 damage to you.\rWhenever a creature is put into an opponent's graveyard from the battlefield, you gain life equal to its toughness.
+
+Sawback Manticore\n{3RG}\nCreature - Manticore\nMRG,R\n{4}: Sawback Manticore gains flying until end of turn.\r{1}: Sawback Manticore deals 2 damage to target attacking or blocking creature. Activate this ability only if Sawback Manticore is attacking or blocking and only once each turn.\n2/4
+
+Reflect Damage\n{3RW}\nInstant\nMRG,R\nThe next time a source of your choice would deal damage this turn, that damage is dealt to that source's controller instead.
+
+Asmira, Holy Avenger\n{2GW}\nLegendary Creature - Human Cleric\nMRG,R\nFlying\rAt the beginning of the end step, put a +1/+1 counter on Asmira, Holy Avenger for each creature put into your graveyard from the battlefield this turn.\n2/3
+
+Wellspring\n{1GW}\nEnchantment - Aura\nMRG,R\nEnchant land\rWhen Wellspring enters the battlefield, gain control of enchanted land until end of turn.\rAt the beginning of your upkeep, untap enchanted land. You gain control of that land until end of turn.
+
+Malignant Growth\n{3GU}\nEnchantment\nMRG,R\nCumulative upkeep {1}\rAt the beginning of your upkeep, put a growth counter on Malignant Growth.\rAt the beginning of each opponent's draw step, that player draws an additional card for each growth counter on Malignant Growth, then Malignant Growth deals damage to the player equal to the number of cards he or she drew this way.
+
+Warping Wurm\n{2GU}\nCreature - Wurm\nMRG,R\nPhasing\rAt the beginning of your upkeep, you may pay {2GU}. If you don't, Warping Wurm phases out.\rWhen Warping Wurm phases in, put a +1/+1 counter on it.\n1/1
+
+Acidic Dagger\n{4}\nArtifact\nMRG,R\n{4}, {T}: Whenever target creature deals combat damage to a non-Wall creature this turn, destroy that non-Wall creature. When the targeted creature leaves the battlefield this turn, sacrifice Acidic Dagger. Activate this ability only during combat before blockers are declared.
+
+Amber Prison\n{4}\nArtifact\nMRG,R\nYou may choose not to untap Amber Prison during your untap step.\r{4}, {T}: Tap target artifact, creature, or land. That permanent doesn't untap during its controller's untap step for as long as Amber Prison remains tapped.
+
+Basalt Golem\n{5}\nArtifact Creature - Golem\nMRG,U\nBasalt Golem can't be blocked by artifact creatures.\rWhenever Basalt Golem becomes blocked by a creature, that creature's controller sacrifices it at end of combat. If the player does, he or she puts a 0/2 colorless Wall artifact creature token with defender onto the battlefield.\n2/4
+
+Bone Mask\n{4}\nArtifact\nMRG,R\n{2}, {T}: The next time a source of your choice would deal damage to you this turn, prevent that damage. For each 1 damage prevented this way, exile the top card of your library.
+
+Chariot of the Sun\n{3}\nArtifact\nMRG,U\n{2}, {T}: Until end of turn, target creature you control gains flying and its toughness becomes 1.
+
+Crystal Golem\n{4}\nArtifact Creature - Golem\nMRG,U\nAt the beginning of your end step, Crystal Golem phases out.\n3/3
+
+Ersatz Gnomes\n{3}\nArtifact Creature - Gnome\nMRG,U\n{T}: Target spell is colorless.\r{T}: Target permanent becomes colorless until end of turn.\n1/1
+
+Grinning Totem\n{4}\nArtifact\nMRG,R\n{2}, {T}, Sacrifice Grinning Totem: Search target opponent's library for a card and exile it. Then that player shuffles his or her library. Until the beginning of your next upkeep, you may play that card. At the beginning of your next upkeep, if you haven't played it, put it into its owner's graveyard.
+
+Horrible Hordes\n{3}\nArtifact Creature - Spirit\nMRG,U\nRampage 1\n2/2
+
+Mangara's Tome\n{5}\nArtifact\nMRG,R\nWhen Mangara's Tome enters the battlefield, search your library for five cards, exile them in a face-down pile, and shuffle that pile. Then shuffle your library.\r{2}: The next time you would draw a card this turn, instead put the top card of the exiled pile into its owner's hand.
+
+Phyrexian Dreadnought\n{1}\nArtifact Creature - Dreadnought\nMRG,R\nTrample\rWhen Phyrexian Dreadnought enters the battlefield, sacrifice it unless you sacrifice any number of creatures with total power 12 or greater.\n12/12
+
+Razor Pendulum\n{4}\nArtifact\nMRG,R\nAt the beginning of each player's end step, if that player has 5 or less life, Razor Pendulum deals 2 damage to him or her.
+
+Sand Golem\n{5}\nArtifact Creature - Golem\nMRG,U\nWhen a spell or ability an opponent controls causes you to discard Sand Golem, return Sand Golem from your graveyard to the battlefield with a +1/+1 counter on it at the beginning of the next end step.\n3/3
+
+Teeka's Dragon\n{9}\nArtifact Creature - Dragon\nMRG,R\nFlying, trample, rampage 4\n5/5
+
+Unerring Sling\n{3}\nArtifact\nMRG,U\n{3}, {T}, Tap an untapped creature you control: Unerring Sling deals damage equal to the tapped creature's power to target attacking or blocking creature with flying.
+
+Ventifact Bottle\n{3}\nArtifact\nMRG,R\n{X1}, {T}: Put X charge counters on Ventifact Bottle. Activate this ability only any time you could cast a sorcery.\rAt the beginning of your precombat main phase, if Ventifact Bottle has a charge counter on it, tap it and remove all charge counters from it. Then add {1} to your mana pool for each charge counter removed this way.
+
+Teferi's Isle\n\nLegendary Land\nMRG,R\nPhasing\rTeferi's Isle enters the battlefield tapped.\r{T}: Add {UU} to your mana pool.

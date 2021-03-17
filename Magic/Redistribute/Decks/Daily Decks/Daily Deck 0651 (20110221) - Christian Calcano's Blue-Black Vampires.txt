@@ -1,0 +1,57 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Bloodghast (19534)
+4 Gatekeeper of Malakir (19442)
+4 Nantuko Shade (21242)
+3 Phyrexian Revoker (21727)
+4 Pulse Tracker (19658)
+4 Vampire Lacerator (19494)
+
+// Instants - 7 (11.67%)
+
+3 Go for the Throat (21752)
+4 Unified Will (20983)
+
+// Sorceries - 7 (11.67%)
+
+3 Duress (21280)
+4 Inquisition of Kozilek (20846)
+
+// Lands - 23 (38.33%)
+
+4 Creeping Tar Pit (19622)
+4 Darkslick Shores (21469)
+4 Drowned Catacomb (21127)
+2 Marsh Flats (19357)
+4 Swamp (21776)
+3 Swamp (21777)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Skinrender (21525)
+2 Wurmcoil Engine (21439)
+
+// Instants
+
+2 Disfigure (19379)
+2 Flashfreeze (21133)
+Go for the Throat (21752)
+
+// Sorceries
+
+2 Marsh Casualties (19415)
+
+// Enchantments
+
+2 Dark Tutelage (21245)
+
+// Lands
+
+2 Tectonic Edge (19651)

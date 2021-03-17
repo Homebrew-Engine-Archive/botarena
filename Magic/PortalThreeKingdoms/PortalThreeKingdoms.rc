@@ -1,0 +1,310 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "PortalThreeKingdoms.ico"
+IDI_LARGE_MODULE        ICON                    "PortalThreeKingdomsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Portal Three Kingdoms"
+    IDS_EXPANSION_ABBREV    "PTK"
+    IDS_FIRST_CARD          "20300"
+    IDS_TOTAL_CARD          "180"
+    IDS_WHITE_BORDER        "1"
+    IDS_MODULE_ICON_ID      "20480"
+    IDS_MODULE_LARGE_ICON_ID "20481"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-05-1999"
+    IDS_MWS_FOLDER          "MWS\\PTK\\"
+    IDS_PRODUCT_LIST        """Portal Three Kingdoms Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20300         "Alert Shu Infantry\n{2W}\nCreature - Human Soldier\nPTK,U\nVigilance\n2/2"
+    IDS_STRING20301         "Barbarian Horde\n{3R}\nCreature - Human Barbarian Soldier\nPTK,C\n\n3/3"
+    IDS_STRING20302         "Borrowing 100,000 Arrows\n{2U}\nSorcery\nPTK,U\nDraw a card for each tapped creature target opponent controls."
+    IDS_STRING20303         "Brilliant Plan\n{4U}\nSorcery\nPTK,U\nDraw three cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20304         "Burning Fields\n{4R}\nSorcery\nPTK,C\nBurning Fields deals 5 damage to target opponent."
+    IDS_STRING20305         "Capture of Jingzhou\n{3UU}\nSorcery\nPTK,R\nTake an extra turn after this one."
+    IDS_STRING20306         "Corrupt Court Official\n{1B}\nCreature - Human Advisor\nPTK,U\nWhen Corrupt Court Official enters the battlefield, target opponent discards a card.\n1/1"
+    IDS_STRING20307         "Corrupt Eunuchs\n{3R}\nCreature - Human Advisor\nPTK,U\nWhen Corrupt Eunuchs enters the battlefield, it deals 2 damage to target creature.\n2/2"
+    IDS_STRING20308         "Council of Advisors\n{2U}\nCreature - Human Advisor\nPTK,U\nWhen Council of Advisors enters the battlefield, draw a card.\n1/1"
+    IDS_STRING20309         "Counterintelligence\n{2UU}\nSorcery\nPTK,U\nReturn one or two target creatures to their owners' hands."
+    IDS_STRING20310         "Deception\n{2B}\nSorcery\nPTK,C\nTarget opponent discards two cards."
+    IDS_STRING20311         "Desert Sandstorm\n{2R}\nSorcery\nPTK,C\nDesert Sandstorm deals 1 damage to each creature."
+    IDS_STRING20312         "Desperate Charge\n{2B}\nSorcery\nPTK,U\nCreatures you control get +2/+0 until end of turn."
+    IDS_STRING20313         "False Defeat\n{3W}\nSorcery\nPTK,C\nReturn target creature card from your graveyard to the battlefield."
+    IDS_STRING20314         "False Mourning\n{G}\nSorcery\nPTK,U\nPut target card from your graveyard on top of your library."
+    IDS_STRING20315         "Famine\n{3BB}\nSorcery\nPTK,U\nFamine deals 3 damage to each creature and each player."
+    IDS_STRING20316         "Fire Ambush\n{1R}\nSorcery\nPTK,C\nFire Ambush deals 3 damage to target creature or player."
+    IDS_STRING20317         "Flanking Troops\n{2WW}\nCreature - Human Soldier\nPTK,U\nWhenever Flanking Troops attacks, you may tap target creature.\n2/2"
+    IDS_STRING20318         "Forced Retreat\n{2U}\nSorcery\nPTK,C\nPut target creature on top of its owner's library."
+    IDS_STRING20319         "Forest Bear\n{1G}\nCreature - Bear\nPTK,C\n\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20320         "Ghostly Visit\n{2B}\nSorcery\nPTK,C\nDestroy target nonblack creature."
+    IDS_STRING20321         "Guan Yu's 1,000-Li March\n{4WW}\nSorcery\nPTK,R\nDestroy all tapped creatures."
+    IDS_STRING20322         "Huang Zhong, Shu General\n{2WW}\nLegendary Creature - Human Soldier\nPTK,R\nHuang Zhong, Shu General can't be blocked by more than one creature.\n2/3"
+    IDS_STRING20323         "Hunting Cheetah\n{2G}\nCreature - Cat\nPTK,U\nWhenever Hunting Cheetah deals damage to an opponent, you may search your library for a Forest card, reveal that card, put it into your hand, then shuffle your library.\n2/3"
+    IDS_STRING20324         "Imperial Recruiter\n{2R}\nCreature - Human Advisor\nPTK,U\nWhen Imperial Recruiter enters the battlefield, search your library for a creature card with power 2 or less, reveal it, and put it into your hand. Then shuffle your library.\n1/1"
+    IDS_STRING20325         "Imperial Seal\n{B}\nSorcery\nPTK,R\nSearch your library for a card, then shuffle your library and put that card on top of it. You lose 2 life."
+    IDS_STRING20326         "Independent Troops\n{1R}\nCreature - Human Soldier\nPTK,C\n\n2/1"
+    IDS_STRING20327         "Kongming, Sleeping Dragon\n{2WW}\nLegendary Creature - Human Advisor\nPTK,R\nOther creatures you control get +1/+1.\n2/2"
+    IDS_STRING20328         "Meng Huo, Barbarian King\n{3GG}\nLegendary Creature - Human Barbarian Soldier\nPTK,R\nOther green creatures you control get +1/+1.\n4/4"
+    IDS_STRING20329         "Meng Huo's Horde\n{4G}\nCreature - Human Soldier\nPTK,C\n\n4/5"
+    IDS_STRING20330         "Misfortune's Gain\n{3W}\nSorcery\nPTK,C\nDestroy target creature. Its owner gains 4 life."
+    IDS_STRING20331         "Mountain Bandit\n{R}\nCreature - Human Soldier Rogue\nPTK,C\nHaste\n1/1"
+    IDS_STRING20332         "Poison Arrow\n{4BB}\nSorcery\nPTK,U\nDestroy target nonblack creature. You gain 3 life."
+    IDS_STRING20333         "Preemptive Strike\n{1U}\nInstant\nPTK,C\nCounter target creature spell."
+    IDS_STRING20334         "Ravages of War\n{3W}\nSorcery\nPTK,R\nDestroy all lands."
+    IDS_STRING20335         "Ravaging Horde\n{3RR}\nCreature - Human Soldier\nPTK,U\nWhen Ravaging Horde enters the battlefield, destroy target land.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20336         "Red Cliffs Armada\n{4U}\nCreature - Human Soldier\nPTK,U\nRed Cliffs Armada can't attack unless defending player controls an Island.\n5/4"
+    IDS_STRING20337         "Renegade Troops\n{4R}\nCreature - Human Soldier\nPTK,U\nHaste\n4/2"
+    IDS_STRING20338         "Return to Battle\n{B}\nSorcery\nPTK,C\nReturn target creature card from your graveyard to your hand."
+    IDS_STRING20339         "Rockslide Ambush\n{1R}\nSorcery\nPTK,U\nRockslide Ambush deals damage to target creature equal to the number of Mountains you control."
+    IDS_STRING20340         "Sage's Knowledge\n{2U}\nSorcery\nPTK,C\nReturn target sorcery card from your graveyard to your hand."
+    IDS_STRING20341         "Shu Defender\n{2W}\nCreature - Human Soldier\nPTK,C\nWhenever Shu Defender blocks, it gets +0/+2 until end of turn.\n2/2"
+    IDS_STRING20342         "Shu Elite Infantry\n{3W}\nCreature - Human Soldier\nPTK,C\n\n3/3"
+    IDS_STRING20343         "Shu Farmer\n{1W}\nCreature - Human\nPTK,C\n{T}: You gain 1 life. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20344         "Shu Foot Soldiers\n{2W}\nCreature - Human Soldier\nPTK,C\n\n2/3"
+    IDS_STRING20345         "Shu Grain Caravan\n{2W}\nCreature - Human Soldier\nPTK,C\nWhen Shu Grain Caravan enters the battlefield, you gain 2 life.\n2/2"
+    IDS_STRING20346         "Shu Soldier-Farmers\n{4W}\nCreature - Human Soldier\nPTK,U\nWhen Shu Soldier-Farmers enters the battlefield, you gain 4 life.\n2/4"
+    IDS_STRING20347         "Vengeance\n{3W}\nSorcery\nPTK,U\nDestroy target tapped creature."
+    IDS_STRING20348         "Sima Yi, Wei Field Marshal\n{5B}\nLegendary Creature - Human Soldier\nPTK,R\nSima Yi, Wei Field Marshal's power is equal to the number of Swamps you control.\n*/4"
+    IDS_STRING20349         "Slashing Tiger\n{2GG}\nCreature - Cat\nPTK,R\nWhenever Slashing Tiger becomes blocked, it gets +2/+2 until end of turn.\n3/3"
+    IDS_STRING20350         "Southern Elephant\n{3G}\nCreature - Elephant\nPTK,C\n\n3/4"
+    IDS_STRING20351         "Spring of Eternal Peace\n{3GG}\nSorcery\nPTK,C\nYou gain 8 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20352         "Stolen Grain\n{4BB}\nSorcery\nPTK,U\nStolen Grain deals 5 damage to target opponent. You gain 5 life."
+    IDS_STRING20353         "Strategic Planning\n{1U}\nSorcery\nPTK,U\nLook at the top three cards of your library. Put one of them into your hand and the rest into your graveyard."
+    IDS_STRING20354         "Straw Soldiers\n{1U}\nCreature - Scarecrow Soldier\nPTK,C\n\n1/3"
+    IDS_STRING20355         "Taoist Hermit\n{2G}\nCreature - Human Mystic\nPTK,U\nHexproof\n2/2"
+    IDS_STRING20356         "Taunting Challenge\n{1GG}\nSorcery\nPTK,R\nAll creatures able to block target creature this turn do so."
+    IDS_STRING20357         "Three Visits\n{1G}\nSorcery\nPTK,C\nSearch your library for a Forest card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING20358         "Trained Cheetah\n{2G}\nCreature - Cat\nPTK,U\nWhenever Trained Cheetah becomes blocked, it gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING20359         "Trained Jackal\n{G}\nCreature - Hound\nPTK,C\n\n1/2"
+    IDS_STRING20360         "Virtuous Charge\n{2W}\nSorcery\nPTK,C\nCreatures you control get +1/+1 until end of turn."
+    IDS_STRING20361         "Warrior's Oath\n{RR}\nSorcery\nPTK,R\nTake an extra turn after this one. At the beginning of that turn's end step, you lose the game."
+    IDS_STRING20362         "Wei Ambush Force\n{1B}\nCreature - Human Soldier\nPTK,C\nWhenever Wei Ambush Force attacks, it gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING20363         "Wei Infantry\n{1B}\nCreature - Human Soldier\nPTK,C\n\n2/1"
+    IDS_STRING20364         "Wielding the Green Dragon\n{1G}\nSorcery\nPTK,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING20365         "Wolf Pack\n{6GG}\nCreature - Wolf\nPTK,R\nYou may have Wolf Pack assign its combat damage as though it weren't blocked.\n7/6"
+    IDS_STRING20366         "Wu Admiral\n{4U}\nCreature - Human Soldier\nPTK,U\nWu Admiral gets +1/+1 as long as an opponent controls an Island.\n3/3"
+    IDS_STRING20367         "Wu Infantry\n{1U}\nCreature - Human Soldier\nPTK,C\n\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20368         "Wu Warship\n{2U}\nCreature - Human Soldier\nPTK,C\nWu Warship can't attack unless defending player controls an Island.\n3/3"
+    IDS_STRING20369         "Yellow Scarves Troops\n{1R}\nCreature - Human Soldier\nPTK,C\nYellow Scarves Troops can't block.\n2/2"
+    IDS_STRING20370         "Young Wei Recruits\n{1B}\nCreature - Human Soldier\nPTK,C\nYoung Wei Recruits can't block.\n2/2"
+    IDS_STRING20371         "Yuan Shao's Infantry\n{3R}\nCreature - Human Soldier\nPTK,U\nWhenever Yuan Shao's Infantry attacks alone, Yuan Shao's Infantry is unblockable this combat.\n2/2"
+    IDS_STRING20372         "Zhang Liao, Hero of Hefei\n{4BB}\nLegendary Creature - Human Soldier\nPTK,R\nWhenever Zhang Liao, Hero of Hefei deals damage to an opponent, that opponent discards a card.\n3/3"
+    IDS_STRING20373         "Zhou Yu, Chief Commander\n{5UU}\nLegendary Creature - Human Soldier\nPTK,R\nZhou Yu, Chief Commander can't attack unless defending player controls an Island.\n8/8"
+    IDS_STRING20374         "Zodiac Dog\n{2R}\nCreature - Hound\nPTK,C\nMountainwalk\n2/2"
+    IDS_STRING20375         "Zodiac Dragon\n{7RR}\nCreature - Dragon\nPTK,R\nWhen Zodiac Dragon is put into your graveyard from the battlefield, you may return it to your hand.\n8/8"
+    IDS_STRING20376         "Zodiac Goat\n{R}\nCreature - Goat\nPTK,C\nMountainwalk\n1/1"
+    IDS_STRING20377         "Zodiac Horse\n{3G}\nCreature - Horse\nPTK,U\nIslandwalk\n3/3"
+    IDS_STRING20378         "Zodiac Ox\n{3G}\nCreature - Ox\nPTK,U\nSwampwalk\n3/3"
+    IDS_STRING20379         "Zodiac Pig\n{3B}\nCreature - Boar\nPTK,U\nSwampwalk\n3/3"
+    IDS_STRING20380         "Zodiac Rabbit\n{G}\nCreature - Rabbit\nPTK,C\nForestwalk\n1/1"
+    IDS_STRING20381         "Zodiac Rat\n{B}\nCreature - Rat\nPTK,C\nSwampwalk\n1/1"
+    IDS_STRING20382         "Zodiac Rooster\n{1G}\nCreature - Bird\nPTK,C\nPlainswalk\n2/1"
+    IDS_STRING20383         "Zodiac Snake\n{2B}\nCreature - Snake\nPTK,C\nSwampwalk\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20384         "Zodiac Tiger\n{2GG}\nCreature - Cat\nPTK,U\nForestwalk\n3/4"
+    IDS_STRING20385         "Lone Wolf\n{2G}\nCreature - Wolf\nPTK,U\nYou may have Lone Wolf assign its combat damage as though it weren't blocked.\n2/2"
+    IDS_STRING20386         "Stalking Tiger\n{3G}\nCreature - Cat\nPTK,C\nStalking Tiger can't be blocked by more than one creature.\n3/3"
+    IDS_STRING20387         "Volunteer Militia\n{W}\nCreature - Human Soldier\nPTK,C\n\n1/2"
+    IDS_STRING20388         "Zodiac Monkey\n{1G}\nCreature - Ape\nPTK,C\nForestwalk\n2/1"
+    IDS_STRING20389         "Forest\n\nBasic Land - Forest\nPTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20390         "Forest\n\nBasic Land - Forest\nPTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20391         "Forest\n\nBasic Land - Forest\nPTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING20392         "Island\n\nBasic Land - Island\nPTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20393         "Island\n\nBasic Land - Island\nPTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20394         "Island\n\nBasic Land - Island\nPTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING20395         "Mountain\n\nBasic Land - Mountain\nPTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20396         "Mountain\n\nBasic Land - Mountain\nPTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20397         "Mountain\n\nBasic Land - Mountain\nPTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING20398         "Plains\n\nBasic Land - Plains\nPTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20399         "Plains\n\nBasic Land - Plains\nPTK,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20400         "Plains\n\nBasic Land - Plains\nPTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING20401         "Swamp\n\nBasic Land - Swamp\nPTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20402         "Swamp\n\nBasic Land - Swamp\nPTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20403         "Swamp\n\nBasic Land - Swamp\nPTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING20404         "Extinguish\n{1U}\nInstant\nPTK,C\nCounter target sorcery spell."
+    IDS_STRING20405         "Mystic Denial\n{1UU}\nInstant\nPTK,U\nCounter target creature or sorcery spell."
+    IDS_STRING20406         "Ambition's Cost\n{3B}\nSorcery\nPTK,R\nYou draw three cards and you lose 3 life."
+    IDS_STRING20407         "Balance of Power\n{3UU}\nSorcery\nPTK,R\nIf target opponent has more cards in hand than you, draw cards equal to the difference."
+    IDS_STRING20408         "Blaze\n{XR}\nSorcery\nPTK,U\nBlaze deals X damage to target creature or player."
+    IDS_STRING20409         "Coercion\n{2B}\nSorcery\nPTK,U\nTarget opponent reveals his or her hand. You choose a card from it. That player discards that card."
+    IDS_STRING20410         "Exhaustion\n{2U}\nSorcery\nPTK,R\nCreatures and lands target opponent controls don't untap during his or her next untap step."
+    IDS_STRING20411         "Peach Garden Oath\n{W}\nSorcery\nPTK,U\nYou gain 2 life for each creature you control."
+    IDS_STRING20412         "Relentless Assault\n{2RR}\nSorcery\nPTK,R\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING20413         "Stone Rain\n{2R}\nSorcery\nPTK,C\nDestroy target land."
+    IDS_STRING20414         "Cao Cao, Lord of Wei\n{3BB}\nLegendary Creature - Human Soldier\nPTK,R\n{T}: Target opponent discards two cards. Activate this ability only during your turn, before attackers are declared.\n3/3"
+    IDS_STRING20415         "Cunning Advisor\n{3B}\nCreature - Human Advisor\nPTK,U\n{T}: Target opponent discards a card. Activate this ability only during your turn, before attackers are declared.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20416         "Fire Bowman\n{R}\nCreature - Human Soldier Archer\nPTK,U\nSacrifice Fire Bowman: Fire Bowman deals 1 damage to target creature or player. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20417         "Hua Tuo, Honored Physician\n{1GG}\nLegendary Creature - Human\nPTK,R\n{T}: Put target creature card from your graveyard on top of your library. Activate this ability only during your turn, before attackers are declared.\n1/2"
+    IDS_STRING20418         "Loyal Retainers\n{2W}\nCreature - Human Advisor\nPTK,U\nSacrifice Loyal Retainers: Return target legendary creature card from your graveyard to the battlefield. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20419         "Lu Su, Wu Advisor\n{3UU}\nLegendary Creature - Human Advisor\nPTK,R\n{T}: Draw a card. Activate this ability only during your turn, before attackers are declared.\n1/2"
+    IDS_STRING20420         "Pang Tong, Young Phoenix\n{1WW}\nLegendary Creature - Human Advisor\nPTK,R\n{T}: Target creature gets +0/+2 until end of turn. Activate this ability only during your turn, before attackers are declared.\n1/2"
+    IDS_STRING20421         "Stone Catapult\n{4B}\nCreature - Human Soldier\nPTK,R\n{T}: Destroy target tapped nonblack creature. Activate this ability only during your turn, before attackers are declared.\n1/2"
+    IDS_STRING20422         "Wu Longbowman\n{2U}\nCreature - Human Soldier Archer\nPTK,U\n{T}: Wu Longbowman deals 1 damage to target creature or player. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20423         "Xun Yu, Wei Advisor\n{1BB}\nLegendary Creature - Human Advisor\nPTK,R\n{T}: Target creature you control gets +2/+0 until end of turn. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20424         "Zhuge Jin, Wu Strategist\n{1UU}\nLegendary Creature - Human Advisor\nPTK,R\n{T}: Target creature is unblockable this turn. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20425         "Control of the Court\n{1R}\nSorcery\nPTK,U\nDraw four cards, then discard three cards at random."
+    IDS_STRING20426         "Wei Elite Companions\n{4B}\nCreature - Human Soldier\nPTK,U\nHorsemanship\n3/3"
+    IDS_STRING20427         "Barbarian General\n{4R}\nCreature - Human Barbarian Soldier\nPTK,U\nHorsemanship\n3/2"
+    IDS_STRING20428         "Cao Ren, Wei Commander\n{2BB}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nHorsemanship\rWhen Cao Ren, Wei Commander enters the battlefield, you lose 3 life.\n3/3"
+    IDS_STRING20429         "Guan Yu, Sainted Warrior\n{3WW}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nHorsemanship\rWhen Guan Yu, Sainted Warrior is put into your graveyard from the battlefield, you may shuffle Guan Yu into your library.\n3/5"
+    IDS_STRING20430         "Lady Zhurong, Warrior Queen\n{4G}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nHorsemanship\n4/3"
+    IDS_STRING20431         "Liu Bei, Lord of Shu\n{3WW}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\rLiu Bei, Lord of Shu gets +2/+2 as long as you control a permanent named Guan Yu, Sainted Warrior or a permanent named Zhang Fei, Fierce Warrior.\n2/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20432         "Lu Bu, Master-at-Arms\n{5R}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nHaste; horsemanship\n4/3"
+    IDS_STRING20433         "Lu Meng, Wu General\n{3UU}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\n4/4"
+    IDS_STRING20434         "Lu Xun, Scholar General\n{2UU}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\rWhenever Lu Xun, Scholar General deals damage to an opponent, you may draw a card.\n1/3"
+    IDS_STRING20435         "Ma Chao, Western Warrior\n{3RR}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nHorsemanship\rWhenever Ma Chao, Western Warrior attacks alone, it's unblockable this combat.\n3/3"
+    IDS_STRING20436         "Shu Cavalry\n{2W}\nCreature - Human Soldier\nPTK,C\nHorsemanship\n2/2"
+    IDS_STRING20437         "Shu Elite Companions\n{4W}\nCreature - Human Soldier\nPTK,U\nHorsemanship\n3/3"
+    IDS_STRING20438         "Shu General\n{3W}\nCreature - Human Soldier\nPTK,U\nVigilance; horsemanship\n2/2"
+    IDS_STRING20439         "Sun Ce, Young Conquerer\n{3UU}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\rWhen Sun Ce, Young Conquerer enters the battlefield, you may return target creature to its owner's hand.\n3/3"
+    IDS_STRING20440         "Sun Quan, Lord of Wu\n{4UU}\nLegendary Creature - Human Soldier\nPTK,R\nCreatures you control have horsemanship.\n4/4"
+    IDS_STRING20441         "Taoist Mystic\n{2G}\nCreature - Human Mystic\nPTK,R\nTaoist Mystic can't be blocked by creatures with horsemanship.\n2/2"
+    IDS_STRING20442         "Wei Night Raiders\n{2BB}\nCreature - Human Soldier\nPTK,U\nHorsemanship\rWhenever Wei Night Raiders deals damage to an opponent, that player discards a card.\n2/2"
+    IDS_STRING20443         "Wei Scout\n{1B}\nCreature - Human Soldier Scout\nPTK,C\nHorsemanship\n1/1"
+    IDS_STRING20444         "Wei Strike Force\n{2B}\nCreature - Human Soldier\nPTK,C\nHorsemanship\n2/1"
+    IDS_STRING20445         "Wu Elite Cavalry\n{3U}\nCreature - Human Soldier\nPTK,C\nHorsemanship\n2/3"
+    IDS_STRING20446         "Wu Light Cavalry\n{1U}\nCreature - Human Soldier\nPTK,C\nHorsemanship\n1/2"
+    IDS_STRING20447         "Wu Scout\n{1U}\nCreature - Human Soldier Scout\nPTK,C\nHorsemanship\rWhen Wu Scout enters the battlefield, look at target opponent's hand.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20448         "Xiahou Dun, the One-Eyed\n{2BB}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\rSacrifice Xiahou Dun, the One-Eyed: Return target black card from your graveyard to your hand. Activate this ability only during your turn, before attackers are declared.\n3/2"
+    IDS_STRING20449         "Yellow Scarves Cavalry\n{1R}\nCreature - Human Soldier\nPTK,C\nHorsemanship\rYellow Scarves Cavalry can't block.\n1/1"
+    IDS_STRING20450         "Yellow Scarves General\n{3R}\nCreature - Human Soldier\nPTK,R\nHorsemanship\rYellow Scarves General can't block.\n2/2"
+    IDS_STRING20451         "Yuan Shao, the Indecisive\n{4R}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\rEach creature you control can't be blocked by more than one creature.\n2/3"
+    IDS_STRING20452         "Zhang Fei, Fierce Warrior\n{4WW}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nVigilance; horsemanship\n4/4"
+    IDS_STRING20453         "Zhang He, Wei General\n{3BB}\nLegendary Creature - Human Soldier\nPTK,R\nHorsemanship\rWhenever Zhang He, Wei General attacks, each other creature you control gets +1/+0 until end of turn.\n4/2"
+    IDS_STRING20454         "Zhao Zilong, Tiger General\n{3WW}\nLegendary Creature - Human Soldier Warrior\nPTK,R\nHorsemanship\rWhenever Zhao Zilong, Tiger General blocks, it gets +1/+1 until end of turn.\n3/3"
+    IDS_STRING20455         "Zuo Ci, the Mocking Sage\n{1GG}\nLegendary Creature - Human Advisor\nPTK,R\nZuo Ci, the Mocking Sage can't be blocked by creatures with horsemanship.\rHexproof\n1/2"
+    IDS_STRING20456         "Borrowing the East Wind\n{XGG}\nSorcery\nPTK,R\nBorrowing the East Wind deals X damage to each creature with horsemanship and each player."
+    IDS_STRING20457         "Broken Dam\n{U}\nSorcery\nPTK,C\nTap one or two target creatures without horsemanship."
+    IDS_STRING20458         "Riding Red Hare\n{2W}\nSorcery\nPTK,C\nTarget creature gets +3/+3 and gains horsemanship until end of turn."
+    IDS_STRING20459         "Riding the Dilu Horse\n{2G}\nSorcery\nPTK,R\nTarget creature gets +2/+2 and gains horsemanship."
+    IDS_STRING20460         "Rolling Earthquake\n{XR}\nSorcery\nPTK,R\nRolling Earthquake deals X damage to each creature without horsemanship and each player."
+    IDS_STRING20461         "Trip Wire\n{2G}\nSorcery\nPTK,U\nDestroy target creature with horsemanship."
+    IDS_STRING20462         "Spoils of Victory\n{2G}\nSorcery\nPTK,U\nSearch your library for a Plains, Island, Swamp, Mountain, or Forest card and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING20463         "Wei Assassins\n{3BB}\nCreature - Human Soldier Assassin\nPTK,U\nWhen Wei Assassins enters the battlefield, target opponent chooses a creature he or she controls. Destroy it.\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING20464         "Imperial Edict\n{1B}\nSorcery\nPTK,C\nTarget opponent chooses a creature he or she controls. Destroy it."
+    IDS_STRING20465         "Lady Sun\n{1UU}\nLegendary Creature - Human Advisor\nPTK,R\n{T}: Return Lady Sun and another target creature to their owners' hands. Activate this ability only during your turn, before attackers are declared.\n1/1"
+    IDS_STRING20466         "Empty City Ruse\n{W}\nSorcery\nPTK,U\nTarget opponent skips all combat phases of his or her next turn."
+    IDS_STRING20467         "Overwhelming Forces\n{6BB}\nSorcery\nPTK,R\nDestroy all creatures target opponent controls. Draw a card for each creature destroyed this way."
+    IDS_STRING20468         "Marshaling the Troops\n{1G}\nSorcery\nPTK,R\nTap any number of untapped creatures you control. You gain 4 life for each creature tapped this way."
+    IDS_STRING20469         "Wu Spy\n{1U}\nCreature - Human Soldier Rogue\nPTK,U\nWhen Wu Spy enters the battlefield, look at the top two cards of target player's library. Put one of them into his or her graveyard.\n1/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

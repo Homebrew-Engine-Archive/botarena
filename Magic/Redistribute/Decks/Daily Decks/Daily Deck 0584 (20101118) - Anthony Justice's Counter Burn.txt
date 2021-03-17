@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Instants - 27 (45.00%)
+
+4 Counterspell (760)
+4 Fact or Fiction (12670)
+4 FireIce (13001)
+2 Gainsay (12863)
+3 Prophetic Bolt (13113)
+4 Repulse (12609)
+3 Syncopate (13468)
+3 Urza's Rage (12655)
+
+// Sorceries - 9 (15.00%)
+
+2 Earthquake (833)
+3 Firebolt (13298)
+4 Sleight of Hand (1028)
+
+// Lands - 24 (40.00%)
+
+Cephalid Coliseum (13285)
+3 Island (13239)
+3 Island (13238)
+3 Island (13237)
+2 Island (13240)
+2 Mountain (13248)
+2 Mountain (13246)
+2 Mountain (13247)
+2 Mountain (13245)
+4 Shivan Reef (13017)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Flametongue Kavu (12824)
+3 Glacial Wall (752)
+4 Grim Lavamancer (13612)
+
+// Instants
+
+2 Gainsay (12863)
+
+// Artifacts
+
+2 Caltrops (1021)

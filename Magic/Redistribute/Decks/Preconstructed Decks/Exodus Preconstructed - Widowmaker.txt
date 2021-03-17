@@ -1,0 +1,47 @@
+// Widowmaker
+// Exodus Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 17 (28.33%)
+
+Keeper of the Mind (10678)
+3 Manta Riders (10132)
+4 Merfolk Looter (10613)
+2 Mind Maggots (10679)
+Mindless Automaton (10695)
+Rootwater Hunter (10142)
+Skyshroud Vampire (10006)
+Thalakos Scout (10701)
+3 Vampire Hounds (10603)
+
+// Instants - 15 (25.00%)
+
+Capsize (10010)
+2 Counterspell (10112)
+2 Dark Banishing (10031)
+2 Dark Ritual (10032)
+2 Diabolic Edict (10182)
+2 Forbid (10633)
+2 Mana Leak (10413)
+2 Necrologia (10616)
+
+// Enchantments - 2 (3.33%)
+
+Oath of Scholars (10680)
+Treasure Trove (10628)
+
+// Artifacts - 1 (1.67%)
+
+Null Brooch (10634)
+
+// Lands - 25 (41.67%)
+
+4 Island (10052)
+4 Island (10053)
+3 Island (10054)
+3 Island (10055)
+3 Swamp (10101)
+2 Swamp (10102)
+3 Swamp (10100)
+3 Swamp (10099)

@@ -1,0 +1,70 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+4 Emrakul, the Aeons Torn (20937)
+3 Progenitus (8921)
+Sphinx of the Steel Wind (9057)
+
+// Instants - 18 (30.00%)
+
+4 Brainstorm (11610)
+2 Daze (12089)
+Echoing Truth (15220)
+2 Enlightened Tutor (488)
+4 Force of Will (6759)
+3 Intuition (10275)
+Pyroblast (8214)
+Red Elemental Blast (7781)
+
+// Sorceries - 7 (11.67%)
+
+Personal Tutor (19850)
+2 Ponder (4208)
+4 Show and Tell (11066)
+
+// Enchantments - 4 (6.67%)
+
+4 Sneak Attack (11051)
+
+// Artifacts - 2 (3.33%)
+
+2 Lotus Petal (10003)
+
+// Lands - 21 (35.00%)
+
+2 Ancient Tomb (10159)
+2 City of Traitors (10631)
+Flooded Strand (14001)
+Island (20806)
+Island (20804)
+Island (20805)
+Misty Rainforest (19356)
+Mountain (20808)
+4 Scalding Tarn (19358)
+2 Tundra (7386)
+Underground Sea (7388)
+4 Volcanic Island (7393)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Meddling Mage (9016)
+
+// Instants
+
+3 Extirpate (2594)
+3 Pyroblast (8214)
+Red Elemental Blast (7781)
+2 Spell Pierce (19377)
+
+// Sorceries
+
+2 Perish (394)
+
+// Artifacts
+
+Pithing Needle (4081)

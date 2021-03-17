@@ -1,0 +1,225 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Coldsnap.ico"
+IDI_LARGE_MODULE        ICON                    "ColdsnapLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Coldsnap"
+    IDS_EXPANSION_ABBREV    "CSP"
+    IDS_FIRST_CARD          "7000"
+    IDS_TOTAL_CARD          "155"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "7155"
+    IDS_MODULE_LARGE_ICON_ID "7156"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "21-07-2006"
+    IDS_MWS_FOLDER          "MWS\\CSP\\"
+    IDS_PRODUCT_LIST        """Coldsnap Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7000          "Cryoclasm\n{2R}\nSorcery\nCSP,U\nDestroy target Plains or Island. Cryoclasm deals 3 damage to that land's controller."
+    IDS_STRING7001          "Deathmark\n{B}\nSorcery\nCSP,U\nDestroy target green or white creature."
+    IDS_STRING7002          "Field Marshal\n{1WW}\nCreature - Human Soldier\nCSP,R\nOther Soldier creatures get +1/+1 and have first strike.\n2/2"
+    IDS_STRING7003          "Flashfreeze\n{1U}\nInstant\nCSP,U\nCounter target red or green spell."
+    IDS_STRING7004          "Garza Zol, Plague Queen\n{4UBR}\nLegendary Creature - Vampire\nCSP,R\nFlying, haste\rWhenever a creature dealt damage by Garza Zol, Plague Queen this turn dies, put a +1/+1 counter on Garza Zol.\rWhenever Garza Zol deals combat damage to a player, you may draw a card.\n5/5"
+    IDS_STRING7005          "Karplusan Strider\n{3G}\nCreature - Yeti\nCSP,U\nKarplusan Strider can't be the target of blue or black spells.\n3/4"
+    IDS_STRING7006          "Disciple of Tevesh Szat\n{2BB}\nCreature - Human Cleric\nCSP,C\n{T}: Target creature gets -1/-1 until end of turn.\r{4BB}, {T}, Sacrifice Disciple of Tevesh Szat: Target creature gets -6/-6 until end of turn.\n3/1"
+    IDS_STRING7007          "Gristle Grinner\n{4B}\nCreature - Zombie\nCSP,U\nWhenever a creature dies, Gristle Grinner gets +2/+2 until end of turn.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7008          "Kjeldoran Outrider\n{1W}\nCreature - Human Soldier\nCSP,C\n{W}: Kjeldoran Outrider gets +0/+1 until end of turn.\n2/2"
+    IDS_STRING7009          "Krovikan Mist\n{1U}\nCreature - Illusion\nCSP,C\nFlying\rKrovikan Mist's power and toughness are each equal to the number of Illusions on the battlefield.\n*/*"
+    IDS_STRING7010          "Krovikan Scoundrel\n{1B}\nCreature - Human Rogue\nCSP,C\n\n2/1"
+    IDS_STRING7011          "Lovisa Coldeyes\n{3RR}\nLegendary Creature - Human Barbarian\nCSP,R\nWarrior, Berserker, and/or other Barbarian creatures get +2/+2 and have haste.\n3/3"
+    IDS_STRING7012          "Orcish Bloodpainter\n{2R}\nCreature - Orc Shaman\nCSP,C\n{T}, Sacrifice a creature: Orcish Bloodpainter deals 1 damage to target creature or player.\n2/1"
+    IDS_STRING7013          "Ronom Unicorn\n{1W}\nCreature - Unicorn\nCSP,C\nSacrifice Ronom Unicorn: Destroy target enchantment.\n2/2"
+    IDS_STRING7014          "Simian Brawler\n{3G}\nCreature - Ape Warrior\nCSP,C\nDiscard a land card: Simian Brawler gets +1/+1 until end of turn.\n3/3"
+    IDS_STRING7015          "Sound the Call\n{2G}\nSorcery\nCSP,C\nPut a 1/1 green Wolf creature token onto the battlefield. It has ""This creature gets +1/+1 for each card named Sound the Call in each graveyard."""
+    IDS_STRING7016          "Steam Spitter\n{4G}\nCreature - Spider\nCSP,U\nReach\r{R}: Steam Spitter gets +1/+0 until end of turn.\n1/5"
+    IDS_STRING7017          "Stromgald Crusader\n{BB}\nCreature - Zombie Knight\nCSP,U\nProtection from white\r{B}: Stromgald Crusader gains flying until end of turn.\r{BB}: Stromgald Crusader gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING7018          "White Shield Crusader\n{WW}\nCreature - Human Knight\nCSP,U\nProtection from black\r{W}: White Shield Crusader gains flying until end of turn.\r{WW}: White Shield Crusader gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING7019          "Kjeldoran Gargoyle\n{5W}\nCreature - Gargoyle\nCSP,U\nFlying, first strike\rWhenever Kjeldoran Gargoyle deals damage, you gain that much life.\n3/3"
+    IDS_STRING7020          "Arctic Flats\n\nSnow Land\nCSP,U\nArctic Flats enters the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING7021          "Boreal Shelf\n\nSnow Land\nCSP,U\nBoreal Shelf enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING7022          "Frost Marsh\n\nSnow Land\nCSP,U\nFrost Marsh enters the battlefield tapped.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING7023          "Highland Weald\n\nSnow Land\nCSP,U\nHighland Weald enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7024          "Tresserhorn Sinks\n\nSnow Land\nCSP,U\nTresserhorn Sinks enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING7025          "Jokulmorder\n{4UUU}\nCreature - Leviathan\nCSP,R\nTrample\rJokulmorder enters the battlefield tapped.\rWhen Jokulmorder enters the battlefield, sacrifice it unless you sacrifice five lands.\rJokulmorder doesn't untap during your untap step.\rWhenever you play an Island, you may untap Jokulmorder.\n12/12"
+    IDS_STRING7026          "Tamanoa\n{RGW}\nCreature - Spirit\nCSP,R\nWhenever a noncreature source you control deals damage, you gain that much life.\n2/4"
+    IDS_STRING7027          "Haakon, Stromgald Scourge\n{1BB}\nLegendary Creature - Zombie Knight\nCSP,R\nYou may cast Haakon, Stromgald Scourge from your graveyard, but not from anywhere else.\rAs long as Haakon is on the battlefield, you may play Knight cards from your graveyard.\rWhen Haakon dies, you lose 2 life.\n3/3"
+    IDS_STRING7028          "Rite of Flame\n{R}\nSorcery\nCSP,C\nAdd {RR} to your mana pool, then add {R} to your mana pool for each card named Rite of Flame in each graveyard."
+    IDS_STRING7029          "Allosaurus Rider\n{5GG}\nCreature - Elf Warrior\nCSP,R\nYou may exile two green cards from your hand rather than pay Allosaurus Rider's mana cost.\rAllosaurus Rider's power and toughness are each equal to 1 plus the number of lands you control.\n1+*/1+*"
+    IDS_STRING7030          "Drelnoch\n{4U}\nCreature - Yeti Mutant\nCSP,C\nWhenever Drelnoch becomes blocked, you may draw two cards.\n3/3"
+    IDS_STRING7031          "Sek'Kuar, Deathkeeper\n{2BRG}\nLegendary Creature - Orc Shaman\nCSP,R\nWhenever another nontoken creature you control dies, put a 3/1 black and red Graveborn creature token with haste onto the battlefield.\n4/3"
+    IDS_STRING7032          "Wilderness Elemental\n{1RG}\nCreature - Elemental\nCSP,U\nTrample\rWilderness Elemental's power is equal to the number of nonbasic lands your opponents control.\n*/3"
+    IDS_STRING7033          "Perilous Research\n{1U}\nInstant\nCSP,U\nDraw two cards, then sacrifice a permanent."
+    IDS_STRING7034          "Soul Spike\n{5BB}\nInstant\nCSP,R\nYou may exile two black cards from your hand rather than pay Soul Spike's mana cost.\rSoul Spike deals 4 damage to target creature or player and you gain 4 life."
+    IDS_STRING7035          "Fury of the Horde\n{5RR}\nSorcery\nCSP,R\nYou may exile two red cards from your hand rather than pay Fury of the Horde's mana cost.\rUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING7036          "Sunscour\n{5WW}\nSorcery\nCSP,R\nYou may exile two white cards from your hand rather than pay Sunscour's mana cost.\rDestroy all creatures."
+    IDS_STRING7037          "Ursine Fylgja\n{4W}\nCreature - Spirit Bear\nCSP,U\nUrsine Fylgja enters the battlefield with four healing counters on it.\rRemove a healing counter from Ursine Fylgja: Prevent the next 1 damage that would be dealt to Ursine Fylgja this turn.\r{2W}: Put a healing counter on Ursine Fylgja.\n3/3"
+    IDS_STRING7038          "Aurochs Herd\n{5G}\nCreature - Aurochs\nCSP,C\nTrample\rWhen Aurochs Herd enters the battlefield, you may search your library for an Aurochs card, reveal it, and put it into your hand. If you do, shuffle your library.\rWhenever Aurochs Herd attacks, it gets +1/+0 until end of turn for each other attacking Aurochs.\n4/4"
+    IDS_STRING7039          "Bull Aurochs\n{1G}\nCreature - Aurochs\nCSP,C\nTrample\rWhenever Bull Aurochs attacks, it gets +1/+0 until end of turn for each other attacking Aurochs.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7040          "Lightning Serpent\n{XR}\nCreature - Elemental Serpent\nCSP,R\nTrample, haste\rLightning Serpent enters the battlefield with X +1/+0 counters on it.\rAt the beginning of the end step, sacrifice Lightning Serpent.\n2/1"
+    IDS_STRING7041          "Mishra's Bauble\n{0}\nArtifact\nCSP,U\n{T}, Sacrifice Mishra's Bauble: Look at the top card of target player's library. Draw a card at the beginning of the next turn's upkeep."
+    IDS_STRING7042          "Balduvian Rage\n{XR}\nInstant\nCSP,U\nTarget attacking creature gets +X/+0 until end of turn.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING7043          "Mystic Melting\n{3G}\nInstant\nCSP,U\nDestroy target artifact or enchantment.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING7044          "Swift Maneuver\n{1W}\nInstant\nCSP,C\nPrevent the next 2 damage that would be dealt to target creature or player this turn.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING7045          "Boreal Druid\n{G}\nSnow Creature - Elf Druid\nCSP,C\n{T}: Add {1} to your mana pool.\n1/1"
+    IDS_STRING7046          "Frostweb Spider\n{2G}\nSnow Creature - Spider\nCSP,C\nReach\rWhenever Frostweb Spider blocks a creature with flying, put a +1/+1 counter on Frostweb Spider at end of combat.\n1/3"
+    IDS_STRING7047          "Gutless Ghoul\n{2B}\nSnow Creature - Zombie\nCSP,C\n{1}, Sacrifice a creature: You gain 2 life.\n2/2"
+    IDS_STRING7048          "Karplusan Wolverine\n{R}\nSnow Creature - Wolverine Beast\nCSP,C\nWhenever Karplusan Wolverine becomes blocked, you may have it deal 1 damage to target creature or player.\n1/1"
+    IDS_STRING7049          "Ohran Viper\n{1GG}\nSnow Creature - Snake\nCSP,R\nWhenever Ohran Viper deals combat damage to a creature, destroy that creature at end of combat.\rWhenever Ohran Viper deals combat damage to a player, you may draw a card.\n1/3"
+    IDS_STRING7050          "Squall Drifter\n{1W}\nSnow Creature - Elemental\nCSP,C\nFlying\r{W}, {T}: Tap target creature.\n1/1"
+    IDS_STRING7051          "Chill to the Bone\n{3B}\nInstant\nCSP,C\nDestroy target nonsnow creature."
+    IDS_STRING7052          "Heidar, Rimewind Master\n{4U}\nLegendary Creature - Human Wizard\nCSP,R\n{2}, {T}: Return target permanent to its owner's hand. Activate this ability only if you control four or more snow permanents.\n3/3"
+    IDS_STRING7053          "Rimewind Taskmage\n{1U}\nCreature - Human Wizard\nCSP,C\n{1}, {T}: You may tap or untap target permanent. Activate this ability only if you control four or more snow permanents.\n1/2"
+    IDS_STRING7054          "Skred\n{R}\nInstant\nCSP,C\nSkred deals damage to target creature equal to the number of snow permanents you control."
+    IDS_STRING7055          "Thermal Flux\n{U}\nInstant\nCSP,C\nChoose one - Target nonsnow permanent becomes snow until end of turn; or target snow permanent isn't snow until end of turn.\rDraw a card at the beginning of the next turn's upkeep."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7056          "Into the North\n{1G}\nSorcery\nCSP,C\nSearch your library for a snow land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING7057          "Snow-Covered Forest\n\nBasic Snow Land - Forest\nCSP,C\n{T}: Add {G} to your mana pool."
+    IDS_STRING7058          "Snow-Covered Island\n\nBasic Snow Land - Island\nCSP,C\n{T}: Add {U} to your mana pool."
+    IDS_STRING7059          "Snow-Covered Mountain\n\nBasic Snow Land - Mountain\nCSP,C\n{T}: Add {R} to your mana pool."
+    IDS_STRING7060          "Snow-Covered Plains\n\nBasic Snow Land - Plains\nCSP,C\n{T}: Add {W} to your mana pool."
+    IDS_STRING7061          "Snow-Covered Swamp\n\nBasic Snow Land - Swamp\nCSP,C\n{T}: Add {B} to your mana pool."
+    IDS_STRING7062          "Frozen Solid\n{1UU}\nEnchantment - Aura\nCSP,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step.\rWhen enchanted creature is dealt damage, destroy it."
+    IDS_STRING7063          "Juniper Order Ranger\n{3GW}\nCreature - Human Knight\nCSP,U\nWhenever another creature enters the battlefield under your control, put a +1/+1 counter on that creature and a +1/+1 counter on Juniper Order Ranger.\n2/4"
+    IDS_STRING7064          "Ronom Serpent\n{5U}\nSnow Creature - Serpent\nCSP,C\nRonom Serpent can't attack unless defending player controls a snow land.\rWhen you control no snow lands, sacrifice Ronom Serpent.\n5/6"
+    IDS_STRING7065          "Zur the Enchanter\n{1WUB}\nLegendary Creature - Human Wizard\nCSP,R\nFlying\rWhenever Zur the Enchanter attacks, you may search your library for an enchantment card with converted mana cost 3 or less and put it onto the battlefield. If you do, shuffle your library.\n1/4"
+    IDS_STRING7066          "Garza's Assassin\n{BBB}\nCreature - Human Assassin\nCSP,R\nSacrifice Garza's Assassin: Destroy target nonblack creature.\rRecover-Pay half your life, rounded up.\n2/2"
+    IDS_STRING7067          "Controvert\n{2UU}\nInstant\nCSP,U\nCounter target spell.\rRecover {2UU}"
+    IDS_STRING7068          "Grim Harvest\n{1B}\nInstant\nCSP,C\nReturn target creature card from your graveyard to your hand.\rRecover {2B}"
+    IDS_STRING7069          "Krovikan Rot\n{2B}\nInstant\nCSP,U\nDestroy target creature with power 2 or less.\rRecover {1BB}"
+    IDS_STRING7070          "Resize\n{1G}\nInstant\nCSP,U\nTarget creature gets +3/+3 until end of turn.\rRecover {1G}"
+    IDS_STRING7071          "Sun's Bounty\n{1W}\nInstant\nCSP,C\nYou gain 4 life.\rRecover {1W}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7072          "Icefall\n{2RR}\nSorcery\nCSP,C\nDestroy target artifact or land.\rRecover {RR}"
+    IDS_STRING7073          "Dark Depths\n\nLegendary Snow Land\nCSP,R\nDark Depths enters the battlefield with ten ice counters on it.\r{3}: Remove an ice counter from Dark Depths.\rWhen Dark Depths has no ice counters on it, sacrifice it. If you do, put a legendary 20/20 black Avatar creature token with flying and ""This creature is indestructible"" named Marit Lage onto the battlefield."
+    IDS_STRING7074          "Counterbalance\n{UU}\nEnchantment\nCSP,U\nWhenever an opponent casts a spell, you may reveal the top card of your library. If you do, counter that spell if it has the same converted mana cost as the revealed card."
+    IDS_STRING7075          "Greater Stone Spirit\n{4RR}\nCreature - Elemental Spirit\nCSP,U\nGreater Stone Spirit can't be blocked by creatures with flying.\r{2R}: Until end of turn, target creature gets +0/+2 and gains ""{R}: This creature gets +1/+0 until end of turn.""\n4/4"
+    IDS_STRING7076          "Feast of Flesh\n{B}\nSorcery\nCSP,C\nFeast of Flesh deals X damage to target creature and you gain X life, where X is 1 plus the number of cards named Feast of Flesh in all graveyards."
+    IDS_STRING7077          "Kjeldoran War Cry\n{1W}\nInstant\nCSP,C\nCreatures you control get +X/+X until end of turn, where X is 1 plus the number of cards named Kjeldoran War Cry in all graveyards."
+    IDS_STRING7078          "Phobian Phantasm\n{1BB}\nCreature - Illusion\nCSP,U\nFlying, fear\rCumulative upkeep {B}\n3/3"
+    IDS_STRING7079          "Freyalise's Radiance\n{1G}\nEnchantment\nCSP,U\nCumulative upkeep {2}\rSnow permanents don't untap during their controllers' untap steps."
+    IDS_STRING7080          "Survivor of the Unseen\n{2U}\nCreature - Human Wizard\nCSP,C\nCumulative upkeep {2}\r{T}: Draw two cards, then put a card from your hand on top of your library.\n2/1"
+    IDS_STRING7081          "Deepfire Elemental\n{4BR}\nCreature - Elemental\nCSP,U\n{XX1}: Destroy target artifact or creature with converted mana cost X.\n4/4"
+    IDS_STRING7082          "Darien, King of Kjeldor\n{4WW}\nLegendary Creature - Human Soldier\nCSP,R\nWhenever you're dealt damage, you may put that many 1/1 white Soldier creature tokens onto the battlefield.\n3/3"
+    IDS_STRING7083          "Martyr of Sands\n{W}\nCreature - Human Cleric\nCSP,C\n{1}, Reveal X white cards from your hand, Sacrifice Martyr of Sands: You gain three times X life.\n1/1"
+    IDS_STRING7084          "Martyr of Ashes\n{R}\nCreature - Human Shaman\nCSP,C\n{2}, Reveal X red cards from your hand, Sacrifice Martyr of Ashes: Martyr of Ashes deals X damage to each creature without flying.\n1/1"
+    IDS_STRING7085          "Martyr of Spores\n{G}\nCreature - Human Shaman\nCSP,C\n{1}, Reveal X green cards from your hand, Sacrifice Martyr of Spores: Target creature gets +X/+X until end of turn.\n1/1"
+    IDS_STRING7086          "Phyrexian Soulgorger\n{3}\nSnow Artifact Creature - Construct\nCSP,R\nCumulative upkeep-Sacrifice a creature.\n8/8"
+    IDS_STRING7087          "Rimewind Cryomancer\n{3U}\nCreature - Human Wizard\nCSP,U\n{1}, {T}: Counter target activated ability. Activate this ability only if you control four or more snow permanents.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING7088          "Braid of Fire\n{1R}\nEnchantment\nCSP,R\nCumulative upkeep-Add {R} to your mana pool."
+    IDS_STRING7089          "Herald of Leshrac\n{6B}\nCreature - Avatar\nCSP,R\nFlying\rCumulative upkeep-Gain control of a land you don't control.\rHerald of Leshrac gets +1/+1 for each land you control but don't own.\rWhen Herald of Leshrac leaves the battlefield, each player gains control of each land he or she owns that you control.\n2/4"
+    IDS_STRING7090          "Jotun Grunt\n{1W}\nCreature - Giant Soldier\nCSP,U\nCumulative upkeep-Put two cards from a single graveyard on the bottom of their owner's library.\n4/4"
+    IDS_STRING7091          "Karplusan Minotaur\n{2RR}\nCreature - Minotaur Warrior\nCSP,R\nCumulative upkeep-Flip a coin.\rWhenever you win a coin flip, Karplusan Minotaur deals 1 damage to target creature or player.\rWhenever you lose a coin flip, Karplusan Minotaur deals 1 damage to target creature or player of an opponent's choice.\n3/3"
+    IDS_STRING7092          "Kjeldoran Javelineer\n{W}\nCreature - Human Soldier\nCSP,C\nCumulative upkeep {1}\r{T}: Kjeldoran Javelineer deals damage equal to the number of age counters on it to target attacking or blocking creature.\n1/2"
+    IDS_STRING7093          "Ronom Hulk\n{4G}\nCreature - Beast\nCSP,C\nProtection from snow\rCumulative upkeep {1}\n5/6"
+    IDS_STRING7094          "Sheltering Ancient\n{1G}\nCreature - Treefolk\nCSP,U\nTrample\rCumulative upkeep-Put a +1/+1 counter on a creature an opponent controls.\n5/5"
+    IDS_STRING7095          "Wall of Shards\n{1W}\nSnow Creature - Wall\nCSP,U\nDefender, flying\rCumulative upkeep-An opponent gains 1 life.\n1/8"
+    IDS_STRING7096          "Coldsteel Heart\n{2}\nSnow Artifact\nCSP,U\nColdsteel Heart enters the battlefield tapped.\rAs Coldsteel Heart enters the battlefield, choose a color.\r{T}: Add one mana of the chosen color to your mana pool."
+    IDS_STRING7097          "Rune Snag\n{1U}\nInstant\nCSP,C\nCounter target spell unless its controller pays {2} plus an additional {2} for each card named Rune Snag in each graveyard."
+    IDS_STRING7098          "Arcum Dagsson\n{3U}\nLegendary Creature - Human Artificer\nCSP,R\n{T}: Target artifact creature's controller sacrifices it. That player may search his or her library for a noncreature artifact card, put it onto the battlefield, then shuffle his or her library.\n2/2"
+    IDS_STRING7099          "Vexing Sphinx\n{1UU}\nCreature - Sphinx\nCSP,R\nFlying\rCumulative upkeep-Discard a card.\rWhen Vexing Sphinx dies, draw a card for each age counter on it.\n4/4"
+    IDS_STRING7100          "Phyrexian Etchings\n{BBB}\nEnchantment\nCSP,R\nCumulative upkeep {B}\rAt the beginning of your end step, draw a card for each age counter on Phyrexian Etchings.\rWhen Phyrexian Etchings is put into a graveyard from the battlefield, you lose 2 life for each age counter on it."
+    IDS_STRING7101          "Balduvian Frostwaker\n{2U}\nCreature - Human Wizard\nCSP,U\n{U}, {T}: Target snow land becomes a 2/2 blue Elemental creature with flying. It's still a land.\n1/1"
+    IDS_STRING7102          "Blizzard Specter\n{2UB}\nSnow Creature - Specter\nCSP,U\nFlying\rWhenever Blizzard Specter deals combat damage to a player, choose one - That player returns a permanent he or she controls to its owner's hand; or that player discards a card.\n2/3"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

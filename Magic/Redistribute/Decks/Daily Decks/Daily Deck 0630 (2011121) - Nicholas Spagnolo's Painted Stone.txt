@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Creatures - 10 (16.67%)
+
+4 Goblin Welder (11321)
+4 Painter's Servant (18720)
+2 Trinket Mage (21432)
+
+// Instants - 14 (23.33%)
+
+4 Brainstorm (11610)
+4 Force of Will (6759)
+4 Intuition (10275)
+2 Pyroblast (8214)
+
+// Artifacts - 14 (23.33%)
+
+4 Grindstone (10278)
+3 Lion's Eye Diamond (9350)
+3 Mox Opal (21434)
+4 Sensei's Divining Top (15640)
+
+// Lands - 22 (36.67%)
+
+3 Ancient Tomb (10159)
+2 City of Traitors (10631)
+Flooded Strand (14001)
+3 Great Furnace (14929)
+Island (21404)
+4 Scalding Tarn (19358)
+4 Seat of the Synod (14930)
+4 Volcanic Island (7393)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Emrakul, the Aeons Torn (20937)
+
+// Instants
+
+2 Pyroblast (8214)
+2 Red Elemental Blast (7781)
+
+// Sorceries
+
+4 Show and Tell (11066)
+
+// Artifacts
+
+Nihil Spellbomb (21540)
+2 Tormod's Crypt (17265)

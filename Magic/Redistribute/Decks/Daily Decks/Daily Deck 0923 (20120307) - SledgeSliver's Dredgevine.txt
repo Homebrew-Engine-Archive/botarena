@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+4 Birds of Paradise (22236)
+Elesh Norn, Grand Cenobite (21901)
+2 Gravecrawler (23603)
+4 Hedron Crab (19372)
+4 Lotus Cobra (19389)
+2 Skaab Ruinator (23391)
+4 Stinkweed Imp (16594)
+4 Vengevine (20939)
+
+// Instants - 3 (5.00%)
+
+2 Darkblast (16596)
+Gnaw to the Bone (23488)
+
+// Sorceries - 10 (16.67%)
+
+4 Faithless Looting (23600)
+3 Ideas Unbound (16315)
+2 Life from the Loam (16597)
+Unburial Rites (23399)
+
+// Lands - 22 (36.67%)
+
+Blood Crypt (23839)
+Breeding Pool (23840)
+Forest (23321)
+Hallowed Fountain (23841)
+Island (23324)
+4 Misty Rainforest (19356)
+Overgrown Tomb (16445)
+3 Scalding Tarn (19358)
+Steam Vents (16809)
+Stomping Ground (16810)
+Swamp (23333)
+Temple Garden (16447)
+4 Verdant Catacombs (19359)
+Watery Grave (16448)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Empyrial Archangel (8565)
+Iona, Shield of Emeria (19468)
+Terastodon (19715)
+4 Thalia, Guardian of Thraben (23616)
+
+// Instants
+
+3 Ancient Grudge (23468)
+Gnaw to the Bone (23488)
+2 Nature's Claim (19662)
+
+// Sorceries
+
+2 Unburial Rites (23399)

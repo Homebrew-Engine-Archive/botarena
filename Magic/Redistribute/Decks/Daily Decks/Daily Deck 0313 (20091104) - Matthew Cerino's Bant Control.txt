@@ -1,0 +1,63 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 3 (4.92%)
+
+3 Elspeth, Knight-Errant (8722)
+
+// Creatures - 20 (32.79%)
+
+4 Baneslayer Angel (4224)
+4 Noble Hierarch (8819)
+3 Rafiq of the Many (8689)
+4 Rhox War Monk (8694)
+2 Sphinx of Jwar Isle (19378)
+3 Wall of Reverence (8923)
+
+// Instants - 11 (18.03%)
+
+3 Bant Charm (8536)
+4 Negate (4016)
+4 Path to Exile (8897)
+
+// Sorceries - 3 (4.92%)
+
+3 Mind Spring (4004)
+
+// Lands - 24 (39.34%)
+
+Forest (19302)
+Forest (19300)
+Forest (19301)
+Forest (19303)
+4 Glacial Fortress (4200)
+Island (19308)
+Island (19309)
+Island (19310)
+Island (19311)
+4 Misty Rainforest (19356)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Plains (19327)
+4 Sunpetal Grove (4202)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Sphinx of Jwar Isle (19378)
+
+// Instants
+
+4 Celestial Purge (4014)
+
+// Sorceries
+
+4 Day of Judgment (19340)
+
+// Enchantments
+
+3 Luminarch Ascension (19527)
+3 Oblivion Ring (8718)

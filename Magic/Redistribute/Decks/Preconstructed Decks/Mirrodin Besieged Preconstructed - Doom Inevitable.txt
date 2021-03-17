@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Creatures - 17 (28.33%)
+
+Armored Cancrix (21270)
+Barony Vampire (21175)
+Caustic Hound (21819)
+2 Fume Spitter (21574)
+2 Myr Sire (21809)
+3 Oculus (21786)
+2 Phyrexian Rager (21715)
+2 Pierce Strider (21701)
+Psychosis Crawler (21760)
+Skinrender (21525)
+Vedalken Anatomist (21738)
+
+// Instants - 3 (5.00%)
+
+Doom Blade (21198)
+Steady Progress (21455)
+Steel Sabotage (21729)
+
+// Sorceries - 5 (8.33%)
+
+Disentomb (21279)
+Horrifying Revelation (21831)
+Spread the Sickness (21839)
+2 Vivisection (21744)
+
+// Enchantments - 1 (1.67%)
+
+Mind Control (21166)
+
+// Artifacts - 9 (15.00%)
+
+Bonehoard (21764)
+2 Contagion Clasp (21430)
+Flayer Husk (21763)
+2 Skinwing (21782)
+Strandwalker (21832)
+2 Trigon of Corruption (21552)
+
+// Lands - 25 (41.67%)
+
+6 Island (21771)
+7 Island (21770)
+6 Swamp (21777)
+6 Swamp (21776)

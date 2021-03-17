@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CardRiseOfTheEldrazi.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CardRiseOfTheEldrazi.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RiseOfTheEldrazi.ico" />
+    <None Include="RiseOfTheEldraziLarge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RiseOfTheEldrazi.rc" />
+  </ItemGroup>
+</Project>

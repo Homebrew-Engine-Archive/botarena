@@ -1,0 +1,54 @@
+// Cinder Heart
+// Battle Royale
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 10 (25.00%)
+
+Abyssal Specter (560)
+Cackling Fiend (10905)
+Crazed Skirge (10909)
+Fire Ants (10918)
+Lightning Elemental (10059)
+Nekrataal (9618)
+Phyrexian Ghoul (10927)
+Sengir Vampire (1189)
+Sewer Rats (9310)
+Wall of Heat (5391)
+
+// Instants - 3 (7.50%)
+
+Dark Ritual (8058)
+Heat Ray (10996)
+Terror (1244)
+
+// Sorceries - 6 (15.00%)
+
+Exhume (11065)
+Living Death (10207)
+Reanimate (10269)
+Rolling Thunder (10198)
+Syphon Soul (14062)
+Unnerve (11037)
+
+// Enchantments - 4 (10.00%)
+
+Pestilence (10866)
+Sadistic Glee (10226)
+Subversion (11305)
+Weakness (8291)
+
+// Lands - 17 (42.50%)
+
+Cinder Marsh (10259)
+2 Mountain (10065)
+2 Mountain (10066)
+2 Mountain (10064)
+Mountain (10067)
+Polluted Mire (10958)
+2 Swamp (10883)
+2 Swamp (10884)
+2 Swamp (10885)
+2 Swamp (10886)

@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Ajani's Pridemate (21138)
+4 Ethersworn Canonist (8728)
+4 Figure of Destiny (19006)
+3 Mirran Crusader (21703)
+4 Serra Avenger (17461)
+4 Soul Warden (4103)
+
+// Instants - 6 (10.00%)
+
+Apostle's Blessing (22014)
+3 Brave the Elements (19448)
+Fling (21202)
+Lapse of Certainty (8859)
+
+// Enchantments - 1 (1.67%)
+
+Oblivion Ring (8718)
+
+// Artifacts - 7 (11.67%)
+
+3 Mask of Memory (15022)
+4 AEther Vial (15278)
+
+// Lands - 23 (38.33%)
+
+2 Arid Mesa (19349)
+2 Battlefield Forge (3012)
+Mountain (21976)
+7 Plains (21978)
+7 Plains (21979)
+4 Sacred Foundry (16446)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Baneslayer Angel (21125)
+3 Kataki, War's Wage (16284)
+2 Ranger of Eos (8642)
+
+// Instants
+
+Fling (21202)
+Lapse of Certainty (8859)
+Mana Tithe (2509)
+
+// Enchantments
+
+Oblivion Ring (8718)
+
+// Artifacts
+
+3 Manriki-Gusari (16242)

@@ -1,0 +1,45 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Bala Ged Thief (19477)
+Blood Seeker (19446)
+3 Gatekeeper of Malakir (19442)
+Guul Draz Vampire (19460)
+Hagra Crocodile (19411)
+Hagra Diabolist (19464)
+Kor Skyfisher (19368)
+Makindi Shieldmate (19478)
+2 Nimana Sell-Sword (19482)
+Ondu Cleric (19483)
+Stonework Puma (19431)
+Vampire Hexmage (19536)
+
+// Instants - 5 (12.50%)
+
+Arrow Volley Trap (19440)
+Disfigure (19379)
+Hideous End (19343)
+2 Pitfall Trap (19486)
+
+// Sorceries - 1 (2.50%)
+
+Day of Judgment (19340)
+
+// Enchantments - 1 (2.50%)
+
+Soul Stair Expedition (19518)
+
+// Lands - 18 (45.00%)
+
+Kabira Crossroads (19401)
+2 Plains (19324)
+2 Plains (19325)
+Plains (19326)
+Plains (19327)
+3 Swamp (19332)
+3 Swamp (19333)
+3 Swamp (19334)
+2 Swamp (19335)

@@ -1,0 +1,47 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Blight Mamba (21475)
+4 Glistener Elf (21962)
+4 Ichorclaw Myr (21444)
+4 Lost Leonin (21925)
+4 Necropede (21555)
+
+// Instants - 20 (33.33%)
+
+Apostle's Blessing (22014)
+4 Emerge Unscathed (20987)
+3 Giant Growth (21135)
+4 Groundswell (19694)
+4 Mutagenic Growth (21964)
+4 Vines of Vastwood (19435)
+
+// Lands - 20 (33.33%)
+
+5 Forest (21973)
+5 Forest (21972)
+3 Plains (21978)
+3 Plains (21979)
+4 Razorverge Thicket (21472)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Corpse Cur (21519)
+3 Putrefax (21476)
+
+// Instants
+
+4 Unnatural Predation (21810)
+
+// Sorceries
+
+2 Tezzeret's Gambit (21915)
+
+// Enchantments
+
+4 Canopy Cover (19679)

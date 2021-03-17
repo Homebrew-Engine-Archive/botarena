@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 12 (20.00%)
+
+4 Keldon Marauders (2555)
+4 Mogg Fanatic (3254)
+4 Spark Elemental (3272)
+
+// Instants - 15 (25.00%)
+
+3 Flames of the Blood Hand (19199)
+4 Incinerate (3226)
+4 Magma Jet (15500)
+4 Shrapnel Blast (14976)
+
+// Sorceries - 8 (13.33%)
+
+4 Lava Spike (15635)
+4 Rift Bolt (17490)
+
+// Enchantments - 4 (6.67%)
+
+4 Sulfuric Vortex (14696)
+
+// Lands - 21 (35.00%)
+
+4 Blinkmoth Nexus (15249)
+Darksteel Citadel (15282)
+4 Great Furnace (14929)
+3 Mountain (18516)
+3 Mountain (18514)
+3 Mountain (18515)
+3 Mountain (18513)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+4 Smash to Smithereens (18525)
+
+// Sorceries
+
+3 Firespout (18674)
+
+// Enchantments
+
+4 Pyrostatic Pillar (14646)
+
+// Artifacts
+
+4 Ensnaring Bridge (1540)

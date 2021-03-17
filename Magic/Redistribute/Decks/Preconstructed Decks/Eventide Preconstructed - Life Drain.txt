@@ -1,0 +1,45 @@
+// Life Drain
+// Eventide Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+2 Apothecary Initiate (18526)
+Archon of Justice (18904)
+Divinity of Pride (18985)
+Flickerwisp (19026)
+Goldenglow Moth (18546)
+2 Gwyllion Hedge-Mage (18977)
+2 Kithkin Zealot (19033)
+3 Nip Gwyllion (18946)
+Resplendent Mentor (18613)
+Restless Apparition (18953)
+2 Safehold Sentry (18688)
+2 Smolder Initiate (18578)
+Soul Snuffers (18954)
+Suture Spirit (18926)
+2 Voracious Hatchling (18991)
+Woeleecher (18678)
+
+// Instants - 5 (8.33%)
+
+Batwing Brume (19025)
+Beckon Apparition (18962)
+Endure (19031)
+2 Unmake (18930)
+
+// Sorceries - 5 (8.33%)
+
+Rite of Consumption (18697)
+2 Soul Reap (19032)
+2 Syphon Life (18969)
+
+// Enchantments - 2 (3.33%)
+
+2 Recumbent Bliss (18920)
+
+// Lands - 24 (40.00%)
+
+14 Plains (18518)
+10 Swamp (18521)

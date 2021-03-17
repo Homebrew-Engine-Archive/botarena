@@ -1,0 +1,49 @@
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 13 (31.71%)
+
+Anowon, the Ruin Sage (19655)
+Baloth Woodcrasher (19364)
+2 Calcite Snapper (19689)
+Coral Merfolk (4026)
+Frontier Guide (19386)
+Goliath Sphinx (19631)
+Hedron Rover (19618)
+Living Tsunami (19375)
+Merfolk Wayfinder (19498)
+Territorial Baloth (19433)
+Tideforce Elemental (19652)
+Walking Atlas (19636)
+
+// Instants - 2 (4.88%)
+
+Mysteries of the Deep (19695)
+AEther Tradewinds (19690)
+
+// Sorceries - 2 (4.88%)
+
+2 Treasure Hunt (19673)
+
+// Enchantments - 5 (12.20%)
+
+2 Paralyzing Grasp (19420)
+Telepathy (4109)
+2 Wind Zendikon (19686)
+
+// Artifacts - 1 (2.44%)
+
+Seer's Sundial (19649)
+
+// Lands - 18 (43.90%)
+
+2 Forest (19305)
+2 Forest (19306)
+2 Forest (19307)
+2 Forest (19304)
+2 Halimar Depths (19634)
+2 Island (19314)
+2 Island (19315)
+2 Island (19312)
+2 Island (19313)

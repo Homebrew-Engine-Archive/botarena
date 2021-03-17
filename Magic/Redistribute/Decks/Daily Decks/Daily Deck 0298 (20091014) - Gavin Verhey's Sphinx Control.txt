@@ -1,0 +1,66 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 7 (11.48%)
+
+3 Chandra Nalaar (4209)
+4 Jace Beleren (4210)
+
+// Creatures - 3 (4.92%)
+
+3 Sphinx of Lost Truths (19508)
+
+// Instants - 9 (14.75%)
+
+4 Lightning Bolt (4060)
+3 Negate (4016)
+2 Terminate (9001)
+
+// Sorceries - 11 (18.03%)
+
+3 Cruel Ultimatum (8707)
+4 Pyroclasm (4089)
+4 Wretched Banquet (8918)
+
+// Artifacts - 4 (6.56%)
+
+4 Courier's Capsule (8550)
+
+// Lands - 27 (44.26%)
+
+4 Crumbling Necropolis (8553)
+Dragonskull Summit (4198)
+4 Drowned Catacomb (4199)
+Island (19308)
+Island (19309)
+Island (19310)
+Island (19311)
+Magosi, the Waterveil (19513)
+2 Mountain (19316)
+Mountain (19317)
+Mountain (19318)
+Mountain (19319)
+4 Scalding Tarn (19358)
+Swamp (19332)
+Swamp (19333)
+Swamp (19334)
+Swamp (19335)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Liliana Vess (4215)
+
+// Instants
+
+4 Countersquall (8890)
+3 Essence Scatter (4143)
+2 Haunting Echoes (4216)
+Negate (4016)
+2 Terminate (9001)
+
+// Lands
+
+Magosi, the Waterveil (19513)

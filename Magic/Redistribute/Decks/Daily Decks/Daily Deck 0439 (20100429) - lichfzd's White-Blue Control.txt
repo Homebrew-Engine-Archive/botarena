@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 6 (10.00%)
+
+2 Calcite Snapper (19689)
+Sphinx of Jwar Isle (19378)
+3 Sphinx of Lost Truths (19508)
+
+// Instants - 7 (11.67%)
+
+3 Cancel (19346)
+2 Into the Roil (19373)
+2 Spell Pierce (19377)
+
+// Sorceries - 8 (13.33%)
+
+4 Day of Judgment (19340)
+Rite of Replication (19541)
+3 Treasure Hunt (19673)
+
+// Enchantments - 6 (10.00%)
+
+4 Journey to Nowhere (19524)
+2 Spreading Seas (19430)
+
+// Artifacts - 3 (5.00%)
+
+3 Everflowing Chalice (19677)
+
+// Lands - 26 (43.33%)
+
+4 Celestial Colonnade (19602)
+3 Halimar Depths (19634)
+Island (19308)
+Island (19309)
+Island (19310)
+Island (19311)
+2 Marsh Flats (19357)
+Plains (19326)
+Plains (19325)
+Plains (19324)
+3 Scalding Tarn (19358)
+4 Sejiri Refuge (19400)
+3 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Devout Lightcaster (19360)
+4 Hedron Crab (19372)
+
+// Instants
+
+4 Archive Trap (19529)
+Cancel (19346)
+3 Pitfall Trap (19486)

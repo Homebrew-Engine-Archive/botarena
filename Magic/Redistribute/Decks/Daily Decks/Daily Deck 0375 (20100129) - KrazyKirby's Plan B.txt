@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Birds of Paradise (4020)
+4 Hedron Crab (19372)
+4 Knight of the Reliquary (8815)
+2 Noble Hierarch (8819)
+4 Ranger of Eos (8642)
+3 Wall of Reverence (8923)
+
+// Instants - 11 (18.33%)
+
+4 Archive Trap (19529)
+4 Path to Exile (8897)
+3 Trapmaker's Snare (19515)
+
+// Sorceries - 4 (6.67%)
+
+4 Gift of the Gargantuan (8708)
+
+// Lands - 24 (40.00%)
+
+Forest (19300)
+Forest (19301)
+Forest (19303)
+Forest (19302)
+Island (19309)
+Island (19310)
+Island (19311)
+Island (19308)
+2 Marsh Flats (19357)
+4 Misty Rainforest (19356)
+Plains (19326)
+Plains (19325)
+Plains (19324)
+Scalding Tarn (19358)
+4 Terramorphic Expanse (4111)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Great Sable Stag (4013)
+4 Rhox War Monk (8694)
+
+// Instants
+
+3 Negate (4016)
+
+// Enchantments
+
+4 Spreading Seas (19430)

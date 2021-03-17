@@ -1,0 +1,57 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+2 Cloudthresher (18015)
+3 Kitchen Finks (18593)
+3 Loxodon Hierarch (16606)
+
+// Instants - 7 (11.67%)
+
+4 Gilded Light (14630)
+3 Lightning Helix (16450)
+
+// Sorceries - 11 (18.33%)
+
+4 Edge of Autumn (17718)
+3 Life from the Loam (16597)
+4 Slice and Dice (14169)
+
+// Enchantments - 7 (11.67%)
+
+4 Astral Slide (14184)
+3 Lightning Rift (14183)
+
+// Lands - 27 (45.00%)
+
+Flagstones of Trokair (17278)
+3 Forgotten Cave (14128)
+Ghost Quarter (23829)
+2 Sacred Foundry (16446)
+4 Secluded Steppe (14134)
+3 Snow-Covered Forest (7057)
+Snow-Covered Mountain (7059)
+2 Snow-Covered Plains (7060)
+Stomping Ground (16810)
+Temple Garden (16447)
+4 Tranquil Thicket (14135)
+2 Windswept Heath (14003)
+2 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Duergar Hedge-Mage (18973)
+
+// Instants
+
+3 Ancient Grudge (17272)
+3 Boil (1515)
+4 Condemn (3291)
+
+// Sorceries
+
+2 Plow Under (1790)

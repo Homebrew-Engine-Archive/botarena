@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+2 Jenara, Asura of War (9011)
+3 Meddling Mage (9016)
+4 Noble Hierarch (8819)
+4 Rhox War Monk (8694)
+Sower of Temptation (18074)
+4 Tarmogoyf (17704)
+
+// Instants - 22 (36.67%)
+
+2 Bant Charm (8536)
+4 Brainstorm (11610)
+3 Counterspell (760)
+4 Daze (12089)
+2 Disrupt (12506)
+4 Force of Will (6759)
+3 Swords to Plowshares (6372)
+
+// Artifacts - 2 (3.33%)
+
+2 Umezawa's Jitte (19149)
+
+// Lands - 18 (30.00%)
+
+2 Breeding Pool (23840)
+4 Flooded Strand (14001)
+Forest (8509)
+Island (8514)
+Plains (8523)
+2 Savannah (7353)
+3 Tundra (7386)
+4 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Ethersworn Canonist (8728)
+3 Qasali Pridemage (9018)
+Sower of Temptation (18074)
+
+// Instants
+
+Swords to Plowshares (6372)
+
+// Enchantments
+
+3 Compost (1018)
+
+// Artifacts
+
+2 Engineered Explosives (15510)
+2 Pithing Needle (3301)

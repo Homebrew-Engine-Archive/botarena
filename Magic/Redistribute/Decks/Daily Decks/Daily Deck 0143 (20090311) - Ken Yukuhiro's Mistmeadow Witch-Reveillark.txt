@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Bloom Tender (19021)
+3 Glen Elendra Archmage (18938)
+4 Mistmeadow Witch (18680)
+4 Mulldrifter (18023)
+4 Reveillark (18341)
+2 Seedborn Muse (3150)
+2 Sower of Temptation (18074)
+
+// Instants - 9 (15.00%)
+
+3 Condemn (3291)
+4 Cryptic Command (18051)
+2 Remove Soul (3139)
+
+// Artifacts - 4 (6.67%)
+
+4 Mind Stone (3242)
+
+// Lands - 24 (40.00%)
+
+2 Adarkar Wastes (3002)
+Brushland (3020)
+2 Flooded Grove (18914)
+Forest (8509)
+Island (8514)
+Island (8515)
+Island (8516)
+3 Mystic Gate (18564)
+4 Reflecting Pool (18571)
+4 Seaside Citadel (8618)
+2 Vivid Creek (18032)
+Wooded Bastion (18577)
+Yavimaya Coast (3202)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Glen Elendra Archmage (18938)
+4 Wall of Reverence (8923)
+
+// Instants
+
+3 Celestial Purge (8801)
+3 Guttural Response (18548)
+
+// Sorceries
+
+4 Wrath of God (3200)

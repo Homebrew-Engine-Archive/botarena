@@ -1,0 +1,218 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Prophecy.ico"
+IDI_LARGE_MODULE        ICON                    "ProphecyLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Prophecy"
+    IDS_EXPANSION_ABBREV    "PCY"
+    IDS_FIRST_CARD          "12200"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "12343"
+    IDS_MODULE_LARGE_ICON_ID "12344"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "05-06-2000"
+    IDS_MWS_FOLDER          "MWS\\PCY\\"
+    IDS_PRODUCT_LIST        """Prophecy Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12200         "Alexi's Cloak\n{1U}\nEnchantment - Aura\nPCY,C\nFlash\rEnchant creature\rEnchanted creature has shroud."
+    IDS_STRING12201         "Vitalizing Wind\n{8G}\nInstant\nPCY,R\nCreatures you control get +7/+7 until end of turn."
+    IDS_STRING12202         "Avatar of Hope\n{6WW}\nCreature - Avatar\nPCY,R\nIf you have 3 or less life, Avatar of Hope costs {6} less to cast.\rFlying\rAvatar of Hope can block any number of creatures.\n4/9"
+    IDS_STRING12203         "Coastal Hornclaw\n{4U}\nCreature - Bird\nPCY,C\nSacrifice a land: Coastal Hornclaw gains flying until end of turn.\n3/3"
+    IDS_STRING12204         "Diving Griffin\n{1WW}\nCreature - Griffin\nPCY,C\nFlying, vigilance\n2/2"
+    IDS_STRING12205         "Lesser Gargadon\n{2RR}\nCreature - Beast\nPCY,U\nWhenever Lesser Gargadon attacks or blocks, sacrifice a land.\n6/4"
+    IDS_STRING12206         "Living Terrain\n{2GG}\nEnchantment - Aura\nPCY,U\nEnchant land\rEnchanted land is a 5/6 green Treefolk creature that's still a land."
+    IDS_STRING12207         "Panic Attack\n{2R}\nSorcery\nPCY,C\nUp to three target creatures can't block this turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12208         "Plague Wind\n{7BB}\nSorcery\nPCY,R\nDestroy all creatures you don't control. They can't be regenerated."
+    IDS_STRING12209         "Ridgeline Rager\n{2R}\nCreature - Beast\nPCY,C\n{R}: Ridgeline Rager gets +1/+0 until end of turn.\n1/2"
+    IDS_STRING12210         "Searing Wind\n{8R}\nInstant\nPCY,R\nSearing Wind deals 10 damage to target creature or player."
+    IDS_STRING12211         "Spiketail Hatchling\n{1U}\nCreature - Drake\nPCY,C\nFlying\rSacrifice Spiketail Hatchling: Counter target spell unless its controller pays {1}.\n1/1"
+    IDS_STRING12212         "Spitting Spider\n{3GG}\nCreature - Spider\nPCY,U\nReach\rSacrifice a land: Spitting Spider deals 1 damage to each creature with flying.\n3/5"
+    IDS_STRING12213         "Sword Dancer\n{1W}\nCreature - Human Rebel\nPCY,U\n{WW}: Target attacking creature gets -1/-0 until end of turn.\n1/2"
+    IDS_STRING12214         "Whip Sergeant\n{2R}\nCreature - Human Soldier\nPCY,U\n{R}: Target creature gains haste until end of turn.\n2/1"
+    IDS_STRING12215         "Avatar of Woe\n{6BB}\nCreature - Avatar\nPCY,R\nFear\rIf there are ten or more creature cards total in all graveyards, Avatar of Woe costs {6} less to cast.\r{T}: Destroy target creature. It can't be regenerated.\n6/5"
+    IDS_STRING12216         "Agent of Shauku\n{1B}\nCreature - Human Mercenary\nPCY,C\n{1B}, Sacrifice a land: Target creature gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING12217         "Alexi, Zephyr Mage\n{3UU}\nLegendary Creature - Human Spellshaper\nPCY,R\n{XU}, {T}, Discard two cards: Return X target creatures to their owners' hands.\n3/3"
+    IDS_STRING12218         "Avatar of Fury\n{6RR}\nCreature - Avatar\nPCY,R\nIf an opponent controls seven or more lands, Avatar of Fury costs {6} less to cast.\rFlying\r{R}: Avatar of Fury gets +1/+0 until end of turn.\n6/6"
+    IDS_STRING12219         "Avatar of Might\n{6GG}\nCreature - Avatar\nPCY,R\nIf an opponent controls at least four more creatures than you, Avatar of Might costs {6} less to cast.\rTrample\n8/8"
+    IDS_STRING12220         "Avatar of Will\n{6UU}\nCreature - Avatar\nPCY,R\nIf an opponent has no cards in hand, Avatar of Will costs {6} less to cast.\rFlying\n5/6"
+    IDS_STRING12221         "Bog Elemental\n{3BB}\nCreature - Elemental\nPCY,R\nProtection from white\rAt the beginning of your upkeep, sacrifice Bog Elemental unless you sacrifice a land.\n5/4"
+    IDS_STRING12222         "Bog Glider\n{2B}\nCreature - Human Mercenary\nPCY,C\nFlying\r{T}, Sacrifice a land: Search your library for a Mercenary permanent card with converted mana cost 2 or less and put it onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING12223         "Chilling Apparition\n{2B}\nCreature - Spirit\nPCY,U\n{B}: Regenerate Chilling Apparition.\rWhenever Chilling Apparition deals combat damage to a player, that player discards a card.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12224         "Coffin Puppets\n{3BB}\nCreature - Zombie\nPCY,R\nSacrifice two lands: Return Coffin Puppets from your graveyard to the battlefield. Activate this ability only during your upkeep and only if you control a Swamp.\n3/3"
+    IDS_STRING12225         "Darba\n{3G}\nCreature - Bird Beast\nPCY,U\nAt the beginning of your upkeep, sacrifice Darba unless you pay {GG}.\n5/4"
+    IDS_STRING12226         "Fault Riders\n{2R}\nCreature - Human Soldier\nPCY,C\nSacrifice a land: Fault Riders gets +2/+0 and gains first strike until end of turn. Activate this ability only once each turn.\n2/2"
+    IDS_STRING12227         "Greel, Mind Raker\n{3BB}\nLegendary Creature - Horror Spellshaper\nPCY,R\n{XB}, {T}, Discard two cards: Target player discards X cards at random.\n3/3"
+    IDS_STRING12228         "Keldon Arsonist\n{2R}\nCreature - Human Soldier\nPCY,U\n{1}, Sacrifice two lands: Destroy target land.\n1/1"
+    IDS_STRING12229         "Latulla, Keldon Overseer\n{3RR}\nLegendary Creature - Human Spellshaper\nPCY,R\n{XR}, {T}, Discard two cards: Latulla, Keldon Overseer deals X damage to target creature or player.\n3/3"
+    IDS_STRING12230         "Mageta the Lion\n{3WW}\nLegendary Creature - Human Spellshaper\nPCY,R\n{2WW}, {T}, Discard two cards: Destroy all creatures except for Mageta the Lion. Those creatures can't be regenerated.\n3/3"
+    IDS_STRING12231         "Marsh Boa\n{G}\nCreature - Snake\nPCY,C\nSwampwalk\n1/1"
+    IDS_STRING12232         "Mercenary Informer\n{2W}\nCreature - Human Rebel Mercenary\nPCY,R\nMercenary Informer can't be the target of black spells or abilities from black sources.\r{2W}: Put target nontoken Mercenary on the bottom of its owner's library.\n2/1"
+    IDS_STRING12233         "Mine Bearer\n{2W}\nCreature - Human Soldier\nPCY,C\n{T}, Sacrifice Mine Bearer: Destroy target attacking creature.\n1/1"
+    IDS_STRING12234         "Pit Raptor\n{2BB}\nCreature - Bird Mercenary\nPCY,U\nFlying, first strike\rAt the beginning of your upkeep, sacrifice Pit Raptor unless you pay {2BB}.\n4/3"
+    IDS_STRING12235         "Pygmy Razorback\n{1G}\nCreature - Boar\nPCY,C\nTrample\n2/1"
+    IDS_STRING12236         "Rebel Informer\n{2B}\nCreature - Human Mercenary Rebel\nPCY,R\nRebel Informer can't be the target of white spells or abilities from white sources.\r{3}: Put target nontoken Rebel on the bottom of its owner's library.\n1/2"
+    IDS_STRING12237         "Rib Cage Spider\n{2G}\nCreature - Spider\nPCY,C\nReach\n1/4"
+    IDS_STRING12238         "Silt Crawler\n{2G}\nCreature - Beast\nPCY,C\nWhen Silt Crawler enters the battlefield, tap all lands you control.\n3/3"
+    IDS_STRING12239         "Spiketail Drake\n{3UU}\nCreature - Drake\nPCY,U\nFlying\rSacrifice Spiketail Drake: Counter target spell unless its controller pays {3}.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12240         "Spore Frog\n{G}\nCreature - Frog\nPCY,C\nSacrifice Spore Frog: Prevent all combat damage that would be dealt this turn.\n1/1"
+    IDS_STRING12241         "Squirrel Wrangler\n{2GG}\nCreature - Human Druid\nPCY,R\n{1G}, Sacrifice a land: Put two 1/1 green Squirrel creature tokens onto the battlefield.\r{1G}, Sacrifice a land: Squirrel creatures get +1/+1 until end of turn.\n2/2"
+    IDS_STRING12242         "Stormwatch Eagle\n{3U}\nCreature - Bird\nPCY,C\nFlying\rSacrifice a land: Return Stormwatch Eagle to its owner's hand.\n2/1"
+    IDS_STRING12243         "Thresher Beast\n{3GG}\nCreature - Beast\nPCY,C\nWhenever Thresher Beast becomes blocked, defending player sacrifices a land.\n4/4"
+    IDS_STRING12244         "Trenching Steed\n{3W}\nCreature - Horse Rebel\nPCY,C\nSacrifice a land: Trenching Steed gets +0/+3 until end of turn.\n2/3"
+    IDS_STRING12245         "Troubled Healer\n{2W}\nCreature - Human Cleric\nPCY,C\nSacrifice a land: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n1/2"
+    IDS_STRING12246         "Troublesome Spirit\n{2UU}\nCreature - Spirit\nPCY,R\nFlying\rAt the beginning of your end step, tap all lands you control.\n3/4"
+    IDS_STRING12247         "Whipstitched Zombie\n{1B}\nCreature - Zombie\nPCY,C\nAt the beginning of your upkeep, sacrifice Whipstitched Zombie unless you pay {B}.\n2/2"
+    IDS_STRING12248         "Windscouter\n{3U}\nCreature - Human Scout\nPCY,U\nFlying\rWhenever Windscouter attacks or blocks, return it to its owner's hand at end of combat.\n3/3"
+    IDS_STRING12249         "Wintermoon Mesa\n\nLand\nPCY,R\nWintermoon Mesa enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{2}, {T}, Sacrifice Wintermoon Mesa: Tap two target lands."
+    IDS_STRING12250         "Aura Fracture\n{2W}\nEnchantment\nPCY,C\nSacrifice a land: Destroy target enchantment."
+    IDS_STRING12251         "Greel's Caress\n{1B}\nEnchantment - Aura\nPCY,C\nFlash\rEnchant creature\rEnchanted creature gets -3/-0."
+    IDS_STRING12252         "Heightened Awareness\n{3UU}\nEnchantment\nPCY,R\nAs Heightened Awareness enters the battlefield, discard your hand.\rAt the beginning of your draw step, draw an additional card."
+    IDS_STRING12253         "Jolrael's Favor\n{1G}\nEnchantment - Aura\nPCY,C\nFlash\rEnchant creature\r{1G}: Regenerate enchanted creature."
+    IDS_STRING12254         "Mageta's Boon\n{1W}\nEnchantment - Aura\nPCY,C\nFlash\rEnchant creature\rEnchanted creature gets +1/+2."
+    IDS_STRING12255         "Root Cage\n{1G}\nEnchantment\nPCY,U\nMercenaries don't untap during their controllers' untap steps."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12256         "Abolish\n{1WW}\nInstant\nPCY,U\nYou may discard a Plains card rather than pay Abolish's mana cost.\rDestroy target artifact or enchantment."
+    IDS_STRING12257         "Inflame\n{R}\nInstant\nPCY,C\nInflame deals 2 damage to each creature dealt damage this turn."
+    IDS_STRING12258         "Denying Wind\n{7UU}\nSorcery\nPCY,R\nSearch target player's library for up to seven cards and exile them. Then that player shuffles his or her library."
+    IDS_STRING12259         "Despoil\n{3B}\nSorcery\nPCY,C\nDestroy target land. Its controller loses 2 life."
+    IDS_STRING12260         "Flameshot\n{3R}\nSorcery\nPCY,U\nYou may discard a Mountain card rather than pay Flameshot's mana cost.\rFlameshot deals 3 damage divided as you choose among one, two, or three target creatures."
+    IDS_STRING12261         "Mana Vapors\n{1U}\nSorcery\nPCY,U\nLands target player controls don't untap during his or her next untap step."
+    IDS_STRING12262         "Thrive\n{XG}\nSorcery\nPCY,C\nPut a +1/+1 counter on each of X target creatures."
+    IDS_STRING12263         "Mungha Wurm\n{2GG}\nCreature - Wurm\nPCY,R\nYou can't untap more than one land during your untap step.\n6/5"
+    IDS_STRING12264         "Barbed Field\n{2RR}\nEnchantment - Aura\nPCY,U\nEnchant land\rEnchanted land has ""{T}: This land deals 1 damage to target creature or player."""
+    IDS_STRING12265         "Flowering Field\n{1W}\nEnchantment - Aura\nPCY,U\nEnchant land\rEnchanted land has ""{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn."""
+    IDS_STRING12266         "Latulla's Orders\n{1R}\nEnchantment - Aura\nPCY,C\nFlash\rEnchant creature\rWhenever enchanted creature deals combat damage to defending player, you may destroy target artifact that player controls."
+    IDS_STRING12267         "Noxious Field\n{1BB}\nEnchantment - Aura\nPCY,U\nEnchant land\rEnchanted land has ""{T}: This land deals 1 damage to each creature and each player."""
+    IDS_STRING12268         "Sunken Field\n{1U}\nEnchantment - Aura\nPCY,U\nEnchant land\rEnchanted land has ""{T}: Counter target spell unless its controller pays {1}."""
+    IDS_STRING12269         "Verdant Field\n{2G}\nEnchantment - Aura\nPCY,U\nEnchant land\rEnchanted land has ""{T}: Target creature gets +1/+1 until end of turn."""
+    IDS_STRING12270         "Devastate\n{3RR}\nSorcery\nPCY,C\nDestroy target land. Devastate deals 1 damage to each creature and each player."
+    IDS_STRING12271         "Branded Brawlers\n{R}\nCreature - Human Soldier\nPCY,C\nBranded Brawlers can't attack if defending player controls an untapped land.\rBranded Brawlers can't block if you control an untapped land.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12272         "Veteran Brawlers\n{1R}\nCreature - Human Soldier\nPCY,R\nVeteran Brawlers can't attack if defending player controls an untapped land.\rVeteran Brawlers can't block if you control an untapped land.\n4/4"
+    IDS_STRING12273         "Keldon Berserker\n{3R}\nCreature - Human Soldier Berserker\nPCY,C\nWhenever Keldon Berserker attacks, if you control no untapped lands, it gets +3/+0 until end of turn.\n2/3"
+    IDS_STRING12274         "Well of Discovery\n{6}\nArtifact\nPCY,R\nAt the beginning of your end step, if you control no untapped lands, draw a card."
+    IDS_STRING12275         "Well of Life\n{4}\nArtifact\nPCY,U\nAt the beginning of your end step, if you control no untapped lands, you gain 2 life."
+    IDS_STRING12276         "Calming Verse\n{3G}\nSorcery\nPCY,C\nDestroy all enchantments you don't control. Then, if you control an untapped land, destroy all enchantments you control."
+    IDS_STRING12277         "Blessed Wind\n{7WW}\nSorcery\nPCY,R\nTarget player's life total becomes 20."
+    IDS_STRING12278         "Hazy Homunculus\n{1U}\nCreature - Homunculus Illusion\nPCY,C\nHazy Homunculus is unblockable as long as defending player controls an untapped land.\n1/1"
+    IDS_STRING12279         "Overburden\n{1U}\nEnchantment\nPCY,R\nWhenever a player puts a nontoken creature onto the battlefield, that player returns a land he or she controls to its owner's hand."
+    IDS_STRING12280         "Steal Strength\n{1B}\nInstant\nPCY,C\nTarget creature gets +1/+1 until end of turn. Another target creature gets -1/-1 until end of turn."
+    IDS_STRING12281         "Chimeric Idol\n{3}\nArtifact\nPCY,U\n{0}: Tap all lands you control. Chimeric Idol becomes a 3/3 Turtle artifact creature until end of turn."
+    IDS_STRING12282         "Jeweled Spirit\n{3WW}\nCreature - Spirit\nPCY,R\nFlying\rSacrifice two lands: Jeweled Spirit gains protection from artifacts or from the color of your choice until end of turn.\n3/3"
+    IDS_STRING12283         "Search for Survivors\n{2R}\nSorcery\nPCY,R\nReorder your graveyard at random. An opponent chooses a card at random in your graveyard. If it's a creature card, put it onto the battlefield. Otherwise, exile it."
+    IDS_STRING12284         "Fen Stalker\n{3B}\nCreature - Nightstalker\nPCY,C\nFen Stalker has fear as long as you control no untapped lands.\n3/2"
+    IDS_STRING12285         "Scoria Cat\n{3RR}\nCreature - Cat\nPCY,U\nScoria Cat gets +3/+3 as long as you control no untapped lands.\n3/3"
+    IDS_STRING12286         "Spur Grappler\n{2R}\nCreature - Beast\nPCY,C\nSpur Grappler gets +2/+1 as long as you control no untapped lands.\n2/1"
+    IDS_STRING12287         "Vintara Snapper\n{GG}\nCreature - Turtle\nPCY,U\nVintara Snapper has shroud as long as you control no untapped lands.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING12288         "Plague Fiend\n{1B}\nCreature - Insect\nPCY,C\nWhenever Plague Fiend deals combat damage to a creature, destroy that creature unless its controller pays {2}.\n1/1"
+    IDS_STRING12289         "Death Charmer\n{2B}\nCreature - Worm Mercenary\nPCY,C\nWhenever Death Charmer deals combat damage to a creature, that creature's controller loses 2 life unless he or she pays {2}.\n2/2"
+    IDS_STRING12290         "Forgotten Harvest\n{1G}\nEnchantment\nPCY,R\nAt the beginning of your upkeep, you may exile a land card from your graveyard. If you do, put a +1/+1 counter on target creature."
+    IDS_STRING12291         "Dual Nature\n{4GG}\nEnchantment\nPCY,R\nWhenever a nontoken creature enters the battlefield, its controller puts a token that's a copy of that creature onto the battlefield.\rWhenever a nontoken creature leaves the battlefield, exile all tokens with the same name as that creature.\rWhen Dual Nature leaves the battlefield, exile all tokens put onto the battlefield with Dual Nature."
+    IDS_STRING12292         "Foil\n{2UU}\nInstant\nPCY,U\nYou may discard an Island card and another card rather than pay Foil's mana cost.\rCounter target spell."
+    IDS_STRING12293         "Copper-Leaf Angel\n{5}\nArtifact Creature - Angel\nPCY,R\nFlying\r{T}, Sacrifice X lands: Put X +1/+1 counters on Copper-Leaf Angel.\n2/2"
+    IDS_STRING12294         "Elephant Resurgence\n{1G}\nSorcery\nPCY,R\nEach player puts a green Elephant creature token onto the battlefield. Those creatures have ""This creature's power and toughness are each equal to the number of creature cards in its controller's graveyard."""
+    IDS_STRING12295         "Jolrael, Empress of Beasts\n{3GG}\nLegendary Creature - Human Spellshaper\nPCY,R\n{2G}, {T}, Discard two cards: All lands target player controls become 3/3 creatures until end of turn. They're still lands.\n3/3"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

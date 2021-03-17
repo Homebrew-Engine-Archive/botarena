@@ -1,0 +1,41 @@
+// Cho-Manno's Resolve
+// 10th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+Ancestor's Chosen (3318)
+2 Angel of Mercy (3005)
+2 Benalish Knight (3315)
+Cho-Manno, Revolutionary (3222)
+Ghost Warden (3235)
+2 Loxodon Mystic (3238)
+2 Skyhunter Patrol (3297)
+Venerable Monk (3193)
+2 Wild Griffin (3208)
+2 Youthful Knight (3209)
+
+// Instants - 1 (2.50%)
+
+Condemn (3291)
+
+// Enchantments - 4 (10.00%)
+
+2 Pacifism (3119)
+Pariah (3121)
+Serra's Embrace (3154)
+
+// Artifacts - 2 (5.00%)
+
+Angel's Feather (3007)
+Icy Manipulator (3080)
+
+// Lands - 17 (42.50%)
+
+5 Plains (3128)
+4 Plains (3129)
+4 Plains (3126)
+4 Plains (3127)

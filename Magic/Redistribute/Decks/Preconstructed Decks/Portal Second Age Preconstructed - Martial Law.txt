@@ -1,0 +1,31 @@
+// Martial Law
+// Portal Second Age Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 18 (45.00%)
+
+2 Alaborn Cavalier (20101)
+2 Alaborn Grenadier (20102)
+3 Alaborn Trooper (20104)
+Alaborn Veteran (20105)
+Angel of Fury (20108)
+2 Armored Griffin (20111)
+2 Temple Acolyte (20163)
+2 Volunteer Militia (20167)
+3 Wild Griffin (20194)
+
+// Sorceries - 7 (17.50%)
+
+Armageddon (20213)
+2 Path of Peace (20231)
+2 Righteous Charge (20152)
+2 Vengeance (20244)
+
+// Lands - 15 (37.50%)
+
+5 Plains (20204)
+5 Plains (20205)
+5 Plains (20206)

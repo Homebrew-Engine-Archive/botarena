@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 10 (16.67%)
+
+3 Jace, the Mind Sculptor (19670)
+3 Koth of the Hammer (21435)
+4 Tezzeret, Agent of Bolas (21765)
+
+// Creatures - 5 (8.33%)
+
+4 Inferno Titan (21321)
+Kuldotha Phoenix (21556)
+
+// Instants - 4 (6.67%)
+
+4 Galvanic Blast (21493)
+
+// Sorceries - 3 (5.00%)
+
+3 Slagstorm (21756)
+
+// Artifacts - 14 (23.33%)
+
+4 Everflowing Chalice (19677)
+2 Prophetic Prism (20908)
+4 Sphere of the Suns (21731)
+4 Tumble Magnet (21447)
+
+// Lands - 24 (40.00%)
+
+4 Creeping Tar Pit (19622)
+4 Darkslick Shores (21469)
+2 Dragonskull Summit (21126)
+Island (21770)
+Island (21771)
+4 Mountain (21772)
+4 Mountain (21773)
+4 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Wurmcoil Engine (21439)
+
+// Instants
+
+2 Doom Blade (21198)
+4 Flashfreeze (21133)
+Go for the Throat (21752)
+
+// Sorceries
+
+3 Black Sun's Zenith (21746)
+3 Inquisition of Kozilek (20846)
+Pyroclasm (21291)

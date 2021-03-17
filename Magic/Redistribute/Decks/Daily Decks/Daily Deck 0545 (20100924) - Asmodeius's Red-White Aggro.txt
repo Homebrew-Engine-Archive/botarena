@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+2 Ajani Vengeant (8720)
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures - 20 (33.33%)
+
+Goblin Bushwhacker (19455)
+4 Goblin Guide (19456)
+2 Kor Skyfisher (19368)
+4 Plated Geopede (19345)
+2 Ranger of Eos (8642)
+4 Steppe Lynx (19371)
+3 Stoneforge Mystic (19638)
+
+// Instants - 7 (11.67%)
+
+3 Lightning Bolt (21124)
+3 Path to Exile (8897)
+Staggershock (20984)
+
+// Sorceries - 2 (3.33%)
+
+2 Earthquake (4034)
+
+// Artifacts - 3 (5.00%)
+
+Adventuring Gear (19438)
+Basilisk Collar (19687)
+Sigil of Distinction (8737)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+4 Marsh Flats (19357)
+2 Mountain (21112)
+Mountain (21113)
+Mountain (21114)
+Mountain (21115)
+2 Plains (21116)
+2 Plains (21117)
+Plains (21118)
+Plains (21119)
+4 Scalding Tarn (19358)
+Terramorphic Expanse (21309)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Cunning Sparkmage (19608)
+3 Kor Firewalker (19606)
+2 War Priest of Thune (21226)
+
+// Instants
+
+3 Celestial Purge (21131)
+
+// Enchantments
+
+2 Manabarbs (4064)
+2 Oblivion Ring (8718)

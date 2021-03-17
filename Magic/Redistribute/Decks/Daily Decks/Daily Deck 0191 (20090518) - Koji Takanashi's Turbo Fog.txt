@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+4 Jace Beleren (18011)
+2 Tezzeret the Seeker (8727)
+
+// Instants - 21 (35.00%)
+
+3 Batwing Brume (19025)
+4 Cryptic Command (18051)
+4 Holy Day (3073)
+4 Negate (18305)
+2 Path to Exile (8897)
+4 Pollen Lullaby (18083)
+
+// Sorceries - 1 (1.67%)
+
+Wrath of God (3200)
+
+// Enchantments - 2 (3.33%)
+
+2 Runed Halo (18683)
+
+// Artifacts - 16 (26.67%)
+
+4 Fieldmist Borderpost (9091)
+4 Font of Mythos (8804)
+4 Howling Mine (3076)
+4 Mistvein Borderpost (9094)
+
+// Lands - 14 (23.33%)
+
+Island (8517)
+2 Island (8514)
+2 Island (8516)
+2 Island (8515)
+2 Plains (8523)
+Plains (8524)
+Plains (8525)
+Plains (8526)
+2 Reliquary Tower (8844)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Glen Elendra Archmage (18938)
+2 Oona, Queen of the Fae (18692)
+
+// Instants
+
+Path to Exile (8897)
+
+// Enchantments
+
+4 Hoofprints of the Stag (18036)
+2 Runed Halo (18683)
+
+// Artifacts
+
+2 Pithing Needle (3301)

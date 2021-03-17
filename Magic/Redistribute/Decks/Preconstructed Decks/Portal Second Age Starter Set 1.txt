@@ -1,0 +1,41 @@
+// Portal Second Age - Starter Set 1
+
+#PRE
+#NO_CARD_LIMIT
+
+// Total cards in deck - 30
+
+// Creatures - 13 (43.33%)
+
+Dakmor Bat (20119)
+Dakmor Scorpion (20121)
+Goblin Cavaliers (20129)
+Goblin Piker (20179)
+Goblin Raider (20180)
+Lynx (20136)
+Moaning Spirit (20137)
+Norwood Ranger (20185)
+Obsidian Giant (20142)
+Ogre Berserker (20144)
+Plated Wurm (20146)
+Prowling Nightstalker (20147)
+Raging Goblin (20187)
+
+// Sorceries - 4 (13.33%)
+
+Coercion (20217)
+Hand of Death (20223)
+Mind Rot (20227)
+Volcanic Hammer (20245)
+
+// Lands - 13 (43.33%)
+
+Forest (20195)
+Forest (20196)
+Forest (20197)
+2 Mountain (20201)
+2 Mountain (20202)
+Mountain (20203)
+2 Swamp (20207)
+2 Swamp (20208)
+Swamp (20209)

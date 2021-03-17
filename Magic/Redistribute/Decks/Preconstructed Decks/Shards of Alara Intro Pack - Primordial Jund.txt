@@ -1,0 +1,48 @@
+// Primordial Jund
+// Shards of Alara Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 18 (43.90%)
+
+2 Carrion Thrash (8545)
+Flameblast Dragon (8709)
+2 Goblin Deathraiders (8575)
+2 Goblin Piker (3064)
+2 Hissing Iguanar (8582)
+2 Jund Battlemage (8586)
+Mycoloth (8719)
+Rip-Clan Crasher (8611)
+2 Sprouting Thrinax (8627)
+2 Thorn-Thrash Viashino (8679)
+Thunder-Thrash Elder (8660)
+
+// Instants - 3 (7.32%)
+
+Resounding Thunder (8677)
+2 Shock (3159)
+
+// Sorceries - 2 (4.88%)
+
+2 Dragon Fodder (8561)
+
+// Artifacts - 1 (2.44%)
+
+Obelisk of Jund (8603)
+
+// Lands - 17 (41.46%)
+
+Forest (8509)
+Forest (8510)
+Forest (8511)
+2 Jund Panorama (8639)
+2 Mountain (8519)
+2 Mountain (8520)
+2 Mountain (8518)
+Mountain (8521)
+2 Savage Lands (8615)
+Swamp (8528)
+Swamp (8529)
+Swamp (8530)

@@ -1,0 +1,69 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+Ajani Vengeant (8720)
+Elspeth, Knight-Errant (8722)
+Tezzeret the Seeker (8727)
+
+// Creatures - 18 (30.00%)
+
+3 Battlegrace Angel (8729)
+3 Sanctum Gargoyle (8614)
+2 Sharuum the Hegemon (8621)
+4 Tidehollow Sculler (8721)
+3 Tidehollow Strix (8630)
+3 Tower Gargoyle (8633)
+
+// Instants - 5 (8.33%)
+
+Agony Warp (8704)
+3 Esper Charm (8567)
+Punish Ignorance (8711)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 6 (10.00%)
+
+3 Courier's Capsule (8550)
+2 Executioner's Capsule (8569)
+Scourglass (8617)
+
+// Lands - 24 (40.00%)
+
+4 Arcane Sanctum (8534)
+4 Crumbling Necropolis (8553)
+4 Esper Panorama (8637)
+Island (8515)
+Island (8514)
+2 Plains (8525)
+2 Plains (8523)
+2 Plains (8524)
+2 Plains (8526)
+Swamp (8527)
+Swamp (8528)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Knight-Captain of Eos (8591)
+Tidehollow Strix (8630)
+
+// Instants
+
+2 Agony Warp (8704)
+2 Punish Ignorance (8711)
+
+// Sorceries
+
+3 Infest (8584)
+
+// Artifacts
+
+4 Dispeller's Capsule (8560)
+2 Executioner's Capsule (8569)

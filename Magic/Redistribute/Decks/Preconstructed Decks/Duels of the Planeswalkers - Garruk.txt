@@ -1,0 +1,47 @@
+// Garruk
+// Duels of the Planeswalkers
+
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Civic Wayfinder (3324)
+Duskdale Wurm (18911)
+2 Giant Spider (4045)
+Molimo, Maro-Sorcerer (3256)
+River Boa (374)
+Roughshod Mentor (18573)
+3 Runeclaw Bear (4175)
+2 Spined Wurm (3166)
+2 Trained Armodon (2190)
+Troll Ascetic (3341)
+Verdant Force (3194)
+Vigor (18144)
+2 Wall of Wood (3207)
+
+// Instants - 3 (5.00%)
+
+3 Giant Growth (4044)
+
+// Sorceries - 6 (10.00%)
+
+Howl of the Night Pack (4131)
+Natural Spring (3112)
+2 Overrun (4077)
+2 Rampant Growth (4091)
+
+// Enchantments - 2 (3.33%)
+
+2 Blanchwood Armor (3014)
+
+// Artifacts - 3 (5.00%)
+
+Loxodon Warhammer (3096)
+2 Wurm's Tooth (4122)
+
+// Lands - 24 (40.00%)
+
+6 Forest (4043)
+6 Forest (4042)
+6 Forest (4041)
+6 Forest (4040)

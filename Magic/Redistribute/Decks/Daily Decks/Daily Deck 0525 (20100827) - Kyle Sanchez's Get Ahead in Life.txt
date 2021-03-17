@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+3 Elspeth, Knight-Errant (8722)
+2 Gideon Jura (20966)
+
+// Creatures - 23 (38.33%)
+
+4 Ajani's Pridemate (21138)
+3 Lone Missionary (20882)
+4 Ranger of Eos (8642)
+4 Serra Ascendant (21247)
+4 Soul Warden (4103)
+4 Soul's Attendant (20895)
+
+// Sorceries - 4 (6.67%)
+
+4 Survival Cache (20989)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Lands - 24 (40.00%)
+
+3 Kabira Crossroads (19401)
+4 Plains (21117)
+4 Plains (21119)
+4 Plains (21118)
+5 Plains (21116)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 White Knight (21268)
+
+// Instants
+
+3 Path to Exile (8897)
+
+// Sorceries
+
+2 Solemn Offering (21190)
+
+// Enchantments
+
+3 Mark of Asylum (8871)
+
+// Artifacts
+
+3 Pithing Needle (4081)

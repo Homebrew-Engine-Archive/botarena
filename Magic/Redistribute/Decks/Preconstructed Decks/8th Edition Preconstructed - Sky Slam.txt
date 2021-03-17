@@ -1,0 +1,42 @@
+// Sky Slam
+// 8th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Air Elemental (1501)
+Aven Fisher (1804)
+Coastal Hornclaw (1730)
+Fighting Drake (1544)
+Fleeting Image (1545)
+2 Horned Turtle (1568)
+Phantom Warrior (1607)
+Puppeteer (1734)
+Sage Owl (1630)
+Spiketail Hatchling (1757)
+2 Thieving Magpie (1662)
+2 Wind Drake (1679)
+
+// Instants - 6 (15.00%)
+
+Mana Leak (1744)
+2 Remove Soul (1624)
+3 Unsummon (1670)
+
+// Enchantments - 1 (2.50%)
+
+Dehydration (1793)
+
+// Artifacts - 1 (2.50%)
+
+Urza's Armor (1809)
+
+// Lands - 17 (42.50%)
+
+5 Island (1574)
+4 Island (1575)
+4 Island (1576)
+4 Island (1577)

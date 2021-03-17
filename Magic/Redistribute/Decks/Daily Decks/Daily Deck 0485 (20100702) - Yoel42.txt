@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Creatures - 28 (46.67%)
+
+4 Arbor Elf (19615)
+3 Elvish Visionary (4181)
+4 Kozilek's Predator (20841)
+4 Llanowar Elves (4062)
+4 Lotus Cobra (19389)
+4 Nest Invader (20887)
+2 Noble Hierarch (8819)
+3 Wolfbriar Elemental (19667)
+
+// Sorceries - 2 (3.33%)
+
+2 Overrun (4077)
+
+// Enchantments - 2 (3.33%)
+
+2 Beastmaster Ascension (19538)
+
+// Artifacts - 4 (6.67%)
+
+4 Eldrazi Monument (19530)
+
+// Lands - 24 (40.00%)
+
+3 Forest (20803)
+3 Forest (20802)
+3 Forest (20800)
+3 Forest (20801)
+4 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Great Sable Stag (4013)
+2 River Boa (19390)
+4 Vengevine (20939)
+
+// Instants
+
+3 Fog (4039)
+2 Nature's Claim (19662)

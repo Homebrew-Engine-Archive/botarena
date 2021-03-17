@@ -1,0 +1,73 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 19 (47,50%)
+
+Blister Beetle (8538)
+2 Blood Cultist (8539)
+Bloodpyre Elemental (8540)
+Broodmate Dragon (8543)
+Carrion Thrash (8545)
+Dregscape Zombie (8658)
+Goblin Deathraiders (8575)
+Goblin Mountaineer (8513)
+3 Hissing Iguanar (8582)
+Rockslide Elemental (8613)
+Sedraxis Specter (8685)
+Skeletal Kathari (8625)
+Thunder-Thrash Elder (8660)
+Topan Ascetic (8631)
+2 Vithian Stinger (8680)
+
+// Sorceries - 1 (2,50%)
+
+Dragon Fodder (8561)
+
+// Artifacts - 3 (7,50%)
+
+2 Executioner's Capsule (8569)
+Obelisk of Jund (8603)
+
+// Lands - 17 (42,50%)
+
+Bant Panorama (8636)
+Esper Panorama (8637)
+Forest (8509)
+Forest (8510)
+Grixis Panorama (8638)
+Island (8514)
+2 Mountain (8518)
+2 Mountain (8519)
+2 Mountain (8520)
+Mountain (8521)
+Swamp (8527)
+Swamp (8528)
+Swamp (8529)
+Swamp (8530)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 14
+
+// Creatures
+
+Deathgreeter (8557)
+Demon's Herald (8700)
+Druid of the Anima (8564)
+Godtoucher (8577)
+Guardians of Akrasa (8580)
+2 Ranger of Eos (8642)
+Rip-Clan Crasher (8611)
+
+// Sorceries
+
+Resounding Scream (8672)
+Soul's Might (8716)
+
+// Artifacts
+
+Dispeller's Capsule (8560)
+Immortal Coil (8691)
+Onyx Goblet (8605)
+Relic of Progenitus (8725)

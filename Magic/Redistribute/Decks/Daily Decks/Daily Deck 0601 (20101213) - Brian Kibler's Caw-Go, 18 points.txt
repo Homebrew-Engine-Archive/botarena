@@ -1,0 +1,68 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 8 (13.33%)
+
+3 Gideon Jura (20966)
+Jace Beleren (21258)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 4 (6.67%)
+
+4 Squadron Hawk (21218)
+
+// Instants - 11 (18.33%)
+
+2 Condemn (21180)
+Deprive (20934)
+2 Mana Leak (21214)
+4 Spell Pierce (19377)
+2 Stoic Rebuttal (21456)
+
+// Sorceries - 7 (11.67%)
+
+3 Day of Judgment (21263)
+4 Preordain (21152)
+
+// Enchantments - 4 (6.67%)
+
+3 Journey to Nowhere (19524)
+Spreading Seas (19430)
+
+// Lands - 26 (43.33%)
+
+Arid Mesa (19349)
+4 Celestial Colonnade (19602)
+4 Glacial Fortress (21128)
+4 Island (3405)
+4 Plains (3408)
+2 Scalding Tarn (19358)
+4 Seachrome Coast (21459)
+3 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth Tirel (21433)
+Jace Beleren (21258)
+
+// Instants
+
+3 Celestial Purge (21131)
+2 Condemn (21180)
+Deprive (20934)
+2 Flashfreeze (21133)
+
+// Sorceries
+
+Day of Judgment (21263)
+
+// Enchantments
+
+3 Spreading Seas (19430)
+
+// Lands
+
+Tectonic Edge (19651)

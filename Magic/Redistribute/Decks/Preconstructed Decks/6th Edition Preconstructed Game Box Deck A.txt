@@ -1,0 +1,57 @@
+// Classic Sixth Game Box Deck A
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 13 (32.50%)
+
+Ardent Militia (326)
+Blood Pet (316)
+Drudge Skeletons (315)
+Giant Spider (321)
+Gravebane Zombie (319)
+Hidden Horror (317)
+Llanowar Elves (322)
+Mischievous Poltergeist (318)
+Obsianus Golem (329)
+Panther Warriors (324)
+Samite Healer (328)
+Scaled Wurm (323)
+Trained Armodon (320)
+
+// Instants - 4 (10.00%)
+
+Giant Growth (341)
+Healing Salve (338)
+Terror (342)
+Warrior's Honor (339)
+
+// Sorceries - 3 (7.50%)
+
+Creeping Mold (335)
+Raise Dead (334)
+Rampant Growth (336)
+
+// Enchantments - 2 (5.00%)
+
+Call of the Wild (346)
+Enfeeblement (345)
+
+// Artifacts - 1 (2.50%)
+
+Rod of Ruin (349)
+
+// Lands - 17 (42.50%)
+
+2 Forest (300)
+2 Forest (516)
+2 Forest (517)
+Forest (518)
+Plains (302)
+Plains (528)
+Plains (529)
+2 Swamp (301)
+2 Swamp (525)
+2 Swamp (526)
+Swamp (527)

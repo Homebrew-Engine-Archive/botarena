@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Ajani Vengeant (8720)
+
+// Creatures - 21 (35.00%)
+
+2 Burrenton Forge-Tender (18054)
+4 Figure of Destiny (19006)
+4 Goldmeadow Stalwart (18088)
+4 Knight of Meadowgrain (18020)
+3 Thistledown Liege (18624)
+4 Wizened Cenn (17975)
+
+// Instants - 8 (13.33%)
+
+4 Flame Javelin (18642)
+4 Incinerate (3226)
+
+// Sorceries - 4 (6.67%)
+
+4 Spectral Procession (18640)
+
+// Lands - 24 (40.00%)
+
+4 Battlefield Forge (3012)
+Mountain (8518)
+Plains (8526)
+Plains (8523)
+Plains (8524)
+Plains (8525)
+3 Reflecting Pool (18571)
+4 Rugged Prairie (18922)
+4 Rustic Clachan (18373)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Burrenton Forge-Tender (18054)
+Loyal Sentry (3334)
+4 Ranger of Eos (8642)
+4 Wispmare (18027)
+
+// Sorceries
+
+4 Pyroclasm (3131)

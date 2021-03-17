@@ -1,0 +1,39 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Blight Mamba (21475)
+Contagious Nim (21489)
+4 Corpse Cur (21519)
+2 Cystbearer (21492)
+2 Ichorclaw Myr (21444)
+2 Plague Stinger (21431)
+Skinrender (21525)
+Sylvok Replica (21452)
+Tel-Jilad Fallen (21590)
+
+// Instants - 5 (12.50%)
+
+Carrion Call (21487)
+Instill Infection (21504)
+Tel-Jilad Defiance (21605)
+Untamed Might (21593)
+Withstand Death (21527)
+
+// Artifacts - 2 (5.00%)
+
+Grafted Exoskeleton (21599)
+Heavy Arbalest (21606)
+
+// Lands - 18 (45.00%)
+
+3 Forest (21400)
+2 Forest (21402)
+2 Forest (21401)
+2 Forest (21403)
+2 Swamp (21417)
+2 Swamp (21418)
+2 Swamp (21419)
+3 Swamp (21416)

@@ -1,0 +1,69 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+3 Elspeth Tirel (21433)
+3 Garruk Relentless (23382)
+
+// Creatures - 22 (36.67%)
+
+4 Avacyn's Pilgrim (23373)
+4 Birds of Paradise (22236)
+2 Blade Splicer (21919)
+2 Geist-Honored Monk (23398)
+4 Hero of Bladehold (21706)
+2 Mikaeus, the Lunarch (23341)
+4 Mirran Crusader (21703)
+
+// Sorceries - 3 (5.00%)
+
+3 Overrun (22183)
+
+// Enchantments - 3 (5.00%)
+
+3 Oblivion Ring (22121)
+
+// Artifacts - 2 (3.33%)
+
+2 Mortarpod (21825)
+
+// Lands - 24 (40.00%)
+
+3 Forest (23322)
+3 Forest (23321)
+2 Forest (23323)
+4 Gavony Township (23377)
+2 Plains (23330)
+Plains (23331)
+Plains (23332)
+4 Razorverge Thicket (21472)
+4 Sunpetal Grove (22206)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Garruk Relentless (23382)
+Garruk, Primal Hunter (22307)
+
+// Creatures
+
+Elesh Norn, Grand Cenobite (21901)
+Fiend Hunter (23356)
+2 Thrun, the Last Troll (21716)
+
+// Instants
+
+2 Celestial Purge (22242)
+2 Naturalize (23414)
+
+// Enchantments
+
+Oblivion Ring (22121)
+
+// Artifacts
+
+2 Sword of Feast and Famine (21762)
+2 Sword of War and Peace (21999)

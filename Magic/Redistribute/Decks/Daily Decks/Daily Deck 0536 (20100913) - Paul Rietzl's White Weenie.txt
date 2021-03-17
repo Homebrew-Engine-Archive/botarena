@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Ethersworn Canonist (8729)
+4 Figure of Destiny (19006)
+4 Knight of the White Orchid (8657)
+2 Ranger of Eos (8642)
+4 Steppe Lynx (19371)
+4 Student of Warfare (20963)
+
+// Instants - 7 (11.67%)
+
+4 Brave the Elements (19448)
+2 Mana Tithe (2509)
+Path to Exile (8897)
+
+// Sorceries - 4 (6.67%)
+
+4 Spectral Procession (18640)
+
+// Enchantments - 4 (6.67%)
+
+4 Honor of the Pure (4008)
+
+// Lands - 23 (38.33%)
+
+4 Arid Mesa (19349)
+4 Flagstones of Trokair (17278)
+Horizon Canopy (17728)
+4 Marsh Flats (19357)
+3 Plains (20812)
+2 Plains (20814)
+2 Plains (20815)
+3 Plains (20813)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Burrenton Forge-Tender (18054)
+
+// Instants
+
+Angel's Grace (17475)
+Celestial Purge (4014)
+Lapse of Certainty (8859)
+3 Path to Exile (8897)
+
+// Enchantments
+
+2 Rule of Law (3229)
+
+// Artifacts
+
+4 Relic of Progenitus (8726)

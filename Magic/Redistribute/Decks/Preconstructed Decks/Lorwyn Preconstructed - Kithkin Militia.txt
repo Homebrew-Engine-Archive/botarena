@@ -1,0 +1,44 @@
+// Kithkin Militia
+// Lorwyn Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 24 (40.00%)
+
+2 Avian Changeling (18065)
+Brigid, Hero of Kinsbaile (18079)
+Cenn's Heir (18046)
+2 Changeling Hero (18067)
+2 Cloudgoat Ranger (17923)
+Goldmeadow Dodger (17952)
+3 Goldmeadow Harrier (17953)
+Goldmeadow Stalwart (18088)
+2 Kinsbaile Balloonist (17965)
+4 Kithkin Greatheart (18053)
+Kithkin Harbinger (17968)
+Knight of Meadowgrain (18020)
+Thoughtweft Trio (18042)
+2 Wizened Cenn (17975)
+
+// Instants - 7 (11.67%)
+
+2 Crib Swap (18078)
+Pollen Lullaby (18083)
+Shields of Velis Vel (18080)
+3 Surge of Thoughtweft (18081)
+
+// Enchantments - 4 (6.67%)
+
+Battle Mastery (18009)
+3 Oblivion Ring (18040)
+
+// Artifacts - 1 (1.67%)
+
+Runed Stalactite (18096)
+
+// Lands - 24 (40.00%)
+
+6 Plains (17918)
+6 Plains (17917)
+6 Plains (17915)
+6 Plains (17916)

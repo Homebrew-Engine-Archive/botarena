@@ -1,0 +1,44 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 10 (16.67%)
+
+4 Cunning Sparkmage (19608)
+4 Nest Invader (20887)
+Trinket Mage (21432)
+Ulamog, the Infinite Gyre (20932)
+
+// Instants - 12 (20.00%)
+
+4 Fresh Meat (22018)
+4 Lightning Bolt (21124)
+4 Mana Leak (21214)
+
+// Sorceries - 6 (10.00%)
+
+2 Growth Spasm (20925)
+4 Preordain (21152)
+
+// Enchantments - 2 (3.33%)
+
+2 Awakening Zone (20851)
+
+// Artifacts - 2 (3.33%)
+
+Basilisk Collar (19687)
+Sylvok Lifestaff (21557)
+
+// Lands - 24 (40.00%)
+
+2 Forest (21972)
+Forest (21973)
+3 Island (21974)
+2 Island (21975)
+4 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+Mountain (21976)
+4 Raging Ravine (19699)
+3 Scalding Tarn (19358)

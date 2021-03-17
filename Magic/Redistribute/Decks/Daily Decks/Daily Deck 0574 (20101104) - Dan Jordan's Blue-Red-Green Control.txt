@@ -1,0 +1,70 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 11 (18.33%)
+
+Avenger of Zendikar (19664)
+3 Frost Titan (21322)
+4 Lotus Cobra (19389)
+3 Oracle of Mul Daya (19542)
+
+// Instants - 9 (15.00%)
+
+Deprive (20934)
+4 Lightning Bolt (21124)
+4 Mana Leak (21214)
+
+// Sorceries - 8 (13.33%)
+
+4 Explore (19647)
+4 Preordain (21152)
+
+// Enchantments - 1 (1.67%)
+
+Volition Reins (21478)
+
+// Lands - 27 (45.00%)
+
+3 Copperline Gorge (21471)
+Forest (21402)
+Forest (21401)
+Forest (21400)
+2 Halimar Depths (19634)
+2 Island (21404)
+Island (21407)
+Island (21406)
+Island (21405)
+4 Misty Rainforest (19356)
+Mountain (21409)
+Mountain (21408)
+4 Raging Ravine (19699)
+4 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Goblin Ruinblaster (19457)
+2 Obstinate Baloth (21217)
+
+// Instants
+
+2 Flashfreeze (21133)
+2 Spell Pierce (19377)
+
+// Sorceries
+
+3 Pyroclasm (21291)
+
+// Enchantments
+
+Volition Reins (21478)
+
+// Artifacts
+
+Ratchet Bomb (21528)

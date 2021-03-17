@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10,00%)
+
+3 Elspeth, Knight-Errant (8722)
+3 Garruk Wildspeaker (4204)
+
+// Creatures - 25 (41,67%)
+
+4 Baneslayer Angel (4224)
+3 Dauntless Escort (9085)
+3 Emeria Angel (19366)
+4 Knight of the Reliquary (8815)
+4 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+Rampaging Baloths (19342)
+2 Steward of Valeron (8628)
+
+// Instants - 3 (5,00%)
+
+3 Path to Exile (8897)
+
+// Sorceries - 3 (5,00%)
+
+3 Maelstrom Pulse (9055)
+
+// Lands - 23 (38,33%)
+
+Forest (19303)
+Forest (19302)
+2 Forest (19300)
+Forest (19301)
+Gargoyle Castle (4178)
+4 Marsh Flats (19357)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Plains (19327)
+4 Sunpetal Grove (4202)
+Swamp (19332)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Acidic Slime (4182)
+Qasali Pridemage (9018)
+3 Wall of Reverence (8923)
+
+// Instants
+
+2 Celestial Purge (4014)
+
+// Sorceries
+
+Day of Judgment (19340)
+2 Martial Coup (8886)
+
+// Artifacts
+
+3 Relic of Progenitus (8725)

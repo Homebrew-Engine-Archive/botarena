@@ -1,0 +1,42 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+2 Gideon Jura (20966)
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 7 (11.67%)
+
+3 Baneslayer Angel (4224)
+4 Wall of Omens (20842)
+
+// Instants - 8 (13.33%)
+
+4 Esper Charm (8567)
+4 Path to Exile (8897)
+
+// Sorceries - 9 (15.00%)
+
+2 All is Dust (20830)
+3 Day of Judgment (19340)
+2 Mind Shatter (18304)
+2 Mind Spring (18303)
+
+// Artifacts - 4 (6.67%)
+
+4 Everflowing Chalice (19677)
+
+// Lands - 27 (45.00%)
+
+4 Celestial Colonnade (19602)
+4 Creeping Tar Pit (19622)
+3 Drowned Catacomb (4199)
+4 Glacial Fortress (4200)
+Island (20804)
+4 Marsh Flats (19357)
+Plains (20812)
+Plains (20813)
+Plains (20814)
+Swamp (20816)
+Swamp (20817)
+2 Tectonic Edge (19651)

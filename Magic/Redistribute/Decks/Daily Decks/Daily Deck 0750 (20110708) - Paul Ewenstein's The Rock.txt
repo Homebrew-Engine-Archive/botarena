@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+Acidic Slime (21311)
+4 Birds of Paradise (21103)
+4 Death's Shadow (19671)
+4 Fauna Shaman (21239)
+4 Hex Parasite (22002)
+2 Immolating Souleater (21988)
+4 Vengevine (20939)
+
+// Instants - 8 (13.33%)
+
+4 Dismember (21951)
+4 Momentous Fall (20938)
+
+// Sorceries - 7 (11.67%)
+
+4 Inquisition of Kozilek (20846)
+3 Lead the Stampede (21736)
+
+// Lands - 22 (36.67%)
+
+6 Forest (21973)
+6 Forest (21972)
+3 Swamp (21980)
+3 Swamp (21981)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Obstinate Baloth (21217)
+2 Phyrexian Revoker (21727)
+Thrun, the Last Troll (21716)
+
+// Instants
+
+3 Disfigure (19379)
+3 Naturalize (21167)
+
+// Sorceries
+
+2 Creeping Corrosion (21757)
+2 Duress (21280)

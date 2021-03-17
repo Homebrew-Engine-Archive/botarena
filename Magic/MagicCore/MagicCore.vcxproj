@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DDFAF63B-E4C1-4E2A-B0C0-82629A9E862D}</ProjectGuid>
+    <RootNamespace>MagicCore</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>-Zm300
+ %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\EpochLib;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_USRDLL;_MY_DEBUG;MAGIC_CORE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>gdiplus.lib;uxtheme.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(TargetDir)$(TargetName).map</MapFileName>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copying MagicCore.dll</Message>
+      <Command>copy .\Debug\MagicCore.dll "..\MagicWand\Debug"
+copy .\Debug\MagicCore.dll "..\DeckBot\Debug"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>-Zm250 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>..\..\EpochLib;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_USRDLL;MAGIC_CORE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>gdiplus.lib;uxtheme.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copying MagicCore.dll...</Message>
+      <Command>copy .\Release\MagicCore.dll "..\MagicWand\Release"
+copy .\Release\MagicCore.dll "..\DeckBot\Release"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="Action1.cpp" />
+    <ClCompile Include="Action2.cpp" />
+    <ClCompile Include="ContinuousStaticAbilities.cpp" />
+    <ClCompile Include="Modifiers.cpp" />
+    <ClCompile Include="Selection.cpp" />
+    <ClCompile Include="Ability.cpp" />
+    <ClCompile Include="AbilityEnchant.cpp" />
+    <ClCompile Include="AbilityGlobal.cpp" />
+    <ClCompile Include="AbilityKeyword.cpp" />
+    <ClCompile Include="AbilityNonStack.cpp" />
+    <ClCompile Include="AbilityNonStack1.cpp" />
+    <ClCompile Include="AbilityNonStack2.cpp" />
+    <ClCompile Include="AbilityStack.cpp" />
+    <ClCompile Include="AbilityStack1.cpp" />
+    <ClCompile Include="AbilityStack2.cpp" />
+    <ClCompile Include="AbilityTarget.cpp" />
+    <ClCompile Include="AbilityTriggered.cpp" />
+    <ClCompile Include="AbilityTriggered1.cpp" />
+    <ClCompile Include="AbilityTriggered2.cpp" />
+    <ClCompile Include="AbilityTriggered3.cpp" />
+    <ClCompile Include="AbilityTriggeredT.cpp" />
+    <ClCompile Include="Reveals.cpp" />
+    <ClCompile Include="Trait.cpp" />
+    <ClCompile Include="Trait1.cpp" />
+    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StackProjection.cpp" />
+    <ClCompile Include="Zone.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Card1.cpp" />
+    <ClCompile Include="Card2.cpp" />
+    <ClCompile Include="Card3.cpp" />
+    <ClCompile Include="Card4.cpp" />
+    <ClCompile Include="CardFactory.cpp" />
+    <ClCompile Include="CardFilter.cpp" />
+    <ClCompile Include="CardStore.cpp" />
+    <ClCompile Include="CreatureType.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="Damage.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="GUIUtility.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="MT19937.cpp" />
+    <ClCompile Include="NetManager.cpp" />
+    <ClCompile Include="Numbers.cpp" />
+    <ClCompile Include="Score.cpp" />
+    <ClCompile Include="UsagePattern.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="Cost.cpp" />
+    <ClCompile Include="ManaCost.cpp" />
+    <ClCompile Include="ManaPool.cpp" />
+    <ClCompile Include="ManaProductionHint.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="Event1.cpp" />
+    <ClCompile Include="Event2.cpp" />
+    <ClCompile Include="Triggers.cpp" />
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Node1.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Container.cpp" />
+    <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="ThreadCentral.cpp" />
+    <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="Target.cpp" />
+    <ClCompile Include="CoreApp.cpp" />
+    <ClCompile Include="CoreEnumerations.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="Action1.h" />
+    <ClInclude Include="Action2.h" />
+    <ClInclude Include="CheapList.h" />
+    <ClInclude Include="ContinuousStaticAbilities.h" />
+    <ClInclude Include="Modifiers.h" />
+    <ClInclude Include="Selection.h" />
+    <ClInclude Include="Selection1.h" />
+    <ClInclude Include="Ability.h" />
+    <ClInclude Include="AbilityEnchant.h" />
+    <ClInclude Include="AbilityGlobal.h" />
+    <ClInclude Include="AbilityKeyword.h" />
+    <ClInclude Include="AbilityNonStack.h" />
+    <ClInclude Include="AbilityNonStack1.h" />
+    <ClInclude Include="AbilityNonStack2.h" />
+    <ClInclude Include="AbilityStack.h" />
+    <ClInclude Include="AbilityStack1.h" />
+    <ClInclude Include="AbilityStack2.h" />
+    <ClInclude Include="AbilityTarget.h" />
+    <ClInclude Include="AbilityTriggered.h" />
+    <ClInclude Include="AbilityTriggered1.h" />
+    <ClInclude Include="AbilityTriggered2.h" />
+    <ClInclude Include="AbilityTriggered3.h" />
+    <ClInclude Include="AbilityTriggeredT.h" />
+    <ClInclude Include="Reveals.h" />
+    <ClInclude Include="Trait.h" />
+    <ClInclude Include="Trait1.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="StackProjection.h" />
+    <ClInclude Include="Zone.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Card1.h" />
+    <ClInclude Include="Card2.h" />
+    <ClInclude Include="Card3.h" />
+    <ClInclude Include="Card4.h" />
+    <ClInclude Include="CardFactory.h" />
+    <ClInclude Include="CardFilter.h" />
+    <ClInclude Include="CardStore.h" />
+    <ClInclude Include="CreatureType.h" />
+    <ClInclude Include="Deck.h" />
+    <ClInclude Include="ContextValue.h" />
+    <ClInclude Include="Counter.h" />
+    <ClInclude Include="Damage.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="GUIUtility.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="MT19937.h" />
+    <ClInclude Include="NetManager.h" />
+    <ClInclude Include="Numbers.h" />
+    <ClInclude Include="Score.h" />
+    <ClInclude Include="UsagePattern.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="Cost.h" />
+    <ClInclude Include="ManaCost.h" />
+    <ClInclude Include="ManaPool.h" />
+    <ClInclude Include="ManaProductionHint.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="Event1.h" />
+    <ClInclude Include="Event2.h" />
+    <ClInclude Include="Triggers.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Node1.h" />
+    <ClInclude Include="Scheduler.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Container.h" />
+    <ClInclude Include="StateManagedContainers.h" />
+    <ClInclude Include="StateManagedValues.h" />
+    <ClInclude Include="StateManager.h" />
+    <ClInclude Include="StateStack.h" />
+    <ClInclude Include="ThreadCentral.h" />
+    <ClInclude Include="Subject.h" />
+    <ClInclude Include="Target.h" />
+    <ClInclude Include="CoreApp.h" />
+    <ClInclude Include="CoreEnumerations.h" />
+    <ClInclude Include="CoreResource.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="MagicCore.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MagicCore.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MagicCore.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\EpochLib\EpochLib.vcxproj">
+      <Project>{ab54e951-6f04-4fcd-a96f-14260610cfff}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

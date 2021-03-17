@@ -1,0 +1,71 @@
+// Total cards in deck - 60
+
+// Creatures - 34 (56.67%)
+
+Baneslayer Angel (21125)
+2 Birds of Paradise (21103)
+4 Bloodbraid Elf (9105)
+3 Cunning Sparkmage (19608)
+4 Fauna Shaman (21239)
+4 Knight of the Reliquary (8815)
+Linvala, Keeper of Silence (20881)
+4 Noble Hierarch (8819)
+Obstinate Baloth (21217)
+2 Qasali Pridemage (9018)
+Realm Razer (8724)
+Stoneforge Mystic (19638)
+Sun Titan (21161)
+Sylvan Ranger (21174)
+4 Vengevine (20939)
+
+// Artifacts - 1 (1.67%)
+
+Basilisk Collar (19687)
+
+// Lands - 25 (41.67%)
+
+4 Arid Mesa (19349)
+Evolving Wilds (20905)
+Forest (21106)
+Forest (21105)
+Forest (21107)
+2 Forest (21104)
+3 Misty Rainforest (19356)
+Mountain (21113)
+Mountain (21112)
+Plains (21117)
+Plains (21116)
+2 Raging Ravine (19699)
+2 Sejiri Steppe (19691)
+2 Stirring Wildwood (19623)
+Sunpetal Grove (21130)
+Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Gideon Jura (20966)
+
+// Creatures
+
+Cunning Sparkmage (19608)
+Linvala, Keeper of Silence (20881)
+2 Obstinate Baloth (21217)
+Qasali Pridemage (9018)
+Realm Razer (8724)
+
+// Instants
+
+3 Celestial Purge (21131)
+
+// Enchantments
+
+2 Manabarbs (4064)
+2 Oblivion Ring (8718)
+
+// Artifacts
+
+Basilisk Collar (19687)

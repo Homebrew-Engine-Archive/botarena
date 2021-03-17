@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+2 Emeria Angel (19366)
+4 Knight of the White Orchid (8657)
+4 Ranger of Eos (8642)
+2 Soul Warden (4103)
+4 Steppe Lynx (19371)
+2 White Knight (4120)
+
+// Instants - 6 (10.00%)
+
+2 Brave the Elements (19448)
+4 Path to Exile (8897)
+
+// Sorceries - 5 (8.33%)
+
+4 Conqueror's Pledge (19365)
+Martial Coup (8886)
+
+// Enchantments - 7 (11.67%)
+
+4 Honor of the Pure (4008)
+3 Oblivion Ring (8718)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+2 Gargoyle Castle (4178)
+4 Marsh Flats (19357)
+4 Plains (19325)
+4 Plains (19324)
+3 Plains (19326)
+3 Plains (19327)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures
+
+4 Devout Lightcaster (19360)
+2 Soul Warden (4103)
+
+// Instants
+
+Brave the Elements (19448)
+2 Celestial Purge (4014)
+
+// Enchantments
+
+Journey to Nowhere (19524)
+3 Luminarch Ascension (19527)

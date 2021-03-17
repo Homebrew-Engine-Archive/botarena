@@ -1,0 +1,1437 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "coreresource.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""coreresource.h\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""..\\MagicCore\\MagicCore.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endi\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MagicWandTYPE       ICON                    "res\\MagicWandDoc.ico"
+IDR_MAINFRAME           ICON                    "res\\MagicWand.ico"
+IDI_HUMAN               ICON                    "res\\human.ico"
+IDI_COMPUTER            ICON                    "res\\Computer.ico"
+IDI_TRICK_MOVE          ICON                    "res\\trick.ico"
+IDI_MOVE                ICON                    "res\\move.ico"
+IDI_WHITEBALL           ICON                    "res\\WhiteBall.ico"
+IDI_BLUEBALL            ICON                    "res\\BlueBall.ico"
+IDI_GENERICBALL         ICON                    "res\\GenericBall.ico"
+IDI_GREENBALL           ICON                    "res\\GreenBall.ico"
+IDI_REDBALL             ICON                    "res\\RedBall.ico"
+IDI_BLACKBALL           ICON                    "res\\BlackBall.ico"
+IDI_HAND1               ICON                    "res\\hand.ico"
+IDI_GRAVEYARD           ICON                    "res\\graveyard.ico"
+IDI_LIBRARY             ICON                    "res\\library.ico"
+IDI_PASS                ICON                    "res\\Pass.ico"
+IDI_ATTACK              ICON                    "res\\Attack.ico"
+IDI_MANAPOOL            ICON                    "res\\manapool.ico"
+IDI_DECIDE              ICON                    "res\\decide.ico"
+IDI_DECK                ICON                    "res\\deck.ico"
+IDI_DECK_READONLY       ICON                    "res\\deck_readonly.ico"
+IDI_DEBUG               ICON                    "res\\debug.ico"
+IDI_BUG                 ICON                    "res\\bug.ico"
+IDI_SWORD               ICON                    "res\\sword.ico"
+IDI_SHIELD2             ICON                    "res\\Shield.ico"
+IDI_GRAVEYARD_HI        ICON                    "res\\GraveyardHigh.ico"
+IDI_HAND_HI             ICON                    "res\\HandHigh.ico"
+IDI_LIBRARY_HI          ICON                    "res\\LibraryHigh.ico"
+IDI_ALWAYS_STOP         ICON                    "res\\AlwaysStop.ico"
+IDI_ALWAYS_PASS         ICON                    "res\\AlwaysPass.ico"
+IDI_SSTOP               ICON                    "res\\stop.ico"
+IDI_SOKAY               ICON                    "res\\okay.ico"
+IDI_EMBLEM              ICON                    "res\\Emblem.ICO"
+IDI_LANDBALL            ICON                    "res\\LandBall.ICO"
+IDI_MULTICOLORBALL      ICON                    "res\\MulticolorBall.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_ARTIFACTCARD_LARGE  BITMAP                  "res\\ArtifactCardLarge.bmp"
+IDB_BLACKCARD_LARGE     BITMAP                  "res\\BlackCardLarge.bmp"
+IDB_BLUECARD_LARGE      BITMAP                  "res\\BlueCardLarge.bmp"
+IDB_CARDBACK_LARGE      BITMAP                  "res\\CardBackLarge.bmp"
+IDB_GOLDCARD_LARGE      BITMAP                  "res\\GoldCardLarge.bmp"
+IDB_GREENCARD_LARGE     BITMAP                  "res\\GreenCardLarge.bmp"
+IDB_REDCARD_LARGE       BITMAP                  "res\\RedCardLarge.bmp"
+IDB_WHITECARD_LARGE     BITMAP                  "res\\WhiteCardLarge.bmp"
+IDR_NET                 BITMAP                  "res\\NetToolBar.bmp"
+CB_ATTACKU              BITMAP                  "res\\AttackU.bmp"
+CB_ATTACKD              BITMAP                  "res\\AttackD.bmp"
+CB_ATTACKX              BITMAP                  "res\\AttackX.bmp"
+CB_ATTACKF              BITMAP                  "res\\AttackF.bmp"
+CB_DEFAULTF             BITMAP                  "res\\DefaultF.bmp"
+CB_DEFAULTU             BITMAP                  "res\\DefaultU.bmp"
+CB_DEFAULTX             BITMAP                  "res\\DefaultX.bmp"
+CB_DEFAULTD             BITMAP                  "res\\DefaultD.bmp"
+CB_WHITED               BITMAP                  "res\\WhiteD.bmp"
+CB_WHITEU               BITMAP                  "res\\WhiteU.bmp"
+CB_BLUEU                BITMAP                  "res\\BlueU.bmp"
+CB_BLUED                BITMAP                  "res\\BlueD.bmp"
+CB_BLACKU               BITMAP                  "res\\BlackU.bmp"
+CB_BLACKD               BITMAP                  "res\\BlackD.bmp"
+CB_REDU                 BITMAP                  "res\\RedU.bmp"
+CB_REDD                 BITMAP                  "res\\RedD.bmp"
+CB_GREENU               BITMAP                  "res\\GreenU.bmp"
+CB_GREEND               BITMAP                  "res\\GreenD.bmp"
+CB_LANDU                BITMAP                  "res\\LandU.bmp"
+CB_LANDD                BITMAP                  "res\\LandD.bmp"
+CB_ARTIFACTU            BITMAP                  "res\\ArtifactU.bmp"
+CB_ARTIFACTD            BITMAP                  "res\\ArtifactD.bmp"
+CB_CREATUREU            BITMAP                  "res\\CreatureU.bmp"
+CB_CREATURED            BITMAP                  "res\\CreatureD.bmp"
+CB_PLANESWALKERU        BITMAP                  "res\\PlaneswalkerU.bmp"
+CB_PLANESWALKERD        BITMAP                  "res\\PlaneswalkerD.bmp"
+CB_SORCERYU             BITMAP                  "res\\SorceryU.bmp"
+CB_SORCERYD             BITMAP                  "res\\SorceryD.bmp"
+CB_INSTANTU             BITMAP                  "res\\InstantU.bmp"
+CB_INSTANTD             BITMAP                  "res\\InstantD.bmp"
+CB_ENCHANTMENTU         BITMAP                  "res\\EnchantmentU.bmp"
+CB_ENCHANTMENTD         BITMAP                  "res\\EnchantmentD.bmp"
+CB_SPECIALU             BITMAP                  "res\\SpecialU.bmp"
+CB_SPECIALD             BITMAP                  "res\\SpecialD.bmp"
+CB_MYTHIC_RAREU         BITMAP                  "res\\MythicRareU.bmp"
+CB_MYTHIC_RARED         BITMAP                  "res\\MythicRareD.bmp"
+CB_RAREU                BITMAP                  "res\\RareU.bmp"
+CB_RARED                BITMAP                  "res\\RareD.bmp"
+CB_UNCOMMONU            BITMAP                  "res\\UncommonU.bmp"
+CB_UNCOMMOND            BITMAP                  "res\\UncommonD.bmp"
+CB_COMMONU              BITMAP                  "res\\CommonU.bmp"
+CB_COMMOND              BITMAP                  "res\\CommonD.bmp"
+CB_BASIC_LANDU          BITMAP                  "res\\BasicLandU.bmp"
+CB_BASIC_LANDD          BITMAP                  "res\\BasicLandD.bmp"
+IDB_LOGO                BITMAP                  "res\\BotArenaLogo.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      IDM_START
+    BUTTON      IDM_DECIDE_NOW
+    BUTTON      IDM_STOP
+    SEPARATOR
+    BUTTON      IDM_DEFAULT
+    BUTTON      IDM_ATTACK
+    SEPARATOR
+    BUTTON      IDM_ARRANGE
+    SEPARATOR
+    BUTTON      IDM_VIEW_FULLSCREEN
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_NET TOOLBAR 16, 15
+BEGIN
+    BUTTON      IDM_CONNECT_TO_USER
+    BUTTON      IDM_DISCONNECT_ALL_USERS
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&Game"
+    BEGIN
+        MENUITEM "&Start...\tCtrl+S",           IDM_START
+        MENUITEM "&End\tCtrl+E",                IDM_STOP
+        MENUITEM SEPARATOR
+        MENUITEM "&Undo\tCtrl+U",               IDM_GAME_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Quit\tCtrl+Q",               ID_APP_EXIT
+    END
+    POPUP "&Users"
+    BEGIN
+        MENUITEM "&Connect To User...",         IDM_CONNECT_TO_USER
+        MENUITEM "&Disconnect All",             IDM_DISCONNECT_ALL_USERS
+    END
+    POPUP "&Decks"
+    BEGIN
+        MENUITEM "View &Decks...\tCtrl+D",      IDM_VIEW_DECKS
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Arrange Cards",              IDM_ARRANGE
+        MENUITEM SEPARATOR
+        MENUITEM "&Chats",                      IDM_VIEW_CHATS
+        MENUITEM "&Phases",                     IDM_VIEW_GRAPHBAR
+        MENUITEM "&Messages",                   IDM_VIEW_MESSAGEBAR
+        MENUITEM "Ac&tions",                    IDM_VIEW_SELECTIONS
+        MENUITEM "Player &Statistic",           22006
+        MENUITEM "Previe&w",                    IDM_VIEW_PREVIEW
+        MENUITEM SEPARATOR
+        MENUITEM "Stan&dard Toolbar",           ID_VIEW_TOOLBAR
+        MENUITEM "&Network Toolbar",            IDM_VIEW_NETWORK_TOOLBAR
+        MENUITEM "Stat&us Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Magic Symb&ols",              IDM_VIEW_MAGICSYMBOLS
+        MENUITEM "Magic A&rts",                 IDM_VIEW_MAGICBITMAPS
+        MENUITEM SEPARATOR
+        MENUITEM "&Full Screen\tF11",           IDM_VIEW_FULLSCREEN
+        MENUITEM SEPARATOR
+        POPUP "Ta&ble"
+        BEGIN
+            MENUITEM "Opponent's &Hand",            IDM_VIEW_OPPONENTS_HAND, CHECKED
+            MENUITEM "Opponent's &Graveyard",       IDM_VIEW_OPPONENTS_GRAVE, CHECKED
+            MENUITEM "&Your Graveyard",             IDM_VIEW_YOUR_GRAVE, CHECKED
+        END
+        POPUP "&Zone"
+        BEGIN
+            MENUITEM "Your &Graveyard Zone\tG",     IDM_SHOW_YOUR_GRAVE
+            MENUITEM "Your &Exile Zone\tR",         IDM_SHOW_YOUR_REMOVED
+            MENUITEM "Your &Command Zone\tZ",       IDM_SHOW_YOUR_COMMAND
+            MENUITEM "&Opponent's Graveyard Zone\tCtrl+G", IDM_SHOW_OPPONENTS_GRAVE
+            MENUITEM "Opponent's E&xile Zone\tCtrl+R", IDM_SHOW_OPPONENTS_REMOVED
+            MENUITEM "Opponent's C&ommand Zone\tCtrl+Z", IDM_SHOW_OPPONENTS_COMMAND
+        END
+    END
+    POPUP "&Actions"
+    BEGIN
+        MENUITEM "Show &All Actions\tCtrl+A",   IDM_SHOW_TRICK
+        MENUITEM "Auto &Untap in Untap step\tCtrl+T", IDM_AUTO_UNTAP
+        MENUITEM "Auto Select &Single Action\tCtrl+O", IDM_AUTO_MOVE
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Application Se&ttings...",    IDM_APPLICATION_SETTINGS
+        MENUITEM "&Appearance Settings...",     IDM_APPEARANCE_SETTINGS
+        MENUITEM "&Game Play Settings...",      IDM_GAME_PLAY
+        MENUITEM "&Usage Pattern Settings...\tCtrl+P", IDM_USAGE_PATTERN
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Hotkeys",                    ID_APP_HOTKEYS
+        MENUITEM "&About...",                   ID_APP_ABOUT
+    END
+END
+
+IDR_CONTEXT_MENU MENU
+BEGIN
+    POPUP "0"
+    BEGIN
+        MENUITEM "Arrange Cards",               IDM_ARRANGE
+        MENUITEM SEPARATOR
+        MENUITEM "Full Screen\tF11",            IDM_VIEW_FULLSCREEN
+        MENUITEM SEPARATOR
+        POPUP "Zone"
+        BEGIN
+            MENUITEM "Your Graveyard Zone\tG",      IDM_SHOW_YOUR_GRAVE
+            MENUITEM "Your Exile Zone\tR",          IDM_SHOW_YOUR_REMOVED
+            MENUITEM "Your Command Zone\tZ",        IDM_SHOW_YOUR_COMMAND
+            MENUITEM "Opponent's Graveyard Zone\tCtrl+G", IDM_SHOW_OPPONENTS_GRAVE
+            MENUITEM "Opponent's Exile Zone\tCtrl+R", IDM_SHOW_OPPONENTS_REMOVED
+            MENUITEM "Opponent's Command Zone\tCtrl+Z", IDM_SHOW_OPPONENTS_COMMAND
+        END
+        MENUITEM SEPARATOR
+        POPUP "View"
+        BEGIN
+            POPUP "Table"
+            BEGIN
+                MENUITEM "Opponent's Hand",             IDM_VIEW_OPPONENTS_HAND, CHECKED
+                MENUITEM "Opponent's Graveyard",        IDM_VIEW_OPPONENTS_GRAVE, CHECKED
+                MENUITEM "Your Graveyard",              IDM_VIEW_YOUR_GRAVE, CHECKED
+            END
+            MENUITEM SEPARATOR
+            MENUITEM "Chats",                       IDM_VIEW_CHATS
+            MENUITEM "Phases",                      IDM_VIEW_GRAPHBAR
+            MENUITEM "Messages",                    IDM_VIEW_MESSAGEBAR
+            MENUITEM "Actions",                     IDM_VIEW_SELECTIONS
+            MENUITEM "Player Statistic",            22006
+            MENUITEM "Preview",                     IDM_VIEW_PREVIEW
+            MENUITEM SEPARATOR
+            MENUITEM "Toolbar",                     ID_VIEW_TOOLBAR
+            MENUITEM "Network Toolbar",             IDM_VIEW_NETWORK_TOOLBAR
+            MENUITEM "Status Bar",                  ID_VIEW_STATUS_BAR
+        END
+        POPUP "Actions"
+        BEGIN
+            MENUITEM "Show All Actions\tCtrl+A",    IDM_SHOW_TRICK
+            MENUITEM "Auto Untap in Untap step\tCtrl+T", IDM_AUTO_UNTAP
+            MENUITEM "Auto Select Single Action\tCtrl+O", IDM_AUTO_MOVE
+        END
+        POPUP "Game"
+        BEGIN
+            MENUITEM "Start",                       IDM_START
+            MENUITEM "End",                         IDM_STOP
+        END
+    END
+    POPUP "1"
+    BEGIN
+        MENUITEM "Copy All Card Info",          IDM_COPY_ALL_CARD_INFO
+        MENUITEM "Copy Card Name",              IDM_COPY_CARD_NAME
+        MENUITEM "Copy Card Rules Text",        IDM_COPY_CARD_RULES_TEXT
+        MENUITEM "Get Card Rulings Online",     IDM_CARD_RULINGS
+        MENUITEM SEPARATOR
+        MENUITEM "White Cards",                 IDM_FT_WHITE, CHECKED
+        MENUITEM "Blue Cards",                  IDM_FT_BLUE, CHECKED
+        MENUITEM "Black Cards",                 IDM_FT_BLACK, CHECKED
+        MENUITEM "Red Cards",                   IDM_FT_RED, CHECKED
+        MENUITEM "Green Cards",                 IDM_FT_GREEN, CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "Land Cards",                  IDM_FT_LAND, CHECKED
+        MENUITEM "Artifact Cards",              IDM_FT_ARTIFACT, CHECKED
+        MENUITEM "Creature Cards",              IDM_FT_CREATURE, CHECKED
+        MENUITEM "Planeswalker Cards",          IDM_FT_PLANESWALKER, CHECKED
+        MENUITEM "Sorcery Cards",               IDM_FT_SORCERY, CHECKED
+        MENUITEM "Instant Cards",               IDM_FT_INSTANT, CHECKED
+        MENUITEM "Enchantment Cards",           IDM_FT_ENCHANTMENT, CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "Special Cards",               IDM_FT_SPECIAL, CHECKED
+        MENUITEM "Mythic Rare Cards",           IDM_FT_MYTHIC_RARE, CHECKED
+        MENUITEM "Rare Cards",                  IDM_FT_RARE, CHECKED
+        MENUITEM "Uncommon Cards",              IDM_FT_UNCOMMON, CHECKED
+        MENUITEM "Common Cards",                IDM_FT_COMMON, CHECKED
+        MENUITEM "Basic Land Cards",            IDM_FT_BASIC_LAND, CHECKED
+    END
+END
+
+IDR_MENU_DE MENU
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "New Constructed...",          ID_FILE_NEWCONSTRUCTED
+        MENUITEM SEPARATOR
+        MENUITEM "Save",                        ID_FILE_SAVE
+        MENUITEM "Save As...",                  ID_FILE_SAVEAS
+        MENUITEM "Rename...",                   ID_FILE_RENAME
+        MENUITEM SEPARATOR
+        POPUP "Remove"
+        BEGIN
+            MENUITEM "Clear",                       ID_DECKCLEAR
+            MENUITEM "Delete",                      ID_FILE_DELETE
+        END
+        MENUITEM "Exit",                        ID_DE_EXIT
+    END
+    POPUP "Sealed"
+    BEGIN
+        MENUITEM "New Sealed...",               ID_SEALED_NEWSEALED
+        MENUITEM "Add product...",              ID_SEALED_ADDPRODUCT
+    END
+    POPUP "Information"
+    BEGIN
+        MENUITEM "Header...",                   ID_INFO_HEADER
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "Q",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_ATTACK,             VIRTKEY, NOINVERT
+    "O",            IDM_AUTO_MOVE,          VIRTKEY, CONTROL, NOINVERT
+    "T",            IDM_AUTO_UNTAP,         VIRTKEY, CONTROL, NOINVERT
+    VK_SPACE,       IDM_DEFAULT,            VIRTKEY, NOINVERT
+    "U",            IDM_GAME_UNDO,          VIRTKEY, CONTROL, NOINVERT
+    VK_ESCAPE,      IDM_NO_FULLSCREEN,      VIRTKEY, NOINVERT
+    "H",            IDM_SHOW_HAND,          VIRTKEY, CONTROL, ALT, NOINVERT
+    "L",            IDM_SHOW_LIBRARY,       VIRTKEY, CONTROL, ALT, NOINVERT
+    "L",            IDM_SHOW_OPPONENTS_LIBRARY, VIRTKEY, SHIFT, CONTROL, ALT, NOINVERT
+    "A",            IDM_SHOW_TRICK,         VIRTKEY, CONTROL, NOINVERT
+    "G",            IDM_SHOW_YOUR_GRAVE,    VIRTKEY, NOINVERT
+    "Z",            IDM_SHOW_YOUR_COMMAND,  VIRTKEY, NOINVERT
+    "S",            IDM_START,              VIRTKEY, CONTROL, NOINVERT
+    "E",            IDM_STOP,               VIRTKEY, CONTROL, NOINVERT
+    VK_SPACE,       IDM_TURN_DEFAULT,       VIRTKEY, CONTROL, NOINVERT
+    "P",            IDM_USAGE_PATTERN,      VIRTKEY, CONTROL, NOINVERT
+    "D",            IDM_VIEW_DECKS,         VIRTKEY, CONTROL, NOINVERT
+    VK_F11,         IDM_VIEW_FULLSCREEN,    VIRTKEY, NOINVERT
+    "L",            IDM_TOGGLE_LANDS,       VIRTKEY, NOINVERT
+    "R",            IDM_SHOW_YOUR_REMOVED,  VIRTKEY, NOINVERT
+    "G",            IDM_SHOW_OPPONENTS_GRAVE, VIRTKEY, CONTROL, NOINVERT
+    "R",            IDM_SHOW_OPPONENTS_REMOVED, VIRTKEY, CONTROL, NOINVERT
+    "Z",            IDM_SHOW_OPPONENTS_COMMAND, VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 274, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About BotArena/MagicWand"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "BotArena/MagicWand",IDC_PRODUCT_NAME,65,9,72,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,198,175,50,14,WS_GROUP
+    LTEXT           "Magic: The Gathering, Wizards of the Coast, and their logos, Magic, characters' distinctive likenesses, the Planeswalker symbol, the pentagon of colors, the mana symbols, and the tap symbol are property of Wizards in the U.S.A. and other countries.",IDC_STATIC,39,74,196,44
+    LTEXT           "Icons: http://www.aspneticons.com/; http://sekkyumu.deviantart.com/; http://magicseteditor.sourceforge.net/welcome",IDC_STATIC,23,128,225,27
+    ICON            IDR_MAINFRAME,IDC_STATIC,41,9,20,20
+    GROUPBOX        "Important Notice",IDC_STATIC,33,36,207,85
+    LTEXT           "{ Product Version }",IDC_VERSION,65,21,60,8
+    LTEXT           "This application is not published or endorsed by Wizards of the Coast LLC.",IDC_STATIC,39,51,196,20
+    LTEXT           "Wallpapers: Géraud Broussaud",IDC_STATIC,24,158,196,10
+    LTEXT           "Splash Screen: Donpastor",IDC_STATIC,24,167,104,10
+END
+
+IDD_LOAD_CARD_STORE DIALOGEX 0, 0, 231, 135
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP
+FONT 8, "Times New Roman", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_EXTENSION,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,32,118,148,8
+    LTEXT           "Loading",IDC_STATIC,3,118,26,8
+    CONTROL         175,IDB_LOGO,"Static",SS_BITMAP,0,0,233,117
+    LTEXT           "© 2000-2013 BotArena 1.43.1 (Open Source - Revision 127)",IDC_STATIC,3,127,228,8
+END
+
+IDD_GRAPH DIALOGEX 0, 0, 218, 77
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CTEXT           "",IDC_CURRENT_NODE,58,3,152,10,SS_SUNKEN
+    LTEXT           "Turn:",IDC_STATIC,11,3,18,8
+    CTEXT           "",IDC_TURN_NUMBER,30,3,24,10,SS_SUNKEN
+    CONTROL         "",IDC_STATIC_UNTAP1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,12,18,17,17
+    CONTROL         "",IDC_STATIC_UPKEEP1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,30,18,17,17
+    CONTROL         "",IDC_STATIC_DRAW1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,48,18,17,17
+    CONTROL         "",IDC_STATIC_MAIN_PRECOMBAT1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,66,18,17,17
+    CONTROL         "",IDC_STATIC_BEGINNING_COMBAT1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,84,18,17,17
+    CONTROL         "",IDC_STATIC_DECLARE_ATTACKERS1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,102,18,17,17
+    CONTROL         "",IDC_STATIC_DECLARE_BLOCKERS1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,120,18,17,17
+    CONTROL         "",IDC_STATIC_COMBAT_DAMAGE1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,138,18,17,17
+    CONTROL         "",IDC_STATIC_END_OF_COMBAT1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,156,18,17,17
+    CONTROL         "",IDC_STATIC_MAIN_POSTCOMBAT1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,174,18,17,17
+    CONTROL         "",IDC_STATIC_END_OF_TURN1,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,192,18,17,17,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC_UNTAP2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,12,39,17,17
+    CONTROL         "",IDC_STATIC_UPKEEP2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,30,39,17,17
+    CONTROL         "",IDC_STATIC_DRAW2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,48,39,17,17
+    CONTROL         "",IDC_STATIC_MAIN_PRECOMBAT2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,66,39,17,17
+    CONTROL         "",IDC_STATIC_BEGINNING_COMBAT2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,84,39,17,17
+    CONTROL         "",IDC_STATIC_DECLARE_ATTACKERS2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,102,39,17,17
+    CONTROL         "",IDC_STATIC_DECLARE_BLOCKERS2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,120,39,17,17
+    CONTROL         "",IDC_STATIC_COMBAT_DAMAGE2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,138,39,17,17
+    CONTROL         "",IDC_STATIC_END_OF_COMBAT2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,156,39,17,17
+    CONTROL         "",IDC_STATIC_MAIN_POSTCOMBAT2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,174,39,17,17
+    CONTROL         "",IDC_STATIC_END_OF_TURN2,"Static",SS_BLACKRECT | SS_REALSIZEIMAGE | NOT WS_VISIBLE,192,39,17,17
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,12,37,204,1
+    CTEXT           "",IDC_PRIORITY_PLAYER,58,63,152,10,SS_SUNKEN
+    CONTROL         "CB_ATTACK",IDM_ATTACK,"Button",BS_OWNERDRAW,34,57,15,15
+    CONTROL         "CB_DEFAULT",IDM_GRAPH_DEFAULT,"Button",BS_OWNERDRAW,12,57,15,15
+END
+
+IDD_STACK DIALOGEX 0, 0, 276, 71
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CONTROLPARENT
+CAPTION "Stack"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tree1",IDC_STACK_TREE,"SysTreeView32",TVS_HASLINES | TVS_DISABLEDRAGDROP | TVS_NOTOOLTIPS | TVS_FULLROWSELECT | WS_HSCROLL,5,6,264,59,WS_EX_STATICEDGE
+END
+
+IDD_START DIALOGEX 0, 0, 350, 180
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Start Game"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "     Player:",IDC_STATIC,6,6,338,60
+    EDITTEXT        IDC_PLAYER_NAME,48,5,240,12,ES_AUTOHSCROLL
+    LTEXT           "Deck:",IDC_STATIC,24,27,20,8
+    PUSHBUTTON      "Folder",IDC_DECK_PATH,47,25,18,14
+    CONTROL         "",IDC_DECK1,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,69,25,219,249
+    CONTROL         "Random",IDC_RANDOM1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,296,27,43,10
+    LTEXT           "Start First?",IDC_STATIC,12,48,34,8
+    CONTROL         "Yes",IDC_START_FIRST,"Button",BS_AUTORADIOBUTTON | WS_GROUP,54,48,28,10
+    CONTROL         "No",IDC_START_NEXT,"Button",BS_AUTORADIOBUTTON,96,48,25,10
+    CONTROL         "Don't Care",IDC_START_DONT_CARE,"Button",BS_AUTORADIOBUTTON,133,48,49,10
+    GROUPBOX        "Opponent:",IDC_STATIC,6,73,338,43
+    COMBOBOX        IDC_OPPONENT_LIST,48,72,240,60,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Deck:",IDC_STATIC_DECK,24,95,20,8
+    PUSHBUTTON      "Folder",IDC_DECK_PATH2,47,92,18,14
+    CONTROL         "",IDC_DECK2,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,69,93,219,205
+    CONTROL         "Random",IDC_RANDOM2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,296,95,43,10
+    CONTROL         "&Mulligan",IDC_MULLIGAN,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,54,125,42,10
+    CONTROL         "&Full Screen",IDC_FULL_SCREEN,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,102,125,51,10
+    DEFPUSHBUTTON   "OK",IDOK,239,123,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,294,123,50,14
+    GROUPBOX        "Developer",IDC_STATIC_DEVELOPER,6,145,338,30,NOT WS_VISIBLE
+    LTEXT           "Seed:",IDC_STATIC_SEED,18,159,20,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_SEED,42,156,42,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "Repeat:",IDC_STATIC_REPEAT,203,49,26,8
+    EDITTEXT        IDC_REPEAT,234,47,75,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SPIN_REPEAT,"msctls_updown32",UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS,315,47,12,14
+    CONTROL         "Increase",IDC_SEED_INCREASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,102,158,43,10
+    GROUPBOX        "AI vs AI",IDC_STATIC_DEVELOPER2,197,40,134,23
+END
+
+IDD_GAME_SETTINGS DIALOGEX 0, 0, 280, 340
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Game Play Settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "A.I.",IDC_STATIC,6,10,264,91,WS_GROUP
+    LTEXT           "Computer Player Name:",IDC_STATIC,17,25,75,8
+    EDITTEXT        IDC_COMPUTER_PLAYER_NAME,102,22,145,14,ES_AUTOHSCROLL
+    LTEXT           "Maximum thinking time:",IDC_STATIC,18,43,74,8
+    COMBOBOX        IDC_MAX_TIME,102,41,78,56,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Allows overkills",IDC_OVERKILL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,59,63,10
+    CONTROL         "Re-think in Combat Phase",IDC_EXTRA_CAREFUL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,102,59,98,10
+    CONTROL         "Conserve life early",IDC_CONSERVATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,71,73,10
+    CONTROL         "Boost process priority when thinking (advanced)",IDC_BOOST_PROCESS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,83,167,10
+    GROUPBOX        "Action Selections",IDC_STATIC,6,109,264,146
+    CONTROL         "Show all available actions. If this option is not selected, some actions will be filtered out if they are not logical (e.g. Cast a fireball and target yourself; tapping a land without any spells to cast.) ('All Actions' checkbox in the Actions bar)",IDC_SHOW_ALL_MOVES,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,18,121,234,36
+    CONTROL         "Automatically select the only action available for you ('Auto' checkbox in the Actions bar)",IDC_AUTO_SELECT_SINGLE_MOVE,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,18,163,234,18
+    CONTROL         "Automatically select all untap actions during the Untap step for you ('Untap' checkbox in the Actions bar)",IDC_AUTO_SELECT_UNTAP_MOVES,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,18,181,240,18
+    LTEXT           "Automatic action selection delay (seconds):",IDC_STATIC,18,208,137,8
+    EDITTEXT        IDC_SELECTION_TIMER_COUNTDOWN,156,205,42,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Use the action selection delay in Main Phase",IDC_DELAY_SELECT_IN_MAIN,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,223,157,10
+    CONTROL         "Use the action selection delay in other Phases",IDC_DELAY_SELECT_IN_OTHERS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,235,161,10
+    GROUPBOX        "Mouse",IDC_STATIC,6,262,264,48,WS_GROUP
+    CONTROL         "Double Click on a card to perform an action (only permitted for cards with a single available action)",IDC_DBLCLK_PERFORM,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,12,287,254,18
+    CONTROL         "Double Click on a card to zoom",IDC_DBLCLK_ZOOM,"Button",BS_AUTORADIOBUTTON,12,276,115,10
+    DEFPUSHBUTTON   "OK",IDOK,162,318,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,216,318,50,14
+END
+
+IDD_DECKS DIALOGEX 0, 0, 604, 347
+STYLE DS_SETFONT | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Decks"
+MENU IDR_MENU_DE
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SEARCH,105,157,272,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SEARCH_TYPE,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,12,157,91,99
+    CONTROL         "List1",IDC_CARD_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | WS_TABSTOP,12,190,416,149,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_SIDEBOARD_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | WS_TABSTOP,12,190,416,149,WS_EX_CLIENTEDGE
+    CONTROL         "Total:",IDC_STATIC2,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,9,177,19,8,WS_EX_TRANSPARENT
+    CTEXT           "",IDC_CARD_TOTAL,30,176,52,10,SS_SUNKEN
+    CONTROL         "CB_WHITE",IDC_FILTER_WHITE,"Button",BS_OWNERDRAW,89,172,14,12
+    CONTROL         "CB_BLUE",IDC_FILTER_BLUE,"Button",BS_OWNERDRAW,107,172,14,12
+    CONTROL         "CB_BLACK",IDC_FILTER_BLACK,"Button",BS_OWNERDRAW,125,172,14,12
+    CONTROL         "CB_RED",IDC_FILTER_RED,"Button",BS_OWNERDRAW,143,172,14,12
+    CONTROL         "CB_GREEN",IDC_FILTER_GREEN,"Button",BS_OWNERDRAW,161,172,14,12
+    CONTROL         "CB_LAND",IDC_FILTER_LAND,"Button",BS_OWNERDRAW,187,172,14,12
+    CONTROL         "CB_ARTIFACT",IDC_FILTER_ARTIFACT,"Button",BS_OWNERDRAW,205,172,14,12
+    CONTROL         "CB_CREATURE",IDC_FILTER_CREATURE,"Button",BS_OWNERDRAW,223,172,14,12
+    CONTROL         "CB_PLANESWALKER",IDC_FILTER_PLANESWALKER,"Button",BS_OWNERDRAW,241,172,14,12
+    CONTROL         "CB_SORCERY",IDC_FILTER_SORCERY,"Button",BS_OWNERDRAW,259,172,14,12
+    CONTROL         "CB_INSTANT",IDC_FILTER_INSTANT,"Button",BS_OWNERDRAW,277,172,14,12
+    CONTROL         "CB_ENCHANTMENT",IDC_FILTER_ENCHANTMENT,"Button",BS_OWNERDRAW,295,172,14,12
+    CONTROL         "CB_SPECIAL",IDC_FILTER_SPECIAL,"Button",BS_OWNERDRAW,321,172,14,12
+    CONTROL         "CB_MYTHIC_RARE",IDC_FILTER_MYTHIC_RARE,"Button",BS_OWNERDRAW,339,172,14,12
+    CONTROL         "CB_RARE",IDC_FILTER_RARE,"Button",BS_OWNERDRAW,357,172,14,12
+    CONTROL         "CB_UNCOMMON",IDC_FILTER_UNCOMMON,"Button",BS_OWNERDRAW,375,172,14,12
+    CONTROL         "CB_COMMON",IDC_FILTER_COMMON,"Button",BS_OWNERDRAW,393,172,14,12
+    CONTROL         "CB_BASIC_LAND",IDC_FILTER_BASIC_LAND,"Button",BS_OWNERDRAW,411,172,14,12
+    LTEXT           "Dec&ks:",IDC_STATIC,12,5,24,8
+    PUSHBUTTON      "Folder",IDC_DECK_PATH,39,3,18,14
+    CONTROL         "",IDC_DECK,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,60,3,185,343
+    PUSHBUTTON      "&Save",IDC_SAVE,303,3,50,13
+    LTEXT           "Total:",IDC_STATIC,14,21,19,8
+    CTEXT           "",IDC_DECK_TOTAL,34,21,27,10,SS_SUNKEN
+    LTEXT           "Land:",IDC_STATIC,66,21,19,8
+    CTEXT           "",IDC_LAND_TOTAL,85,21,24,10,SS_SUNKEN
+    LTEXT           "Creature:",IDC_STATIC,114,21,30,8
+    CTEXT           "",IDC_CREATURE_TOTAL,144,21,24,10,SS_SUNKEN
+    LTEXT           "Non-Creature:",IDC_STATIC,175,21,45,8
+    CTEXT           "",IDC_NONCREATURE_TOTAL,221,21,24,10,SS_SUNKEN
+    CONTROL         "CB_LAND",IDC_FILTER_LAND2,"Button",BS_OWNERDRAW,250,17,14,12
+    CONTROL         "CB_ARTIFACT",IDC_FILTER_ARTIFACT2,"Button",BS_OWNERDRAW,268,17,14,12
+    CONTROL         "CB_CREATURE",IDC_FILTER_CREATURE2,"Button",BS_OWNERDRAW,286,17,14,12
+    CONTROL         "CB_PLANESWALKER",IDC_FILTER_PLANESWALKER2,"Button",BS_OWNERDRAW,304,17,14,12
+    CONTROL         "CB_SORCERY",IDC_FILTER_SORCERY2,"Button",BS_OWNERDRAW,322,17,14,12
+    CONTROL         "CB_INSTANT",IDC_FILTER_INSTANT2,"Button",BS_OWNERDRAW,340,17,14,12
+    CONTROL         "CB_ENCHANTMENT",IDC_FILTER_ENCHANTMENT2,"Button",BS_OWNERDRAW,358,17,14,12
+    CONTROL         "List1",IDC_DECK_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | WS_TABSTOP,7,35,593,99,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Add",IDC_ADD,215,134,50,17,WS_DISABLED
+    PUSHBUTTON      "Remove",IDC_REMOVE,268,134,50,17
+    CONTROL         900,IDC_CARD,"Static",SS_BITMAP,437,136,15,13
+    DEFPUSHBUTTON   "Search",IDC_SEARCH_BUTTON,380,157,50,14
+    PUSHBUTTON      "New...",IDC_NEW,250,3,50,13
+    CONTROL         "",IDC_TAB,"SysTabControl32",0x0,5,139,429,207
+END
+
+IDD_RENAME_DECK DIALOGEX 0, 0, 237, 50
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Deck Name"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "&Deck Name:",IDC_STATIC,7,10,41,8
+    EDITTEXT        IDC_DECK_NAME,51,7,176,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,123,29,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,178,29,50,14
+END
+
+IDD_CARDS DIALOGEX 0, 0, 304, 210
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Cards"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_CARD_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_TABSTOP,4,4,128,184,WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "OK",IDOK,43,192,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,100,192,12,14,NOT WS_VISIBLE
+    CONTROL         900,IDC_CARD,"Static",SS_BITMAP,140,0,163,209
+END
+
+IDD_ORDER_CARDS DIALOGEX 0, 0, 323, 209
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Order Cards"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Top",IDC_STATIC,44,4,14,8
+    LTEXT           "Bottom",IDC_STATIC,40,196,23,8
+    CONTROL         "List1",IDC_CARD_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_TABSTOP,4,16,100,176,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Move &Up",IDC_UP,108,28,50,14
+    PUSHBUTTON      "Move &Down",IDC_DOWN,108,52,50,14
+    DEFPUSHBUTTON   "OK",IDOK,108,176,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,144,192,12,14,NOT WS_VISIBLE
+    CONTROL         900,IDC_CARD,"Static",SS_BITMAP,160,0,163,209
+END
+
+IDD_USAGE_PATTERN DIALOGEX 0, 0, 380, 222
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Usage Pattern Settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_CARD_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_TABSTOP,7,7,142,209,WS_EX_CLIENTEDGE
+    CONTROL         900,IDC_CARD,"Static",SS_BITMAP,153,7,15,13
+    PUSHBUTTON      "&Add",IDC_ADD_CARD,323,7,50,14
+    PUSHBUTTON      "&Remove",IDC_REMOVE_CARD,323,25,50,14
+    PUSHBUTTON      "&Properties",IDC_PROPERTIES,323,44,50,14
+    PUSHBUTTON      "&Close",IDOK,323,202,50,14
+END
+
+IDD_USAGE_ENTRIES DIALOGEX 0, 0, 400, 228
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Usage Conditions"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Card:",IDC_STATIC,14,9,18,8
+    EDITTEXT        IDC_CARD_NAME,43,9,276,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "Ability:",IDC_STATIC,14,26,21,8
+    EDITTEXT        IDC_ABILITY_ID,43,26,276,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    GROUPBOX        "Usage Conditions",IDC_STATIC,7,41,383,157
+    LTEXT           "Conditions at the top of the list will be evaluated first. Evaluation will stop after the first condition is satisfied. 'Usable' conditions will allow you to use the ability. 'Not usable' conditions will prevent you to use the ability.",IDC_STATIC,42,54,276,28
+    CONTROL         "List1",IDC_USAGE_ENTRY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_TABSTOP,44,91,274,65,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Up",IDC_MOVE_UP,15,116,23,14
+    PUSHBUTTON      "&Down",IDC_MOVE_DOWN,15,137,23,14
+    PUSHBUTTON      "Use Pre-defined",IDC_USE_PREDEFINED,324,90,60,14
+    PUSHBUTTON      "&Add",IDC_ADD_ENTRY,324,108,60,14
+    PUSHBUTTON      "&Remove",IDC_REMOVE_ENTRY,324,126,60,14
+    PUSHBUTTON      "&Properties",IDC_PROPERTIES,324,144,60,14
+    COMBOBOX        IDC_USAGE,324,163,52,41,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "If none of the conditions listed above are applicable, by default this ability is:",IDC_STATIC,78,166,238,8
+    CONTROL         "Override this Usage Patterns when the Stack is not empty",IDC_OVERRIDE_THIS_U_P_IN_STACK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,78,180,197,10
+    DEFPUSHBUTTON   "OK",IDOK,270,204,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,330,204,50,14
+END
+
+IDD_EDIT_USAGE_ENTRY DIALOGEX 0, 0, 348, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ABILITY_ID,7,7,242,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    COMBOBOX        IDC_NODE_LIST,7,20,245,132,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_USAGE,264,33,73,42,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "and",IDC_AND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,35,28,10
+    COMBOBOX        IDC_NODE_LIST2,7,46,245,116,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,234,66,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,289,66,50,14
+END
+
+IDD_USAGE_ABILITIES DIALOGEX 0, 0, 264, 158
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Card Abilities"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_CARD_NAME,7,7,250,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    CONTROL         "&Use the following settings for this card",IDC_ENABLED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,22,135,10
+    GROUPBOX        "&Abilities",IDC_STATIC,10,37,245,95
+    CONTROL         "List1",IDC_ABILITY_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_TABSTOP,15,47,235,80,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "&Properties",IDC_PROPERTIES,10,137,50,14
+    DEFPUSHBUTTON   "OK",IDOK,150,137,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,205,137,50,14
+END
+
+IDD_CONNECT_TO_COMPUTER DIALOGEX 0, 0, 190, 78
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Connect To User"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "IP Address:",IDC_STATIC,12,14,38,8
+    CONTROL         "",IDC_CONNECT_TO_IP_ADDRESS,"SysIPAddress32",WS_TABSTOP,54,12,100,12
+    LTEXT           "Port:",IDC_STATIC,34,33,16,8
+    EDITTEXT        IDC_CONNECT_TO_PORT,54,30,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,78,60,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,132,60,50,14
+END
+
+IDD_APPLICATION_SETTINGS DIALOGEX 0, 0, 322, 164
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Application Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Your Name:",IDC_STATIC,12,15,38,8
+    EDITTEXT        IDC_USER_NAME,54,12,234,14,ES_AUTOHSCROLL
+    GROUPBOX        "Network",IDC_STATIC,12,37,293,95
+    CONTROL         "Allow Remote Users to Connect",IDC_ALLOW_CONNECTIONS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,48,117,10
+    LTEXT           "Listening Port:",IDC_STATIC,91,63,47,8
+    EDITTEXT        IDC_LISTENING_PORT,144,60,42,14,ES_AUTOHSCROLL | ES_NUMBER
+    RTEXT           "Maximum Number of Incoming Connections:",IDC_STATIC,40,76,97,17
+    EDITTEXT        IDC_MAX_CONNECTIONS,144,78,42,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "(These settings will take effect after the application restarts.)",IDC_STATIC,192,66,108,24
+    CONTROL         "Announce New Connections",IDC_ANNOUNCE_NEW_CONNECTIONS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,36,102,105,10
+    CONTROL         "Announce Disconnect",IDC_ANNOUNCE_DISCONNECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,36,114,85,10
+    DEFPUSHBUTTON   "OK",IDOK,186,138,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,240,138,50,14
+END
+
+IDD_WAITING_FOR DIALOGEX 0, 0, 186, 49
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Waiting For"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,132,30,50,14
+    EDITTEXT        IDC_MESSAGE,6,12,174,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+END
+
+IDD_SELECTION_TIMER DIALOGEX 0, 0, 172, 54
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Auto Selection Delay"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Delaying",IDC_STATIC,8,4,28,8
+    EDITTEXT        IDC_COUNTDOWN,36,4,12,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "seconds before selecting:",IDC_STATIC,51,4,83,8
+    EDITTEXT        IDC_AUTO_MOVE,6,18,159,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Auto Select Now",IDC_SELECT_NOW,6,36,78,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel Auto Selection",IDCANCEL,87,36,78,14,NOT WS_TABSTOP
+END
+
+IDD_APPEARANCE DIALOGEX 0, 0, 461, 273
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Appearance Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Game Table",IDC_STATIC,6,6,264,210,WS_GROUP
+    LTEXT           "Table Size:",IDC_STATIC,18,20,36,8
+    COMBOBOX        IDC_BOARD_SIZE,60,18,120,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Show life",IDC_SHOW_LIFE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,37,45,10
+    CONTROL         "Color",IDC_LIFE_COLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,108,37,24,9
+    CONTROL         "Show library card count",IDC_SHOW_LIBRARY_CARD_COUNT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,49,91,10
+    CONTROL         "Color",IDC_LIBRARY_COLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,108,49,24,9
+    CONTROL         "Show phase text",IDC_SHOW_PHASE_TEXT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,61,70,10
+    CONTROL         "Color",IDC_PHASE_COLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,108,61,24,9
+    CONTROL         "Show avatar image",IDC_SHOW_AVATAR_IMAGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,73,74,10
+    PUSHBUTTON      "Choose...",IDC_AVATARS,93,73,39,9
+    CONTROL         "Show mana pool",IDC_SHOW_POOL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,144,36,68,10
+    CONTROL         "Show phase icon",IDC_SHOW_PHASE_ICON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,144,48,69,10
+    CONTROL         "Show selection indicator",IDC_DRAW_SELECTION,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,144,60,93,10
+    CONTROL         "Animated card movements",IDC_ANIMATED_CARD_MOVEMENTS,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,18,90,101,10
+    CONTROL         "Always stack lands",IDC_ALWAYS_STACK_LANDS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,144,90,103,10
+    CONTROL         "Auto zoom cards (mouse over the card name)",IDC_AUTO_ZOOM,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,102,161,10
+    GROUPBOX        "Background",IDC_STATIC,12,131,252,78,WS_GROUP
+    LTEXT           "File:",IDC_STATIC,22,148,14,8
+    EDITTEXT        IDC_CUSTOM_BACKGROUND_FILE,40,147,180,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,226,147,30,14
+    CONTROL         "Center",IDC_BACKGROUND_LOCATION_CENTER,"Button",BS_AUTORADIOBUTTON | WS_GROUP,42,167,38,10
+    CONTROL         "Tile",IDC_BACKGROUND_LOCATION_TILE,"Button",BS_AUTORADIOBUTTON,42,189,27,10
+    CONTROL         "Scale image to fit table size",IDC_SCALE_CUSTOM_BACKGROUND,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,84,167,103,10
+    CONTROL         "Keep aspect ratio",IDC_KEEP_ASPECT_RATIO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,84,179,72,10
+    GROUPBOX        "Speech",IDC_STATIC,6,222,264,30
+    CONTROL         "Speech",IDC_SPEECH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,234,41,10
+    CONTROL         "Opening Voice",IDC_SPEAK_OPENING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,234,63,10
+    GROUPBOX        "Card Size",IDC_STATIC,274,7,180,245,WS_GROUP
+    CONTROL         900,IDC_CARD,"Static",SS_BITMAP,282,16,15,13
+    CONTROL         "",IDC_CARD_SIZE,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,282,228,144,15
+    LTEXT           "70",IDC_CARD_SIZE_VALUE,427,232,17,8
+    DEFPUSHBUTTON   "OK",IDOK,354,258,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,408,258,50,14
+END
+
+IDD_PLAYER_STATISTIC DIALOGEX 0, 0, 105, 77
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    ICON            IDI_HUMAN,IDC_PLAYERICON1,10,5,20,20,SS_REALSIZEIMAGE
+    EDITTEXT        IDC_NAME1,21,5,32,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_LIFE1,11,17,10,8,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    ICON            IDI_LIBRARY_HI,IDC_STATIC,51,1,20,20,SS_REALSIZEIMAGE
+    ICON            IDI_HAND_HI,IDC_STATIC,69,1,20,20,SS_REALSIZEIMAGE
+    ICON            IDI_GRAVEYARD_HI,IDC_STATIC,87,1,21,20,SS_REALSIZEIMAGE,WS_EX_TRANSPARENT
+    ICON            IDI_MANAPOOL,IDC_STATIC,10,27,20,20,SS_REALSIZEIMAGE
+    CTEXT           "0",IDC_LIBRARY1,49,17,18,8,0,WS_EX_TRANSPARENT
+    CTEXT           "0",IDC_HAND1,67,17,18,8,0,WS_EX_TRANSPARENT
+    CTEXT           "0",IDC_GRAVEYARD1,85,17,18,8,0,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,9,37,96,1
+    ICON            IDI_HUMAN,IDC_PLAYERICON2,10,43,20,20,SS_REALSIZEIMAGE
+    EDITTEXT        IDC_NAME2,21,43,32,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_LIFE2,11,55,10,8,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    ICON            IDI_LIBRARY_HI,IDC_STATIC,51,39,20,20,SS_REALSIZEIMAGE
+    ICON            IDI_HAND_HI,IDC_STATIC,69,39,20,20,SS_REALSIZEIMAGE
+    ICON            IDI_GRAVEYARD_HI,IDC_STATIC,87,39,21,20,SS_REALSIZEIMAGE,WS_EX_TRANSPARENT
+    ICON            IDI_MANAPOOL,IDC_STATIC,10,65,21,20,SS_REALSIZEIMAGE
+    CTEXT           "0",IDC_LIBRARY2,49,55,18,8,0,WS_EX_TRANSPARENT
+    CTEXT           "0",IDC_HAND2,67,55,18,8,0,WS_EX_TRANSPARENT
+    CTEXT           "0",IDC_GRAVEYARD2,85,55,18,8,0,WS_EX_TRANSPARENT
+END
+
+IDD_AVATAR DIALOGEX 0, 0, 274, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Avatar"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Computer's Avatar:",IDC_STATIC,12,12,64,8
+    EDITTEXT        IDC_AVATAR1,12,24,174,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_AVATAR1,192,24,18,14
+    CONTROL         900,IDC_AVATAR1_IMAGE,"Static",SS_BITMAP,216,12,15,13
+    LTEXT           "Your Avatar:",IDC_STATIC,12,60,42,8
+    EDITTEXT        IDC_AVATAR2,12,72,174,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_AVATAR2,192,72,18,14
+    CONTROL         900,IDC_AVATAR2_IMAGE,"Static",SS_BITMAP,216,60,15,13
+    DEFPUSHBUTTON   "OK",IDOK,162,120,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,216,120,50,14
+END
+
+IDD_ADD_STARTER_BOOSTER DIALOGEX 0, 0, 241, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Product"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Core Set/Expansion:",IDC_STATIC,9,8,67,8
+    CONTROL         "",IDC_EXPANSION,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,78,6,138,150
+    LTEXT           "Product:",IDC_STATIC,48,26,28,8
+    COMBOBOX        IDC_PRODUCT,78,24,138,167,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADD,78,42,50,14,WS_DISABLED
+    PUSHBUTTON      "Remove",IDC_REMOVE,132,42,50,14,WS_DISABLED
+    CONTROL         "",IDC_SELECTIONS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,60,228,84
+    CONTROL         "Remove Basic Lands",IDC_REMOVE_BASIC_LANDS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,153,81,10
+    DEFPUSHBUTTON   "OK",IDOK,132,150,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,186,150,50,14
+END
+
+IDD_ADD_SEALED_DECK DIALOGEX 0, 0, 244, 210
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Sealed Deck"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Deck:",IDC_STATIC,56,9,19,8
+    EDITTEXT        IDC_DECK,78,6,138,14,ES_AUTOHSCROLL
+    LTEXT           "Core Set/Expansion:",IDC_STATIC,9,28,67,8
+    CONTROL         "",IDC_EXPANSION,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,78,26,138,150
+    LTEXT           "Product:",IDC_STATIC,48,46,28,8
+    COMBOBOX        IDC_PRODUCT,78,44,138,167,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Seed:",IDC_STATIC,56,65,20,8
+    EDITTEXT        IDC_SEED,78,62,138,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_ADD,78,80,50,14,WS_DISABLED
+    PUSHBUTTON      "Remove",IDC_REMOVE,132,80,50,14,WS_DISABLED
+    CONTROL         "",IDC_SELECTIONS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,99,228,84
+    CONTROL         "Remove Basic Lands",IDC_REMOVE_BASIC_LANDS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,192,81,10
+    DEFPUSHBUTTON   "OK",IDOK,132,189,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,186,189,50,14
+END
+
+IDD_SEAL_INFO DIALOGEX 0, 0, 229, 207
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sealed Deck Information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDCANCEL,172,186,50,14
+    CONTROL         "",IDC_INFO,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,7,215,169
+END
+
+IDD_DECK_INFO DIALOGEX 0, 0, 229, 275
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Deck Information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_INFO,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,7,215,97
+    LTEXT           "Header:",IDC_STATIC,9,111,27,8
+    EDITTEXT        IDC_HEADER,7,121,215,111,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    CONTROL         "Preconstructed",IDC_PRECONSTRUCTED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,238,65,10
+    CONTROL         "No Card Limit",IDC_NO_CARD_LIMIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,250,58,10
+    DEFPUSHBUTTON   "OK",IDOK,115,254,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,172,254,50,14
+END
+
+IDD_GAME_SUMMARY DIALOGEX 0, 0, 316, 215
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Game Summary"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,258,198,50,14
+    CONTROL         "Concise",IDC_CONCISE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,44,41,10,WS_EX_TRANSPARENT
+    CONTROL         "Opponents Only",IDC_OPPONENTS_ONLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,66,44,68,10,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_TURN_SELECTION,138,42,96,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_LOG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,18,60,282,119,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_STATUS,7,7,302,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    CONTROL         "",IDC_TAB,"SysTabControl32",0x0,6,24,306,168
+END
+
+IDD_HOTKEYSBOX DIALOGEX 0, 0, 300, 195
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "BotArena Hotkeys"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Hotkeys:",IDC_STATIC,5,5,290,185
+    GROUPBOX        "Game:",IDC_STATIC,10,15,135,50
+    LTEXT           "Ctrl + S = Start the game\rCtrl + E = End the game\rCtrl + U = Undo (Untap basic lands)\rCtrl + Q = Quit BotArena",IDC_STATIC,15,25,125,35
+    GROUPBOX        "Decks:",IDC_STATIC,10,75,135,25
+    LTEXT           "Ctrl + D = View Decks",IDC_STATIC,15,85,125,10
+    GROUPBOX        "Toggle Actions (On/Off):",IDC_STATIC,10,110,135,40
+    LTEXT           "Ctrl + A = Show All Actions\rCtrl + T = Auto Untap in Untap step\rCtrl + O = Auto select single action",IDC_STATIC,15,120,125,25
+    GROUPBOX        "Options:",IDC_STATIC,10,160,135,25
+    LTEXT           "Ctrl + P = Usage Pattern",IDC_STATIC,15,170,125,10
+    GROUPBOX        "During Game:",IDC_STATIC,150,15,140,80
+    LTEXT           "Space = Pass priority\rCtrl + Space = Pass full priority\rC = Enter Combat phase (Attack)\rG = Show your Graveyard\rR = Show your Exile\rCtrl + G = Show opponents Graveyard\rCtrl + R = Show opponents Exile\rL = Toggle land stacking",IDC_STATIC,155,25,130,65
+    GROUPBOX        "Other Keys:",IDC_STATIC,150,110,140,40
+    LTEXT           "F11 = View Fullscreen\rEscape = Exit Fullscreen\rCtrl + Mouse wheel = Change Card size",IDC_STATIC,155,120,130,25
+    DEFPUSHBUTTON   "OK",IDOK,240,170,50,15
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 182
+    END
+
+    IDD_LOAD_CARD_STORE, DIALOG
+    BEGIN
+    END
+
+    IDD_GRAPH, DIALOG
+    BEGIN
+    END
+
+    IDD_STACK, DIALOG
+    BEGIN
+    END
+
+    IDD_START, DIALOG
+    BEGIN
+        RIGHTMARGIN, 340
+        BOTTOMMARGIN, 145
+    END
+
+    IDD_GAME_SETTINGS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 298
+    END
+
+    IDD_DECKS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 603
+    END
+
+    IDD_RENAME_DECK, DIALOG
+    BEGIN
+        RIGHTMARGIN, 186
+    END
+
+    IDD_CARDS, DIALOG
+    BEGIN
+    END
+
+    IDD_ORDER_CARDS, DIALOG
+    BEGIN
+    END
+
+    IDD_USAGE_PATTERN, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 215
+    END
+
+    IDD_USAGE_ENTRIES, DIALOG
+    BEGIN
+        RIGHTMARGIN, 390
+    END
+
+    IDD_EDIT_USAGE_ENTRY, DIALOG
+    BEGIN
+    END
+
+    IDD_USAGE_ABILITIES, DIALOG
+    BEGIN
+    END
+
+    IDD_CONNECT_TO_COMPUTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 183
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_APPLICATION_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_WAITING_FOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_SELECTION_TIMER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 165
+        BOTTOMMARGIN, 30
+    END
+
+    IDD_APPEARANCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 454
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 266
+    END
+
+    IDD_PLAYER_STATISTIC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+
+    IDD_AVATAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 267
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_ADD_STARTER_BOOSTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_ADD_SEALED_DECK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_SEAL_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+
+    IDD_DECK_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
+    END
+
+    IDD_GAME_SUMMARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+    END
+
+    IDD_HOTKEYSBOX, DIALOG
+    BEGIN
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDM_APPEARANCE_SETTINGS "Change appearance settings\nAppearance Settings"
+    IDM_VIEW_DECKS          "Modify and create decks\nView Decks"
+    IDM_VIEW_FULLSCREEN     "Full screen mode\nFull Screen"
+    IDM_VIEW_MAGICBITMAPS   "View Magic: The Gathering (TM) arts\nMagic Arts"
+    IDM_VIEW_MAGICSYMBOLS   "View Magic: The Gathering (TM) symbols\nMagic Symbols"
+    IDM_VIEW_OPPONENTS_GRAVE 
+                            "View opponent's graveyard on the table\nView Opponent's Graveyard"
+    IDM_VIEW_OPPONENTS_HAND "View opponent's hand on the table\nView Opponent's Hand"
+    IDM_VIEW_YOUR_GRAVE     "View your graveyard on the table\nView Your Graveyard"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_GAME_UNDO           "Undo"
+    IDM_SHOW_YOUR_GRAVE     "Show your graveyard in a window\nShow Your Graveyard"
+    IDM_SHOW_YOUR_REMOVED   "Show your exile zone in a window\nShow Your Exile"
+    IDM_SHOW_OPPONENTS_GRAVE 
+                            "Show opponent's graveyard in a window\nShow Opponent's Graveyard"
+    IDM_SHOW_OPPONENTS_REMOVED 
+                            "Show opponent's exile zone in a window\nShow Opponent's Exile"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_SHOW_YOUR_COMMAND   "Show your command zone in a window\nShow Your Command zone"
+    IDM_SHOW_OPPONENTS_COMMAND 
+                            "Show opponent's command zone in a window\nShow Opponent's command zone"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "BotArena\n\nBotArena\n\n\nBotArena.Document\nBotArena.Document"
+END
+
+STRINGTABLE
+BEGIN
+    IDC_INDICATOR_CONNECTED "0 User(s)"
+    IDC_INDICATOR_TURN      " "
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "BotArena"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_VIEW_CHATS          "View chats window\nView Chats"
+    IDM_VIEW_GRAPHBAR       "View phases window\nView Phases"
+    IDM_VIEW_MESSAGEBAR     "View messages window\nView Messages"
+    IDM_VIEW_NETWORK_TOOLBAR 
+                            "Show or hide the network toolbar\nToggle Network ToolBar"
+    IDM_VIEW_PREVIEW        "View preview window\nView Preview"
+    IDM_VIEW_SELECTIONS     "View available moves\nView Moves"
+    IDM_VIEW_STATISTIC      "View player statistic\nView Player Statistic"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_DISCONNECT_ALL_USERS 
+                            "Disconnect to/from all remote users\nDisconnect All"
+    IDM_GAME_PLAY           "Change game play settings\nGame Play Settings"
+    IDM_GRAPH_DEFAULT       "Pass (Space)\nPass (Space)"
+    IDM_SHOW_TRICK          "Show all moves\nAll Moves"
+    IDM_START               "Start a new game\nStart Game"
+    IDM_STOP                "End the current game\nEnd Game"
+    IDM_USAGE_PATTERN       "Change card usage patterns\nCard Usage Patterns"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_APPLICATION_SETTINGS 
+                            "Change application settings\nApplication Settings"
+    IDM_ARRANGE             "Arrange cards\nArrange Cards"
+    IDM_ATTACK              "Go to Beginning of Combat Step (C)\nGo to Beginning of Combat Step (C)"
+    IDM_AUTO_MOVE           "Select only possible move automatically\nAuto Move"
+    IDM_AUTO_UNTAP          "Untap cards automatically during Untap step\nAuto Untap"
+    IDM_CONNECT_TO_USER     "Connect to remote user\nConnect To User"
+    IDM_DECIDE_NOW          "Force computer to make a move\nDecide Now"
+    IDM_DEFAULT             "Pass\nPass"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_YOUR_TURN           "Your turn"
+    IDS_YOUR_BEGINNING_PHASE "Your Beginning phase"
+    IDS_YOUR_UNTAP_STEP     "Your Untap step"
+    IDS_YOUR_UPKEEP_STEP    "Your Upkeep step"
+    IDS_YOUR_DRAW_STEP      "Your Draw step"
+    IDS_YOUR_MAIN_PHASE     "Your Main phase"
+    IDS_YOUR_MAIN_PHASE_PRECOMBAT "Your Main phase (pre-combat)"
+    IDS_YOUR_MAIN_PHASE_POSTCOMBAT "Your Main phase (post-combat)"
+    IDS_YOUR_END_PHASE      "Your End phase"
+    IDS_YOUR_COMBAT_PHASE   "Your Combat phase"
+    IDS_YOUR_BEGINNING_OF_COMBAT_STEP "Your Beginning of Combat step"
+    IDS_YOUR_DECLARE_ATTACKERS_STEP "Your Declare Attackers step"
+    IDS_YOUR_DECLARE_BLOCKERS_STEP "Your Declare Blockers step"
+    IDS_YOUR_COMBAT_DAMAGE_STEP "Your Combat Damage step"
+    IDS_YOUR_END_OF_COMBAT_STEP "Your End of Combat step"
+    IDS_YOU_ARE_TARGETED    "You are targeted"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_YOUR_LIFE_MAY_INCREASE "Your life may increase"
+    IDS_YOUR_LIFE_MAY_DECREASE "Your life may decrease"
+    IDS_YOUR_CARDS_ARE_TARGETED "Your cards are targeted"
+    IDS_YOUR_CARDS_MAY_LEAVE_INPLAY "Your cards may leave in-play"
+    IDS_YOUR_CREATURES_ARE_TARGETED "Your creatures are targeted"
+    IDS_YOUR_CREATURES_MAY_LEAVE_INPLAY "Your creatures may leave in-play"
+    IDS_YOUR_CREATURES_ARE_ATTACKING "Your creatures are attacking"
+    IDS_YOUR_CREATURES_ARE_BLOCKED "Your creatures are blocked"
+    IDS_YOUR_CREATURES_ARE_BLOCKING "Your creatures are blocking"
+    IDS_YOUR_CREATURES_LIFE_MAY_INCREASE "Your creatures' life may increase"
+    IDS_YOUR_CREATURES_LIFE_MAY_DECREASE "Your creatures' life may decrease"
+    IDS_OPPONENTS_TURN      "Opponents' turn"
+    IDS_OPPONENTS_BEGINNING_PHASE "Opponents' Beginning phase"
+    IDS_OPPONENTS_UNTAP_STEP "Opponents' Untap step"
+    IDS_OPPONENTS_UPKEEP_STEP "Opponents' Upkeep step"
+    IDS_OPPONENTS_DRAW_STEP "Opponents' Draw step"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_OPPONENTS_MAIN_PHASE "Opponents' Main phase"
+    IDS_OPPONENTS_MAIN_PHASE_PRECOMBAT "Opponents' Main phase (pre-combat)"
+    IDS_OPPONENTS_MAIN_PHASE_POSTCOMBAT "Opponents' Main phase (post-combat)"
+    IDS_OPPONENTS_END_PHASE "Opponents' End phase"
+    IDS_OPPONENTS_COMBAT_PHASE "Opponents' Combat phase"
+    IDS_OPPONENTS_BEGINNING_OF_COMBAT_STEP 
+                            "Opponents' Beginning of Combat step"
+    IDS_OPPONENTS_DECLARE_ATTACKERS_STEP "Opponents' Declare Attackers step"
+    IDS_OPPONENTS_DECLARE_BLOCKERS_STEP "Opponents' Declare Blockers step"
+    IDS_OPPONENTS_COMBAT_DAMAGE_STEP "Opponents' Combat Damage step"
+    IDS_OPPONENTS_END_OF_COMBAT_STEP "Opponents' End of Combat step"
+    IDS_OPPONENTS_ARE_TARGETED "Opponents are targeted"
+    IDS_OPPONENTS_LIFE_MAY_INCREASE "Opponents' life may increase"
+    IDS_OPPONENTS_LIFE_MAY_DECREASE "Opponents' life may decrease"
+    IDS_OPPONENTS_CARDS_ARE_TARGETED "Opponents' cards are targeted"
+    IDS_OPPONENTS_CARDS_MAY_LEAVE_INPLAY "Opponents' cards may leave in-play"
+    IDS_OPPONENTS_CREATURES_ARE_TARGETED "Opponents' creatures are targeted"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_OPPONENTS_CREATURES_MAY_LEAVE_INPLAY 
+                            "Opponents' creatures may leave in-play"
+    IDS_OPPONENTS_CREATURES_ARE_ATTACKING "Opponents' creatures are attacking"
+    IDS_OPPONENTS_CREATURES_ARE_BLOCKED "Opponents' creatures are blocked"
+    IDS_OPPONENTS_CREATURES_ARE_BLOCKING "Opponents' creatures are blocking"
+    IDS_OPPONENTS_CREATURES_LIFE_MAY_INCREASE 
+                            "Opponents' creatures' life may increase"
+    IDS_OPPONENTS_CREATURES_LIFE_MAY_DECREASE 
+                            "Opponents' creatures' life may decrease"
+    IDS_THIS_CARD_IS_TARGETED "This card is targeted"
+    IDS_THIS_CARD_MAY_LEAVE_INPLAY "This card may leave in-play"
+    IDS_THIS_CARD_MAY_BE_DISCARDED "This card may be discarded"
+    IDS_THIS_CREATURE_IS_ATTACKING "This creature is attacking"
+    IDS_THIS_CREATURE_IS_BLOCKED "This creature is blocked"
+    IDS_THIS_CREATURE_IS_BLOCKING "This creature is blocking"
+    IDS_THIS_CREATURES_LIFE_MAY_INCREASE "This creature's life may increase"
+    IDS_THIS_CREATURES_LIFE_MAY_DECREASE "This creature's life may decrease"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NEW_USAGE_ENTRY     "New Usage Entry"
+    IDS_USAGE_ENTRY         "Usage Entry"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_HOTKEYS          "Show all available hotkeys of BotArena\nHotkeys"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "..\MagicCore\MagicCore.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

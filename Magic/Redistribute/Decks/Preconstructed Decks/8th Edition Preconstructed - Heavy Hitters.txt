@@ -1,0 +1,44 @@
+// Heavy Hitters
+// 8th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+2 Elvish Pioneer (1787)
+Fyndhorn Elder (1552)
+2 Hunted Wumpus (1843)
+Llanowar Behemoth (1752)
+2 Lone Wolf (1583)
+Nantuko Disciple (1695)
+Primeval Force (1769)
+Rhox (1710)
+2 Spined Wurm (1644)
+2 Wood Elves (1681)
+
+// Instants - 3 (7.50%)
+
+2 Giant Growth (1554)
+Naturalize (1741)
+
+// Sorceries - 3 (7.50%)
+
+2 Rampant Growth (1618)
+Wing Snare (1680)
+
+// Enchantments - 1 (2.50%)
+
+Lure (1585)
+
+// Artifacts - 1 (2.50%)
+
+Rod of Ruin (1625)
+
+// Lands - 17 (42.50%)
+
+5 Forest (1548)
+4 Forest (1549)
+4 Forest (1550)
+4 Forest (1551)

@@ -1,0 +1,55 @@
+// Total cards in deck - 61
+
+// Creatures - 12 (19.67%)
+
+4 Knight of the Reliquary (8815)
+4 Tarmogoyf (17704)
+2 Terravore (13214)
+2 Vendilion Clique (18369)
+
+// Instants - 20 (32.79%)
+
+4 Brainstorm (11610)
+4 Daze (12089)
+4 Force of Will (6759)
+4 Stifle (14676)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 4 (6.56%)
+
+4 Ponder (4208)
+
+// Artifacts - 2 (3.28%)
+
+2 Engineered Explosives (15510)
+
+// Lands - 23 (37.70%)
+
+Forest (19300)
+3 Horizon Canopy (17728)
+Karakas (5431)
+4 Misty Rainforest (19356)
+3 Tropical Island (7384)
+3 Tundra (7386)
+4 Wasteland (10008)
+4 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Llawan, Cephalid Empress (13622)
+2 Meddling Mage (9016)
+2 Rhox War Monk (8694)
+Vendilion Clique (18369)
+
+// Instants
+
+4 Krosan Grip (17369)
+
+// Artifacts
+
+Engineered Explosives (15510)
+4 Tormod's Crypt (17265)

@@ -1,0 +1,50 @@
+// Goblins
+// Elves VS Goblins
+
+// Total cards in deck - 60
+
+// Creatures - 30 (50.00%)
+
+Akki Coalflinger (15642)
+Clickslither (14425)
+3 Emberwilde Augur (17719)
+Flamewave Invoker (3261)
+Gempalm Incinerator (14465)
+3 Goblin Cohort (19175)
+Goblin Matron (959)
+Goblin Ringleader (13061)
+Goblin Sledder (14107)
+Goblin Warchief (14658)
+Ib Halfheart, Goblin Tactician (17442)
+Mogg Fanatic (3254)
+2 Mogg War Marshal (17333)
+2 Mudbutton Torchrunner (17980)
+2 Raging Goblin (3133)
+Reckless One (14112)
+Siege-Gang Commander (3326)
+2 Skirk Drill Sergeant (14469)
+Skirk Fire Marshal (14073)
+Skirk Prospector (14115)
+Skirk Shaman (2504)
+Tar Pitcher (17999)
+
+// Instants - 3 (5.00%)
+
+3 Tarfire (18111)
+
+// Sorceries - 1 (1.67%)
+
+Spitting Earth (3169)
+
+// Enchantments - 2 (3.33%)
+
+2 Boggart Shenanigans (18104)
+
+// Lands - 24 (40.00%)
+
+Forgotten Cave (14128)
+Goblin Burrows (14129)
+6 Mountain (3107)
+6 Mountain (3108)
+5 Mountain (3109)
+5 Mountain (3110)

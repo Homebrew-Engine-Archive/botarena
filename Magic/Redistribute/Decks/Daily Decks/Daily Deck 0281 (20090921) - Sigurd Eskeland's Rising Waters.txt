@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Creatures - 12 (20.00%)
+
+4 Drake Hatchling (11713)
+4 Stinging Barrier (11760)
+4 Waterfront Bouncer (11771)
+
+// Instants - 15 (25.00%)
+
+Brainstorm (11610)
+3 Counterspell (11616)
+3 Daze (12089)
+4 Gush (11828)
+4 Thwart (11815)
+
+// Enchantments - 7 (11.67%)
+
+4 Rising Waters (12064)
+3 Seal of Removal (12068)
+
+// Artifacts - 4 (6.67%)
+
+4 Eye of Ramos (11600)
+
+// Lands - 22 (36.67%)
+
+5 Island (11636)
+4 Island (11637)
+4 Island (11638)
+5 Island (11635)
+4 Rishadan Port (11607)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Stronghold Zeppelin (12051)
+
+// Instants
+
+Counterspell (11616)
+Hoodwink (11817)
+3 Misdirection (11818)
+
+// Sorceries
+
+2 Bribery (11611)
+
+// Enchantments
+
+Seal of Removal (12068)
+
+// Lands
+
+Island (11637)
+Island (11638)
+Rath's Edge (12058)

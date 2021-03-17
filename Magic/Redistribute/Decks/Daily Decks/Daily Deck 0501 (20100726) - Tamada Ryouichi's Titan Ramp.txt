@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 12 (20.00%)
+
+4 Avenger of Zendikar (19664)
+4 Primeval Titan (21223)
+4 Siege-Gang Commander (4101)
+
+// Instants - 4 (6.67%)
+
+4 Harrow (19347)
+
+// Sorceries - 12 (20.00%)
+
+4 Cultivate (21319)
+4 Explore (19647)
+4 Rampant Growth (4091)
+
+// Enchantments - 4 (6.67%)
+
+4 Khalni Heart Expedition (19516)
+
+// Lands - 28 (46.67%)
+
+3 Evolving Wilds (20905)
+2 Forest (21104)
+2 Forest (21105)
+Forest (21107)
+Forest (21106)
+3 Mountain (21115)
+3 Mountain (21112)
+3 Mountain (21113)
+3 Mountain (21114)
+3 Terramorphic Expanse (21309)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Chandra Nalaar (21257)
+
+// Creatures
+
+3 Cunning Sparkmage (19608)
+4 Oracle of Mul Daya (19542)
+
+// Instants
+
+2 Summoning Trap (19540)
+
+// Sorceries
+
+4 Forked Bolt (20847)

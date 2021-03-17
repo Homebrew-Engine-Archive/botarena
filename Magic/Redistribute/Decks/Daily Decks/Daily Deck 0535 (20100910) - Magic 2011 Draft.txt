@@ -1,0 +1,49 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Planeswalkers - 1 (2.50%)
+
+Ajani Goldmane (21259)
+
+// Creatures - 14 (35.00%)
+
+2 Augury Owl (21134)
+Cloud Crusader (21171)
+Cloud Elemental (21164)
+Elite Vanguard (21181)
+2 Infantry Veteran (21185)
+Phantom Beast (21233)
+Scroll Thief (21225)
+Stormfront Pegasus (21238)
+Water Servant (21173)
+White Knight (21268)
+2 AEther Adept (21169)
+
+// Instants - 3 (7.50%)
+
+Condemn (21180)
+Diminish (21140)
+Negate (21192)
+
+// Sorceries - 4 (10.00%)
+
+2 Excommunicate (21182)
+Foresee (21310)
+Sleep (21168)
+
+// Enchantments - 1 (2.50%)
+
+Pacifism (21186)
+
+// Lands - 17 (42.50%)
+
+2 Island (21109)
+2 Island (21110)
+2 Island (21111)
+2 Island (21108)
+2 Plains (21119)
+2 Plains (21116)
+2 Plains (21117)
+2 Plains (21118)
+Terramorphic Expanse (21309)

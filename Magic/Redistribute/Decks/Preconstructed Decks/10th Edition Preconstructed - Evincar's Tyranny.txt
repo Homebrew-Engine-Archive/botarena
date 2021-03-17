@@ -1,0 +1,48 @@
+// Evincar's Tyranny
+// 10th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 13 (32.50%)
+
+Ascendant Evincar (3323)
+Bottle Gnomes (3019)
+Dross Crocodile (3204)
+Drudge Skeletons (3037)
+Gravedigger (3067)
+Looming Shade (3094)
+Mass of Ghouls (3206)
+Mortivore (3106)
+2 Severed Legion (3155)
+Thrull Surgeon (3294)
+2 Vampire Bats (3293)
+
+// Instants - 1 (2.50%)
+
+Terror (3181)
+
+// Sorceries - 7 (17.50%)
+
+Assassinate (3215)
+Consume Spirit (3024)
+Cruel Edict (3030)
+Diabolic Tutor (3035)
+Essence Drain (3260)
+2 Mind Rot (3105)
+
+// Enchantments - 1 (2.50%)
+
+Unholy Strength (3191)
+
+// Artifacts - 1 (2.50%)
+
+Demon's Horn (3033)
+
+// Lands - 17 (42.50%)
+
+5 Swamp (3175)
+4 Swamp (3176)
+4 Swamp (3177)
+4 Swamp (3178)

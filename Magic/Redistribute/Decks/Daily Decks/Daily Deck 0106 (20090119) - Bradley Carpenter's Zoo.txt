@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Dark Confidant (16449)
+4 Lightning Angel (17248)
+3 Shadow Guildmage (17259)
+4 Tarmogoyf (17704)
+4 Tidehollow Sculler (8721)
+4 Wild Nacatl (8504)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Helix (16450)
+
+// Sorceries - 4 (6.67%)
+
+4 Tribal Flames (17453)
+
+// Enchantments - 3 (5.00%)
+
+3 Oblivion Ring (8718)
+
+// Artifacts - 3 (5.00%)
+
+3 Umezawa's Jitte (19149)
+
+// Lands - 23 (38.33%)
+
+Blood Crypt (23839)
+4 Bloodstained Mire (14002)
+Breeding Pool (23840)
+Forest (8509)
+Godless Shrine (16808)
+Overgrown Tomb (16445)
+Plains (8523)
+Plains (8524)
+Sacred Foundry (16446)
+Steam Vents (16809)
+Stomping Ground (16810)
+Temple Garden (16447)
+4 Windswept Heath (14003)
+4 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Duergar Hedge-Mage (18973)
+3 Gaddock Teeg (18062)
+4 Kitchen Finks (18593)
+
+// Instants
+
+Ancient Grudge (17272)
+3 Jund Charm (8587)

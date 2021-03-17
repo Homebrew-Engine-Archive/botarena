@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+3 Ajani Vengeant (8720)
+2 Jace Beleren (4210)
+
+// Creatures - 7 (11.67%)
+
+3 Sphinx of Jwar Isle (19378)
+4 Wall of Denial (9023)
+
+// Instants - 12 (20.00%)
+
+2 Double Negative (9065)
+4 Flashfreeze (4038)
+4 Lightning Bolt (4060)
+2 Path to Exile (8897)
+
+// Sorceries - 6 (10.00%)
+
+2 Divination (4142)
+2 Earthquake (4034)
+2 Mind Spring (4004)
+
+// Enchantments - 4 (6.67%)
+
+4 Spreading Seas (19430)
+
+// Lands - 26 (43.33%)
+
+4 Arid Mesa (19349)
+4 Glacial Fortress (4200)
+Island (19308)
+Island (19309)
+Island (19310)
+Island (19311)
+Mountain (19316)
+Mountain (19317)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Plains (19327)
+4 Scalding Tarn (19358)
+4 Sejiri Refuge (19400)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Baneslayer Angel (4224)
+
+// Instants
+
+Cancel (4023)
+2 Essence Scatter (4143)
+2 Negate (4016)
+
+// Enchantments
+
+3 Luminarch Ascension (19527)
+2 Mind Control (4144)
+Oblivion Ring (8718)

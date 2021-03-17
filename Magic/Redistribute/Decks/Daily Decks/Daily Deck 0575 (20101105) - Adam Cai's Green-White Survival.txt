@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Creatures - 30 (50.00%)
+
+2 Basking Rootwalla (13677)
+3 Fauna Shaman (21239)
+Iona, Shield of Emeria (19468)
+4 Knight of the Reliquary (8815)
+Loyal Retainers (20418)
+Memnite (21440)
+4 Mother of Runes (11201)
+4 Noble Hierarch (8819)
+3 Qasali Pridemage (9018)
+4 Tarmogoyf (17704)
+3 Vengevine (20939)
+
+// Instants - 4 (6.67%)
+
+4 Swords to Plowshares (6372)
+
+// Enchantments - 4 (6.67%)
+
+4 Survival of the Fittest (10665)
+
+// Artifacts - 1 (1.67%)
+
+Umezawa's Jitte (19149)
+
+// Lands - 21 (35.00%)
+
+Forest (21401)
+Forest (21402)
+Forest (21403)
+Forest (21400)
+Gaea's Cradle (11032)
+3 Horizon Canopy (17728)
+Misty Rainforest (19356)
+Plains (21412)
+3 Savannah (7353)
+3 Wasteland (10008)
+4 Windswept Heath (14003)
+Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Ethersworn Canonist (8728)
+3 Faerie Macabre (18539)
+2 Gaddock Teeg (18062)
+Kataki, War's Wage (16284)
+
+// Instants
+
+2 Krosan Grip (17369)
+3 Path to Exile (8897)
+
+// Lands
+
+Bojuka Bog (19672)
+Karakas (5431)

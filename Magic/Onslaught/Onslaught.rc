@@ -1,0 +1,421 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Onslaught.ico"
+IDI_LARGE_MODULE        ICON                    "OnslaughtLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Onslaught"
+    IDS_EXPANSION_ABBREV    "ONS"
+    IDS_FIRST_CARD          "14000"
+    IDS_TOTAL_CARD          "350"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "14350"
+    IDS_MODULE_LARGE_ICON_ID "14351"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "07-10-2002"
+    IDS_MWS_FOLDER          "MWS\\ONS\\"
+    IDS_PRODUCT_LIST        """Onslaught Starter Box"":R-3:U-10:C-32:BL-30,""Onslaught Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14000         "Polluted Delta\n\nLand\nONS,R\n{T}, Pay 1 life, Sacrifice Polluted Delta: Search your library for an Island or Swamp card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING14001         "Flooded Strand\n\nLand\nONS,R\n{T}, Pay 1 life, Sacrifice Flooded Strand: Search your library for a Plains or Island card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING14002         "Bloodstained Mire\n\nLand\nONS,R\n{T}, Pay 1 life, Sacrifice Bloodstained Mire: Search your library for a Swamp or Mountain card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING14003         "Windswept Heath\n\nLand\nONS,R\n{T}, Pay 1 life, Sacrifice Windswept Heath: Search your library for a Forest or Plains card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING14004         "Wooded Foothills\n\nLand\nONS,R\n{T}, Pay 1 life, Sacrifice Wooded Foothills: Search your library for a Mountain or Forest card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING14005         "Anurid Murkdiver\n{4BB}\nCreature - Zombie Frog Beast\nONS,C\nSwampwalk\n4/3"
+    IDS_STRING14006         "Cabal Archon\n{2B}\nCreature - Human Cleric\nONS,U\n{B}, Sacrifice a Cleric: Target player loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING14007         "Catapult Master\n{3WW}\nCreature - Human Soldier\nONS,R\nTap five untapped Soldiers you control: Exile target creature.\n3/3"
+    IDS_STRING14008         "Doubtless One\n{3W}\nCreature - Cleric Avatar\nONS,U\nDoubtless One's power and toughness are each equal to the number of Clerics on the battlefield.\rWhenever Doubtless One deals damage, you gain that much life.\n*/*"
+    IDS_STRING14009         "Nova Cleric\n{W}\nCreature - Human Cleric\nONS,U\n{2W}, {T}, Sacrifice Nova Cleric: Destroy all enchantments.\n1/2"
+    IDS_STRING14010         "Rotlung Reanimator\n{2B}\nCreature - Zombie Cleric\nONS,R\nWhenever Rotlung Reanimator or another Cleric dies, put a 2/2 black Zombie creature token onto the battlefield.\n2/2"
+    IDS_STRING14011         "Silvos, Rogue Elemental\n{3GGG}\nLegendary Creature - Elemental\nONS,R\nTrample\r{G}: Regenerate Silvos, Rogue Elemental.\n8/5"
+    IDS_STRING14012         "Taunting Elf\n{G}\nCreature - Elf\nONS,C\nAll creatures able to block Taunting Elf do so.\n0/1"
+    IDS_STRING14013         "Annex\n{2UU}\nEnchantment - Aura\nONS,U\nEnchant land\rYou control enchanted land."
+    IDS_STRING14014         "Arcanis the Omnipotent\n{3UUU}\nLegendary Creature - Wizard\nONS,R\n{T}: Draw three cards.\r{2UU}: Return Arcanis the Omnipotent to its owner's hand.\n3/4"
+    IDS_STRING14015         "Biorhythm\n{6GG}\nSorcery\nONS,R\nEach player's life total becomes the number of creatures he or she controls."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14016         "Blackmail\n{B}\nSorcery\nONS,U\nTarget player reveals three cards from his or her hand and you choose one of them. That player discards that card."
+    IDS_STRING14017         "Crafty Pathmage\n{2U}\nCreature - Human Wizard\nONS,C\n{T}: Target creature with power 2 or less is unblockable this turn.\n1/1"
+    IDS_STRING14018         "Demystify\n{W}\nInstant\nONS,C\nDestroy target enchantment."
+    IDS_STRING14019         "Doomed Necromancer\n{2B}\nCreature - Human Cleric Mercenary\nONS,R\n{B}, {T}, Sacrifice Doomed Necromancer: Return target creature card from your graveyard to the battlefield.\n2/2"
+    IDS_STRING14020         "Dragon Roost\n{4RR}\nEnchantment\nONS,R\n{5RR}: Put a 5/5 red Dragon creature token with flying onto the battlefield."
+    IDS_STRING14021         "Elven Riders\n{3GG}\nCreature - Elf\nONS,U\nElven Riders can't be blocked except by Walls and/or creatures with flying.\n3/3"
+    IDS_STRING14022         "Elvish Pioneer\n{G}\nCreature - Elf Druid\nONS,C\nWhen Elvish Pioneer enters the battlefield, you may put a basic land card from your hand onto the battlefield tapped.\n1/1"
+    IDS_STRING14023         "Elvish Scrapper\n{G}\nCreature - Elf\nONS,U\n{G}, {T}, Sacrifice Elvish Scrapper: Destroy target artifact.\n1/1"
+    IDS_STRING14024         "Elvish Warrior\n{GG}\nCreature - Elf Warrior\nONS,C\n\n2/3"
+    IDS_STRING14025         "Festering Goblin\n{B}\nCreature - Zombie Goblin\nONS,C\nWhen Festering Goblin dies, target creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING14026         "Forest\n\nBasic Land - Forest\nONS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING14027         "Forest\n\nBasic Land - Forest\nONS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING14028         "Forest\n\nBasic Land - Forest\nONS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING14029         "Forest\n\nBasic Land - Forest\nONS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING14030         "Glory Seeker\n{1W}\nCreature - Human Soldier\nONS,C\n\n2/2"
+    IDS_STRING14031         "Gluttonous Zombie\n{4B}\nCreature - Zombie\nONS,U\nFear\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14032         "Goblin Sky Raider\n{2R}\nCreature - Goblin Warrior\nONS,C\nFlying\n1/2"
+    IDS_STRING14033         "Infest\n{1BB}\nSorcery\nONS,U\nAll creatures get -2/-2 until end of turn."
+    IDS_STRING14034         "Inspirit\n{2W}\nInstant\nONS,U\nUntap target creature. It gets +2/+4 until end of turn."
+    IDS_STRING14035         "Island\n\nBasic Land - Island\nONS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING14036         "Island\n\nBasic Land - Island\nONS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING14037         "Island\n\nBasic Land - Island\nONS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING14038         "Island\n\nBasic Land - Island\nONS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING14039         "Mobilization\n{2W}\nEnchantment\nONS,R\nSoldier creatures have vigilance.\r{2W}: Put a 1/1 white Soldier creature token onto the battlefield."
+    IDS_STRING14040         "Mountain\n\nBasic Land - Mountain\nONS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING14041         "Mountain\n\nBasic Land - Mountain\nONS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING14042         "Mountain\n\nBasic Land - Mountain\nONS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING14043         "Mountain\n\nBasic Land - Mountain\nONS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING14044         "Nantuko Husk\n{2B}\nCreature - Zombie Insect\nONS,C\nSacrifice a creature: Nantuko Husk gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING14045         "Naturalize\n{1G}\nInstant\nONS,C\nDestroy target artifact or enchantment."
+    IDS_STRING14046         "Pacifism\n{1W}\nEnchantment - Aura\nONS,C\nEnchant creature\rEnchanted creature can't attack or block."
+    IDS_STRING14047         "Plains\n\nBasic Land - Plains\nONS,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14048         "Plains\n\nBasic Land - Plains\nONS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING14049         "Plains\n\nBasic Land - Plains\nONS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING14050         "Plains\n\nBasic Land - Plains\nONS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING14051         "Reminisce\n{2U}\nSorcery\nONS,U\nTarget player shuffles his or her graveyard into his or her library."
+    IDS_STRING14052         "Sage Aven\n{3U}\nCreature - Bird Wizard\nONS,C\nFlying\rWhen Sage Aven enters the battlefield, look at the top four cards of your library, then put them back in any order.\n1/3"
+    IDS_STRING14053         "Sea's Claim\n{U}\nEnchantment - Aura\nONS,C\nEnchant land\rEnchanted land is an Island."
+    IDS_STRING14054         "Severed Legion\n{1BB}\nCreature - Zombie\nONS,C\nFear\n2/2"
+    IDS_STRING14055         "Shock\n{R}\nInstant\nONS,C\nShock deals 2 damage to target creature or player."
+    IDS_STRING14056         "Silklash Spider\n{3GG}\nCreature - Spider\nONS,R\nReach\r{XGG}: Silklash Spider deals X damage to each creature with flying.\n2/7"
+    IDS_STRING14057         "Slate of Ancestry\n{4}\nArtifact\nONS,R\n{4}, {T}, Discard your hand: Draw a card for each creature you control."
+    IDS_STRING14058         "Swamp\n\nBasic Land - Swamp\nONS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING14059         "Swamp\n\nBasic Land - Swamp\nONS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING14060         "Swamp\n\nBasic Land - Swamp\nONS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING14061         "Swamp\n\nBasic Land - Swamp\nONS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING14062         "Syphon Soul\n{2B}\nSorcery\nONS,C\nSyphon Soul deals 2 damage to each other player. You gain life equal to the damage dealt this way."
+    IDS_STRING14063         "Threaten\n{2R}\nSorcery\nONS,U\nUntap target creature and gain control of it until end of turn. That creature gains haste until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14064         "True Believer\n{WW}\nCreature - Human Cleric\nONS,R\nYou have shroud.\n2/2"
+    IDS_STRING14065         "Weathered Wayfarer\n{W}\nCreature - Human Nomad Cleric\nONS,R\n{W}, {T}: Search your library for a land card, reveal it, and put it into your hand. Then shuffle your library. Activate this ability only if an opponent controls more lands than you.\n1/1"
+    IDS_STRING14066         "Weird Harvest\n{XGG}\nSorcery\nONS,R\nEach player may search his or her library for up to X creature cards, reveal those cards, and put them into his or her hand. Then each player who searched his or her library this way shuffles it."
+    IDS_STRING14067         "Wellwisher\n{1G}\nCreature - Elf\nONS,C\n{T}: You gain 1 life for each Elf on the battlefield.\n1/1"
+    IDS_STRING14068         "Aphetto Grifter\n{2U}\nCreature - Human Wizard\nONS,U\nTap two untapped Wizards you control: Tap target permanent.\n1/1"
+    IDS_STRING14069         "Catapult Squad\n{1W}\nCreature - Human Soldier\nONS,U\nTap two untapped Soldiers you control: Catapult Squad deals 2 damage to target attacking or blocking creature.\n2/1"
+    IDS_STRING14070         "Spurred Wolverine\n{4R}\nCreature - Wolverine Beast\nONS,C\nTap two untapped Beasts you control: Target creature gains first strike until end of turn.\n3/2"
+    IDS_STRING14071         "Ancestor's Prophet\n{4W}\nCreature - Human Cleric\nONS,R\nTap five untapped Clerics you control: You gain 10 life.\n1/5"
+    IDS_STRING14072         "Gravespawn Sovereign\n{4BB}\nCreature - Zombie\nONS,R\nTap five untapped Zombies you control: Put target creature card from a graveyard onto the battlefield under your control.\n3/3"
+    IDS_STRING14073         "Skirk Fire Marshal\n{3RR}\nCreature - Goblin\nONS,R\nProtection from red\rTap five untapped Goblins you control: Skirk Fire Marshal deals 10 damage to each creature and each player.\n2/2"
+    IDS_STRING14074         "Supreme Inquisitor\n{3UU}\nCreature - Human Wizard\nONS,R\nTap five untapped Wizards you control: Search target player's library for up to five cards and exile them. Then that player shuffles his or her library.\n1/3"
+    IDS_STRING14075         "Voice of the Woods\n{3GG}\nCreature - Elf\nONS,R\nTap five untapped Elves you control: Put a 7/7 green Elemental creature token with trample onto the battlefield.\n2/2"
+    IDS_STRING14076         "Wretched Anurid\n{1B}\nCreature - Zombie Frog Beast\nONS,C\nWhenever another creature enters the battlefield, you lose 1 life.\n3/3"
+    IDS_STRING14077         "Jareth, Leonine Titan\n{3WWW}\nLegendary Creature - Cat Giant\nONS,R\nWhenever Jareth, Leonine Titan blocks, it gets +7/+7 until end of turn.\r{W}: Jareth gains protection from the color of your choice until end of turn.\n4/7"
+    IDS_STRING14078         "Ravenous Baloth\n{2GG}\nCreature - Beast\nONS,R\nSacrifice a Beast: You gain 4 life.\n4/4"
+    IDS_STRING14079         "Rorix Bladewing\n{3RRR}\nLegendary Creature - Dragon\nONS,R\nFlying, haste\n6/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14080         "Grassland Crusader\n{5W}\nCreature - Human Cleric Soldier\nONS,C\n{T}: Target Elf or Soldier creature gets +2/+2 until end of turn.\n2/4"
+    IDS_STRING14081         "Visara the Dreadful\n{3BBB}\nLegendary Creature - Gorgon\nONS,R\nFlying\r{T}: Destroy target creature. It can't be regenerated.\n5/5"
+    IDS_STRING14082         "Goblin Sharpshooter\n{2R}\nCreature - Goblin\nONS,R\nGoblin Sharpshooter doesn't untap during your untap step.\rWhenever a creature dies, untap Goblin Sharpshooter.\r{T}: Goblin Sharpshooter deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING14083         "Akroma's Vengeance\n{4WW}\nSorcery\nONS,R\nDestroy all artifacts, creatures, and enchantments.\rCycling {3}"
+    IDS_STRING14084         "Disciple of Grace\n{1W}\nCreature - Human Cleric\nONS,C\nProtection from black\rCycling {2}\n1/2"
+    IDS_STRING14085         "Oversold Cemetery\n{1B}\nEnchantment\nONS,R\nAt the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may return target creature card from your graveyard to your hand."
+    IDS_STRING14086         "Enchantress's Presence\n{2G}\nEnchantment\nONS,R\nWhenever you cast an enchantment spell, draw a card."
+    IDS_STRING14087         "Lay Waste\n{3R}\nSorcery\nONS,C\nDestroy target land.\rCycling {2}"
+    IDS_STRING14088         "Swat\n{1BB}\nInstant\nONS,C\nDestroy target creature with power 2 or less.\rCycling {2}"
+    IDS_STRING14089         "Soulless One\n{3B}\nCreature - Zombie Avatar\nONS,U\nSoulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards.\n*/*"
+    IDS_STRING14090         "Accursed Centaur\n{B}\nCreature - Zombie Centaur\nONS,C\nWhen Accursed Centaur enters the battlefield, sacrifice a creature.\n2/2"
+    IDS_STRING14091         "Airdrop Condor\n{4R}\nCreature - Bird\nONS,U\nFlying\r{1R}, Sacrifice a Goblin creature: Airdrop Condor deals damage equal to the sacrificed creature's power to target creature or player.\n2/2"
+    IDS_STRING14092         "Aphetto Vulture\n{4BB}\nCreature - Zombie Bird\nONS,U\nFlying\rWhen Aphetto Vulture dies, you may put target Zombie card from your graveyard on top of your library.\n3/2"
+    IDS_STRING14093         "Avarax\n{3RR}\nCreature - Beast\nONS,U\nHaste\rWhen Avarax enters the battlefield, you may search your library for a card named Avarax, reveal it, and put it into your hand. If you do, shuffle your library.\r{1R}: Avarax gets +1/+0 until end of turn.\n3/3"
+    IDS_STRING14094         "Aven Brigadier\n{3WWW}\nCreature - Bird Soldier\nONS,R\nFlying\rOther Bird creatures get +1/+1.\rOther Soldier creatures get +1/+1.\n3/5"
+    IDS_STRING14095         "Aven Fateshaper\n{6U}\nCreature - Bird Wizard\nONS,U\nFlying\rWhen Aven Fateshaper enters the battlefield, look at the top four cards of your library, then put them back in any order.\r{4U}: Look at the top four cards of your library, then put them back in any order.\n4/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14096         "Barkhide Mauler\n{4G}\nCreature - Beast\nONS,C\nCycling {2}\n4/4"
+    IDS_STRING14097         "Cabal Slaver\n{2B}\nCreature - Human Cleric\nONS,U\nWhenever a Goblin deals combat damage to a player, that player discards a card.\n2/1"
+    IDS_STRING14098         "Crowd Favorites\n{6W}\nCreature - Human Soldier\nONS,U\n{3W}: Tap target creature.\r{3W}: Crowd Favorites gets +0/+5 until end of turn.\n4/4"
+    IDS_STRING14099         "Daru Cavalier\n{3W}\nCreature - Human Soldier\nONS,C\nFirst strike\rWhen Daru Cavalier enters the battlefield, you may search your library for a card named Daru Cavalier, reveal it, and put it into your hand. If you do, shuffle your library.\n2/2"
+    IDS_STRING14100         "Disciple of Malice\n{1B}\nCreature - Human Cleric\nONS,C\nProtection from white\rCycling {2}\n1/2"
+    IDS_STRING14101         "Dive Bomber\n{3W}\nCreature - Bird Soldier\nONS,C\nFlying\r{T}, Sacrifice Dive Bomber: Dive Bomber deals 2 damage to target attacking or blocking creature.\n2/2"
+    IDS_STRING14102         "Elvish Pathcutter\n{3G}\nCreature - Elf Scout\nONS,C\n{2G}: Target Elf creature gains forestwalk until end of turn.\n1/2"
+    IDS_STRING14103         "Elvish Vanguard\n{1G}\nCreature - Elf Warrior\nONS,R\nWhenever another Elf enters the battlefield, put a +1/+1 counter on Elvish Vanguard.\n1/1"
+    IDS_STRING14104         "Embermage Goblin\n{3R}\nCreature - Goblin Wizard\nONS,U\nWhen Embermage Goblin enters the battlefield, you may search your library for a card named Embermage Goblin, reveal it, and put it into your hand. If you do, shuffle your library.\r{T}: Embermage Goblin deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING14105         "Gangrenous Goliath\n{3BB}\nCreature - Zombie Giant\nONS,R\nTap three untapped Clerics you control: Return Gangrenous Goliath from your graveyard to your hand.\n4/4"
+    IDS_STRING14106         "Goblin Pyromancer\n{3R}\nCreature - Goblin Wizard\nONS,R\nWhen Goblin Pyromancer enters the battlefield, Goblin creatures get +3/+0 until end of turn.\rAt the beginning of the end step, destroy all Goblins.\n2/2"
+    IDS_STRING14107         "Goblin Sledder\n{R}\nCreature - Goblin\nONS,C\nSacrifice a Goblin: Target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING14108         "Heedless One\n{3G}\nCreature - Elf Avatar\nONS,U\nTrample\rHeedless One's power and toughness are each equal to the number of Elves on the battlefield.\n*/*"
+    IDS_STRING14109         "Krosan Groundshaker\n{4GGG}\nCreature - Beast\nONS,U\n{G}: Target Beast creature gains trample until end of turn.\n6/6"
+    IDS_STRING14110         "Krosan Tusker\n{5GG}\nCreature - Boar Beast\nONS,C\nCycling {2G}\rWhen you cycle Krosan Tusker, you may search your library for a basic land card, reveal that card, put it into your hand, then shuffle your library.\n6/5"
+    IDS_STRING14111         "Leery Fogbeast\n{2G}\nCreature - Beast\nONS,C\nWhenever Leery Fogbeast becomes blocked, prevent all combat damage that would be dealt this turn.\n4/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14112         "Reckless One\n{3R}\nCreature - Goblin Avatar\nONS,U\nHaste\rReckless One's power and toughness are each equal to the number of Goblins on the battlefield.\n*/*"
+    IDS_STRING14113         "Screaming Seahawk\n{4U}\nCreature - Bird\nONS,C\nFlying\rWhen Screaming Seahawk enters the battlefield, you may search your library for a card named Screaming Seahawk, reveal it, and put it into your hand. If you do, shuffle your library.\n2/2"
+    IDS_STRING14114         "Screeching Buzzard\n{3B}\nCreature - Bird\nONS,C\nFlying\rWhen Screeching Buzzard dies, each opponent discards a card.\n2/2"
+    IDS_STRING14115         "Skirk Prospector\n{R}\nCreature - Goblin\nONS,C\nSacrifice a Goblin: Add {R} to your mana pool.\n1/1"
+    IDS_STRING14116         "Slipstream Eel\n{5UU}\nCreature - Fish Beast\nONS,C\nSlipstream Eel can't attack unless defending player controls an Island.\rCycling {1U}\n6/6"
+    IDS_STRING14117         "Symbiotic Beast\n{4GG}\nCreature - Insect Beast\nONS,U\nWhen Symbiotic Beast dies, put four 1/1 green Insect creature tokens onto the battlefield.\n4/4"
+    IDS_STRING14118         "Symbiotic Elf\n{3G}\nCreature - Elf\nONS,C\nWhen Symbiotic Elf dies, put two 1/1 green Insect creature tokens onto the battlefield.\n2/2"
+    IDS_STRING14119         "Symbiotic Wurm\n{5GGG}\nCreature - Wurm\nONS,R\nWhen Symbiotic Wurm dies, put seven 1/1 green Insect creature tokens onto the battlefield.\n7/7"
+    IDS_STRING14120         "Tempting Wurm\n{1G}\nCreature - Wurm\nONS,R\nWhen Tempting Wurm enters the battlefield, each opponent may put any number of artifact, creature, enchantment, and/or land cards from his or her hand onto the battlefield.\n5/5"
+    IDS_STRING14121         "Undead Gladiator\n{1BB}\nCreature - Zombie Barbarian\nONS,R\n{1B}, Discard a card: Return Undead Gladiator from your graveyard to your hand. Activate this ability only during your upkeep.\rCycling {1B}\n3/1"
+    IDS_STRING14122         "Wall of Mulch\n{1G}\nCreature - Wall\nONS,U\nDefender\r{G}, Sacrifice a Wall: Draw a card.\n0/4"
+    IDS_STRING14123         "Wirewood Elf\n{1G}\nCreature - Elf Druid\nONS,C\n{T}: Add {G} to your mana pool.\n1/2"
+    IDS_STRING14124         "Wirewood Herald\n{1G}\nCreature - Elf\nONS,C\nWhen Wirewood Herald dies, you may search your library for an Elf card, reveal that card, put it into your hand, then shuffle your library.\n1/1"
+    IDS_STRING14125         "Wirewood Savage\n{2G}\nCreature - Elf\nONS,C\nWhenever a Beast enters the battlefield, you may draw a card.\n2/2"
+    IDS_STRING14126         "Barren Moor\n\nLand\nONS,C\nBarren Moor enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\rCycling {B}"
+    IDS_STRING14127         "Daru Encampment\n\nLand\nONS,U\n{T}: Add {1} to your mana pool.\r{W}, {T}: Target Soldier creature gets +1/+1 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14128         "Forgotten Cave\n\nLand\nONS,C\nForgotten Cave enters the battlefield tapped.\r{T}: Add {R} to your mana pool.\rCycling {R}"
+    IDS_STRING14129         "Goblin Burrows\n\nLand\nONS,U\n{T}: Add {1} to your mana pool.\r{1R}, {T}: Target Goblin creature gets +2/+0 until end of turn."
+    IDS_STRING14130         "Grand Coliseum\n\nLand\nONS,R\nGrand Coliseum enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add one mana of any color to your mana pool. Grand Coliseum deals 1 damage to you."
+    IDS_STRING14131         "Lonely Sandbar\n\nLand\nONS,C\nLonely Sandbar enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\rCycling {U}"
+    IDS_STRING14132         "Riptide Laboratory\n\nLand\nONS,R\n{T}: Add {1} to your mana pool.\r{1U}, {T}: Return target Wizard you control to its owner's hand."
+    IDS_STRING14133         "Seaside Haven\n\nLand\nONS,U\n{T}: Add {1} to your mana pool.\r{WU}, {T}, Sacrifice a Bird: Draw a card."
+    IDS_STRING14134         "Secluded Steppe\n\nLand\nONS,C\nSecluded Steppe enters the battlefield tapped.\r{T}: Add {W} to your mana pool.\rCycling {W}"
+    IDS_STRING14135         "Tranquil Thicket\n\nLand\nONS,C\nTranquil Thicket enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\rCycling {G}"
+    IDS_STRING14136         "Unholy Grotto\n\nLand\nONS,R\n{T}: Add {1} to your mana pool.\r{B}, {T}: Put target Zombie card from your graveyard on top of your library."
+    IDS_STRING14137         "Wirewood Lodge\n\nLand\nONS,U\n{T}: Add {1} to your mana pool.\r{G}, {T}: Untap target Elf."
+    IDS_STRING14138         "Centaur Glade\n{3GG}\nEnchantment\nONS,U\n{2GG}: Put a 3/3 green Centaur creature token onto the battlefield."
+    IDS_STRING14139         "Dispersing Orb\n{3UU}\nEnchantment\nONS,U\n{3U}, Sacrifice a permanent: Return target permanent to its owner's hand."
+    IDS_STRING14140         "Improvised Armor\n{3W}\nEnchantment - Aura\nONS,U\nEnchant creature\rEnchanted creature gets +2/+5.\rCycling {3}"
+    IDS_STRING14141         "Mythic Proportions\n{4GGG}\nEnchantment - Aura\nONS,R\nEnchant creature\rEnchanted creature gets +8/+8 and has trample."
+    IDS_STRING14142         "Righteous Cause\n{3WW}\nEnchantment\nONS,U\nWhenever a creature attacks, you gain 1 life."
+    IDS_STRING14143         "Sandskin\n{2W}\nEnchantment - Aura\nONS,C\nEnchant creature\rPrevent all combat damage that would be dealt to and dealt by enchanted creature."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14144         "Shared Triumph\n{1W}\nEnchantment\nONS,R\nAs Shared Triumph enters the battlefield, choose a creature type.\rCreatures of the chosen type get +1/+1."
+    IDS_STRING14145         "Sigil of the New Dawn\n{3W}\nEnchantment\nONS,R\nWhenever a creature is put into your graveyard from the battlefield, you may pay {1W}. If you do, return that card to your hand."
+    IDS_STRING14146         "Akroma's Blessing\n{2W}\nInstant\nONS,U\nChoose a color. Creatures you control gain protection from the chosen color until end of turn.\rCycling {W}"
+    IDS_STRING14147         "Aura Extraction\n{1W}\nInstant\nONS,U\nPut target enchantment on top of its owner's library.\rCycling {2}"
+    IDS_STRING14148         "Choking Tethers\n{3U}\nInstant\nONS,C\nTap up to four target creatures.\rCycling {1U}\rWhen you cycle Choking Tethers, you may tap target creature."
+    IDS_STRING14149         "Complicate\n{2U}\nInstant\nONS,U\nCounter target spell unless its controller pays {3}.\rCycling {2U}\rWhen you cycle Complicate, you may counter target spell unless its controller pays {1}."
+    IDS_STRING14150         "Cruel Revival\n{4B}\nInstant\nONS,C\nDestroy target non-Zombie creature. It can't be regenerated. Return up to one target Zombie card from your graveyard to your hand."
+    IDS_STRING14151         "Death Pulse\n{2BB}\nInstant\nONS,U\nTarget creature gets -4/-4 until end of turn.\rCycling {1BB}\rWhen you cycle Death Pulse, you may have target creature get -1/-1 until end of turn."
+    IDS_STRING14152         "Fade from Memory\n{B}\nInstant\nONS,U\nExile target card from a graveyard.\rCycling {B}"
+    IDS_STRING14153         "Fever Charm\n{R}\nInstant\nONS,C\nChoose one - Target creature gains haste until end of turn; or target creature gets +2/+0 until end of turn; or Fever Charm deals 3 damage to target Wizard creature."
+    IDS_STRING14154         "Mage's Guile\n{1U}\nInstant\nONS,C\nTarget creature gains shroud until end of turn.\rCycling {U}"
+    IDS_STRING14155         "Misery Charm\n{B}\nInstant\nONS,C\nChoose one - Destroy target Cleric; or return target Cleric card from your graveyard to your hand; or target player loses 2 life."
+    IDS_STRING14156         "Piety Charm\n{W}\nInstant\nONS,C\nChoose one - Destroy target Aura attached to a creature; or target Soldier creature gets +2/+2 until end of turn; or creatures you control gain vigilance until end of turn."
+    IDS_STRING14157         "Primal Boost\n{2G}\nInstant\nONS,U\nTarget creature gets +4/+4 until end of turn.\rCycling {2G}\rWhen you cycle Primal Boost, you may have target creature get +1/+1 until end of turn."
+    IDS_STRING14158         "Renewed Faith\n{2W}\nInstant\nONS,C\nYou gain 6 life.\rCycling {1W}\rWhen you cycle Renewed Faith, you may gain 2 life."
+    IDS_STRING14159         "Smother\n{1B}\nInstant\nONS,U\nDestroy target creature with converted mana cost 3 or less. It can't be regenerated."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14160         "Solar Blast\n{3R}\nInstant\nONS,C\nSolar Blast deals 3 damage to target creature or player.\rCycling {1RR}\rWhen you cycle Solar Blast, you may have it deal 1 damage to target creature or player."
+    IDS_STRING14161         "Starstorm\n{XRR}\nInstant\nONS,R\nStarstorm deals X damage to each creature.\rCycling {3}"
+    IDS_STRING14162         "Sunfire Balm\n{2W}\nInstant\nONS,U\nPrevent the next 4 damage that would be dealt to target creature or player this turn.\rCycling {1W}\rWhen you cycle Sunfire Balm, you may prevent the next 1 damage that would be dealt to target creature or player this turn."
+    IDS_STRING14163         "Vitality Charm\n{G}\nInstant\nONS,C\nChoose one - Put a 1/1 green Insect creature token onto the battlefield; or target creature gets +1/+1 and gains trample until end of turn; or regenerate target Beast."
+    IDS_STRING14164         "Airborne Aid\n{3U}\nSorcery\nONS,C\nDraw a card for each Bird on the battlefield."
+    IDS_STRING14165         "Dirge of Dread\n{2B}\nSorcery\nONS,C\nAll creatures gain fear until end of turn.\rCycling {1B}\rWhen you cycle Dirge of Dread, you may have target creature gain fear until end of turn."
+    IDS_STRING14166         "Essence Fracture\n{3UU}\nSorcery\nONS,U\nReturn two target creatures to their owners' hands.\rCycling {2U}"
+    IDS_STRING14167         "Explosive Vegetation\n{3G}\nSorcery\nONS,U\nSearch your library for up to two basic land cards and put them onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING14168         "Searing Flesh\n{6R}\nSorcery\nONS,U\nSearing Flesh deals 7 damage to target opponent."
+    IDS_STRING14169         "Slice and Dice\n{4RR}\nSorcery\nONS,U\nSlice and Dice deals 4 damage to each creature.\rCycling {2R}\rWhen you cycle Slice and Dice, you may have it deal 1 damage to each creature."
+    IDS_STRING14170         "Wave of Indifference\n{XR}\nSorcery\nONS,C\nX target creatures can't block this turn."
+    IDS_STRING14171         "Gigapede\n{3GG}\nCreature - Insect\nONS,R\nShroud\rAt the beginning of your upkeep, if Gigapede is in your graveyard, you may discard a card. If you do, return Gigapede to your hand.\n6/1"
+    IDS_STRING14172         "Convalescent Care\n{1WW}\nEnchantment\nONS,R\nAt the beginning of your upkeep, if you have 5 or less life, you gain 3 life and draw a card."
+    IDS_STRING14173         "Psychic Trance\n{2UU}\nInstant\nONS,R\nUntil end of turn, Wizards you control gain ""{T}: Counter target spell."""
+    IDS_STRING14174         "Rummaging Wizard\n{3U}\nCreature - Human Wizard\nONS,U\n{2U}: Look at the top card of your library. You may put that card into your graveyard.\n2/2"
+    IDS_STRING14175         "Goblin Piledriver\n{1R}\nCreature - Goblin Warrior\nONS,R\nProtection from blue\rWhenever Goblin Piledriver attacks, it gets +2/+0 until end of turn for each other attacking Goblin.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14176         "Shaleskin Bruiser\n{6R}\nCreature - Beast\nONS,U\nTrample\rWhenever Shaleskin Bruiser attacks, it gets +3/+0 until end of turn for each other attacking Beast.\n4/4"
+    IDS_STRING14177         "Discombobulate\n{2UU}\nInstant\nONS,U\nCounter target spell. Look at the top four cards of your library, then put them back in any order."
+    IDS_STRING14178         "Sparksmith\n{1R}\nCreature - Goblin\nONS,C\n{T}: Sparksmith deals X damage to target creature and X damage to you, where X is the number of Goblins on the battlefield.\n1/1"
+    IDS_STRING14179         "Death Match\n{3B}\nEnchantment\nONS,R\nWhenever a creature enters the battlefield, that creature's controller may have target creature of his or her choice get -3/-3 until end of turn."
+    IDS_STRING14180         "Starlit Sanctum\n\nLand\nONS,U\n{T}: Add {1} to your mana pool.\r{W}, {T}, Sacrifice a Cleric creature: You gain life equal to the sacrificed creature's toughness.\r{B}, {T}, Sacrifice a Cleric creature: Target player loses life equal to the sacrificed creature's power."
+    IDS_STRING14181         "Pinpoint Avalanche\n{3RR}\nInstant\nONS,C\nPinpoint Avalanche deals 4 damage to target creature. The damage can't be prevented."
+    IDS_STRING14182         "Entrails Feaster\n{B}\nCreature - Zombie Cat\nONS,R\nAt the beginning of your upkeep, you may exile a creature card from a graveyard. If you do, put a +1/+1 counter on Entrails Feaster. If you don't, tap Entrails Feaster.\n1/1"
+    IDS_STRING14183         "Lightning Rift\n{1R}\nEnchantment\nONS,U\nWhenever a player cycles a card, you may pay {1}. If you do, Lightning Rift deals 2 damage to target creature or player."
+    IDS_STRING14184         "Astral Slide\n{2W}\nEnchantment\nONS,U\nWhenever a player cycles a card, you may exile target creature. If you do, return the exiled card to the battlefield under its owner's control at the beginning of the next end step."
+    IDS_STRING14185         "Future Sight\n{2UUU}\nEnchantment\nONS,R\nPlay with the top card of your library revealed.\rYou may play the top card of your library."
+    IDS_STRING14186         "Wirewood Pride\n{G}\nInstant\nONS,C\nTarget creature gets +X/+X until end of turn, where X is the number of Elves on the battlefield."
+    IDS_STRING14187         "Oblation\n{2W}\nInstant\nONS,R\nThe owner of target nonland permanent shuffles it into his or her library, then draws two cards."
+    IDS_STRING14188         "Run Wild\n{G}\nInstant\nONS,U\nUntil end of turn, target creature gains trample and ""{G}: Regenerate this creature."""
+    IDS_STRING14189         "Aphetto Alchemist\n{1U}\nCreature - Human Wizard\nONS,U\n{T}: Untap target artifact or creature.\rMorph {U}\n1/2"
+    IDS_STRING14190         "Birchlore Rangers\n{G}\nCreature - Elf Druid\nONS,C\nTap two untapped Elves you control: Add one mana of any color to your mana pool.\rMorph {G}\n1/1"
+    IDS_STRING14191         "Exalted Angel\n{4WW}\nCreature - Angel\nONS,R\nFlying\rWhenever Exalted Angel deals damage, you gain that much life.\rMorph {2WW}\n4/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14192         "Nosy Goblin\n{2R}\nCreature - Goblin\nONS,C\n{T}, Sacrifice Nosy Goblin: Destroy target face-down creature.\n2/1"
+    IDS_STRING14193         "Ascending Aven\n{2UU}\nCreature - Bird Soldier\nONS\nFlying\rAscending Aven can block only creatures with flying.\rMorph {2U}\n3/2"
+    IDS_STRING14194         "Battering Craghorn\n{2RR}\nCreature - Goat Beast\nONS\nFirst strike\rMorph {1RR}\n3/1"
+    IDS_STRING14195         "Blistering Firecat\n{1RRR}\nCreature - Elemental Cat\nONS,R\nTrample, haste\rAt the beginning of the end step, sacrifice Blistering Firecat.\rMorph {RR}\n7/1"
+    IDS_STRING14196         "Boneknitter\n{1B}\nCreature - Zombie Cleric\nONS,U\n{1B}: Regenerate target Zombie.\rMorph {2B}\n1/1"
+    IDS_STRING14197         "Broodhatch Nantuko\n{1G}\nCreature - Insect Druid\nONS,U\nWhenever Broodhatch Nantuko is dealt damage, you may put that many 1/1 green Insect creature tokens onto the battlefield.\rMorph {2G}\n1/1"
+    IDS_STRING14198         "Cabal Executioner\n{2BB}\nCreature - Human Cleric\nONS,U\nWhenever Cabal Executioner deals combat damage to a player, that player sacrifices a creature.\rMorph {3BB}\n2/2"
+    IDS_STRING14199         "Charging Slateback\n{4R}\nCreature - Beast\nONS\nCharging Slateback can't block.\rMorph {4R}\n4/3"
+    IDS_STRING14200         "Crude Rampart\n{3W}\nCreature - Wall\nONS,U\nDefender\rMorph {4W}\n4/5"
+    IDS_STRING14201         "Daru Healer\n{2W}\nCreature - Human Cleric\nONS\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\rMorph {W}\n1/2"
+    IDS_STRING14202         "Daru Lancer\n{4WW}\nCreature - Human Soldier\nONS\nFirst strike\rMorph {2WW}\n3/4"
+    IDS_STRING14203         "Dawning Purist\n{2W}\nCreature - Human Cleric\nONS,U\nWhenever Dawning Purist deals combat damage to a player, you may destroy target enchantment that player controls.\rMorph {1W}\n2/2"
+    IDS_STRING14204         "Disruptive Pitmage\n{2U}\nCreature - Human Wizard\nONS\n{T}: Counter target spell unless its controller pays {1}.\rMorph {U}\n1/1"
+    IDS_STRING14205         "Dwarven Blastminer\n{1R}\nCreature - Dwarf\nONS,U\n{2R}, {T}: Destroy target nonbasic land.\rMorph {R}\n1/1"
+    IDS_STRING14206         "Fallen Cleric\n{4B}\nCreature - Zombie Cleric\nONS\nProtection from Cleric\rMorph {4B}\n4/2"
+    IDS_STRING14207         "Foothill Guide\n{W}\nCreature - Human Cleric\nONS\nProtection from Goblins\rMorph {W}\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14208         "Goblin Taskmaster\n{R}\nCreature - Goblin\nONS\n{1R}: Target Goblin creature gets +1/+0 until end of turn.\rMorph {R}\n1/1"
+    IDS_STRING14209         "Gravel Slinger\n{3W}\nCreature - Human Soldier\nONS\n{T}: Gravel Slinger deals 1 damage to target attacking or blocking creature.\rMorph {1W}\n1/3"
+    IDS_STRING14210         "Grinning Demon\n{2BB}\nCreature - Demon\nONS,R\nAt the beginning of your upkeep, you lose 2 life.\rMorph {2BB}\n6/6"
+    IDS_STRING14211         "Haunted Cadaver\n{3B}\nCreature - Zombie\nONS\nWhenever Haunted Cadaver deals combat damage to a player, you may sacrifice it. If you do, that player discards three cards.\rMorph {1B}\n2/2"
+    IDS_STRING14212         "Headhunter\n{1B}\nCreature - Human Cleric\nONS,U\nWhenever Headhunter deals combat damage to a player, that player discards a card.\rMorph {B}\n1/1"
+    IDS_STRING14213         "Hystrodon\n{4G}\nCreature - Beast\nONS,R\nTrample\rWhenever Hystrodon deals combat damage to a player, you may draw a card.\rMorph {1GG}\n3/4"
+    IDS_STRING14214         "Ironfist Crusher\n{4W}\nCreature - Human Soldier\nONS,U\nIronfist Crusher can block any number of creatures.\rMorph {3W}\n2/4"
+    IDS_STRING14215         "Krosan Colossus\n{6GGG}\nCreature - Beast\nONS,R\nMorph {6GG}\n9/9"
+    IDS_STRING14216         "Riptide Biologist\n{1U}\nCreature - Human Wizard\nONS\nProtection from Beasts\rMorph {2U}\n1/2"
+    IDS_STRING14217         "Serpentine Basilisk\n{2GG}\nCreature - Basilisk\nONS,U\nWhenever Serpentine Basilisk deals combat damage to a creature, destroy that creature at end of combat.\rMorph {1GG}\n2/3"
+    IDS_STRING14218         "Silent Specter\n{4BB}\nCreature - Specter\nONS,R\nFlying\rWhenever Silent Specter deals combat damage to a player, that player discards two cards.\rMorph {3BB}\n4/4"
+    IDS_STRING14219         "Snarling Undorak\n{2GG}\nCreature - Beast\nONS\n{2G}: Target Beast creature gets +1/+1 until end of turn.\rMorph {1GG}\n3/3"
+    IDS_STRING14220         "Spined Basher\n{2B}\nCreature - Zombie Beast\nONS\nMorph {2B}\n3/1"
+    IDS_STRING14221         "Spitting Gourna\n{3GG}\nCreature - Beast\nONS\nReach\rMorph {4G}\n3/4"
+    IDS_STRING14222         "Towering Baloth\n{6GG}\nCreature - Beast\nONS,U\nMorph {6G}\n7/6"
+    IDS_STRING14223         "Treespring Lorian\n{5G}\nCreature - Beast\nONS\nMorph {5G}\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14224         "Venomspout Brackus\n{6G}\nCreature - Beast\nONS,U\n{1G}, {T}: Venomspout Brackus deals 5 damage to target attacking or blocking creature with flying.\rMorph {3GG}\n5/5"
+    IDS_STRING14225         "Voidmage Prodigy\n{UU}\nCreature - Human Wizard\nONS,R\n{UU}, Sacrifice a Wizard: Counter target spell.\rMorph {U}\n2/1"
+    IDS_STRING14226         "Whipcorder\n{WW}\nCreature - Human Soldier Rebel\nONS,U\n{W}, {T}: Tap target creature.\rMorph {W}\n2/2"
+    IDS_STRING14227         "Battlefield Medic\n{1W}\nCreature - Human Cleric\nONS,C\n{T}: Prevent the next X damage that would be dealt to target creature this turn, where X is the number of Clerics on the battlefield.\n1/1"
+    IDS_STRING14228         "Profane Prayers\n{2BB}\nSorcery\nONS,C\nProfane Prayers deals X damage to target creature or player and you gain X life, where X is the number of Clerics on the battlefield."
+    IDS_STRING14229         "Contested Cliffs\n\nLand\nONS,R\n{T}: Add {1} to your mana pool.\r{RG}, {T}: Choose target Beast creature you control and target creature an opponent controls. Those creatures fight each other."
+    IDS_STRING14230         "Thoughtbound Primoc\n{2R}\nCreature - Bird Beast\nONS,U\nFlying\rAt the beginning of your upkeep, if a player controls more Wizards than each other player, the player who controls the most Wizards gains control of Thoughtbound Primoc.\n2/3"
+    IDS_STRING14231         "Insurrection\n{5RRR}\nSorcery\nONS,R\nUntap all creatures and gain control of them until end of turn. They gain haste until end of turn."
+    IDS_STRING14232         "Unified Strike\n{W}\nInstant\nONS,C\nExile target attacking creature if its power is less than or equal to the number of Soldiers on the battlefield."
+    IDS_STRING14233         "AEther Charge\n{4R}\nEnchantment\nONS,U\nWhenever a Beast enters the battlefield under your control, you may have it deal 4 damage to target opponent."
+    IDS_STRING14234         "Brightstone Ritual\n{R}\nInstant\nONS,C\nAdd {R} to your mana pool for each Goblin on the battlefield."
+    IDS_STRING14235         "Shepherd of Rot\n{1B}\nCreature - Zombie Cleric\nONS,C\n{T}: Each player loses 1 life for each Zombie on the battlefield.\n1/1"
+    IDS_STRING14236         "Feeding Frenzy\n{2B}\nInstant\nONS,U\nTarget creature gets -X/-X until end of turn, where X is the number of Zombies on the battlefield."
+    IDS_STRING14237         "Gustcloak Harrier\n{1WW}\nCreature - Bird Soldier\nONS,C\nFlying\rWhenever Gustcloak Harrier becomes blocked, you may untap it and remove it from combat.\n2/2"
+    IDS_STRING14238         "Gustcloak Runner\n{W}\nCreature - Human Soldier\nONS,C\nWhenever Gustcloak Runner becomes blocked, you may untap it and remove it from combat.\n1/1"
+    IDS_STRING14239         "Gustcloak Savior\n{4W}\nCreature - Bird Soldier\nONS,R\nFlying\rWhenever a creature you control becomes blocked, you may untap that creature and remove it from combat.\n3/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14240         "Gustcloak Sentinel\n{2WW}\nCreature - Human Soldier\nONS,U\nWhenever Gustcloak Sentinel becomes blocked, you may untap it and remove it from combat.\n3/3"
+    IDS_STRING14241         "Gustcloak Skirmisher\n{3W}\nCreature - Bird Soldier\nONS,U\nFlying\rWhenever Gustcloak Skirmisher becomes blocked, you may untap it and remove it from combat.\n2/3"
+    IDS_STRING14242         "Prowling Pangolin\n{3BB}\nCreature - Anteater Beast\nONS,U\nWhen Prowling Pangolin enters the battlefield, any player may sacrifice two creatures. If a player does, sacrifice Prowling Pangolin.\n6/5"
+    IDS_STRING14243         "Syphon Mind\n{3B}\nSorcery\nONS,C\nEach other player discards a card. You draw a card for each card discarded this way."
+    IDS_STRING14244         "Read the Runes\n{XU}\nInstant\nONS,R\nDraw X cards. For each card drawn this way, discard a card unless you sacrifice a permanent."
+    IDS_STRING14245         "Doom Cannon\n{6}\nArtifact\nONS,R\nAs Doom Cannon enters the battlefield, choose a creature type.\r{3}, {T}, Sacrifice a creature of the chosen type: Doom Cannon deals 3 damage to target creature or player."
+    IDS_STRING14246         "Erratic Explosion\n{2R}\nSorcery\nONS,C\nChoose target creature or player. Reveal cards from the top of your library until you reveal a nonland card. Erratic Explosion deals damage equal to that card's converted mana cost to that creature or player. Put the revealed cards on the bottom of your library in any order."
+    IDS_STRING14247         "Goblin Machinist\n{4R}\nCreature - Goblin\nONS,U\n{2R}: Reveal cards from the top of your library until you reveal a nonland card. Goblin Machinist gets +X/+0 until end of turn, where X is that card's converted mana cost. Put the revealed cards on the bottom of your library in any order.\n0/5"
+    IDS_STRING14248         "Kaboom!\n{4R}\nSorcery\nONS,R\nChoose any number of target players. For each of those players, reveal cards from the top of your library until you reveal a nonland card. Kaboom deals damage equal to that card's converted mana cost to that player, then you put the revealed cards on the bottom of your library in any order."
+    IDS_STRING14249         "Riptide Shapeshifter\n{3UU}\nCreature - Shapeshifter\nONS,U\n{2UU}, Sacrifice Riptide Shapeshifter: Choose a creature type. Reveal cards from the top of your library until you reveal a creature card of that type. Put that card onto the battlefield and shuffle the rest into your library.\n3/3"
+    IDS_STRING14250         "Kamahl's Summons\n{3G}\nSorcery\nONS,U\nEach player may reveal any number of creature cards from his or her hand. Then each player puts a 2/2 green Bear creature token onto the battlefield for each card he or she revealed this way."
+    IDS_STRING14251         "Cover of Darkness\n{1B}\nEnchantment\nONS,R\nAs Cover of Darkness enters the battlefield, choose a creature type.\rCreatures of the chosen type have fear."
+    IDS_STRING14252         "Steely Resolve\n{1G}\nEnchantment\nONS,R\nAs Steely Resolve enters the battlefield, choose a creature type.\rCreatures of the chosen type have shroud."
+    IDS_STRING14253         "Information Dealer\n{1U}\nCreature - Human Wizard\nONS,C\n{T}: Look at the top X cards of your library, where X is the number of Wizards on the battlefield, then put them back in any order.\n1/1"
+    IDS_STRING14254         "Thunder of Hooves\n{3R}\nSorcery\nONS,U\nThunder of Hooves deals X damage to each creature without flying and each player, where X is the number of Beasts on the battlefield."
+    IDS_STRING14255         "Stag Beetle\n{3GG}\nCreature - Insect\nONS,R\nStag Beetle enters the battlefield with X +1/+1 counters on it, where X is the number of other creatures on the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING14256         "Kamahl, Fist of Krosa\n{4GG}\nLegendary Creature - Human Druid\nONS,R\n{G}: Target land becomes a 1/1 creature until end of turn. It's still a land.\r{2GGG}: Creatures you control get +3/+3 and gain trample until end of turn.\n4/3"
+    IDS_STRING14257         "Ixidor's Will\n{2U}\nInstant\nONS,C\nCounter target spell unless its controller pays {2} for each Wizard on the battlefield."
+    IDS_STRING14258         "Blatant Thievery\n{4UUU}\nSorcery\nONS,R\nFor each opponent, gain control of target permanent that player controls."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

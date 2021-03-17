@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Creatures - 19 (31.67%)
+
+4 Crystalline Sliver (10400)
+3 Hibernation Sliver (10485)
+4 Muscle Sliver (10013)
+4 Sinew Sliver (2522)
+4 Winged Sliver (10011)
+
+// Instants - 16 (26.67%)
+
+4 Brainstorm (11610)
+4 Daze (12089)
+4 Force of Will (6759)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 3 (5.00%)
+
+3 Ponder (18010)
+
+// Artifacts - 4 (6.67%)
+
+4 AEther Vial (15278)
+
+// Lands - 18 (30.00%)
+
+4 Flooded Strand (14001)
+Island (17215)
+3 Mutavault (18368)
+Plains (17223)
+Polluted Delta (14000)
+2 Tropical Island (7384)
+3 Tundra (7386)
+2 Underground Sea (7388)
+Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Harmonic Sliver (17451)
+
+// Instants
+
+4 Blue Elemental Blast (7619)
+2 Krosan Grip (17369)
+3 Stifle (14676)
+
+// Enchantments
+
+4 Planar Void (11040)

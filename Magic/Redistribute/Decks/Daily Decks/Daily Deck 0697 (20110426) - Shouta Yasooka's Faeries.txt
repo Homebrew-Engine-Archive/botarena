@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Jace, the Mind Sculptor (19670)
+
+// Creatures - 10 (16.67%)
+
+3 Mistbind Clique (18055)
+4 Spellstutter Sprite (18095)
+3 Vendilion Clique (18369)
+
+// Instants - 11 (18.33%)
+
+4 Cryptic Command (18051)
+3 Disfigure (19379)
+Go for the Throat (21752)
+3 Mana Leak (21214)
+
+// Sorceries - 5 (8.33%)
+
+2 Inquisition of Kozilek (20846)
+3 Thoughtseize (17901)
+
+// Enchantments - 4 (6.67%)
+
+4 Bitterblossom (18338)
+
+// Artifacts - 2 (3.33%)
+
+2 Sword of Feast and Famine (21762)
+
+// Lands - 26 (43.33%)
+
+4 Creeping Tar Pit (19622)
+4 Darkslick Shores (21469)
+2 Island (21771)
+2 Island (21770)
+3 Mutavault (18368)
+Reflecting Pool (18571)
+4 Secluded Glen (18093)
+2 Sunken Ruins (18580)
+Swamp (21776)
+Swamp (21777)
+2 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Phyrexian Crusader (21702)
+3 Sower of Temptation (18074)
+Vendilion Clique (18369)
+
+// Instants
+
+2 Consume the Meek (20844)
+Disfigure (19379)
+3 Flashfreeze (21133)
+
+// Sorceries
+
+Thoughtseize (17901)

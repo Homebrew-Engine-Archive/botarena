@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 16 (26.67%)
+
+4 Knight of the Reliquary (8815)
+4 Noble Hierarch (8819)
+Snapcaster Mage (23533)
+4 Stoneforge Mystic (19638)
+3 Vendilion Clique (18369)
+
+// Instants - 13 (21.67%)
+
+4 Brainstorm (23055)
+Daze (12089)
+4 Force of Will (6759)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 2 (3.33%)
+
+2 Ponder (22235)
+
+// Artifacts - 3 (5.00%)
+
+Batterskull (21983)
+Sword of Feast and Famine (21762)
+Umezawa's Jitte (19149)
+
+// Lands - 23 (38.33%)
+
+Forest (23321)
+Island (23324)
+Karakas (5431)
+Maze of Ith (5737)
+4 Misty Rainforest (19356)
+Plains (23330)
+Savannah (7353)
+4 Tropical Island (7384)
+2 Tundra (7386)
+3 Wasteland (10008)
+4 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Meddling Mage (9016)
+2 Qasali Pridemage (9018)
+Scavenging Ooze (23230)
+
+// Instants
+
+2 Path to Exile (23045)
+4 Spell Pierce (19377)
+2 Surgical Extraction (22003)
+
+// Artifacts
+
+Sword of Fire and Ice (15222)

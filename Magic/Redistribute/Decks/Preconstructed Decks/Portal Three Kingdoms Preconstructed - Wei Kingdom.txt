@@ -1,0 +1,32 @@
+// Wei Kingdom
+// Portal Three Kingdoms Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+Cao Cao, Lord of Wei (20414)
+2 Cunning Advisor (20415)
+Sima Yi, Wei Field Marshal (20348)
+2 Wei Ambush Force (20362)
+2 Wei Assassins (20463)
+2 Wei Elite Companions (20426)
+2 Wei Infantry (20363)
+2 Wei Scout (20443)
+2 Wei Strike Force (20444)
+
+// Sorceries - 9 (22.50%)
+
+Ambition's Cost (20406)
+2 Deception (20310)
+2 Ghostly Visit (20320)
+2 Imperial Edict (20464)
+2 Return to Battle (20338)
+
+// Lands - 15 (37.50%)
+
+5 Swamp (20402)
+5 Swamp (20403)
+5 Swamp (20401)

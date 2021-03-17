@@ -1,0 +1,47 @@
+// Total cards in deck - 61
+
+// Creatures - 35 (57,38%)
+
+4 Gempalm Incinerator (14465)
+4 Goblin Chieftain (4002)
+4 Goblin Lackey (10920)
+4 Goblin Matron (959)
+4 Goblin Piledriver (14175)
+4 Goblin Ringleader (13061)
+4 Goblin Warchief (14658)
+3 Mogg War Marshal (17333)
+Siege-Gang Commander (4101)
+3 Stingscourger (2582)
+
+// Artifacts - 4 (6,56%)
+
+4 AEther Vial (15278)
+
+// Lands - 22 (36,07%)
+
+4 Mountain (4072)
+4 Mountain (4073)
+5 Mountain (4070)
+5 Mountain (4071)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Boartusk Liege (18596)
+
+// Instants
+
+3 Pyrokinesis (6769)
+
+// Sorceries
+
+2 Anarchy (6302)
+
+// Artifacts
+
+4 Relic of Progenitus (8725)
+4 Thorn of Amethyst (18000)

@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+2 Garruk Wildspeaker (21205)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 27 (45.00%)
+
+3 Acidic Slime (21311)
+4 Birds of Paradise (21103)
+Consecrated Sphinx (21722)
+4 Fauna Shaman (21239)
+2 Frost Titan (21322)
+4 Lotus Cobra (19389)
+4 Nest Invader (20887)
+Oracle of Mul Daya (19542)
+4 Vengevine (20939)
+
+// Artifacts - 2 (3.33%)
+
+2 Sword of Feast and Famine (21762)
+
+// Lands - 25 (41.67%)
+
+2 Evolving Wilds (20905)
+4 Forest (21769)
+4 Forest (21768)
+2 Island (21771)
+3 Island (21770)
+4 Misty Rainforest (19356)
+Scalding Tarn (19358)
+2 Terramorphic Expanse (21309)
+3 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Obstinate Baloth (21217)
+
+// Instants
+
+4 Flashfreeze (21133)
+Into the Roil (19373)
+3 Mana Leak (21214)
+2 Nature's Claim (19662)
+
+// Artifacts
+
+2 Tumble Magnet (21447)

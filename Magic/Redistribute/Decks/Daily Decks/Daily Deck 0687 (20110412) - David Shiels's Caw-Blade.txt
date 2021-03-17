@@ -1,0 +1,72 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 7 (11.67%)
+
+3 Gideon Jura (20966)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.33%)
+
+4 Squadron Hawk (21218)
+4 Stoneforge Mystic (19638)
+
+// Instants - 9 (15.00%)
+
+2 Condemn (21180)
+Into the Roil (19373)
+3 Mana Leak (21214)
+3 Spell Pierce (19377)
+
+// Sorceries - 6 (10.00%)
+
+2 Day of Judgment (21263)
+4 Preordain (21152)
+
+// Artifacts - 4 (6.67%)
+
+Mortarpod (21825)
+Sword of Feast and Famine (21762)
+2 Tumble Magnet (21447)
+
+// Lands - 26 (43.33%)
+
+4 Celestial Colonnade (19602)
+4 Glacial Fortress (21128)
+Inkmoth Nexus (21745)
+2 Island (21771)
+2 Island (21770)
+2 Plains (21775)
+2 Plains (21774)
+Scalding Tarn (19358)
+4 Seachrome Coast (21459)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Baneslayer Angel (21125)
+Sun Titan (21161)
+
+// Instants
+
+Condemn (21180)
+Deprive (20934)
+2 Divine Offering (21783)
+2 Flashfreeze (21133)
+
+// Sorceries
+
+Day of Judgment (21263)
+
+// Enchantments
+
+2 Journey to Nowhere (19524)
+2 Volition Reins (21478)
+
+// Artifacts
+
+Sword of Feast and Famine (21762)
+Sylvok Lifestaff (21557)

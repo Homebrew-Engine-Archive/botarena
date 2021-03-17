@@ -1,0 +1,48 @@
+// Grixis Shambling Army
+// Conflux Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 15 (36.59%)
+
+Blood Tyrant (8902)
+Brackwater Elemental (8903)
+Dregscape Zombie (8658)
+Extractor Demon (8907)
+Fire-Field Ogre (8682)
+2 Grixis Slavedriver (8894)
+2 Kathari Screecher (8668)
+Kederekt Creeper (8589)
+Pestilent Kathari (8820)
+2 Sedraxis Alchemist (8876)
+2 Zombie Outlander (8832)
+
+// Instants - 4 (9.76%)
+
+Agony Warp (8704)
+2 Shock (3159)
+Terror (3181)
+
+// Sorceries - 3 (7.32%)
+
+2 Absorb Vis (8875)
+Infest (8584)
+
+// Enchantments - 1 (2.44%)
+
+Elder Mastery (8928)
+
+// Artifacts - 1 (2.44%)
+
+Bone Saw (8847)
+
+// Lands - 17 (41.46%)
+
+2 Crumbling Necropolis (8553)
+3 Island (8517)
+3 Mountain (8518)
+4 Swamp (8528)
+3 Swamp (8529)
+2 Terramorphic Expanse (3278)

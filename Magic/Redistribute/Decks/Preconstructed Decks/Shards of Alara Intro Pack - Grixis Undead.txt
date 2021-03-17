@@ -1,0 +1,51 @@
+// Grixis Undead
+// Shards of Alara Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 14 (34.15%)
+
+Blood Cultist (8539)
+Dreg Reaver (8563)
+Dregscape Zombie (8658)
+2 Fire-Field Ogre (8682)
+Fleshbag Marauder (8571)
+Gravedigger (3067)
+Hidden Horror (3070)
+2 Incurable Ogre (8583)
+2 Kederekt Creeper (8589)
+Vein Drinker (8503)
+Vithian Stinger (8680)
+
+// Instants - 4 (9.76%)
+
+2 Agony Warp (8704)
+2 Terror (3181)
+
+// Sorceries - 5 (12.20%)
+
+2 Blightning (8641)
+Bone Splinters (8542)
+Cruel Ultimatum (8707)
+Essence Drain (3260)
+
+// Artifacts - 1 (2.44%)
+
+Obelisk of Grixis (8602)
+
+// Lands - 17 (41.46%)
+
+2 Crumbling Necropolis (8553)
+2 Grixis Panorama (8638)
+Island (8517)
+Island (8516)
+Island (8515)
+Mountain (8518)
+Mountain (8519)
+Mountain (8520)
+2 Swamp (8529)
+2 Swamp (8530)
+2 Swamp (8527)
+Swamp (8528)

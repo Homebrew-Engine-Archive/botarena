@@ -1,0 +1,39 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures - 20 (33.33%)
+
+4 Bloodbraid Elf (9105)
+4 Knight of the Reliquary (8815)
+4 Qasali Pridemage (9018)
+4 Steppe Lynx (19371)
+4 Wild Nacatl (8504)
+
+// Instants - 14 (23.33%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (4060)
+2 Naya Charm (8599)
+4 Path to Exile (8897)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+Forest (19303)
+Forest (19300)
+Forest (19302)
+Forest (19301)
+Mountain (19316)
+Mountain (19317)
+Mountain (19318)
+Mountain (19319)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Plains (19327)
+2 Rootbound Crag (4201)
+2 Sunpetal Grove (4202)
+4 Terramorphic Expanse (4111)

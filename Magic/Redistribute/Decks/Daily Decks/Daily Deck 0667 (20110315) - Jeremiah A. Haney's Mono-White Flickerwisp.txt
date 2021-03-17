@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+4 Flickerwisp (19026)
+2 Glimmerpoint Stag (21601)
+2 Kor Skyfisher (19368)
+2 Lone Missionary (20882)
+4 Pilgrim's Eye (19620)
+4 Sun Titan (21161)
+4 Wall of Omens (20842)
+
+// Instants - 4 (6.67%)
+
+4 Path to Exile (8897)
+
+// Sorceries - 4 (6.67%)
+
+4 Day of Judgment (21263)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 3 (5.00%)
+
+3 Mortarpod (21825)
+
+// Lands - 23 (38.33%)
+
+2 Arid Mesa (19349)
+4 Emeria, the Sky Ruin (19348)
+2 Marsh Flats (19357)
+5 Plains (21775)
+6 Plains (21774)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Leonin Relic-Warder (21737)
+Lone Missionary (20882)
+
+// Instants
+
+2 Condemn (21180)
+
+// Sorceries
+
+Austere Command (18024)
+Martial Coup (8886)
+
+// Enchantments
+
+4 Luminarch Ascension (19527)
+3 Runed Halo (18683)
+
+// Artifacts
+
+Mortarpod (21825)

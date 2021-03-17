@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4396FD2E-8F46-45BA-8FFF-AD3EB4F7BF03}</ProjectGuid>
+    <RootNamespace>MagicWand</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BotArena</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">BotArena</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/EHac -Zm264 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Speech SDK 5.1\Include;..\..\EpochLib;..\MagicCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_MY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\MagicCore;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;Psapi.lib;uxtheme.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/EHac -Zm300 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Speech SDK 5.1\Include;..\..\EpochLib;..\MagicCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\MagicCore;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;Psapi.lib;uxtheme.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)XPStyle.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="res\AlwaysPass.ico" />
+    <None Include="res\AlwaysStop.ico" />
+    <None Include="res\arrow_down_blue.ico" />
+    <None Include="res\arrow_up_blue.ico" />
+    <None Include="res\MulticolorBall.ico" />
+    <None Include="res\ArtifactCardLarge.bmp" />
+    <None Include="res\ArtifactCardSmall.bmp" />
+    <None Include="res\ArtifactD.bmp" />
+    <None Include="res\ArtifactU.bmp" />
+    <None Include="res\Attack.bmp" />
+    <None Include="res\Attack.ico" />
+    <None Include="res\AttackButtonDown.bmp" />
+    <None Include="res\AttackButtonUp.bmp" />
+    <None Include="res\AttackButtonUp2.bmp" />
+    <None Include="res\AttackD.bmp" />
+    <None Include="res\AttackF.bmp" />
+    <None Include="res\AttackU.bmp" />
+    <None Include="res\AttackX.bmp" />
+    <None Include="res\Background.bmp" />
+    <None Include="res\Background1.bmp" />
+    <None Include="res\Background2.bmp" />
+    <None Include="res\Background3.bmp" />
+    <None Include="res\BasicLandD.bmp" />
+    <None Include="res\BasicLandU.bmp" />
+    <None Include="res\BeginningCombat.ico" />
+    <None Include="res\BeginningCombat2.ico" />
+    <None Include="res\BeginningCombatGray.ico" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bitmap2.bmp" />
+    <None Include="res\bitmap3.bmp" />
+    <None Include="res\BlackBall.ico" />
+    <None Include="res\BlackCardLarge.bmp" />
+    <None Include="res\BlackCardSmall.bmp" />
+    <None Include="res\BlackD.bmp" />
+    <None Include="res\BlackU.bmp" />
+    <None Include="res\BlueBall.ico" />
+    <None Include="res\BlueCardLarge.bmp" />
+    <None Include="res\BlueCardSmall.bmp" />
+    <None Include="res\BlueD.bmp" />
+    <None Include="res\BlueU.bmp" />
+    <None Include="res\boc.bmp" />
+    <None Include="res\BotArenaLogo.bmp" />
+    <None Include="res\bug.ico" />
+    <None Include="res\ButtonDown.bmp" />
+    <None Include="res\ButtonUp.bmp" />
+    <None Include="res\ButtonUp2.bmp" />
+    <None Include="res\CardBackLarge.bmp" />
+    <None Include="res\CardBackSmall.bmp" />
+    <None Include="res\CB_ATTACKX.bmp" />
+    <None Include="res\combatdamage.bmp" />
+    <None Include="res\CombatDamage.ico" />
+    <None Include="res\CombatDamage2.ico" />
+    <None Include="res\CombatDamageGray.ico" />
+    <None Include="res\CommonD.bmp" />
+    <None Include="res\CommonU.bmp" />
+    <None Include="res\Computer.ico" />
+    <None Include="res\CreatureD.bmp" />
+    <None Include="res\CreatureU.bmp" />
+    <None Include="res\debug.ico" />
+    <None Include="res\decide.ico" />
+    <None Include="res\deck.ico" />
+    <None Include="res\deck_readonly.ico" />
+    <None Include="res\declareattackers.bmp" />
+    <None Include="res\DeclareAttackers.ico" />
+    <None Include="res\DeclareAttackers2.ico" />
+    <None Include="res\DeclareAttackersGray.ico" />
+    <None Include="res\declareblockers.bmp" />
+    <None Include="res\DeclareBlockers.ico" />
+    <None Include="res\DeclareBlockers2.ico" />
+    <None Include="res\DeclareBlockersGray.ico" />
+    <None Include="res\Default.ico" />
+    <None Include="res\DefaultD.bmp" />
+    <None Include="res\DefaultF.bmp" />
+    <None Include="res\DefaultU.bmp" />
+    <None Include="res\DefaultX.bmp" />
+    <None Include="res\down.bmp" />
+    <None Include="res\draw.bmp" />
+    <None Include="res\Draw.ico" />
+    <None Include="res\DrawGray.ico" />
+    <None Include="res\Emblem.ico" />
+    <None Include="res\EnchantmentD.bmp" />
+    <None Include="res\EnchantmentU.bmp" />
+    <None Include="res\EndOfCombat.ico" />
+    <None Include="res\EndOfCombat2.ico" />
+    <None Include="res\EndOfCombatGray.ico" />
+    <None Include="res\EndOfTurn.ico" />
+    <None Include="res\EndOfTurnGray.ico" />
+    <None Include="res\eoc.bmp" />
+    <None Include="res\eot.bmp" />
+    <None Include="res\FolderD.bmp" />
+    <None Include="res\FolderU.bmp" />
+    <None Include="res\GenericBall.ico" />
+    <None Include="res\GoldCardLarge.bmp" />
+    <None Include="res\GoldCardSmall.bmp" />
+    <None Include="res\graveyard.ico" />
+    <None Include="res\GraveyardHigh.ico" />
+    <None Include="res\GreenBall.ico" />
+    <None Include="res\GreenCardLarge.bmp" />
+    <None Include="res\GreenCardSmall.bmp" />
+    <None Include="res\GreenD.bmp" />
+    <None Include="res\GreenU.bmp" />
+    <None Include="res\hand.ico" />
+    <None Include="res\HandHi.ico" />
+    <None Include="res\HandHigh.ico" />
+    <None Include="res\hdrdown.bmp" />
+    <None Include="res\hdrup.bmp" />
+    <None Include="res\human.ico" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\InstantD.bmp" />
+    <None Include="res\InstantU.bmp" />
+    <None Include="res\LandBall.ico" />
+    <None Include="res\LandD.bmp" />
+    <None Include="res\LandU.bmp" />
+    <None Include="res\library.ico" />
+    <None Include="res\LibraryHigh.ico" />
+    <None Include="res\MagicWand.ico" />
+    <None Include="res\MagicWandDoc.ico" />
+    <None Include="res\main.bmp" />
+    <None Include="res\MainPostcombat.ico" />
+    <None Include="res\MainPostcombatGray.ico" />
+    <None Include="res\MainPreCombat.ico" />
+    <None Include="res\MainPreCombatGray.ico" />
+    <None Include="res\manapool.ico" />
+    <None Include="res\move.ico" />
+    <None Include="res\MythicRareD.bmp" />
+    <None Include="res\MythicRareU.bmp" />
+    <None Include="res\NetToolBar.bmp" />
+    <None Include="res\okay.ico" />
+    <None Include="res\Pass.ico" />
+    <None Include="res\PassButtonDown.bmp" />
+    <None Include="res\PassButtonUp.bmp" />
+    <None Include="res\PassButtonUp2.bmp" />
+    <None Include="res\PlaneswalkerD.bmp" />
+    <None Include="res\PlaneswalkerU.bmp" />
+    <None Include="res\RareD.bmp" />
+    <None Include="res\RareU.bmp" />
+    <None Include="res\RedBall.ico" />
+    <None Include="res\RedCardLarge.bmp" />
+    <None Include="res\RedCardSmall.bmp" />
+    <None Include="res\RedD.bmp" />
+    <None Include="res\RedU.bmp" />
+    <None Include="res\Shield.ico" />
+    <None Include="res\SorceryD.bmp" />
+    <None Include="res\SorceryU.bmp" />
+    <None Include="res\SpecialD.bmp" />
+    <None Include="res\SpecialU.bmp" />
+    <None Include="res\stop.ico" />
+    <None Include="res\sword.ico" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\trick.ico" />
+    <None Include="res\UncommonD.bmp" />
+    <None Include="res\UncommonU.bmp" />
+    <None Include="res\untap.bmp" />
+    <None Include="res\Untap.ico" />
+    <None Include="res\UntapGray.ico" />
+    <None Include="res\UP.bmp" />
+    <None Include="res\upkeep.bmp" />
+    <None Include="res\Upkeep.ico" />
+    <None Include="res\UpkeepGray.ico" />
+    <None Include="res\WhiteBall.ico" />
+    <None Include="res\WhiteCardLarge.bmp" />
+    <None Include="res\WhiteCardSmall.bmp" />
+    <None Include="res\WhiteD.bmp" />
+    <None Include="res\WhiteU.bmp" />
+    <None Include="resize.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\MagicWand.manifest" />
+    <Manifest Include="XPStyle.Manifest">
+      <SubType>Designer</SubType>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MagicWand.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EStringAutoComplete.h" />
+    <ClInclude Include="HotkeysDialog.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ChatDialogBar.h" />
+    <ClInclude Include="GraphDialogBar.h" />
+    <ClInclude Include="ManaStatic.h" />
+    <ClInclude Include="MessageDialogBar.h" />
+    <ClInclude Include="PlayerStatisticDialogBar.h" />
+    <ClInclude Include="PreviewBar.h" />
+    <ClInclude Include="ProgressStatusBar.h" />
+    <ClInclude Include="RoundButton.h" />
+    <ClInclude Include="SelectionDialogBar.h" />
+    <ClInclude Include="SelectionListCtrl.h" />
+    <ClInclude Include="AboutDialog.h" />
+    <ClInclude Include="AppearanceDialog.h" />
+    <ClInclude Include="ApplicationSettingsDialog.h" />
+    <ClInclude Include="AvatarDlg.h" />
+    <ClInclude Include="CardDialog.h" />
+    <ClInclude Include="ConnectToComputerDialog.h" />
+    <ClInclude Include="DeckDialog.h" />
+    <ClInclude Include="DeckInfoDlg.h" />
+    <ClInclude Include="DeckRenameDialog.h" />
+    <ClInclude Include="EditUsageEntryDialog.h" />
+    <ClInclude Include="FileComboBox.h" />
+    <ClInclude Include="GameSettingsDialog.h" />
+    <ClInclude Include="GameSummaryDlg.h" />
+    <ClInclude Include="LoadCardStoreDialog.h" />
+    <ClInclude Include="OrderCardDialog.h" />
+    <ClInclude Include="SealedDeckInfoDlg.h" />
+    <ClInclude Include="SelectionTimerDialog.h" />
+    <ClInclude Include="StackDialog.h" />
+    <ClInclude Include="StartDialog.h" />
+    <ClInclude Include="StarterBoosterDlg.h" />
+    <ClInclude Include="UsageAbilityDialog.h" />
+    <ClInclude Include="UsageEntryDialog.h" />
+    <ClInclude Include="UsagePatternDialog.h" />
+    <ClInclude Include="WaitingForDialog.h" />
+    <ClInclude Include="ElementManager.h" />
+    <ClInclude Include="MagicElementManager.h" />
+    <ClInclude Include="UIAvatar.h" />
+    <ClInclude Include="UICard.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="UIElementGroup.h" />
+    <ClInclude Include="UIImage.h" />
+    <ClInclude Include="UILink.h" />
+    <ClInclude Include="UISelection.h" />
+    <ClInclude Include="UIText.h" />
+    <ClInclude Include="ClrButton.h" />
+    <ClInclude Include="DialogEx.h" />
+    <ClInclude Include="ImageButtonWithStyle.h" />
+    <ClInclude Include="ListViewCtrlEx.h" />
+    <ClInclude Include="memdc.h" />
+    <ClInclude Include="MListCtrl.h" />
+    <ClInclude Include="MListCtrl2.h" />
+    <ClInclude Include="resize.h" />
+    <ClInclude Include="sizecbar.h" />
+    <ClInclude Include="UICardTip.h" />
+    <ClInclude Include="GameThread.h" />
+    <ClInclude Include="MagicWand.h" />
+    <ClInclude Include="MagicWandDoc.h" />
+    <ClInclude Include="MagicWandView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="ProjectCommon.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChatDialogBar.cpp" />
+    <ClCompile Include="EStringAutoComplete.cpp" />
+    <ClCompile Include="GraphDialogBar.cpp" />
+    <ClCompile Include="HotkeysDialog.cpp" />
+    <ClCompile Include="ManaStatic.cpp" />
+    <ClCompile Include="MessageDialogBar.cpp" />
+    <ClCompile Include="PlayerStatisticDialogBar.cpp" />
+    <ClCompile Include="PreviewBar.cpp" />
+    <ClCompile Include="ProgressStatusBar.cpp" />
+    <ClCompile Include="RoundButton.cpp" />
+    <ClCompile Include="SelectionDialogBar.cpp" />
+    <ClCompile Include="SelectionListCtrl.cpp" />
+    <ClCompile Include="AboutDialog.cpp" />
+    <ClCompile Include="AppearanceDialog.cpp" />
+    <ClCompile Include="ApplicationSettingsDialog.cpp" />
+    <ClCompile Include="AvatarDlg.cpp" />
+    <ClCompile Include="CardDialog.cpp" />
+    <ClCompile Include="ConnectToComputerDialog.cpp" />
+    <ClCompile Include="DeckDialog.cpp" />
+    <ClCompile Include="DeckInfoDlg.cpp" />
+    <ClCompile Include="DeckRenameDialog.cpp" />
+    <ClCompile Include="EditUsageEntryDialog.cpp" />
+    <ClCompile Include="FileComboBox.cpp" />
+    <ClCompile Include="GameSettingsDialog.cpp" />
+    <ClCompile Include="GameSummaryDlg.cpp" />
+    <ClCompile Include="LoadCardStoreDialog.cpp" />
+    <ClCompile Include="OrderCardDialog.cpp" />
+    <ClCompile Include="SealedDeckInfoDlg.cpp" />
+    <ClCompile Include="SelectionTimerDialog.cpp" />
+    <ClCompile Include="StackDialog.cpp" />
+    <ClCompile Include="StartDialog.cpp" />
+    <ClCompile Include="StarterBoosterDlg.cpp" />
+    <ClCompile Include="UsageAbilityDialog.cpp" />
+    <ClCompile Include="UsageEntryDialog.cpp" />
+    <ClCompile Include="UsagePatternDialog.cpp" />
+    <ClCompile Include="WaitingForDialog.cpp" />
+    <ClCompile Include="ElementManager.cpp" />
+    <ClCompile Include="MagicElementManager.cpp" />
+    <ClCompile Include="UIAvatar.cpp" />
+    <ClCompile Include="UICard.cpp" />
+    <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="UIElementGroup.cpp" />
+    <ClCompile Include="UIImage.cpp" />
+    <ClCompile Include="UILink.cpp" />
+    <ClCompile Include="UISelection.cpp" />
+    <ClCompile Include="UIText.cpp" />
+    <ClCompile Include="ClrButton.cpp" />
+    <ClCompile Include="DialogEx.cpp" />
+    <ClCompile Include="ImageButtonWithStyle.cpp" />
+    <ClCompile Include="ListViewCtrlEx.cpp" />
+    <ClCompile Include="MListCtrl.cpp" />
+    <ClCompile Include="MListCtrl2.cpp" />
+    <ClCompile Include="resize.cpp" />
+    <ClCompile Include="sizecbar.cpp" />
+    <ClCompile Include="UICardTip.cpp" />
+    <ClCompile Include="GameThread.cpp" />
+    <ClCompile Include="MagicWand.cpp" />
+    <ClCompile Include="MagicWandDoc.cpp" />
+    <ClCompile Include="MagicWandView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\EpochLib\EpochLib.vcxproj">
+      <Project>{ab54e951-6f04-4fcd-a96f-14260610cfff}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicCore\MagicCore.vcxproj">
+      <Project>{ddfaf63b-e4c1-4e2a-b0c0-82629a9e862d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="MagicWand.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

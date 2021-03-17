@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Figure of Destiny (19006)
+2 Hell's Thunder (8676)
+4 Ranger of Eos (8642)
+4 Rip-Clan Crasher (8611)
+3 Spark Elemental (3272)
+4 Woolly Thoctar (8572)
+
+// Instants - 15 (25.00%)
+
+4 Flame Javelin (18642)
+4 Magma Spray (8735)
+3 Naya Charm (8599)
+4 Puncture Blast (19005)
+
+// Lands - 24 (40.00%)
+
+2 Battlefield Forge (3012)
+4 Fire-Lit Thicket (18542)
+4 Jungle Shrine (8588)
+4 Karplusan Forest (3086)
+Mountain (8521)
+2 Mountain (8518)
+Mountain (8519)
+Mountain (8520)
+Rugged Prairie (18922)
+3 Treetop Village (3308)
+Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Cloudthresher (18015)
+
+// Instants
+
+2 Chaotic Backlash (19016)
+4 Guttural Response (18548)
+2 Naturalize (8522)
+
+// Sorceries
+
+3 Firespout (18674)
+
+// Enchantments
+
+2 Oblivion Ring (8718)

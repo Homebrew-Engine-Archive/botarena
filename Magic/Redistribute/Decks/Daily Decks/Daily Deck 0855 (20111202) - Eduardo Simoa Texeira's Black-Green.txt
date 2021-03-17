@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+4 Blastoderm (12077)
+2 Primeval Shambler (11653)
+4 Silt Crawler (12238)
+4 Thrashing Wumpus (11764)
+2 Vine Trellis (11676)
+
+// Instants - 7 (11.67%)
+
+4 Snuff Out (11829)
+3 Vendetta (11846)
+
+// Enchantments - 9 (15.00%)
+
+Haunted Crossroads (11793)
+4 Saproling Burst (12105)
+4 Seal of Doom (12066)
+
+// Artifacts - 4 (6.67%)
+
+4 Chimeric Idol (12281)
+
+// Lands - 24 (40.00%)
+
+3 Forest (11627)
+3 Forest (11629)
+3 Forest (11628)
+3 Forest (11630)
+3 Swamp (11666)
+3 Swamp (11669)
+3 Swamp (11668)
+3 Swamp (11667)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Sorceries
+
+3 Forced March (11869)
+4 Massacre (12093)
+4 Reverent Silence (12097)
+
+// Artifacts
+
+4 Distorting Lens (11626)

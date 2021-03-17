@@ -1,0 +1,40 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Blackcleave Goblin (21488)
+Blight Mamba (21475)
+Corpse Cur (21519)
+2 Cystbearer (21492)
+Fume Spitter (21574)
+2 Ichorclaw Myr (21444)
+Moriok Replica (21507)
+Necropede (21555)
+3 Plague Stinger (21431)
+Sylvok Replica (21452)
+Vector Asp (21548)
+
+// Instants - 5 (12.50%)
+
+2 Grasp of Darkness (21505)
+2 Instill Infection (21504)
+Tel-Jilad Defiance (21605)
+
+// Artifacts - 3 (7.50%)
+
+Heavy Arbalest (21606)
+Strider Harness (21531)
+Trigon of Corruption (21552)
+
+// Lands - 17 (42.50%)
+
+2 Forest (21401)
+Forest (21402)
+Forest (21403)
+2 Forest (21400)
+3 Swamp (21416)
+3 Swamp (21417)
+3 Swamp (21418)
+2 Swamp (21419)

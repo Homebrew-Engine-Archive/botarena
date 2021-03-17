@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+4 Cursecatcher (18534)
+4 Merrow Reejerey (18082)
+4 Silvergill Adept (18089)
+3 Sower of Temptation (18074)
+4 Stonybrook Banneret (18386)
+3 Sygg, River Guide (18026)
+3 Thistledown Liege (18624)
+
+// Instants - 12 (20.00%)
+
+4 Cryptic Command (18051)
+4 Path to Exile (8897)
+4 Sage's Dousing (18374)
+
+// Lands - 23 (38.33%)
+
+2 Adarkar Wastes (3002)
+2 Faerie Conclave (3304)
+2 Island (8514)
+Island (8517)
+Island (8516)
+2 Island (8515)
+4 Mutavault (18368)
+4 Mystic Gate (18564)
+Plains (8523)
+4 Wanderwine Hub (18094)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Burrenton Forge-Tender (18054)
+Sower of Temptation (18074)
+2 Wispmare (18027)
+
+// Instants
+
+2 Celestial Purge (8801)
+2 Flashfreeze (3234)
+
+// Sorceries
+
+3 Wrath of God (3200)
+
+// Enchantments
+
+2 Oblivion Ring (8718)

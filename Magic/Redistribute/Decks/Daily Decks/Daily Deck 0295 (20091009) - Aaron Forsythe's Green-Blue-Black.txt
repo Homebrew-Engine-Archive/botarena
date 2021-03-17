@@ -1,0 +1,42 @@
+// Total cards in deck - 60
+
+// Creatures - 27 (45.00%)
+
+4 Bala Ged Thief (19477)
+4 Birds of Paradise (4020)
+4 Lotus Cobra (19389)
+4 Oran-Rief Survivalist (19485)
+3 Sea Gate Loremaster (19507)
+4 Turntimber Ranger (19511)
+4 Umara Raptor (19493)
+
+// Instants - 4 (6.67%)
+
+Doom Blade (4150)
+2 Negate (4016)
+Soul Manipulation (9070)
+
+// Sorceries - 4 (6.67%)
+
+4 Maelstrom Pulse (9055)
+
+// Artifacts - 1 (1.67%)
+
+Eldrazi Monument (19530)
+
+// Lands - 24 (40.00%)
+
+Drowned Catacomb (4199)
+Forest (19303)
+2 Forest (19302)
+2 Forest (19301)
+2 Forest (19300)
+Island (19309)
+Island (19308)
+Island (19310)
+4 Misty Rainforest (19356)
+2 Oran-Rief, the Vastwood (19531)
+Swamp (19334)
+Swamp (19332)
+Swamp (19333)
+4 Verdant Catacombs (19359)

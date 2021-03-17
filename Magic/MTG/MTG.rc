@@ -1,0 +1,459 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Token"
+    IDS_EXPANSION_ABBREV    "Token"
+    IDS_FIRST_CARD          "2700"
+    IDS_TOTAL_CARD          "300"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "12"
+    IDS_MODULE_LARGE_ICON_ID "13"
+    IDS_ALT_IMG_URL         "-"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-08-1993"
+    IDS_MWS_FOLDER          "MWS\\TK\\"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2700          "Wasp\n{1}\nArtifact Creature - Insect\nToken\nFlying\n1/1"
+    IDS_STRING2701          "Citizen (A)\n{W}\nCreature - Citizen\nToken\n\n1/1"
+    IDS_STRING2702          "Goblin (C)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING2703          "Snake (C)\n{G}\nCreature - Snake\nToken\n\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2704          "Goblin (D)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING2705          "Bird (H)\n{U}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING2706          "Serf\n{B}\nCreature - Serf\nToken\n\n0/1"
+    IDS_STRING2707          "Djinn\n{1}\nArtifact Creature - Djinn\nToken\nFlying\n5/5"
+    IDS_STRING2708          "Cat (B)\n{G}\nCreature - Cat\nToken\n\n1/1"
+    IDS_STRING2709          "Thopter (A)\n{U}\nArtifact Creature - Thopter\nToken\nFlying\n1/1"
+    IDS_STRING2710          "Treefolk (A)\n{G}\nCreature - Treefolk\nToken\n\n5/6"
+    IDS_STRING2711          "Bird (C)\n{R}\nCreature - Bird\nToken\nFlying\n4/4"
+    IDS_STRING2712          "Saproling (B)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING2713          "Soldier (A)\n{W}\nCreature - Soldier\nToken\n\n1/1"
+    IDS_STRING2714          "Dragon (C)\n{R}\nCreature - Dragon\nToken\nFlying\n5/5"
+    IDS_STRING2715          "Elf Warrior (C)\n{G}\nCreature - Elf Warrior\nToken\n\n1/1"
+    IDS_STRING2716          "Soldier (B)\n{W}\nCreature - Soldier\nToken\n\n1/5"
+    IDS_STRING2717          "Warrior (A)\n{R}\nCreature - Warrior\nToken\nFirst strike\n2/1"
+    IDS_STRING2718          "Skeleton (A)\n{B}\nCreature - Skeleton\nToken\n{B}: Regenerate this creature.\n1/1"
+	IDS_STRING2719          "Ape (B)\n{G}\nCreature - Ape\nToken\n\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2720          "Goblin (F)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING2721          "Cat Warrior\n{G}\nCreature - Cat Warrior\nToken\nForestwalk\n2/2"
+    IDS_STRING2722          "Saproling (A)\n{BG}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING2723          "Insect (B)\n{G}\nCreature - Insect\nToken\n\n1/1"
+    IDS_STRING2724          "Zombie\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING2725          "Wolf (A)\n{G}\nCreature - Wolf\nToken\n\n2/2"
+    IDS_STRING2726          "Gargoyle\n{1}\nArtifact Creature - Gargoyle\nToken\nFlying\n3/4"
+    IDS_STRING2727          "Minor Demon\n{BR}\nCreature - Demon\nToken\n\n1/1"
+    IDS_STRING2728          "Assembly-Worker\n{1}\nArtifact Creature - Assembly-Worker\nToken\n\n2/2"
+    IDS_STRING2729          "Metallic Sliver\n{1}\nArtifact Creature - Sliver\nToken\n\n1/1"
+    IDS_STRING2730          "Sliver\n{1}\nCreature - Sliver\nToken\n\n1/1"
+    IDS_STRING2731          "Thrull\n{B}\nCreature - Thrull\nToken\n\n0/1"
+    IDS_STRING2732          "Bird (G)\n{W}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING2733          "Kelp\n{U}\nCreature - Plant Wall\nToken\nDefender\n0/1"
+    IDS_STRING2734          "Wolf (B)\n{G}\nCreature - Wolf\nToken\nThis creature gets +1/+1 for each card named Sound the Call in each graveyard.\n1/1"
+    IDS_STRING2735          "Dragon (A)\n{R}\nCreature - Dragon\nToken\nFlying\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2736          "Goblin (A)\n{R}\nCreature - Goblin\nToken\nHaste\n1/1"
+    IDS_STRING2737          "Beast (E)\n{RGW}\nCreature - Beast\nToken\n\n8/8"
+    IDS_STRING2738          "Homunculus (A)\n{U}\nArtifact Creature - Homunculus\nToken\n\n0/1"
+    IDS_STRING2739          "Elemental (J)\n{R}\nCreature - Elemental\nToken\nHaste\n3/1"
+    IDS_STRING2740          "Angel (B)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+    IDS_STRING2741          "Pegasus\n{W}\nCreature - Pegasus\nToken\nFlying\n1/1"
+    IDS_STRING2742          "Kithkin Soldier\n{W}\nCreature - Kithkin Soldier\nToken\n\n1/1"
+    IDS_STRING2743          "Carnivore\n{R}\nCreature - Beast\nToken\n\n3/1"
+    IDS_STRING2744          "Beast (A)\n{G}\nCreature - Beast\nToken\n\n4/4"
+    IDS_STRING2745          "Rat (A)\n{B}\nCreature - Rat\nToken\n\n1/1"
+    IDS_STRING2746          "Wall\n{U}\nCreature - Wall\nToken\nDefender\n5/5"
+    IDS_STRING2747          "Elemental (A)\n{G}\nCreature - Elemental\nToken\nTrample\n7/7"
+    IDS_STRING2748          "Elephant (B)\n{G}\nCreature - Elephant\nToken\n\n3/3"
+    IDS_STRING2749          "Rhino\n{G}\nCreature - Rhino\nToken\nTrample\n4/4"
+    IDS_STRING2750          "Wurm (F)\n{G}\nCreature - Wurm\nToken\nTrample\n5/5"
+    IDS_STRING2751          "Stangg Twin\n{RG}\nLegendary Creature - Human Warrior\nToken\n\n3/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2752          "Spirit (D)\n{W}\nCreature - Spirit\nToken\nFlying\n1/1"
+    IDS_STRING2753          "Ape (A)\n{G}\nCreature - Ape\nToken\n\n3/3"
+    IDS_STRING2754          "Merfolk Wizard\n{U}\nCreature - Merfolk Wizard\nToken\n\n1/1"
+    IDS_STRING2755          "Elemental Shaman\n{R}\nCreature - Elemental Shaman\nToken\n\n3/1"
+    IDS_STRING2756          "Elf Warrior (A)\n{G}\nCreature - Elf Warrior\nToken\n\n1/1"
+    IDS_STRING2757          "Goblin Rogue\n{B}\nCreature - Goblin Rogue\nToken\n\n1/1"
+    IDS_STRING2758          "Beast (B)\n{G}\nCreature - Beast\nToken\n\n2/2"
+    IDS_STRING2759          "Elemental (B)\n{R}\nCreature - Elemental\nToken\nTrample, haste\rAt the beginning of the end step, exile it.\n7/1"
+    IDS_STRING2760          "Graveborn (A)\n{BR}\nCreature - Graveborn\nToken\nHaste\n3/1"
+    IDS_STRING2761          "Cloud Sprite\n{U}\nCreature - Faerie\nToken\nFlying\rCloud Sprite can block only creatures with flying.\n1/1"
+    IDS_STRING2762          "Goldmeadow Harrier\n{W}\nCreature - Kithkin Soldier\nToken\n{W}, {T}: Tap target creature.\n1/1"
+    IDS_STRING2763          "Llanowar Elves\n{G}\nCreature - Elf Druid\nToken\n{T}: Add {G} to your mana pool.\n1/1"
+    IDS_STRING2764          "Festering Goblin\n{B}\nCreature - Zombie Goblin\nToken\nWhen Festering Goblin dies, target creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING2765          "Spark Elemental\n{R}\nCreature - Elemental\nToken\nTrample, haste\rAt the beginning of the end step, sacrifice Spark Elemental.\n3/1"
+    IDS_STRING2766          "Elemental (I)\n{UR}\nCreature - Elemental\nToken\nFlying\n5/5"
+    IDS_STRING2767          "Wurm (B)\n{G}\nCreature - Wurm\nToken\n\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2768          "Beast (C)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING2769          "Squirrel\n{G}\nCreature - Squirrel\nToken\n\n1/1"
+    IDS_STRING2770          "Bird (A)\n{W}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING2771          "Elephant (A)\n{G}\nCreature - Elephant\nToken\n\n3/3"
+    IDS_STRING2772          "Ooze (A)\n{G}\nCreature - Ooze\nToken\n\n*/*"
+    IDS_STRING2773          "Kor Soldier\n{W}\nCreature - Kor Soldier\nToken\n\n1/1"
+    IDS_STRING2774          "Illusion (A)\n{U}\nCreature - Illusion\nToken\n\n2/2"
+    IDS_STRING2775          "Gnome\n{1}\nArtifact Creature - Gnome\nToken\n\n1/1"
+    IDS_STRING2776          "Dragon (B)\n{RG}\nCreature - Dragon\nToken\nFlying, devour 2\n1/1"
+    IDS_STRING2777          "Knight (B)\n{W}\nCreature - Knight\nToken\n\n2/2"
+    IDS_STRING2778          "Vampire (B)\n{B}\nCreature - Vampire\nToken\n\n*/*"
+    IDS_STRING2779          "Faerie Rogue\n{B}\nCreature - Faerie Rogue\nToken\nFlying\n1/1"
+    IDS_STRING2780          "Citizen (A)\n{W}\nCreature - Citizen\nToken\n\n1/1"
+    IDS_STRING2781          "Angel (A)\n{B}\nCreature - Angel\nToken\nFlying\n3/3"
+    IDS_STRING2782          "Cat (A)\n{B}\nCreature - Cat\nToken\n\n2/1"
+    IDS_STRING2783          "Kavu\n{B}\nCreature - Kavu\nToken\n\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2784          "Wurm (A)\n{B}\nCreature - Wurm\nToken\nTrample\n6/6"
+    IDS_STRING2785          "Goblin Soldier (A)\n{RW}\nCreature - Goblin Soldier\nToken\n\n1/1"
+    IDS_STRING2786          "Knight (A)\n{W}\nCreature - Knight\nToken\nFirst strike\n2/2"
+    IDS_STRING2787          "Centaur (C)\n{G}\nCreature - Centaur\nToken\nProtection from black\n3/3"
+    IDS_STRING2788          "Horror (A)\n{B}\nCreature - Horror\nToken\n\n4/4"
+    IDS_STRING2789          "Faerie\n{U}\nCreature - Faerie\nToken\nFlying\n1/1"
+    IDS_STRING2790          "Centaur (A)\n{G}\nCreature - Centaur\nToken\n\n3/3"
+    IDS_STRING2791          "Centaur (B)\n{G}\nCreature - Centaur\nToken\n\n3/3"
+    IDS_STRING2792          "Pest\n{1}\nArtifact Creature - Pest\nToken\n\n0/1"
+    IDS_STRING2793          "Beast (D)\n{G}\nCreature - Beast\nToken\n\n5/5"
+    IDS_STRING2794          "Beast (I)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING2795          "Myr\n{1}\nArtifact Creature - Myr\nToken\n\n1/1"
+    IDS_STRING2796          "Elemental (D)\n{U}\nCreature - Elemental\nToken\nFlying\n2/2"
+    IDS_STRING2797          "Elemental (E)\n{R}\nCreature - Elemental\nToken\n\n3/3"
+    IDS_STRING2798          "Golem (A)\n{1}\nArtifact Creature - Golem\nToken\n\n3/3"
+    IDS_STRING2799          "Pincher\n{1}\nCreature - Pincher\nToken\n\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2800          "Spirit (A)\n{1}\nCreature - Spirit\nToken\n\n1/1"
+    IDS_STRING2801          "Elemental (F)\n{R}\nCreature - Elemental\nToken\nHaste\n3/1"
+    IDS_STRING2802          "Voja\n{GW}\nLegendary Creature - Wolf\nToken\n\n2/2"
+    IDS_STRING2803          "Bat (A)\n{B}\nCreature - Bat\nToken\nFlying\n1/1"
+    IDS_STRING2804          "Juggernaut\n{4}\nArtifact Creature - Juggernaut\nToken\n\n4/4"
+    IDS_STRING2805          "Goblin (B)\n{R}\nCreature - Goblin\nToken\nHaste\n2/1"
+    IDS_STRING2806          "Drake (A)\n{GU}\nCreature - Drake\nToken\nFlying\n2/2"
+    IDS_STRING2807          "Spider (A)\n{B}\nCreature - Spider\nToken\nReach\n2/4"
+    IDS_STRING2808          "Kobolds of Kher Keep\n{R}\nCreature - Kobold\nToken\n\n0/1"
+    IDS_STRING2809          "Giant Warrior (B)\n{W}\nCreature - Giant Warrior\nToken\n\n5/5"
+    IDS_STRING2810          "Spirit (B)\n{1WW}\nArtifact Creature - Spirit\nToken\nFlying, first strike\n2/2"
+    IDS_STRING2811          "Elemental (G)\n{G}\nCreature - Elemental\nToken\n\n4/4"
+    IDS_STRING2812          "Goat (B)\n{W}\nCreature - Goat\nToken\n\n0/1"
+	IDS_STRING2813          "Worm\n{BG}\nCreature - Worm\nToken\n\n1/1"
+    IDS_STRING2814          "Bird (B)\n{U}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING2815          "Spirit (C)\n{WB}\nCreature - Spirit\nToken\nFlying\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2816          "Caribou\n{W}\nCreature - Caribou\nToken\n\n0/1"
+    IDS_STRING2817          "Spawn\n{1}\nArtifact Creature - Spawn\nToken\n\n2/2"
+    IDS_STRING2818          "Angel (H)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+	IDS_STRING2819          "Graveborn (B)\n{BR}\nCreature - Graveborn\nToken\nHaste\n3/1"
+    IDS_STRING2820          "Wood\n{G}\nCreature - Wall\nToken\nDefender\n0/1"
+    IDS_STRING2821          "Goblin Scout\n{R}\nCreature - Goblin Scout\nToken\nMountainwalk\n1/1"
+    IDS_STRING2822          "Zombie Giant\n{B}\nCreature - Zombie Giant\nToken\n\n5/5"
+    IDS_STRING2823          "Prism\n{1}\nArtifact Creature - Prism\nToken\n\n0/1"
+    IDS_STRING2824          "Elephant (C)\n{G}\nCreature - Elephant\nToken\n\n3/3"
+    IDS_STRING2825          "Cat (D)\n{W}\nCreature - Cat\nToken\n\n2/2"
+	IDS_STRING2826          "Antelope\n{G}\nCreature - Antelope\nToken\nForestwalk\n2/3"
+	IDS_STRING2827          "Hornet\n{1}\nArtifact Creature - Insect\nToken\nFlying, haste\rAt the beginning of the end step, destroy this creature.\n1/1"
+    IDS_STRING2828          "Soldier Ally\n{W}\nCreature - Soldier Ally\nToken\n\n1/1"
+    IDS_STRING2829          "Elephant (D)\n{G}\nCreature - Elephant\nToken\nThis creature's power and toughness are each equal to the number of creature cards in its controller's graveyard.\n*/*"
+    IDS_STRING2830          "Bear (A)\n{G}\nCreature - Bear\nToken\n\n2/2"
+    IDS_STRING2831          "Plant\n{G}\nCreature - Plant\nToken\n\n0/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2832          "Eldrazi Spawn (B)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n0/1"
+    IDS_STRING2833          "Eldrazi Spawn (C)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n0/1"
+	IDS_STRING2834          "Elemental (M)\n{W}\nCreature - Elemental\nToken\nFlying\n4/4"
+    IDS_STRING2835          "Cat (E)\n{G}\nCreature - Cat\nToken\nShroud\n3/2"
+    IDS_STRING2836          "Insect (A)\n{G}\nCreature - Insect\nToken\nShroud\n6/1"
+    IDS_STRING2837          "Chandra, the Firebrand Effect\n\nEffect\nToken\nWhen you cast your next instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy."
+    IDS_STRING2838          "Bat (B)\n{B}\nCreature - Bat\nToken\nFlying\r{1B}, Sacrifice this creature: Return an exiled card named Sengir Nosferatu to the battlefield under its owner's control.\n1/2"
+    IDS_STRING2839          "Sand\n{1}\nCreature - Sand\nToken\n\n1/1"
+    IDS_STRING2840          "Wolf (D)\n{1GW}\nArtifact Creature - Wolf\nToken\n\n3/3"
+    IDS_STRING2841          "Snake (A)\n{GU}\nCreature - Snake\nToken\n\n1/1"
+    IDS_STRING2842          "Spike\n{G}\nCreature - Spike\nToken\n\n1/1"
+    IDS_STRING2843          "Triskelavite\n{1}\nArtifact Creature - Triskelavite\nToken\nFlying\rSacrifice this creature: This creature deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING2844          "Deserter\n{W}\nCreature - Deserter\nToken\n\n0/1"
+    IDS_STRING2845          "Wurm (C)\n{G}\nCreature - Wurm\nToken\nThis creature enters the battlefield with power and toughness equal to the number of lands you control.\n*/*"
+    IDS_STRING2846          "Avatar\n{W}\nCreature - Avatar\nToken\nThis creature's power and toughness are each equal to your life total.\n*/*"
+    IDS_STRING2847          "Goat (A)\n{W}\nCreature - Goat\nToken\n\n0/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2848          "Eldrazi Spawn (A)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n0/1"
+    IDS_STRING2849          "Ape (C)\n{G}\nCreature - Ape\nToken\n\n1/1"
+    IDS_STRING2850          "Thopter (B)\n{1}\nArtifact Creature - Thopter\nToken\nFlying\n1/1"
+    IDS_STRING2851          "Pentavite\n{1}\nArtifact Creature - Pentavite\nToken\nFlying\n1/1"
+    IDS_STRING2852          "Tuktuk the Returned\n{1}\nLegendary Artifact Creature - Goblin Golem\nToken\n\n5/5"
+    IDS_STRING2853          "Goblin (E)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING2854          "Beast (F)\n{G}\nCreature - Beast\nToken\n\n4/4"
+    IDS_STRING2855          "Spirit (E)\n{W}\nCreature - Spirit\nToken\nFlying\n3/3"
+    IDS_STRING2856          "Illusion (B)\n{U}\nCreature - Illusion\nToken\nFlying\n1/1"
+    IDS_STRING2857          "Shapeshifter\n{1}\nCreature - Shapeshifter\nToken\nThis creature is every creature type.\n2/2"
+    IDS_STRING2858          "Shapeshifter (A)\n{1}\nCreature - Shapeshifter\nToken\nChangeling\n1/1"
+    IDS_STRING2859          "Bird (E)\n{W}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING2860          "Hound\n{G}\nCreature - Hound\nToken\n\n1/1"
+    IDS_STRING2861          "Reflection\n{W}\nCreature - Reflection\nToken\n\n2/2"
+    IDS_STRING2862          "Faerie Rogue (A)\n{UB}\nCreature - Faerie Rogue\nToken\nFlying\n1/1"
+    IDS_STRING2863          "Ooze (D)\n{G}\nCreature - Ooze\nToken\n\n*/*"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2864          "Beast (G)\n{G}\nCreature - Beast\nToken\n\n4/4"
+    IDS_STRING2865          "Wall (B)\n{W}\nCreature - Wall\nToken\nDefender\n2/6"
+    IDS_STRING2866          "Dragon (E)\n{R}\nCreature - Dragon\nToken\nFlying\n5/5"
+    IDS_STRING2867          "Dragon (F)\n{R}\nCreature - Dragon\nToken\nFlying\n5/5"
+    IDS_STRING2868          "Sheep\n{G}\nCreature - Sheep\nToken\n\n0/1"
+    IDS_STRING2869          "Insect (C)\n{B}\nCreature - Insect\nToken\n\n0/1"
+    IDS_STRING2870          "Elf Warrior (B)\n{GW}\nCreature - Elf Warrior\nToken\n\n1/1"
+    IDS_STRING2871          "Kaldra\n{1}\nLegendary Creature - Avatar\nToken\n\n4/4"
+    IDS_STRING2872          "Treefolk Shaman\n{G}\nCreature - Treefolk Shaman\nToken\n\n2/5"
+    IDS_STRING2873          "Bird (D)\n{W}\nCreature - Bird\nToken\nFlying\n3/3"
+    IDS_STRING2874          "Ooze (B)\n{G}\nCreature - Ooze\nToken\nWhen this creature dies, put two 1/1 green Ooze creature tokens onto the battlefield.\n2/2"
+    IDS_STRING2875          "Ooze (C)\n{G}\nCreature - Ooze\nToken\n\n1/1"
+    IDS_STRING2876          "Marit Lage\n{B}\nLegendary Creature - Avatar\nToken\nFlying\rThis creature is indestructible.\n20/20"
+    IDS_STRING2877          "Snake (F)\n{G}\nCreature - Snake\nToken\n\n1/1"
+	IDS_STRING2878          "Butterfly\n{G}\nCreature - Insect\nToken\nFlying\n1/1"
+    IDS_STRING2879          "Slaughter Pact Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {2B}. If you don't, you lose the game."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2880          "Pact of Negation Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {3UU}. If you don't, you lose the game."
+    IDS_STRING2881          "Intervention Pact Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {1WW}. If you don't, you lose the game."
+    IDS_STRING2882          "Pact of the Titan Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {4R}. If you don't, you lose the game."
+    IDS_STRING2883          "Summoner's Pact Effect\n\nLegacy\nToken\nAt the beginning of your next upkeep, pay {2GG}. If you don't, you lose the game."
+    IDS_STRING2884          "Giant\n{R}\nCreature - Giant\nToken\n\n4/4"
+    IDS_STRING2885          "Thrull (B)\n{B}\nCreature - Thrull\nToken\n\n1/1"
+    IDS_STRING2886          "Angel (D)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+    IDS_STRING2887          "Snake (B)\n{1}\nArtifact Creature - Snake\nToken\nWhenever this creature deals damage to a player, that player gets a poison counter.\n1/1"
+    IDS_STRING2888          "Rat (C)\n{B}\nCreature - Rat\nToken\n\n1/1"
+    IDS_STRING2889          "Cast Exile Emblem\n\nEmblem\nToken\nWhenever you cast a spell, exile target permanent."
+    IDS_STRING2890          "Elemental (C)\n{R}\nCreature - Elemental\nToken\nHaste\n3/1"
+    IDS_STRING2891          "Mountain Damage Emblem\n\nEmblem\nToken\nMountains you control have ""{T}: This land deals 1 damage to target creature or player."""
+    IDS_STRING2892          "Wurm (D)\n{1}\nArtifact Creature - Wurm\nToken\nDeathtouch\n3/3"
+    IDS_STRING2893          "Wurm (E)\n{1}\nArtifact Creature - Wurm\nToken\nLifelink\n3/3"
+    IDS_STRING2894          "Insect (D)\n{G}\nCreature - Insect\nToken\nInfect\n1/1"
+    IDS_STRING2895          "Wirefly\n{1}\nArtifact Creature - Insect\nToken\nFlying\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2896          "Plant Zombie\n{BG}\nCreature - Plant Zombie\nToken\nThis creature's power and toughness are each equal to the number of creature cards in your graveyard.\n*/*"
+    IDS_STRING2897          "Beast (L)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING2898          "Beast (K)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING2899          "Rat (D)\n{B}\nCreature - Rat\nToken\n\n1/1"
+    IDS_STRING2900          "Channel Effect\n\nEffect\nToken\nUntil end of turn, any time you could activate a mana ability, you may pay 1 life. If you do, add {1} to your mana pool."
+    IDS_STRING2901          "Demon (C)\n{B}\nCreature - Demon\nToken\nFlying\n5/5"
+    IDS_STRING2902          "Golem (D)\n{1}\nArtifact Creature - Golem\nToken\n\n3/3"
+    IDS_STRING2903          "Spirit (F)\n{3}\nArtifact Creature - Spirit\nToken\nFlying\n1/5"
+    IDS_STRING2904          "Demon (B)\n{B}\nCreature - Demon\nToken\nFlying\n*/*"
+    IDS_STRING2905          "Elemental (O)\n{R}\nCreature - Elemental\nToken\n\n*/*"
+    IDS_STRING2906          "Glimpse of Nature Effect\n\nEffect\nToken\nWhenever you cast a creature spell this turn, draw a card."
+    IDS_STRING2907          "Scout's Warning Effect\n\nEffect\nToken\nThe next creature card you play this turn can be played as though it had flash."
+    IDS_STRING2908          "Quicken Effect\n\nEffect\nToken\nThe next sorcery card you cast this turn can be cast as though it had flash."
+    IDS_STRING2909          "Knight (C)\n{B}\nCreature - Knight\nToken\nFlanking, protection from white, haste\n2/2"
+    IDS_STRING2910          "Germ\n{B}\nCreature - Germ\nToken\n\n0/0"
+    IDS_STRING2911          "Golem (C)\n{1}\nArtifact Creature - Golem\nToken\n\n9/9"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2912          "Beast (J)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING2913          "Cat (C)\n{W}\nCreature - Cat\nToken\n\n2/2"
+    IDS_STRING2914          "Praetor's Counsel Effect\n\nEffect\nToken\nYou have no maximum hand size."
+    IDS_STRING2915          "Flash of Defiance Effect\n\nEffect\nToken\nGreen creatures and white creatures can't block."
+    IDS_STRING2916          "Falter Effect\n\nEffect\nToken\nCreatures without flying can't block."
+    IDS_STRING2917          "Hero of Oxid Ridge Effect\n\nEffect\nToken\nCreatures with power 1 or less can't block."
+    IDS_STRING2918          "Turtle\n{3}\nArtifact Creature - Turtle\nToken\n\n3/3"
+    IDS_STRING2919          "Elemental (P)\n{R}\nCreature - Elemental\nToken\nHaste\n1/1"
+    IDS_STRING2920          "The Pieces Are Coming Together Effect\n\nEffect\nToken\nArtifact spells you cast this turn cost {2} less to cast. "
+    IDS_STRING2921          "Golem (B)\n{1}\nArtifact Creature - Golem\nToken\n\n4/6"
+    IDS_STRING2922          "Approach My Molten Realm Effect\n\nEffect\nToken\nIf a source would deal damage, it deals double that damage instead."
+    IDS_STRING2923          "Your Puny Minds Cannot Fathom Effect\n\nEffect\nToken\nYou have no maximum hand size until your next turn."
+    IDS_STRING2924          "Construct (D)\n{0}\nArtifact Creature - Construct\nToken\nThis creature's power and toughness are each equal to the number of charge counters on it.\n*/*"
+    IDS_STRING2925          "Saproling (C)\n{G}\nCreature - Saproling\nToken\nThis creature's power and toughness are each equal to the number of fade counters on Saproling Burst.\n1/1"
+    IDS_STRING2926          "Insect (E)\n{G}\nCreature - Insect\nToken\nFlying\rDeathtouch\n1/1"
+    IDS_STRING2927          "Snake (D)\n{G}\nCreature - Snake\nToken\n\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2928          "Urami\n{B}\nLegendary Creature - Demon Spirit\nToken\nFlying\n5/5"
+    IDS_STRING2929          "Griffin\n{W}\nCreature - Griffin\nToken\nFlying\n2/2"
+    IDS_STRING2930          "Homunculus (B)\n{U}\nCreature - Homunculus\nToken\n\n2/2"
+    IDS_STRING2931          "Spider (B)\n{G}\nCreature - Spider\nToken\nReach\n1/2"
+    IDS_STRING2932          "Morph\n{}\nCreature\nToken\n\n2/2"
+    IDS_STRING2933          "Elemental (N)\n{G}\nCreature - Elemental\nToken\n\n*/*"
+    IDS_STRING2934          "Wolf (C)\n{B}\nCreature - Wolf\nToken\nDeathtouch\n1/1"
+    IDS_STRING2935          "Demon (A)\n{B}\nCreature - Demon\nToken\nFlying\n5/5"
+    IDS_STRING2936          "Zombie Wizard\n{UB}\nCreature - Zombie Wizard\nToken\n\n1/1"
+    IDS_STRING2937          "Elemental Cat\n{R}\nCreature - Elemental Cat\nToken\nHaste\n1/1"
+    IDS_STRING2938          "Vampire (A)\n{B}\nCreature - Vampire\nToken\nFlying\n2/2"
+    IDS_STRING2939          "Camarid (A)\n{U}\nCreature - Camarid\nToken\n\n1/1"
+    IDS_STRING2940          "Giant Warrior (A)\n{RG}\nCreature - Giant Warrior\nToken\nHaste\n4/4"
+    IDS_STRING2941          "Spirit (G)\n{G}\nCreature - Spirit\nToken\n\n4/4"
+    IDS_STRING2942          "Spirit (H)\n{U}\nCreature - Spirit\nToken\nFlying\n3/2"
+    IDS_STRING2943          "Spirit (I)\n{B}\nCreature - Spirit\nToken\n{B}: This creature gets +1/+1 until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2944          "Spirit (J)\n{W}\nCreature - Spirit\nToken\nWhenever this creature deals damage, its controller gains that much life.\n2/5"
+    IDS_STRING2945          "Spirit (K)\n{R}\nCreature - Spirit\nToken\n\n6/1"
+    IDS_STRING2946          "Spirit (L)\n{1}\nLegendary Creature - Spirit\nToken\nTrample\n8/12"
+    IDS_STRING2947          "Bird (F)\n{WU}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING2948          "Human (A)\n{W}\nCreature - Human\nToken\n\n1/1"
+    IDS_STRING2949          "Elemental (L)\n{BR}\nCreature - Elemental\nToken\n\n5/5"
+    IDS_STRING2950          "Vampire (C)\n{B}\nCreature - Vampire\nToken\nLifelink\n1/1"
+    IDS_STRING2951          "Power Pump Emblem\n\nEmblem\nToken\nCreatures you control get +1/+0."
+    IDS_STRING2952          "Bubbling Muck Effect\n\nEffect\nToken\nWhen a Swamp is tapped for mana, add an additional {B} to your mana pool."
+    IDS_STRING2953          "High Tide Effect\n\nEffect\nToken\nWhen an Island is tapped for mana, add an additional {U} to your mana pool."
+    IDS_STRING2954          "Angel (C)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+    IDS_STRING2955          "Tamiyo Emblem\n\nEmblem\nToken\nYou have no maximum hand size.\rWhenever a card is put into your graveyard from anywhere, you may return it to your hand."
+    IDS_STRING2956          "Winding Canyons Effect\n\nEmblem\nToken\nUntil end of turn, you may play creature cards as though they had flash."
+    IDS_STRING2957          "Alchemist's Refuge Effect\n\nEmblem\nToken\nYou may cast nonland cards this turn as though they had flash."
+    IDS_STRING2958          "Human (B)\n{R}\nCreature - Human\nToken\nHaste\n1/1"
+    IDS_STRING2959          "Spirit (M)\n{U}\nCreature - Spirit\nToken\nFlying\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2960          "Drake (B)\n{U}\nCreature - Drake\nToken\nFlying\n2/2"
+    IDS_STRING2961          "Boar\n{G}\nCreature - Boar\nToken\n\n3/3"
+    IDS_STRING2962          "Swamp Four Mana Emblem\n\nEmblem\nToken\nSwamps you control have '{T}: Add {BBBB} to your mana pool.'"""
+    IDS_STRING2963          "Hellion (A)\n{R}\nCreature - Hellion\nToken\nHaste\n4/4"
+    IDS_STRING2964          "Hellion (B)\n{R}\nCreature - Hellion\nToken\n\n4/4"
+    IDS_STRING2965          "Hippo\n{G}\nCreature - Hippo\nToken\n\n1/1"
+    IDS_STRING2966          "Elemental (K)\n{GW}\nCreature - Elemental\nToken\nVigilance\n8/8"
+    IDS_STRING2967          "Knight (D)\n{W}\nCreature - Knight\nToken\nVigilance\n2/2"
+    IDS_STRING2968          "Rat (B)\n{B}\nCreature - Rat\nToken\n\n1/1"
+    IDS_STRING2969          "Angel (G)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+	IDS_STRING2970          "Snake (E)\n{G}\nCreature - Snake\nToken\n\n1/1"
+	IDS_STRING2971          "Angel (E)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+    IDS_STRING2972          "Treefolk (B)\n{2G}\nArtifact Creature - Treefolk\nToken\nTrample\n5/3"
+    IDS_STRING2973          "Ogre\n{R}\nCreature - Ogre\nToken\n\n3/3"
+    IDS_STRING2974          "Dragon (D)\n{R}\nCreature - Dragon\nToken\nFlying\n6/6"
+    IDS_STRING2975          "Assassin\n{B}\nCreature - Assassin\nToken\nWhenever this creature deals combat damage to a player, that player loses the game.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING2976          "Jace, Architect of Thought Effect\n\nEffect\nToken\nWhenever a creature an opponent controls attacks, it gets -1/-0 until end of turn."
+    IDS_STRING2977          "Ruthless Invasion Effect\n\nEffect\nToken\nNonartifact creatures can't block."
+	IDS_STRING2978          "Tombspawn\n{B}\nCreature - Zombie\nToken\nHaste\n2/2"
+	IDS_STRING2979          "Survivor\n{R}\nCreature - Survivor\nToken\n\n1/1"
+	IDS_STRING2980          "Warrior (B)\n{R}\nCreature - Warrior\nToken\n\n1/1"
+    IDS_STRING2981          "Slowtrip Effect\n\nEffect\nToken\nDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING2982          "Arcane Denial Effect\n\nEffect\nToken\nDraw up to two cards at the beginning of the next turn's upkeep."
+    IDS_STRING2983          "Lat-Nam's Legacy Effect\n\nEffect\nToken\nDraw two cards at the beginning of the next turn's upkeep."
+    IDS_STRING2984          "Starfish\n(U)\nCreature - Starfish\nToken\n\n0/1"
+    IDS_STRING2985          "Elemental (H)\n{R}\nCreature - Elemental\nToken\n\n3/1"
+	IDS_STRING2986          "Cleric\n{WB}\nCreature - Cleric\nToken\n{3WBB}, {T}, Sacrifice this creature: Return a card named Deathpact Angel from your graveyard to the battlefield.\n1/1"
+    IDS_STRING2987          "Domri Rade Emblem\n\nEmblem\nToken\nCreatures you control have double strike, trample, hexproof, and haste."
+    IDS_STRING2988          "Enter the Infinite Effect\n\nEmblem\nToken\nYou have no maximum hand size until your next turn."
+    IDS_STRING2989          "Beast (H)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING2990          "Bird Soldier\n{W}\nCreature - Bird Soldier\nToken\nFlying\n1/1"
+    IDS_STRING2991          "Duskmantle Guildmage Effect\n\nEmblem\nToken\nWhenever a card is put into an opponent's graveyard from anywhere, that player loses 1 life."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING2992          "Frog Lizard\n{G}\nCreature - Frog Lizard\nToken\n\n3/3"
+	IDS_STRING2993          "Soldier (C)\n{RW}\nCreature - Soldier\nToken\nHaste\n3/3"
+    IDS_STRING2994          "Soldier (D)\n{1RW}\nArtifact Creature - Soldier\nToken\nDouble strike\n1/1"
+    IDS_STRING2995          "Horror (B)\n{UB}\nCreature - Horror\nToken\nFlying\n1/1"
+    IDS_STRING2996          "Bear (B)\n{G}\nCreature - Bear\nToken\n\n2/2"
+	IDS_STRING2997          "Camarid (B)\n{U}\nCreature - Camarid\nToken\n\n1/1"
+	IDS_STRING2998          "Angel (F)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,48 @@
+// Decay
+// 7th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Abyssal Specter (979)
+2 Blood Pet (784)
+Bog Imp (785)
+Crypt Rats (918)
+Dakmor Lancer (958)
+2 Drudge Skeletons (776)
+Fallen Angel (783)
+Foul Imp (786)
+2 Gravedigger (957)
+Looming Shade (788)
+Phyrexian Hulk (792)
+Serpent Warrior (787)
+
+// Instants - 2 (5.00%)
+
+2 Dark Banishing (793)
+
+// Sorceries - 5 (12.50%)
+
+Befoul (794)
+Corrupt (954)
+Duress (795)
+Mind Rot (943)
+Ostracize (980)
+
+// Enchantments - 1 (2.50%)
+
+Greed (782)
+
+// Artifacts - 1 (2.50%)
+
+Charcoal Diamond (781)
+
+// Lands - 16 (40.00%)
+
+4 Swamp (777)
+4 Swamp (778)
+4 Swamp (779)
+4 Swamp (780)

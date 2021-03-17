@@ -1,0 +1,225 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Torment.ico"
+IDI_LARGE_MODULE        ICON                    "TormentLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Torment"
+    IDS_EXPANSION_ABBREV    "TOR"
+    IDS_FIRST_CARD          "13600"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "13743"
+    IDS_MODULE_LARGE_ICON_ID "13744"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "04-02-2002"
+    IDS_MWS_FOLDER          "MWS\\TOR\\"
+    IDS_PRODUCT_LIST        """Torment Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13600         "Angel of Retribution\n{6W}\nCreature - Angel\nTOR,R\nFlying, first strike\n5/5"
+    IDS_STRING13601         "Cephalid Snitch\n{1U}\nCreature - Cephalid Wizard\nTOR,C\nSacrifice Cephalid Snitch: Target creature loses protection from black until end of turn.\n1/1"
+    IDS_STRING13602         "Stern Judge\n{2W}\nCreature - Human Cleric\nTOR,U\n{T}: Each player loses 1 life for each Swamp he or she controls.\n2/2"
+    IDS_STRING13603         "Ambassador Laquatus\n{1UU}\nLegendary Creature - Merfolk Wizard\nTOR,R\n{3}: Target player puts the top three cards of his or her library into his or her graveyard\n1/3"
+    IDS_STRING13604         "Mortal Combat\n{2BB}\nEnchantment\nTOR,R\nAt the beginning of your upkeep, if twenty or more creature cards are in your graveyard, you win the game."
+    IDS_STRING13605         "Sengir Vampire\n{3BB}\nCreature - Vampire\nTOR,R\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
+    IDS_STRING13606         "Anurid Scavenger\n{2G}\nCreature - Frog Beast\nTOR,U\nProtection from black\rAt the beginning of your upkeep, sacrifice Anurid Scavenger unless you put a card from your graveyard on the bottom of your library.\n3/3"
+    IDS_STRING13607         "Deep Analysis\n{3U}\nSorcery\nTOR,C\nTarget player draws two cards.\rFlashback - {1U}, Pay 3 life."
+    IDS_STRING13608         "Acorn Harvest\n{3G}\nSorcery\nTOR\nPut two 1/1 green Squirrel creature tokens onto the battlefield.\rFlashback - {1G}, Pay 3 life."
+    IDS_STRING13609         "Chainer's Edict\n{1B}\nSorcery\nTOR,U\nTarget player sacrifices a creature.\rFlashback {5BB}"
+    IDS_STRING13610         "Crippling Fatigue\n{1BB}\nSorcery\nTOR\nTarget creature gets -2/-2 until end of turn.\rFlashback - {1B}, Pay 3 Life."
+    IDS_STRING13611         "Mind Sludge\n{4B}\nSorcery\nTOR,U\nTarget player discards a card for each Swamp you control."
+    IDS_STRING13612         "Grim Lavamancer\n{R}\nCreature - Human Wizard\nTOR,R\n{R}, {T}, Exile two cards from your graveyard: Grim Lavamancer deals 2 damage to target creature or player.\n1/1"
+    IDS_STRING13613         "Nantuko Shade\n{BB}\nCreature - Insect Shade\nTOR,R\n{B}: Nantuko Shade gets +1/+1 until end of turn.\n2/1"
+    IDS_STRING13614         "Aven Trooper\n{3W}\nCreature - Bird Soldier\nTOR,C\nFlying\r{2W}, Discard a card: Aven Trooper gets +1/+2 until end of turn.\n1/1"
+    IDS_STRING13615         "Balshan Collaborator\n{3U}\nCreature - Bird Soldier\nTOR,U\nFlying\r{B}: Balshan Collaborator gets +1/+1 until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13616         "Balthor the Stout\n{1RR}\nLegendary Creature - Dwarf Barbarian\nTOR,R\nOther Barbarian creatures get +1/+1.\r{R}: Another target Barbarian creature gets +1/+0 until end of turn.\n2/2"
+    IDS_STRING13617         "Barbarian Outcast\n{1R}\nCreature - Human Barbarian Beast\nTOR,C\nWhen you control no Swamps, sacrifice Barbarian Outcast.\n2/2"
+    IDS_STRING13618         "Centaur Veteran\n{5G}\nCreature - Centaur\nTOR,C\nTrample\r{G}, Discard a card: Regenerate Centaur Veteran.\n3/3"
+    IDS_STRING13619         "Enslaved Dwarf\n{R}\nCreature - Dwarf\nTOR,C\n{R}, Sacrifice Enslaved Dwarf: Target black creature gets +1/+0 and gains first strike until end of turn.\n1/1"
+    IDS_STRING13620         "Grotesque Hybrid\n{4B}\nCreature - Zombie\nTOR,U\nWhenever Grotesque Hybrid deals combat damage to a creature, destroy that creature. It can't be regenerated.\rDiscard a card: Grotesque Hybrid gains flying and protection from green and from white until end of turn.\n3/3"
+    IDS_STRING13621         "Krosan Constrictor\n{3G}\nCreature - Snake\nTOR,C\nSwampwalk\r{T}: Target black creature gets -2/-0 until end of turn.\n2/2"
+    IDS_STRING13622         "Llawan, Cephalid Empress\n{3U}\nLegendary Creature - Cephalid\nTOR,R\nWhen Llawan, Cephalid Empress enters the battlefield, return all blue creatures your opponents control to their owners' hands.\rYour opponents can't cast blue creature spells.\n2/3"
+    IDS_STRING13623         "Major Teroh\n{3W}\nLegendary Creature - Bird Soldier\nTOR,R\nFlying\r{3WW}, Sacrifice Major Teroh: Exile all black creatures.\n2/3"
+    IDS_STRING13624         "Militant Monk\n{1WW}\nCreature - Human Monk Cleric\nTOR,C\nVigilance\r{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n2/1"
+    IDS_STRING13625         "Pardic Collaborator\n{3R}\nCreature - Human Barbarian\nTOR,U\nFirst strike\r{B}: Pardic Collaborator gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING13626         "Skywing Aven\n{2U}\nCreature - Bird Soldier\nTOR,C\nFlying\rDiscard a card: Return Skywing Aven to its owner's hand.\n2/1"
+    IDS_STRING13627         "Teroh's Faithful\n{3W}\nCreature - Human Cleric\nTOR,C\nWhen Teroh's Faithful enters the battlefield, you gain 4 life.\n1/4"
+    IDS_STRING13628         "Zombie Trailblazer\n{BBB}\nCreature - Zombie Scout\nTOR,U\nTap an untapped Zombie you control: Target land becomes a Swamp until end of turn.\rTap an untapped Zombie you control: Target creature gains swampwalk until end of turn.\n2/2"
+    IDS_STRING13629         "Cabal Coffers\n\nLand\nTOR,U\n{2}, {T}: Add {B} to your mana pool for each Swamp you control."
+    IDS_STRING13630         "Tainted Field\n\nLand\nTOR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {W} or {B} to your mana pool. Activate this ability only if you control a Swamp."
+    IDS_STRING13631         "Tainted Isle\n\nLand\nTOR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {U} or {B} to your mana pool. Activate this ability only if you control a Swamp."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13632         "Tainted Peak\n\nLand\nTOR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {B} or {R} to your mana pool. Activate this ability only if you control a Swamp."
+    IDS_STRING13633         "Tainted Wood\n\nLand\nTOR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {B} or {G} to your mana pool. Activate this ability only if you control a Swamp."
+    IDS_STRING13634         "Compulsion\n{1U}\nEnchantment\nTOR,U\n{1U}, Discard a card: Draw a card.\r{1U}, Sacrifice Compulsion: Draw a card."
+    IDS_STRING13635         "Crackling Club\n{R}\nEnchantment - Aura\nTOR,C\nEnchant creature\rEnchanted creature gets +1/+0.\rSacrifice Crackling Club: Crackling Club deals 1 damage to target creature."
+    IDS_STRING13636         "Hypochondria\n{1W}\nEnchantment\nTOR,U\n{W}, Discard a card: Prevent the next 3 damage that would be dealt to target creature or player this turn.\r{W}, Sacrifice Hypochondria: Prevent the next 3 damage that would be dealt to target creature or player this turn."
+    IDS_STRING13637         "Mortiphobia\n{1BB}\nEnchantment\nTOR,U\n{1B}, Discard a card: Exile target card from a graveyard.\r{1B}, Sacrifice Mortiphobia: Exile target card from a graveyard."
+    IDS_STRING13638         "Narcissism\n{2G}\nEnchantment\nTOR,U\n{G}, Discard a card: Target creature gets +2/+2 until end of turn.\r{G}, Sacrifice Narcissism: Target creature gets +2/+2 until end of turn."
+    IDS_STRING13639         "Accelerate\n{1R}\nInstant\nTOR,C\nTarget creature gains haste until end of turn.\rDraw a card."
+    IDS_STRING13640         "Waste Away\n{4B}\nInstant\nTOR,C\nAs an additional cost to cast Waste Away, discard a card.\rTarget creature gets -5/-5 until end of turn."
+    IDS_STRING13641         "Flash of Defiance\n{1R}\nSorcery\nTOR,C\nGreen creatures and white creatures can't block this turn.\rFlashback - {1R}, Pay 3 life."
+    IDS_STRING13642         "Morningtide\n{1W}\nSorcery\nTOR,R\nExile all cards from all graveyards."
+    IDS_STRING13643         "Unhinge\n{2B}\nSorcery\nTOR,C\nTarget player discards a card.\rDraw a card."
+    IDS_STRING13644         "Nantuko Calmer\n{2GG}\nCreature - Insect Druid\nTOR,C\n{G}, {T}, Sacrifice Nantuko Calmer: Destroy target enchantment.\rThreshold - Nantuko Calmer gets +1/+1 as long as seven or more cards are in your graveyard.\n2/3"
+    IDS_STRING13645         "Putrid Imp\n{B}\nCreature - Zombie Imp\nTOR,C\nDiscard a card: Putrid Imp gains flying until end of turn.\rThreshold - As long as seven or more cards are in your graveyard, Putrid Imp gets +1/+1 and can't block.\n1/1"
+    IDS_STRING13646         "Seton's Scout\n{1G}\nCreature - Centaur Druid Scout Archer\nTOR,U\nReach\rThreshold - Seton's Scout gets +2/+2 as long as seven or more cards are in your graveyard.\n2/1"
+    IDS_STRING13647         "Mystic Familiar\n{1W}\nCreature - Bird\nTOR,C\nFlying\rThreshold - As long as seven or more cards are in your graveyard, Mystic Familiar gets +1/+1 and has protection from black.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13648         "Cabal Torturer\n{1BB}\nCreature - Human Minion\nTOR,C\n{B}, {T}: Target creature gets -1/-1 until end of turn.\rThreshold - {3BB}, {T}: Target creature gets -2/-2 until end of turn. Activate this ability only if seven or more cards are in your graveyard.\n1/1"
+    IDS_STRING13649         "Centaur Chieftain\n{3G}\nCreature - Centaur\nTOR,U\nHaste\rThreshold - As long as seven or more cards are in your graveyard, Centaur Chieftain has ""When Centaur Chieftain enters the battlefield, creatures you control get +1/+1 and gain trample until end of turn.""\n3/3"
+    IDS_STRING13650         "Teroh's Vanguard\n{3W}\nCreature - Human Nomad\nTOR,U\nFlash\rThreshold - As long as seven or more cards are in your graveyard, Teroh's Vanguard has ""When Teroh's Vanguard enters the battlefield, creatures you control gain protection from black until end of turn.""\n2/3"
+    IDS_STRING13651         "Gloomdrifter\n{3B}\nCreature - Zombie Minion\nTOR,U\nFlying\rThreshold - As long as seven or more cards are in your graveyard, Gloomdrifter has ""When Gloomdrifter enters the battlefield, nonblack creatures get -2/-2 until end of turn.""\n2/2"
+    IDS_STRING13652         "Pardic Arsonist\n{2RR}\nCreature - Human Barbarian\nTOR,U\nThreshold - As long as seven or more cards are in your graveyard, Pardic Arsonist has ""When Pardic Arsonist enters the battlefield, it deals 3 damage to target creature or player.""\n3/3"
+    IDS_STRING13653         "Cabal Ritual\n{1B}\nInstant\nTOR,C\nAdd {BBB} to your mana pool.\rThreshold - Add {BBBBB} to your mana pool instead if seven or more cards are in your graveyard."
+    IDS_STRING13654         "Faceless Butcher\n{2BB}\nCreature - Nightmare Horror\nTOR,C\nWhen Faceless Butcher enters the battlefield, exile target creature other than Faceless Butcher.\rWhen Faceless Butcher leaves the battlefield, return the exiled card to the battlefield under its owner's control\n2/3"
+    IDS_STRING13655         "Petravark\n{3R}\nCreature - Nightmare Beast\nTOR,C\nWhen Petravark enters the battlefield, exile target land.\rWhen Petravark leaves the battlefield, return the exiled card to the battlefield under its owner's control.\n2/2"
+    IDS_STRING13656         "Petradon\n{6RR}\nCreature - Nightmare Beast\nTOR,R\nWhen Petradon enters the battlefield, exile two target lands.\rWhen Petradon leaves the battlefield, return the exiled cards to the battlefield under their owners' control.\r{R}: Petradon gets +1/+0 until end of turn.\n5/6"
+    IDS_STRING13657         "Cabal Surgeon\n{2BB}\nCreature - Human Minion\nTOR,C\n{2BB}, {T}, Exile two cards from your graveyard: Return target creature card from your graveyard to your hand.\n2/1"
+    IDS_STRING13658         "Cephalid Aristocrat\n{4U}\nCreature - Cephalid\nTOR,C\nWhenever Cephalid Aristocrat becomes the target of a spell or ability, put the top two cards of your library into your graveyard.\n3/3"
+    IDS_STRING13659         "Cephalid Illusionist\n{1U}\nCreature - Cephalid Wizard\nTOR,U\nWhenever Cephalid Illusionist becomes the target of a spell or ability, put the top three cards of your library into your graveyard.\r{2U}, {T}: Prevent all combat damage that would be dealt to and dealt by target creature you control this turn.\n1/1"
+    IDS_STRING13660         "Krosan Restorer\n{2G}\nCreature - Human Druid\nTOR,C\n{T}: Untap target land.\rThreshold - {T}: Untap up to three target lands. Activate this ability only if seven or more cards are in your graveyard.\n1/2"
+    IDS_STRING13661         "Organ Grinder\n{2B}\nCreature - Zombie\nTOR,C\n{T}, Exile three cards from your graveyard: Target player loses 3 life.\n3/1"
+    IDS_STRING13662         "Mesmeric Fiend\n{1B}\nCreature - Nightmare Horror\nTOR,C\nWhen Mesmeric Fiend enters the battlefield, target opponent reveals his or her hand and you choose a nonland card from it. Exile that card.\rWhen Mesmeric Fiend leaves the battlefield, return the exiled card to its owner's hand.\n1/1"
+    IDS_STRING13663         "Ichorid\n{3B}\nCreature - Horror\nTOR,R\nHaste\rAt the beginning of the end step, sacrifice Ichorid.\rAt the beginning of your upkeep, if Ichorid is in your graveyard, you may exile a black creature card other than Ichorid from your graveyard. If you do, return Ichorid to the battlefield.\n3/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13664         "Invigorating Falls\n{2GG}\nSorcery\nTOR,C\nYou gain life equal to the number of creature cards in all graveyards."
+    IDS_STRING13665         "Slithery Stalker\n{1BB}\nCreature - Nightmare Horror\nTOR,U\nSwampwalk\rWhen Slithery Stalker enters the battlefield, exile target green or white creature an opponent controls.\rWhen Slithery Stalker leaves the battlefield, return the exiled card to the battlefield under its owner's control.\n1/1"
+    IDS_STRING13666         "Dawn of the Dead\n{2BBB}\nEnchantment\nTOR,R\nAt the beginning of your upkeep, you lose 1 life.\rAt the beginning of your upkeep, you may return target creature card from your graveyard to the battlefield. That creature gains haste until end of turn. Exile it at the beginning of the next end step."
+    IDS_STRING13667         "False Memories\n{1U}\nInstant\nTOR,R\nPut the top seven cards of your library into your graveyard. At the beginning of the next end step, exile seven cards from your graveyard."
+    IDS_STRING13668         "Churning Eddy\n{3U}\nSorcery\nTOR,C\nReturn target creature and target land to their owners' hands."
+    IDS_STRING13669         "Dwell on the Past\n{G}\nSorcery\nTOR,U\nTarget player shuffles up to four target cards from his or her graveyard into his or her library."
+    IDS_STRING13670         "Kamahl's Sledge\n{5RR}\nSorcery\nTOR,C\nKamahl's Sledge deals 4 damage to target creature.\rThreshold - If seven or more cards are in your graveyard, instead Kamahl's Sledge deals 4 damage to that creature and 4 damage to that creature's controller."
+    IDS_STRING13671         "Mutilate\n{2BB}\nSorcery\nTOR,R\nAll creatures get -1/-1 until end of turn for each Swamp you control."
+    IDS_STRING13672         "Breakthrough\n{XU}\nSorcery\nTOR,U\nDraw four cards, then choose X cards in your hand and discard the rest."
+    IDS_STRING13673         "Ghostly Wings\n{1U}\nEnchantment - Aura\nTOR,C\nEnchant creature\rEnchanted creature gets +1/+1 and has flying.\rDiscard a card: Return enchanted creature to its owner's hand."
+    IDS_STRING13674         "Aquamoeba\n{1U}\nCreature - Elemental Beast\nTOR,C\nDiscard a card: Switch Aquamoeba's power and toughness until end of turn.\n1/3"
+    IDS_STRING13675         "Hypnox\n{8BBB}\nCreature - Nightmare Horror\nTOR,R\nFlying\rWhen Hypnox enters the battlefield, if you cast it from your hand, exile all cards from target opponent's hand.\rWhen Hypnox leaves the battlefield, return the exiled cards to their owner's hand.\n8/8"
+    IDS_STRING13676         "Fiery Temper\n{1RR}\nInstant\nTOR,C\nFiery Temper deals 3 damage to target creature or player.\rMadness {R}"
+    IDS_STRING13677         "Basking Rootwalla\n{G}\nCreature - Lizard\nTOR,C\n{1G}: Basking Rootwalla gets +2/+2 until end of turn. Activate this ability only once each turn.\rMadness{0}\n1/1"
+    IDS_STRING13678         "Arrogant Wurm\n{3GG}\nCreature - Wurm\nTOR,U\nTrample\rMadness {2G}\n4/4"
+    IDS_STRING13679         "Frantic Purification\n{2W}\nInstant\nTOR\nDestroy target enchantment.\rMadness {W}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13680         "Violent Eruption\n{1RRR}\nInstant\nTOR,U\nViolent Eruption deals 4 damage divided as you choose among any number of target creatures and/or players.\rMadness {1RR}"
+    IDS_STRING13681         "Obsessive Search\n{U}\nInstant\nTOR\nDraw a card\rMadness {U}"
+    IDS_STRING13682         "Psychotic Haze\n{2BB}\nInstant\nTOR\nPsychotic Haze deals 1 damage to each creature and each player.\rMadness {1B}"
+    IDS_STRING13683         "Strength of Isolation\n{1W}\nEnchantment - Aura\nTOR,U\nEnchant creature\rEnchanted creature gets +1/+2 and has protection from black.\rMadness {W}"
+    IDS_STRING13684         "Strength of Lunacy\n{1B}\nEnchantment - Aura\nTOR,U\nEnchant creature\rEnchanted creature gets +2/+1 and has protection from white.\rMadness {B}"
+    IDS_STRING13685         "Insidious Dreams\n{3B}\nInstant\nTOR,R\nAs an additional cost to cast Insidious Dreams, discard X cards.\rSearch your library for X cards. Then shuffle your library and put those cards on top of it in any order."
+    IDS_STRING13686         "Sickening Dreams\n{1B}\nSorcery\nTOR,U\nAs an additional cost to cast Sickening Dreams, discard X cards.\rSickening Dreams deals X damage to each creature and each player."
+    IDS_STRING13687         "Shade's Form\n{1BB}\nEnchantment - Aura\nTOR,C\nEnchant creature\rEnchanted creature gets +2/+2.\rWhen enchanted creature dies, return that card to the battlefield under your control."
+    IDS_STRING13688         "Cephalid Sage\n{3U}\nCreature - Cephalid\nTOR,U\nThreshold - As long as seven or more cards are in your graveyard, Cephalid Sage has ""When Cephalid Sage enters the battlefield, draw three cards, then discard two cards.""\n2/3"
+    IDS_STRING13689         "Gravegouger\n{2B}\nCreature - Nightmare Horror\nTOR,C\nWhen Gravegouger enters the battlefield, exile up to two target cards from a single graveyard.\rWhen Gravegouger leaves the battlefield, return the exiled cards to their owner's graveyard.\n2/2"
+    IDS_STRING13690         "Far Wanderings\n{2G}\nSorcery\nTOR,C\nSearch your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\rThreshold - If seven or more cards are in your graveyard, instead search your library for three basic land cards and put them onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING13691         "Chainer, Dementia Master\n{3BB}\nLegendary Creature - Human Minion\nTOR,R\nNightmare creatures get +1/+1.\r{BBB}, Pay 3 life: Put target creature card from a graveyard onto the battlefield under your control. That creature is black and is a Nightmare in addition to its other creature types.\rWhen Chainer, Dementia Master leaves the battlefield, exile all Nightmares.\n3/3"
+    IDS_STRING13692         "Boneshard Slasher\n{1B}\nCreature - Horror\nTOR,U\nFlying\rThreshold - As long as seven or more cards are in your graveyard, Boneshard Slasher gets +2/+2 and has ""When Boneshard Slasher becomes the target of a spell or ability, sacrifice it.""\n1/1"
+    IDS_STRING13693         "Possessed Aven\n{2UU}\nCreature - Bird Soldier Horror\nTOR,R\nFlying\rThreshold - As long as seven or more cards are in your graveyard, Possessed Aven gets +1/+1, is black, and has ""{2}{B}, {T}: Destroy target blue creature.""\n3/3"
+    IDS_STRING13694         "Possessed Barbarian\n{2RR}\nCreature - Human Barbarian Horror\nTOR,R\nFirst strike\rThreshold - As long as seven or more cards are in your graveyard, Possessed Barbarian gets +1/+1, is black, and has ""{2}{B}, {T}: Destroy target red creature.""\n3/3"
+    IDS_STRING13695         "Possessed Centaur\n{2GG}\nCreature - Centaur Horror\nTOR,R\nTrample\rThreshold - As long as seven or more cards are in your graveyard, Possessed Centaur gets +1/+1, is black, and has ""{2}{B}, {T}: Destroy target green creature.""\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING13696         "Possessed Nomad\n{2WW}\nCreature - Human Nomad Horror\nTOR,R\nVigilance\rThreshold - As long as seven or more cards are in your graveyard, Possessed Nomad gets +1/+1, is black, and has ""{2}{B}, {T}: Destroy target white creature.""\n3/3"
+    IDS_STRING13697         "Rancid Earth\n{1BB}\nSorcery\nTOR,C\nDestroy target land.\rThreshold - If seven or more cards are in your graveyard, instead destroy that land and Rancid Earth deals 1 damage to each creature and each player."
+    IDS_STRING13698         "Crazed Firecat\n{5RR}\nCreature - Elemental Cat\nTOR,U\nWhen Crazed Firecat enters the battlefield, flip a coin until you lose a flip. Put a +1/+1 counter on Crazed Firecat for each flip you win.\n4/4"
+    IDS_STRING13699         "Skullscorch\n{RR}\nSorcery\nTOR,R\nTarget player discards two cards at random unless that player has Skullscorch deal 4 damage to him or her."
+    IDS_STRING13700         "Longhorn Firebeast\n{2R}\nCreature - Elemental Ox Beast\nTOR,C\nWhen Longhorn Firebeast enters the battlefield, any opponent may have it deal 5 damage to him or her. If a player does, sacrifice Longhorn Firebeast.\n3/2"
+    IDS_STRING13701         "Nantuko Cultivator\n{3G}\nCreature - Insect Druid\nTOR,R\nWhen Nantuko Cultivator enters the battlefield, you may discard any number of land cards. Put that many +1/+1 counters on Nantuko Cultivator and draw that many cards.\n2/2"
+    IDS_STRING13702         "Retraced Image\n{U}\nSorcery\nTOR,R\nReveal a card in your hand, then put that card onto the battlefield if it has the same name as a permanent."
+    IDS_STRING13703         "Circular Logic\n{2U}\nInstant\nTOR,U\nCounter target spell unless its controller pays {1} for each card in your graveyard.\rMadness {U}"
+    IDS_STRING13704         "Laquatus's Champion\n{4BB}\nCreature - Nightmare Horror\nTOR,R\nWhen Laquatus's Champion enters the battlefield, target player loses 6 life.\rWhen Laquatus's Champion leaves the battlefield, that player gains 6 life.\r{B}: Regenerate Laquatus's Champion.\n6/3"
+    IDS_STRING13705         "Gurzigost\n{3GG}\nCreature - Beast\nTOR,R\nAt the beginning of your upkeep, sacrifice Gurzigost unless you put two cards from your graveyard on the bottom of your library.\r{GG}, Discard a card: You may have Gurzigost assign its combat damage this turn as though it weren't blocked.\n6/8"
+    IDS_STRING13706         "Pitchstone Wall\n{2R}\nCreature - Wall\nTOR,U\nDefender\rWhenever you discard a card, you may sacrifice Pitchstone Wall. If you do, return the discarded card from your graveyard to your hand.\n2/5"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

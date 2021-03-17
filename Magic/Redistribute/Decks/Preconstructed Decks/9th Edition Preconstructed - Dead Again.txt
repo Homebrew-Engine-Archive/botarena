@@ -1,0 +1,46 @@
+// Dead Again
+// 9th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+Deathgazer (2035)
+Drudge Skeletons (2041)
+2 Foul Imp (2060)
+2 Gravedigger (2074)
+2 Highway Robber (2310)
+2 Hollow Dogs (2078)
+Nekrataal (2116)
+Nightmare (2117)
+Phyrexian Gargantua (2308)
+2 Serpent Warrior (2160)
+
+// Instants - 1 (2.50%)
+
+Dark Banishing (2033)
+
+// Sorceries - 2 (5.00%)
+
+Consume Spirit (2303)
+Raise Dead (2138)
+
+// Enchantments - 3 (7.50%)
+
+Contaminated Bond (2309)
+Underworld Dreams (2193)
+Unholy Strength (2194)
+
+// Artifacts - 2 (5.00%)
+
+Demon's Horn (2279)
+Tanglebloom (2277)
+
+// Lands - 17 (42.50%)
+
+5 Swamp (2180)
+4 Swamp (2181)
+4 Swamp (2182)
+4 Swamp (2183)

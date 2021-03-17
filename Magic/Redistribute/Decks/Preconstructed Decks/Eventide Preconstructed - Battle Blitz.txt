@@ -1,0 +1,41 @@
+// Battle Blitz
+// Eventide Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+Balefire Liege (18935)
+2 Ballynock Cohort (18587)
+2 Ballynock Trapper (18905)
+2 Battlegate Mimic (18980)
+2 Belligerent Hatchling (18988)
+2 Duergar Assailant (18937)
+3 Duergar Mine-Captain (19023)
+Hatchet Bully (19029)
+Hateflayer (19042)
+3 Hearthfire Hobgoblin (18940)
+2 Kithkin Spellduster (18942)
+2 Outrage Shaman (19009)
+Patrol Signaler (19022)
+Safehold Sentry (18688)
+
+// Instants - 6 (10.00%)
+
+2 Niveous Wisps (18565)
+2 Puncture Blast (19005)
+2 Puncture Bolt (18657)
+
+// Enchantments - 4 (6.67%)
+
+2 Power of Fire (18632)
+2 Scourge of the Nobilis (19035)
+
+// Artifacts - 1 (1.67%)
+
+Revelsong Horn (18572)
+
+// Lands - 24 (40.00%)
+
+13 Mountain (18513)
+11 Plains (18519)

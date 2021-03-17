@@ -1,0 +1,27 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Arc Runner (21209)
+4 Goblin Guide (19456)
+4 Hell's Thunder (8676)
+4 Hellspark Elemental (8896)
+4 Kargan Dragonlord (20955)
+
+// Instants - 16 (26.67%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (21124)
+4 Searing Blaze (19697)
+4 Staggershock (20984)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+2 Mountain (21114)
+2 Mountain (21115)
+2 Mountain (21112)
+2 Mountain (21113)
+4 Scalding Tarn (19358)
+4 Smoldering Spires (19624)
+4 Teetering Peaks (19351)

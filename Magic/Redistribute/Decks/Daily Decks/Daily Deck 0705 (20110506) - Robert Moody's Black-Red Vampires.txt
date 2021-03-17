@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 29 (48.33%)
+
+4 Bloodghast (19534)
+4 Gatekeeper of Malakir (19442)
+2 Hero of Oxid Ridge (21758)
+4 Kalastria Highborn (19648)
+4 Pulse Tracker (19658)
+4 Vampire Hexmage (19536)
+4 Vampire Lacerator (19494)
+3 Viscera Seer (21243)
+
+// Instants - 6 (10.00%)
+
+2 Burst Lightning (19384)
+4 Lightning Bolt (21124)
+
+// Sorceries - 2 (3.33%)
+
+2 Arc Trail (21554)
+
+// Lands - 23 (38.33%)
+
+4 Blackcleave Cliffs (21470)
+4 Dragonskull Summit (21126)
+4 Lavaclaw Reaches (19698)
+Marsh Flats (19357)
+3 Swamp (21777)
+3 Swamp (21776)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Hero of Oxid Ridge (21758)
+2 Manic Vandal (21260)
+2 Vampire Nighthawk (19355)
+
+// Instants
+
+2 Go for the Throat (21752)
+Vendetta (20859)
+
+// Sorceries
+
+2 Arc Trail (21554)
+3 Mark of Mutiny (19497)
+2 Sign in Blood (21285)

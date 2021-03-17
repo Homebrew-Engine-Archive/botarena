@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+Elspeth, Knight-Errant (8722)
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 4 (6.67%)
+
+4 Oracle of Mul Daya (19542)
+
+// Instants - 2 (3.33%)
+
+2 Bant Charm (8536)
+
+// Sorceries - 18 (30.00%)
+
+4 Day of Judgment (19340)
+4 Explore (19647)
+3 Martial Coup (8886)
+3 Rampant Growth (4091)
+4 Treasure Hunt (19673)
+
+// Enchantments - 2 (3.33%)
+
+2 Oblivion Ring (8718)
+
+// Lands - 30 (50.00%)
+
+4 Celestial Colonnade (19602)
+Forest (19302)
+Forest (19301)
+Forest (19300)
+Glacial Fortress (4200)
+3 Halimar Depths (19634)
+Island (19309)
+Island (19308)
+4 Misty Rainforest (19356)
+Plains (19325)
+Plains (19324)
+4 Seaside Citadel (8618)
+4 Stirring Wildwood (19623)
+Sunpetal Grove (4202)
+2 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Rhox War Monk (8694)
+
+// Instants
+
+3 Celestial Purge (4014)
+
+// Enchantments
+
+4 Luminarch Ascension (19527)
+Oblivion Ring (8718)
+2 Quest for Ancient Secrets (19522)
+
+// Lands
+
+Tectonic Edge (19651)

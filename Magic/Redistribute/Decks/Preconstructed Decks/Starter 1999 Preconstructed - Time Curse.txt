@@ -1,0 +1,34 @@
+// Time Curse
+// Starter 1999 Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 10 (25.00%)
+
+2 Air Elemental (20514)
+2 Giant Octopus (20538)
+3 Ingenious Thief (20551)
+3 Wind Drake (20587)
+
+// Instants - 7 (17.50%)
+
+2 Counterspell (20609)
+2 Extinguish (20610)
+3 Remove Soul (20611)
+
+// Sorceries - 6 (15.00%)
+
+Exhaustion (20624)
+Ransack (20668)
+Time Warp (20667)
+2 Touch of Brilliance (20655)
+Undo (20657)
+
+// Lands - 17 (42.50%)
+
+5 Island (20593)
+4 Island (20594)
+4 Island (20595)
+4 Island (20596)

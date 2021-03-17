@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Creatures - 4 (6.67%)
+
+4 Sphinx of Lost Truths (19508)
+
+// Instants - 8 (13.33%)
+
+4 Cancel (19346)
+4 Into the Roil (19373)
+
+// Sorceries - 12 (20.00%)
+
+4 Conqueror's Pledge (19365)
+4 Day of Judgment (19340)
+4 Rite of Replication (19541)
+
+// Enchantments - 8 (13.33%)
+
+4 Journey to Nowhere (19524)
+4 Spreading Seas (19430)
+
+// Lands - 28 (46.67%)
+
+3 Island (19309)
+3 Island (19310)
+4 Island (19308)
+3 Island (19311)
+4 Kabira Crossroads (19401)
+2 Plains (19324)
+2 Plains (19325)
+2 Plains (19326)
+Plains (19327)
+4 Sejiri Refuge (19400)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Devout Lightcaster (19360)
+4 Kor Sanctifiers (19444)
+2 Sphinx of Jwar Isle (19378)
+
+// Instants
+
+3 Archive Trap (19529)
+2 Pitfall Trap (19486)

@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Koth of the Hammer (21435)
+
+// Creatures - 16 (26.67%)
+
+4 Figure of Destiny (19006)
+4 Goblin Guide (19456)
+4 Hellspark Elemental (8896)
+4 Keldon Marauders (2555)
+
+// Instants - 14 (23.33%)
+
+2 Flame Javelin (18642)
+4 Incinerate (3226)
+4 Lightning Bolt (21124)
+3 Searing Blaze (19697)
+Shard Volley (18332)
+
+// Sorceries - 7 (11.67%)
+
+4 Lava Spike (15635)
+3 Molten Rain (15025)
+
+// Lands - 22 (36.67%)
+
+9 Mountain (21976)
+9 Mountain (21977)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Magus of the Moon (17735)
+3 Mogg Fanatic (3254)
+
+// Instants
+
+Dismember (21951)
+Ghostfire (17725)
+Searing Blaze (19697)
+2 Smash to Smithereens (18525)
+
+// Sorceries
+
+Molten Rain (15025)
+
+// Artifacts
+
+2 Shrine of Burning Rage (22001)

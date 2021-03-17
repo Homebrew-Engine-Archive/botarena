@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Actions">
+      <UniqueIdentifier>{fe23551f-6227-470e-a2ab-9644051e918c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Abilities">
+      <UniqueIdentifier>{ae5a3ba4-36b0-4d46-89fb-653fb2b6479f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zones">
+      <UniqueIdentifier>{38dac987-49ef-4f1d-858b-8372796d4c82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cards">
+      <UniqueIdentifier>{39144d8a-d3a0-45bc-a667-86f7671f5fea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Miscellaneous">
+      <UniqueIdentifier>{a9b84a36-6951-48f2-8a4d-b7dc3ce0a4c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mana">
+      <UniqueIdentifier>{fc8bc6c0-b415-4941-844a-9a530107e280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{9082d1a4-e3c7-4654-a18a-8d88c3b746f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steps">
+      <UniqueIdentifier>{aa724271-23be-4f66-9907-f7fd8df4e494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Players">
+      <UniqueIdentifier>{f032c067-624a-4155-b809-d4048da5e1cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data Types">
+      <UniqueIdentifier>{072776b6-5b3f-4be1-a016-26ab8a154cf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Targeting">
+      <UniqueIdentifier>{afd9b8ac-f874-4d7b-aa0f-3578d0e84058}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Action.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action1.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Action2.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Modifiers.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Selection.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Ability.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityEnchant.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityGlobal.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityKeyword.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityNonStack.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityNonStack1.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityNonStack2.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityStack.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityStack1.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityStack2.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityTarget.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityTriggered.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityTriggered1.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityTriggered2.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityTriggered3.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityTriggeredT.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Reveals.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Trait.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Trait1.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="StackProjection.cpp">
+      <Filter>Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Zone.cpp">
+      <Filter>Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="Card1.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="Card2.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="Card3.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="Card4.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardFactory.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardFilter.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardStore.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatureType.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="Deck.cpp">
+      <Filter>Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="Counter.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Damage.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIUtility.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="MT19937.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="NetManager.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Numbers.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="UsagePattern.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Cost.cpp">
+      <Filter>Mana</Filter>
+    </ClCompile>
+    <ClCompile Include="ManaCost.cpp">
+      <Filter>Mana</Filter>
+    </ClCompile>
+    <ClCompile Include="ManaPool.cpp">
+      <Filter>Mana</Filter>
+    </ClCompile>
+    <ClCompile Include="ManaProductionHint.cpp">
+      <Filter>Mana</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Event1.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Event2.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Triggers.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>Steps</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Steps</Filter>
+    </ClCompile>
+    <ClCompile Include="Node1.cpp">
+      <Filter>Steps</Filter>
+    </ClCompile>
+    <ClCompile Include="Scheduler.cpp">
+      <Filter>Steps</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Players</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Data Types</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Data Types</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadCentral.cpp">
+      <Filter>Data Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Targeting</Filter>
+    </ClCompile>
+    <ClCompile Include="Target.cpp">
+      <Filter>Targeting</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreApp.cpp" />
+    <ClCompile Include="CoreEnumerations.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="ContinuousStaticAbilities.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action1.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action2.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Modifiers.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Selection.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Selection1.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Ability.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityEnchant.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityGlobal.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityKeyword.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityNonStack.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityNonStack1.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityNonStack2.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityStack.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityStack1.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityStack2.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityTarget.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityTriggered.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityTriggered1.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityTriggered2.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityTriggered3.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityTriggeredT.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Reveals.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Trait.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Trait1.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Zones</Filter>
+    </ClInclude>
+    <ClInclude Include="StackProjection.h">
+      <Filter>Zones</Filter>
+    </ClInclude>
+    <ClInclude Include="Zone.h">
+      <Filter>Zones</Filter>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Card1.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Card2.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Card3.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Card4.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardFactory.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardFilter.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardStore.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatureType.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Deck.h">
+      <Filter>Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="ContextValue.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Counter.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Damage.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIUtility.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="MT19937.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="NetManager.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Numbers.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="UsagePattern.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="Cost.h">
+      <Filter>Mana</Filter>
+    </ClInclude>
+    <ClInclude Include="ManaCost.h">
+      <Filter>Mana</Filter>
+    </ClInclude>
+    <ClInclude Include="ManaPool.h">
+      <Filter>Mana</Filter>
+    </ClInclude>
+    <ClInclude Include="ManaProductionHint.h">
+      <Filter>Mana</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Event1.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Event2.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Triggers.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>Steps</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Steps</Filter>
+    </ClInclude>
+    <ClInclude Include="Node1.h">
+      <Filter>Steps</Filter>
+    </ClInclude>
+    <ClInclude Include="Scheduler.h">
+      <Filter>Steps</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Players</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManagedContainers.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManagedValues.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="StateStack.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadCentral.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Targeting</Filter>
+    </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>Targeting</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreApp.h" />
+    <ClInclude Include="CoreEnumerations.h" />
+    <ClInclude Include="CoreResource.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="MagicCore.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="CheapList.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="ContinuousStaticAbilities.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MagicCore.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MagicCore.rc2" />
+  </ItemGroup>
+</Project>

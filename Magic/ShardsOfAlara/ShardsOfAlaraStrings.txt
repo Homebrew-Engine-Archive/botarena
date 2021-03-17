@@ -1,0 +1,166 @@
+Angel's Herald\n{W}\nCreature - Human Cleric\nALA,U\n{2W}, {T}, Sacrifice a green creature, a white creature, and a blue creature: Search your library for a card named Empyrial Archangel and put it onto the battlefield. Then shuffle your library.\n1/1
+
+Battlegrace Angel\n{3WW}\nCreature - Angel\nALA,R\nFlying\rExalted\rWhenever a creature you control attacks alone, it gains lifelink until end of turn.\n4/4
+
+Cradle of Vitality\n{3W}\nEnchantment\nALA,R\nWhenever you gain life, you may pay {1W}. If you do, put a +1/+1 counter on target creature for each 1 life you gained.
+
+Elspeth, Knight-Errant\n{2WW}\nPlaneswalker - Elspeth\nALA,MR\n+1: Put a 1/1 white Soldier creature token onto the battlefield.\r+1: Target creature gets +3/+3 and gains flying until end of turn.\r-8: For the rest of the game, artifacts, creatures, enchantments, and lands you control are indestructible.\n4
+
+Ethersworn Canonist\n{1W}\nArtifact Creature - Human Cleric\nALA,R\nEach player who has cast a nonartifact spell this turn can't cast additional nonartifact spells.\n2/2
+
+Invincible Hymn\n{6WW}\nSorcery\nALA,R\nCount the number of cards in your library. Your life total becomes that number.
+
+Knight of the White Orchid\n{WW}\nCreature - Human Knight\nALA,R\nFirst strike\rWhen Knight of the White Orchid enters the battlefield, if an opponent controls more lands than you, you may search your library for a Plains card, put it onto the battlefield, then shuffle your library.\n2/2
+
+Oblivion Ring\n{2W}\nEnchantment\nALA,C\nWhen Oblivion Ring enters the battlefield, exile another target nonland permanent.\rWhen Oblivion Ring leaves the battlefield, return the exiled card to the battlefield under its owner's control.
+
+Soul's Grace\n{1W}\nInstant\nALA,C\nYou gain life equal to target creature's power. 
+
+Sunseed Nurturer\n{2W}\nCreature - Human Druid Wizard\nALA,U\nAt the beginning of your end step, if you control a creature with power 5 or greater, you may gain 2 life.\r{T}: Add {1} to your mana pool.\n1/1
+
+
+
+Covenant of Minds\n{4U}\nSorcery\nALA,R\nReveal the top three cards of your library. Target opponent may choose to put those cards into your hand. If he or she doesn't, put those cards into your graveyard and draw five cards.
+
+Etherium Sculptor\n{1U}\nArtifact Creature - Vedalken Artificer\nALA,C\nArtifact spells you cast cost {1} less to cast.\n1/2
+
+Fatestitcher\n{3U}\nCreature - Zombie Wizard\nALA,U\n{T}: You may tap or untap another target permanent.\rUnearth {U}\n1/2
+
+Gather Specimens\n{3UUU}\nInstant\nALA,R\nIf a creature would enter the battlefield under an opponent's control this turn, it enters the battlefield under your control instead.
+
+Kathari Screecher\n{2U}\nCreature - Bird Soldier\nALA,C\nFlying\rUnearth {2U}\n2/2
+
+Kederekt Leviathan\n{6UU}\nCreature - Leviathan\nALA,R\nWhen Kederekt Leviathan enters the battlefield, return all other nonland permanents to their owners' hands.\rUnearth {6U}\n5/5
+
+Mindlock Orb\n{3U}\nArtifact\nALA,R\nPlayers can't search libraries.
+
+Skill Borrower\n{2U}\nArtifact Creature - Human Wizard\nALA,R\nPlay with the top card of your library revealed.\rAs long as the top card of your library is an artifact or creature card, Skill Borrower has all activated abilities of that card.\n1/3
+
+Sphinx's Herald\n{U}\nArtifact Creature - Vedalken Wizard\nALA,U\n{2U}, {T}, Sacrifice a white creature, a blue creature, and a black creature: Search your library for a card named Sphinx Sovereign and put it onto the battlefield. Then shuffle your library.\n1/1
+
+Tezzeret the Seeker\n{3UU}\nPlaneswalker - Tezzeret\nALA,MR\n+1: Untap up to two target artifacts.\r-X: Search your library for an artifact card with converted mana cost X or less and put it onto the battlefield. Then shuffle your library.\r-5: Artifacts you control become 5/5 artifact creatures until end of turn.\n4
+
+
+
+Ad Nauseam\n{3BB}\nInstant\nALA,R\nReveal the top card of your library and put that card into your hand. You lose life equal to its converted mana cost. You may repeat this process any number of times.
+
+Banewasp Affliction\n{1B}\nEnchantment - Aura\nALA,C\nEnchant creature\rWhen enchanted creature is put into a graveyard, that creature's controller loses life equal to its toughness.
+
+Corpse Connoisseur\n{4B}\nCreature - Zombie Wizard\nALA,U\nWhen Corpse Connoisseur enters the battlefield, you may search your library for a creature card and put that card into your graveyard. If you do, shuffle your library.\rUnearth {3B}\n3/3
+
+Demon's Herald\n{B}\nCreature - Human Wizard\nALA,U\n{2B}, {T}, Sacrifice a blue creature, a black creature, and a red creature: Search your library for a card named Prince of Thralls and put it onto the battlefield. Then shuffle your library.\n1/1
+
+Dregscape Zombie\n{1B}\nCreature - Zombie\nALA,C\nUnearth {B}\n2/1
+
+Tar Fiend\n{5B}\nCreature - Elemental\nALA,R\nDevour 2\rWhen Tar Fiend enters the battlefield, target player discards a card for each creature it devoured.\n4/4
+
+Undead Leotau\n{5B}\nCreature - Zombie Cat\nALA,C\n{R}: Undead Leotau gets +1/-1 until end of turn.\rUnearth {2B}\n3/4
+
+Viscera Dragger\n{3B}\nCreature - Zombie Ogre Warrior\nALA,C\nCycling {2}\rUnearth {1B}\n3/3
+
+
+
+Caldera Hellion\n{3RR}\nCreature - Hellion\nALA,R\nDevour 1\rWhen Caldera Hellion enters the battlefield, it deals 3 damage to each creature.\n3/3
+
+Dragon's Herald\n{R}\nCreature - Goblin Shaman\nALA,U\n{2R}, {T}, Sacrifice a black creature, a red creature, and a green creature: Search your library for a card named Hellkite Overlord and put it onto the battlefield. Then shuffle your library.\n1/1
+
+Exuberant Firestoker\n{2R}\nCreature - Human Druid Shaman\nALA,U\nAt the beginning of your end step, if you control a creature with power 5 or greater, you may have Exuberant Firestoker deal 2 damage to target player.\r{T}: Add {1} to your mana pool.\n1/1
+
+Flameblast Dragon\n{4RR}\nCreature - Dragon\nALA,R\nFlying\rWhenever Flameblast Dragon attacks, you may pay {XR}. If you do, Flameblast Dragon deals X damage to target creature or player.\n5/5
+
+Hell's Thunder\n{1RR}\nCreature - Elemental\nALA,R\nFlying, haste\rAt the beginning of the end step, sacrifice Hell's Thunder.\rUnearth {4R}\n4/4
+
+Magma Spray\n{R}\nInstant\nALA,C\nMagma Spray deals 2 damage to target creature. If that creature would be put into a graveyard this turn, exile it instead.
+
+Predator Dragon\n{3RRR}\nCreature - Dragon\nALA,R\nFlying, haste\rDevour 2\n4/4
+
+Scourge Devil\n{4R}\nCreature - Devil\nALA,U\nWhen Scourge Devil enters the battlefield, creatures you control get +1/+0 until end of turn.\rUnearth {2R}\n3/3
+
+Skeletonize\n{4R}\nInstant\nALA,U\nSkeletonize deals 3 damage to target creature. When a creature dealt damage this way is put into a graveyard this turn, put a 1/1 black Skeleton creature token onto the battlefield with "{B}: Regenerate this creature."
+
+Soul's Fire\n{2R}\nInstant\nALA,C\nTarget creature you control on the battlefield deals damage equal to its power to target creature or player.
+
+Thorn-Thrash Viashino\n{3R}\nCreature - Viashino Warrior\nALA,C\nDevour 2\r{G}: Thorn-Thrash Viashino gains trample until end of turn.\n2/2
+
+Thunder-Thrash Elder\n{2R}\nCreature - Viashino Warrior\nALA,U\nDevour 3\n1/1
+
+Vicious Shadows\n{6R}\nEnchantment\nALA,R\nWhenever a creature is put into a graveyard from the battlefield, you may have Vicious Shadows deal damage to target player equal to the number of cards in that player's hand.
+
+Vithian Stinger\n{2R}\nCreature - Human Shaman\nALA,C\n{T}: Vithian Stinger deals 1 damage to target creature or player.\rUnearth {1R}\n0/1
+
+
+
+Behemoth's Herald\n{G}\nCreature - Elf Shaman\nALA,U\n{2G}, {T}, Sacrifice a red creature, a green creature, and a white creature: Search your library for a card named Godsire and put it onto the battlefield. Then shuffle your library.\n1/1
+
+Drumhunter\n{3G}\nCreature - Human Druid Warrior\nALA,U\nAt the beginning of your end step, if you control a creature with power 5 or greater, you may draw a card.\r{T}: Add {1} to your mana pool.\n2/2
+
+Feral Hydra\n{XG}\nCreature - Hydra Beast\nALA,R\nFeral Hydra enters the battlefield with X +1/+1 counters on it.\r{3}: Put a +1/+1 counter on Feral Hydra. Any player may activate this ability.\n0/0
+
+Gift of the Gargantuan\n{2G}\nSorcery\nALA,C\nLook at the top four cards of your library. You may reveal a creature card and/or a land card from among them and put the revealed cards into your hand. Put the rest on the bottom of your library in any order.
+
+Keeper of Progenitus\n{3G}\nCreature - Elf Druid\nALA,R\nWhenever a player taps a Mountain, Forest, or Plains for mana, that player adds one mana to his or her mana pool of any type that land produced.\n1/3
+
+Lush Growth\n{G}\nEnchantment - Aura\nALA,C\nEnchant land\rEnchanted land is a Mountain, Forest, and Plains.
+
+Mycoloth\n{3GG}\nCreature - Fungus\nALA,R\nDevour 2\rAt the beginning of your upkeep, put a 1/1 green Saproling creature token onto the battlefield for each +1/+1 counter on Mycoloth.\n4/4
+
+Ooze Garden\n{1G}\nEnchantment\nALA,R\n{1G}, Sacrifice a non-Ooze creature: Put an X/X green Ooze creature token onto the battlefield, where X is the sacrificed creature's power. Activate this ability only any time you could cast a sorcery.
+
+Sacellum Godspeaker\n{2G}\nCreature - Elf Druid\nALA,R\n{T}: Reveal any number of creature cards with power 5 or greater from your hand. Add {G} to your mana pool for each card revealed this way.\n2/2
+
+Soul's Might\n{4G}\nSorcery\nALA,C\nPut X +1/+1 counters on target creature, where X is that creature's power.
+
+Spearbreaker Behemoth\n{5GG}\nCreature - Beast\nALA,R\nSpearbreaker Behemoth is indestructible\r{1}: Target creature with power 5 or greater is indestructible this turn.\n5/5
+
+
+
+Agony Warp\n{UB}\nInstant\nALA,C\nTarget creature gets -3/-0 until end of turn.\rTarget creature gets -0/-3 until end of turn.
+
+Ajani Vengeant\n{2RW}\nPlaneswalker - Ajani\nALA,MR\n+1: Target permanent doesn't untap during its controller's next untap step.\r-2: Ajani Vengeant deals 3 damage to target creature or player and you gain 3 life.\r-7: Destroy all lands target player controls.\n3
+
+Brilliant Ultimatum\n{WWUUUBB}\nSorcery\nALA,R\nExile the top five cards of your library. An opponent separates those cards into two piles. You may play any number of cards from one of those piles without paying their mana costs.
+
+Clarion Ultimatum\n{GGWWWUU}\nSorcery\nALA,R\nChoose five permanents you control. For each of those permanents, you may search your library for a card with the same name as that permanent. Put those cards onto the battlefield tapped, then shuffle your library.
+
+Cruel Ultimatum\n{UUBBBRR}\nSorcery\nALA,R\nTarget opponent sacrifices a creature, discards three cards, then loses 5 life. You return a creature card from your graveyard to your hand, draw three cards, then gain 5 life.
+
+Fire-Field Ogre\n{1UBR}\nCreature - Ogre Mutant\nALA,U\nFirst strike\rUnearth {UBR}\n4/2
+
+Hindering Light\n{WU}\nInstant\nALA,C\nCounter target spell that targets you or a permanent you control.
+Draw a card.
+
+Necrogenesis\n{BG}\nEnchantment\nALA,U\n{2}: Exile target creature card from a graveyard. Put a 1/1 green Saproling creature token onto the battlefield.
+
+Prince of Thralls\n{4UBBR}\nCreature - Demon\nALA,MR\nWhenever a permanent an opponent controls is put into a graveyard, put that card onto the battlefield under your control unless that opponent pays 3 life.\n7/7
+
+Punish Ignorance\n{WUUB}\nInstant\nALA,R\nCounter target spell. Its controller loses 3 life and you gain 3 life.
+
+Qasali Ambusher\n{1GW}\nCreature - Cat Warrior\nALA,U\nReach\rIf a creature is attacking you and you control a Forest and a Plains, you may cast Qasali Ambusher without paying its mana cost and as though it had flash.\n2/3
+
+Rafiq of the Many\n{1GWU}\nLegendary Creature - Human Knight\nALA,MR\nExalted\rWhenever a creature you control attacks alone, it gains double strike until end of turn.\n3/3
+
+Realm Razer\n{3RGW}\nCreature - Beast\nALA,R\nWhen Realm Razer enters the battlefield, exile all lands.\rWhen Realm Razer leaves the battlefield, return the exiled cards to the battlefield tapped under their owners' control.\n4/2
+
+Rhox War Monk\n{GWU}\nCreature - Rhino Monk\nALA,U\nLifelink\n3/4
+
+Sangrite Surge\n{4RG}\nSorcery\nALA,U\nTarget creature gets +3/+3 and gains double strike until end of turn.
+
+Sedraxis Specter\n{UBR}\nCreature - Specter\nALA,R\nFlying\rWhenever Sedraxis Specter deals combat damage to a player, that player discards a card.\rUnearth {1B}\n3/2
+
+Sedris, the Traitor King\n{3UBR}\nLegendary Creature - Zombie Warrior\nALA,MRnEach creature card in your graveyard has unearth {2B}\n5/5
+
+Sigil Blessing\n{GW}\nInstant\nALA,C\nUntil end of turn, target creature you control gets +3/+3 and other creatures you control get +1/+1.
+
+Tidehollow Sculler\n{WB}\nArtifact Creature - Zombie\nALA,U\nWhen Tidehollow Sculler enters the battlefield, target opponent reveals his or her hand and you choose a nonland card from it. Exile that card.\rWhen Tidehollow Sculler leaves the battlefield, return the exiled card to its owner's hand.\n2/2
+
+Titanic Ultimatum\n{RRGGGWW}\nSorcery\nALA,R\nUntil end of turn, creatures you control get +5/+5 and gain first strike, lifelink, and trample.
+
+Windwright Mage\n{WUB}\nArtifact Creature - Human Wizard\nALA,C\nLifelink\rWindwright Mage has flying as long as an artifact card is in your graveyard.\n2/2
+
+
+
+Lich's Mirror\n{5}\nArtifact\nALA,MR\nIf you would lose the game, instead shuffle your hand, your graveyard, and all permanents you own into your library, then draw seven cards and your life total becomes 20.
+
+Minion Reflector\n{5}\nArtifact\nALA,R\nWhenever a nontoken creature enters the battlefield under your control, you may pay {2}. If you do, put a token that's a copy of that creature onto the battlefield. That token has haste and "At the beginning of the end step, sacrifice this permanent."
+
+Sigil of Distinction\n{X}\nArtifact - Equipment\nALA,R\nSigil of Distinction enters the battlefield with X charge counters on it.\rEquipped creature gets +1/+1 for each charge counter on Sigil of Distinction.\rEquip-Remove a charge counter from Sigil of Distinction.

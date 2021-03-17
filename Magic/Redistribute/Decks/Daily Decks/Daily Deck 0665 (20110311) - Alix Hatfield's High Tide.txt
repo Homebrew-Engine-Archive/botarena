@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Instants - 22 (36.67%)
+
+Blue Sun's Zenith (21747)
+4 Brainstorm (11610)
+3 Cunning Wish (13890)
+4 Force of Will (6759)
+4 High Tide (5963)
+3 Meditate (10189)
+3 Turnabout (11078)
+
+// Sorceries - 14 (23.33%)
+
+4 Merchant Scroll (1777)
+4 Ponder (4208)
+2 Preordain (21152)
+4 Time Spiral (11038)
+
+// Enchantments - 2 (3.33%)
+
+2 Mind Over Matter (10630)
+
+// Artifacts - 4 (6.67%)
+
+4 Candelabra of Tawnos (5152)
+
+// Lands - 18 (30.00%)
+
+2 Flooded Strand (14001)
+6 Island (21770)
+6 Island (21771)
+2 Misty Rainforest (19356)
+2 Polluted Delta (14000)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+Blue Sun's Zenith (21747)
+Brain Freeze (14679)
+Echoing Truth (15220)
+Intuition (10275)
+Meditate (10189)
+3 Pact of Negation (17790)
+Rebuild (11283)
+4 Repeal (16793)
+Turnabout (11078)
+Wipe Away (17380)

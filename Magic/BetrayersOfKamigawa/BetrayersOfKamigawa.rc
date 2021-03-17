@@ -1,0 +1,253 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "BetrayersOfKamigawa.ico"
+IDI_LARGE_MODULE        ICON                    "BetrayersOfKamigawaLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Betrayers of Kamigawa"
+    IDS_EXPANSION_ABBREV    "BOK"
+    IDS_FIRST_CARD          "19100"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "19265"
+    IDS_MODULE_LARGE_ICON_ID "19266"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "05-02-2005"
+    IDS_MWS_FOLDER          "MWS\\BOK\\"
+    IDS_PRODUCT_LIST        """Betrayers of Kamigawa Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19100         "Hero's Demise\n{1B}\nInstant\nBOK,R\nDestroy target legendary creature."
+    IDS_STRING19101         "Heart of Light\n{2W}\nEnchantment - Aura\nBOK,C\nEnchant creature\rPrevent all damage that would be dealt to and dealt by enchanted creature."
+    IDS_STRING19102         "Mending Hands\n{W}\nInstant\nBOK,C\nPrevent the next 4 damage that would be dealt to target creature or player this turn."
+    IDS_STRING19103         "Akki Blizzard-Herder\n{1R}\nCreature - Goblin Shaman\nBOK,C\nWhen Akki Blizzard-Herder dies, each player sacrifices a land.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19104         "Akki Raider\n{1R}\nCreature - Goblin Warrior\nBOK,U\nWhenever a land is put into a graveyard from the battlefield, Akki Raider gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING19105         "Ashen Monstrosity\n{5RR}\nCreature - Spirit\nBOK,U\nHaste\rAshen Monstrosity attacks each turn if able.\n7/4"
+    IDS_STRING19106         "Bile Urchin\n{B}\nCreature - Spirit\nBOK,C\nSacrifice Bile Urchin: Target player loses 1 life.\n1/1"
+    IDS_STRING19107         "Body of Jukai\n{7GG}\nCreature - Spirit\nBOK,U\nTrample\rSoulshift 8\n8/5"
+    IDS_STRING19108         "Child of Thorns\n{G}\nCreature - Spirit\nBOK,C\nSacrifice Child of Thorns: Target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING19109         "Crawling Filth\n{5B}\nCreature - Spirit\nBOK,C\nFear\rSoulshift 5\n2/2"
+    IDS_STRING19110         "Forked-Branch Garami\n{3GG}\nCreature - Spirit\nBOK,U\nSoulshift 4, soulshift 4\n4/4"
+    IDS_STRING19111         "Frost Ogre\n{3RR}\nCreature - Ogre Warrior\nBOK,C\n\n5/3"
+    IDS_STRING19112         "Frostling\n{R}\nCreature - Spirit\nBOK,C\nSacrifice Frostling: Frostling deals 1 damage to target creature.\n1/1"
+    IDS_STRING19113         "Gnarled Mass\n{1GG}\nCreature - Spirit\nBOK,C\n\n3/3"
+    IDS_STRING19114         "Hokori, Dust Drinker\n{2WW}\nLegendary Creature - Spirit\nBOK,R\nLands don't untap during their controllers' untap steps.\rAt the beginning of each player's upkeep, that player untaps a land he or she controls.\n2/2"
+    IDS_STRING19115         "Indebted Samurai\n{3W}\nCreature - Human Samurai\nBOK,U\nBushido 1\rWhenever a Samurai you control dies, you may put a +1/+1 counter on Indebted Samurai.\n2/3"
+    IDS_STRING19116         "Isao, Enlightened Bushi\n{2G}\nLegendary Creature - Human Samurai\nBOK,R\nIsao, Enlightened Bushi can't be countered.\rBushido 2\r{2}: Regenerate target Samurai.\n2/1"
+    IDS_STRING19117         "Iwamori of the Open Fist\n{2GG}\nLegendary Creature - Human Monk\nBOK,R\nTrample\rWhen Iwamori of the Open Fist enters the battlefield, each opponent may put a legendary creature card from his or her hand onto the battlefield.\n5/5"
+    IDS_STRING19118         "Kaijin of the Vanishing Touch\n{1U}\nCreature - Spirit\nBOK,U\nDefender\rWhenever Kaijin of the Vanishing Touch blocks a creature, return that creature to its owner's hand at end of combat.\n0/3"
+    IDS_STRING19119         "Kami of False Hope\n{W}\nCreature - Spirit\nBOK,C\nSacrifice Kami of False Hope: Prevent all combat damage that would be dealt this turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19120         "Kami of the Honored Dead\n{5WW}\nCreature - Spirit\nBOK,U\nFlying\rWhenever Kami of the Honored Dead is dealt damage, you gain that much life.\rSoulshift 6\n3/5"
+    IDS_STRING19121         "Lifespinner\n{3G}\nCreature - Spirit\nBOK,U\n{T}, Sacrifice three Spirits: Search your library for a legendary Spirit permanent card and put it onto the battlefield. Then shuffle your library.\n3/3"
+    IDS_STRING19122         "Moonlit Strider\n{3W}\nCreature - Spirit\nBOK,C\nSacrifice Moonlit Strider: Target creature you control gains protection from the color of your choice until end of turn.\rSoulshift 3\n1/4"
+    IDS_STRING19123         "Nezumi Shadow-Watcher\n{B}\nCreature - Rat Warrior\nBOK,U\nSacrifice Nezumi Shadow-Watcher: Destroy target Ninja.\n1/1"
+    IDS_STRING19124         "Ogre Recluse\n{3R}\nCreature - Ogre Warrior\nBOK,U\nWhenever a player casts a spell, tap Ogre Recluse.\n5/4"
+    IDS_STRING19125         "Pus Kami\n{5BB}\nCreature - Spirit\nBOK,U\n{B}, Sacrifice Pus Kami: Destroy target nonblack creature.\rSoulshift 6\n3/3"
+    IDS_STRING19126         "Ronin Cliffrider\n{3RR}\nCreature - Human Samurai\nBOK,U\nBushido 1\rWhenever Ronin Cliffrider attacks, you may have it deal 1 damage to each creature defending player controls.\n2/2"
+    IDS_STRING19127         "Shinka Gatekeeper\n{2R}\nCreature - Ogre Warrior\nBOK,C\nWhenever Shinka Gatekeeper is dealt damage, it deals that much damage to you.\n3/2"
+    IDS_STRING19128         "Silverstorm Samurai\n{4WW}\nCreature - Fox Samurai\nBOK,C\nFlash\rBushido 1\n3/3"
+    IDS_STRING19129         "Split-Tail Miko\n{1W}\nCreature - Fox Cleric\nBOK,C\n{W}, {T}: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n1/1"
+    IDS_STRING19130         "Takeno's Cavalry\n{3W}\nCreature - Human Samurai Archer\nBOK,C\nBushido 1\r{T}: Takeno's Cavalry deals 1 damage to target attacking or blocking Spirit.\n1/1"
+    IDS_STRING19131         "Teardrop Kami\n{U}\nCreature - Spirit\nBOK,C\nSacrifice Teardrop Kami: You may tap or untap target creature.\n1/1"
+    IDS_STRING19132         "Traproot Kami\n{G}\nCreature - Spirit\nBOK,C\nDefender; reach\rTraproot Kami's toughness is equal to the number of Forests on the battlefield.\n0/*"
+    IDS_STRING19133         "Yomiji, Who Bars the Way\n{5WW}\nLegendary Creature - Spirit\nBOK,R\nWhenever a legendary permanent other than Yomiji, Who Bars the Way is put into a graveyard from the battlefield, return that card to its owner's hand.\n4/4"
+    IDS_STRING19134         "Yukora, the Prisoner\n{2BB}\nLegendary Creature - Demon Spirit\nBOK,R\nWhen Yukora, the Prisoner leaves the battlefield, sacrifice all non-Ogre creatures you control.\n5/5"
+    IDS_STRING19135         "Gods' Eye, Gate to the Reikai\n\nLegendary Land\nBOK,U\n{T}: Add {1} to your mana pool.\rWhen Gods' Eye, Gate to the Reikai is put into a graveyard from the battlefield, put a 1/1 colorless Spirit creature token onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19136         "Orb of Dreams\n{3}\nArtifact\nBOK,R\nPermanents enter the battlefield tapped."
+    IDS_STRING19137         "Shuko\n{1}\nArtifact - Equipment\nBOK,U\nEquipped creature gets +1/+0.\rEquip {0}"
+    IDS_STRING19138         "Blessing of Leeches\n{2B}\nEnchantment - Aura\nBOK,C\nFlash\rEnchant creature\rAt the beginning of your upkeep, you lose 1 life.\r{0}: Regenerate enchanted creature."
+    IDS_STRING19139         "Day of Destiny\n{3W}\nLegendary Enchantment\nBOK,R\nLegendary creatures you control get +2/+2."
+    IDS_STRING19140         "In the Web of War\n{3RR}\nEnchantment\nBOK,R\nWhenever a creature enters the battlefield under your control, it gets +2/+0 and gains haste until end of turn."
+    IDS_STRING19141         "Lifegift\n{2G}\nEnchantment\nBOK,R\nWhenever a land enters the battlefield, you may gain 1 life."
+    IDS_STRING19142         "Terashi's Verdict\n{1W}\nInstant - Arcane\nBOK,U\nDestroy target attacking creature with power 3 or less."
+    IDS_STRING19143         "Unchecked Growth\n{2G}\nInstant - Arcane\nBOK,U\nTarget creature gets +4/+4 until end of turn. If it's a Spirit, it gains trample until end of turn."
+    IDS_STRING19144         "Final Judgment\n{4WW}\nSorcery\nBOK,R\nExile all creatures."
+    IDS_STRING19145         "Reduce to Dreams\n{3UU}\nSorcery\nBOK,R\nReturn all artifacts and enchantments to their owners' hands."
+    IDS_STRING19146         "Ribbons of the Reikai\n{4U}\nSorcery - Arcane\nBOK,C\nDraw a card for each Spirit you control."
+    IDS_STRING19147         "Three Tragedies\n{3BB}\nSorcery - Arcane\nBOK,U\nTarget player discards three cards."
+    IDS_STRING19148         "Uproot\n{3G}\nSorcery - Arcane\nBOK,C\nPut target land on top of its owner's library."
+    IDS_STRING19149         "Umezawa's Jitte\n{2}\nLegendary Artifact - Equipment\nBOK,R\nEquip {2}\rWhenever equipped creature deals combat damage, put two charge counters on Umezawa's Jitte.\rRemove a charge counter from Umezawa's Jitte: Choose one - Equipped creature gets +2/+2 until end of turn; or target creature gets -1/-1 until end of turn; or you gain 2 life."
+    IDS_STRING19150         "Tendo Ice Bridge\n\nLand\nBOK,R\nTendo Ice Bridge enters the battlefield with a charge counter on it.\r{T}: Add {1} to your mana pool.\r{T}, Remove a charge counter from Tendo Ice Bridge: Add one mana of any color to your mana pool."
+    IDS_STRING19151         "Eradicate\n{2BB}\nSorcery\nBOK,U\nExile target nonblack creature. Search its controller's graveyard, hand, and library for all cards with the same name as that creature and exile them. That player then shuffles his or her library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19152         "Splinter\n{2GG}\nSorcery\nBOK,U\nExile target artifact. Search its controller's graveyard, hand, and library for all cards with the same name as that artifact and exile them. That player then shuffles his or her library."
+    IDS_STRING19153         "Scour\n{2WW}\nInstant\nBOK,U\nExile target enchantment. Search its controller's graveyard, hand, and library for all cards with the same name as that enchantment and exile them. That player then shuffles his or her library."
+    IDS_STRING19154         "Sowing Salt\n{2RR}\nSorcery\nBOK,U\nExile target nonbasic land. Search its controller's graveyard, hand, and library for all cards with the same name as that land and exile them. That player then shuffles his or her library."
+    IDS_STRING19155         "Quash\n{2UU}\nInstant\nBOK,U\nCounter target instant or sorcery spell. Search its controller's graveyard, hand, and library for all cards with the same name as that spell and exile them. That player then shuffles his or her library."
+    IDS_STRING19156         "Crack the Earth\n{R}\nSorcery - Arcane\nBOK,C\nEach player sacrifices a permanent."
+    IDS_STRING19157         "That Which Was Taken\n{5}\nLegendary Artifact\nBOK,R\n{4}, {T}: Put a divinity counter on target permanent other than That Which Was Taken.\rEach permanent with a divinity counter on it is indestructible."
+    IDS_STRING19158         "Ishi-Ishi, Akki Crackshot\n{1R}\nLegendary Creature - Goblin Warrior\nBOK,R\nWhenever an opponent casts a Spirit or Arcane spell, Ishi-Ishi, Akki Crackshot deals 2 damage to that player.\n1/1"
+    IDS_STRING19159         "Kami of Tattered Shoji\n{4W}\nCreature - Spirit\nBOK,C\nWhenever you cast a Spirit or Arcane spell, Kami of Tattered Shoji gains flying until end of turn.\n2/5"
+    IDS_STRING19160         "Kyoki, Sanity's Eclipse\n{4BB}\nLegendary Creature - Demon Spirit\nBOK,R\nWhenever you cast a Spirit or Arcane spell, target opponent exiles a card from his or her hand.\n6/4"
+    IDS_STRING19161         "Loam Dweller\n{1G}\nCreature - Spirit\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may put a land card from your hand onto the battlefield tapped.\n2/2"
+    IDS_STRING19162         "Oyobi, Who Split the Heavens\n{6W}\nLegendary Creature - Spirit\nBOK,R\nFlying\rWhenever you cast a Spirit or Arcane spell, put a 3/3 white Spirit creature token with flying onto the battlefield.\n3/6"
+    IDS_STRING19163         "Scaled Hulk\n{5G}\nCreature - Spirit\nBOK,C\nWhenever you cast a Spirit or Arcane spell, Scaled Hulk gets +2/+2 until end of turn.\n4/4"
+    IDS_STRING19164         "Tallowisp\n{1W}\nCreature - Spirit\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may search your library for an Aura card with enchant creature, reveal it, and put it into your hand. If you do, shuffle your library.\n1/3"
+    IDS_STRING19165         "Baku Altar\n{2}\nArtifact\nBOK,R\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Baku Altar.\r{2}, {T}, Remove a ki counter from Baku Altar: Put a 1/1 colorless Spirit creature token onto the battlefield."
+    IDS_STRING19166         "Psychic Spear\n{B}\nSorcery\nBOK,C\nTarget player reveals his or her hand. You choose a Spirit or Arcane card from it. That player discards that card."
+    IDS_STRING19167         "Floodbringer\n{1U}\nCreature - Moonfolk Wizard\nBOK,C\nFlying\r{2}, Return a land you control to its owner's hand: Tap target land.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19168         "Soratami Mindsweeper\n{3U}\nCreature - Moonfolk Wizard\nBOK,U\nFlying\r{2}, Return a land you control to its owner's hand: Target player puts the top two cards of his or her library into his or her graveyard.\n1/4"
+    IDS_STRING19169         "Threads of Disloyalty\n{1UU}\nEnchantment - Aura\nBOK,R\nEnchant creature with converted mana cost 2 or less\rYou control enchanted creature."
+    IDS_STRING19170         "Harbinger of Spring\n{4G}\nCreature - Spirit\nBOK,C\nProtection from non-Spirit creatures\rSoulshift 4\n2/1"
+    IDS_STRING19171         "Ire of Kaminari\n{3R}\nInstant - Arcane\nBOK,C\nIre of Kaminari deals damage to target creature or player equal to the number of Arcane cards in your graveyard."
+    IDS_STRING19172         "Mark of the Oni\n{2B}\nEnchantment - Aura\nBOK,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of the end step, if you control no Demons, sacrifice Mark of the Oni."
+    IDS_STRING19173         "Terashi's Grasp\n{2W}\nSorcery - Arcane\nBOK,C\nDestroy target artifact or enchantment. You gain life equal to its converted mana cost."
+    IDS_STRING19174         "Ronin Warclub\n{3}\nArtifact - Equipment\nBOK,U\nEquipped creature gets +2/+1.\rWhenever a creature enters the battlefield under your control, attach Ronin Warclub to that creature.\rEquip {5}"
+    IDS_STRING19175         "Goblin Cohort\n{R}\nCreature - Goblin Warrior\nBOK,C\nGoblin Cohort can't attack unless you've cast a creature spell this turn.\n2/2"
+    IDS_STRING19176         "Sosuke's Summons\n{2G}\nSorcery\nBOK,U\nPut two 1/1 green Snake creature tokens onto the battlefield.\rWhenever a nontoken Snake enters the battlefield under your control, you may return Sosuke's Summons from your graveyard to your hand."
+    IDS_STRING19177         "Heartless Hidetsugu\n{3RR}\nLegendary Creature - Ogre Shaman\nBOK,R\n{T}: Heartless Hidetsugu deals damage to each player equal to half that player's life total, rounded down.\n4/3"
+    IDS_STRING19178         "Phantom Wings\n{1U}\nEnchantment - Aura\nBOK,C\nEnchant creature\rEnchanted creature has flying.\rSacrifice Phantom Wings: Return enchanted creature to its owner's hand."
+    IDS_STRING19179         "Mannichi, the Fevered Dream\n{2R}\nLegendary Creature - Spirit\nBOK,R\n{1R}: Switch each creature's power and toughness until end of turn.\n1/2"
+    IDS_STRING19180         "Mirror Gallery\n{5}\nArtifact\nBOK,R\nThe ""legend rule"" doesn't apply."
+    IDS_STRING19181         "Scourge of Numai\n{3B}\nCreature - Demon Spirit\nBOK,U\nAt the beginning of your upkeep, you lose 2 life if you don't control an Ogre.\n4/4"
+    IDS_STRING19182         "Takenuma Bleeder\n{2B}\nCreature - Ogre Shaman\nBOK,C\nWhenever Takenuma Bleeder attacks or blocks, you lose 1 life if you don't control a Demon.\n3/3"
+    IDS_STRING19183         "Ward of Piety\n{1W}\nEnchantment - Aura\nBOK,U\nEnchant creature\r{1W}: The next 1 damage that would be dealt to enchanted creature this turn is dealt to target creature or player instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19184         "Call for Blood\n{4B}\nInstant - Arcane\nBOK,C\nAs an additional cost to cast Call for Blood, sacrifice a creature.\rTarget creature gets -X/-X until end of turn, where X is the sacrificed creature's power."
+    IDS_STRING19185         "First Volley\n{1R}\nInstant - Arcane\nBOK,C\nFirst Volley deals 1 damage to target creature and 1 damage to that creature's controller."
+    IDS_STRING19186         "Stream of Consciousness\n{1U}\nInstant - Arcane\nBOK,U\nTarget player shuffles up to four target cards from his or her graveyard into his or her library."
+    IDS_STRING19187         "Toils of Night and Day\n{2U}\nInstant - Arcane\nBOK,C\nYou may tap or untap target permanent, then you may tap or untap another target permanent."
+    IDS_STRING19188         "Sway of the Stars\n{8UU}\nSorcery\nBOK,R\nEach player shuffles his or her hand, graveyard, and permanents he or she owns into his or her library, then draws seven cards. Each player's life total becomes 7."
+    IDS_STRING19189         "Clash of Realities\n{3R}\nEnchantment\nBOK,R\nAll Spirits have ""When this permanent enters the battlefield, you may have it deal 3 damage to target non-Spirit creature.""\rNon-Spirit creatures have ""When this creature enters the battlefield, you may have it deal 3 damage to target Spirit creature."""
+    IDS_STRING19190         "Kira, Great Glass-Spinner\n{1UU}\nLegendary Creature - Spirit\nBOK,R\nFlying\rCreatures you control have ""Whenever this creature becomes the target of a spell or ability for the first time in a turn, counter that spell or ability.""\n2/2"
+    IDS_STRING19191         "Ninja of the Deep Hours\n{3U}\nCreature - Human Ninja\nBOK,C\nNinjutsu {1U}\rWhenever Ninja of the Deep Hours deals combat damage to a player, you may draw a card.\n2/2"
+    IDS_STRING19192         "Higure, the Still Wind\n{3UU}\nLegendary Creature -  Human Ninja\nBOK,R\nNinjutsu {2UU}\rWhenever Higure deals combat damage to a player, you may search your library for a Ninja card, reveal it, and put it into your hand. If you do, shuffle your library\r{2}: Target Ninja creature is unblockable this turn.\n3/4"
+    IDS_STRING19193         "Ink-Eyes, Servant of Oni\n{4BB}\nLegendary Creature - Rat Ninja\nBOK,R\nNinjutsu {3BB}\rWhenever Ink-Eyes, Servant of Oni deals combat damage to a player, you may put target creature card from that player's graveyard onto the battlefield under your control.\r{1B}: Regenerate Ink-Eyes.\n5/4"
+    IDS_STRING19194         "Mistblade Shinobi\n{2U}\nCreature - Human Ninja\nBOK\nNinjutsu {U}\rWhenever Mistblade Shinobi deals combat damage to a player, you may return target creature that player controls to its owner's hand.\n1/1"
+    IDS_STRING19195         "Okiba-Gang Shinobi\n{3BB}\nCreature - Rat Ninja\nBOK\nNinjutsu {3B}\rWhenever Okiba-Gang Shinobi deals combat damage to a player, that player discards two cards.\n3/2"
+    IDS_STRING19196         "Skullsnatcher\n{1B}\nCreature - Rat Ninja\nBOK\nNinjutsu {B}\rWhenever Skullsnatcher deals combat damage to a player, exile up to two target cards from that player's graveyard.\n2/1"
+    IDS_STRING19197         "Throat Slitter\n{4B}\nCreature - Rat Ninja\nBOK,U\nNinjutsu {2B}\rWhenever Throat Slitter deals combat damage to a player, destroy target nonblack creature that player controls.\n2/2"
+    IDS_STRING19198         "Walker of Secret Ways\n{2U}\nCreature - Human Ninja\nBOK,U\nNinjutsu {1U}\rWhenever Walker of Secret Ways deals combat damage to a player, look at that player's hand\r{1U}: Return target Ninja you control to its owner's hand. Activate this ability only during your turn.\n1/2"
+    IDS_STRING19199         "Flames of the Blood Hand\n{2R}\nInstant\nBOK,U\nFlames of the Blood Hand deals 4 damage to target player. The damage can't be prevented. If that player would gain life this turn, that player gains no life instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19200         "Budoka Pupil\n{1GG}\nCreature - Human Monk\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Budoka Pupil.\rAt the beginning of the end step, if there are two or more ki counters on Budoka Pupil, you may flip it.\r--Ichiga, Who Topples Oaks\rLegendary Creature - Spirit 4/3\rTrample\rRemove a ki counter from Ichiga, Who Topples Oaks: Target creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING19201         "Callow Jushi\n{1UU}\nCreature - Human Wizard\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Callow Jushi.\rAt the beginning of the end step, if there are two or more ki counters on Callow Jushi, you may flip it.\r--Jaraku the Interloper\rLegendary Creature - Spirit 3/4\rRemove a ki counter from Jaraku the Interloper: Counter target spell unless its controller pays {2}.\n2/2"
+    IDS_STRING19202         "Cunning Bandit\n{1RR}\nCreature - Human Warrior\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Cunning Bandit.\rAt the beginning of the end step, if there are two or more ki counters on Cunning Bandit, you may flip it.\r--Azamuki, Treachery Incarnate\rLegendary Creature - Spirit 5/2\rRemove a ki counter from Azamuki, Treachery Incarnate: Gain control of target creature until end of turn.\n2/2"
+    IDS_STRING19203         "Faithful Squire\n{1WW}\nCreature - Human Soldier\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Faithful Squire.\rAt the beginning of the end step, if there are two or more ki counters on Faithful Squire, you may flip it.\r--Kaiso, Memory of Loyalty\rLegendary Creature - Spirit 3/4\rFlying\rRemove a ki counter from Kaiso, Memory of Loyalty: Prevent all damage that would be dealt to target creature this turn.\n2/2"
+    IDS_STRING19204         "Hired Muscle\n{1BB}\nCreature - Human Warrior\nBOK,U\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Hired Muscle.\rAt the beginning of the end step, if there are two or more ki counters on Hired Muscle, you may flip it.\r--Scarmaker\rLegendary Creature - Spirit 4/4\rRemove a ki counter from Scarmaker: Target creature gains fear until end of turn.\n2/2"
+    IDS_STRING19205         "Disrupting Shoal\n{XUU}\nInstant - Arcane\nBOK,R\nYou may exile a blue card with converted mana cost X from your hand rather than pay Disrupting Shoal's mana cost.\rCounter target spell if its converted mana cost is X."
+    IDS_STRING19206         "Blazing Shoal\n{XRR}\nInstant - Arcane\nBOK,R\nYou may exile a red card with converted mana cost X from your hand rather than pay Blazing Shoal's mana cost.\rTarget creature gets +X/+0 until end of turn."
+    IDS_STRING19207         "Sickening Shoal\n{XBB}\nInstant - Arcane\nBOK,R\nYou may exile a black card with converted mana cost X from your hand rather than pay Sickening Shoal's mana cost.\rTarget creature gets -X/-X until end of turn."
+    IDS_STRING19208         "Aura Barbs\n{2R}\nInstant - Arcane\nBOK,U\nEach enchantment deals 2 damage to its controller, then each Aura attached to a creature deals 2 damage to the creature it's attached to."
+    IDS_STRING19209         "Enshrined Memories\n{XG}\nSorcery\nBOK,R\nReveal the top X cards of your library. Put all creature cards revealed this way into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING19210         "Blademane Baku\n{1R}\nCreature - Spirit\nBOK,C\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Blademane Baku.\r{1}, Remove X ki counters from Blademane Baku: For each counter removed, Blademane Baku gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING19211         "Skullmane Baku\n{3BB}\nCreature - Spirit\nBOK,C\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Skullmane Baku.\r{1}, {T}, Remove X ki counters from Skullmane Baku: Target creature gets -X/-X until end of turn.\n2/1"
+    IDS_STRING19212         "Genju of the Cedars\n{G}\nEnchantment - Aura\nBOK,U\nEnchant Forest\r{2}: Enchanted Forest becomes a 4/4 green Spirit creature until end of turn. It's still a land.\rWhen enchanted Forest is put into a graveyard, you may return Genju of the Cedars from your graveyard to your hand."
+    IDS_STRING19213         "Genju of the Falls\n{U}\nEnchantment - Aura\nBOK,U\nEnchant Island\r{2}: Enchanted Island becomes a 3/2 blue Spirit creature with flying until end of turn. It's still a land.\rWhen enchanted Island is put into a graveyard, you may return Genju of the Falls from your graveyard to your hand."
+    IDS_STRING19214         "Genju of the Fens\n{B}\nEnchantment - Aura\nBOK,U\n Until end of turn, enchanted Swamp becomes a 2/2 black Spirit creature with ""{B}: This creature gets +1/+1 until end of turn."" It's still a land.\rWhen enchanted Swamp is put into a graveyard, you may return Genju of the Fens from your graveyard to your hand."
+    IDS_STRING19215         "Genju of the Fields\n{W}\nEnchantment - Aura\nBOK,U\nEnchant Plains\r{2}: Until end of turn, enchanted Plains becomes a 2/5 white Spirit creature with ""Whenever this creature deals damage, its controller gains that much life."" It's still a land.\rWhen enchanted Plains is put into a graveyard, you may return Genju of the Fields from your graveyard to your hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19216         "Genju of the Spires\n{R}\nEnchantment - Aura\nBOK,U\nEnchant Mountain\r{2}: Enchanted Mountain becomes a 6/1 red Spirit creature until end of turn. It's still a land.\rWhen enchanted Mountain is put into a graveyard, you may return Genju of the Spires from your graveyard to your hand."
+    IDS_STRING19217         "Genju of the Realm\n{WUBRG}\nLegendary Enchantment - Aura\nBOK,R\nEnchant Land\r{2}: Enchanted land becomes a legendary 8/12 Spirit creature with trample until end of turn. It's still a land.\rWhen enchanted land is put into a graveyard, you may return Genju of the Realm from your graveyard to your hand."
+    IDS_STRING19218         "Twist Allegiance\n{6R}\nSorcery\nBOK,R\nYou and target opponent each gain control of all creatures the other controls until end of turn. Untap those creatures. Those creatures gain haste until end of turn."
+    IDS_STRING19219         "Stir the Grave\n{XB}\nSorcery\nBOK,C\nReturn target creature card with converted mana cost X or less from your graveyard to the battlefield."
+    IDS_STRING19220         "Petalmane Baku\n{1G}\nCreature - Spirit\nBOK,C\nWhenever you cast a Spirit or Arcane spell, you may put a ki counter on Petalmane Baku.\r{1}, Remove X ki counters from Petalmane Baku: Add X mana of any one color to your mana pool.\n1/2"
+    IDS_STRING19221         "Chisei, Heart of Oceans\n{2UU}\nLegendary Creature - Spirit\nBOK,R\nFlying\rAt the beginning of your upkeep, sacrifice Chisei, Heart of Oceans unless you remove a counter from a permanent you control.\n4/4"
+    IDS_STRING19222         "Minamo Sightbender\n{1U}\nCreature - Human Wizard\nBOK,U\n{X}, {T}: Target creature with power X or less is unblockable this turn.\n1/2"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

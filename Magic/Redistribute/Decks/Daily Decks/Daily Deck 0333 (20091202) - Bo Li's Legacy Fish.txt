@@ -1,0 +1,57 @@
+// Total cards in deck - 60
+
+// Creatures - 19 (31.67%)
+
+4 Cursecatcher (18534)
+4 Lord of Atlantis (17249)
+4 Merrow Reejerey (18082)
+4 Silvergill Adept (18089)
+3 Wake Thrasher (18931)
+
+// Instants - 11 (18.33%)
+
+3 Daze (12089)
+4 Force of Will (6759)
+2 Spell Snare (17050)
+2 Stifle (14676)
+
+// Enchantments - 4 (6.67%)
+
+4 Standstill (13312)
+
+// Artifacts - 6 (10.00%)
+
+2 Umezawa's Jitte (19149)
+4 AEther Vial (15278)
+
+// Lands - 20 (33.33%)
+
+3 Island (4052)
+3 Island (4055)
+3 Island (4053)
+3 Island (4054)
+4 Mutavault (18368)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Kira, Great Glass-Spinner (19190)
+2 Merfolk Sovereign (4007)
+2 Sower of Temptation (18074)
+
+// Instants
+
+4 Hydroblast (8134)
+2 Mindbreak Trap (19500)
+
+// Enchantments
+
+2 Threads of Disloyalty (19169)
+
+// Artifacts
+
+Umezawa's Jitte (19149)

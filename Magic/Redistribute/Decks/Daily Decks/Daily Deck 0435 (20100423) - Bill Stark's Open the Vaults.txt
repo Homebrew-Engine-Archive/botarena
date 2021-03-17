@@ -1,0 +1,41 @@
+// Total cards in deck - 61
+
+// Creatures - 21 (34.43%)
+
+4 Architects of Will (9056)
+4 Filigree Angel (9073)
+4 Glassdust Hulk (9030)
+Sharuum the Hegemon (8621)
+4 Sphinx of Jwar Isle (19378)
+4 Wall of Omens (20842)
+
+// Sorceries - 8 (13.11%)
+
+4 Day of Judgment (19340)
+4 Open the Vaults (4194)
+
+// Enchantments - 4 (6.56%)
+
+4 Spreading Seas (19430)
+
+// Artifacts - 7 (11.48%)
+
+Courier's Capsule (8550)
+3 Fieldmist Borderpost (9091)
+3 Mistvein Borderpost (9094)
+
+// Lands - 21 (34.43%)
+
+2 Celestial Colonnade (19602)
+4 Glacial Fortress (4200)
+Island (20807)
+Island (20806)
+Island (20805)
+2 Island (20804)
+2 Kabira Crossroads (19401)
+2 Marsh Flats (19357)
+Plains (20812)
+Plains (20813)
+Plains (20814)
+Swamp (20816)
+2 Terramorphic Expanse (4111)

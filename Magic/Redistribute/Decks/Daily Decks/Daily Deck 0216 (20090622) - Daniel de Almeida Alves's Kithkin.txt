@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Ajani Goldmane (18047)
+
+// Creatures - 22 (36.67%)
+
+3 Burrenton Forge-Tender (18054)
+4 Cloudgoat Ranger (17923)
+4 Figure of Destiny (19006)
+4 Knight of Meadowgrain (18020)
+4 Knight of the White Orchid (8657)
+3 Ranger of Eos (8642)
+
+// Instants - 4 (6.67%)
+
+2 Path to Exile (8897)
+2 Unmake (18930)
+
+// Sorceries - 4 (6.67%)
+
+4 Spectral Procession (18640)
+
+// Enchantments - 4 (6.67%)
+
+4 Glorious Anthem (3061)
+
+// Lands - 25 (41.67%)
+
+2 Mutavault (18368)
+4 Plains (8525)
+4 Plains (8523)
+4 Plains (8526)
+4 Plains (8524)
+3 Rustic Clachan (18373)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth, Knight-Errant (8722)
+
+// Creatures
+
+Burrenton Forge-Tender (18054)
+2 Reveillark (18341)
+3 Stillmoon Cavalier (18957)
+
+// Instants
+
+2 Path to Exile (8897)
+
+// Sorceries
+
+3 Wrath of God (3200)
+
+// Enchantments
+
+3 Aura of Silence (3221)

@@ -1,0 +1,37 @@
+// Total cards in deck - 60
+
+// Creatures - 41 (68.33%)
+
+4 Arbor Elf (19615)
+4 Bramblewood Paragon (18412)
+2 Copperhorn Scout (21596)
+4 Elvish Archdruid (21227)
+4 Ezuri, Renegade Leader (21539)
+4 Heritage Druid (18307)
+4 Imperious Perfect (17961)
+4 Joraga Warcaller (19712)
+4 Llanowar Elves (21206)
+4 Nettle Sentinel (18902)
+3 Wren's Run Vanquisher (18077)
+
+// Lands - 19 (31.67%)
+
+5 Forest (21402)
+4 Forest (21403)
+5 Forest (21400)
+5 Forest (21401)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Leatherback Baloth (19601)
+
+// Instants
+
+3 Hornet Sting (21250)
+3 Nature's Claim (19662)
+3 Plummet (21101)
+2 Vines of Vastwood (19435)

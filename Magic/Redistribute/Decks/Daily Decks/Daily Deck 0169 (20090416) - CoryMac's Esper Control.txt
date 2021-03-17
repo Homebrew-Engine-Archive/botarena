@@ -1,0 +1,61 @@
+// Total cards in deck - 60
+
+// Creatures - 22 (36.67%)
+
+2 Master of Etherium (8594)
+3 Master Transmuter (8930)
+3 Parasitic Strix (8882)
+4 Sanctum Gargoyle (8614)
+3 Sphinx Summoner (8840)
+4 Tidehollow Sculler (8721)
+3 Tower Gargoyle (8633)
+
+// Instants - 4 (6.67%)
+
+4 Path to Exile (8897)
+
+// Enchantments - 4 (6.67%)
+
+4 Oblivion Ring (8718)
+
+// Artifacts - 6 (10.00%)
+
+3 Courier's Capsule (8550)
+3 Executioner's Capsule (8569)
+
+// Lands - 24 (40.00%)
+
+4 Arcane Sanctum (8534)
+4 Esper Panorama (8637)
+Island (8516)
+2 Island (8514)
+Island (8517)
+Island (8515)
+2 Plains (8524)
+2 Plains (8523)
+Plains (8526)
+Plains (8525)
+Swamp (8529)
+2 Swamp (8527)
+Swamp (8530)
+Swamp (8528)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Parasitic Strix (8882)
+
+// Instants
+
+4 Agony Warp (8704)
+4 Countersquall (8890)
+
+// Artifacts
+
+Courier's Capsule (8550)
+3 Etherium Astrolabe (8568)
+Executioner's Capsule (8569)
+Scepter of Fugue (8853)

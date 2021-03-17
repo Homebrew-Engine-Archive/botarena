@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 11 (18.33%)
+
+4 Chittering Rats (15224)
+3 Crypt Rats (918)
+4 Mulldrifter (18023)
+
+// Instants - 10 (16.67%)
+
+Death Denied (16250)
+4 Diabolic Edict (10182)
+2 Echoing Decay (15268)
+3 Tendrils of Corruption (17231)
+
+// Sorceries - 15 (25.00%)
+
+3 Deep Analysis (13607)
+4 Distress (3262)
+4 Innocent Blood (13432)
+4 Probe (12636)
+
+// Lands - 24 (40.00%)
+
+2 Dimir Aqueduct (16402)
+2 Grixis Panorama (8638)
+Island (8514)
+Island (8515)
+Island (8516)
+3 Swamp (8530)
+4 Swamp (8527)
+4 Swamp (8528)
+3 Swamp (8529)
+3 Terramorphic Expanse (3278)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Dross Golem (15307)
+
+// Instants
+
+Echoing Decay (15268)
+3 Hydroblast (8134)
+Tendrils of Corruption (17231)
+
+// Sorceries
+
+4 Duress (795)
+
+// Artifacts
+
+2 Relic of Progenitus (8725)

@@ -1,0 +1,266 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "UrzasDestiny.ico"
+IDI_LARGE_MODULE        ICON                    "UrzasDestinyLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Urza's Destiny"
+    IDS_EXPANSION_ABBREV    "UDS"
+    IDS_FIRST_CARD          "11400"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "11543"
+    IDS_MODULE_LARGE_ICON_ID "11544"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "07-06-1999"
+    IDS_MWS_FOLDER          "MWS\\UDS\\"
+    IDS_PRODUCT_LIST        """Urza's Destiny Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11400         "Attrition\n{1BB}\nEnchantment\nUDS,R\n{B}, Sacrifice a creature: Destroy target nonblack creature."
+    IDS_STRING11401         "Blizzard Elemental\n{5UU}\nCreature - Elemental\nUDS,R\nFlying\r{3U}: Untap Blizzard Elemental.\n5/5"
+    IDS_STRING11402         "Covetous Dragon\n{4R}\nCreature - Dragon\nUDS,R\nFlying\rWhen you control no artifacts, sacrifice Covetous Dragon.\n6/5"
+    IDS_STRING11403         "Masticore\n{4}\nArtifact Creature - Masticore\nUDS, R\nAt the beginning of your upkeep, sacrifice Masticore unless you discard a card.\r{2}: Masticore deals 1 damage to target creature.\r{2}: Regenerate Masticore.\n4/4"
+    IDS_STRING11404         "Metathran Soldier\n{1U}\nCreature - Metathran Soldier\nUDS,C\nMetathran Soldier is unblockable.\n1/1"
+    IDS_STRING11405         "Thran Dynamo\n{4}\nArtifact\nUDS,U\n{T}: Add {3} to your mana pool."
+    IDS_STRING11406         "Yawgmoth's Bargain\n{4BB}\nEnchantment\nUDS,R\nSkip your draw step.\rPay 1 life: Draw a card."
+    IDS_STRING11407         "Ancient Silverback\n{4GG}\nCreature - Ape\nUDS,R\n{G}: Regenerate Ancient Silverback.\n6/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11408         "Bloodshot Cyclops\n{5R}\nCreature - Cyclops Giant\nUDS,R\n{T}, Sacrifice a creature: Bloodshot Cyclops deals damage equal to the sacrificed creature's power to target creature or player.\n4/4"
+    IDS_STRING11409         "Caltrops\n{3}\nArtifact\nUDS,U\nWhenever a creature attacks, Caltrops deals 1 damage to it."
+    IDS_STRING11410         "Compost\n{1G}\nEnchantment\nUDS,U\nWhenever a black card is put into an opponent's graveyard from anywhere, you may draw a card."
+    IDS_STRING11411         "Elvish Piper\n{3G}\nCreature - Elf Shaman\nUDS,R\n{G}, {T}: You may put a creature card from your hand onto the battlefield.\n1/1"
+    IDS_STRING11412         "Emperor Crocodile\n{3G}\nCreature - Crocodile\nUDS,R\nWhen you control no other creatures, sacrifice Emperor Crocodile.\n5/5"
+    IDS_STRING11413         "Fodder Cannon\n{4}\nArtifact\nUDS,U\n{4}, {T}, Sacrifice a creature: Fodder Cannon deals 4 damage to target creature."
+    IDS_STRING11414         "Goblin Gardener\n{3R}\nCreature - Goblin\nUDS,C\nWhen Goblin Gardener dies, destroy target land.\n2/1"
+    IDS_STRING11415         "Impatience\n{2R}\nEnchantment\nUDS,R\nAt the beginning of each player's end step, if that player didn't cast a spell that turn, Impatience deals 2 damage to him or her."
+    IDS_STRING11416         "Mantis Engine\n{5}\nArtifact Creature - Insect\nUDS,U\n{2}: Mantis Engine gains flying until end of turn.\r{2}: Mantis Engine gains first strike until end of turn.\n3/3"
+    IDS_STRING11417         "Master Healer\n{4W}\nCreature - Human Cleric\nUDS,R\n{T}: Prevent the next 4 damage that would be dealt to target creature or player this turn.\n1/4"
+    IDS_STRING11418         "Opposition\n{2UU}\nEnchantment\nUDS,R\nTap an untapped creature you control: Tap target artifact, creature, or land."
+    IDS_STRING11419         "Plow Under\n{3GG}\nSorcery\nUDS,R\nPut two target lands on top of their owners' libraries."
+    IDS_STRING11420         "Ravenous Rats\n{1B}\nCreature - Rat\nUDS,C\nWhen Ravenous Rats enters the battlefield, target opponent discards a card.\n1/1"
+    IDS_STRING11421         "Sanctimony\n{1W}\nEnchantment\nUDS,U\nWhenever an opponent taps a Mountain for mana, you may gain 1 life."
+    IDS_STRING11422         "Serra Advocate\n{3W}\nCreature - Angel\nUDS,U\nFlying\r{T}: Target attacking or blocking creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING11423         "Solidarity\n{3W}\nInstant\nUDS,C\nCreatures you control get +0/+5 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11424         "Soul Feast\n{3BB}\nSorcery\nUDS,U\nTarget player loses 4 life and you gain 4 life."
+    IDS_STRING11425         "Storage Matrix\n{3}\nArtifact\nUDS,R\nAs long as Storage Matrix is untapped, each player chooses artifact, creature, or land during his or her untap step. That player can untap only permanents of the chosen type this step."
+    IDS_STRING11426         "Taunting Elf\n{G}\nCreature - Elf\nUDS,C\nAll creatures able to block Taunting Elf do so.\n0/1"
+    IDS_STRING11427         "Telepathic Spies\n{2U}\nCreature - Human Wizard\nUDS,C\nWhen Telepathic Spies enters the battlefield, look at target opponent's hand.\n2/2"
+    IDS_STRING11428         "Temporal Adept\n{1UU}\nCreature - Human Wizard\nUDS,R\n{UUU}, {T}: Return target permanent to its owner's hand.\n1/1"
+    IDS_STRING11429         "Thieving Magpie\n{2UU}\nCreature - Bird\nUDS,U\nFlying\rWhenever Thieving Magpie deals damage to an opponent, draw a card.\n1/3"
+    IDS_STRING11430         "Thorn Elemental\n{5GG}\nCreature - Elemental\nUDS,R\nYou may have Thorn Elemental assign its combat damage as though it weren't blocked.\n7/7"
+    IDS_STRING11431         "Thran Golem\n{5}\nArtifact Creature - Golem\nUDS,R\nAs long as Thran Golem is enchanted, it gets +2/+2 and has flying, first strike, and trample.\n3/3"
+    IDS_STRING11432         "Trumpet Blast\n{2R}\nInstant\nUDS,C\nAttacking creatures get +2/+0 until end of turn."
+    IDS_STRING11433         "Yavimaya Enchantress\n{2G}\nCreature - Human Druid\nUDS,U\nYavimaya Enchantress gets +1/+1 for each enchantment on the battlefield.\n2/2"
+    IDS_STRING11434         "Capashen Knight\n{1W}\nCreature - Human Knight\nUDS,C\nFirst strike\r{1W}: Capashen Knight gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING11435         "Capashen Templar\n{2W}\nCreature - Human Knight\nUDS,C\n{W}: Capashen Templar gets +0/+1 until end of turn.\n2/2"
+    IDS_STRING11436         "Colos Yearling\n{2R}\nCreature - Goat Beast\nUDS,C\nMountainwalk\r{R}: Colos Yearling gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING11437         "Disease Carriers\n{2BB}\nCreature - Rat\nUDS,C\nWhen Disease Carriers dies, target creature gets -2/-2 until end of turn.\n2/2"
+    IDS_STRING11438         "Elvish Lookout\n{G}\nCreature - Elf\nUDS,C\nShroud\n1/1"
+    IDS_STRING11439         "False Prophet\n{2WW}\nCreature - Human Cleric\nUDS,R\nWhen False Prophet dies, exile all creatures.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11440         "Field Surgeon\n{1W}\nCreature - Human Cleric\nUDS,C\nTap an untapped creature you control: Prevent the next 1 damage that would be dealt to target creature this turn.\n1/1"
+    IDS_STRING11441         "Fledgling Osprey\n{U}\nCreature - Bird\nUDS,C\nFledgling Osprey has flying as long as it's enchanted.\n1/1"
+    IDS_STRING11442         "Goblin Berserker\n{3R}\nCreature - Goblin Berserker\nUDS,U\nFirst strike, haste\n2/2"
+    IDS_STRING11443         "Goblin Masons\n{1R}\nCreature - Goblin\nUDS,C\nWhen Goblin Masons dies, destroy target Wall.\n2/1"
+    IDS_STRING11444         "Goliath Beetle\n{2G}\nCreature - Insect\nUDS,C\nTrample\n3/1"
+    IDS_STRING11445         "Heart Warden\n{1G}\nCreature - Elf Druid\nUDS,C\n{T}: Add {G} to your mana pool.\r{2}, Sacrifice Heart Warden: Draw a card.\n1/1"
+    IDS_STRING11446         "Hulking Ogre\n{2R}\nCreature - Ogre\nUDS,C\nHulking Ogre can't block.\n3/3"
+    IDS_STRING11447         "Kingfisher\n{3U}\nCreature - Bird\nUDS,C\nFlying\rWhen Kingfisher dies, draw a card.\n2/2"
+    IDS_STRING11448         "Marker Beetles\n{1GG}\nCreature - Insect\nUDS,C\nWhen Marker Beetles dies, target creature gets +1/+1 until end of turn.\r{2}, Sacrifice Marker Beetles: Draw a card.\n2/3"
+    IDS_STRING11449         "Metathran Elite\n{1UU}\nCreature - Metathran Soldier\nUDS,U\nMetathran Elite is unblockable as long as it's enchanted.\n2/3"
+    IDS_STRING11450         "Phyrexian Monitor\n{3B}\nCreature - Skeleton\nUDS,C\n{B}: Regenerate Phyrexian Monitor.\n2/2"
+    IDS_STRING11451         "Plague Dogs\n{4B}\nCreature - Zombie Hound\nUDS,U\nWhen Plague Dogs dies, all creatures get -1/-1 until end of turn.\r{2}, Sacrifice Plague Dogs: Draw a card.\n3/3"
+    IDS_STRING11452         "Plated Spider\n{4G}\nCreature - Spider\nUDS,C\nReach\n4/4"
+    IDS_STRING11453         "Reliquary Monk\n{2W}\nCreature - Human Monk Cleric\nUDS,C\nWhen Reliquary Monk dies, destroy target artifact or enchantment.\n2/2"
+    IDS_STRING11454         "Skittering Horror\n{2B}\nCreature - Horror\nUDS,C\nWhen you cast a creature spell, sacrifice Skittering Horror.\n4/3"
+    IDS_STRING11455         "Slinking Skirge\n{3B}\nCreature - Imp\nUDS,C\nFlying\r{2}, Sacrifice Slinking Skirge: Draw a card.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11456         "Squirming Mass\n{1B}\nCreature - Horror\nUDS,C\nFear\n1/1"
+    IDS_STRING11457         "Tethered Griffin\n{W}\nCreature - Griffin\nUDS,R\nFlying\rWhen you control no enchantments, sacrifice Tethered Griffin.\n2/3"
+    IDS_STRING11458         "Tormented Angel\n{3W}\nCreature - Angel\nUDS,C\nFlying\n1/5"
+    IDS_STRING11459         "Voice of Duty\n{3W}\nCreature - Angel\nUDS,U\nFlying, protection from green\n2/2"
+    IDS_STRING11460         "Voice of Reason\n{3W}\nCreature - Angel\nUDS,U\nFlying, protection from blue\n2/2"
+    IDS_STRING11461         "Wall of Glare\n{1W}\nCreature - Wall\nUDS,C\nDefender\rWall of Glare can block any number of creatures.\n0/5"
+    IDS_STRING11462         "Wild Colos\n{2R}\nCreature - Goat Beast\nUDS,C\nHaste\n2/2"
+    IDS_STRING11463         "Yavimaya Elder\n{1GG}\nCreature - Human Druid\nUDS,C\nWhen Yavimaya Elder dies, you may search your library for up to two basic land cards, reveal them, and put them into your hand. If you do, shuffle your library.\r{2}, Sacrifice Yavimaya Elder: Draw a card.\n2/1"
+    IDS_STRING11464         "Brass Secretary\n{3}\nArtifact Creature - Construct\nUDS,U\n{2}, Sacrifice Brass Secretary: Draw a card.\n2/1"
+    IDS_STRING11465         "Extruder\n{4}\nArtifact Creature - Juggernaut\nUDS,U\nEcho {4}\rSacrifice an artifact: Put a +1/+1 counter on target creature.\n4/3"
+    IDS_STRING11466         "Junk Diver\n{3}\nArtifact Creature - Bird\nUDS,R\nFlying\rWhen Junk Diver dies, return another target artifact card from your graveyard to your hand.\n1/1"
+    IDS_STRING11467         "Yavimaya Hollow\n\nLegendary Land\nUDS,R\n{T}: Add {1} to your mana pool.\r{G}, {T}: Regenerate target creature."
+    IDS_STRING11468         "Braidwood Cup\n{3}\nArtifact\nUDS,U\n{T}: You gain 1 life."
+    IDS_STRING11469         "Braidwood Sextant\n{1}\nArtifact\nUDS,U\n{2}, {T}, Sacrifice Braidwood Sextant: Search your library for a basic land card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING11470         "AEther Sting\n{3R}\nEnchantment\nUDS,U\nWhenever an opponent casts a creature spell, Æther Sting deals 1 damage to that player."
+    IDS_STRING11471         "Capashen Standard\n{W}\nEnchantment - Aura\nUDS,C\nEnchant creature\rEnchanted creature gets +1/+1.\r{2}, Sacrifice Capashen Standard: Draw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11472         "Chime of Night\n{1B}\nEnchantment - Aura\nUDS,C\nEnchant creature\rWhen Chime of Night is put into a graveyard from the battlefield, destroy target nonblack creature."
+    IDS_STRING11473         "Illuminated Wings\n{1U}\nEnchantment - Aura\nUDS,C\nEnchant creature\rEnchanted creature has flying.\r{2}, Sacrifice Illuminated Wings: Draw a card."
+    IDS_STRING11474         "Mark of Fury\n{R}\nEnchantment - Aura\nUDS,C\nEnchant creature\rEnchanted creature has haste.\rAt the beginning of the end step, return Mark of Fury to its owner's hand."
+    IDS_STRING11475         "Mask of Law and Grace\n{W}\nEnchantment - Aura\nUDS,C\nEnchant creature\rEnchanted creature has protection from black and from red."
+    IDS_STRING11476         "Mental Discipline\n{1UU}\nEnchantment\nUDS,C\n{1U}, Discard a card: Draw a card."
+    IDS_STRING11477         "Twisted Experiment\n{1B}\nEnchantment - Aura\nUDS,C\nEnchant creature\rEnchanted creature gets +3/-1."
+    IDS_STRING11478         "Fend Off\n{1W}\nInstant\nUDS,C\nPrevent all combat damage that would be dealt by target creature this turn.\rCycling {2}"
+    IDS_STRING11479         "Magnify\n{G}\nInstant\nUDS,C\nAll creatures get +1/+1 until end of turn."
+    IDS_STRING11480         "Rapid Decay\n{1B}\nInstant\nUDS,R\nExile up to three target cards from a single graveyard.\rCycling {2}"
+    IDS_STRING11481         "Rescue\n{U}\nInstant\nUDS,C\nReturn target permanent you control to its owner's hand."
+    IDS_STRING11482         "Bubbling Muck\n{B}\nSorcery\nUDS,C\nUntil end of turn, whenever a player taps a Swamp for mana, that player adds {B} to his or her mana pool."
+    IDS_STRING11483         "Encroach\n{B}\nSorcery\nUDS,U\nTarget player reveals his or her hand. You choose a nonbasic land card from it. That player discards that card."
+    IDS_STRING11484         "Flame Jet\n{1R}\nSorcery\nUDS,C\nFlame Jet deals 3 damage to target player.\rCycling {2}"
+    IDS_STRING11485         "Reckless Abandon\n{R}\nSorcery\nUDS,C\nAs an additional cost to cast Reckless Abandon, sacrifice a creature.\rReckless Abandon deals 4 damage to target creature or player."
+    IDS_STRING11486         "Treachery\n{3UU}\nEnchantment - Aura\nUDS,R\nEnchant creature\rWhen Treachery enters the battlefield, untap up to five lands.\rYou control enchanted creature."
+    IDS_STRING11487         "Goblin Marshal\n{4RR}\nCreature - Goblin Warrior\nUDS,R\nEcho {4RR}\rWhen Goblin Marshal enters the battlefield or dies, put two 1/1 red Goblin creature tokens onto the battlefield.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11488         "Hunting Moa\n{2G}\nCreature - Bird Beast\nUDS,U\nEcho {2G}\rWhen Hunting Moa enters the battlefield or dies, put a +1/+1 counter on target creature.\n3/2"
+    IDS_STRING11489         "Keldon Champion\n{2RR}\nCreature - Human Barbarian\nUDS,U\nHaste\rEcho {2RR}\rWhen Keldon Champion enters the battlefield, it deals 3 damage to target player.\n3/2"
+    IDS_STRING11490         "Keldon Vandals\n{2R}\nCreature - Human Rogue\nUDS,C\nEcho {2R}\rWhen Keldon Vandals enters the battlefield, destroy target artifact.\n4/1"
+    IDS_STRING11491         "Rofellos, Llanowar Emissary\n{GG}\nLegendary Creature - Elf Druid\nUDS,R\n{T}: Add {G} to your mana pool for each Forest you control.\n2/1"
+    IDS_STRING11492         "Wake of Destruction\n{3RRR}\nSorcery\nUDS,R\nDestroy target land and all other lands with the same name as that land."
+    IDS_STRING11493         "Phyrexian Negator\n{2B}\nCreature - Horror\nUDS,R\nTrample\rWhenever Phyrexian Negator is dealt damage, sacrifice that many permanents.\n5/5"
+    IDS_STRING11494         "Thran Foundry\n{1}\nArtifact\nUDS,U\n{1}, {T}, Exile Thran Foundry: Target player shuffles his or her graveyard into his or her library."
+    IDS_STRING11495         "Carnival of Souls\n{1B}\nEnchantment\nUDS,R\nWhenever a creature enters the battlefield, you lose 1 life and add {B} to your mana pool."
+    IDS_STRING11496         "Academy Rector\n{3W}\nCreature - Human Cleric\nUDS,R\nWhen Academy Rector dies, you may exile it. If you do, search your library for an enchantment card, put that card onto the battlefield, then shuffle your library.\n1/2"
+    IDS_STRING11497         "Eradicate\n{2BB}\nSorcery\nUDS,U\nExile target nonblack creature. Search its controller's graveyard, hand, and library for all cards with the same name as that creature and exile them. That player then shuffles his or her library."
+    IDS_STRING11498         "Splinter\n{2GG}\nSorcery\nUDS,U\nExile target artifact. Search its controller's graveyard, hand, and library for all cards with the same name as that artifact and exile them. That player then shuffles his or her library."
+    IDS_STRING11499         "Scour\n{2WW}\nInstant\nUDS,U\nExile target enchantment. Search its controller's graveyard, hand, and library for all cards with the same name as that enchantment and exile them. That player then shuffles his or her library."
+    IDS_STRING11500         "Sowing Salt\n{2RR}\nSorcery\nUDS,U\nExile target nonbasic land. Search its controller's graveyard, hand, and library for all cards with the same name as that land and exile them. That player then shuffles his or her library."
+    IDS_STRING11501         "Quash\n{2UU}\nInstant\nUDS,U\nCounter target instant or sorcery spell. Search its controller's graveyard, hand, and library for all cards with the same name as that spell and exile them. That player then shuffles his or her library."
+    IDS_STRING11502         "Gamekeeper\n{3G}\nCreature - Elf\nUDS,U\nWhen Gamekeeper dies, you may exile it. If you do, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and put all other cards revealed this way into your graveyard.\n2/2"
+    IDS_STRING11503         "Apprentice Necromancer\n{1B}\nCreature - Zombie Wizard\nUDS,R\n{B}, {T}, Sacrifice Apprentice Necromancer: Return target creature card from your graveyard to the battlefield. That creature gains haste. At the beginning of the next end step, sacrifice it.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11504         "Bubbling Beebles\n{4U}\nCreature - Beeble\nUDS,C\nBubbling Beebles is unblockable as long as defending player controls an enchantment.\n3/3"
+    IDS_STRING11505         "Fatigue\n{1U}\nSorcery\nUDS,C\nTarget player skips his or her next draw step."
+    IDS_STRING11506         "Flicker\n{1W}\nSorcery\nUDS,R\nExile target nontoken permanent, then return it to the battlefield under its owner's control."
+    IDS_STRING11507         "Repercussion\n{1RR}\nEnchantment\nUDS,R\nWhenever a creature is dealt damage, Repercussion deals that much damage to that creature's controller."
+    IDS_STRING11508         "Sigil of Sleep\n{U}\nEnchantment - Aura\nUDS,C\nEnchant creature\rWhenever enchanted creature deals damage to a player, return target creature that player controls to its owner's hand."
+    IDS_STRING11509         "Powder Keg\n{2}\nArtifact\nUDS,R\nAt the beginning of your upkeep, you may put a fuse counter on Powder Keg.\r{T}, Sacrifice Powder Keg: Destroy each artifact and creature with converted mana cost equal to the number of fuse counters on Powder Keg."
+    IDS_STRING11510         "Replenish\n{3W}\nSorcery\nUDS,R\nReturn all enchantment cards from your graveyard to the battlefield."
+    IDS_STRING11511         "Donate\n{2U}\nSorcery\nUDS,R\nTarget player gains control of target permanent you control."
+    IDS_STRING11512         "Metalworker\n{3}\nArtifact Creature - Construct\nUDS,R\n{T}: Reveal any number of artifact cards in your hand. Add {2} to your mana pool for each card revealed this way.\n1/2"
+    IDS_STRING11513         "Archery Training\n{W}\nEnchantment - Aura\nUDS,U\nEnchant creature\rAt the beginning of your upkeep, you may put an arrow counter on Archery Training.\rEnchanted creature has ""{T}: This creature deals X damage to target attacking or blocking creature, where X is the number of arrow counters on Archery Training."""
+    IDS_STRING11514         "Dying Wail\n{1B}\nEnchantment - Aura\nUDS,C\nEnchant creature\rWhen enchanted creature dies, target player discards two cards."
+    IDS_STRING11515         "Iridescent Drake\n{3U}\nCreature - Drake\nUDS,U\nFlying\rWhen Iridescent Drake enters the battlefield, put target Aura card from a graveyard onto the battlefield under your control attached to Iridescent Drake.\n2/2"
+    IDS_STRING11516         "Disappear\n{2UU}\nEnchantment - Aura\nUDS,U\nEnchant creature\r{U}: Return enchanted creature and Disappear to their owners' hands."
+    IDS_STRING11517         "Multani's Decree\n{3G}\nSorcery\nUDS,C\nDestroy all enchantments. You gain 2 life for each enchantment destroyed this way."
+    IDS_STRING11518         "Incendiary\n{R}\nEnchantment - Aura\nUDS,U\nEnchant creature\rAt the beginning of your upkeep, you may put a fuse counter on Incendiary.\rWhen enchanted creature dies, Incendiary deals X damage to target creature or player, where X is the number of fuse counters on Incendiary."
+    IDS_STRING11519         "Private Research\n{U}\nEnchantment - Aura\nUDS,U\nEnchant creature\rAt the beginning of your upkeep, you may put a page counter on Private Research.\rWhen enchanted creature dies, draw a card for each page counter on Private Research."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING11520         "Pattern of Rebirth\n{3G}\nEnchantment - Aura\nUDS,R\nEnchant creature\rWhen enchanted creature dies, that creature's controller may search his or her library for a creature card and put that card onto the battlefield. If that player does, he or she shuffles his or her library."
+    IDS_STRING11521         "Rayne, Academy Chancellor\n{2U}\nLegendary Creature - Human Wizard\nUDS,R\nWhenever you or a permanent you control becomes the target of a spell or ability an opponent controls, you may draw a card. You may draw an additional card if Rayne, Academy Chancellor is enchanted.\n1/1"
+    IDS_STRING11522         "Festering Wound\n{1B}\nEnchantment - Aura\nUDS,U\nEnchant creature\rAt the beginning of your upkeep, you may put an infection counter on Festering Wound.\rAt the beginning of the upkeep of enchanted creature's controller, Festering Wound deals X damage to that player, where X is the number of infection counters on Festering Wound."
+    IDS_STRING11523         "Scrying Glass\n{2}\nArtifact\nUDS,R\n{3}, {T}: Choose a number greater than 0 and a color. Target opponent reveals his or her hand. If that opponent reveals exactly the chosen number of cards of the chosen color, you draw a card."
+    IDS_STRING11524         "Landslide\n{R}\nSorcery\nUDS,U\nSacrifice any number of Mountains. Landslide deals that much damage to target player."
+    IDS_STRING11525         "Body Snatcher\n{2BB}\nCreature - Minion\nUDS,R\nWhen Body Snatcher enters the battlefield, exile it unless you discard a creature card.\rWhen Body Snatcher dies, exile Body Snatcher and return target creature card from your graveyard to the battlefield.\n2/2"
+    IDS_STRING11526         "Cinder Seer\n{3R}\nCreature - Human Wizard\nUDS,U\n{2R}, {T}: Reveal any number of red cards in your hand. Cinder Seer deals X damage to target creature or player, where X is the number of cards revealed this way.\n1/1"
+    IDS_STRING11527         "Ivy Seer\n{3G}\nCreature - Elf Wizard\nUDS,U\n{2G}, {T}: Reveal any number of green cards in your hand. Target creature gets +X/+X until end of turn, where X is the number of cards revealed this way.\n1/1"
+    IDS_STRING11528         "Jasmine Seer\n{3W}\nCreature - Human Wizard\nUDS,U\n{2W}, {T}: Reveal any number of white cards in your hand. You gain 2 life for each card revealed this way.\n1/1"
+    IDS_STRING11529         "Urza's Incubator\n{3}\nArtifact\nUDS,R\nAs Urza's Incubator enters the battlefield, choose a creature type.\rCreature spells of the chosen type cost {2} less to cast."
+    IDS_STRING11530         "Nightshade Seer\n{3B}\nCreature - Human Wizard\nUDS,U\n{2B}, {T}: Reveal any number of black cards in your hand. Target creature gets -X/-X until end of turn, where X is the number of cards revealed this way.\n1/1"
+    IDS_STRING11531         "Rofellos's Gift\n{G}\nSorcery\nUDS,C\nReveal any number of green cards in your hand. Return an enchantment card from your graveyard to your hand for each card revealed this way."
+    IDS_STRING11532         "Scent of Cinder\n{1R}\nSorcery\nUDS,C\nReveal any number of red cards in your hand. Scent of Cinder deals X damage to target creature or player, where X is the number of cards revealed this way."
+    IDS_STRING11533         "Scent of Ivy\n{G}\nInstant\nUDS,C\nReveal any number of green cards in your hand. Target creature gets +X/+X until end of turn, where X is the number of cards revealed this way."
+    IDS_STRING11534         "Scent of Jasmine\n{W}\nInstant\nUDS,C\nReveal any number of white cards in your hand. You gain 2 life for each card revealed this way."
+    IDS_STRING11535         "Scent of Nightshade\n{1B}\nInstant\nUDS,C\nReveal any number of black cards in your hand. Target creature gets -X/-X until end of turn, where X is the number of cards revealed this way."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

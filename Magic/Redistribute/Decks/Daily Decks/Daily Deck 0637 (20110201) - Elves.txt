@@ -1,0 +1,29 @@
+// Total cards in deck - 60
+
+// Creatures - 35 (58.33%)
+
+4 Arbor Elf (19615)
+Copperhorn Scout (21596)
+4 Elvish Archdruid (21227)
+3 Ezuri, Renegade Leader (21539)
+4 Fauna Shaman (21239)
+4 Joraga Treespeaker (20945)
+4 Joraga Warcaller (19712)
+2 Leatherback Baloth (19601)
+4 Llanowar Elves (21206)
+Molten-Tail Masticore (21437)
+4 Vengevine (20939)
+
+// Sorceries - 4 (6.67%)
+
+4 Lead the Stampede (21736)
+
+// Artifacts - 1 (1.67%)
+
+Eldrazi Monument (19530)
+
+// Lands - 20 (33.33%)
+
+8 Forest (21769)
+8 Forest (21768)
+4 Oran-Rief, the Vastwood (19531)

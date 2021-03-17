@@ -1,0 +1,39 @@
+// Speed Scorch
+// 8th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 15 (37.50%)
+
+4 Goblin Chariot (1557)
+Goblin Glider (1558)
+Goblin King (1559)
+4 Goblin Raider (1560)
+Mogg Sentry (1806)
+4 Raging Goblin (1616)
+
+// Instants - 4 (10.00%)
+
+Enrage (1759)
+Guerrilla Tactics (1819)
+Lightning Blast (1581)
+Shock (1641)
+
+// Sorceries - 3 (7.50%)
+
+Blaze (1510)
+Demolish (1746)
+Volcanic Hammer (1674)
+
+// Artifacts - 1 (2.50%)
+
+Fodder Cannon (1750)
+
+// Lands - 17 (42.50%)
+
+5 Mountain (1595)
+4 Mountain (1596)
+4 Mountain (1597)
+4 Mountain (1598)

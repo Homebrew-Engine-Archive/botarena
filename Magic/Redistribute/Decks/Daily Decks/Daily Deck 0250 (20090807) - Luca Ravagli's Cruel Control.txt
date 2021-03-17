@@ -1,0 +1,66 @@
+// Total cards in deck - 60
+
+// Creatures - 9 (15.00%)
+
+Baneslayer Angel (4224)
+Bogardan Hellkite (4227)
+Broodmate Dragon (8543)
+3 Mulldrifter (18023)
+3 Plumeveil (18611)
+
+// Instants - 19 (31.67%)
+
+2 Agony Warp (8704)
+3 Broken Ambitions (18057)
+4 Cryptic Command (18051)
+Doom Blade (4150)
+4 Esper Charm (8567)
+Essence Scatter (4143)
+4 Volcanic Fallout (8860)
+
+// Sorceries - 6 (10.00%)
+
+3 Cruel Ultimatum (8707)
+3 Hallowed Burial (19013)
+
+// Lands - 26 (43.33%)
+
+2 Cascade Bluffs (18907)
+Exotic Orchard (8843)
+Island (4053)
+Island (4054)
+Island (4052)
+2 Mystic Gate (18564)
+4 Reflecting Pool (18571)
+3 Sunken Ruins (18580)
+2 Vivid Crag (18031)
+4 Vivid Creek (18032)
+3 Vivid Marsh (18034)
+2 Vivid Meadow (18035)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Liliana Vess (4215)
+
+// Creatures
+
+4 Great Sable Stag (4013)
+
+// Instants
+
+Essence Scatter (4143)
+Path to Exile (8897)
+
+// Sorceries
+
+2 Banefire (8932)
+2 Deathmark (4028)
+2 Identity Crisis (9078)
+
+// Enchantments
+
+2 Runed Halo (18683)

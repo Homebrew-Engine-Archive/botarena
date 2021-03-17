@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Creatures - 6 (10.00%)
+
+3 Iona, Shield of Emeria (19468)
+3 Sphinx of Lost Truths (19508)
+
+// Instants - 18 (30.00%)
+
+2 Agony Warp (8704)
+4 Esper Charm (8567)
+2 Essence Scatter (4143)
+3 Flashfreeze (4038)
+2 Into the Roil (19373)
+2 Negate (4016)
+3 Path to Exile (8897)
+
+// Sorceries - 6 (10.00%)
+
+3 Day of Judgment (19340)
+3 Rise from the Grave (4229)
+
+// Artifacts - 4 (6.67%)
+
+4 Courier's Capsule (8550)
+
+// Lands - 26 (43.33%)
+
+4 Arcane Sanctum (8534)
+4 Drowned Catacomb (4199)
+4 Glacial Fortress (4200)
+Island (19308)
+Island (19310)
+Island (19309)
+4 Marsh Flats (19357)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Plains (19327)
+Swamp (19332)
+Swamp (19333)
+Swamp (19334)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+2 Agony Warp (8704)
+4 Celestial Purge (4014)
+2 Essence Scatter (4143)
+Flashfreeze (4038)
+Negate (4016)
+
+// Sorceries
+
+Day of Judgment (19340)
+4 Duress (4033)

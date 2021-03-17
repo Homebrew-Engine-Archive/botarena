@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 14 (23.33%)
+
+2 Sower of Temptation (18074)
+4 Spellstutter Sprite (18095)
+4 Tarmogoyf (17704)
+4 Vendilion Clique (18369)
+
+// Instants - 9 (15.00%)
+
+Cryptic Command (18051)
+4 Mana Leak (2101)
+4 Spell Snare (23883)
+
+// Sorceries - 4 (6.67%)
+
+4 Ancestral Vision (17492)
+
+// Artifacts - 8 (13.33%)
+
+3 Engineered Explosives (15510)
+3 Umezawa's Jitte (19149)
+2 Vedalken Shackles (15508)
+
+// Lands - 25 (41.67%)
+
+Academy Ruins (17277)
+2 Breeding Pool (23840)
+2 Hallowed Fountain (23841)
+2 Island (19309)
+2 Island (19308)
+2 Island (19310)
+2 Island (19311)
+4 Misty Rainforest (19356)
+4 Mutavault (18368)
+4 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Kataki, War's Wage (16284)
+4 Meddling Mage (9016)
+
+// Instants
+
+4 Path to Exile (8897)
+3 Spell Pierce (19377)
+
+// Artifacts
+
+Engineered Explosives (15510)
+Vedalken Shackles (15508)

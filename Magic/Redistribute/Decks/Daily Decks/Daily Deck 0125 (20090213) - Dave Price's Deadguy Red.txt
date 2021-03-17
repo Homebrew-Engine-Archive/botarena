@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Creatures - 26 (43.33%)
+
+4 Canyon Wildcat (10021)
+4 Fireslinger (10124)
+4 Jackal Pup (10220)
+4 Mogg Conscripts (10284)
+4 Mogg Fanatic (10063)
+4 Mogg Raider (10134)
+2 Rathi Dragon (10083)
+
+// Instants - 4 (6.67%)
+
+4 Kindle (10280)
+
+// Enchantments - 4 (6.67%)
+
+4 Giant Strength (10047)
+
+// Artifacts - 6 (10.00%)
+
+4 Cursed Scroll (10279)
+2 Scalding Tongs (10223)
+
+// Lands - 20 (33.33%)
+
+4 Mountain (10064)
+4 Mountain (10065)
+4 Mountain (10067)
+4 Mountain (10066)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Rathi Dragon (10083)
+
+// Instants
+
+4 Shatter (10090)
+
+// Sorceries
+
+Apocalypse (10212)
+4 Stone Rain (10096)
+
+// Artifacts
+
+2 Jinxed Idol (10281)
+2 Scalding Tongs (10223)
+Torture Chamber (10282)

@@ -1,0 +1,243 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Exodus.ico"
+IDI_LARGE_MODULE        ICON                    "ExodusLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Exodus"
+    IDS_EXPANSION_ABBREV    "EXO"
+    IDS_FIRST_CARD          "10600"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "10743"
+    IDS_MODULE_LARGE_ICON_ID "10744"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "15-06-1998"
+    IDS_MWS_FOLDER          "MWS\\EXO\\"
+    IDS_PRODUCT_LIST        """Exodus Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10600         "Allay\n{1W}\nInstant\nEXO,C\nBuyback {3}\rDestroy target enchantment."
+    IDS_STRING10601         "Ertai, Wizard Adept\n{2U}\nLegendary Creature - Human Wizard\nEXO,R\n{2UU}, {T}: Counter target spell\n1/1"
+    IDS_STRING10602         "Shattering Pulse\n{1R}\nInstant\nEXO,C\nBuyback {3}\rDestroy target artifact."
+    IDS_STRING10603         "Vampire Hounds\n{2B}\nCreature - Vampire Hound\nEXO,C\nDiscard a creature card: Vampire Hounds gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING10604         "Anarchist\n{4R}\nCreature - Human Wizard\nEXO,C\nWhen Anarchist enters the battlefield, you may return target sorcery card from your graveyard to your hand.\n2/2"
+    IDS_STRING10605         "Angelic Blessing\n{2W}\nSorcery\nEXO,C\nTarget creature gets +3/+3 and gains flying until end of turn."
+    IDS_STRING10606         "Coat of Arms\n{5}\nArtifact\nEXO,R\nEach creature gets +1/+1 for each other creature on the battlefield that shares at least one creature type with it."
+    IDS_STRING10607         "Curiosity\n{U}\nEnchantment - Aura\nEXO,U\nEnchant creature\rWhenever enchanted creature deals damage to an opponent, you may draw a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10608         "Elvish Berserker\n{G}\nCreature - Elf Berserker\nEXO,C\nWhenever Elvish Berserker becomes blocked, it gets +1/+1 until end of turn for each creature blocking it.\n1/1"
+    IDS_STRING10609         "Equilibrium\n{1UU}\nEnchantment\nEXO,R\nWhenever you cast a creature spell, you may pay {1}. If you do, return target creature to its owner's hand."
+    IDS_STRING10610         "Fugue\n{3BB}\nSorcery\nEXO,U\nTarget player discards three cards."
+    IDS_STRING10611         "Mana Breach\n{2U}\nEnchantment\nEXO,U\nWhenever a player casts a spell, that player returns a land he or she controls to its owner's hand."
+    IDS_STRING10612         "Maniacal Rage\n{1R}\nEnchantment - Aura\nEXO,C\nEnchant creature\rEnchanted creature gets +2/+2 and can't block."
+    IDS_STRING10613         "Merfolk Looter\n{1U}\nCreature - Merfolk Rogue\nEXO,C\n{T}: Draw a card, then discard a card.\n1/1"
+    IDS_STRING10614         "Mirri, Cat Warrior\n{1GG}\nLegendary Creature - Cat Warrior\nEXO,R\nFirst strike, forestwalk, vigilance\n2/3"
+    IDS_STRING10615         "Nausea\n{1B}\nSorcery\nEXO,C\nAll creatures get -1/-1 until end of turn."
+    IDS_STRING10616         "Necrologia\n{3BB}\nInstant\nEXO,U\nCast Necrologia only during your end step.\rAs an additional cost to cast Necrologia, pay any amount of life.\rDraw cards equal to the life paid this way."
+    IDS_STRING10617         "Paladin en-Vec\n{1WW}\nCreature - Human Knight\nEXO,R\nFirst strike, protection from black and from red\n2/2"
+    IDS_STRING10618         "Peace of Mind\n{1W}\nEnchantment\nEXO,U\n{W}, Discard a card: You gain 3 life."
+    IDS_STRING10619         "Raging Goblin\n{R}\nCreature - Goblin Berserker\nEXO,C\nHaste\n1/1"
+    IDS_STRING10620         "Reclaim\n{G}\nInstant\nEXO,C\nPut target card from your graveyard on top of your library."
+    IDS_STRING10621         "Robe of Mirrors\n{U}\nEnchantment - Aura\nEXO,C\nEnchant creature\rEnchanted creature has shroud."
+    IDS_STRING10622         "Seismic Assault\n{RRR}\nEnchantment\nEXO,R\nDiscard a land card: Seismic Assault deals 2 damage to target creature or player."
+    IDS_STRING10623         "Soul Warden\n{W}\nCreature - Human Cleric\nEXO,C\nWhenever another creature enters the battlefield, you gain 1 life.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10624         "Spellbook\n{0}\nArtifact\nEXO,U\nYou have no maximum hand size."
+    IDS_STRING10625         "Standing Troops\n{2W}\nCreature - Human Soldier\nEXO,C\nVigilance\n1/4"
+    IDS_STRING10626         "Thrull Surgeon\n{1B}\nCreature - Thrull\nEXO,C\n{1B}, Sacrifice Thrull Surgeon: Look at target player's hand and choose a card from it. That player discards that card. Activate this ability only any time you could cast a sorcery.\n1/1"
+    IDS_STRING10627         "Treasure Hunter\n{2W}\nCreature - Human\nEXO,U\nWhen Treasure Hunter enters the battlefield, you may return target artifact card from your graveyard to your hand.\n2/2"
+    IDS_STRING10628         "Treasure Trove\n{2UU}\nEnchantment\nEXO,U\n{2UU}: Draw a card."
+    IDS_STRING10629         "Wood Elves\n{2G}\nCreature - Elf Scout\nEXO,C\nWhen Wood Elves enters the battlefield, search your library for a Forest card and put that card onto the battlefield. Then shuffle your library.\n1/1"
+    IDS_STRING10630         "Mind Over Matter\n{2UUUU}\nEnchantment\nEXO,R\nChoose and discard a card: Tap or untap target artifact, creature, or land."
+    IDS_STRING10631         "City of Traitors\n\nLand\nEXO,R\nWhen you play another land, sacrifice City of Traitors.\r{T}: Add {2} to your mana pool."
+    IDS_STRING10632         "Culling the Weak\n{B}\nInstant\nEXO\nAs an additional cost to cast Culling the Weak, sacrifice a creature.\rAdd {BBBB} to your mana pool."
+    IDS_STRING10633         "Forbid\n{1UU}\nInstant\nEXO,U\nBuyback - discard two cards\rCounter target spell."
+    IDS_STRING10634         "Null Brooch\n{4}\nArtifact\nEXO,R\n{2}, {T}, Discard your hand: Counter target noncreature spell."
+    IDS_STRING10635         "Sphere of Resistance\n{2}\nArtifact\nEXO,R\nSpells cost {1} more to cast."
+    IDS_STRING10636         "Cartographer\n{2G}\nCreature - Human\nEXO,U\nWhen Cartographer enters the battlefield, you may return target land card from your graveyard to your hand.\n2/2"
+    IDS_STRING10637         "Cat Burglar\n{3B}\nCreature - Kor Rogue Minion\nEXO,C\n{2B}, {T}: Target player discards a card. Activate this ability only any time you could cast a sorcery.\n2/2"
+    IDS_STRING10638         "Charging Paladin\n{2W}\nCreature - Human Knight\nEXO,C\nWhenever Charging Paladin attacks, it gets +0/+3 until end of turn.\n2/2"
+    IDS_STRING10639         "Ephemeron\n{4UU}\nCreature - Illusion\nEXO,R\nFlying\rDiscard a card: Return Ephemeron to its owner's hand.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10640         "Jackalope Herd\n{3G}\nCreature - Rabbit Beast\nEXO,C\nWhen you cast a spell, return Jackalope Herd to its owner's hand.\n4/5"
+    IDS_STRING10641         "Killer Whale\n{3UU}\nCreature - Whale\nEXO,U\n{U}: Killer Whale gains flying until end of turn.\n3/5"
+    IDS_STRING10642         "Mirozel\n{3U}\nCreature - Illusion\nEXO,U\nFlying\rWhen Mirozel becomes the target of a spell or ability, return Mirozel to its owner's hand.\n2/3"
+    IDS_STRING10643         "Pit Spawn\n{4BBB}\nCreature - Demon\nEXO,R\nFirst strike\rAt the beginning of your upkeep, sacrifice Pit Spawn unless you pay {BB}.\rWhenever Pit Spawn deals damage to a creature, exile that creature.\n6/4"
+    IDS_STRING10644         "Plated Rootwalla\n{4G}\nCreature - Lizard\nEXO,C\n{2G}: Plated Rootwalla gets +3/+3 until end of turn. Activate this ability only once each turn.\n3/3"
+    IDS_STRING10645         "Pygmy Troll\n{1G}\nCreature - Troll\nEXO,C\nWhenever Pygmy Troll becomes blocked by a creature, Pygmy Troll gets +1/+1 until end of turn.\r{G}: Regenerate Pygmy Troll.\n1/1"
+    IDS_STRING10646         "Rabid Wolverines\n{3GG}\nCreature - Wolverine\nEXO,C\nWhenever Rabid Wolverines becomes blocked by a creature, Rabid Wolverines gets +1/+1 until end of turn.\n4/4"
+    IDS_STRING10647         "Ravenous Baboons\n{3R}\nCreature - Ape\nEXO,R\nWhen Ravenous Baboons enters the battlefield, destroy target nonbasic land.\n2/2"
+    IDS_STRING10648         "Reckless Ogre\n{3R}\nCreature - Ogre\nEXO,C\nWhenever Reckless Ogre attacks alone, it gets +3/+0 until end of turn.\n3/2"
+    IDS_STRING10649         "Rootwater Alligator\n{3G}\nCreature - Crocodile\nEXO,C\nSacrifice a Forest: Regenerate Rootwater Alligator.\n3/2"
+    IDS_STRING10650         "Rootwater Mystic\n{U}\nCreature - Merfolk Wizard\nEXO,C\n{1U}: Look at the top card of target player's library.\n1/1"
+    IDS_STRING10651         "Sabertooth Wyvern\n{4R}\nCreature - Drake\nEXO,U\nFlying, first strike\n3/2"
+    IDS_STRING10652         "School of Piranha\n{1U}\nCreature - Fish\nEXO,C\nAt the beginning of your upkeep, sacrifice School of Piranha unless you pay {1U}.\n3/3"
+    IDS_STRING10653         "Scrivener\n{4U}\nCreature - Human Wizard\nEXO,U\nWhen Scrivener enters the battlefield, you may return target instant card from your graveyard to your hand.\n2/2"
+    IDS_STRING10654         "Shield Mate\n{W}\nCreature - Human Soldier\nEXO,C\nSacrifice Shield Mate: Target creature gets +0/+4 until end of turn.\n1/1"
+    IDS_STRING10655         "Wayward Soul\n{2UU}\nCreature - Spirit\nEXO,C\nFlying\r{U}: Put Wayward Soul on top of its owner's library.\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10656         "Whiptongue Frog\n{2U}\nCreature - Frog\nEXO,C\n{U}: Whiptongue Frog gains flying until end of turn.\n1/3"
+    IDS_STRING10657         "Erratic Portal\n{4}\nArtifact\nEXO,R\n{1}, {T}: Return target creature to its owner's hand unless its controller pays {1}."
+    IDS_STRING10658         "Medicine Bag\n{3}\nArtifact\nEXO,U\n{1}, {T}, Discard a card: Regenerate target creature."
+    IDS_STRING10659         "Skyshaper\n{2}\nArtifact\nEXO,U\nSacrifice Skyshaper: Creatures you control gain flying until end of turn."
+    IDS_STRING10660         "Cursed Flesh\n{B}\nEnchantment - Aura\nEXO,C\nEnchant creature\rEnchanted creature gets -1/-1 and has fear."
+    IDS_STRING10661         "Elven Palisade\n{G}\nEnchantment\nEXO,U\nSacrifice a Forest: Target attacking creature gets -3/-0 until end of turn."
+    IDS_STRING10662         "Onslaught\n{R}\nEnchantment\nEXO,C\nWhenever you cast a creature spell, tap target creature."
+    IDS_STRING10663         "Shackles\n{2W}\nEnchantment - Aura\nEXO,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step.\r{W}: Return Shackles to its owner's hand."
+    IDS_STRING10664         "Spellshock\n{2R}\nEnchantment\nEXO,U\nWhenever a player casts a spell, Spellshock deals 2 damage to that player."
+    IDS_STRING10665         "Survival of the Fittest\n{1G}\nEnchantment\nEXO,R\n{G}, Discard a creature card: Search your library for a creature card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING10666         "Theft of Dreams\n{2U}\nSorcery\nEXO,C\nDraw a card for each tapped creature target opponent controls."
+    IDS_STRING10667         "Pegasus Stampede\n{1W}\nSorcery\nEXO,U\nBuyback-Sacrifice a land.\rPut a 1/1 white Pegasus creature token with flying onto the battlefield."
+    IDS_STRING10668         "Reaping the Rewards\n{W}\nInstant\nEXO,C\nBuyback-Sacrifice a land.\rYou gain 2 life."
+    IDS_STRING10669         "Scare Tactics\n{B}\nInstant\nEXO,C\nCreatures you control get +1/+0 until end of turn."
+    IDS_STRING10670         "Slaughter\n{2BB}\nInstant\nEXO,U\nBuyback-Pay 4 life.\rDestroy target nonblack creature. It can't be regenerated."
+    IDS_STRING10671         "Death's Duet\n{2B}\nSorcery\nEXO,C\nReturn two target creature cards from your graveyard to your hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10672         "Keeper of the Beasts\n{GG}\nCreature - Human Wizard\nEXO,U\n{G}, {T}: Put a 2/2 green Beast creature token onto the battlefield. Activate this ability only if an opponent controls more creatures than you.\n1/2"
+    IDS_STRING10673         "Price of Progress\n{1R}\nInstant\nEXO,U\nPrice of Progress deals 2 damage to each player for each nonbasic land he or she controls."
+    IDS_STRING10674         "Recurring Nightmare\n{2B}\nEnchantment\nEXO,R\nSacrifice a creature, Return Recurring Nightmare to its owner's hand: Return target creature card from your graveyard to the battlefield. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING10675         "Pandemonium\n{3R}\nEnchantment\nEXO,R\nWhenever a creature enters the battlefield, that creature's controller may have it deal damage equal to its power to target creature or player of his or her choice."
+    IDS_STRING10676         "Carnophage\n{B}\nCreature - Zombie\nEXO,C\nAt the beginning of your upkeep, tap Carnophage unless you pay 1 life.\n2/2"
+    IDS_STRING10677         "Skyshroud Elite\n{G}\nCreature - Elf\nEXO,U\nSkyshroud Elite gets +1/+2 as long as an opponent controls a nonbasic land.\n1/1"
+    IDS_STRING10678         "Keeper of the Mind\n{UU}\nCreature - Human Wizard\nEXO,U\n{U}, {T}: Draw a card. Activate this ability only if an opponent has at least two more cards in hand than you.\n1/2"
+    IDS_STRING10679         "Mind Maggots\n{3B}\nCreature - Insect\nEXO,U\nWhen Mind Maggots enters the battlefield, discard any number of creature cards. For each card discarded this way, put two +1/+1 counters on Mind Maggots.\n2/2"
+    IDS_STRING10680         "Oath of Scholars\n{3U}\nEnchantment\nEXO,R\nAt the beginning of each player's upkeep, if that player has fewer cards in hand than any of his or her opponents, the player may discard his or her hand and draw three cards."
+    IDS_STRING10681         "Entropic Specter\n{3BB}\nCreature - Specter Spirit\nEXO,R\nFlying\rAs Entropic Specter enters the battlefield, choose an opponent.\rEntropic Specter's power and toughness are each equal to the number of cards in the chosen player's hand.\rWhenever Entropic Specter deals damage to a player, that player discards a card.\n*/*"
+    IDS_STRING10682         "Furnace Brood\n{3R}\nCreature - Elemental\nEXO,C\n{R}: Target creature can't be regenerated this turn.\n3/3"
+    IDS_STRING10683         "Grollub\n{2B}\nCreature - Beast\nEXO,C\nWhenever Grollub is dealt damage, each opponent gains that much life.\n3/3"
+    IDS_STRING10684         "Scalding Salamander\n{2R}\nCreature - Salamander\nEXO,U\nWhenever Scalding Salamander attacks, you may have it deal 1 damage to each creature without flying defending player controls.\n2/1"
+    IDS_STRING10685         "Skyshroud War Beast\n{1G}\nCreature - Beast\nEXO,R\nTrample\rAs Skyshroud War Beast enters the battlefield, choose an opponent.\rSkyshroud War Beast's power and toughness are each equal to the number of nonbasic lands the chosen player controls.\n*/*"
+    IDS_STRING10686         "Welkin Hawk\n{1W}\nCreature - Bird\nEXO,C\nFlying\rWhen Welkin Hawk dies, you may search your library for a card named Welkin Hawk, reveal that card, put it into your hand, then shuffle your library.\n1/1"
+    IDS_STRING10687         "Dizzying Gaze\n{R}\nEnchantment - Aura\nEXO,C\nEnchant creature you control\r{R}: Enchanted creature deals 1 damage to target creature with flying."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10688         "Predatory Hunger\n{G}\nEnchantment - Aura\nEXO,C\nEnchant creature\rWhenever an opponent casts a creature spell, put a +1/+1 counter on enchanted creature."
+    IDS_STRING10689         "Resuscitate\n{1G}\nInstant\nEXO,U\nUntil end of turn, creatures you control gain ""{1}: Regenerate this creature."""
+    IDS_STRING10690         "Spike Weaver\n{2GG}\nCreature - Spike\nEXO,R\nSpike Weaver enters the battlefield with three +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Weaver: Put a +1/+1 counter on target creature.\r{1}, Remove a +1/+1 counter from Spike Weaver: Prevent all damage that would be dealt this turn.\n0/0"
+    IDS_STRING10691         "Spike Hatcher\n{6G}\nCreature - Spike\nEXO,R\nSpike Hatcher enters the battlefield with six +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Hatcher: Put a +1/+1 counter on target creature.\r{1}, Remove a +1/+1 counter from Spike Hatcher: Regenerate Spike Hatcher.\n0/0"
+    IDS_STRING10692         "Workhorse\n{6}\nArtifact Creature - Horse\nEXO,R\nWorkhorse enters the battlefield with four +1/+1 counters on it.\rRemove a +1/+1 counter from Workhorse: Add {1} to your mana pool.\n0/0"
+    IDS_STRING10693         "Avenging Druid\n{2G}\nCreature - Human Druid\nEXO\nWhenever Avenging Druid deals damage to an opponent, you may reveal cards from the top of your library until you reveal a land card. If you do, put that card onto the battlefield and put all other cards revealed this way into your graveyard.\n1/3"
+    IDS_STRING10694         "Oath of Druids\n{1G}\nEnchantment\nEXO,R\nAt the beginning of each player's upkeep, that player chooses target player who controls more creatures than he or she does and is his or her opponent. The first player may reveal cards from the top of his or her library until he or she reveals a creature card. If he or she does, that player puts that card onto the battlefield and all other cards revealed this way into his or her graveyard."
+    IDS_STRING10695         "Mindless Automaton\n{4}\nArtifact Creature - Construct\nEXO,R\nMindless Automaton enters the battlefield with two +1/+1 counters on it.\r{1}, Discard a card: Put a +1/+1 counter on Mindless Automaton.\rRemove two +1/+1 counters from Mindless Automaton: Draw a card.\n0/0"
+    IDS_STRING10696         "Thopter Squadron\n{5}\nArtifact Creature - Thopter\nEXO,R\nFlying\rThopter Squadron enters the battlefield with three +1/+1 counters on it.\r{1}, Remove a +1/+1 counter from Thopter Squadron: Put a 1/1 colorless Thopter artifact creature token with flying onto the battlefield. Activate this ability only any time you could cast a sorcery.\r{1}, Sacrifice another Thopter: Put a +1/+1 counter on Thopter Squadron. Activate this ability only any time you could cast a sorcery.\n0/0"
+    IDS_STRING10697         "Dauthi Cutthroat\n{1B}\nCreature - Dauthi Minion\nEXO,U\nShadow\r{1B}, {T}: Destroy target creature with shadow.\n1/1"
+    IDS_STRING10698         "Dauthi Jackal\n{2B}\nCreature - Dauthi Hound\nEXO,C\nShadow\r{BB}, Sacrifice Dauthi Jackal: Destroy target blocking creature.\n2/1"
+    IDS_STRING10699         "Dauthi Warlord\n{1B}\nCreature - Dauthi Soldier\nEXO,U\nShadow\rDauthi Warlord's power is equal to the number of creatures with shadow on the battlefield.\n*/1"
+    IDS_STRING10700         "Thalakos Drifters\n{2UU}\nCreature - Thalakos\nEXO,R\nDiscard a card: Thalakos Drifters gains shadow until end of turn.\n3/3"
+    IDS_STRING10701         "Thalakos Scout\n{2U}\nCreature - Thalakos Soldier Scout\nEXO,C\nShadow\rDiscard a card: Return Thalakos Scout to its owner's hand.\n2/1"
+    IDS_STRING10702         "Spike Rogue\n{1GG}\nCreature - Spike\nEXO,U\nSpike Rogue enters the battlefield with two +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Rogue: Put a +1/+1 counter on target creature.\r{2}, Remove a +1/+1 counter from a creature you control: Put a +1/+1 counter on Spike Rogue.\n0/0"
+    IDS_STRING10703         "Cinder Crawler\n{1R}\nCreature - Salamander\nEXO,C\n{R}: Cinder Crawler gets +1/+0 until end of turn. Activate this ability only if Cinder Crawler is blocked.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10704         "Convalescence\n{1W}\nEnchantment\nEXO,R\nAt the beginning of your upkeep, if you have 10 or less life, you gain 1 life."
+    IDS_STRING10705         "Manabond\n{G}\nEnchantment\nEXO,R\nAt the beginning of your end step, you may reveal your hand and put all land cards from it onto the battlefield. If you do, discard your hand."
+    IDS_STRING10706         "Hatred\n{3BB}\nInstant\nEXO,R\nAs an additional cost to cast Hatred, pay X life.\rTarget creature gets +X/+0 until end of turn."
+    IDS_STRING10707         "Plaguebearer\n{1B}\nCreature - Zombie\nEXO,R\n{XXB}: Destroy target nonblack creature with converted mana cost X.\n1/1"
+    IDS_STRING10708         "Bequeathal\n{G}\nEnchantment - Aura\nEXO,C\nEnchant creature\rWhen enchanted creature dies, you draw two cards."
+    IDS_STRING10709         "Paroxysm\n{1R}\nEnchantment - Aura\nEXO,U\nEnchant creature\rAt the beginning of the upkeep of enchanted creature's controller, reveal the top card of that player's library. If that card is a land card, destroy that creature. Otherwise, it gets +3/+3 until end of turn."
+    IDS_STRING10710         "Oath of Ghouls\n{1B}\nEnchantment\nEXO,R\nAt the beginning of each player's upkeep, that player chooses target player whose graveyard has fewer creature cards in it than his or her graveyard does and is his or her opponent. The first player may return a creature card from his or her graveyard to his or her hand."
+    IDS_STRING10711         "Oath of Lieges\n{1W}\nEnchantment\nEXO,R\nAt the beginning of each player's upkeep, that player chooses target player who controls more lands than he or she does and is his or her opponent. The first player may search his or her library for a basic land card, put that card onto the battlefield, then shuffle his or her library."
+    IDS_STRING10712         "Oath of Mages\n{1R}\nEnchantment\nEXO,R\nAt the beginning of each player's upkeep, that player chooses target player who has more life than he or she does and is his or her opponent. The first player may have Oath of Mages deal 1 damage to the second player."
+	IDS_STRING10713         "High Ground\n{W}\nEnchantment\nEXO,U\nEach creature you control can block an additional creature."
+	IDS_STRING10714         "Reconnaissance\n{W}\nEnchantment\nEXO,U\n{0}: Remove target attacking creature you control from combat and untap it."
+	IDS_STRING10715         "Cataclysm\n{2WW}\nSorcery\nEXO,R\nEach player chooses from the permanents he or she controls an artifact, a creature, an enchantment, and a land, then sacrifices the rest."
+	IDS_STRING10716         "Spike Cannibal\n{1BB}\nCreature - Spike\nEXO,U\nSpike Cannibal enters the battlefield with a +1/+1 counter on it.\rWhen Spike Cannibal enters the battlefield, move all +1/+1 counters from all creatures onto it.\n0/0"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

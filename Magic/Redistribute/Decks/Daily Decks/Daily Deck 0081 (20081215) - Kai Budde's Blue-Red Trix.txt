@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Instants - 22 (36.67%)
+
+4 Accumulated Knowledge (12088)
+2 Brainstorm (11610)
+Capsize (10010)
+4 Counterspell (760)
+3 FireIce (13001)
+4 Force of Will (6759)
+Impulse (9641)
+3 Intuition (10275)
+
+// Sorceries - 8 (13.33%)
+
+4 Donate (11511)
+4 Merchant Scroll (6113)
+
+// Enchantments - 4 (6.67%)
+
+4 Illusions of Grandeur (6525)
+
+// Artifacts - 4 (6.67%)
+
+4 Sapphire Medallion (10274)
+
+// Lands - 22 (36.67%)
+
+4 Island (747)
+3 Island (749)
+4 Island (748)
+3 Island (750)
+4 Shivan Reef (13017)
+4 Volcanic Island (7393)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Morphling (10805)
+
+// Instants
+
+Hibernation (880)
+2 Hydroblast (8134)
+4 Pyroblast (8214)
+2 Stroke of Genius (10807)
+
+// Sorceries
+
+3 Pyroclasm (882)

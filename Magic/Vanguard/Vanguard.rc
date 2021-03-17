@@ -1,0 +1,122 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Vanguard.ico"
+IDI_LARGE_MODULE        ICON                    "VanguardLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Vanguard"
+    IDS_EXPANSION_ABBREV    "VGD"
+    IDS_FIRST_CARD          "60500"
+    IDS_TOTAL_CARD          "299"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "60798"
+    IDS_MODULE_LARGE_ICON_ID "60799"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "31-12-1995"
+    IDS_MWS_FOLDER          "MWS\\VGD\\"
+    IDS_PRODUCT_LIST        """Vanguard Starter Box"":R-3:U-10:C-32:BL-30,""Vanguard Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING60500         "Maraxus\n{0}\nVanguard\nVGD,S\nCreatures you control get +1/+0.\rHand Modifier: +1\rLife Modifier: +2"
+    IDS_STRING60501         "Serra\n{0}\nVanguard\nVGD,S\nCreatures you control get +0/+2.\rHand Modifier: +1\rLife Modifier: +1"
+    IDS_STRING60502         "Orim\n{0}\nVanguard\nVGD,S\nCreatures you control have reach.\rHand Modifier: +0\rLife Modifier: +12"
+    IDS_STRING60503         "Selenia\n{0}\nVanguard\nVGD,S\nCreatures you control have vigilance.\rHand Modifier: +1\rLife Modifier: +7 "
+    IDS_STRING60504         "Tahngarth\n{0}\nVanguard\nVGD,S\nCreatures you control have haste.\rHand Modifier: -1\rLife Modifier: +7"
+    IDS_STRING60505         "Hanna\n{0}\nVanguard\nVGD,S\nSpells you cast cost {1} less to cast.\rHand Modifier: +1\rLife Modifier: -5"
+    IDS_STRING60506         "Titania\n{0}\nVanguard\nVGD,S\nYou may play an additional land on each of your turns.\rHand Modifier: +2\rLife Modifier: -5"
+    IDS_STRING60507         "Tawnos\n{0}\nVanguard\nVGD,S\nYou may cast artifact, creature, and enchantment spells as though they had flash.\rHand Modifier: +3\rLife Modifier: -4"
+    IDS_STRING60508         "Eladamri, Lord of Leaves Avatar\n{0}\nVanguard\nVGD,S\nAt the beginning of each player's precombat main phase, that player adds {GG} to his or her mana pool.\rHand Modifier: -1\rLife Modifier: +2"
+    IDS_STRING60509         "Orcish Squatters Avatar\n{0}\nVanguard\nVGD,S\nAt the beginning of your precombat main phase, add {X} to your mana pool, where X is the number of lands target opponent controls.\rHand Modifier: -1\rLife Modifier: -1"
+    IDS_STRING60510         "Royal Assassin Avatar\n{0}\nVanguard\nVGD,S\nAt the beginning of your upkeep, you draw a card and you lose 1 life.\rHand Modifier: -2\r Life Modifier: +0"
+    IDS_STRING60511         "Gerrard\n{0}\nVanguard\nVGD,S\nDuring your draw phase, draw an additional card.\rStarting & Max. Hand Size: -4 \r Starting Life: +0"
+    IDS_STRING60512         "Two-Headed Giant of Foriys Avatar\n{0}\nVanguard\nVGD,S\nEach creature you control can block an additional creature each combat.\rEach creature you control can't be blocked except by two or more creatures.\rHand Modifier: +1\rLife Modifier: -4"
+    IDS_STRING60513         "Ertai\n{0}\nVanguard\nVGD,S\nCreatures you control have hexproof.\rHand Modifier: -1\rLife Modifier: +4"
+    IDS_STRING60514         "Frenetic Efreet Avatar\n{0}\nVanguard\nVGD,S\nEach permanent you control has phasing.\rAt the beginning of your end step, flip a coin. If you win the flip, take an extra turn after this one.\rHand Modifier: -1\rLife Modifier: -3"
+    IDS_STRING60515         "Oracle\n{0}\nVanguard\nVGD,S\n{0}: Untap target attacking creature you control and remove it from combat.\rHand Modifier: +1\rLife Modifier: +9"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING60516         "Maralen of the Mornsong Avatar\n{0}\nVanguard\nVGD,S\nAt the beginning of the game, you may pay any amount of life.\rYou can't draw cards.\rAt the beginning of your draw step, look at the top X cards of your library, where X is the amount of life paid with Maralen of the Mornsong Avatar. Put one of them into your hand, then shuffle your library.\rHand Modifier: +0\rLife Modifier: -3"
+    IDS_STRING60517         "Viridian Zealot Avatar\n{0}\nVanguard\nVGD,S\n{2}, Sacrifice a creature: Destroy target artifact or enchantment. Search your library for a card with the same name as the sacrificed creature, reveal that card, and put it into your hand. Then shuffle your library.\rHand Modifier: +0\rLife Modifier: +2"
+    IDS_STRING60518         "Crovax\n{0}\nVanguard\nVGD,S\nWhenever a creature you control deals damage to a creature or player, you gain 1 life.\rHand Modifier: +2\rLife Modifier: +0"
+    IDS_STRING60519         "Master of the Wild Hunt Avatar\n{0}\nVanguard\nVGD,S\n{2}{G}: Put a green creature token onto the battlefield that's a 2/2 Wolf, a 2/3 Antelope with forestwalk, a 3/2 Cat with shroud, or a 4/4 Rhino with trample, chosen at random.\rHand Modifier: +1\rLife Modifier: +3"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

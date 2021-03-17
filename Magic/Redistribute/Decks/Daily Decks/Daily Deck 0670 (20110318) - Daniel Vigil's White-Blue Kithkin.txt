@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Ajani Goldmane (21259)
+
+// Creatures - 25 (41.67%)
+
+2 Burrenton Forge-Tender (18054)
+3 Cloudgoat Ranger (17923)
+4 Figure of Destiny (19006)
+4 Goldmeadow Stalwart (18088)
+4 Knight of Meadowgrain (18020)
+3 Mirran Crusader (21703)
+Ranger of Eos (8642)
+4 Wizened Cenn (17975)
+
+// Sorceries - 4 (6.67%)
+
+4 Spectral Procession (18640)
+
+// Enchantments - 4 (6.67%)
+
+4 Honor of the Pure (21264)
+
+// Lands - 25 (41.67%)
+
+Glacial Fortress (21128)
+3 Mystic Gate (18564)
+7 Plains (21774)
+6 Plains (21775)
+4 Seachrome Coast (21459)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Gideon Jura (20966)
+
+// Creatures
+
+Burrenton Forge-Tender (18054)
+2 Linvala, Keeper of Silence (20881)
+
+// Instants
+
+3 Demystify (20854)
+4 Negate (21192)
+3 Path to Exile (8897)
+
+// Artifacts
+
+Sword of Feast and Famine (21762)

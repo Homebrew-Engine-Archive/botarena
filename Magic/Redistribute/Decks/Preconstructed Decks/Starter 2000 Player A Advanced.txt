@@ -1,0 +1,58 @@
+// Starter 2000 Player A Advanced
+
+#PRE
+#NO_CARD_LIMIT
+
+// Total cards in deck - 37
+
+// Creatures - 12 (32.43%)
+
+Bog Imp (354)
+Drudge Skeletons (315)
+Durkwood Boars (20700)
+Flame Spirit (382)
+Goblin Hero (366)
+Llanowar Elves (322)
+Mons's Goblin Raiders (20704)
+Moon Sprite (20705)
+Ogre Warrior (20706)
+Scathe Zombies (368)
+Trained Orgg (20710)
+Willow Elf (20713)
+
+// Instants - 3 (8.11%)
+
+Giant Growth (341)
+Shock (419)
+Terror (342)
+
+// Sorceries - 4 (10.81%)
+
+Coercion (440)
+Hand of Death (20716)
+Lava Axe (20717)
+Monstrous Growth (20718)
+
+// Enchantments - 1 (2.70%)
+
+Orcish Oriflamme (431)
+
+// Artifacts - 2 (5.41%)
+
+Rod of Ruin (349)
+Soul Net (569)
+
+// Lands - 15 (40.54%)
+
+2 Forest (300)
+Forest (516)
+Forest (517)
+Forest (518)
+2 Mountain (304)
+Mountain (519)
+Mountain (520)
+Mountain (521)
+2 Swamp (301)
+Swamp (525)
+Swamp (526)
+Swamp (527)

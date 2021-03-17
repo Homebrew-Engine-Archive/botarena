@@ -1,0 +1,67 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 7 (11.67%)
+
+3 Garruk Wildspeaker (21205)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 4 (6.67%)
+
+2 Frost Titan (21322)
+2 Primeval Titan (21223)
+
+// Instants - 10 (16.67%)
+
+2 Into the Roil (19373)
+4 Lightning Bolt (21124)
+4 Mana Leak (21214)
+
+// Sorceries - 14 (23.33%)
+
+3 Cultivate (21319)
+3 Destructive Force (21254)
+3 Explore (19647)
+2 Mind Spring (4004)
+3 Rampant Growth (4091)
+
+// Lands - 25 (41.67%)
+
+Forest (21105)
+Forest (21104)
+Forest (21106)
+Forest (21107)
+2 Halimar Depths (19634)
+Island (21111)
+Island (21110)
+Island (21108)
+Island (21109)
+2 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+Mountain (21112)
+Mountain (21114)
+Mountain (21113)
+4 Raging Ravine (19699)
+2 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Mold Shambler (19480)
+3 Obstinate Baloth (21217)
+2 Pelakka Wurm (20839)
+
+// Instants
+
+4 Negate (21192)
+
+// Sorceries
+
+Destructive Force (21254)
+2 Earthquake (4034)
+
+// Enchantments
+
+2 Mind Control (21166)

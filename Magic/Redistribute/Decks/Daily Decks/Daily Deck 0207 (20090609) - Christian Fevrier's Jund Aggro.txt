@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+4 Bloodbraid Elf (9105)
+4 Broodmate Dragon (8543)
+4 Putrid Leech (9017)
+2 Spellbreaker Behemoth (9039)
+4 Sprouting Thrinax (8627)
+
+// Instants - 7 (11.67%)
+
+3 Bituminous Blast (9107)
+4 Terminate (9001)
+
+// Sorceries - 10 (16.67%)
+
+4 Blightning (8641)
+4 Maelstrom Pulse (9055)
+2 Vengeful Rebirth (9120)
+
+// Lands - 25 (41.67%)
+
+4 Crumbling Necropolis (8553)
+Forest (8512)
+Forest (8511)
+Forest (8510)
+2 Forest (8509)
+4 Jund Panorama (8639)
+Mountain (8519)
+Mountain (8521)
+Mountain (8520)
+Mountain (8518)
+4 Savage Lands (8615)
+Swamp (8530)
+Swamp (8527)
+Swamp (8528)
+Swamp (8529)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Sarkhan Vol (8717)
+
+// Creatures
+
+3 Anathemancer (9048)
+2 Fleshbag Marauder (8571)
+3 Vithian Renegades (9022)
+
+// Instants
+
+3 Jund Charm (8587)
+
+// Sorceries
+
+2 Slave of Bolas (9079)

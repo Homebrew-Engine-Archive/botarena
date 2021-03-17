@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 8 (13.33%)
+
+3 Elspeth, Knight-Errant (8722)
+2 Gideon Jura (20966)
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 25 (41.67%)
+
+3 Baneslayer Angel (4224)
+4 Birds of Paradise (4020)
+3 Dauntless Escort (9085)
+4 Knight of the Reliquary (8815)
+4 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+3 Sovereigns of Lost Alara (9100)
+
+// Enchantments - 2 (3.33%)
+
+2 Eldrazi Conscription (20909)
+
+// Lands - 25 (41.67%)
+
+Arid Mesa (19349)
+4 Celestial Colonnade (19602)
+Forest (20801)
+Forest (20802)
+Forest (20800)
+Forest (20803)
+Island (20804)
+Island (20805)
+4 Misty Rainforest (19356)
+Plains (20812)
+Plains (20813)
+2 Sejiri Steppe (19691)
+Stirring Wildwood (19623)
+2 Sunpetal Grove (4202)
+Terramorphic Expanse (4111)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Dauntless Escort (9085)
+2 Linvala, Keeper of Silence (20881)
+Sphinx of Jwar Isle (19378)
+
+// Instants
+
+Bant Charm (8536)
+3 Celestial Purge (4014)
+2 Deprive (20934)
+Emerge Unscathed (20987)
+2 Negate (4016)
+
+// Enchantments
+
+2 Oblivion Ring (8718)

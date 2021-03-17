@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Creatures - 15 (25.00%)
+
+4 Mistbind Clique (18055)
+2 Plumeveil (18611)
+4 Scion of Oona (17988)
+3 Spellstutter Sprite (18095)
+2 Vendilion Clique (18369)
+
+// Instants - 14 (23.33%)
+
+4 Agony Warp (8704)
+4 Broken Ambitions (18057)
+4 Cryptic Command (18051)
+2 Peppersmoke (18109)
+
+// Enchantments - 4 (6.67%)
+
+4 Bitterblossom (18338)
+
+// Artifacts - 1 (1.67%)
+
+Loxodon Warhammer (3096)
+
+// Lands - 26 (43.33%)
+
+2 Faerie Conclave (3304)
+Island (8515)
+Island (8516)
+2 Island (8514)
+Island (8517)
+4 Mutavault (18368)
+4 Secluded Glen (18093)
+4 Sunken Ruins (18580)
+Swamp (8527)
+Swamp (8528)
+Swamp (8529)
+4 Underground River (3189)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Jace Beleren (18011)
+
+// Creatures
+
+2 Puppeteer Clique (18671)
+Sower of Temptation (18074)
+
+// Instants
+
+2 Flashfreeze (3234)
+
+// Sorceries
+
+3 Deathmark (3217)
+4 Thoughtseize (17901)
+
+// Enchantments
+
+Persuasion (3266)

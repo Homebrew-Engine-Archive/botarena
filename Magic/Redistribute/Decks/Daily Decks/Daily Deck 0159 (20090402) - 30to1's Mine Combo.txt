@@ -1,0 +1,70 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace Beleren (18011)
+
+// Creatures - 5 (8.33%)
+
+2 Kederekt Parasite (8909)
+3 Swans of Bryn Argoll (18708)
+
+// Instants - 13 (21.67%)
+
+3 Broken Ambitions (18057)
+3 Cryptic Command (18051)
+2 Negate (18305)
+3 Remove Soul (3139)
+2 Terror (3181)
+
+// Sorceries - 8 (13.33%)
+
+2 Incendiary Command (18129)
+4 Ponder (18010)
+2 Pyroclasm (3131)
+
+// Enchantments - 4 (6.67%)
+
+2 Megrim (3101)
+2 Seismic Assault (3151)
+
+// Artifacts - 3 (5.00%)
+
+3 Howling Mine (3076)
+
+// Lands - 24 (40.00%)
+
+4 Cascade Bluffs (18907)
+4 Crumbling Necropolis (8553)
+Graven Cairns (18547)
+3 Island (8514)
+2 Island (8515)
+2 Island (8517)
+2 Island (8516)
+3 Reflecting Pool (18571)
+3 Sulfurous Springs (3173)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Kederekt Parasite (8909)
+Swans of Bryn Argoll (18708)
+
+// Instants
+
+Broken Ambitions (18057)
+2 Guttural Response (18548)
+2 Negate (18305)
+4 Volcanic Fallout (8860)
+
+// Sorceries
+
+Incendiary Command (18129)
+2 Pyroclasm (3131)
+
+// Artifacts
+
+Howling Mine (3076)

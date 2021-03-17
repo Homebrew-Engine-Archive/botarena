@@ -1,0 +1,62 @@
+
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+2 Elspeth, Knight-Errant (8722)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 23 (38.33%)
+
+4 Baneslayer Angel (4224)
+4 Iona, Shield of Emeria (19468)
+4 Knight of the Reliquary (8815)
+4 Lotus Cobra (19389)
+4 Noble Hierarch (8819)
+3 Rhox War Monk (8694)
+
+// Instants - 6 (10.00%)
+
+2 Path to Exile (8897)
+4 Summoning Trap (19540)
+
+// Lands - 25 (41.67%)
+
+Celestial Colonnade (19602)
+Forest (19301)
+Forest (19302)
+Forest (19300)
+Forest (19303)
+Glacial Fortress (4200)
+Island (19308)
+Island (19309)
+4 Misty Rainforest (19356)
+Plains (19324)
+Plains (19325)
+4 Seaside Citadel (8618)
+Sejiri Steppe (19691)
+3 Stirring Wildwood (19623)
+Sunpetal Grove (4202)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 World Queller (19537)
+
+// Instants
+
+3 Flashfreeze (4038)
+3 Negate (4016)
+2 Path to Exile (8897)
+
+// Sorceries
+
+2 Day of Judgment (19340)
+
+// Enchantments
+
+3 Luminarch Ascension (19527)

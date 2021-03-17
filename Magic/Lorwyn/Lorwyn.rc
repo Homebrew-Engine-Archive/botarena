@@ -1,0 +1,440 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Lorwyn.ico"
+IDI_LARGE_MODULE        ICON                    "LorwynLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Lorwyn"
+    IDS_EXPANSION_ABBREV    "LRW"
+    IDS_FIRST_CARD          "17900"
+    IDS_TOTAL_CARD          "301"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "18201"
+    IDS_MODULE_LARGE_ICON_ID "18202"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "12-10-2007"
+    IDS_MWS_FOLDER          "MWS\\LRW\\"
+    IDS_PRODUCT_LIST        """Lorwyn Starter Box"":R-3:U-10:C-32:BL-30,""Lorwyn Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17900         "Forced Fruition\n{4UU}\nEnchantment\nLRW,R\nWhenever an opponent casts a spell, that player draws seven cards."
+    IDS_STRING17901         "Thoughtseize\n{B}\nSorcery\nLRW,R\nTarget player reveals his or her hand. You choose a nonland card from it. That player discards that card. You lose 2 life."
+    IDS_STRING17902         "Fertile Ground\n{1G}\nEnchantment - Aura\nLRW,C\nEnchant land\rWhenever enchanted land is tapped for mana, its controller adds one mana of any color to his or her mana pool."
+    IDS_STRING17903         "Forest\n\nBasic Land - Forest\nLRW,BL\n{T}: Add {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17904         "Forest\n\nBasic Land - Forest\nLRW,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING17905         "Forest\n\nBasic Land - Forest\nLRW,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING17906         "Forest\n\nBasic Land - Forest\nLRW,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING17907         "Island\n\nBasic Land - Island\nLRW,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING17908         "Island\n\nBasic Land - Island\nLRW,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING17909         "Island\n\nBasic Land - Island\nLRW,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING17910         "Island\n\nBasic Land - Island\nLRW,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING17911         "Mountain\n\nBasic Land - Mountain\nLRW,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING17912         "Mountain\n\nBasic Land - Mountain\nLRW,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING17913         "Mountain\n\nBasic Land - Mountain\nLRW,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING17914         "Mountain\n\nBasic Land - Mountain\nLRW,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING17915         "Plains\n\nBasic Land - Plains\nLRW,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING17916         "Plains\n\nBasic Land - Plains\nLRW,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING17917         "Plains\n\nBasic Land - Plains\nLRW,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING17918         "Plains\n\nBasic Land - Plains\nLRW,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING17919         "Swamp\n\nBasic Land - Swamp\nLRW,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17920         "Swamp\n\nBasic Land - Swamp\nLRW,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING17921         "Swamp\n\nBasic Land - Swamp\nLRW,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING17922         "Swamp\n\nBasic Land - Swamp\nLRW,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING17923         "Cloudgoat Ranger\n{3WW}\nCreature - Giant Warrior\nLRW,U\nWhen Cloudgoat Ranger enters the battlefield, put three 1/1 white Kithkin Soldier creature tokens onto the battlefield.\rTap three untapped Kithkin you control: Cloudgoat Ranger gets +2/+0 and gains flying until end of turn.\n3/3"
+    IDS_STRING17924         "Axegrinder Giant\n{4RR}\nCreature - Giant Warrior\nLRW,C\n\n6/4"
+    IDS_STRING17925         "Battlewand Oak\n{2G}\nCreature - Treefolk Warrior\nLRW,C\nWhenever a Forest enters the battlefield under your control, Battlewand Oak gets +2/+2 until end of turn.\rWhenever you cast a Treefolk spell, Battlewand Oak gets +2/+2 until end of turn.\n1/3"
+    IDS_STRING17926         "Benthicore\n{6U}\nCreature - Elemental\nLRW,U\nWhen Benthicore enters the battlefield, put two 1/1 blue Merfolk Wizard creature tokens onto the battlefield.\rTap two untapped Merfolk you control: Untap Benthicore. It gains shroud until end of turn.\n5/5"
+    IDS_STRING17927         "Boggart Harbinger\n{2B}\nCreature - Goblin Shaman\nLRW,U\nWhen Boggart Harbinger enters the battlefield, you may search your library for a Goblin card, reveal it, then shuffle your library and put that card on top of it.\n2/1"
+    IDS_STRING17928         "Boggart Loggers\n{2B}\nCreature - Goblin Rogue\nLRW,C\nForestwalk\r{2B}, Sacrifice Boggart Loggers: Destroy target Treefolk or Forest.\n2/1"
+    IDS_STRING17929         "Bog-Strider Ash\n{3G}\nCreature - Treefolk Shaman\nLRW,C\nSwampwalk\rWhenever a player casts a Goblin spell, you may pay {G}. If you do, you gain 2 life.\n2/4"
+    IDS_STRING17930         "Kithkin Healer\n{2W}\nCreature - Kithkin Cleric\nLRW,C\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n2/2"
+    IDS_STRING17931         "Caterwauling Boggart\n{3R}\nCreature - Goblin Shaman\nLRW,C\nEach Goblin you control can't be blocked except by two or more creatures.\rEach Elemenatal you control can't be blocked except by two or more creatures.\n2/2"
+    IDS_STRING17932         "Cloudcrown Oak\n{2GG}\nCreature - Treefolk Warrior\nLRW,C\nReach\n3/4"
+    IDS_STRING17933         "Deeptread Merrow\n{1U}\nCreature - Merfolk Rogue\nLRW,C\n{U}: Deeptread Merrow gains islandwalk until end of turn.\n2/1"
+    IDS_STRING17934         "Dolmen Gate\n{2}\nArtifact\nLRW,R\nPrevent all combat damage that would be dealt to attacking creatures you control."
+    IDS_STRING17935         "Drowner of Secrets\n{2U}\nCreature - Merfolk Wizard\nLRW,U\nTap an untapped Merfolk you control: Target player puts the top card of his or her library into his or her graveyard.\n1/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17936         "Elvish Eulogist\n{G}\nCreature - Elf Shaman\nLRW,C\nSacrifice Elvish Eulogist: You gain 1 life for each Elf card in your graveyard.\n1/1"
+    IDS_STRING17937         "Elvish Handservant\n{G}\nCreature - Elf Warrior\nLRW,C\nWhenever a player casts a Giant spell, you may put a +1/+1 counter on Elvish Handservant.\n1/1"
+    IDS_STRING17938         "Elvish Harbinger\n{2G}\nCreature - Elf Druid\nLRW,U\nWhen Elvish Harbinger enters the battlefield, you may search your library for an Elf card, reveal it, then shuffle your library and put that card on top of it.\r{T}: Add one mana of any color to your mana pool.\n1/2"
+    IDS_STRING17939         "Epic Proportions\n{4GG}\nEnchantment - Aura\nLRW,R\nFlash\rEnchant creature\rEnchanted creature gets +5/+5 and has trample."
+    IDS_STRING17940         "Ethereal Whiskergill\n{3U}\nCreature - Elemental\nLRW,U\nFlying\rEthereal Whiskergill can't attack unless defending player controls an Island.\n4/3"
+    IDS_STRING17941         "Exiled Boggart\n{1B}\nCreature - Goblin Rogue\nLRW,C\nWhen Exiled Boggart dies, discard a card.\n2/2"
+    IDS_STRING17942         "Facevaulter\n{B}\nCreature - Goblin Warrior\nLRW,C\n{B}, Sacrifice a Goblin: Facevaulter gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING17943         "Faerie Harbinger\n{3U}\nCreature - Faerie Wizard\nLRW,U\nFlash\rFlying\rWhen Faerie Harbinger enters the battlefield, you may search your library for a Faerie card, reveal it, then shuffle your library and put that card on top of it.\n2/2"
+    IDS_STRING17944         "Fallowsage\n{3U}\nCreature - Merfolk Wizard\nLRW,U\nWhenever Fallowsage becomes tapped, you may draw a card.\n2/2"
+    IDS_STRING17945         "Final Revels\n{4B}\nSorcery\nLRW,U\nChoose one - All creatures get +2/+0 until end of turn; or all creatures get -0/-2 until end of turn."
+    IDS_STRING17946         "Flamekin Brawler\n{R}\nCreature - Elemental Warrior\nLRW,C\n{R}: Flamekin Brawler gets +1/+0 until end of turn.\n0/2"
+    IDS_STRING17947         "Flamekin Harbinger\n{R}\nCreature - Elemental Shaman\nLRW,U\nWhen Flamekin Harbinger enters the battlefield, you may search your library for an Elemental card, reveal it, then shuffle your library and put that card on top of it.\n1/1"
+    IDS_STRING17948         "Flamekin Spitfire\n{1R}\nCreature - Elemental Shaman\nLRW,U\n{3R}: Flamekin Spitfire deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING17949         "Footbottom Feast\n{2B}\nInstant\nLRW,C\nPut any number of target creature cards from your graveyard on top of your library.\rDraw a card."
+    IDS_STRING17950         "Giant Harbinger\n{4R}\nCreature - Giant Shaman\nLRW,U\nWhen Giant Harbinger enters the battlefield, you may search your library for a Giant card, reveal it, then shuffle your library and put that card on top of it.\n3/4"
+    IDS_STRING17951         "Gilt-Leaf Seer\n{2G}\nCreature - Elf Shaman\nLRW,C\n{G}, {T}: Look at the top two cards of your library, then put them back in any order.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17952         "Goldmeadow Dodger\n{W}\nCreature - Kithkin Rogue\nLRW,C\nGoldmeadow Dodger can't be blocked by creatures with power 4 or greater.\n1/1"
+    IDS_STRING17953         "Goldmeadow Harrier\n{W}\nCreature - Kithkin Soldier\nLRW,C\n{W}, {T}: Tap target creature.\n1/1"
+    IDS_STRING17954         "Guardian of Cloverdell\n{5GG}\nCreature - Treefolk Shaman\nLRW,U\nWhen Guardian of Cloverdell enters the battlefield, put three 1/1 white Kithkin Soldier creature tokens onto the battlefield.\r{G}, Sacrifice a Kithkin: You gain 1 life.\n4/5"
+    IDS_STRING17955         "Harpoon Sniper\n{2W}\nCreature - Merfolk Archer\nLRW,U\n{W}, {T}: Harpoon Sniper deals X damage to target attacking or blocking creature, where X is the number of Merfolk you control.\n2/2"
+    IDS_STRING17956         "Hearthcage Giant\n{6RR}\nCreature - Giant Warrior\nLRW,U\nWhen Hearthcage Giant enters the battlefield, put two 3/1 red Elemental Shaman creature tokens onto the battlefield.\rSacrifice an Elemental: Target Giant creature gets +3/+1 until end of turn.\n5/5"
+    IDS_STRING17957         "Herbal Poultice\n{0}\nArtifact\nLRW,C\n{3}, Sacrifice Herbal Poultice: Regenerate target creature."
+    IDS_STRING17958         "Hillcomber Giant\n{2WW}\nCreature - Giant Scout\nLRW,C\nMountainwalk\n3/3"
+    IDS_STRING17959         "Hornet Harasser\n{2BB}\nCreature - Goblin Shaman\nLRW,C\nWhen Hornet Harasser dies, target creature gets -2/-2 until end of turn.\n2/2"
+    IDS_STRING17960         "Hurly-Burly\n{1R}\nSorcery\nLRW,C\nChoose one - Hurly-Burly deals 1 damage to each creature without flying; or Hurly-Burly deals 1 damage to each creature with flying."
+    IDS_STRING17961         "Imperious Perfect\n{2G}\nCreature - Elf Warrior\nLRW,U\nOther Elf creatures you control get +1/+1.\r{G}, {T}: Put a 1/1 green Elf Warrior creature token onto the battlefield.\n2/2"
+    IDS_STRING17962         "Inkfathom Divers\n{3UU}\nCreature - Merfolk Soldier\nLRW,C\nIslandwalk\rWhen Inkfathom Divers enters the battlefield, look at the top four cards of your library, then put them back in any order.\n3/3"
+    IDS_STRING17963         "Jagged-Scar Archers\n{1GG}\nCreature - Elf Archer\nLRW,U\nJagged-Scar Archers's power and toughness are each equal to the number of Elves you control.\r{T}: Jagged-Scar Archers deals damage equal to its power to target creature with flying.\n*/*"
+    IDS_STRING17964         "Judge of Currents\n{1W}\nCreature - Merfolk Wizard\nLRW,C\nWhenever a Merfolk you control becomes tapped, you may gain 1 life.\n1/1"
+    IDS_STRING17965         "Kinsbaile Balloonist\n{3W}\nCreature - Kithkin Soldier\nLRW,C\nFlying\rWhenever Kinsbaile Balloonist attacks, you may have target creature gain flying until end of turn.\n2/2"
+    IDS_STRING17966         "Kinsbaile Skirmisher\n{1W}\nCreature - Kithkin Soldier\nLRW,C\nWhen Kinsbaile Skirmisher enters the battlefield, target creature gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING17967         "Kithkin Daggerdare\n{1G}\nCreature - Kithkin Soldier\nLRW,C\n{G}, {T}: Target attacking creature gets +2/+2 until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17968         "Kithkin Harbinger\n{2W}\nCreature - Kithkin Wizard\nLRW,U\nWhen Kithkin Harbinger enters the battlefield, you may search your library for a Kithkin card, reveal it, then shuffle your library and put that card on top of it.\n1/3"
+    IDS_STRING17969         "Quill-Slinger Boggart\n{3B}\nCreature - Goblin Warrior\nLRW,C\nWhenever a player casts a Kithkin spell, you may have target player lose 1 life.\n3/2"
+    IDS_STRING17970         "Lace with Moonglove\n{2G}\nInstant\nLRW,C\nTarget creature gains deathtouch until end of turn.\rDraw a card."
+    IDS_STRING17971         "Leaf Gilder\n{1G}\nCreature - Elf Druid\nLRW,C\n{T}: Add {G} to your mana pool.\n2/1"
+    IDS_STRING17972         "Lowland Oaf\n{3R}\nCreature - Giant Warrior\nLRW,C\n{T}: Target Goblin creature you control gets +1/+0 and gains flying until end of turn. Sacrifice that creature at the beginning of the next end step.\n3/3"
+    IDS_STRING17973         "Lys Alana Huntmaster\n{2GG}\nCreature - Elf Warrior\nLRW,C\nWhenever you cast an Elf spell, you may put a 1/1 green Elf Warrior creature token onto the battlefield.\n3/3"
+    IDS_STRING17974         "Mad Auntie\n{2B}\nCreature - Goblin Shaman\nLRW,R\nOther Goblin creatures you control get +1/+1.\r{T}: Regenerate another target Goblin.\n2/2"
+    IDS_STRING17975         "Wizened Cenn\n{WW}\nCreature - Kithkin Cleric\nLRW,U\nOther Kithkin creatures you control get +1/+1.\n2/2"
+    IDS_STRING17976         "Merrow Harbinger\n{3U}\nCreature - Merfolk Wizard\nLRW,U\nIslandwalk\rWhen Merrow Harbinger enters the battlefield, you may search your library for a Merfolk card, reveal it, then shuffle your library and put that card on top of it.\n2/3"
+    IDS_STRING17977         "Wydwen, the Biting Gale\n{2UB}\nLegendary Creature - Faerie Wizard\nLRW,R\nFlash\rFlying\r{UB}, Pay 1 life: Return Wydwen, the Biting Gale to its owner's hand.\n3/3"
+    IDS_STRING17978         "Moonglove Extract\n{3}\nArtifact\nLRW,C\nSacrifice Moonglove Extract: Moonglove Extract deals 2 damage to target creature or player."
+    IDS_STRING17979         "Moonglove Winnower\n{3B}\nCreature - Elf Rogue\nLRW,C\nDeathtouch\n2/3"
+    IDS_STRING17980         "Mudbutton Torchrunner\n{2R}\nCreature - Goblin Warrior\nLRW,C\nWhen Mudbutton Torchrunner dies, it deals 3 damage to target creature or player.\n1/1"
+    IDS_STRING17981         "Nath of the Gilt-Leaf\n{3BG}\nLegendary Creature - Elf Warrior\nLRW,R\nAt the beginning of your upkeep, you may have target opponent discard a card at random.\rWhenever an opponent discards a card, you may put a 1/1 green Elf Warrior creature token onto the battlefield.\n4/4"
+    IDS_STRING17982         "Neck Snap\n{3W}\nInstant\nLRW,C\nDestroy target attacking or blocking creature."
+    IDS_STRING17983         "Nightshade Stinger\n{B}\nCreature - Faerie Rogue\nLRW,C\nFlying\rNightshade Stinger can't block.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17984         "Oakgnarl Warrior\n{5GG}\nCreature - Treefolk Warrior\nLRW,C\nVigilance, trample\n5/7"
+    IDS_STRING17985         "Wort, Boggart Auntie\n{2BR}\nLegendary Creature - Goblin Shaman\nLRW,R\nFear\rAt the beginning of your upkeep, you may return target Goblin card from your graveyard to your hand.\n3/3"
+    IDS_STRING17986         "Plover Knights\n{3WW}\nCreature - Kithkin Knight\nLRW,C\nFlying, first strike\n3/3"
+    IDS_STRING17987         "Protective Bubble\n{3U}\nEnchantment - Aura\nLRW,C\nEnchant creature\rEnchanted creature is unblockable and has shroud."
+    IDS_STRING17988         "Scion of Oona\n{2U}\nCreature - Faerie Soldier\nLRW,R\nFlash\rFlying\rOther Faerie creatures you control get +1/+1.\rOther Faeries you control have shroud.\n1/1"
+    IDS_STRING17989         "Seedguide Ash\n{4G}\nCreature - Treefolk Druid\nLRW,U\nWhen Seedguide Ash dies, you may search your library for up to three Forest cards and put them onto the battlefield tapped. If you do, shuffle your library.\n4/4"
+    IDS_STRING17990         "Sentinels of Glen Elendra\n{3U}\nCreature - Faerie Soldier\nLRW,C\nFlash\rFlying\n2/3"
+    IDS_STRING17991         "Shimmering Grotto\n\nLand\nLRW,C\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING17992         "Soaring Hope\n{4W}\nEnchantment - Aura\nLRW,C\nEnchant creature\rWhen Soaring Hope enters the battlefield, you gain 3 life.\rEnchanted creature has flying.\r{W}: Put Soaring Hope on top of its owner's library."
+    IDS_STRING17993         "Spiderwig Boggart\n{2B}\nCreature - Goblin Shaman\nLRW,C\nWhen Spiderwig Boggart enters the battlefield, target creature gains fear until end of turn.\n2/2"
+    IDS_STRING17994         "Springleaf Drum\n{1}\nArtifact\nLRW,C\n{T}, Tap an untapped creature you control: Add one mana of any color to your mana pool."
+    IDS_STRING17995         "Stonybrook Angler\n{1U}\nCreature - Merfolk Wizard\nLRW,C\n{1U}, {T}: You may tap or untap target creature.\n1/2"
+    IDS_STRING17996         "Streambed Aquitects\n{1UU}\nCreature - Merfolk Scout\nLRW,C\n{T}: Target Merfolk creature gets +1/+1 and gains islandwalk until end of turn.\r{T}: Target land becomes an Island until end of turn\n2/3"
+    IDS_STRING17997         "Sunrise Sovereign\n{5R}\nCreature - Giant Warrior\nLRW,R\nOther Giant creatures you control get +2/+2 and have trample.\n5/5"
+    IDS_STRING17998         "Surgespanner\n{2UU}\nCreature - Merfolk Wizard\nLRW,R\nWhenever Surgespanner becomes tapped, you may pay {1U}. If you do, return target permanent to its owner's hand.\n2/2"
+    IDS_STRING17999         "Tar Pitcher\n{3R}\nCreature - Goblin Shaman\nLRW,U\n{T}, Sacrifice a Goblin: Tar Pitcher deals 2 damage to target creature or player.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18000         "Thorn of Amethyst\n{2}\nArtifact\nLRW,R\nNoncreature spells cost {1} more to cast."
+    IDS_STRING18001         "Thorntooth Witch\n{5B}\nCreature - Treefolk Shaman\nLRW,U\nWhenever you cast a Treefolk spell, you may have target creature get +3/-3 until end of turn.\n3/4"
+    IDS_STRING18002         "Tideshaper Mystic\n{U}\nCreature - Merfolk Wizard\nLRW,C\n{T}: Target land becomes the basic land type of your choice until end of turn. Activate this ability only during your turn.\n1/1"
+    IDS_STRING18003         "Treefolk Harbinger\n{G}\nCreature - Treefolk Druid\nLRW,U\nWhen Treefolk Harbinger enters the battlefield, you may search your library for a Treefolk or Forest card, reveal it, then shuffle your library and put that card on top of it.\n0/3"
+    IDS_STRING18004         "Zephyr Net\n{1U}\nEnchantment - Aura\nLRW\nEnchant creature\rEnchanted creature has defender and flying."
+    IDS_STRING18005         "Veteran of the Depths\n{3W}\nCreature - Merfolk Soldier\nLRW,U\nWhenever Veteran of the Depths becomes tapped, you may put a +1/+1 counter on it.\n2/2"
+    IDS_STRING18006         "Wanderer's Twig\n{1}\nArtifact\nLRW,C\n{1}, Sacrifice Wanderer's Twig: Search your library for a basic land card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING18007         "Wellgabber Apothecary\n{4W}\nCreature - Merfolk Cleric\nLRW,C\n{1W}: Prevent all damage that would be dealt to target tapped Merfolk or Kithkin creature this turn.\n2/3"
+    IDS_STRING18008         "Thundercloud Shaman\n{3RR}\nCreature - Giant Shaman\nLRW,U\nWhen Thundercloud Shaman enters the battlefield, it deals damage equal to the number of Giants you control to each non-Giant creature.\n4/4"
+    IDS_STRING18009         "Battle Mastery\n{2W}\nEnchantment - Aura\nLRW,U\nEnchant creature\rEnchanted creature has double strike."
+    IDS_STRING18010         "Ponder\n{U}\nSorcery\nLRW,C\nLook at the top three cards of your library, then put them back in any order. You may shuffle your library.\rDraw a card."
+    IDS_STRING18011         "Jace Beleren\n{1UU}\nPlaneswalker - Jace\nLRW,R\n[+2]: Each player draws a card.\r[-1]: Target player draws a card.\r[-10]: Target player puts the top twenty cards of his or her library into his or her graveyard.\n3"
+    IDS_STRING18012         "AEthersnipe\n{5U}\nCreature - Elemental\nLRW,C\nEvoke {1UU}\rWhen Æthersnipe enters the battlefield, return target nonland permanent to its owner's hand.\n4/4"
+    IDS_STRING18013         "Black Poplar Shaman\n{2B}\nCreature - Treefolk Shaman\nLRW,C\n{2B}: Regenerate target Treefolk.\n1/3"
+    IDS_STRING18014         "Briarhorn\n{3G}\nCreature - Elemental\nLRW,U\nFlash\rWhen Briarhorn enters the battlefield, target creature gets +3/+3 until end of turn.\rEvoke {1G}\n3/3"
+    IDS_STRING18015         "Cloudthresher\n{2GGGG}\nCreature - Elemental\nLRW,R\nFlash\rReach\rWhen Cloudthresher enters the battlefield, it deals 2 damage to each creature with flying and each player.\rEvoke {2GG}\n7/7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18016         "Faultgrinder\n{6R}\nCreature - Elemental\nLRW,C\nTrample\rWhen Faultgrinder enters the battlefield, destroy target land.\rEvoke {4R}\n4/4"
+    IDS_STRING18017         "Glarewielder\n{4R}\nCreature - Elemental Shaman\nLRW,U\nHaste\rWhen Glarewielder enters the battlefield, up to two target creatures can't block this turn.\rEvoke {1R}\n3/1"
+    IDS_STRING18018         "Ingot Chewer\n{4R}\nCreature - Elemental\nLRW,C\nWhen Ingot Chewer enters the battlefield, destroy target artifact.\rEvoke {R}\n3/3"
+    IDS_STRING18019         "Inner-Flame Acolyte\n{1RR}\nCreature - Elemental Shaman\nLRW,C\nWhen Inner-Flame Acolyte enters the battlefield, target creature gets +2/+0 and gains haste until end of turn.\rEvoke {R}\n2/2"
+    IDS_STRING18020         "Knight of Meadowgrain\n{WW}\nCreature - Kithkin Knight\nLRW,U\nFirst strike\rLifelink\n2/2"
+    IDS_STRING18021         "Knucklebone Witch\n{B}\nCreature - Goblin Shaman\nLRW,R\nWhenever a Goblin you control dies, you may put a +1/+1 counter on Knucklebone Witch.\n1/1"
+    IDS_STRING18022         "Mournwhelk\n{6B}\nCreature - Elemental\nLRW,C\nWhen Mournwhelk enters the battlefield, target player discards two cards.\rEvoke {3B}\n3/3"
+    IDS_STRING18023         "Mulldrifter\n{4U}\nCreature - Elemental\nLRW,C\nFlying\rWhen Mulldrifter enters the battlefield, draw two cards.\rEvoke {2U}\n2/2"
+    IDS_STRING18024         "Austere Command\n{4WW}\nSorcery\nLRW,R\nChoose two - Destroy all artifacts; or destroy all enchantments; or destroy all creatures with converted mana cost 3 or less; or destroy all creatures with converted mana cost 4 or greater."
+    IDS_STRING18025         "Shriekmaw\n{4B}\nCreature - Elemental\nLRW,U\nFear\rWhen Shriekmaw enters the battlefield, destroy target nonartifact, nonblack creature.\rEvoke {1B}\n3/2"
+    IDS_STRING18026         "Sygg, River Guide\n{WU}\nLegendary Creature - Merfolk Wizard\nLRW,R\nIslandwalk\r{1W}: Target Merfolk you control gains protection from the color of your choice until end of turn.\n2/2"
+    IDS_STRING18027         "Wispmare\n{2W}\nCreature - Elemental\nLRW,C\nFlying\rWhen Wispmare enters the battlefield, destroy target enchantment.\rEvoke {W}\n1/3"
+    IDS_STRING18028         "Chandra Nalaar\n{3RR}\nPlaneswalker - Chandra\nLRW,R\n[+1]: Chandra Nalaar deals 1 damage to target player.\r[-X]: Chandra Nalaar deals X damage to target creature.\r[-8]: Chandra Nalaar deals 10 damage to target player and each creature he or she controls.\n6"
+    IDS_STRING18029         "Garruk Wildspeaker\n{2GG}\nPlaneswalker - Garruk\nLRW,R\n[+1]: Untap two target lands.\r[-1]: Put a 3/3 green Beast creature token onto the battlefield.\r[-4]: Creatures you control get +3/+3 and gain trample until end of turn.\n3"
+    IDS_STRING18030         "Glimmerdust Nap\n{2U}\nEnchantment - Aura\nLRW,C\nEnchant tapped creature\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING18031         "Vivid Crag\n\nLand\nLRW,U\nVivid Crag enters the battlefield tapped with two charge counters on it.\r{T}: Add {R} to your mana pool.\r{T}, Remove a charge counter from Vivid Crag: Add one mana of any color to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18032         "Vivid Creek\n\nLand\nLRW,U\nVivid Creek enters the battlefield tapped with two charge counters on it.\r{T}: Add {U} to your mana pool.\r{T}, Remove a charge counter from Vivid Creek: Add one mana of any color to your mana pool."
+    IDS_STRING18033         "Vivid Grove\n\nLand\nLRW,U\nVivid Grove enters the battlefield tapped with two charge counters on it.\r{T}: Add {G} to your mana pool.\r{T}, Remove a charge counter from Vivid Grove: Add one mana of any color to your mana pool."
+    IDS_STRING18034         "Vivid Marsh\n\nLand\nLRW,U\nVivid Marsh enters the battlefield tapped with two charge counters on it.\r{T}: Add {B} to your mana pool.\r{T}, Remove a charge counter from Vivid Marsh: Add one mana of any color to your mana pool."
+    IDS_STRING18035         "Vivid Meadow\n\nLand\nLRW,U\nVivid Meadow enters the battlefield tapped with two charge counters on it.\r{T}: Add {W} to your mana pool.\r{T}, Remove a charge counter from Vivid Meadow: Add one mana of any color to your mana pool."
+    IDS_STRING18036         "Hoofprints of the Stag\n{1W}\nTribal Enchantment - Elemental\nLRW,R\nWhenever you draw a card, you may put a hoofprint counter on Hoofprints of the Stag.\r{2W}, Remove four hoofprint counters from Hoofprints of the Stag: Put a 4/4 white Elemental creature token with flying onto the battlefield. Activate this ability only during your turn."
+    IDS_STRING18037         "Summon the School\n{3W}\nTribal Sorcery - Merfolk\nLRW,U\nPut two 1/1 blue Merfolk Wizard creature tokens onto the battlefield.\rTap four untapped Merfolk you control: Return Summon the School from your graveyard to your hand."
+    IDS_STRING18038         "Merrow Commerce\n{1U}\nTribal Enchantment - Merfolk\nLRW,U\nAt the beginning of your end step, untap all Merfolk you control."
+    IDS_STRING18039         "Thieving Sprite\n{2B}\nCreature - Faerie Rogue\nLRW,C\nFlying\rWhen Thieving Sprite enters the battlefield, target player reveals X cards from his or her hand, where X is the number of Faeries you control. You choose one of those cards. That player discards that card.\n1/1"
+    IDS_STRING18040         "Oblivion Ring\n{2W}\nEnchantment\nLRW,C\nWhen Oblivion Ring enters the battlefield, exile another target nonland permanent.\rWhen Oblivion Ring leaves the battlefield, return the exiled card to the battlefield under its owner's control."
+    IDS_STRING18041         "Nova Chaser\n{3R}\nCreature - Elemental\nLRW,R\nTrample\rChampion an Elemental\n10/2"
+    IDS_STRING18042         "Thoughtweft Trio\n{2WW}\nCreature - Kithkin Soldier\nLRW,R\nFirst strike, vigilance\rChampion a Kithkin\rThoughtweft Trio can block any number of creatures.\n5/5"
+    IDS_STRING18043         "Boggart Mob\n{3B}\nCreature - Goblin Warrior\nLRW,R\nChampion a Goblin\rWhenever a Goblin you control deals combat damage to a player, you may put a 1/1 black Goblin Rogue creature token onto the battlefield.\n5/5"
+    IDS_STRING18044         "Wren's Run Packmaster\n{3G}\nCreature - Elf Warrior\nLRW,R\nChampion an Elf\r{2G}: Put a 2/2 green Wolf creature token onto the battlefield.\rEach Wolf you control has deathtouch.\n5/5"
+    IDS_STRING18045         "Brion Stoutarm\n{2RW}\nLegendary Creature - Giant Warrior\nLRW,R\nLifelink\r{R}, {T}, Sacrifice a creature other than Brion Stoutarm: Brion Stoutarm deals damage equal to the sacrificed creature's power to target player.\n4/4"
+    IDS_STRING18046         "Cenn's Heir\n{1W}\nCreature - Kithkin Soldier\nLRW,C\nWhenever Cenn's Heir attacks, it gets +1/+1 until end of turn for each other attacking Kithkin.\n1/1"
+    IDS_STRING18047         "Ajani Goldmane\n{2WW}\nPlaneswalker - Ajani\nLRW,R\n[+1]: You gain 2 life.\r[-1]: Put a +1/+1 counter on each creature you control. Those creatures gain vigilance until end of turn.\r[-6]: Put a white Avatar creature token onto the battlefield. It has ""This creature's power and toughness are each equal to your life total.""\n4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18048         "Liliana Vess\n{3BB}\nPlaneswalker - Liliana\nLRW,R\n[+1]: Target player discards a card.\r[-2]: Search your library for a card, then shuffle your library and put that card on top of it.\r[-8]: Put all creature cards from all graveyards onto the battlefield under your control.\n5"
+    IDS_STRING18049         "Fathom Trawl\n{3UU}\nSorcery\nLRW,R\nReveal cards from the top of your library until you reveal three nonland cards. Put the nonland cards revealed this way into your hand, then put the rest of the revealed cards on the bottom of your library in any order."
+    IDS_STRING18050         "Auntie's Hovel\n\nLand\nLRW,R\nAs Auntie's Hovel enters the battlefield, you may reveal a Goblin card from your hand. If you don't, Auntie's Hovel enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING18051         "Cryptic Command\n{1UUU}\nInstant\nLRW,R\nChoose two - Counter target spell; or return target permanent to its owner's hand; or tap all creatures your opponents control; or draw a card."
+    IDS_STRING18052         "Boggart Sprite-Chaser\n{1R}\nCreature - Goblin Warrior\nLRW,C\nAs long as you control a Faerie, Boggart Sprite-Chaser gets +1/+1 and has flying.\n1/2"
+    IDS_STRING18053         "Kithkin Greatheart\n{1W}\nCreature - Kithkin Soldier\nLRW,C\nAs long as you control a Giant, Kithkin Greatheart gets +1/+1 and has first strike.\n2/1"
+    IDS_STRING18054         "Burrenton Forge-Tender\n{W}\nCreature - Kithkin Wizard\nLRW,U\nProtection from red\rSacrifice Burrenton Forge-Tender: Prevent all damage a red source of your choice would deal this turn.\n1/1"
+    IDS_STRING18055         "Mistbind Clique\n{3U}\nCreature - Faerie Wizard\nLRW,R\nFlying\rFlash\rChampion a Faerie\rWhen a Faerie is championed with Mistbind Clique, tap all lands target player controls.\n4/4"
+    IDS_STRING18056         "Adder-Staff Boggart\n{1R}\nCreature - Goblin Warrior\nLRW,C\nWhen Adder-Staff Boggart enters the battlefield, clash with an opponent. If you win, put a +1/+1 counter on Adder-Staff Boggart.\n2/1"
+    IDS_STRING18057         "Broken Ambitions\n{XU}\nInstant\nLRW,C\nCounter target spell unless its controller pays {X}. Clash with an opponent. If you win, that spell's controller puts the top four cards of his or her library into his or her graveyard."
+    IDS_STRING18058         "Bog Hoodlums\n{5B}\nCreature - Goblin Warrior\nLRW,C\nBog Hoodlums can't block.\rWhen Bog Hoodlums enters the battlefield, clash with an opponent. If you win, put a +1/+1 counter on Bog Hoodlums.\n4/1"
+    IDS_STRING18059         "Nath's Elite\n{4G}\nCreature - Elf Warrior\nLRW,C\nAll creatures able to block Nath's Elite do so.\rWhen Nath's Elite enters the battlefield, clash with an opponent. If you win, put a +1/+1 counter on Nath's Elite.\n4/2"
+    IDS_STRING18060         "Oaken Brawler\n{3W}\nCreature - Treefolk Warrior\nLRW,C\nWhen Oaken Brawler enters the battlefield, clash with an opponent. If you win, put a +1/+1 counter on Oaken Brawler.\n2/4"
+    IDS_STRING18061         "Paperfin Rascal\n{2U}\nCreature - Merfolk Rogue\nLRW,C\nWhen Paperfin Rascal enters the battlefield, clash with an opponent. If you win, put a +1/+1 counter on Paperfin Rascal.\n2/2"
+    IDS_STRING18062         "Gaddock Teeg\n{GW}\nLegendary Creature - Kithkin Advisor\nLRW,R\nNoncreature spells with converted mana cost 4 or greater can't be cast.\rNoncreature spells with {X} in their mana costs can't be cast.\n2/2"
+    IDS_STRING18063         "Woodland Changeling\n{1G}\nCreature - Shapeshifter\nLRW,C\nChangeling\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18064         "Incandescent Soulstoke\n{2R}\nCreature - Elemental Shaman\nLRW,R\nOther Elemental creatures you control get +1/+1.\r{1R}, {T}: You may put an Elemental creature card from your hand onto the battlefield. That creature gains haste until end of turn. Sacrifice it at the beginning of the next end step.\n2/2"
+    IDS_STRING18065         "Avian Changeling\n{2W}\nCreature - Shapeshifter\nLRW,C\nChangeling\rFlying\n2/2"
+    IDS_STRING18066         "Changeling Berserker\n{3R}\nCreature - Shapeshifter\nLRW,U\nChangeling\rHaste\rChampion a creature\n5/3"
+    IDS_STRING18067         "Changeling Hero\n{4W}\nCreature - Shapeshifter\nLRW,U\nChangeling\rChampion a creature\rLifelink\n4/4"
+    IDS_STRING18068         "Changeling Titan\n{4G}\nCreature - Shapeshifter\nLRW,U\nChangeling\rChampion a creature\n7/7"
+    IDS_STRING18069         "Fire-Belly Changeling\n{1R}\nCreature - Shapeshifter\nLRW,C\nChangeling\r{R}: Fire-Belly Changeling gets +1/+0 until end of turn. Activate this ability no more than twice each turn.\n1/1"
+    IDS_STRING18070         "Ghostly Changeling\n{2B}\nCreature - Shapeshifter\nLRW,U\nChangeling\r{1B}: Ghostly Changeling gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING18071         "Skeletal Changeling\n{1B}\nCreature - Shapeshifter\nLRW,C\nChangeling\r{1B}: Regenerate Skeletal Changeling.\n1/1"
+    IDS_STRING18072         "Timber Protector\n{4G}\nCreature - Treefolk Warrior\nLRW,R\nOther Treefolk creatures you control get +1/+1.\rOther Treefolk and Forests you control are indestructible.\n4/6"
+    IDS_STRING18073         "Ashling the Pilgrim\n{1R}\nLegendary Creature - Elemental Shaman\nLRW,R\n{1R}: Put a +1/+1 counter on Ashling the Pilgrim. If this is the third time this ability has resolved this turn, remove all +1/+1 counters from Ashling the Pilgrim, and it deals that much damage to each creature and each player.\n1/1"
+    IDS_STRING18074         "Sower of Temptation\n{2UU}\nCreature - Faerie Wizard\nLRW,R\nFlying\rWhen Sower of Temptation enters the battlefield, gain control of target creature for as long as Sower of Temptation remains on the battlefield.\n2/2"
+    IDS_STRING18075         "Familiar's Ruse\n{UU}\nInstant\nLRW,U\nAs an additional cost to cast Familiar's Ruse, return a creature you control to its owner's hand.\rCounter target spell."
+    IDS_STRING18076         "Eyeblight's Ending\n{2B}\nTribal Instant - Elf\nLRW,C\nDestroy target non-Elf creature."
+    IDS_STRING18077         "Wren's Run Vanquisher\n{1G}\nCreature - Elf Warrior\nLRW,U\nAs an additional cost to cast Wren's Run Vanquisher, reveal an Elf card from your hand or pay {3}.\rDeathtouch\n3/3"
+    IDS_STRING18078         "Crib Swap\n{2W}\nTribal Instant - Shapeshifter\nLRW,U\nChangeling\rExile target creature. Its controller puts a 1/1 colorless Shapeshifter creature token with changeling onto the battlefield."
+    IDS_STRING18079         "Brigid, Hero of Kinsbaile\n{2WW}\nLegendary Creature - Kithkin Archer\nLRW,R\nFirst Strike\r{T}: Brigid, Hero of Kinsbaile deals 2 damage to each attacking or blocking creature target player controls.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18080         "Shields of Velis Vel\n{W}\nTribal Instant - Shapeshifter\nLRW,C\nChangeling\rCreatures target player controls get +0/+1 and gain all creature types until end of turn."
+    IDS_STRING18081         "Surge of Thoughtweft\n{1W}\nTribal Instant - Kithkin\nLRW,C\nCreatures you control get +1/+1 until end of turn. If you control a Kithkin, draw a card."
+    IDS_STRING18082         "Merrow Reejerey\n{2U}\nCreature - Merfolk Soldier\nLRW,U\nOther Merfolk creatures you control get +1/+1.\rWhenever you cast a Merfolk spell, you may tap or untap target permanent.\n2/2"
+    IDS_STRING18083         "Pollen Lullaby\n{1W}\nInstant\nLRW,U\nPrevent all combat damage that would be dealt this turn. Clash with an opponent. If you win, creatures that player controls don't untap during the player's next untap step."
+    IDS_STRING18084         "Silvergill Douser\n{1U}\nCreature - Merfolk Wizard\nLRW,C\n{T}: Target creature gets -X/-0 until end of turn, where X is the number of Merfolk and/or Faeries you control.\n1/1"
+    IDS_STRING18085         "Whirlpool Whelm\n{1U}\nInstant\nLRW,C\nClash with an opponent, then return target creature to its owner's hand. If you win, you may put that creature on top of its owner's library instead."
+    IDS_STRING18086         "Immaculate Magistrate\n{3G}\nCreature - Elf Shaman\nLRW,R\n{T}: Put a +1/+1 counter on target creature for each Elf you control.\n2/2"
+    IDS_STRING18087         "Flamekin Bladewhirl\n{R}\nCreature - Elemental Warrior\nLRW,U\nAs an additional cost to cast Flamekin Bladewhirl, reveal an Elemental card from your hand or pay {3}.\n2/1"
+    IDS_STRING18088         "Goldmeadow Stalwart\n{W}\nCreature - Kithkin Soldier\nLRW,U\nAs an additional cost to cast Goldmeadow Stalwart, reveal a Kithkin card from your hand or pay {3}.\n2/2"
+    IDS_STRING18089         "Silvergill Adept\n{1U}\nCreature - Merfolk Wizard\nLRW,U\nAs an additional cost to cast Silvergill Adept, reveal a Merfolk card from your hand or pay {3}.\rWhen Silvergill Adept enters the battlefield, draw a card.\n2/1"
+    IDS_STRING18090         "Squeaking Pie Sneak\n{1B}\nCreature - Goblin Rogue\nLRW,U\nAs an additional cost to cast Squeaking Pie Sneak, reveal a Goblin card from your hand or pay {3}.\rFear\n2/2"
+    IDS_STRING18091         "Ancient Amphitheater\n\nLand\nLRW,R\nAs Ancient Amphitheater enters the battlefield, you may reveal a Giant card from your hand. If you don't, Ancient Amphitheater enters the battlefield tapped.\r{T}: Add {R} or {W} to your mana pool."
+    IDS_STRING18092         "Gilt-Leaf Palace\n\nLand\nLRW,R\nAs Gilt-Leaf Palace enters the battlefield, you may reveal an Elf card from your hand. If you don't, Gilt-Leaf Palace enters the battlefield tapped.\r{T}: Add {B} or {G} to your mana pool."
+    IDS_STRING18093         "Secluded Glen\n\nLand\nLRW,R\nAs Secluded Glen enters the battlefield, you may reveal a Faerie card from your hand. If you don't, Secluded Glen enters the battlefield tapped.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING18094         "Wanderwine Hub\n\nLand\nLRW,R\nAs Wanderwine Hub enters the battlefield, you may reveal a Merfolk card from your hand. If you don't, Wanderwine Hub enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING18095         "Spellstutter Sprite\n{1U}\nCreature - Faerie Wizard\nLRW,C\nFlash\rFlying\rWhen Spellstutter Sprite enters the battlefield, counter target spell with converted mana cost X or less, where X is the number of Faeries you control.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18096         "Runed Stalactite\n{1}\nArtifact - Equipment\nLRW,C\nEquipped creature gets +1/+1 and is every creature type.\rEquip {2}"
+    IDS_STRING18097         "Amoeboid Changeling\n{1U}\nCreature - Shapeshifter\nLRW,C\nChangeling\r{T}: Target creature gains all creature types until end of turn.\r{T}: Target creature loses all creature types until end of turn.\n1/1"
+    IDS_STRING18098         "Blind-Spot Giant\n{2R}\nCreature - Giant Warrior\nLRW,C\nBlind-Spot Giant can't attack or block unless you control another Giant.\n4/3"
+    IDS_STRING18099         "Dauntless Dourbark\n{3G}\nCreature - Treefolk Warrior\nLRW,R\nDauntless Dourbark's power and toughness are each equal to the number of Forests you control plus the number of Treefolk you control.\rDauntless Dourbark has trample as long as you control another Treefolk.\n*/*"
+    IDS_STRING18100         "Lys Alana Scarblade\n{2B}\nCreature - Elf Assassin\nLRW,U\n{T}, Discard an Elf card: Target creature gets -X/-X until end of turn, where X is the number of Elves you control.\n1/1"
+    IDS_STRING18101         "Marsh Flitter\n{3B}\nCreature - Faerie Rogue\nLRW,U\nFlying\rWhen Marsh Flitter enters the battlefield, put two 1/1 black Goblin Rogue creature tokens onto the battlefield.\rSacrifice a Goblin: Marsh Flitter becomes 3/3 until end of turn.\n1/1"
+    IDS_STRING18102         "Scarred Vinebreeder\n{1B}\nCreature - Elf Shaman\nLRW,C\n{2B}, Exile an Elf card from your graveyard: Scarred Vinebreeder gets +3/+3 until end of turn.\n1/1"
+    IDS_STRING18103         "Giant's Ire\n{3R}\nTribal Sorcery - Giant\nLRW,C\nGiant's Ire deals 4 damage to target player. If you control a Giant, draw a card."
+    IDS_STRING18104         "Boggart Shenanigans\n{2R}\nTribal Enchantment - Goblin\nLRW,U\nWhenever another Goblin you control dies, you may have Boggart Shenanigans deal 1 damage to target player."
+    IDS_STRING18105         "Prowess of the Fair\n{1B}\nTribal Enchantment - Elf\nLRW,U\nWhenever another nontoken Elf is put into your graveyard from the battlefield, you may put a 1/1 green Elf Warrior creature token onto the battlefield."
+    IDS_STRING18106         "Blades of Velis Vel\n{1R}\nTribal Instant - Shapeshifter\nLRW,C\nChangeling\rUp to two target creatures each get +2/+0 and gain all creature types until end of turn."
+    IDS_STRING18107         "Ego Erasure\n{2U}\nTribal Instant - Shapeshifter\nLRW,U\nChangeling\rCreatures target player controls get -2/-0 and lose all creature types until end of turn."
+    IDS_STRING18108         "Nameless Inversion\n{1B}\nTribal Instant - Shapeshifter\nLRW,C\nChangeling\rTarget creature gets +3/-3 and loses all creature types until end of turn."
+    IDS_STRING18109         "Peppersmoke\n{B}\nTribal Instant - Faerie\nLRW,C\nTarget creature gets -1/-1 until end of turn. If you control a Faerie, draw a card."
+    IDS_STRING18110         "Rootgrapple\n{4G}\nTribal Instant - Treefolk\nLRW,C\nDestroy target noncreature permanent. If you control a Treefolk, draw a card."
+    IDS_STRING18111         "Tarfire\n{R}\nTribal Instant - Goblin\nLRW,C\nTarfire deals 2 damage to target creature or player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18112         "Wings of Velis Vel\n{1U}\nTribal Instant - Shapeshifter\nLRW,C\nChangeling\rTarget creature becomes 4/4, gains all creature types, and gains flying until end of turn."
+    IDS_STRING18113         "Boggart Birth Rite\n{B}\nTribal Sorcery - Goblin\nLRW,C\nReturn target Goblin card from your graveyard to your hand."
+    IDS_STRING18114         "Consuming Bonfire\n{3RR}\nTribal Sorcery - Elemental\nLRW,C\nChoose one - Consuming Bonfire deals 4 damage to target non-Elemental creature; or Consuming Bonfire deals 7 damage to target Treefolk creature."
+    IDS_STRING18115         "Elvish Promenade\n{3G}\nTribal Sorcery - Elf\nLRW,U\nPut a 1/1 green Elf Warrior creature token onto the battlefield for each Elf you control."
+    IDS_STRING18116         "Wanderwine Prophets\n{4UU}\nCreature - Merfolk Wizard\nLRW,R\nChampion a Merfolk\rWhenever Wanderwine Prophets deals combat damage to a player, you may sacrifice a Merfolk. If you do, take an extra turn after this one.\n4/4"
+    IDS_STRING18117         "Fodder Launch\n{3B}\nTribal Sorcery - Goblin\nLRW,U\nAs an additional cost to cast Fodder Launch, sacrifice a Goblin.\rTarget creature gets -5/-5 until end of turn. Fodder Launch deals 5 damage to that creature's controller."
+    IDS_STRING18118         "Warren Pilferers\n{4B}\nCreature - Goblin Rogue\nLRW,C\nWhen Warren Pilferers enters the battlefield, return target creature card from your graveyard to your hand. If that card is a Goblin card, Warren Pilferers gains haste until end of turn.\n3/3"
+    IDS_STRING18119         "Goatnapper\n{2R}\nCreature - Goblin Rogue\nLRW,U\nWhen Goatnapper enters the battlefield, untap target Goat and gain control of it until end of turn. It gains haste until end of turn.\n2/2"
+    IDS_STRING18120         "Faerie Trickery\n{1UU}\nTribal Instant - Faerie\nLRW,C\nCounter target non-Faerie spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard."
+    IDS_STRING18121         "Nath's Buffoon\n{1B}\nCreature - Goblin Rogue\nLRW,C\nProtection from Elves\n1/1"
+    IDS_STRING18122         "Warren-Scourge Elf\n{1G}\nCreature - Elf Warrior\nLRW,C\nProtection from Goblins\n1/1"
+    IDS_STRING18123         "Pestermite\n{2U}\nCreature - Faerie Rogue\nLRW,C\nFlash\rFlying\rWhen Pestermite enters the battlefield, you may tap or untap target permanent.\n2/1"
+    IDS_STRING18124         "Hoarder's Greed\n{3B}\nSorcery\nLRW,U\nYou lose 2 life and draw two cards, then clash with an opponent. If you win, repeat this process."
+    IDS_STRING18125         "Stinkdrinker Daredevil\n{2R}\nCreature - Goblin Rogue\nLRW,C\nGiant spells you cast cost {2} less to cast.\n1/3"
+    IDS_STRING18126         "Galepowder Mage\n{3W}\nCreature - Kithkin Wizard\nLRW,R\nFlying\rWhenever Galepowder Mage attacks, exile another target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.\n3/3"
+    IDS_STRING18127         "Profane Command\n{XBB}\nSorcery\nLRW,R\nChoose two - Target player loses X life; or return target creature card with converted mana cost X or less from your graveyard to the battlefield; or target creature gets -X/-X until end of turn; or up to X target creatures gain fear until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18128         "Lash Out\n{1R}\nInstant\nLRW,C\nLash Out deals 3 damage to target creature. Clash with an opponent. If you win, Lash Out deals 3 damage to that creature's controller."
+    IDS_STRING18129         "Incendiary Command\n{3RR}\nSorcery\nLRW,R\nChoose two - Incendiary Command deals 4 damage to target player; or Incendiary Command deals 2 damage to each creature; or destroy target nonbasic land; or each player discards all the cards in his or her hand, then draws that many cards."
+    IDS_STRING18130         "Makeshift Mannequin\n{3B}\nInstant\nLRW,U\nReturn target creature card from your graveyard to the battlefield with a mannequin counter on it. For as long as that creature has a mannequin counter on it, it has ""When this creature becomes the target of a spell or ability, sacrifice it."""
+    IDS_STRING18131         "Primal Command\n{3GG}\nSorcery\nLRW,R\nChoose two - Target player gains 7 life; or put target noncreature permanent on top of its owner's library; or target player shuffles his or her graveyard into his or her library; or search your library for a creature card, reveal it, put it into your hand, then shuffle your library."
+    IDS_STRING18132         "Faerie Tauntings\n{2B}\nTribal Enchantment - Faerie\nLRW,U\nWhenever you cast a spell during an opponent's turn, you may have each opponent lose 1 life."
+    IDS_STRING18133         "Doran, the Siege Tower\n{BGW}\nLegendary Creature - Treefolk Shaman\nLRW,R\nEach creature assigns combat damage equal to its toughness rather than its power.\n0/5"
+    IDS_STRING18134         "Dreamspoiler Witches\n{3B}\nCreature - Faerie Wizard\nLRW,C\nFlying\rWhenever you cast a spell during an opponent's turn, you may have target creature get -1/-1 until end of turn.\n2/2"
+    IDS_STRING18135         "Glen Elendra Pranksters\n{3U}\nCreature - Faerie Wizard\nLRW,U\nFlying\rWhenever you cast a spell during an opponent's turn, you may return target creature you control to its owner's hand.\n1/3"
+    IDS_STRING18136         "Eyes of the Wisent\n{1G}\nTribal Enchantment - Elemental\nLRW,R\nWhenever an opponent casts a blue spell during your turn, you may put a 4/4 green Elemental creature token onto the battlefield."
+    IDS_STRING18137         "Nectar Faerie\n{1B}\nCreature - Faerie Wizard\nLRW,U\nFlying\r{B}, {T}: Target Faerie or Elf gains lifelink until end of turn.\n1/1"
+    IDS_STRING18138         "Heal the Scars\n{3G}\nInstant\nLRW,C\nRegenerate target creature. You gain life equal to that creature's toughness."
+    IDS_STRING18139         "Weed Strangle\n{3BB}\nSorcery\nLRW,C\nDestroy target creature. Clash with an opponent. If you win, you gain life equal to that creature's toughness."
+    IDS_STRING18140         "Lammastide Weave\n{1G}\nInstant\nLRW,U\nName a card, then target player puts the top card of his or her library into his or her graveyard. If that card is the named card, you gain life equal to its converted mana cost.\rDraw a card."
+    IDS_STRING18141         "Hunter of Eyeblights\n{3BB}\nCreature - Elf Assassin\nLRW,U\nWhen Hunter of Eyeblights enters the battlefield, put a +1/+1 counter on target creature you don't control.\r{2B}, {T}: Destroy target creature with a counter on it.\n3/3"
+    IDS_STRING18142         "Gilt-Leaf Ambush\n{2G}\nTribal Instant - Elf\nLRW,C\nPut two 1/1 green Elf Warrior creature tokens onto the battlefield. Clash with an opponent. If you win, those creatures gain deathtouch until end of turn."
+    IDS_STRING18143         "Mirror Entity\n{2W}\nCreature - Shapeshifter\nLRW,R\nChangeling\r{X}: Creatures you control become X/X and gain all creature types until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18144         "Vigor\n{3GGG}\nCreature - Elemental Incarnation\nLRW,R\nTrample\rIf damage would be dealt to a creature you control other than Vigor, prevent that damage. Put a +1/+1 counter on that creature for each 1 damage prevented this way.\rWhen Vigor is put into a graveyard from anywhere, shuffle it into its owner's library.\n6/6"
+    IDS_STRING18145         "Masked Admirers\n{2GG}\nCreature - Elf Shaman\nLRW,R\nWhen Masked Admirers enters the battlefield, draw a card.\rWhenever you cast a creature spell, you may pay {GG}. If you do, return Masked Admirers from your graveyard to your hand.\n3/2"
+    IDS_STRING18146         "Turtleshell Changeling\n{3U}\nCreature - Shapeshifter\nLRW,U\nChangeling\r{1U}: Switch Turtleshell Changeling's power and toughness until end of turn.\n1/4"
+    IDS_STRING18147         "Purity\n{3WWW}\nCreature - Elemental Incarnation\nLRW,R\nFlying\rIf noncombat damage would be dealt to you, prevent that damage. You gain life equal to the damage prevented this way.\rWhen Purity is put into a graveyard from anywhere, shuffle it into its owner's library.\n6/6"
+    IDS_STRING18148         "Boggart Forager\n{R}\nCreature - Goblin Rogue\nLRW,C\n{R}, Sacrifice Boggart Forager: Target player shuffles his or her library.\n1/1"
+    IDS_STRING18149         "Deathrender\n{4}\nArtifact - Equipment\nLRW,R\nEquipped creature gets +2/+2.\rWhenever equipped creature dies, you may put a creature card from your hand onto the battlefield and attach Deathrender to it.\rEquip {2}"
+    IDS_STRING18150         "Dread\n{3BBB}\nCreature - Elemental Incarnation\nLRW, R\nFear\rWhenever a creature deals damage to you, destroy it.\rWhen Dread is put into a graveyard from anywhere, shuffle it into its owner's library.\n6/6"
+    IDS_STRING18151         "Spinerock Knoll\n\nLand\nLRW,R\nHideaway\r{T}: Add {R} to your mana pool.\r{R}, {T}: You may play the exiled card without paying its mana cost if an opponent was dealt 7 or more damage this turn."
+    IDS_STRING18152         "Windbrisk Heights\n\nLand\nLRW,R\nHideaway\r{T}: Add {W} to your mana pool.\r{W}, {T}: You may play the exiled card without paying its mana cost if you attacked with three or more creatures this turn."
+    IDS_STRING18153         "Shelldock Isle\n\nLand\nLRW,R\nHideaway\r{T}: Add {U} to your mana pool.\r{U}, {T}: You may play the exiled card without paying its mana cost if a library has twenty or fewer cards in it."
+    IDS_STRING18154         "Mosswort Bridge\n\nLand\nLRW,R\nHideaway\r{T}: Add {G} to your mana pool.\r{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater."
+    IDS_STRING18155         "Howltooth Hollow\n\nLand\nLRW,R\nHideaway\r{T}: Add {B} to your mana pool.\r{B}, {T}: You may play the exiled card without paying its mana cost if each player has no cards in hand."
+    IDS_STRING18156         "Horde of Notions\n{WUBRG}\nLegendary Creature - Elemental\nLRW,R\nVigilance, trample, haste\r{WUBRG}: You may play target Elemental card from your graveyard without paying its mana cost.\n5/5"
+    IDS_STRING18157         "Militia's Pride\n{1W}\nTribal Enchantment - Kithkin\nLRW,R\nWhenever a nontoken creature you control attacks, you may pay {W}. If you do, put a 1/1 white Kithkin Soldier creature token onto the battlefield tapped and attacking."
+    IDS_STRING18158         "Triclopean Sight\n{1W}\nEnchantment - Aura\nLRW,C\nFlash\rEnchant creature\rWhen Triclopean Sight enters the battlefield, untap enchanted creature.\rEnchanted creature gets +1/+1 and has vigilance."
+    IDS_STRING18159         "Arbiter of Knollridge\n{6W}\nCreature - Giant Wizard\nLRW,R\nVigilance\rWhen Arbiter of Knollridge enters the battlefield, each player's life total becomes the highest life total among all players.\n5/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18160         "Thousand-Year Elixir\n{3}\nArtifact\nLRW,R\nYou may activate abilities of creatures you control as though those creatures had haste.\r{1}, {T}: Untap target creature."
+    IDS_STRING18161         "Needle Drop\n{R}\nInstant\nLRW,C\nNeedle Drop deals 1 damage to target creature or player that was dealt damage this turn.\rDraw a card."
+    IDS_STRING18162         "Hamletback Goliath\n{6R}\nCreature - Giant Warrior\nLRW,R\nWhenever another creature enters the battlefield, you may put X +1/+1 counters on Hamletback Goliath, where X is that creature's power.\n6/6"
+    IDS_STRING18163         "Lairwatch Giant\n{5W}\nCreature - Giant Warrior\nLRW,C\nLairwatch Giant can block an additional creature.\rWhenever Lairwatch Giant blocks two or more creatures, it gains first strike until end of turn.\n5/3"
+    IDS_STRING18164         "Hostility\n{3RRR}\nCreature - Elemental Incarnation\nLRW,R\nHaste\rIf a spell you control would deal damage to an opponent, prevent that damage. Put a 3/1 red Elemental Shaman creature token with haste onto the battlefield for each 1 damage prevented this way.\rWhen Hostility is put into a graveyard from anywhere, shuffle it into its owner's library.\n6/6"
+    IDS_STRING18165         "Sentry Oak\n{4W}\nCreature - Treefolk Warrior\nLRW,U\nDefender\rAt the beginning of combat on your turn, you may clash with an opponent. If you win, Sentry Oak gets +2/+0 and loses defender until end of turn.\n3/5"
+    IDS_STRING18166         "Springjack Knight\n{2W}\nCreature - Kithkin Knight\nLRW,C\nWhenever Springjack Knight attacks, clash with an opponent. If you win, target creature gains double strike until end of turn.\n2/1"
+    IDS_STRING18167         "Fistful of Force\n{1G}\nInstant\nLRW,C\nWhenever Springjack Knight attacks, clash with an opponent. If you win, target creature gains double strike until end of turn."
+    IDS_STRING18168         "Ashling's Prerogative\n{1R}\nEnchantment\nLRW,R\nAs Ashling's Prerogative enters the battlefield, choose odd or even.\rEach creature with converted mana cost of the chosen value has haste.\rEach creature without converted mana cost of the chosen value enters the battlefield tapped."
+    IDS_STRING18169         "Guile\n{3UUU}\nCreature - Elemental Incarnation\nLRW,R\nHaste\rGuile can't be blocked except by three or more creatures.\rIf a spell or ability you control would counter a spell, instead exile that spell and you may play that card without paying its mana cost.\rWhen Guile is put into a graveyard from anywhere, shuffle it into its owner's library.\n6/6"
+    IDS_STRING18170         "Soulbright Flamekin\n{1R}\nCreature - Elemental Shaman\nLRW,C\n{2}: Target creature gains trample until end of turn. If this is the third time this ability has resolved this turn, you may add {RRRRRRRR} to your mana pool.\n2/1"
+    IDS_STRING18171         "Inner-Flame Igniter\n{2R}\nCreature - Elemental Warrior\nLRW,U\n{2R}: Creatures you control get +1/+0 until end of turn. If this is the third time this ability has resolved this turn, creatures you control gain first strike until end of turn.\n2/2"
+    IDS_STRING18172         "Colfenor's Urn\n{3}\nArtifact\nLRW,R\nWhenever a creature with toughness 4 or greater is put into your graveyard from the battlefield, you may exile it.\rAt the beginning of the end step, if three or more cards have been exiled with Colfenor's Urn, sacrifice it. If you do, return those cards to the battlefield under their owner's control."
+    IDS_STRING18173         "Elvish Branchbender\n{2G}\nCreature - Elf Druid\nLRW,C\n{T}: Until end of turn, target Forest becomes an X/X Treefolk creature in addition to its other types, where X is the number of Elves you control.\n2/2"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

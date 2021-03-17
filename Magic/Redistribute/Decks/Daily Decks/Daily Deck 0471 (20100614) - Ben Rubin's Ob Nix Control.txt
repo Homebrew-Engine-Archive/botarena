@@ -1,0 +1,69 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 15 (25.00%)
+
+2 Avenger of Zendikar (19664)
+3 Lotus Cobra (19389)
+3 Ob Nixilis, the Fallen (19502)
+4 Oracle of Mul Daya (19542)
+Rampaging Baloths (19342)
+2 Sphinx of Lost Truths (19508)
+
+// Instants - 6 (10.00%)
+
+Harrow (19347)
+2 Smother (19600)
+3 Vendetta (20859)
+
+// Sorceries - 7 (11.67%)
+
+4 Explore (19647)
+3 Growth Spasm (20925)
+
+// Lands - 28 (46.67%)
+
+4 Creeping Tar Pit (19622)
+Forest (20801)
+Forest (20803)
+Forest (20802)
+Forest (20800)
+3 Halimar Depths (19634)
+Island (20806)
+Island (20805)
+Island (20804)
+2 Khalni Garden (19621)
+4 Misty Rainforest (19356)
+Swamp (20816)
+Swamp (20817)
+Swamp (20818)
+Swamp (20819)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Pelakka Wurm (20839)
+Rampaging Baloths (19342)
+2 Vampire Hexmage (19536)
+
+// Instants
+
+2 Deprive (20934)
+2 Harrow (19347)
+Naturalize (20824)
+2 Smother (19600)
+
+// Sorceries
+
+All is Dust (20830)
+
+// Lands
+
+2 Tectonic Edge (19651)

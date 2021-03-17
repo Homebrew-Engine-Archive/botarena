@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Chandra's Phoenix (22310)
+4 Goblin Fireslinger (22279)
+3 Grim Lavamancer (22165)
+Spikeshot Elder (21467)
+4 Stormblood Berserker (22293)
+4 Stromkirk Noble (23359)
+
+// Instants - 13 (21.67%)
+
+3 Galvanic Blast (21493)
+4 Gut Shot (21937)
+2 Incinerate (22166)
+4 Volt Charge (21946)
+
+// Sorceries - 2 (3.33%)
+
+2 Arc Trail (21554)
+
+// Artifacts - 4 (6.67%)
+
+4 Shrine of Burning Rage (22001)
+
+// Lands - 21 (35.00%)
+
+6 Mountain (23329)
+6 Mountain (23328)
+6 Mountain (23327)
+3 Rootbound Crag (22205)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Hero of Oxid Ridge (21758)
+4 Vulshok Refugee (21947)
+
+// Instants
+
+2 Ancient Grudge (23468)
+4 Dismember (21951)
+
+// Sorceries
+
+Arc Trail (21554)
+2 Traitorous Blood (23484)

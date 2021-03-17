@@ -1,0 +1,49 @@
+// Boggart Feast
+// Lorwyn Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 28 (46.67%)
+
+3 Adder-Staff Boggart (18056)
+2 Boggart Harbinger (17927)
+Boggart Mob (18043)
+2 Exiled Boggart (17941)
+3 Facevaulter (17942)
+2 Ghostly Changeling (18070)
+Goatnapper (18119)
+2 Hornet Harasser (17959)
+2 Lowland Oaf (17972)
+Mad Auntie (17974)
+2 Marsh Flitter (18101)
+2 Mudbutton Torchrunner (17980)
+Spiderwig Boggart (17993)
+Squeaking Pie Sneak (18090)
+Tar Pitcher (17999)
+2 Warren Pilferers (18118)
+
+// Instants - 2 (3.33%)
+
+2 Tarfire (18111)
+
+// Sorceries - 4 (6.67%)
+
+2 Boggart Birth Rite (18113)
+Fodder Launch (18117)
+Hoarder's Greed (18124)
+
+// Enchantments - 2 (3.33%)
+
+2 Boggart Shenanigans (18104)
+
+// Lands - 24 (40.00%)
+
+2 Mountain (17913)
+3 Mountain (17912)
+2 Mountain (17914)
+3 Mountain (17911)
+2 Shimmering Grotto (17991)
+3 Swamp (17919)
+3 Swamp (17922)
+3 Swamp (17921)
+3 Swamp (17920)

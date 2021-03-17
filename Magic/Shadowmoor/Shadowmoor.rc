@@ -1,0 +1,429 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Shadowmoor.ico"
+IDI_LARGE_MODULE        ICON                    "ShadowmoorLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Shadowmoor"
+    IDS_EXPANSION_ABBREV    "SHM"
+    IDS_FIRST_CARD          "18500"
+    IDS_TOTAL_CARD          "301"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "18801"
+    IDS_MODULE_LARGE_ICON_ID "18802"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "02-05-2008"
+    IDS_MWS_FOLDER          "MWS\\SHM\\"
+    IDS_PRODUCT_LIST        """Shadowmoor Starter Box"":R-3:U-10:C-32:BL-30,""Shadowmoor Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18500         "Bloodmark Mentor\n{1R}\nCreature - Goblin Warrior\nSHM,U\nRed creatures you control have first strike.\n1/1"
+    IDS_STRING18501         "Heap Doll\n{1}\nArtifact Creature - Scarecrow\nSHM,U\nSacrifice Heap Doll: Exile target card from a graveyard.\n1/1"
+    IDS_STRING18502         "Mass Calcify\n{5WW}\nSorcery\nSHM,R\nDestroy all nonwhite creatures."
+    IDS_STRING18503         "Corrupt\n{5B}\nSorcery\nSHM,U\nCorrupt deals damage equal to the number of Swamps you control to target creature or player. You gain life equal to the damage dealt this way."
+    IDS_STRING18504         "Forest\n\nBasic Land - Forest\nSHM,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING18505         "Forest\n\nBasic Land - Forest\nSHM,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING18506         "Forest\n\nBasic Land - Forest\nSHM,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING18507         "Forest\n\nBasic Land - Forest\nSHM,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING18508         "Howl of the Night Pack\n{6G}\nSorcery\nSHM,U\nPut a 2/2 green Wolf creature token onto the battlefield for each Forest you control."
+    IDS_STRING18509         "Island\n\nBasic Land - Island\nSHM,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING18510         "Island\n\nBasic Land - Island\nSHM,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING18511         "Island\n\nBasic Land - Island\nSHM,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18512         "Island\n\nBasic Land - Island\nSHM,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING18513         "Mountain\n\nBasic Land - Mountain\nSHM,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING18514         "Mountain\n\nBasic Land - Mountain\nSHM,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING18515         "Mountain\n\nBasic Land - Mountain\nSHM,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING18516         "Mountain\n\nBasic Land - Mountain\nSHM,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING18517         "Plains\n\nBasic Land - Plains\nSHM,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING18518         "Plains\n\nBasic Land - Plains\nSHM,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING18519         "Plains\n\nBasic Land - Plains\nSHM,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING18520         "Plains\n\nBasic Land - Plains\nSHM,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING18521         "Swamp\n\nBasic Land - Swamp\nSHM,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING18522         "Swamp\n\nBasic Land - Swamp\nSHM,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING18523         "Swamp\n\nBasic Land - Swamp\nSHM,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING18524         "Swamp\n\nBasic Land - Swamp\nSHM,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING18525         "Smash to Smithereens\n{1R}\nInstant\nSHM,C\nDestroy target artifact. Smash to Smithereens deals 3 damage to that artifact's controller."
+    IDS_STRING18526         "Apothecary Initiate\n{W}\nCreature - Kithkin Cleric\nSHM,C\nWhenever a player casts a white spell, you may pay {1}. If you do, you gain 1 life.\n1/1"
+    IDS_STRING18527         "Blistering Dieflyn\n{3R}\nCreature - Imp\nSHM,C\nFlying\r{D}: Blistering Dieflyn gets +1/+0 until end of turn.\n0/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18528         "Bloodshed Fever\n{R}\nEnchantment - Aura\nSHM,C\nEnchant creature\rEnchanted creature attacks each turn if able."
+    IDS_STRING18529         "Boggart Arsonists\n{2R}\nCreature - Goblin Rogue\nSHM,C\nPlainswalk\r{2R}, Sacrifice Boggart Arsonists: Destroy target Scarecrow or Plains.\n2/1"
+    IDS_STRING18530         "Cerulean Wisps\n{U}\nInstant\nSHM,C\nTarget creature becomes blue until end of turn. Untap that creature.\rDraw a card."
+    IDS_STRING18531         "Aphotic Wisps\n{B}\nInstant\nSHM,C\nTarget creature becomes black and gains fear until end of turn.\rDraw a card."
+    IDS_STRING18532         "Crimson Wisps\n{R}\nInstant\nSHM,C\nTarget creature becomes red and gains haste until end of turn.\rDraw a card."
+    IDS_STRING18533         "Crowd of Cinders\n{3B}\nCreature - Elemental\nSHM,U\nFear\rCrowd of Cinders's power and toughness are each equal to the number of black permanents you control.\n*/*"
+    IDS_STRING18534         "Cursecatcher\n{U}\nCreature - Merfolk Wizard\nSHM,U\nSacrifice Cursecatcher: Counter target instant or sorcery spell unless its controller pays {1}.\n1/1"
+    IDS_STRING18535         "Deepchannel Mentor\n{5U}\nCreature - Merfolk Rogue\nSHM,U\nBlue creatures you control are unblockable.\n2/2"
+    IDS_STRING18536         "Deep-Slumber Titan\n{2RR}\nCreature - Giant Warrior\nSHM,R\nDeep-Slumber Titan enters the battlefield tapped.\rDeep-Slumber Titan doesn't untap during your untap step.\rWhenever Deep-Slumber Titan is dealt damage, untap it.\n7/7"
+    IDS_STRING18537         "Dramatic Entrance\n{3GG}\nInstant\nSHM,R\nYou may put a green creature card from your hand onto the battlefield."
+    IDS_STRING18538         "Drove of Elves\n{3G}\nCreature - Elf\nSHM,U\nHexproof\rDrove of Elves's power and toughness are each equal to the number of green permanents you control.\n*/*"
+    IDS_STRING18539         "Faerie Macabre\n{1BB}\nCreature - Faerie Rogue\nSHM,C\nFlying\rDiscard Faerie Macabre: Exile up to two target cards from graveyards.\n2/2"
+    IDS_STRING18540         "Faerie Swarm\n{3U}\nCreature - Faerie\nSHM,U\nFlying\rFaerie Swarm's power and toughness are each equal to the number of blue permanents you control.\n*/*"
+    IDS_STRING18541         "Farhaven Elf\n{2G}\nCreature - Elf Druid\nSHM,C\nWhen Farhaven Elf enters the battlefield, you may search your library for a basic land card and put it onto the battlefield tapped. If you do, shuffle your library.\n1/1"
+    IDS_STRING18542         "Fire-Lit Thicket\n\nLand\nSHM,R\n{T}: Add {1} to your mana pool.\r{E}, {T}: Add {RR}, {RG}, or {GG} to your mana pool."
+    IDS_STRING18543         "Flow of Ideas\n{5U}\nSorcery\nSHM,U\nDraw a card for each Island you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18544         "Foxfire Oak\n{5G}\nCreature - Treefolk Shaman\nSHM,C\n{EEE}: Foxfire Oak gets +3/+0 until end of turn.\n3/6"
+    IDS_STRING18545         "Gloomwidow\n{2G}\nCreature - Spider\nSHM,U\nReach\rGloomwidow can block only creatures with flying.\n3/3"
+    IDS_STRING18546         "Goldenglow Moth\n{W}\nCreature - Insect\nSHM,C\nFlying\rWhenever Goldenglow Moth blocks, you may gain 4 life.\n0/1"
+    IDS_STRING18547         "Graven Cairns\n\nLand\nSHM,R\n{T}: Add {1} to your mana pool.\r{D}, {T}: Add {BB}, {BR}, or {RR} to your mana pool."
+    IDS_STRING18548         "Guttural Response\n{E}\nInstant\nSHM,U\nCounter target blue instant spell."
+    IDS_STRING18549         "Hollowborn Barghest\n{5BB}\nCreature - Demon Hound\nSHM,R\nAt the beginning of your upkeep, if you have no cards in hand, each opponent loses 2 life.\rAt the beginning of each opponent's upkeep, if that player has no cards in hand, he or she loses 2 life.\n7/6"
+    IDS_STRING18550         "Hollowsage\n{3B}\nCreature - Merfolk Wizard\nSHM,U\nWhenever Hollowsage becomes untapped, you may have target player discard a card.\n2/2"
+    IDS_STRING18551         "Horde of Boggarts\n{3R}\nCreature - Goblin\nSHM,U\nHorde of Boggarts's power and toughness are each equal to the number of red permanents you control.\rHorde of Boggarts can't be blocked except by two or more creatures.\n*/*"
+    IDS_STRING18552         "Hungry Spriggan\n{2G}\nCreature - Goblin Warrior\nSHM,C\nTrample\rWhenever Hungry Spriggan attacks, it gets +3/+3 until end of turn.\n1/1"
+    IDS_STRING18553         "Intimidator Initiate\n{R}\nCreature - Goblin Shaman\nSHM,C\nWhenever a player casts a red spell, you may pay {1}. If you do, target creature can't block this turn.\n1/1"
+    IDS_STRING18554         "Kinscaer Harpoonist\n{3U}\nCreature - Kithkin Soldier\nSHM,C\nFlying\rWhenever Kinscaer Harpoonist attacks, you may have target creature lose flying until end of turn.\n2/2"
+    IDS_STRING18555         "Kithkin Rabble\n{3W}\nCreature - Kithkin\nSHM,U\nVigilance\rKithkin Rabble's power and toughness are each equal to the number of white permanents you control.\n*/*"
+    IDS_STRING18556         "Kithkin Shielddare\n{1W}\nCreature - Kithkin Soldier\nSHM,C\n{W}, {T}: Target blocking creature gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING18557         "Knollspine Invocation\n{1RR}\nEnchantment\nSHM,R\n{X}, Discard a card with converted mana cost X: Knollspine Invocation deals X damage to target creature or player."
+    IDS_STRING18558         "Last Breath\n{1W}\nInstant\nSHM,C\nExile target creature with power 2 or less. Its controller gains 4 life."
+    IDS_STRING18559         "Leechridden Swamp\n\nLand - Swamp\nSHM,U\nLeechridden Swamp enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\r{B}, {T}: Each opponent loses 1 life. Activate this ability only if you control two or more black permanents."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18560         "Loch Korrigan\n{3B}\nCreature - Spirit\nSHM,C\n{C}: Loch Korrigan gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING18561         "Manamorphose\n{1E}\nInstant\nSHM,C\nAdd two mana in any combination of colors to your mana pool.\rDraw a card."
+    IDS_STRING18562         "Mistveil Plains\n\nLand - Plains\nSHM,U\nMistveil Plains enters the battlefield tapped.\r{T}: Add {W} to your mana pool.\r{W}, {T}: Put target card from your graveyard on the bottom of your library. Activate this ability only if you control two or more white permanents."
+    IDS_STRING18563         "Moonring Island\n\nLand - Island\nSHM,U\nMoonring Island enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\r{U}, {T}: Look at the top card of target player's library. Activate this ability only if you control two or more blue permanents."
+    IDS_STRING18564         "Mystic Gate\n\nLand\nSHM,R\n{T}: Add {1} to your mana pool.\r{A}: Add {WW}, {WU}, or {UU} to your mana pool."
+    IDS_STRING18565         "Niveous Wisps\n{W}\nInstant\nSHM,C\nTarget creature becomes white until end of turn. Tap that creature.\rDraw a card."
+    IDS_STRING18566         "Nurturer Initiate\n{G}\nCreature - Elf Shaman\nSHM,C\nWhenever a player casts a green spell, you may pay {1}. If you do, target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING18567         "Parapet Watchers\n{2U}\nCreature - Kithkin Soldier\nSHM,C\n{A}: Parapet Watchers gets +0/+1 until end of turn.\n2/2"
+    IDS_STRING18568         "Polluted Bonds\n{3BB}\nEnchantment\nSHM,R\nWhenever a land enters the battlefield under an opponent's control, that player loses 2 life and you gain 2 life."
+    IDS_STRING18569         "Pyre Charger\n{RR}\nCreature - Elemental Warrior\nSHM,U\nHaste\r{R}: Pyre Charger gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING18570         "Raking Canopy\n{1GG}\nEnchantment\nSHM,U\nWhenever a creature with flying attacks you, Raking Canopy deals 4 damage to it."
+    IDS_STRING18571         "Reflecting Pool\n\nLand\nSHM,R\n{T}: Add to your mana pool one mana of any type that a land you control could produce."
+    IDS_STRING18572         "Revelsong Horn\n{2}\nArtifact\nSHM,U\n{1}, {T}, Tap an untapped creature you control: Target creature gets +1/+1 until end of turn."
+    IDS_STRING18573         "Roughshod Mentor\n{5G}\nCreature - Giant Warrior\nSHM,U\nGreen creatures you control have trample.\n5/4"
+    IDS_STRING18574         "Rune-Cervin Rider\n{3W}\nCreature - Elf Warrior\nSHM,C\nFlying\r{FF}: Rune-Cervin Rider gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING18575         "Safewright Quest\n{F}\nSorcery\nSHM,C\nSearch your library for a Forest or Plains card, reveal it, and put it into your hand. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18576         "Sapseep Forest\n\nLand - Forest\nSHM,U\nSapseep Forest enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\r{G}, {T}: You gain 1 life. Activate this ability only if you control two or more green permanents."
+    IDS_STRING18577         "Wooded Bastion\n\nLand\nSHM,R\n{T}: Add {1} to your mana pool.\r{F}, {T}: Add {GG}, {GW}, or {WW} to your mana pool."
+    IDS_STRING18578         "Smolder Initiate\n{B}\nCreature - Elemental Shaman\nSHM,C\nWhenever a player casts a black spell, you may pay {1}. If you do, target player loses 1 life.\n1/1"
+    IDS_STRING18579         "Spawnwrithe\n{2G}\nCreature - Elemental\nSHM,R\nTrample\rWhenever Spawnwrithe deals combat damage to a player, put a token that's a copy of Spawnwrithe onto the battlefield.\n2/2"
+    IDS_STRING18580         "Sunken Ruins\n\nLand\nSHM,R\n{T}: Add {1} to your mana pool.\r{C}, {T}: Add {UU}, {UB}, or {BB} to your mana pool."
+    IDS_STRING18581         "Toil to Renown\n{1G}\nSorcery\nSHM,C\nYou gain 1 life for each tapped artifact, creature, and land you control."
+    IDS_STRING18582         "Trip Noose\n{2}\nArtifact\nSHM,U\n{2}, {T}: Tap target creature."
+    IDS_STRING18583         "Viridescent Wisps\n{G}\nInstant\nSHM,C\nTarget creature becomes green and gets +1/+0 until end of turn.\rDraw a card."
+    IDS_STRING18584         "Whimwader\n{4U}\nCreature - Elemental\nSHM,C\nWhimwader can't attack unless defending player controls a blue permanent.\n6/4"
+    IDS_STRING18585         "Drowner Initiate\n{U}\nCreature - Merfolk Wizard\nSHM,C\nWhenever a player casts a blue spell, you may pay {1}. If you do, target player puts the top two cards of his or her library into his or her graveyard.\n1/1"
+    IDS_STRING18586         "Ashenmoor Cohort\n{5B}\nCreature - Elemental Warrior\nSHM,C\nAshenmoor Cohort gets +1/+1 as long as you control another black creature.\n4/3"
+    IDS_STRING18587         "Ballynock Cohort\n{2W}\nCreature - Kithkin Soldier\nSHM,C\nFirst strike\rBallynock Cohort gets +1/+1 as long as you control another white creature.\n2/2"
+    IDS_STRING18588         "Briarberry Cohort\n{1U}\nCreature - Faerie Soldier\nSHM,C\nFlying\rBriarberry Cohort gets +1/+1 as long as you control another blue creature.\n1/1"
+    IDS_STRING18589         "Crabapple Cohort\n{4G}\nCreature - Treefolk Warrior\nSHM,C\nCrabapple Cohort gets +1/+1 as long as you control another green creature.\n4/4"
+    IDS_STRING18590         "Mudbrawler Cohort\n{1R}\nCreature - Goblin Warrior\nSHM,C\nHaste\rMudbrawler Cohort gets +1/+1 as long as you control another red creature.\n1/1"
+    IDS_STRING18591         "Rage Reflection\n{4RR}\nEnchantment\nSHM,R\nCreatures you control have double strike."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18592         "Tattermunge Maniac\n{E}\nCreature - Goblin Warrior\nSHM,U\nTattermunge Maniac attacks each turn if able.\n2/1"
+    IDS_STRING18593         "Kitchen Finks\n{1FF}\nCreature - Ouphe\nSHM,U\nPersist\rWhen Kitchen Finks enters the battlefield, you gain 2 life.\n3/2"
+    IDS_STRING18594         "Ashenmoor Gouger\n{DDD}\nCreature - Elemental Warrior\nSHM,U\nAshenmoor Gouger can't block.\n4/4"
+    IDS_STRING18595         "Barrenton Cragtreads\n{2AA}\nCreature - Kithkin Scout\nSHM,C\nBarrenton Cragtreads can't be blocked by red creatures.\n3/3"
+    IDS_STRING18596         "Boartusk Liege\n{1EEE}\nCreature - Goblin Knight\nSHM,R\nTrample\rOther red creatures you control get +1/+1.\rOther green creatures you control get +1/+1.\n3/4"
+    IDS_STRING18597         "Cultbrand Cinder\n{4D}\nCreature - Elemental Shaman\nSHM,C\nWhen Cultbrand Cinder enters the battlefield, put a -1/-1 counter on target creature.\n3/3"
+    IDS_STRING18598         "Elvish Hexhunter\n{F}\nCreature - Elf Shaman\nSHM,C\n{F}, {T}, Sacrifice Elvish Hexhunter: Destroy target enchantment.\n1/1"
+    IDS_STRING18599         "Emberstrike Duo\n{1D}\nCreature - Elemental Warrior Shaman\nSHM,C\nWhenever you cast a black spell, Emberstrike Duo gets +1/+1 until end of turn.\rWhenever you cast a red spell, Emberstrike Duo gains first strike until end of turn.\n1/1"
+    IDS_STRING18600         "Fulminator Mage\n{1DD}\nCreature - Elemental Shaman\nSHM,R\nSacrifice Fulminator Mage: Destroy target nonbasic land.\n2/2"
+    IDS_STRING18601         "Glen Elendra Liege\n{1CCC}\nCreature - Faerie Knight\nSHM,R\nFlying\rOther blue creatures you control get +1/+1.\rOther black creatures you control get +1/+1.\n2/3"
+    IDS_STRING18602         "Gravelgill Axeshark\n{4C}\nCreature - Merfolk Soldier\nSHM,C\nPersist\n3/3"
+    IDS_STRING18603         "Gravelgill Duo\n{2C}\nCreature - Merfolk Rogue Warrior\nSHM,C\nWhenever you cast a blue spell, Gravelgill Duo gets +1/+1 until end of turn.\rWhenever you cast a black spell, Gravelgill Duo gains fear until end of turn.\n2/1"
+    IDS_STRING18604         "Inkfathom Infiltrator\n{CC}\nCreature - Merfolk Rogue\nSHM,U\nInkfathom Infiltrator can't block and is unblockable.\n2/1"
+    IDS_STRING18605         "Loamdragger Giant\n{4EEE}\nCreature - Giant Warrior\nSHM,C\n\n7/6"
+    IDS_STRING18606         "Manaforge Cinder\n{D}\nCreature - Elemental Shaman\nSHM,C\n{1}: Add {B} or {R} to your mana pool. Activate this ability no more than three times each turn.\n1/1"
+    IDS_STRING18607         "Mudbrawler Raiders\n{2EE}\nCreature - Goblin Warrior\nSHM,C\nMudbrawler Raiders can't be blocked by blue creatures.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18608         "Old Ghastbark\n{3FF}\nCreature - Treefolk Warrior\nSHM,C\n\n3/6"
+    IDS_STRING18609         "Oracle of Nectars\n{2F}\nCreature - Elf Cleric\nSHM,R\n{X}, {T}: You gain X life.\n2/2"
+    IDS_STRING18610         "Oversoul of Dusk\n{FFFFF}\nCreature - Spirit Avatar\nSHM,R\nProtection from blue, from black, and from red\n5/5"
+    IDS_STRING18611         "Plumeveil\n{AAA}\nCreature - Elemental\nSHM,U\nFlash\rDefender, flying\n4/4"
+    IDS_STRING18612         "Raven's Run Dragoon\n{2FF}\nCreature - Elf Knight\nSHM,C\nRaven's Run Dragoon can't be blocked by black creatures.\n3/3"
+    IDS_STRING18613         "Resplendent Mentor\n{4W}\nCreature - Kithkin Cleric\nSHM,U\nWhite creatures you control have ""{T}: You gain 1 life.""\n2/2"
+    IDS_STRING18614         "Safehold Duo\n{3F}\nCreature - Elf Warrior Shaman\nSHM,C\nWhenever you cast a green spell, Safehold Duo gets +1/+1 until end of turn.\rWhenever you cast a white spell, Safehold Duo gains vigilance until end of turn.\n2/4"
+    IDS_STRING18615         "Safehold Elite\n{1F}\nCreature - Elf Scout\nSHM,C\nPersist\n2/2"
+    IDS_STRING18616         "Scuzzback Marauders\n{4E}\nCreature - Goblin Warrior\nSHM,C\nTrample\rPersist\n5/2"
+    IDS_STRING18617         "Seedcradle Witch\n{F}\nCreature - Elf Shaman\nSHM,U\n{2GW}: Target creature gets +3/+3 until end of turn. Untap that creature.\n1/1"
+    IDS_STRING18618         "Somnomancer\n{1A}\nCreature - Kithkin Wizard\nSHM,C\nWhen Somnomancer enters the battlefield, you may tap target creature.\n2/1"
+    IDS_STRING18619         "Sootstoke Kindler\n{1D}\nCreature - Elemental Shaman\nSHM,C\nHaste\r{T}: Target black or red creature gains haste until end of turn.\n1/1"
+    IDS_STRING18620         "Sootwalkers\n{2DD}\nCreature - Elemental Rogue\nSHM,C\nSootwalkers can't be blocked by white creatures.\n3/3"
+    IDS_STRING18621         "Spiteflame Witch\n{1D}\nCreature - Elemental Shaman\nSHM,U\n{BR}: Each player loses 1 life.\n2/1"
+    IDS_STRING18622         "Tattermunge Duo\n{2E}\nCreature - Goblin Warrior Shaman\nSHM,C\nWhenever you cast a red spell, Tattermunge Duo gets +1/+1 until end of turn.\rWhenever you cast a green spell, Tattermunge Duo gains forestwalk until end of turn.\n2/3"
+    IDS_STRING18623         "Thistledown Duo\n{2A}\nCreature - Kithkin Soldier Wizard\nSHM,C\nWhenever you cast a white spell, Thistledown Duo gets +1/+1 until end of turn.\rWhenever you cast a blue spell, Thistledown Duo gains flying until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18624         "Thistledown Liege\n{1AAA}\nCreature - Kithkin Knight\nSHM,R\nFlash\rOther white creatures you control get +1/+1.\rOther blue creatures you control get +1/+1.\n1/3"
+    IDS_STRING18625         "Wanderbrine Rootcutters\n{2CC}\nCreature - Merfolk Rogue\nSHM,C\nWanderbrine Rootcutters can't be blocked by green creatures.\n3/3"
+    IDS_STRING18626         "Wasp Lancer\n{CCC}\nCreature - Faerie Soldier\nSHM,U\nFlying\n3/2"
+    IDS_STRING18627         "Wilt-Leaf Cavaliers\n{FFF}\nCreature - Elf Knight\nSHM,U\nVigilance\n3/4"
+    IDS_STRING18628         "Woodfall Primus\n{5GGG}\nCreature - Treefolk Shaman\nSHM,R\nTrample\rWhen Woodfall Primus enters the battlefield, destroy target noncreature permanent.\rPersist\n6/6"
+    IDS_STRING18629         "Zealous Guardian\n{A}\nCreature - Kithkin Soldier\nSHM,C\nFlash\n1/1"
+    IDS_STRING18630         "Scrapbasket\n{4}\nArtifact Creature - Scarecrow\nSHM,C\n{1}: Scrapbasket becomes all colors until end of turn.\n3/2"
+    IDS_STRING18631         "Gnarled Effigy\n{4}\nArtifact\nSHM,U\n{4}, {T}: Put a -1/-1 counter on target creature."
+    IDS_STRING18632         "Power of Fire\n{1R}\nEnchantment - Aura\nSHM,C\nEnchant creature\rEnchanted creature has ""{T}: This creature deals 1 damage to target creature or player."""
+    IDS_STRING18633         "Presence of Gond\n{2G}\nEnchantment - Aura\nSHM,C\nEnchant creature\rEnchanted creature has ""{T}: Put a 1/1 green Elf Warrior creature token onto the battlefield."""
+    IDS_STRING18634         "Spiteful Visions\n{2DD}\nEnchantment\nSHM,R\nAt the beginning of each player's draw step, that player draws an additional card.\rWhenever a player draws a card, Spiteful Visions deals 1 damage to that player."
+    IDS_STRING18635         "Torture\n{B}\nEnchantment - Aura\nSHM,C\nEnchant creature\r{1B}: Put a -1/-1 counter on enchanted creature."
+    IDS_STRING18636         "Reknit\n{1F}\nInstant\nSHM,U\nRegenerate target permanent."
+    IDS_STRING18637         "Scar\n{D}\nInstant\nSHM,C\nPut a -1/-1 counter on target creature."
+    IDS_STRING18638         "Thoughtweft Gambit\n{4AA}\nInstant\nSHM,U\nTap all creatures your opponents control and untap all creatures you control."
+    IDS_STRING18639         "Poison the Well\n{2DD}\nSorcery\nSHM,C\nDestroy target land. Poison the Well deals 2 damage to that land's controller."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18640         "Spectral Procession\n{MMM}\nSorcery\nSHM,U\nPut three 1/1 white Spirit creature tokens with flying onto the battlefield."
+    IDS_STRING18641         "Splitting Headache\n{3B}\nSorcery\nSHM,C\nChoose one - Target player discards two cards; or target player reveals his or her hand, you choose a card from it, then that player discards that card."
+    IDS_STRING18642         "Flame Javelin\n{PPP}\nInstant\nSHM,U\nFlame Javelin deals 4 damage to target creature or player."
+    IDS_STRING18643         "Reaper King\n{MNOPV}\nLegendary Artifact Creature - Scarecrow\nSHM,R\nOther Scarecrow creatures you control get +1/+1.\rWhenever another Scarecrow enters the battlefield under your control, destroy target permanent.\n6/6"
+    IDS_STRING18644         "Wilt-Leaf Liege\n{1FFF}\nCreature - Elf Knight\nSHM,R\n\rOther white creatures you control get +1/+1.\rOther green creatures you control get +1/+1.\rIf a spell or ability an opponent controls causes you to discard Wilt-Leaf Liege, put it onto the battlefield instead of putting it into your graveyard.\n4/4"
+    IDS_STRING18645         "Demigod of Revenge\n{DDDDD}\nCreature - Spirit Avatar\nSHM,R\nFlying, haste\rWhen you cast Demigod of Revenge, return all cards named Demigod of Revenge from your graveyard to the battlefield.\n5/4"
+    IDS_STRING18646         "Murderous Redcap\n{2DD}\nCreature - Goblin Assassin\nSHM,U\nWhen Murderous Redcap enters the battlefield, it deals damage equal to its power to target creature or player.\rPersist\n2/2"
+    IDS_STRING18647         "Ghastlord of Fugue\n{CCCCC}\nCreature - Spirit Avatar\nSHM,R\nGhastlord of Fugue is unblockable\rWhenever Ghastlord of Fugue deals combat damage to a player, that player reveals his or her hand. You choose a card from it. That player exiles that card.\n4/4"
+    IDS_STRING18648         "Augury Adept\n{1AA}\nCreature - Kithkin Wizard\nSHM,R\nWhenever Augury Adept deals combat damage to a player, reveal the top card of your library and put that card into your hand. You gain life equal to its converted mana cost.\n2/2"
+    IDS_STRING18649         "Tattermunge Witch\n{1E}\nCreature - Goblin Shaman\nSHM,U\n{RG}: Each blocked creature gets +1/+0 and gains trample until end of turn.\n2/1"
+    IDS_STRING18650         "Dire Undercurrents\n{3CC}\nEnchantment\nSHM,R\nWhenever a blue creature enters the battlefield under your control, you may have target player draw a card.\rWhenever a black creature enters the battlefield under your control, you may have target player discard a card."
+    IDS_STRING18651         "Barrenton Medic\n{4W}\nCreature - Kithkin Cleric\nSHM,C\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\rPut a -1/-1 counter on Barrenton Medic: Untap Barrenton Medic.\n0/4"
+    IDS_STRING18652         "Chainbreaker\n{2}\nArtifact Creature - Scarecrow\nSHM,C\nChainbreaker enters the battlefield with two -1/-1 counters on it.\r{3}, {T}: Remove a -1/-1 counter from target creature.\n3/3"
+    IDS_STRING18653         "Grim Poppet\n{7}\nArtifact Creature - Scarecrow\nSHM,R\nGrim Poppet enters the battlefield with three -1/-1 counters on it.\rRemove a -1/-1 counter from Grim Poppet: Put a -1/-1 counter on another target creature.\n4/4"
+    IDS_STRING18654         "Morselhoarder\n{4EE}\nCreature - Elemental\nSHM,C\nMorselhoarder enters the battlefield with two -1/-1 counters on it.\rRemove a -1/-1 counter from Morselhoarder: Add one mana of any color to your mana pool.\n6/4"
+    IDS_STRING18655         "Cinderhaze Wretch\n{4B}\nCreature - Elemental Shaman\nSHM,C\n{T}: Target player discards a card. Activate this ability only during your turn.\rPut a -1/-1 counter on Cinderhaze Wretch: Untap Cinderhaze Wretch.\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18656         "Devoted Druid\n{1G}\nCreature - Elf Druid\nSHM,C\n{T}: Add {G} to your mana pool.\rPut a -1/-1 counter on Devoted Druid: Untap Devoted Druid.\n0/2"
+    IDS_STRING18657         "Puncture Bolt\n{1R}\nInstant\nSHM,C\nPuncture Bolt deals 1 damage to target creature. Put a -1/-1 counter on that creature."
+    IDS_STRING18658         "Deus of Calamity\n{EEEEE}\nCreature - Spirit Avatar\nSHM,R\nTrample\rWhenever Deus of Calamity deals 6 or more damage to an opponent, destroy target land that player controls.\n6/6"
+    IDS_STRING18659         "Boggart Ram-Gang\n{EEE}\nCreature - Goblin Warrior\nSHM,U\nHaste\rWither\n3/3"
+    IDS_STRING18660         "Cinderbones\n{2B}\nCreature - Elemental Skeleton\nSHM,C\nWither\r{1B}: Regenerate Cinderbones.\n1/1"
+    IDS_STRING18661         "Juvenile Gloomwidow\n{GG}\nCreature - Spider\nSHM,C\nReach\rWither\n1/3"
+    IDS_STRING18662         "Midnight Banshee\n{3BBB}\nCreature - Spirit\nSHM,R\nWither\rAt the beginning of your upkeep, put a -1/-1 counter on each nonblack creature.\n5/5"
+    IDS_STRING18663         "Oona's Gatewarden\n{C}\nCreature - Faerie Soldier\nSHM,C\nDefender, flying\rWither\n2/1"
+    IDS_STRING18664         "Rustrazor Butcher\n{1R}\nCreature - Goblin Warrior\nSHM,C\nFirst strike\rWither\n1/2"
+    IDS_STRING18665         "Scuzzback Scrapper\n{E}\nCreature - Goblin Warrior\nSHM,C\nWither\n1/1"
+    IDS_STRING18666         "Sickle Ripper\n{1B}\nCreature - Elemental Warrior\nSHM,C\nWither\n2/1"
+    IDS_STRING18667         "Slinking Giant\n{2RR}\nCreature - Giant Rogue\nSHM,U\nWither\rWhenever Slinking Giant blocks or becomes blocked, it gets -3/-0 until end of turn.\n4/4"
+    IDS_STRING18668         "Wildslayer Elves\n{3G}\nCreature - Elf Warrior\nSHM,C\nWither\n3/3"
+    IDS_STRING18669         "Counterbore\n{3UU}\nInstant\nSHM,R\nCounter target spell. Search its controller's graveyard, hand, and library for all cards with the same name as that spell and exile them. Then that player shuffles his or her library."
+    IDS_STRING18670         "Lockjaw Snapper\n{4}\nArtifact Creature - Scarecrow\nSHM,U\nWither\rWhen Lockjaw Snapper dies, put a -1/-1 counter on each creature with a -1/-1 counter on it.\n2/2"
+    IDS_STRING18671         "Puppeteer Clique\n{3BB}\nCreature - Faerie Wizard\nSHM,R\nFlying\rWhen Puppeteer Clique enters the battlefield, put target creature card from an opponent's graveyard onto the battlefield under your control. It gains haste. At the beginning of your next end step, exile it.\rPersist\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18672         "Knollspine Dragon\n{5RR}\nCreature - Dragon\nSHM,R\nFlying\rWhen Knollspine Dragon enters the battlefield, you may discard your hand and draw cards equal to the damage dealt to target opponent this turn.\n7/5"
+    IDS_STRING18673         "Heartmender\n{2FF}\nCreature - Elemental\nSHM,R\nAt the beginning of your upkeep, remove a -1/-1 counter from each creature you control.\rPersist\n2/2"
+    IDS_STRING18674         "Firespout\n{2E}\nSorcery\nSHM,U\nFirespout deals 3 damage to each creature without flying if {R} was spent to cast Firespout and 3 damage to each creature with flying if {G} was spent to cast it. (Do both if {RG} was spent.)"
+    IDS_STRING18675         "Impromptu Raid\n{3E}\nEnchantment\nSHM,R\n{2E}: Reveal the top card of your library. If it isn't a creature card, put it into your graveyard. Otherwise, put that card onto the battlefield. That creature gains haste. Sacrifice it at the beginning of the next end step."
+    IDS_STRING18676         "Sygg, River Cutthroat\n{CC}\nLegendary Creature - Merfolk Rogue\nSHM,R\nAt the beginning of each end step, if an opponent lost 3 or more life this turn, you may draw a card.\n1/3"
+    IDS_STRING18677         "Wound Reflection\n{5B}\nEnchantment\nSHM,R\nAt the beginning of each end step, each opponent loses life equal to the life he or she lost this turn."
+    IDS_STRING18678         "Woeleecher\n{5W}\nCreature - Elemental\nSHM,C\n{W}, {T}: Remove a -1/-1 counter from target creature. If you do, you gain 2 life.\n3/5"
+    IDS_STRING18679         "Mistmeadow Skulk\n{1W}\nCreature - Kithkin Rogue\nSHM,U\nLifelink, protection from converted mana cost 3 or greater\n1/1"
+    IDS_STRING18680         "Mistmeadow Witch\n{1A}\nCreature - Kithkin Wizard\nSHM,U\n{2WU}: Exile target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.\n1/1"
+    IDS_STRING18681         "Armored Ascension\n{3W}\nEnchantment - Aura\nSHM,U\nEnchant creature\rEnchanted creature gets +1/+1 for each Plains you control and has flying."
+    IDS_STRING18682         "Vexing Shusher\n{EE}\nCreature - Goblin Shaman\nSHM,R\nVexing Shusher can't be countered.\r{E}: Target spell can't be countered by spells or abilities.\n2/2"
+    IDS_STRING18683         "Runed Halo\n{WW}\nEnchantment\nSHM,R\nAs Runed Halo enters the battlefield, name a card.\rYou have protection from the chosen name. (You can't be targeted, dealt damage, or enchanted by anything with that name.)"
+    IDS_STRING18684         "Merrow Grimeblotter\n{3C}\nCreature - Merfolk Wizard\nSHM,U\n{1C}, {Q}: Target creature gets -2/-0 until end of turn.\n2/2"
+    IDS_STRING18685         "Merrow Wavebreakers\n{4U}\nCreature - Merfolk Soldier\nSHM,C\n{1U}, {Q}: Merrow Wavebreakers gains flying until end of turn.\n3/3"
+    IDS_STRING18686         "Order of Whiteclay\n{1WW}\nCreature - Kithkin Cleric\nSHM,R\n{1WW}, {Q}: Return target creature card with converted mana cost 3 or less from your graveyard to the battlefield.\n1/4"
+    IDS_STRING18687         "Puresight Merrow\n{AA}\nCreature - Merfolk Wizard\nSHM,U\n{A}, {Q}: Look at the top card of your library. You may exile that card.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18688         "Safehold Sentry\n{1W}\nCreature - Elf Warrior\nSHM,C\n{2W}, {Q}: Safehold Sentry gets +0/+2 until end of turn.\n2/2"
+    IDS_STRING18689         "Silkbind Faerie\n{2A}\nCreature - Faerie Rogue\nSHM,C\nFlying\r{1A}, {Q}: Tap target creature.\n1/3"
+    IDS_STRING18690         "Pili-Pala\n{2}\nArtifact Creature - Scarecrow\nSHM,C\nFlying\r{2}, {Q}: Add one mana of any color to your mana pool.\n1/1"
+    IDS_STRING18691         "Umbral Mantle\n{3}\nArtifact - Equipment\nSHM,U\nEquipped creature has ""{3}, {Q}: This creature gets +2/+2 until end of turn.""\rEquip {0}"
+    IDS_STRING18692         "Oona, Queen of the Fae\n{3CCC}\nLegendary Creature - Faerie Wizard\nSHM,R\nFlying\r{XC}: Choose a color. Target opponent exiles the top X cards of his or her library. For each card of the chosen color exiled this way, put a 1/1 blue and black Faerie Rogue creature token with flying onto the battlefield.\n5/5"
+    IDS_STRING18693         "River Kelpie\n{3UU}\nCreature - Beast\nSHM,R\nWhenever River Kelpie or another permanent is put onto the battlefield from a graveyard, draw a card.\rWhenever a player casts a spell from a graveyard, draw a card.\rPersist\n3/3"
+    IDS_STRING18694         "Turn to Mist\n{1A}\nInstant\nSHM,C\nExile target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step."
+    IDS_STRING18695         "Beseech the Queen\n{OOO}\nSorcery\nSHM,U\nSearch your library for a card with converted mana cost less than or equal to the number of lands you control, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING18696         "Scuttlemutt\n{3}\nArtifact Creature - Scarecrow\nSHM,C\n{T}: Add one mana of any color to your mana pool.\r{T}: Target creature becomes the color or colors of your choice until end of turn.\n2/2"
+    IDS_STRING18697         "Rite of Consumption\n{1B}\nSorcery\nSHM,C\nAs an additional cost to cast Rite of Consumption, sacrifice a creature.\rRite of Consumption deals damage equal to the sacrificed creature's power to target player. You gain life equal to the damage dealt this way."
+    IDS_STRING18698         "Scarscale Ritual\n{1C}\nSorcery\nSHM,C\nAs an additional cost to cast Scarscale Ritual, put a -1/-1 counter on a creature you control.\rDraw two cards."
+    IDS_STRING18699         "Wicker Warcrawler\n{5}\nArtifact Creature - Scarecrow\nSHM,U\nWhenever Wicker Warcrawler attacks or blocks, put a -1/-1 counter on it at end of combat.\n6/6"
+    IDS_STRING18700         "Godhead of Awe\n{AAAAA}\nCreature - Spirit Avatar\nSHM,R\nFlying\rOther creatures are 1/1.\n4/4"
+    IDS_STRING18701         "Dream Salvage\n{C}\nInstant\nSHM,U\nDraw cards equal to the number of cards target opponent discarded this turn."
+    IDS_STRING18702         "Helm of the Ghastlord\n{3C}\nEnchantment - Aura\nSHM,C\nEnchant creature\rAs long as enchanted creature is blue, it gets +1/+1 and has ""Whenever this creature deals damage to an opponent, draw a card.""\rAs long as enchanted creature is black, it gets +1/+1 and has ""Whenever this creature deals damage to an opponent, that player discards a card."""
+    IDS_STRING18703         "Runes of the Deus\n{4E}\nEnchantment - Aura\nSHM,C\nEnchant creature\rAs long as enchanted creature is red, it gets +1/+1 and has double strike.\rAs long as enchanted creature is green, it gets +1/+1 and has trample."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18704         "Shield of the Oversoul\n{2F}\nEnchantment - Aura\nSHM,C\nEnchant creature\rAs long as enchanted creature is green, it gets +1/+1 and is indestructible.\rAs long as enchanted creature is white, it gets +1/+1 and has flying."
+    IDS_STRING18705         "Steel of the Godhead\n{2A}\nEnchantment - Aura\nSHM,C\nEnchant creature\rAs long as enchanted creature is white, it gets +1/+1 and has lifelink.\rAs long as enchanted creature is blue, it gets +1/+1 and is unblockable."
+    IDS_STRING18706         "Windbrisk Raptor\n{5WW}\nCreature - Bird\nSHM,R\nFlying\rAttacking creatures you control have lifelink.\n5/7"
+    IDS_STRING18707         "Mercy Killing\n{2F}\nInstant\nSHM,U\nTarget creature's controller sacrifices it, then puts X 1/1 green and white Elf Warrior creature tokens onto the battlefield, where X is that creature's power."
+    IDS_STRING18708         "Swans of Bryn Argoll\n{2AA}\nCreature - Bird Spirit\nSHM,R\nFlying\rIf a source would deal damage to Swans of Bryn Argoll, prevent that damage. The source's controller draws cards equal to the damage prevented this way.\n4/3"
+    IDS_STRING18709         "Madblind Mountain\n\nLand - Mountain\nSHM,U\n{T}: Add {R} to your mana pool.)\rMadblind Mountain enters the battlefield tapped.\r{R}, {T}: Shuffle your library. Activate this ability only if you control two or more red permanents."
+    IDS_STRING18710         "Ashenmoor Liege\n{1DDD}\nCreature - Elemental Knight\nSHM,R\nOther black creatures you control get +1/+1.\rOther red creatures you control get +1/+1.\rWhenever Ashenmoor Liege becomes the target of a spell or ability an opponent controls, that player loses 4 life.\n4/1"
+    IDS_STRING18711         "Everlasting Torment\n{2D}\nEnchantment\nSHM,R\nPlayers can't gain life.\rDamage can't be prevented.\rAll damage is dealt as though its source had wither."
+    IDS_STRING18712         "Fists of the Demigod\n{1D}\nEnchantment - Aura\nSHM,C\nEnchant creature\rAs long as enchanted creature is black, it gets +1/+1 and has wither.\rAs long as enchanted creature is red, it gets +1/+1 and has first strike."
+    IDS_STRING18713         "Corrosive Mentor\n{2B}\nCreature - Elemental Rogue\nSHM,U\nBlack creatures you control have wither.\n1/3"
+    IDS_STRING18714         "Blazethorn Scarecrow\n{5}\nArtifact Creature - Scarecrow\nSHM,C\nBlazethorn Scarecrow has haste as long as you control a red creature.\rBlazethorn Scarecrow has wither as long as you control a green creature.\n3/3"
+    IDS_STRING18715         "Thornwatch Scarecrow\n{6}\nArtifact Creature - Scarecrow\nSHM,C\nThornwatch Scarecrow has wither as long as you control a green creature.\rThornwatch Scarecrow has vigilance as long as you control a white creature.\n4/4"
+    IDS_STRING18716         "Blight Sickle\n{2}\nArtifact - Equipment\nSHM,C\nEquipped creature gets +1/+0 and has wither.\rEquip {2}"
+    IDS_STRING18717         "Watchwing Scarecrow\n{4}\nArtifact Creature - Scarecrow\nSHM,C\nWatchwing Scarecrow has vigilance as long as you control a white creature.\rWatchwing Scarecrow has flying as long as you control a blue creature.\n2/4"
+    IDS_STRING18718         "Dusk Urchins\n{2B}\nCreature - Ouphe\nSHM,R\nWhenever Dusk Urchins attacks or blocks, put a -1/-1 counter on it.\rWhen Dusk Urchins dies, draw a card for each -1/-1 counter on it.\n4/3"
+    IDS_STRING18719         "Prismatic Omen\n{1G}\nEnchantment\nSHM,R\nLands you control are every basic land type in addition to their other types."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18720         "Painter's Servant\n{2}\nArtifact Creature - Scarecrow\nSHM,R\nAs Painter's Servant enters the battlefield, choose a color.\rAll cards that aren't on the battlefield, spells, and permanents are the chosen color in addition to their other colors.\n1/3"
+    IDS_STRING18721         "Rhys the Redeemed\n{F}\nLegendary Creature - Elf Warrior\nSHM,R\n{2F}, {T}: Put a 1/1 green and white Elf Warrior creature token onto the battlefield.\r{4FF}, {T}: For each creature token you control, put a token that's a copy of that creature onto the battlefield.\n1/1"
+    IDS_STRING18722         "Advice from the Fae\n{NNN}\nSorcery\nSHM,U\nLook at the top five cards of your library. If you control more creatures than each other player, put two of those cards into your hand. Otherwise, put one of them into your hand. Then put the rest on the bottom of your library in any order."
+    IDS_STRING18723         "Twilight Shepherd\n{3WWW}\nCreature - Angel\nSHM,R\nFlying, vigilance\rWhen Twilight Shepherd enters the battlefield, return to your hand all cards in your graveyard that were put there from the battlefield this turn.\rPersist\n5/5"
+    IDS_STRING18724         "Enchanted Evening\n{3AA}\nEnchantment\nSHM,R\nAll permanents are enchantments in addition to their other types."
+    IDS_STRING18725         "Burn Trail\n{3R}\nSorcery\nSHM,C\nBurn Trail deals 3 damage to target creature or player.\rConspire"
+    IDS_STRING18726         "Strip Bare\n{W}\nInstant\nSHM,C\nDestroy all Auras and Equipment attached to target creature."
+    IDS_STRING18727         "AEthertow\n{3A}\nInstant\nSHM,C\nPut target attacking or blocking creature on top of its owner's library.\rConspire"
+    IDS_STRING18728         "Barkshell Blessing\n{F}\nInstant\nSHM,C\nTarget creature gets +2/+2 until end of turn.\rConspire"
+    IDS_STRING18729         "Disturbing Plot\n{1B}\nSorcery\nSHM,C\nReturn target creature card from a graveyard to its owner's hand.\rConspire"
+    IDS_STRING18730         "Ghastly Discovery\n{2U}\nSorcery\nSHM,C\nDraw two cards, then discard a card.\rConspire"
+    IDS_STRING18731         "Gleeful Sabotage\n{1G}\nSorcery\nSHM,C\nDestroy target artifact or enchantment.\rConspire"
+    IDS_STRING18732         "Memory Sluice\n{C}\nSorcery\nSHM,C\nTarget player puts the top four cards of his or her library into his or her graveyard.\rConspire"
+    IDS_STRING18733         "Mine Excavation\n{1W}\nSorcery\nSHM,C\nReturn target artifact or enchantment card from a graveyard to its owner's hand.\rConspire"
+    IDS_STRING18734         "Traitor's Roar\n{4D}\nSorcery\nSHM,C\nTap target untapped creature. It deals damage equal to its power to its controller.\rConspire"
+    IDS_STRING18735         "Giantbaiting\n{2E}\nSorcery\nSHM,C\nPut a 4/4 red and green Giant Warrior creature token with haste onto the battlefield. Exile it at the beginning of the next end step.\rConspire"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18736         "Fracturing Gust\n{2FFF}\nInstant\nSHM,R\nDestroy all artifacts and enchantments. You gain 2 life for each permanent destroyed this way."
+    IDS_STRING18737         "Biting Tether\n{4U}\nEnchantment - Aura\nSHM,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your upkeep, put a -1/-1 counter on enchanted creature."
+    IDS_STRING18738         "Fossil Find\n{E}\nSorcery\nSHM,U\nReturn a card at random from your graveyard to your hand, then reorder your graveyard as you choose."
+    IDS_STRING18739         "Blowfly Infestation\n{2B}\nEnchantment\nSHM,U\nWhenever a creature dies, if it had a -1/-1 counter on it, put a -1/-1 counter on target creature."
+    IDS_STRING18740         "Wild Swing\n{3R}\nSorcery\nSHM,U\nChoose three target nonenchantment permanents. Destroy one of them at random."
+    IDS_STRING18741         "Cauldron of Souls\n{5}\nArtifact\nSHM,R\n{T}: Choose any number of target creatures. Each of those creatures gains persist until end of turn."
+    IDS_STRING18742         "Rattleblaze Scarecrow\n{6}\nArtifact Creature - Scarecrow\nSHM,C\nRattleblaze Scarecrow has persist as long as you control a black creature.\rRattleblaze Scarecrow has haste as long as you control a red creature.\n5/3"
+    IDS_STRING18743         "Wingrattle Scarecrow\n{3}\nArtifact Creature - Scarecrow\nSHM,C\nWingrattle Scarecrow has flying as long as you control a blue creature.\rWingrattle Scarecrow has persist as long as you control a black creature.\n2/2"
+    IDS_STRING18744         "Kulrath Knight\n{2DD}\nCreature - Elemental Knight\nSHM,U\nFlying, wither\rCreatures your opponents control with counters on them can't attack or block.\n3/3"
+    IDS_STRING18745         "Din of the Fireherd\n{5DDD}\nSorcery\nSHM,R\nPut a 5/5 black and red Elemental creature token onto the battlefield. Target opponent sacrifices a creature for each black creature you control, then sacrifices a land for each red creature you control."
+    IDS_STRING18746         "Torrent of Souls\n{4D}\nSorcery\nSHM,U\nReturn up to one target creature card from your graveyard to the battlefield if {B} was spent to cast Torrent of Souls. Creatures target player controls get +2/+0 and gain haste until end of turn if {R} was spent to cast Torrent of Souls. (Do both if {B}{R} was spent.)"
+    IDS_STRING18747         "Ember Gale\n{3R}\nSorcery\nSHM,C\nCreatures target player controls can't block this turn. Ember Gale deals 1 damage to each white and/or blue creature that player controls."
+    IDS_STRING18748         "Gloomwidow's Feast\n{3G}\nInstant\nSHM,C\nDestroy target creature with flying. If that creature was blue or black, put a 1/2 green Spider creature token with reach onto the battlefield. (It can block creatures with flying.)"
+    IDS_STRING18749         "Fate Transfer\n{1C}\nInstant\nSHM,C\nMove all counters from target creature onto another target creature."
+    IDS_STRING18750         "Gloomlance\n{3BB}\nSorcery\nSHM,C\nDestroy target creature. If that creature was green or white, its controller discards a card."
+    IDS_STRING18751         "Boon Reflection\n{4W}\nEnchantment\nSHM,R\nIf you would gain life, you gain twice that much life instead."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18752         "Isleback Spawn\n{5UU}\nCreature - Kraken\nSHM,R\nShroud\rIsleback Spawn gets +4/+8 as long as a library has twenty or fewer cards in it.\n4/8"
+    IDS_STRING18753         "Memory Plunder\n{CCCC}\nInstant\nSHM,R\nYou may cast target instant or sorcery card from an opponent's graveyard without paying its mana cost."
+    IDS_STRING18754         "Pale Wayfarer\n{5WW}\nCreature - Spirit Giant\nSHM,U\n{2WW}, {Q}: Target creature gains protection from the color of its controller's choice until end of turn.\n4/4"
+    IDS_STRING18755         "Tatterkite\n{3}\nArtifact Creature - Scarecrow\nSHM,U\nFlying\rTatterkite can't have counters placed on it.\n2/1"
+    IDS_STRING18756         "Inquisitor's Snare\n{1W}\nInstant\nSHM,C\nPrevent all damage target attacking or blocking creature would deal this turn. If that creature is black or red, destroy it."
+    IDS_STRING18757         "Tyrannize\n{3DD}\nSorcery\nSHM,R\nTarget player discards his or her hand unless he or she pays 7 life."
+    IDS_STRING18758         "Furystoke Giant\n{3RR}\nCreature - Giant Warrior\nSHM,R\nWhen Furystoke Giant enters the battlefield, other creatures you control gain ""{T}: This creature deals 2 damage to target creature or player"" until end of turn.\rPersist\n3/3"
+    IDS_STRING18759         "Grief Tyrant\n{5D}\nCreature - Horror\nSHM,U\nGrief Tyrant enters the battlefield with four -1/-1 counters on it.\rWhen Grief Tyrant dies, put a -1/-1 counter on target creature for each -1/-1 counter on Grief Tyrant.\n8/8"
+    IDS_STRING18760         "Medicine Runner\n{1F}\nCreature - Elf Cleric\nSHM,C\nWhen Medicine Runner enters the battlefield, you may remove a counter from target permanent.\n2/1"
+    IDS_STRING18761         "Plague of Vermin\n{6B}\nSorcery\nSHM,R\nStarting with you, each player may pay any amount of life. Repeat this process until no one pays life. Each player puts a 1/1 black Rat creature token onto the battlefield for each 1 life he or she paid this way."
+    IDS_STRING18762         "Elemental Mastery\n{3R}\nEnchantment - Aura\nSHM,R\nEnchanted creature has ""{T}: Put X 1/1 red Elemental creature tokens with haste onto the battlefield, where X is this creature's power. Exile them at the beginning of the next end step."""
+    IDS_STRING18763         "Curse of Chains\n{1A}\nEnchantment - Aura\nSHM,C\nAt the beginning of each upkeep, tap enchanted creature."
+    IDS_STRING18764         "Sinking Feeling\n{2U}\nEnchantment - Aura\nSHM,C\nEnchanted creature doesn't untap during its controller's untap step.\rEnchanted creature has ""{1}, Put a -1/-1 counter on this creature: Untap this creature."""
+    IDS_STRING18765         "Spell Syphon\n{1U}\nInstant\nSHM,C\nCounter target spell unless its controller pays {1} for each blue permanent you control."
+    IDS_STRING18766         "Flourishing Defenses\n{4G}\nEnchantment\nSHM,U\nWhenever a -1/-1 counter is placed on a creature, you may put a 1/1 green Elf Warrior creature token onto the battlefield."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

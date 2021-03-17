@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Ajani Vengeant (8720)
+
+// Creatures - 25 (41.67%)
+
+4 Baneslayer Angel (4224)
+4 Bloodbraid Elf (9105)
+4 Noble Hierarch (8819)
+4 Ranger of Eos (8642)
+Scute Mob (19362)
+4 Wild Nacatl (8504)
+4 Woolly Thoctar (8572)
+
+// Instants - 8 (13.33%)
+
+4 Lightning Bolt (4060)
+4 Path to Exile (8897)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+Forest (19301)
+Forest (19303)
+Forest (19302)
+Forest (19300)
+Mountain (19316)
+Mountain (19317)
+Mountain (19318)
+Oran-Rief, the Vastwood (19531)
+Plains (19324)
+Plains (19325)
+Plains (19326)
+Plains (19327)
+4 Rootbound Crag (4201)
+4 Sunpetal Grove (4202)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Ajani Vengeant (8720)
+
+// Creatures
+
+4 Goblin Ruinblaster (19457)
+4 Great Sable Stag (4013)
+
+// Instants
+
+2 Burst Lightning (19384)
+4 Celestial Purge (4014)

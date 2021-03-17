@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+4 Cloud of Faeries (11289)
+Mnemonic Wall (20821)
+3 Mulldrifter (18023)
+4 Nightscape Familiar (12893)
+4 Sunscape Familiar (12895)
+
+// Instants - 10 (16.67%)
+
+Arcane Denial (6786)
+Arcane Denial (6787)
+4 Frantic Search (11301)
+4 Snap (11300)
+
+// Sorceries - 12 (20.00%)
+
+4 Compulsive Research (16605)
+4 Deep Analysis (13607)
+2 Foresee (17766)
+2 Temporal Fissure (14686)
+
+// Lands - 22 (36.67%)
+
+3 Azorius Chancery (23833)
+2 Dimir Aqueduct (16402)
+4 Evolving Wilds (20905)
+2 Island (20804)
+Island (20807)
+Island (20805)
+Island (20806)
+Plains (20812)
+Plains (20813)
+Swamp (20817)
+Swamp (20816)
+4 Terramorphic Expanse (4111)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Galina's Knight (12500)
+4 Lone Missionary (20882)
+
+// Instants
+
+2 Arcane Denial (6786)
+3 Hydroblast (8134)
+
+// Enchantments
+
+2 Steel of the Godhead (18705)

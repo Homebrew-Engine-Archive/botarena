@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Ajani Vengeant (8720)
+
+// Creatures - 24 (40.00%)
+
+4 Druid of the Anima (8564)
+4 Elvish Visionary (8507)
+4 Keeper of Progenitus (8736)
+4 Knotvine Mystic (8816)
+4 Wild Nacatl (8504)
+4 Woolly Thoctar (8572)
+
+// Sorceries - 8 (13.33%)
+
+4 Banefire (8932)
+4 Titanic Ultimatum (8730)
+
+// Lands - 24 (40.00%)
+
+Forest (8512)
+Forest (8511)
+2 Forest (8510)
+2 Forest (8509)
+4 Jungle Shrine (8588)
+Mountain (8521)
+Mountain (8520)
+Mountain (8519)
+2 Mountain (8518)
+4 Naya Panorama (8640)
+Plains (8525)
+Plains (8526)
+2 Plains (8523)
+Plains (8524)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Realm Razer (8724)
+
+// Instants
+
+4 Celestial Purge (8801)
+
+// Sorceries
+
+4 Martial Coup (8886)
+
+// Enchantments
+
+4 Oblivion Ring (8718)

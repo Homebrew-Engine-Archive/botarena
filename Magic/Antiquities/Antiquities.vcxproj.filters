@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CardAntiquities.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CardAntiquities.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Antiquities.ico" />
+    <None Include="AntiquitiesLarge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Antiquities.rc" />
+  </ItemGroup>
+</Project>

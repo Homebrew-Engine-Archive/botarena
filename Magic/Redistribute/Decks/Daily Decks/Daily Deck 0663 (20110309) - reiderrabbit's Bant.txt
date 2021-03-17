@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Elspeth, Knight-Errant (8722)
+
+// Creatures - 23 (38.33%)
+
+4 Birds of Paradise (21103)
+4 Knight of the Reliquary (8815)
+4 Mirran Crusader (21703)
+4 Noble Hierarch (8819)
+4 Qasali Pridemage (9018)
+3 Stoneforge Mystic (19638)
+
+// Instants - 9 (15.00%)
+
+4 Bant Charm (8536)
+3 Mana Leak (21214)
+2 Path to Exile (8897)
+
+// Artifacts - 2 (3.33%)
+
+2 Sword of Feast and Famine (21762)
+
+// Lands - 24 (40.00%)
+
+2 Celestial Colonnade (19602)
+2 Forest (21768)
+2 Forest (21769)
+Island (21770)
+4 Misty Rainforest (19356)
+Murmuring Bosk (18387)
+Mystic Gate (18564)
+Plains (21774)
+4 Razorverge Thicket (21472)
+2 Seachrome Coast (21459)
+Stirring Wildwood (19623)
+Tectonic Edge (19651)
+2 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Burrenton Forge-Tender (18054)
+2 Gaddock Teeg (18062)
+4 Great Sable Stag (4013)
+
+// Instants
+
+2 Path to Exile (8897)
+4 Unified Will (20983)

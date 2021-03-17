@@ -1,0 +1,274 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Alliances.ico"
+IDI_LARGE_MODULE        ICON                    "AlliancesLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Alliances"
+    IDS_EXPANSION_ABBREV    "ALL"
+    IDS_FIRST_CARD          "6700"
+    IDS_TOTAL_CARD          "199"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "6899"
+    IDS_MODULE_LARGE_ICON_ID "6900"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "10-06-1996"
+    IDS_MWS_FOLDER          "MWS\\ALL\\"
+    IDS_PRODUCT_LIST        """Alliances Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6700          "Balduvian Horde\n{2RR}\nCreature - Human Barbarian\nALL,R\nWhen Balduvian Horde enters the battlefield, sacrifice it unless you discard a card at random.\n5/5"
+    IDS_STRING6701          "Browse\n{2UU}\nEnchantment\nALL,U\n{2UU}: Look at the top five cards of your library, put one of them into your hand, and exile the rest."
+    IDS_STRING6702          "Diminishing Returns\n{2UU}\nSorcery\nALL,R\nEach player shuffles his or her hand and graveyard into his or her library. You exile the top ten cards of your library. Then each player draws up to seven cards."
+    IDS_STRING6703          "Elvish Bard\n{3GG}\nCreature - Elf Shaman\nALL,U\nAll creatures able to block Elvish Bard do so.\n2/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6704          "Exile\n{2W}\nInstant\nALL,R\nExile target nonwhite attacking creature. You gain life equal to its toughness."
+    IDS_STRING6705          "Gorilla Chieftain\n{2GG}\nCreature - Ape\nALL,C\n{1G}: Regenerate Gorilla Chieftain\n3/3"
+    IDS_STRING6706          "Gorilla Chieftain\n{2GG}\nCreature - Ape\nALL,C\n{1G}: Regenerate Gorilla Chieftain\n3/3"
+    IDS_STRING6707          "Guerrilla Tactics\n{1R}\nInstant\nALL,C\nGuerrilla Tactics deals 2 damage to target creature or player.\rWhen a spell or ability an opponent controls causes you to discard Guerrilla Tactics, Guerrilla Tactics deals 4 damage to target creature or player."
+    IDS_STRING6708          "Guerrilla Tactics\n{1R}\nInstant\nALL,C\nGuerrilla Tactics deals 2 damage to target creature or player.\rWhen a spell or ability an opponent controls causes you to discard Guerrilla Tactics, Guerrilla Tactics deals 4 damage to target creature or player."
+    IDS_STRING6709          "Mystic Compass\n{2}\nArtifact\nALL,U\n{1}, {T}: Target land becomes the basic land type of your choice until end of turn."
+    IDS_STRING6710          "Pillage\n{1RR}\nSorcery\nALL,U\nDestroy target artifact or land. It can't be regenerated."
+    IDS_STRING6711          "Reprisal\n{1W}\nInstant\nALL,C\nDestroy target creature with power 4 or greater. It can't be regenerated."
+    IDS_STRING6712          "Reprisal\n{1W}\nInstant\nALL,C\nDestroy target creature with power 4 or greater. It can't be regenerated."
+    IDS_STRING6713          "Soldevi Sage\n{1U}\nCreature - Human Wizard\nALL,C\n{T}, Sacrifice two lands: Draw three cards, then discard one of them.\n1/1"
+    IDS_STRING6714          "Soldevi Sage\n{1U}\nCreature - Human Wizard\nALL,C\n{T}, Sacrifice two lands: Draw three cards, then discard one of them.\n1/1"
+    IDS_STRING6715          "Storm Cauldron\n{5}\nArtifact\nALL,R\nEach player may play an additional land during each of his or her turns.\rWhenever a land is tapped for mana, return it to its owner's hand."
+    IDS_STRING6716          "Storm Crow\n{1U}\nCreature - Bird\nALL,C\nFlying\n1/2"
+    IDS_STRING6717          "Storm Crow\n{1U}\nCreature - Bird\nALL,C\nFlying\n1/2"
+    IDS_STRING6718          "Storm Shaman\n{2R}\nCreature - Human Cleric Shaman\nALL,C\n{R}: Storm Shaman gets +1/+0 until end of turn.\n0/4"
+    IDS_STRING6719          "Storm Shaman\n{2R}\nCreature - Human Cleric Shaman\nALL,C\n{R}: Storm Shaman gets +1/+0 until end of turn.\n0/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6720          "Yavimaya Ancients\n{3GG}\nCreature - Treefolk\nALL,C\n{G}: Yavimaya Ancients gets +1/-2 until end of turn.\n2/7"
+    IDS_STRING6721          "Yavimaya Ancients\n{3GG}\nCreature - Treefolk\nALL,C\n{G}: Yavimaya Ancients gets +1/-2 until end of turn.\n2/7"
+    IDS_STRING6722          "Agent of Stromgald\n{R}\nCreature - Human Knight\nALL,C\n{R}: Add {B} to your mana pool.\n1/1"
+    IDS_STRING6723          "Agent of Stromgald\n{R}\nCreature - Human Knight\nALL,C\n{R}: Add {B} to your mana pool.\n1/1"
+    IDS_STRING6724          "Deadly Insect\n{4G}\nCreature - Insect\nALL,C\nShroud\n6/1"
+    IDS_STRING6725          "Deadly Insect\n{4G}\nCreature - Insect\nALL,C\nShroud\n6/1"
+    IDS_STRING6726          "Elvish Ranger\n{2G}\nCreature - Elf\nALL,C\n\n4/1"
+    IDS_STRING6727          "Elvish Ranger\n{2G}\nCreature - Elf\nALL,C\n\n4/1"
+    IDS_STRING6728          "Enslaved Scout\n{2R}\nCreature - Goblin Scout\nALL,C\n{2}: Enslaved Scout gains mountainwalk until end of turn.\n2/2"
+    IDS_STRING6729          "Enslaved Scout\n{2R}\nCreature - Goblin Scout\nALL,C\n{2}: Enslaved Scout gains mountainwalk until end of turn.\n2/2"
+    IDS_STRING6730          "Kaysa\n{3GG}\nLegendary Creature - Elf Druid\nALL,R\nGreen creatures you control get +1/+1.\n2/3"
+    IDS_STRING6731          "Lim-Dul's High Guard\n{1BB}\nCreature - Skeleton\nALL,C\nFirst strike\r{1B}: Regenerate Lim-Dûl's High Guard.\n2/1"
+    IDS_STRING6732          "Lim-Dul's High Guard\n{1BB}\nCreature - Skeleton\nALL,C\nFirst strike\r{1B}: Regenerate Lim-Dûl's High Guard.\n2/1"
+    IDS_STRING6733          "Wild Aesthir\n{2W}\nCreature - Bird\nALL,C\nFlying, first strike\r{WW}: Wild Aesthir gets +2/+0 until end of turn. Activate this ability only once each turn.\n1/1"
+    IDS_STRING6734          "Wild Aesthir\n{2W}\nCreature - Bird\nALL,C\nFlying, first strike\r{WW}: Wild Aesthir gets +2/+0 until end of turn. Activate this ability only once each turn.\n1/1"
+    IDS_STRING6735          "Aesthir Glider\n{3}\nArtifact Creature - Bird\nALL,C\nFlying\rAesthir Glider can't block.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6736          "Aesthir Glider\n{3}\nArtifact Creature - Bird\nALL,C\nFlying\rAesthir Glider can't block.\n2/1"
+    IDS_STRING6737          "School of the Unseen\n\nLand\nALL,U\n{T}: Add {1} to your mana pool.\r{2}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING6738          "Inheritance\n{W}\nEnchantment\nALL,U\nWhenever a creature dies, you may pay {3}. If you do, draw a card."
+    IDS_STRING6739          "Noble Steeds\n{2W}\nEnchantment\nALL,C\n{1W}: Target creature gains first strike until end of turn."
+    IDS_STRING6740          "Noble Steeds\n{2W}\nEnchantment\nALL,C\n{1W}: Target creature gains first strike until end of turn."
+    IDS_STRING6741          "Unlikely Alliance\n{1W}\nEnchantment\nALL,U\n{1W}: Target nonattacking, nonblocking creature gets +0/+2 until end of turn."
+    IDS_STRING6742          "Viscerid Armor\n{1U}\nEnchantment - Aura\nALL,C\nEnchant creature\rEnchanted creature gets +1/+1.\r{1U}: Return Viscerid Armor to its owner's hand."
+    IDS_STRING6743          "Viscerid Armor\n{1U}\nEnchantment - Aura\nALL,C\nEnchant creature\rEnchanted creature gets +1/+1.\r{1U}: Return Viscerid Armor to its owner's hand."
+    IDS_STRING6744          "Feast or Famine\n{3B}\nInstant\nALL,C\nChoose one - Put a 2/2 black Zombie creature token onto the battlefield; or destroy target nonartifact, nonblack creature and it can't be regenerated."
+    IDS_STRING6745          "Feast or Famine\n{3B}\nInstant\nALL,C\nChoose one - Put a 2/2 black Zombie creature token onto the battlefield; or destroy target nonartifact, nonblack creature and it can't be regenerated."
+    IDS_STRING6746          "Reinforcements\n{W}\nInstant\nALL,C\nPut up to three target creature cards from your graveyard on top of your library."
+    IDS_STRING6747          "Reinforcements\n{W}\nInstant\nALL,C\nPut up to three target creature cards from your graveyard on top of your library."
+    IDS_STRING6748          "Stench of Decay\n{1BB}\nInstant\nALL,C\nNonartifact creatures get -1/-1 until end of turn."
+    IDS_STRING6749          "Stench of Decay\n{1BB}\nInstant\nALL,C\nNonartifact creatures get -1/-1 until end of turn."
+    IDS_STRING6750          "Ritual of the Machine\n{2BB}\nSorcery\nALL,R\nAs an additional cost to cast Ritual of the Machine, sacrifice a creature.\rGain control of target nonartifact, nonblack creature."
+    IDS_STRING6751          "Juniper Order Advocate\n{2W}\nCreature - Human Knight\nALL,U\nAs long as Juniper Order Advocate is untapped, green creatures you control get +1/+1.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6752          "Shield Sphere\n{0}\nArtifact Creature - Wall\nALL,U\nDefender\rWhenever Shield Sphere blocks, put a -0/-1 counter on it.\n0/6"
+    IDS_STRING6753          "Nature's Wrath\n{4GG}\nEnchantment\nALL,R\nAt the beginning of your upkeep, sacrifice Nature's Wrath unless you pay {G}.\rWhenever a player puts an Island or blue permanent onto the battlefield, he or she sacrifices an Island or blue permanent.\rWhenever a player puts a Swamp or black permanent onto the battlefield, he or she sacrifices a Swamp or black permanent."
+    IDS_STRING6754          "Ivory Gargoyle\n{4W}\nCreature - Gargoyle\nALL,R\nFlying\rWhen Ivory Gargoyle dies, return it to the battlefield under its owner's control at the beginning of the next end step and you skip your next draw step.\r{4W}: Exile Ivory Gargoyle.\n2/2"
+    IDS_STRING6755          "Varchild's Crusader\n{3R}\nCreature - Human Knight\nALL,C\n{0}: Varchild's Crusader can't be blocked this turn except by Walls. Sacrifice Varchild's Crusader at the beginning of the next end step.\n3/2"
+    IDS_STRING6756          "Varchild's Crusader\n{3R}\nCreature - Human Knight\nALL,C\n{0}: Varchild's Crusader can't be blocked this turn except by Walls. Sacrifice Varchild's Crusader at the beginning of the next end step.\n3/2"
+    IDS_STRING6757          "Phyrexian War Beast\n{3}\nArtifact Creature - Beast\nALL,C\nWhen Phyrexian War Beast leaves the battlefield, sacrifice a land and Phyrexian War Beast deals 1 damage to you.\n3/4"
+    IDS_STRING6758          "Phyrexian War Beast\n{3}\nArtifact Creature - Beast\nALL,C\nWhen Phyrexian War Beast leaves the battlefield, sacrifice a land and Phyrexian War Beast deals 1 damage to you.\n3/4"
+    IDS_STRING6759          "Force of Will\n{3UU}\nInstant\nALL,U\nYou may pay 1 life and exile a blue card from your hand rather than pay Force of Will's mana cost.\rCounter target spell."
+    IDS_STRING6760          "Thawing Glaciers\n\nLand\nALL,R\nThawing Glaciers enters the battlefield tapped.\r{1}, {T}: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library. Return Thawing Glaciers to its owner's hand at the beginning of the next cleanup step."
+    IDS_STRING6761          "Balduvian Dead\n{3B}\nCreature - Zombie\nALL,U\n{2R}, Exile a creature card from your graveyard: Put a 3/1 black and red Graveborn creature token with haste onto the battlefield. Sacrifice it at the beginning of the next end step.\n2/3"
+    IDS_STRING6762          "Insidious Bookworms\n{B}\nCreature - Worm\nALL,C\nWhen Insidious Bookworms dies, you may pay {1B}. If you do, target player discards a card at random.\n1/1"
+    IDS_STRING6763          "Insidious Bookworms\n{B}\nCreature - Worm\nALL,C\nWhen Insidious Bookworms dies, you may pay {1B}. If you do, target player discards a card at random.\n1/1"
+    IDS_STRING6764          "Floodwater Dam\n{3}\nArtifact\nALL,R\n{XX1}, {T}: Tap X target lands."
+    IDS_STRING6765          "Gift of the Woods\n{G}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhenever enchanted creature blocks or becomes blocked, it gets +0/+3 until end of turn and you gain 1 life."
+    IDS_STRING6766          "Gift of the Woods\n{G}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhenever enchanted creature blocks or becomes blocked, it gets +0/+3 until end of turn and you gain 1 life."
+    IDS_STRING6767          "Veteran's Voice\n{R}\nEnchantment - Aura\nALL,C\nEnchant creature you control\rTap enchanted creature: Target creature other than the creature tapped this way gets +2/+1 until end of turn. Activate this ability only if enchanted creature is untapped."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6768          "Veteran's Voice\n{R}\nEnchantment - Aura\nALL,C\nEnchant creature you control\rEnchanted creature has ""{T}: Target creature other than this creature gets +2/+1 until end of turn."""
+    IDS_STRING6769          "Pyrokinesis\n{4RR}\nInstant\nALL,U\nYou may exile a red card from your hand rather than pay Pyrokinesis's mana cost.\rPyrokinesis deals 4 damage divided as you choose among any number of target creatures."
+    IDS_STRING6770          "Balduvian War-Makers\n{4R}\nCreature - Human Barbarian\nALL\nHaste\rRampage 1\n3/3"
+    IDS_STRING6771          "Balduvian War-Makers\n{4R}\nCreature - Human Barbarian\nALL\nHaste\rRampage 1\n3/3"
+    IDS_STRING6772          "Gorilla Berserkers\n{3GG}\nCreature - Ape Berserker\nALL\nTrample\rRampage 2\rGorilla Berserkers can't be blocked except by three or more creatures.\n2/3"
+    IDS_STRING6773          "Gorilla Berserkers\n{3GG}\nCreature - Ape Berserker\nALL\nTrample\rRampage 2\rGorilla Berserkers can't be blocked except by three or more creatures.\n2/3"
+    IDS_STRING6774          "Kjeldoran Home Guard\n{3W}\nCreature - Human Soldier\nALL,U\nAt end of combat, if Kjeldoran Home Guard attacked or blocked this combat, put a -0/-1 counter on Kjeldoran Home Guard and put a 0/1 white Deserter creature token onto the battlefield.\n1/6"
+    IDS_STRING6775          "Carrier Pigeons\n{3W}\nCreature - Bird\nALL,C\nFlying\rWhen Carrier Pigeons enters the battlefield, draw a card at the beginning of the next turn's upkeep.\n1/1"
+    IDS_STRING6776          "Carrier Pigeons\n{3W}\nCreature - Bird\nALL,C\nFlying\rWhen Carrier Pigeons enters the battlefield, draw a card at the beginning of the next turn's upkeep.\n1/1"
+    IDS_STRING6777          "Astrolabe\n{3}\nArtifact\nALL,C\n{1}, {T}, Sacrifice Astrolabe: Add two mana of any one color to your mana pool. Draw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6778          "Astrolabe\n{3}\nArtifact\nALL,C\n{1}, {T}, Sacrifice Astrolabe: Add two mana of any one color to your mana pool. Draw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6779          "Bestial Fury\n{2R}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhen Bestial Fury enters the battlefield, draw a card at the beginning of the next turn's upkeep.\rWhenever enchanted creature becomes blocked, it gets +4/+0 and gains trample until end of turn."
+    IDS_STRING6780          "Bestial Fury\n{2R}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhen Bestial Fury enters the battlefield, draw a card at the beginning of the next turn's upkeep.\rWhenever enchanted creature becomes blocked, it gets +4/+0 and gains trample until end of turn."
+    IDS_STRING6781          "Fevered Strength\n{2B}\nInstant\nALL,C\nTarget creature gets +2/+0 until end of turn.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6782          "Fevered Strength\n{2B}\nInstant\nALL,C\nTarget creature gets +2/+0 until end of turn.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6783          "Foresight\n{1U}\nSorcery\nALL,C\nSearch your library for three cards, exile them, then shuffle your library.\rDraw a card at the beginning of the next turn's upkeep."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6784          "Foresight\n{1U}\nSorcery\nALL,C\nSearch your library for three cards, exile them, then shuffle your library.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6785          "Soldevi Digger\n{2}\nArtifact\nALL,R\n{2}: Put the top card of your graveyard on the bottom of your library."
+    IDS_STRING6786          "Arcane Denial\n{1U}\nInstant\nALL,C\nCounter target spell. Its controller may draw up to two cards at the beginning of the next turn's upkeep.\rYou draw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6787          "Arcane Denial\n{1U}\nInstant\nALL,C\nCounter target spell. Its controller may draw up to two cards at the beginning of the next turn's upkeep.\rYou draw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6788          "Gorilla War Cry\n{1R}\nInstant\nALL,C\nCast Gorilla War Cry only during combat before blockers are declared.\rAttacking creatures can't be blocked this turn except by two or more creatures.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6789          "Gorilla War Cry\n{1R}\nInstant\nALL,C\nCast Gorilla War Cry only during combat before blockers are declared.\rAttacking creatures can't be blocked this turn except by two or more creatures.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6790          "Contagion\n{3BB}\nInstant\nALL,U\nYou may pay 1 life and exile a black card from your hand rather than pay Contagion's mana cost.\rDistribute two -2/-1 counters among one or two target creatures."
+    IDS_STRING6791          "Elvish Spirit Guide\n{2G}\nCreature - Elf Spirit\nALL,U\nExile Elvish Spirit Guide from your hand: Add {G} to your mana pool.\n2/2"
+    IDS_STRING6792          "Energy Arc\n{WU}\nInstant\nALL,U\nUntap any number of target creatures. Prevent all combat damage that would be dealt to and dealt by those creatures this turn."
+    IDS_STRING6793          "Hail Storm\n{1GG}\nInstant\nALL,U\nHail Storm deals 2 damage to each attacking creature and 1 damage to you and each creature you control."
+    IDS_STRING6794          "Lat-Nam's Legacy\n{1U}\nInstant\nALL,C\nShuffle a card from your hand into your library. If you do, draw two cards at the beginning of the next turn's upkeep."
+    IDS_STRING6795          "Lat-Nam's Legacy\n{1U}\nInstant\nALL,C\nShuffle a card from your hand into your library. If you do, draw two cards at the beginning of the next turn's upkeep."
+    IDS_STRING6796          "Lord of Tresserhorn\n{1UBR}\nLegendary Creature - Zombie\nALL,R\nWhen Lord of Tresserhorn enters the battlefield, you lose 2 life and sacrifice two creatures, and an opponent draws two cards.\r{B}: Regenerate Lord of Tresserhorn.\n10/4"
+    IDS_STRING6797          "Soldevi Steam Beast\n{5}\nArtifact Creature - Beast\nALL,C\nWhenever Soldevi Steam Beast becomes tapped, target opponent gains 2 life.\r{2}: Regenerate Soldevi Steam Beast.\n4/2"
+    IDS_STRING6798          "Soldevi Steam Beast\n{5}\nArtifact Creature - Beast\nALL,C\nWhenever Soldevi Steam Beast becomes tapped, target opponent gains 2 life.\r{2}: Regenerate Soldevi Steam Beast.\n4/2"
+    IDS_STRING6799          "Wandering Mage\n{WUB}\nCreature - Human Cleric Wizard\nALL,R\n{W}, Pay 1 life: Prevent the next 2 damage that would be dealt to target creature this turn.\r{U}: Prevent the next 1 damage that would be dealt to target Cleric or Wizard creature this turn.\r{B}, Put a -1/-1 counter on a creature you control: Prevent the next 2 damage that would be dealt to target player this turn.\n0/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6800          "Soldier of Fortune\n{R}\nCreature - Human Mercenary\nALL,U\n{R}, {T}: Target player shuffles his or her library.\n1/1"
+    IDS_STRING6801          "Phantasmal Fiend\n{3B}\nCreature - Illusion\nALL,C\n{B}: Phantasmal Fiend gets +1/-1 until end of turn.\r{1U}: Switch Phantasmal Fiend's power and toughness until end of turn.\n1/5"
+    IDS_STRING6802          "Phantasmal Fiend\n{3B}\nCreature - Illusion\nALL,C\n{B}: Phantasmal Fiend gets +1/-1 until end of turn.\r{1U}: Switch Phantasmal Fiend's power and toughness until end of turn.\n1/5"
+    IDS_STRING6803          "Kjeldoran Outpost\n\nLand\nALL,R\nIf Kjeldoran Outpost would enter the battlefield, sacrifice a Plains instead. If you do, put Kjeldoran Outpost onto the battlefield. If you don't, put it into its owner's graveyard.\r {T}: Add {W} to your mana pool.\r {1W},{T}: Put a 1/1 white Soldier creature token onto the battlefield."
+    IDS_STRING6804          "Lake of the Dead\n\nLand\nALL,R\nIf Lake of the Dead would enter the battlefield, sacrifice a Swamp instead. If you do, put Lake of the Dead onto the battlefield. If you don't, put it into its owner's graveyard.\r {T}: Add {B} to your mana pool.\r {T}, Sacrifice a Swamp: Add {BBBB} to your mana pool."
+    IDS_STRING6805          "Heart of Yavimaya\n\nLand\nALL,R\nIf Heart of Yavimaya would enter the battlefield, sacrifice a Forest instead. If you do, put Heart of Yavimaya onto the battlefield. If you don't, put it into its owner's graveyard.\r {T}: Add {G} to your mana pool.\r {T}: Target creature gets +1/+1 until end of turn."
+    IDS_STRING6806          "Soldevi Excavations\n\nLand\nALL,R\nIf Soldevi Excavations would enter the battlefield, sacrifice an untapped Island instead. If you do, put Soldevi Excavations onto the battlefield. If you don't, put it into its owner's graveyard.\r {T}: Add {1U} to your mana pool.\r {1}, {T}: Look at the top card of your library. You may put that card on the bottom of your library."
+    IDS_STRING6807          "Balduvian Trading Post\n\nLand\nALL,R\nIf Balduvian Trading Post would enter the battlefield, sacrifice an untapped Mountain instead. If you do, put Balduvian Trading Post onto the battlefield. If you don't, put it into its owner's graveyard.\r {T}: Add {1R} to your mana pool.\r {1}, {T}: Balduvian Trading Post deals 1 damage to target attacking creature."
+    IDS_STRING6808          "Sheltered Valley\n\nLand\nALL,R\nIf Sheltered Valley would enter the battlefield, instead sacrifice each other permanent named Sheltered Valley you control, then put Sheltered Valley onto the battlefield.\r At the beginning of your upkeep, if you control three or fewer lands, you gain 1 life.\r {T}: Add {1} to your mana pool."
+    IDS_STRING6809          "Burnout\n{1R}\nInstant\nALL,U\nCounter target instant spell if it's blue.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6810          "Phyrexian Boon\n{2B}\nEnchantment - Aura\nALL,C\nEnchant creature\rEnchanted creature gets +2/+1 as long as it's black. Otherwise, it gets -1/-2."
+    IDS_STRING6811          "Phyrexian Boon\n{2B}\nEnchantment - Aura\nALL,C\nEnchant creature\rEnchanted creature gets +2/+1 as long as it's black. Otherwise, it gets -1/-2."
+    IDS_STRING6812          "Swamp Mosquito\n{1B}\nCreature - Insect\nALL,C\nFlying\rWhenever Swamp Mosquito attacks and isn't blocked, defending player gets a poison counter.\n0/1"
+    IDS_STRING6813          "Swamp Mosquito\n{1B}\nCreature - Insect\nALL,C\nFlying\rWhenever Swamp Mosquito attacks and isn't blocked, defending player gets a poison counter.\n0/1"
+    IDS_STRING6814          "Surge of Strength\n{RG}\nInstant\nALL,U\nAs an additional cost to cast Surge of Strength, discard a red or green card.\rTarget creature gains trample and gets +X/+0 until end of turn, where X is that creature's converted mana cost."
+    IDS_STRING6815          "Yavimaya Ants\n{2GG}\nCreature - Insect\nALL,U\nTrample, haste\rCumulative upkeep {GG}\n5/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6816          "Sustaining Spirit\n{1W}\nCreature - Angel Spirit\nALL,R\nCumulative upkeep {1W}\rDamage that would reduce your life total to less than 1 reduces it to 1 instead.\n0/3"
+    IDS_STRING6817          "Dystopia\n{1BB}\nEnchantment\nALL,R\nCumulative upkeep - pay 1 life\rAt the beginning of each player's upkeep, that player sacrifices a green or white permanent."
+    IDS_STRING6818          "Royal Decree\n{2WW}\nEnchantment\nALL,R\nCumulative upkeep {W}\rWhenever a Swamp, Mountain, black permanent, or red permanent becomes tapped, Royal Decree deals 1 damage to that permanent's controller."
+    IDS_STRING6819          "Gorilla Shaman\n{R}\nCreature - Ape Shaman\nALL,C\n{XX1}: Destroy target noncreature artifact with converted mana cost X.\n1/1"
+    IDS_STRING6820          "Gorilla Shaman\n{R}\nCreature - Ape Shaman\nALL,C\n{XX1}: Destroy target noncreature artifact with converted mana cost X.\n1/1"
+    IDS_STRING6821          "Taste of Paradise\n{3G}\nSorcery\nALL,C\nAs an additional cost to cast Taste of Paradise, you may pay {1G} any number of times.\rYou gain 3 life plus an additional 3 life for each additional {1G} you paid."
+    IDS_STRING6822          "Taste of Paradise\n{3G}\nSorcery\nALL,C\nAs an additional cost to cast Taste of Paradise, you may pay {1G} any number of times.\rYou gain 3 life plus an additional 3 life for each additional {1G} you paid."
+    IDS_STRING6823          "Scarab of the Unseen\n{2}\nArtifact\nALL,U\n{T}, Sacrifice Scarab of the Unseen: Return all Auras attached to target permanent you own to their owners' hands. Draw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6824          "Viscerid Drone\n{1U}\nCreature - Homarid Drone\nALL,U\n{T}, Sacrifice a creature and a Swamp: Destroy target nonartifact creature. It can't be regenerated.\r{T}, Sacrifice a creature and a snow Swamp: Destroy target creature. It can't be regenerated.\n1/2"
+    IDS_STRING6825          "False Demise\n{2U}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhen enchanted creature dies, return that card to the battlefield under your control."
+    IDS_STRING6826          "False Demise\n{2U}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhen enchanted creature dies, return that card to the battlefield under your control."
+    IDS_STRING6827          "Death Spark\n{R}\nInstant\nALL,C\nDeath Spark deals 1 damage to target creature or player.\rAt the beginning of your upkeep, if Death Spark is in your graveyard with a creature card directly above it, you may pay {1}. If you do, return Death Spark to your hand."
+    IDS_STRING6828          "Krovikan Horror\n{3B}\nCreature - Horror Spirit\nALL,R\nAt the beginning of the end step, if Krovikan Horror is in your graveyard with a creature card directly above it, you may return Krovikan Horror to your hand.\r{1}, Sacrifice a creature: Krovikan Horror deals 1 damage to target creature or player.\n2/2"
+    IDS_STRING6829          "Casting of Bones\n{2B}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhen enchanted creature dies, draw three cards, then discard one of them."
+    IDS_STRING6830          "Casting of Bones\n{2B}\nEnchantment - Aura\nALL,C\nEnchant creature\rWhen enchanted creature dies, draw three cards, then discard one of them."
+    IDS_STRING6831          "Nature's Chosen\n{G}\nEnchantment - Aura\nALL,U\nEnchant creature you control\r{0}: Untap enchanted creature. Activate this ability only during your turn and only once each turn.\rTap enchanted creature: Untap target artifact, creature, or land. Activate this ability only if enchanted creature is white and is untapped and only once each turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6832          "Phelddagrif\n{1GWU}\nLegendary Creature - Phelddagrif\nALL,R\n{G}: Phelddagrif gains trample until end of turn. Target opponent puts a 1/1 green Hippo creature token onto the battlefield.\r{W}: Phelddagrif gains flying until end of turn. Target opponent gains 2 life.\r{U}: Return Phelddagrif to its owner's hand. Target opponent may draw a card.\n4/4"
+    IDS_STRING6833          "Varchild's War-Riders\n{1R}\nCreature - Human Warrior\nALL,R\nCumulative upkeep-Put a 1/1 red Survivor creature token onto the battlefield under an opponent's control.\rTrample, rampage 1\n3/4"
+    IDS_STRING6834          "Krovikan Plague\n{2B}\nEnchantment - Aura\nALL,U\nEnchant non-Wall creature you control\rWhen Krovikan Plague enters the battlefield, draw a card at the beginning of the next turn's upkeep.\rTap enchanted creature: Krovikan Plague deals 1 damage to target creature or player. Put a -0/-1 counter on enchanted creature. Activate this ability only if enchanted creature is untapped."
+    IDS_STRING6835          "Lim-Dul's Vault\n{UB}\nInstant\nALL,U\nLook at the top five cards of your library. As many times as you choose, you may pay 1 life, put those cards on the bottom of your library in any order, then look at the top five cards of your library. Then shuffle your library and put the last cards you looked at this way on top of it in any order."
+    IDS_STRING6836          "Sol Grail\n{3}\nArtifact\nALL,U\nAs Sol Grail enters the battlefield, choose a color.\r{T}: Add one mana of the chosen color to your mana pool."
+    IDS_STRING6837          "Spiny Starfish\n{2U}\nCreature - Starfish\nALL,U\n{U}: Regenerate Spiny Starfish.\rAt the beginning of each end step, if Spiny Starfish regenerated this turn, put a 0/1 blue Starfish creature token onto the battlefield for each time it regenerated this turn.\n0/1"
+    IDS_STRING6838          "Mishra's Groundbreaker\n{4}\nArtifact\nALL,U\n{T}, Sacrifice Mishra's Groundbreaker: Target land becomes a 3/3 artifact creature that's still a land."
+    IDS_STRING6839          "Helm of Obedience\n{4}\nArtifact\nALL,R\n{X}, {T}: Target opponent puts cards from the top of his or her library into his or her graveyard until a creature card or X cards are put into that graveyard this way, whichever comes first. If a creature card is put into that graveyard this way, sacrifice Helm of Obedience and put that card onto the battlefield under your control. X can't be 0."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

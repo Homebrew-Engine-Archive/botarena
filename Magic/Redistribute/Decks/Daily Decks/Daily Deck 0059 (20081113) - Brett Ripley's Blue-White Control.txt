@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+3 Kitchen Finks (18593)
+3 Knight-Captain of Eos (8591)
+Mirror Entity (18143)
+Mistmeadow Witch (18680)
+4 Mulldrifter (18023)
+4 Reveillark (18341)
+4 Sower of Temptation (18074)
+
+// Instants - 4 (6.67%)
+
+4 Cryptic Command (18051)
+
+// Sorceries - 6 (10.00%)
+
+2 Tidings (3185)
+4 Wrath of God (3200)
+
+// Enchantments - 2 (3.33%)
+
+2 Runed Halo (18683)
+
+// Artifacts - 4 (6.67%)
+
+4 Mind Stone (3242)
+
+// Lands - 24 (40.00%)
+
+4 Adarkar Wastes (3002)
+Island (8517)
+2 Island (8514)
+2 Island (8515)
+Island (8516)
+4 Mutavault (18368)
+4 Mystic Gate (18564)
+2 Plains (8523)
+2 Plains (8524)
+Plains (8525)
+Plains (8526)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Glen Elendra Archmage (18938)
+4 Knight of the White Orchid (8657)
+3 Wispmare (18027)
+
+// Sorceries
+
+2 Hallowed Burial (19013)
+
+// Enchantments
+
+3 Oblivion Ring (8718)

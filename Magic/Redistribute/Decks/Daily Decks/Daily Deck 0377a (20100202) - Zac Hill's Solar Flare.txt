@@ -1,0 +1,45 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Jace, the Mind Sculptor (19670)
+
+// Creatures - 11 (18.33%)
+
+4 Baneslayer Angel (4224)
+Goliath Sphinx (19631)
+2 Sphinx of Jwar Isle (19378)
+4 Wall of Denial (9023)
+
+// Instants - 7 (11.67%)
+
+4 Flashfreeze (4038)
+Mindbreak Trap (19500)
+2 Path to Exile (8897)
+
+// Sorceries - 10 (16.67%)
+
+4 Divination (4142)
+Martial Coup (8886)
+Rite of Replication (19541)
+4 Treasure Hunt (19673)
+
+// Enchantments - 4 (6.67%)
+
+4 Spreading Seas (19430)
+
+// Lands - 25 (41.67%)
+
+4 Celestial Colonnade (19602)
+Dread Statuary (19604)
+4 Glacial Fortress (4200)
+3 Halimar Depths (19634)
+2 Island (19308)
+Island (19309)
+Island (19310)
+Island (19311)
+Plains (19326)
+Plains (19325)
+Plains (19327)
+Plains (19324)
+4 Sejiri Refuge (19400)

@@ -1,0 +1,64 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Chieftain (21241)
+4 Goblin Guide (19456)
+4 Memnite (21440)
+Molten-Tail Masticore (21437)
+3 Spikeshot Elder (21467)
+
+// Instants - 6 (10.00%)
+
+2 Galvanic Blast (21493)
+4 Lightning Bolt (21124)
+
+// Sorceries - 6 (10.00%)
+
+Devastating Summons (20990)
+Forked Bolt (20847)
+4 Kuldotha Rebirth (21499)
+
+// Artifacts - 9 (15.00%)
+
+Basilisk Collar (19687)
+Chimeric Mass (21609)
+Infiltration Lens (21511)
+2 Mox Opal (21434)
+3 Panic Spellbomb (21542)
+Trusty Machete (19395)
+
+// Lands - 19 (31.67%)
+
+4 Arid Mesa (19349)
+3 Mountain (21408)
+2 Mountain (21409)
+2 Mountain (21411)
+2 Mountain (21410)
+4 Scalding Tarn (19358)
+Smoldering Spires (19624)
+Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Molten-Tail Masticore (21437)
+2 Perilous Myr (21553)
+
+// Instants
+
+2 Shatter (21473)
+
+// Sorceries
+
+3 Arc Trail (21554)
+3 Mark of Mutiny (19497)
+
+// Artifacts
+
+Chimeric Mass (21609)
+2 Sylvok Lifestaff (21557)

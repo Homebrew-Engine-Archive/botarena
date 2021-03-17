@@ -1,0 +1,35 @@
+// Starter 2000 Player B
+
+#PRE
+#NO_CARD_LIMIT
+
+// Total cards in deck - 22
+
+// Creatures - 10 (45.45%)
+
+2 Eager Cadet (20701)
+Giant Octopus (20702)
+Knight Errant (20703)
+Merfolk of the Pearl Trident (363)
+Royal Falcon (20708)
+Sea Eagle (20709)
+Vizzerdrix (20711)
+Wild Griffin (20712)
+Wind Drake (308)
+
+// Sorceries - 3 (13.64%)
+
+Angelic Blessing (20714)
+Breath of Life (20715)
+Time Ebb (20719)
+
+// Lands - 9 (40.91%)
+
+Island (303)
+Island (522)
+Island (523)
+Island (524)
+2 Plains (302)
+Plains (528)
+Plains (529)
+Plains (530)

@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 27 (45.00%)
+
+4 Birds of Paradise (3013)
+Broodmate Dragon (8543)
+4 Elvish Visionary (8507)
+Hellkite Overlord (8502)
+3 Keeper of Progenitus (8736)
+4 Mulldrifter (18023)
+4 Murderous Redcap (18646)
+2 Nucklavee (18950)
+4 Siege-Gang Commander (3326)
+
+// Sorceries - 4 (6.67%)
+
+4 Warp World (3361)
+
+// Enchantments - 8 (13.33%)
+
+4 Fertile Ground (17902)
+4 Trace of Abundance (9090)
+
+// Lands - 21 (35.00%)
+
+3 Forest (8512)
+3 Forest (8509)
+3 Forest (8510)
+3 Forest (8511)
+2 Mountain (8520)
+3 Mountain (8518)
+2 Mountain (8519)
+2 Mountain (8521)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Bloodbraid Elf (9105)
+2 Vexing Shusher (18682)
+3 Vithian Renegades (9022)
+
+// Sorceries
+
+4 Thought Hemorrhage (9101)
+
+// Artifacts
+
+2 Pithing Needle (3301)

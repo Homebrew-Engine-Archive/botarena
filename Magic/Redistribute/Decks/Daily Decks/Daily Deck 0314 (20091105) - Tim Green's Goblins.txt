@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Sarkhan Vol (8717)
+
+// Creatures - 24 (40.00%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Chieftain (4002)
+4 Goblin Guide (19456)
+4 Goblin Razerunners (8938)
+4 Siege-Gang Commander (4101)
+4 Warren Instigator (19436)
+
+// Instants - 12 (20.00%)
+
+2 Intimidation Bolt (9098)
+4 Lightning Bolt (4060)
+4 Path to Exile (8897)
+2 Volcanic Fallout (8860)
+
+// Lands - 22 (36.67%)
+
+4 Arid Mesa (19349)
+2 Mountain (19318)
+2 Mountain (19317)
+3 Mountain (19316)
+2 Mountain (19319)
+Plains (19324)
+Plains (19325)
+4 Rootbound Crag (4201)
+3 Scalding Tarn (19358)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Goblin Ruinblaster (19457)
+2 Qasali Pridemage (9018)
+
+// Instants
+
+3 Vines of Vastwood (19435)
+2 Volcanic Fallout (8860)
+
+// Sorceries
+
+2 Day of Judgment (19340)
+
+// Artifacts
+
+3 Pithing Needle (4081)

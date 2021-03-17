@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Instants - 7 (11.67%)
+
+4 Condescend (15497)
+3 Thirst for Knowledge (15016)
+
+// Sorceries - 11 (18.33%)
+
+3 Fabricate (14827)
+Fireball (15324)
+3 Serum Visions (15504)
+4 Thoughtcast (15014)
+
+// Artifacts - 23 (38.33%)
+
+4 Chrome Mox (15001)
+Goblin Charbelcher (15041)
+4 Krark-Clan Ironworks (15463)
+4 Myr Incubator (15035)
+4 Pentad Prism (15491)
+3 Talisman of Dominance (14952)
+3 Talisman of Progress (14955)
+
+// Lands - 19 (31.67%)
+
+2 Ancient Den (14926)
+4 Darksteel Citadel (15282)
+4 Great Furnace (14929)
+4 Seat of the Synod (14930)
+3 Tree of Tales (14931)
+2 Vault of Whispers (14932)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Furnace Dragon (15317)
+
+// Instants
+
+4 Mana Leak (1744)
+4 Seething Song (14853)
+
+// Sorceries
+
+3 Pyroclasm (1614)

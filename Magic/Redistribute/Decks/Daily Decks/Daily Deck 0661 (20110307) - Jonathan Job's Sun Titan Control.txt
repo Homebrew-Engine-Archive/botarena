@@ -1,0 +1,55 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Ajani Vengeant (8720)
+
+// Creatures - 22 (36.67%)
+
+3 Baneslayer Angel (21125)
+4 Fulminator Mage (18600)
+4 Kitchen Finks (18593)
+3 Sun Titan (21161)
+4 Tidehollow Sculler (8721)
+4 Wall of Omens (20842)
+
+// Instants - 5 (8.33%)
+
+4 Lightning Bolt (21124)
+Path to Exile (8897)
+
+// Sorceries - 4 (6.67%)
+
+4 Thoughtseize (17901)
+
+// Lands - 26 (43.33%)
+
+3 Arid Mesa (19349)
+4 Blackcleave Cliffs (21470)
+4 Fetid Heath (18912)
+3 Marsh Flats (19357)
+Mountain (21772)
+Mountain (21773)
+2 Plains (21774)
+Plains (21775)
+Rugged Prairie (18922)
+Swamp (21776)
+Swamp (21777)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Cunning Sparkmage (19608)
+3 Mirran Crusader (21703)
+2 Stoneforge Mystic (19638)
+3 War Priest of Thune (21226)
+
+// Artifacts
+
+Basilisk Collar (19687)
+Sword of Body and Mind (21420)
+Sword of Feast and Famine (21762)

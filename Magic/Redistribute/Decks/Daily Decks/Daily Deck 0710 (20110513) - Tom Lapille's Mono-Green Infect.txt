@@ -1,0 +1,25 @@
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+4 Glistener Elf (21962)
+4 Overgrown Battlement (20890)
+4 Putrefax (21476)
+4 Viridian Corrupter (21719)
+
+// Instants - 16 (26.67%)
+
+4 Carrion Call (21487)
+4 Groundswell (19694)
+4 Primal Bellow (19504)
+4 Vines of Vastwood (19435)
+
+// Sorceries - 3 (5.00%)
+
+3 Green Sun's Zenith (21720)
+
+// Lands - 25 (41.67%)
+
+11 Forest (21972)
+10 Forest (21973)
+4 Inkmoth Nexus (21745)

@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+4 Bloodbraid Elf (9105)
+3 Boartusk Liege (18596)
+4 Boggart Ram-Gang (18659)
+3 Figure of Destiny (19006)
+4 Jund Hackblade (9082)
+3 Rip-Clan Crasher (8611)
+4 Tattermunge Maniac (18592)
+
+// Instants - 12 (20.00%)
+
+2 Colossal Might (9007)
+4 Incinerate (3226)
+4 Magma Spray (8735)
+2 Puncture Blast (19005)
+
+// Lands - 23 (38.33%)
+
+4 Fire-Lit Thicket (18542)
+2 Forest (8509)
+Forest (8512)
+2 Forest (8510)
+Forest (8511)
+4 Karplusan Forest (3086)
+3 Mountain (8518)
+2 Mountain (8519)
+2 Mountain (8520)
+2 Mountain (8521)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Vexing Shusher (18682)
+
+// Instants
+
+2 Chaotic Backlash (19016)
+4 Ignite Disorder (8802)
+3 Naturalize (8522)
+
+// Enchantments
+
+3 Everlasting Torment (18711)

@@ -1,0 +1,61 @@
+// Total cards in deck - 60
+
+// Creatures - 26 (43.33%)
+
+Glen Elendra Archmage (18938)
+4 Merfolk Looter (3102)
+4 Merrow Reejerey (18082)
+3 Reveillark (18341)
+4 Silvergill Adept (18089)
+3 Sower of Temptation (18074)
+4 Stonybrook Banneret (18386)
+3 Sygg, River Guide (18026)
+
+// Instants - 7 (11.67%)
+
+4 Cryptic Command (18051)
+3 Sage's Dousing (18374)
+
+// Sorceries - 3 (5.00%)
+
+3 Ponder (18010)
+
+// Lands - 24 (40.00%)
+
+4 Adarkar Wastes (3002)
+Faerie Conclave (3304)
+Island (18511)
+Island (18512)
+2 Island (18509)
+Island (18510)
+4 Mutavault (18368)
+4 Mystic Gate (18564)
+4 Wanderwine Hub (18094)
+2 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Jace Beleren (18011)
+
+// Creatures
+
+2 Arbiter of Knollridge (18159)
+Glen Elendra Archmage (18938)
+
+// Instants
+
+2 Condemn (3291)
+Negate (18305)
+3 Remove Soul (3139)
+
+// Sorceries
+
+3 Wrath of God (3200)
+
+// Enchantments
+
+Story Circle (3171)

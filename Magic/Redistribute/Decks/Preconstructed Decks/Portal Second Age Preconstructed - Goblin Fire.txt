@@ -1,0 +1,31 @@
+// Goblin Fire
+// Portal Second Age Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+2 Goblin Cavaliers (20129)
+2 Goblin Firestarter (20130)
+Goblin General (20131)
+2 Goblin Glider (20176)
+2 Goblin Matron (20177)
+2 Goblin Piker (20179)
+2 Goblin Raider (20180)
+3 Raging Goblin (20187)
+
+// Sorceries - 9 (22.50%)
+
+2 Blaze (20215)
+2 Goblin War Strike (20222)
+Relentless Assault (20233)
+3 Volcanic Hammer (20245)
+Wildfire (20246)
+
+// Lands - 15 (37.50%)
+
+5 Mountain (20201)
+5 Mountain (20202)
+5 Mountain (20203)

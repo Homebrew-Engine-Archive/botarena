@@ -1,0 +1,31 @@
+// Shu Kingdom
+// Portal Three Kingdoms Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 19 (47.50%)
+
+2 Flanking Troops (20317)
+Guan Yu, Sainted Warrior (20429)
+Kongming, Sleeping Dragon (20327)
+Liu Bei, Lord of Shu (20431)
+3 Shu Cavalry (20436)
+2 Shu Farmer (20343)
+3 Shu Foot Soldiers (20344)
+2 Shu General (20438)
+2 Shu Grain Caravan (20345)
+2 Volunteer Militia (20387)
+
+// Sorceries - 6 (15.00%)
+
+2 Misfortune's Gain (20330)
+2 Vengeance (20347)
+2 Virtuous Charge (20360)
+
+// Lands - 15 (37.50%)
+
+5 Plains (20398)
+5 Plains (20399)
+5 Plains (20400)

@@ -1,0 +1,73 @@
+// Total cards in deck - 60
+
+// Creatures - 12 (20.00%)
+
+4 Dark Confidant (16449)
+2 Sower of Temptation (18074)
+4 Tarmogoyf (17704)
+2 Trygon Predator (23871)
+
+// Instants - 16 (26.67%)
+
+4 Brainstorm (11610)
+3 Daze (12089)
+4 Force of Will (6759)
+Krosan Grip (17369)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 2 (3.33%)
+
+2 Ponder (18010)
+
+// Enchantments - 4 (6.67%)
+
+4 Counterbalance (7074)
+
+// Artifacts - 6 (10.00%)
+
+4 Sensei's Divining Top (15640)
+2 Vedalken Shackles (15508)
+
+// Lands - 20 (33.33%)
+
+4 Flooded Strand (14001)
+Island (17216)
+Island (17215)
+4 Polluted Delta (14000)
+3 Tropical Island (7384)
+3 Tundra (7386)
+4 Underground Sea (7388)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Burrenton Forge-Tender (18054)
+Kataki, War's Wage (16284)
+
+// Instants
+
+Blue Elemental Blast (7619)
+Darkblast (16596)
+Enlightened Tutor (488)
+Hydroblast (8134)
+Krosan Grip (17369)
+
+// Sorceries
+
+Perish (394)
+
+// Enchantments
+
+Energy Flux (11864)
+Engineered Plague (1042)
+Planar Void (11040)
+Threads of Disloyalty (19169)
+
+// Artifacts
+
+Relic of Progenitus (8725)
+Tormod's Crypt (17265)
+Umezawa's Jitte (19149)

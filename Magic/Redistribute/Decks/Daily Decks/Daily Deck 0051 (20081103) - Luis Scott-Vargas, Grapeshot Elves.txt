@@ -1,0 +1,54 @@
+// Total cards in deck - 60
+
+// Creatures - 32 (53.33%)
+
+4 Birchlore Rangers (14190)
+4 Elves of Deep Shadow (16414)
+4 Elvish Visionary (8507)
+Eternal Witness (15428)
+4 Heritage Druid (18307)
+4 Llanowar Elves (3092)
+4 Nettle Sentinel (18902)
+Regal Force (19018)
+2 Viridian Shaman (3195)
+4 Wirewood Symbiote (14655)
+
+// Instants - 4 (6.67%)
+
+4 Summoner's Pact (17793)
+
+// Sorceries - 8 (13.33%)
+
+4 Glimpse of Nature (15806)
+Grapeshot (17481)
+3 Weird Harvest (2346)
+
+// Lands - 16 (26.67%)
+
+4 Gilt-Leaf Palace (18092)
+2 Overgrown Tomb (16445)
+Pendelhaven (17253)
+9 Snow-Covered Forest (7057)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Mycoloth (8719)
+Nullmage Shepherd (16496)
+2 Viridian Shaman (3195)
+
+// Sorceries
+
+4 Thoughtseize (17901)
+
+// Artifacts
+
+2 Thorn of Amethyst (18000)
+4 Umezawa's Jitte (19149)
+
+// Lands
+
+Pendelhaven (17253)

@@ -1,0 +1,54 @@
+// Registered with a 11-card sideboard
+
+// Total cards in deck - 60
+
+// Creatures - 30 (50.00%)
+
+4 Bloodbraid Elf (9105)
+4 Elvish Archdruid (4218)
+2 Great Sable Stag (4013)
+4 Imperious Perfect (17961)
+4 Llanowar Elves (4062)
+4 Talara's Battalion (19030)
+4 Wilt-Leaf Liege (18644)
+4 Wren's Run Packmaster (18044)
+
+// Instants - 8 (13.33%)
+
+4 Lightning Bolt (4060)
+4 Manamorphose (18561)
+
+// Lands - 22 (36.67%)
+
+4 Fire-Lit Thicket (18542)
+2 Forest (4043)
+2 Forest (4042)
+2 Forest (4041)
+3 Forest (4040)
+Mountain (4070)
+Mountain (4071)
+Mountain (4072)
+4 Rootbound Crag (4201)
+2 Terramorphic Expanse (4111)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 11
+
+// Creatures
+
+2 Great Sable Stag (4013)
+2 Scattershot Archer (8825)
+
+// Instants
+
+2 Naturalize (4074)
+2 Volcanic Fallout (8860)
+
+// Sorceries
+
+Banefire (8932)
+
+// Artifacts
+
+2 Pithing Needle (4081)

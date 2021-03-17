@@ -1,0 +1,51 @@
+// Total cards in deck - 60
+
+// Creatures - 33 (55.00%)
+
+4 Arbor Elf (19615)
+2 Boreal Druid (7045)
+4 Elvish Archdruid (21227)
+4 Elvish Visionary (4181)
+Emrakul, the Aeons Torn (20937)
+Eternal Witness (15428)
+2 Fauna Shaman (21239)
+4 Heritage Druid (18307)
+4 Llanowar Elves (21206)
+4 Nettle Sentinel (18902)
+2 Regal Force (19018)
+Viridian Shaman (3195)
+
+// Instants - 4 (6.67%)
+
+4 Summoner's Pact (17793)
+
+// Sorceries - 6 (10.00%)
+
+4 Glimpse of Nature (15806)
+2 Green Sun's Zenith (21720)
+
+// Lands - 17 (28.33%)
+
+7 Forest (21768)
+6 Forest (21769)
+3 Horizon Canopy (17728)
+Pendelhaven (17253)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Fauna Shaman (21239)
+4 Vengevine (20939)
+3 Vexing Shusher (18682)
+Viridian Zealot (15241)
+
+// Artifacts
+
+4 Thorn of Amethyst (18000)
+
+// Lands
+
+Pendelhaven (17253)

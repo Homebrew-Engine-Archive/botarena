@@ -1,0 +1,68 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+3 Elspeth, Knight-Errant (8722)
+3 Tezzeret the Seeker (8727)
+
+// Creatures - 10 (16.67%)
+
+4 Knight of the White Orchid (8657)
+3 Knight-Captain of Eos (8591)
+3 Vedalken Outlander (8842)
+
+// Instants - 7 (11.67%)
+
+4 Bant Charm (8536)
+3 Path to Exile (8897)
+
+// Sorceries - 3 (5.00%)
+
+3 Martial Coup (8886)
+
+// Enchantments - 1 (1.67%)
+
+Oblivion Ring (8718)
+
+// Artifacts - 15 (25.00%)
+
+Behemoth Sledge (9003)
+4 Courier's Capsule (8550)
+4 Fieldmist Borderpost (9091)
+2 Scepter of Dominance (8852)
+4 Wildfield Borderpost (9087)
+
+// Lands - 18 (30.00%)
+
+Forest (8509)
+Island (8517)
+Island (8515)
+2 Island (8514)
+Island (8516)
+2 Plains (8523)
+2 Plains (8524)
+2 Plains (8525)
+2 Plains (8526)
+4 Seaside Citadel (8618)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Elspeth, Knight-Errant (8722)
+
+// Creatures
+
+Knight-Captain of Eos (8591)
+
+// Instants
+
+4 Celestial Purge (8801)
+4 Filigree Fracture (8908)
+4 Hindering Light (8732)
+
+// Artifacts
+
+Behemoth Sledge (9003)

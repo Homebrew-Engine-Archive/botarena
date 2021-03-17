@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 27 (45,00%)
+
+3 Chameleon Colossus (18361)
+4 Great Sable Stag (4013)
+4 Kitchen Finks (18593)
+4 Llanowar Elves (4062)
+4 Putrid Leech (9017)
+4 Wilt-Leaf Liege (18644)
+4 Wren's Run Packmaster (18044)
+
+// Instants - 4 (6,67%)
+
+4 Nameless Inversion (18108)
+
+// Sorceries - 6 (10,00%)
+
+4 Maelstrom Pulse (9055)
+2 Profane Command (18127)
+
+// Lands - 23 (38,33%)
+
+Forest (4041)
+2 Forest (4040)
+Forest (4042)
+Forest (4043)
+4 Gilt-Leaf Palace (18092)
+4 Murmuring Bosk (18387)
+4 Mutavault (18368)
+Swamp (4105)
+Swamp (4106)
+4 Twilight Mire (18929)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+2 Doom Blade (4150)
+2 Guttural Response (18548)
+
+// Sorceries
+
+2 Haunting Echoes (4216)
+2 Infest (8584)
+2 Primal Command (18131)
+4 Thoughtseize (17901)
+
+// Artifacts
+
+Pithing Needle (4081)

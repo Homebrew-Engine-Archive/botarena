@@ -1,0 +1,24 @@
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+4 Cystbearer (21492)
+4 Ichorclaw Myr (21444)
+4 Necropede (21555)
+4 Overgrown Battlement (20890)
+4 Putrefax (21476)
+
+// Instants - 17 (28.33%)
+
+4 Carrion Call (21487)
+Giant Growth (21135)
+4 Groundswell (19694)
+4 Primal Bellow (19504)
+4 Vines of Vastwood (19435)
+
+// Lands - 23 (38.33%)
+
+6 Forest (21400)
+6 Forest (21401)
+6 Forest (21402)
+5 Forest (21403)

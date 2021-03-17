@@ -1,0 +1,31 @@
+// Nightstalkers
+// Portal Second Age Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 17 (42.50%)
+
+2 Abyssal Nightstalker (20100)
+2 Brutal Nightstalker (20117)
+2 Dakmor Bat (20119)
+3 Lurking Nightstalker (20135)
+Nightstalker Engine (20138)
+2 Predatory Nightstalker (20170)
+3 Prowling Nightstalker (20147)
+2 Raiding Nightstalker (20148)
+
+// Sorceries - 8 (20.00%)
+
+Ancient Craving (20107)
+2 Cruel Edict (20218)
+2 Hand of Death (20223)
+2 Mind Rot (20227)
+Return of the Nightstalkers (20151)
+
+// Lands - 15 (37.50%)
+
+5 Swamp (20207)
+5 Swamp (20208)
+5 Swamp (20209)

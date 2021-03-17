@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30,00%)
+
+4 Demigod of Revenge (18645)
+4 Nyxathid (8914)
+2 Shriekmaw (18025)
+4 Stillmoon Cavalier (18957)
+4 Tidehollow Sculler (8721)
+
+// Instants - 4 (6,67%)
+
+4 Path to Exile (8897)
+
+// Sorceries - 15 (25,00%)
+
+2 Mind Shatter (18304)
+4 Profane Command (18127)
+2 Raven's Crime (18970)
+4 Thoughtseize (17901)
+3 Wrath of God (3200)
+
+// Lands - 23 (38,33%)
+
+4 Caves of Koilos (3022)
+4 Fetid Heath (18912)
+Plains (8524)
+Plains (8523)
+3 Swamp (8530)
+4 Swamp (8527)
+3 Swamp (8528)
+3 Swamp (8529)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Burrenton Forge-Tender (18054)
+4 Fulminator Mage (18600)
+
+// Sorceries
+
+2 Infest (8584)
+
+// Enchantments
+
+3 Oblivion Ring (8718)
+2 Runed Halo (18683)

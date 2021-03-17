@@ -1,0 +1,69 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 6 (10.00%)
+
+4 Phyrexian Crusader (21702)
+2 Skithiryx, the Blight Dragon (21438)
+
+// Instants - 12 (20.00%)
+
+Deprive (20934)
+2 Disfigure (19379)
+4 Doom Blade (21198)
+4 Mana Leak (21214)
+Stoic Rebuttal (21456)
+
+// Sorceries - 10 (16.67%)
+
+2 Duress (21280)
+4 Inquisition of Kozilek (20846)
+4 Preordain (21152)
+
+// Artifacts - 5 (8.33%)
+
+2 Contagion Clasp (21430)
+3 Tumble Magnet (21447)
+
+// Lands - 23 (38.33%)
+
+4 Creeping Tar Pit (19622)
+4 Darkslick Shores (21469)
+4 Drowned Catacomb (21127)
+3 Inkmoth Nexus (21745)
+Island (21771)
+2 Island (21770)
+2 Swamp (21776)
+Swamp (21777)
+2 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Jace Beleren (21258)
+
+// Instants
+
+Disfigure (19379)
+2 Flashfreeze (21133)
+2 Go for the Throat (21752)
+
+// Sorceries
+
+2 Black Sun's Zenith (21746)
+2 Duress (21280)
+2 Memoricide (21564)
+
+// Enchantments
+
+2 Corrupted Conscience (21835)
+
+// Lands
+
+Tectonic Edge (19651)

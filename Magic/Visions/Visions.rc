@@ -1,0 +1,259 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Visions.ico"
+IDI_LARGE_MODULE        ICON                    "VisionsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Visions"
+    IDS_EXPANSION_ABBREV    "VIS"
+    IDS_FIRST_CARD          "9600"
+    IDS_TOTAL_CARD          "167"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "9767"
+    IDS_MODULE_LARGE_ICON_ID "9768"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "03-02-1997"
+    IDS_MWS_FOLDER          "MWS\\VIS\\"
+    IDS_PRODUCT_LIST        """Visions Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9600          "Phyrexian Walker\n{0}\nArtifact Creature - Construct\nVIS,C\n\n0/3"
+    IDS_STRING9601          "Retribution of the Meek\n{2W}\nSorcery\nVIS,R\nDestroy all creatures with power 4 or greater. They can't be regenerated."
+    IDS_STRING9602          "Archangel\n{5WW}\nCreature - Angel\nVIS,R\nFlying, vigilance\n5/5"
+    IDS_STRING9603          "Cloud Elemental\n{2U}\nCreature - Elemental\nVIS,C\nFlying\rCloud Elemental can block only creatures with flying.\n2/3"
+    IDS_STRING9604          "Coercion\n{2B}\nSorcery\nVIS,C\nTarget opponent reveals his or her hand. You choose a card from it. That player discards that card."
+    IDS_STRING9605          "Creeping Mold\n{2GG}\nSorcery\nVIS,U\nDestroy target artifact, enchantment, or land."
+    IDS_STRING9606          "Crypt Rats\n{2B}\nCreature - Rat\nVIS,C\n{X}: Crypt Rats deals X damage to each creature and each player. Spend only black mana this way.\n1/1"
+    IDS_STRING9607          "Daraja Griffin\n{3W}\nCreature - Griffin\nVIS,U\nFlying\rSacrifice Daraja Griffin: Destroy target black creature.\n2/2"
+    IDS_STRING9608          "Desertion\n{3UU}\nInstant\nVIS,R\nCounter target spell. If an artifact or creature spell is countered this way, put that card onto the battlefield under your control instead of into its owner's graveyard."
+    IDS_STRING9609          "Dragon Mask\n{3}\nArtifact\nVIS,U\n{3}, {T}: Target creature you control gets +2/+2 until end of turn. Return it to its owner's hand at the beginning of the next end step."
+    IDS_STRING9610          "Elven Cache\n{2GG}\nSorcery\nVIS,C\nReturn target card from your graveyard to your hand."
+    IDS_STRING9611          "Goblin Recruiter\n{1R}\nCreature - Goblin\nVIS,U\nWhen Goblin Recruiter enters the battlefield, search your library for any number of Goblin cards and reveal those cards. Shuffle your library, then put them on top of it in any order.\n1/1"
+    IDS_STRING9612          "Hulking Cyclops\n{3RR}\nCreature - Cyclops\nVIS,U\nHulking Cyclops can't block.\n5/5"
+    IDS_STRING9613          "Infantry Veteran\n{W}\nCreature - Human Soldier\nVIS,C\n{T}: Target attacking creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING9614          "Inspiration\n{3U}\nInstant\nVIS,C\nTarget player draws two cards."
+    IDS_STRING9615          "King Cheetah\n{3G}\nCreature - Cat\nVIS,C\nFlash\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9616          "Longbow Archer\n{WW}\nCreature - Human Soldier Archer\nVIS,U\nFirst strike; reach\n2/2"
+    IDS_STRING9617          "Necrosavant\n{3BBB}\nCreature - Zombie Giant\nVIS,R\n{3BB}, Sacrifice a creature: Return Necrosavant from your graveyard to the battlefield. Activate this ability only during your upkeep.\n5/5"
+    IDS_STRING9618          "Nekrataal\n{2BB}\nCreature - Human Assassin\nVIS,U\nFirst strike\rWhen Nekrataal enters the battlefield, destroy target nonartifact, nonblack creature. That creature can't be regenerated.\n2/1"
+    IDS_STRING9619          "Panther Warriors\n{4G}\nCreature - Cat Warrior\nVIS,C\n\n6/3"
+    IDS_STRING9620          "Prosperity\n{XU}\nSorcery\nVIS,U\nEach player draws X cards."
+    IDS_STRING9621          "Python\n{1BB}\nCreature - Snake\nVIS,C\n\n3/2"
+    IDS_STRING9622          "Quicksand\n\nLand\nVIS,U\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Quicksand: Target attacking creature without flying gets -1/-2 until end of turn."
+    IDS_STRING9623          "Relentless Assault\n{2RR}\nSorcery\nVIS,R\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase."
+    IDS_STRING9624          "Remedy\n{1W}\nInstant\nVIS,C\nPrevent the next 5 damage that would be dealt this turn to any number of target creatures and/or players, divided as you choose."
+    IDS_STRING9625          "Resistance Fighter\n{W}\nCreature - Human Soldier\nVIS,C\nSacrifice Resistance Fighter: Prevent all combat damage target creature would deal this turn.\n1/1"
+    IDS_STRING9626          "River Boa\n{1G}\nCreature - Snake\nVIS,C\nIslandwalk\r{G}: Regenerate River Boa.\n2/1"
+    IDS_STRING9627          "Rowen\n{2GG}\nEnchantment\nVIS,R\nReveal the first card you draw each turn. Whenever you reveal a basic land card this way, draw a card."
+    IDS_STRING9628          "Sisay's Ring\n{4}\nArtifact\nVIS,C\n{T}: Add {2} to your mana pool."
+    IDS_STRING9629          "Snake Basket\n{4}\nArtifact\nVIS,R\n{X}, Sacrifice Snake Basket: Put X 1/1 green Snake creature tokens onto the battlefield. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING9630          "Spitting Drake\n{3R}\nCreature - Drake\nVIS,U\nFlying\r{R}: Spitting Drake gets +1/+0 until end of turn. Activate this ability only once each turn.\n2/2"
+    IDS_STRING9631          "Stampeding Wildebeests\n{2GG}\nCreature - Antelope Beast\nVIS,U\nTrample\rAt the beginning of your upkeep, return a green creature you control to its owner's hand.\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9632          "Summer Bloom\n{1G}\nSorcery\nVIS,U\nYou may play up to three additional lands this turn."
+    IDS_STRING9633          "Teferi's Puzzle Box\n{4}\nArtifact\nVIS,R\nAt the beginning of each player's draw step, that player puts the cards in his or her hand on the bottom of his or her library in any order, then draws that many cards."
+    IDS_STRING9634          "Tremor\n{R}\nSorcery\nVIS,C\nTremor deals 1 damage to each creature without flying."
+    IDS_STRING9635          "Uktabi Orangutan\n{2G}\nCreature - Ape\nVIS,U\nWhen Uktabi Orangutan enters the battlefield, destroy target artifact.\n2/2"
+    IDS_STRING9636          "Vampiric Tutor\n{B}\nInstant\nVIS,R\nSearch your library for a card, then shuffle your library and put that card on top of it. You lose 2 life."
+    IDS_STRING9637          "Viashino Sandstalker\n{1RR}\nCreature - Viashino Warrior\nVIS,U\nHaste\rAt the beginning of the end step, return Viashino Sandstalker to its owner's hand.\n4/2"
+    IDS_STRING9638          "Warrior's Honor\n{2W}\nInstant\nVIS,C\nCreatures you control get +1/+1 until end of turn."
+    IDS_STRING9639          "Warthog\n{1GG}\nCreature - Boar\nVIS,C\nSwampwalk\n3/2"
+    IDS_STRING9640          "Fireblast\n{4RR}\nInstant\nVIS,C\nYou may sacrifice two Mountains rather than pay Fireblast's mana cost.\rFireblast deals 4 damage to target creature or player."
+    IDS_STRING9641          "Impulse\n{1U}\nInstant\nVIS,C\nLook at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING9642          "Lightning Cloud\n{3R}\nEnchantment\nVIS,R\nWhenever a player casts a red spell, you may pay {R}. If you do, Lightning Cloud deals 1 damage to target creature or player."
+    IDS_STRING9643          "Natural Order\n{2GG}\nSorcery\nVIS,R\nAs an additional cost to cast Natural Order, sacrifice a green creature.\rSearch your library for a green creature card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING9644          "Aku Djinn\n{3BB}\nCreature - Djinn\nVIS,R\nTrample\rAt the beginning of your upkeep, put a +1/+1 counter on each creature each opponent controls.\n5/6"
+    IDS_STRING9645          "Army Ants\n{1BR}\nCreature - Insect\nVIS,U\n{T}, Sacrifice a land: Destroy target land.\n1/1"
+    IDS_STRING9646          "Bull Elephant\n{3G}\nCreature - Elephant\nVIS,C\nWhen Bull Elephant enters the battlefield, sacrifice it unless you return two Forests you control to their owner's hand.\n4/4"
+    IDS_STRING9647          "Femeref Enchantress\n{GW}\nCreature - Human Druid\nVIS,R\nWhenever an enchantment is put into a graveyard from the battlefield, draw a card.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9648          "Freewind Falcon\n{1W}\nCreature - Bird\nVIS,C\nFlying, protection from red\n1/1"
+    IDS_STRING9649          "Goblin Swine-Rider\n{R}\nCreature - Goblin\nVIS,C\nWhenever Goblin Swine-Rider becomes blocked, it deals 2 damage to each attacking creature and each blocking creature.\n1/1"
+    IDS_STRING9650          "Jamuraan Lion\n{2W}\nCreature - Cat\nVIS,C\n{W}, {T}: Target creature can't block this turn.\n3/1"
+    IDS_STRING9651          "Keeper of Kookus\n{R}\nCreature - Goblin\nVIS,C\n{R}: Keeper of Kookus gains protection from red until end of turn.\n1/1"
+    IDS_STRING9652          "Man-o'-War\n{2U}\nCreature - Jellyfish\nVIS,C\nWhen Man-o'-War enters the battlefield, return target creature to its owner's hand.\n2/2"
+    IDS_STRING9653          "Raging Gorilla\n{2R}\nCreature - Ape\nVIS,C\nWhenever Raging Gorilla blocks or becomes blocked, it gets +2/-2 until end of turn.\n2/3"
+    IDS_STRING9654          "Scalebane's Elite\n{3GW}\nCreature - Human Soldier\nVIS,U\nProtection from black\n4/4"
+    IDS_STRING9655          "Shrieking Drake\n{U}\nCreature - Drake\nVIS,C\nFlying\rWhen Shrieking Drake enters the battlefield, return a creature you control to its owner's hand.\n1/1"
+    IDS_STRING9656          "Tar Pit Warrior\n{2B}\nCreature - Cyclops Warrior\nVIS,C\nWhen Tar Pit Warrior becomes the target of a spell or ability, sacrifice it.\n3/4"
+    IDS_STRING9657          "Tempest Drake\n{1WU}\nCreature - Drake\nVIS,U\nFlying, vigilance\n2/2"
+    IDS_STRING9658          "Urborg Mindsucker\n{2B}\nCreature - Horror\nVIS,C\n{B}, Sacrifice Urborg Mindsucker: Target opponent discards a card at random. Activate this ability only any time you could cast a sorcery.\n2/2"
+    IDS_STRING9659          "Viashivan Dragon\n{2RRGG}\nCreature - Dragon\nVIS,R\nFlying\r{R}: Viashivan Dragon gets +1/+0 until end of turn.\r{G}: Viashivan Dragon gets +0/+1 until end of turn.\n4/4"
+    IDS_STRING9660          "Wake of Vultures\n{3B}\nCreature - Bird\nVIS,C\nFlying\r{1B}, Sacrifice a creature: Regenerate Wake of Vultures.\n3/1"
+    IDS_STRING9661          "Waterspout Djinn\n{2UU}\nCreature - Djinn\nVIS,U\nFlying\rAt the beginning of your upkeep, sacrifice Waterspout Djinn unless you return an untapped Island you control to its owner's hand.\n4/4"
+    IDS_STRING9662          "Brass-Talon Chimera\n{4}\nArtifact Creature - Chimera\nVIS,U\nFirst strike\rSacrifice Brass-Talon Chimera: Put a +2/+2 counter on target Chimera creature. It gains first strike.\n2/2"
+    IDS_STRING9663          "Iron-Heart Chimera\n{4}\nArtifact Creature - Chimera\nVIS,U\nVigilance\rSacrifice Iron-Heart Chimera: Put a +2/+2 counter on target Chimera creature. It gains vigilance.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9664          "Lead-Belly Chimera\n{4}\nArtifact Creature - Chimera\nVIS,U\nTrample\rSacrifice Lead-Belly Chimera: Put a +2/+2 counter on target Chimera creature. It gains trample.\n2/2"
+    IDS_STRING9665          "Tin-Wing Chimera\n{4}\nArtifact Creature - Chimera\nVIS,U\nFlying\rSacrifice Tin-Wing Chimera: Put a +2/+2 counter on target Chimera creature. It gains flying.\n2/2"
+    IDS_STRING9666          "Coral Atoll\n\nLand\nVIS,U\nCoral Atoll enters the battlefield tapped.\rWhen Coral Atoll enters the battlefield, sacrifice it unless you return an untapped Island you control to its owner's hand.\r{T}: Add {1U} to your mana pool."
+    IDS_STRING9667          "Dormant Volcano\n\nLand\nVIS,U\nDormant Volcano enters the battlefield tapped.\rWhen Dormant Volcano enters the battlefield, sacrifice it unless you return an untapped Mountain you control to its owner's hand.\r{T}: Add {1R} to your mana pool."
+    IDS_STRING9668          "Everglades\n\nLand\nVIS,U\nEverglades enters the battlefield tapped.\rWhen Everglades enters the battlefield, sacrifice it unless you return an untapped Swamp you control to its owner's hand.\r{T}: Add {1B} to your mana pool."
+    IDS_STRING9669          "Jungle Basin\n\nLand\nVIS,U\nJungle Basin enters the battlefield tapped.\rWhen Jungle Basin enters the battlefield, sacrifice it unless you return an untapped Forest you control to its owner's hand.\r{T}: Add {1G} to your mana pool."
+    IDS_STRING9670          "Karoo\n\nLand\nVIS,U\nKaroo enters the battlefield tapped.\rWhen Karoo enters the battlefield, sacrifice it unless you return an untapped Plains you control to its owner's hand.\r{T}: Add {1W} to your mana pool."
+    IDS_STRING9671          "Betrayal\n{U}\nEnchantment - Aura\nVIS,C\nEnchant creature an opponent controls\rWhenever enchanted creature becomes tapped, you draw a card."
+    IDS_STRING9672          "Righteous Aura\n{1W}\nEnchantment\nVIS,C\n{W}, Pay 2 life: The next time a source of your choice would deal damage to you this turn, prevent that damage."
+    IDS_STRING9673          "Righteous War\n{1WB}\nEnchantment\nVIS,R\nWhite creatures you control have protection from black.\rBlack creatures you control have protection from white."
+    IDS_STRING9674          "Emerald Charm\n{G}\nInstant\nVIS,C\nChoose one - Untap target permanent; or destroy target non-Aura enchantment; or target creature loses flying until end of turn."
+    IDS_STRING9675          "Funeral Charm\n{B}\nInstant\nVIS,C\nChoose one - Target player discards a card; or target creature gets +2/-1 until end of turn; or target creature gains swampwalk until end of turn."
+    IDS_STRING9676          "Hearth Charm\n{R}\nInstant\nVIS,C\nChoose one - Destroy target artifact creature; or attacking creatures get +1/+0 until end of turn; or target creature with power 2 or less is unblockable this turn."
+    IDS_STRING9677          "Hope Charm\n{W}\nInstant\nVIS,C\nChoose one - Target creature gains first strike until end of turn; or target player gains 2 life; or destroy target Aura."
+    IDS_STRING9678          "Simoon\n{RG}\nInstant\nVIS,U\nSimoon deals 1 damage to each creature target opponent controls."
+    IDS_STRING9679          "Wicked Reward\n{1B}\nInstant\nVIS,C\nAs an additional cost to cast Wicked Reward, sacrifice a creature.\rTarget creature gets +4/+2 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9680          "Wind Shear\n{2G}\nInstant\nVIS,U\nAttacking creatures with flying get -2/-2 and lose flying until end of turn."
+    IDS_STRING9681          "Undo\n{1UU}\nSorcery\nVIS,C\nReturn two target creatures to their owners' hands."
+    IDS_STRING9682          "Talruum Champion\n{4R}\nCreature - Minotaur\nVIS,C\nFirst strike\rWhenever Talruum Champion blocks or becomes blocked by a creature, that creature loses first strike until end of turn.\n3/3"
+    IDS_STRING9683          "Diamond Kaleidoscope\n{4}\nArtifact\nVIS,R\n{3}, {T}: Put a 0/1 colorless Prism artifact creature token onto the battlefield.\rSacrifice a Prism token: Add one mana of any color to your mana pool."
+    IDS_STRING9684          "Mortal Wound\n{G}\nEnchantment - Aura\nVIS,C\nEnchant creature\rWhen enchanted creature is dealt damage, destroy it."
+    IDS_STRING9685          "Rock Slide\n{XR}\nInstant\nVIS,C\nRock Slide deals X damage divided as you choose among any number of target attacking or blocking creatures without flying."
+    IDS_STRING9686          "Vampirism\n{1B}\nEnchantment - Aura\nVIS,U\nEnchant creature\rWhen Vampirism enters the battlefield, draw a card at the beginning of the next turn's upkeep.\rEnchanted creature gets +1/+1 for each other creature you control.\rOther creatures you control get -1/-1."
+    IDS_STRING9687          "Feral Instinct\n{1G}\nInstant\nVIS,C\nTarget creature gets +1/+1 until end of turn.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING9688          "Miraculous Recovery\n{4W}\nInstant\nVIS,U\nReturn target creature card from your graveyard to the battlefield. Put a +1/+1 counter on it."
+    IDS_STRING9689          "Pillar Tombs of Aku\n{2BB}\nWorld Enchantment\nVIS,R\nAt the beginning of each player's upkeep, that player may sacrifice a creature. If that player doesn't, he or she loses 5 life and you sacrifice Pillar Tombs of Aku."
+    IDS_STRING9690          "Quirion Ranger\n{G}\nCreature - Elf\nVIS,C\nReturn a Forest you control to its owner's hand: Untap target creature. Activate this ability only once each turn.\n1/1"
+    IDS_STRING9691          "Flooded Shoreline\n{UU}\nEnchantment\nVIS,R\n{UU}, Return two Islands you control to their owner's hand: Return target creature to its owner's hand."
+    IDS_STRING9692          "Anvil of Bogardan\n{2}\nArtifact\nVIS,R\nPlayers have no maximum hand size.\rAt the beginning of each player's draw step, that player draws an additional card, then discards a card."
+    IDS_STRING9693          "Bogardan Phoenix\n{2RRR}\nCreature - Phoenix\nVIS,R\nFlying\rWhen Bogardan Phoenix dies, exile it if it had a death counter on it. Otherwise, return it to the battlefield under your control and put a death counter on it.\n3/3"
+    IDS_STRING9694          "Brood of Cockroaches\n{1B}\nCreature - Insect\nVIS,U\nWhen Brood of Cockroaches is put into your graveyard from the battlefield, at the beginning of the next end step, you lose 1 life and return Brood of Cockroaches to your hand.\n1/1"
+    IDS_STRING9695          "Chronatog\n{1U}\nCreature - Atog\nVIS,R\n{0}: Chronatog gets +3/+3 until end of turn. You skip your next turn. Activate this ability only once each turn.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9696          "Griffin Canyon\n\nLand\nVIS,R\n{T}: Add {1} to your mana pool.\r{T}: Untap target Griffin. If it's a creature, it gets +1/+1 until end of turn."
+    IDS_STRING9697          "Kaervek's Spite\n{BBB}\nInstant\nVIS,R\nAs an additional cost to cast Kaervek's Spite, sacrifice all permanents you control and discard your hand.\rTarget player loses 5 life."
+    IDS_STRING9698          "Fallen Askari\n{1B}\nCreature - Human Knight\nVIS,C\nFlanking\rFallen Askari can't block.\n2/2"
+    IDS_STRING9699          "Suq'Ata Lancer\n{2R}\nCreature - Human Knight\nVIS,C\nHaste\rFlanking\n2/2"
+    IDS_STRING9700          "Zhalfirin Crusader\n{1WW}\nCreature - Human Knight\nVIS,R\nFlanking\r{1W}: The next 1 damage that would be dealt to Zhalfirin Crusader this turn is dealt to target creature or player instead.\n2/2"
+    IDS_STRING9701          "Ovinomancer\n{2U}\nCreature - Human Wizard\nVIS,U\nWhen Ovinomancer enters the battlefield, sacrifice it unless you return three basic lands you control to their owner's hand.\r{T}, Return Ovinomancer to its owner's hand: Destroy target creature. It can't be regenerated. That creature's controller puts a 0/1 green Sheep creature token onto the battlefield.\n0/1"
+    IDS_STRING9702          "Helm of Awakening\n{2}\nArtifact\nVIS,U\nSpells cost {1} less to cast."
+    IDS_STRING9703          "Sun Clasp\n{1W}\nEnchantment - Aura\nVIS,C\nEnchant creature\rEnchanted creature gets +1/+3.\r{W}: Return enchanted creature to its owner's hand."
+    IDS_STRING9704          "Giant Caterpillar\n{3G}\nCreature - Insect\nVIS,C\n{G}, Sacrifice Giant Caterpillar: Put a 1/1 green Insect creature token with flying named Butterfly onto the battlefield at the beginning of the next end step.\n3/3"
+    IDS_STRING9705          "Blanket of Night\n{1BB}\nEnchantment\nVIS,U\nEach land is a Swamp in addition to its other land types."
+    IDS_STRING9706          "Suq'Ata Assassin\n{1BB}\nCreature - Human Assassin\nVIS,U\nFear\rWhenever Suq'Ata Assassin attacks and isn't blocked, defending player gets a poison counter.\n1/1"
+    IDS_STRING9707          "Juju Bubble\n{1}\nArtifact\nVIS,U\nCumulative upkeep {1}\rWhen you play a card, sacrifice Juju Bubble.\r{2}: You gain 1 life."
+    IDS_STRING9708          "Firestorm Hellkite\n{4UR}\nCreature - Dragon\nVIS,R\nFlying, trample\rCumulative upkeep {UR}\n6/6"
+    IDS_STRING9709          "Magma Mine\n{1}\nArtifact\nVIS,U\n{4}: Put a pressure counter on Magma Mine.\r{T}, Sacrifice Magma Mine: Magma Mine deals damage equal to the number of pressure counters on it to target creature or player."
+    IDS_STRING9710          "Dark Privilege\n{1B}\nEnchantment - Aura\nVIS\nEnchant creature\rEnchanted creature gets +1/+1.\rSacrifice a creature: Regenerate enchanted creature."
+    IDS_STRING9711          "Undiscovered Paradise\n\nLand\nVIS,R\n{T}: Add one mana of any color to your mana pool. During your next untap step, as you untap your permanents, return Undiscovered Paradise to its owner's hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9712          "Kookus\n{3RR}\nCreature - Djinn\nVIS,R\nTrample\rt the beginning of your upkeep, if you don't control a creature named Keeper of Kookus, Kookus deals 3 damage to you and attacks this turn if able.\r{R}: Kookus gets +1/+0 until end of turn.\n3/5"
+    IDS_STRING9713          "City of Solitude\n{2G}\nEnchantment\nVIS,R\nPlayers can cast spells and activate abilities only during their own turns."
+    IDS_STRING9714          "Death Watch\n{B}\nEnchantment - Aura\nVIS,C\nEnchant creature\rWhen enchanted creature dies, its controller loses life equal to its power and you gain life equal to its toughness."
+    IDS_STRING9715          "Kyscu Drake\n{3G}\nCreature - Drake\nVIS,U\nFlying\r{G}: Kyscu Drake gets +0/+1 until end of turn. Activate this ability only once each turn.\rSacrifice Kyscu Drake and a creature named Spitting Drake: Search your library for a card named Viashivan Dragon and put that card onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING9716          "Elephant Grass\n{G}\nEnchantment\nVIS,U\nCumulative upkeep {1}\rBlack creatures can't attack you\rNonblack creatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
+    IDS_STRING9717          "Breezekeeper\n{3U}\nCreature - Djinn\nVIS,C\nFlying\rPhasing\n4/4"
+    IDS_STRING9718          "Rainbow Efreet\n{3U}\nCreature - Efreet\nVIS,R\nFlying\r{UU}: Rainbow Efreet phases out.\n3/1"
+    IDS_STRING9719          "Teferi's Honor Guard\n{2W}\nCreature - Human Knight\nVIS,U\nFlanking\r{UU}: Teferi's Honor Guard phases out.\n2/2"
+    IDS_STRING9720          "Triangle of War\n{1}\nArtifact\nVIS,R\n{2}, Sacrifice Triangle of War: Choose target creature you control and target creature an opponent controls. Those creatures fight each other."
+    IDS_STRING9721          "Forbidden Ritual\n{2BB}\nSorcery\nVIS,R\nSacrifice a nontoken permanent. If you do, target opponent loses 2 life unless he or she sacrifices a permanent or discards a card. You may repeat this process any number of times."
+    IDS_STRING9722          "Corrosion\n{1BR}\nEnchantment\nVIS,R\nCumulative upkeep {1}\rAt the beginning of your upkeep, put a rust counter on each artifact target opponent controls. Then destroy each artifact with converted mana cost less than or equal to the number of rust counters on it. Artifacts destroyed this way can't be regenerated.\rWhen Corrosion leaves the battlefield, remove all rust counters from all permanents."
+    IDS_STRING9723          "Foreshadow\n{1U}\nInstant\nVIS,U\nName a card, then target opponent puts the top card of his or her library into his or her graveyard. If that card is the named card, you draw a card.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING9724          "Wand of Denial\n{2}\nArtifact\nVIS,R\n{T}: Look at the top card of target player's library. If it's a nonland card, you may pay 2 life. If you do, put it into that player's graveyard."
+    IDS_STRING9725          "Eye of Singularity\n{3W}\nWorld Enchantment\nVIS,R\nWhen Eye of Singularity enters the battlefield, destroy each permanent with the same name as another permanent, except for basic lands. They can't be regenerated.\rWhenever a permanent other than a basic land enters the battlefield, destroy all other permanents with that name. They can't be regenerated."
+    IDS_STRING9726          "Tithe\n{W}\nInstant\nVIS,R\nSearch your library for a Plains card. If target opponent controls more lands than you, you may search your library for an additional Plains card. Reveal those cards and put them into your hand. Then shuffle your library."
+    IDS_STRING9727          "Guiding Spirit\n{1WU}\nCreature - Angel Spirit\nVIS,R\nFlying\r{T}: If the top card of target player's graveyard is a creature card, put that card on top of that player's library.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING9728          "Quirion Druid\n{2G}\nCreature - Elf Druid\nVIS,R\n{G}, {T}: Target land becomes a 2/2 green creature that's still a land.\n1/2"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

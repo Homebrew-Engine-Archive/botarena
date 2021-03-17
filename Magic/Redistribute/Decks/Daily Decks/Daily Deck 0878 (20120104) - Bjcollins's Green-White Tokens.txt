@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+4 Ethersworn Canonist (8728)
+4 Soul Warden (4103)
+
+// Instants - 14 (23.33%)
+
+2 Beckon Apparition (18962)
+4 Midnight Haunting (23430)
+4 Path to Exile (8897)
+4 Raise the Alarm (14867)
+
+// Sorceries - 4 (6.67%)
+
+4 Spectral Procession (18640)
+
+// Enchantments - 9 (15.00%)
+
+4 Intangible Virtue (23406)
+3 Leyline of the Meek (16897)
+Oblivion Ring (22121)
+Worship (2204)
+
+// Artifacts - 2 (3.33%)
+
+2 Shrine of Loyal Legions (22017)
+
+// Lands - 23 (38.33%)
+
+2 Gavony Township (23377)
+3 Plains (23330)
+3 Plains (23331)
+3 Plains (23332)
+4 Razorverge Thicket (21472)
+4 Sunpetal Grove (22206)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+2 Disenchant (17240)
+
+// Sorceries
+
+Creeping Corrosion (21757)
+
+// Enchantments
+
+2 Ghostly Prison (15826)
+3 Leyline of Sanctity (21317)
+2 Rule of Law (3229)
+2 Stony Silence (23438)
+Worship (2204)
+
+// Artifacts
+
+2 Relic of Progenitus (8725)

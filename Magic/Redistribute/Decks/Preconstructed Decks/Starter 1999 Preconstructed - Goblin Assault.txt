@@ -1,0 +1,31 @@
+// Goblin Assault
+// Starter 1999 Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 13 (32.50%)
+
+3 Goblin Chariot (20540)
+2 Goblin General (20541)
+2 Goblin Glider (20542)
+2 Hulking Goblin (20549)
+3 Raging Goblin (20566)
+Volcanic Dragon (20582)
+
+// Sorceries - 10 (25.00%)
+
+Jagged Lightning (20629)
+2 Lava Axe (20631)
+Relentless Assault (20641)
+2 Scorching Spear (20645)
+Spitting Earth (20648)
+3 Volcanic Hammer (20660)
+
+// Lands - 17 (42.50%)
+
+5 Mountain (20597)
+4 Mountain (20598)
+4 Mountain (20599)
+4 Mountain (20600)

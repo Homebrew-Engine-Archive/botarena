@@ -1,0 +1,114 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "DominiasVault.ico"
+IDI_LARGE_MODULE        ICON                    "DominiasVaultLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Dominia's Vault"
+    IDS_EXPANSION_ABBREV    "DVA"
+    IDS_FIRST_CARD          "4300"
+    IDS_TOTAL_CARD          "697"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "4998"
+    IDS_MODULE_LARGE_ICON_ID "4999"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "12-31-3000"
+    IDS_MWS_FOLDER          "MWS\\DVA\\"
+    IDS_PRODUCT_LIST        """Dominia's Vault Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING4300          "Windseeker Centaur\n{1RR}\nCreature - Centaur\nDVA,S\nVigilance\n2/2"
+    IDS_STRING4301          "Johnny, Combo Player\n{2UU}\nLegendary Creature - Human Gamer\nDVA,R\n{4}: Search your library for a card and put that card into your hand. Then shuffle your library.\n1/1"
+    IDS_STRING4302          "Uktabi Kong\n{5GGG}\nCreature - Ape\nDVA,R\nTrample\rWhen Uktabi Kong enters the battlefield, destroy all artifacts.\rTap two untapped Apes you control: Put a 1/1 green Ape creature token onto the battlefield.\n8/8"
+    IDS_STRING4303          "Paper Tiger\n{4}\nArtifact Creature\nDVA,C\nRock Lobsters can't attack or block.\n4/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING4304          "Rock Lobster\n{4}\nArtifact Creature\nDVA,C\nScissors Lizards can't attack or block.\n4/3"
+    IDS_STRING4305          "Scissors Lizard\n{4}\nArtifact Creature\nDVA,C\nPaper Tigers can't attack or block.\n4/3"
+    IDS_STRING4306          "Blacker Lotus\n{0}\nArtifact\nDVA,R\n{T}: Tear Blacker Lotus into pieces. Add four mana of any one color to your mana pool. Remove the pieces from the game afterwards."
+    IDS_STRING4307          "Form of the Squirrel\n{G}\nEnchantment\nDVA,R\nWhen Form of the Squirrel enters the battlefield, put a 1/1 green Squirrel creature token onto the battlefield. You lose the game when it leaves the battlefield.\rCreatures can't attack you.\rYou have shroud.\rYou can't play spells."
+    IDS_STRING4308          "Who What When Where Why\n{XW} // {2R} // {2U} // {3B} // {1G}\nInstant\nDVA,R\nWHO: Target player gains X life.\rWHAT: Destroy target artifact.\rWHEN: Counter target creature spell.\rWHERE: Destroy target land.\rWHY: Destroy target enchantment."
+    IDS_STRING4309          "Incoming!\n{4GGGG}\nSorcery\nDVA,R\nEach player searches his or her library for any number of artifacts, creatures, enchantments, and lands and puts those cards onto the battlefield. Each player shuffles his or her library afterwards."
+    IDS_STRING4310          "Giant Badger\n{1GG}\nCreature - Badger\nDVA,S\nWhenever Giant Badger blocks, it gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING4311          "Mana Crypt\n{0}\nArtifact\nDVA,S\nAt the beginning of your upkeep, flip a coin. If you lose the flip, Mana Crypt deals 3 damage to you.\r{T}: Add {2} to your mana pool."
+    IDS_STRING4312          "Gem Bazaar\n\nLand\nDVA,R\nWhen Gem Bazaar comes into play, choose a random color.\r{T}: Add to your mana pool one mana of the color last choosen. Then choose a random color."
+    IDS_STRING4313          "Perhaps You've Met My Cohort\n\nScheme\nDVA,S\nWhen you set this scheme in motion, search your library for a planeswalker card, put it onto the batllefield, then shuffle your library."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

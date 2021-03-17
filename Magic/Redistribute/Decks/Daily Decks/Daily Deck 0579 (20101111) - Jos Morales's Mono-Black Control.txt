@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Liliana Vess (21256)
+
+// Creatures - 7 (11.67%)
+
+3 Abyssal Persecutor (19640)
+2 Grave Titan (21222)
+2 Skinrender (21525)
+
+// Instants - 5 (8.33%)
+
+Consume the Meek (20844)
+4 Doom Blade (21198)
+
+// Sorceries - 14 (23.33%)
+
+3 Consuming Vapors (20986)
+3 Duress (21280)
+4 Inquisition of Kozilek (20846)
+Memoricide (21564)
+3 Sign in Blood (21285)
+
+// Artifacts - 6 (10.00%)
+
+3 Mimic Vat (21559)
+3 Ratchet Bomb (21528)
+
+// Lands - 26 (43.33%)
+
+5 Swamp (21417)
+4 Swamp (21418)
+5 Swamp (21416)
+4 Swamp (21419)
+4 Tectonic Edge (19651)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Skinrender (21525)
+3 Vampire Hexmage (19536)
+
+// Instants
+
+2 Consume the Meek (20844)
+2 Grasp of Darkness (21505)
+
+// Sorceries
+
+Duress (21280)
+3 Memoricide (21564)
+2 Sadistic Sacrament (19382)
+Sign in Blood (21285)

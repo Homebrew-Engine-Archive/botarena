@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Guide (19456)
+2 Kargan Dragonlord (20955)
+4 Kiln Fiend (20877)
+4 Plated Geopede (19345)
+
+// Instants - 10 (16.67%)
+
+3 Burst Lightning (19384)
+4 Lightning Bolt (21124)
+3 Searing Blaze (19697)
+
+// Sorceries - 8 (13.33%)
+
+4 Assault Strobe (21506)
+4 Devastating Summons (20990)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+2 Mountain (21411)
+2 Mountain (21410)
+3 Mountain (21408)
+3 Mountain (21409)
+4 Scalding Tarn (19358)
+2 Smoldering Spires (19624)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Kargan Dragonlord (20955)
+
+// Instants
+
+4 Staggershock (20984)
+
+// Sorceries
+
+2 Mark of Mutiny (19497)
+
+// Artifacts
+
+4 Brittle Effigy (21248)
+3 Ratchet Bomb (21528)

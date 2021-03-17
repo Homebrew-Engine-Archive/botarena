@@ -1,0 +1,47 @@
+// Esper Air Assault
+// Conflux Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 18 (43.90%)
+
+2 Court Homunculus (8865)
+Darklit Gargoyle (8833)
+Esper Cormorants (8834)
+Esperzoa (8835)
+Faerie Mechanist (8934)
+Inkwell Leviathan (8837)
+Magister Sphinx (8881)
+2 Parasitic Strix (8882)
+Salvage Slasher (8838)
+Scornful AEther-Lich (8839)
+Sludge Strider (8883)
+Tidehollow Sculler (8721)
+Vectis Agents (8841)
+2 Vedalken Outlander (8842)
+Windwright Mage (8695)
+
+// Instants - 3 (7.32%)
+
+Remove Soul (3139)
+2 Traumatic Visions (8874)
+
+// Enchantments - 1 (2.44%)
+
+Dehydration (3031)
+
+// Artifacts - 2 (4.88%)
+
+Executioner's Capsule (8569)
+Rod of Ruin (3142)
+
+// Lands - 17 (41.46%)
+
+2 Arcane Sanctum (8534)
+4 Island (8515)
+3 Island (8516)
+3 Plains (8526)
+3 Swamp (8527)
+2 Terramorphic Expanse (17232)

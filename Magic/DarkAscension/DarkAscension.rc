@@ -1,0 +1,266 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "DarkAscension.ico"
+IDI_LARGE_MODULE        ICON                    "DarkAscensionLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Dark Ascension"
+    IDS_EXPANSION_ABBREV    "DKA"
+    IDS_FIRST_CARD          "23600"
+    IDS_TOTAL_CARD          "200"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "23598"
+    IDS_MODULE_LARGE_ICON_ID "23599"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "03-02-2012"
+    IDS_MWS_FOLDER          "MWS\\DKA\\"
+    IDS_PRODUCT_LIST        """Dark Ascension Starter Box"":R-3:U-10:C-32:BL-30,""Dark Ascension Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23600         "Faithless Looting\n{R}\nSorcery\nDKA,C\nDraw two cards, then discard two cards.\rFlashback {2R}"
+    IDS_STRING23601         "Gather the Townsfolk\n{1W}\nSorcery\nDKA,C\nPut two 1/1 white Human creature tokens onto the battlefield.\rFateful hour - If you have 5 or less life, put 5 of those tokens onto the battlefield instead."
+    IDS_STRING23602         "Ray of Revelation\n{1W}\nInstant\nDKA,C\nDestroy target enchantment.\rFlashback {G}"
+    IDS_STRING23603         "Gravecrawler\n{B}\nCreature - Zombie\nDKA,R\nGravecrawler can't block.\rYou may cast Gravecrawler from you graveyard as long as you control a Zombie.\n2/1"
+    IDS_STRING23604         "Ravenous Demon\n{3BB}\nCreature - Demon\nDKA,R\nSacrifice a Human: Transform Ravenous Demon. Activate this only any time you could cast a sorcery.\n4/4"
+    IDS_STRING23605         "Archdemon of Greed\n{}\nCreature - Demon\nDKA,R\nFlying, trample\rAt the beginning of your upkeep, sacrifice a Human. If you can't, tap Archdemon of Greed and it deals 9 damage to you.\n9/9"
+    IDS_STRING23606         "Mondronen Shaman\n{3R}\nCreature - Human Werewolf Shaman\nDKA,R\nAt the beginning of each upkeep, if no spells were cast last turn, transform Mondronen Shaman.\n3/2"
+    IDS_STRING23607         "Tovolar's Magehunter\n{}\nCreature - Werewolf\nDKA,R\nWhenever an opponent casts a spell, Tovolar's Magehunter deals 2 damage to that player.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Tovolar's Magehunter.\n5/5"
+    IDS_STRING23608         "Ghoultree\n{7G}\nCreature - Zombie Treefolk\nDKA,R\nGhoultree costs {1} less to cast for each creature card in your graveyard.\n10/10"
+    IDS_STRING23609         "Hunger of the Howlpack\n{G}\nInstant\nDKA,C\nPut a +1/+1 counter on target creature.\rMorbid - Put three +1/+1 counters on that creature instead if a creature died this turn."
+    IDS_STRING23610         "Drogskol Reaver\n{5WU}\nCreature - Spirit\nDKA,MR\nFlying, doublestrike, lifelink\rWhenever you gain life, draw a card.\n3/5"
+    IDS_STRING23611         "Secrets of the Dead\n{2U}\nEnchantment\nDKA,U\nWhenever you cast a spell from your graveyard, draw a card."
+    IDS_STRING23612         "Falkenrath Aristocrat\n{2BR}\nCreature - Vampire\nDKA,MR\nFlying, haste\rSacrifice a creature: Falkenrath Aristocrat is indestructible this turn. If the sacrificed creature was a Human, put a +1/+1 counter on Falkenrath Aristocrat.\n4/1"
+    IDS_STRING23613         "Moonveil Dragon\n{3RRR}\nCreature - Dragon\nDKA,MR\nFlying\r{R}: Each creature you control gets +1/+0 until end of turn.\n5/5"
+    IDS_STRING23614         "Scorned Villager\n{1G}\nCreature - Human Werewolf\nDKA,C\n{T}: Add {G} to your mana pool.\rAt the beginning of each upkeep, if no spells were cast last turn, transform Scorned Villager.\n1/1"
+    IDS_STRING23615         "Moonscarred Werewolf\n{}\nCreature - Werewolf\nDKA,C\nVigilance\r{T}: Add {GG} to your mana pool.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Moonscarred Werewolf.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23616         "Thalia, Guardian of Thraben\n{1W}\nLegendary Creature - Human Soldier\nDKA,R\nFirst strike\rNoncreature spells cost {1} more to cast.\n2/1"
+    IDS_STRING23617         "Lambholt Elder\n{2G}\nCreature - Human Werewolf\nDKA,U\nAt the beginning of each upkeep, if no spells were cast last turn, transform Lambholt Elder.\n1/2"
+    IDS_STRING23618         "Silverpelt Werewolf\n{}\nCreature - Werewolf\nDKA,U\nWhenever Silverpelt Werewolf deals combat damage to a player, draw a card.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Silverpelt Werewolf.\n4/5"
+    IDS_STRING23619         "Wolfbitten Captive\n{G}\nCreature - Human Werewolf\nDKA,R\n{1G}: Wolfbitten Captive gets +2/+2 until end of turn. Activate this ability only once each turn.\rAt the beginning of each upkeep, if no spells were cast last turn, transform Wolfbitten Captive.\n1/1"
+    IDS_STRING23620         "Krallenhorde Killer\n{}\nCreature - Werewolf\nDKA,R\n{3G}: Krallenhorde Killer gets +4/+4 until end of turn. Activate this ability only once each turn.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Krallenhorde Killer.\n2/2"
+    IDS_STRING23621         "Zombie Apocalypse\n{3BBB}\nSorcery\nDKA,R\nReturn all Zombie creature cards from your graveyard to the battlefield tapped, then destroy all Humans."
+    IDS_STRING23622         "Vault of the Archangel\n{}\nLand\nDKA,R\n{T}: Add {1} to your mana pool\r{2WB}, {T}: Creatures you control gain deathtouch and lifelink until end of turn."
+    IDS_STRING23623         "Predator Ooze\n{GGG}\nCreature - Ooze\nDKA,R\nPredator Ooze is indestructible.\rWhenever Predator Ooze attacks, put a +1/+1 counter on it.\rWhenever a creature dealt damage by Predator Ooze this turn dies, put a +1/+1 counter on Predator Ooze.\n1/1"
+    IDS_STRING23624         "Hellrider\n{2RR}\nCreature - Devil\nDKA,R\nHaste\rWhenever a creature you control attacks, Hellrider deals 1 damage to defending player.\n3/3"
+    IDS_STRING23625         "Chant of the Skifsang\n{2U}\nEnchantment - Aura\nDKA,C\nEnchant creature\rEnchanted creature gets -13/-0."
+    IDS_STRING23626         "Lingering Souls\n{2W}\nSorcery\nDKA,U\nPut two 1/1 white Spirit creature tokens with flying onto the battlefield.\rFlashback {1B}"
+    IDS_STRING23627         "Thought Scour\n{U}\nInstant\nDKA,C\nTarget player puts the top two cards of his or her library into his or her graveyard.\rDraw a card."
+    IDS_STRING23628         "Fling\n{1R}\nInstant\nDKA,C\nAs an additional cost to cast Fling, sacrifice a creature.\rFling deals damage equal to the sacrificed creature's power to target creature or player."
+    IDS_STRING23629         "Stromkirk Captain\n{1BR}\nCreature - Vampire Soldier\nDKA,U\nFirst strike\rOther Vampire creatures you control get +1/+1 and have first strike.\n2/2"
+    IDS_STRING23630         "Markov Blademaster\n{1RR}\nCreature - Vampire Warrior\nDKA,R\nDouble strike\rWhenever Markov Blademaster deals combat damage to a player, put a +1/+1 counter on it.\n1/1"
+    IDS_STRING23631         "Briarpack Alpha\n{3G}\nCreature - Wolf\nDKA,U\nFlash\rWhen Briarpack Alpha enters the battlefield, target creature gets +2/+2 until end of turn.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23632         "Mikaeus, the Unhallowed\n{3BBB}\nLegendary Creature - Zombie Cleric\nDKA,MR\nIntimidate\rWhenever a Human deals damage to you, destroy it.\rOther non-Human creatures you control get +1/+1 and have undying.\n5/5"
+    IDS_STRING23633         "Nearheath Stalker\n{4R}\nCreature - Vampire\nDKA,C\nUndying\n4/1"
+    IDS_STRING23634         "Falkenrath Torturer\n{2B}\nCreature - Vampire\nDKA,C\nSacrifice a creature: Falkenrath Torturer gains flying until end of turn. If the sacrificed creature was a Human, put a +1/+1 counter on Falkenrath Torturer.\n2/1"
+    IDS_STRING23635         "Skirsdag Flayer\n{1B}\nCreature - Human Cleric\nDKA,U\n{3B}, {T}, Sacrifice a Human: Destroy target creature.\n1/1"
+    IDS_STRING23636         "Talons of Falkenrath\n{1R}\nEnchantment - Aura\nDKA,C\nFlash\rEnchant creature\rEnchanted creature has ""{1R}: This creature gets +2/+0 until end of turn."""
+    IDS_STRING23637         "Gravetiller Wurm\n{5G}\nCreature - Wurm\nDKA,U\nTrample\rMorbid - Gravetiller Wurm enters the battlefield with four +1/+1 counters on it if a creature died this turn.\n4/4"
+    IDS_STRING23638         "Heckling Fiends\n{2R}\nCreature - Devil\nDKA,U\n{2R}: Target creature attacks this turn if able.\n2/2"
+    IDS_STRING23639         "Headless Skaab\n{2U}\nCreature - Zombie\nDKA,C\nAs an additional cost to cast Headless Skaab, exile a creature card from your graveyard.\rHeadless Skaab enters the battlefield tapped.\n3/6"
+    IDS_STRING23640         "Tragic Slip\n{B}\nInstant\nDKA,C\nTarget creature gets -1/-1 until end of turn.\rMorbid - that creature gets -13/-13 instead if a creature died this turn."
+    IDS_STRING23641         "Havengul Runebinder\n{2UU}\nCreature - Human Wizard\nDKA,R\n{2U}, {T}, Exile a creature card from your graveyard: Put a 2/2 black Zombie creature token onto the battlefield, then put a +1/+1 counter on each Zombie creature you control.\n2/2"
+    IDS_STRING23642         "Forge Devil\n{R}\nCreature - Devil\nDKA,C\nWhen Forge Devil enters the battlefield, it deals 1 damage to target creature and 1 damage to you.\n1/1"
+    IDS_STRING23643         "Increasing Devotion\n{3WW}\nSorcery\nDKA,R\nPut five 1/1 white Human creature tokens onto the battlefield. If Increasing Devotion was cast from a graveyard, put ten of those tokens onto the battlefield instead.\rFlashback {7WW}"
+    IDS_STRING23644         "Increasing Confusion\n{XU}\nSorcery\nDKA,R\nTarget player puts the top X cards of his or her library into his or her graveyard. If Increasing Confusion was cast from a graveyard, that player puts twice as many cards into his or her graveyard instead.\rFlashback {XU}"
+    IDS_STRING23645         "Geralf's Messenger\n{BBB}\nCreature - Zombie\nDKA,R\nGeralf's Messenger enters the battlefield tapped.\rWhen Geralf's Messenger enters the battlefield, target opponent loses 2 life.\rUndying\n3/2"
+    IDS_STRING23646         "Flayer of the Hatebound\n{5R}\nCreature - Devil\nDKA,R\nUndying\rWhenever Flayer of the Hatebound or another creature enters the battlefield from your graveyard, that creature deals damage equal to its power to target creature or player.\n4/2"
+    IDS_STRING23647         "Pyreheart Wolf\n{2R}\nCreature - Wolf\nDKA,U\nWhenever Pyreheart Wolf attacks, each creature you control can't be blocked this turn except by two or more creatures.\rUndying\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23648         "Increasing Savagery\n{2GG}\nSorcery\nDKA,R\nPut five +1/+1 counters on target creature. If Increasing Savagery was cast from a graveyard, put ten +1/+1 counters on that creature instead.\rFlashback {5GG}"
+    IDS_STRING23649         "Strangleroot Geist\n{GG}\nCreature - Spirit\nDKA,U\nHaste\rUndying\n2/1"
+    IDS_STRING23650         "Grim Backwoods\n{}\nLand\nDKA,R\n{T}: Add {1} to your mana pool\r{2BG}, {T}, Sacrifice a creature: Draw a card."
+    IDS_STRING23651         "Haunted Fengraf\n{}\nLand\nDKA,C\n{T}: Add {1} to your mana pool\r{3}, {T}, Sacrifice Haunted Fengraf: Return a creature card at random from your graveyard to your hand."
+    IDS_STRING23652         "Increasing Ambition\n{4B}\nSorcery\nDKA,R\nSearch your library for a card and put that card into your hand. If Increasing Ambition was cast from a graveyard, instead search your library for two cards and put them into your hand. Then shuffle your library.\rFlashback {7B}"
+    IDS_STRING23653         "Diregraf Captain\n{1UB}\nCreature - Zombie Soldier\nDKA,U\nDeathtouch\rOther Zombie creatures you control get +1/+1.\rWhenever another Zombie you control dies, target opponent loses 1 life.\n2/2"
+    IDS_STRING23654         "Vorapede\n{2GGG}\nCreature - Insect\nDKA,MR\nVigilance, trample\rUndying\n5/4"
+    IDS_STRING23655         "Evolving Wilds\n\nLand\nDKA,C\n{T}, Sacrifice Evolving Wilds: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING23656         "Archangel's Light\n{7W}\nSorcery\nDKA,MR\nYou gain 2 life for each card in your graveyard, then shuffle your graveyard into your library."
+    IDS_STRING23657         "Bar the Door\n{2W}\nInstant\nDKA,C\nCreatures you control get +0/+4 until end of turn."
+    IDS_STRING23658         "Break of Day\n{1W}\nInstant\nDKA,C\nCreatures you control get +1/+1 until end of turn.\rFateful hour - If you have 5 or less life, those creatures also are indestructible this turn."
+    IDS_STRING23659         "Burden of Guilt\n{W}\nEnchantment - Aura\nDKA,C\nEnchant creature\r{1}: Tap enchanted creature."
+    IDS_STRING23660         "Elgaud Inquisitor\n{3W}\nCreature - Human Cleric\nDKA,C\nLifelink\rWhen Elgaud Inquisitor dies, put a 1/1 white Spirit creature token with flying onto the battlefield.\n2/2"
+    IDS_STRING23661         "Midnight Guard\n{2W}\nCreature - Human Soldier\nDKA,C\nWhenever another creature enters the battlefield, untap Midnight Guard.\n2/3"
+    IDS_STRING23662         "Niblis of the Mist\n{2W}\nCreature - Spirit\nDKA,C\nFlying\rWhen Niblis of the Mist enters the battlefield, you may tap target creature.\n2/1"
+    IDS_STRING23663         "Niblis of the Urn\n{1W}\nCreature - Spirit\nDKA,U\nFlying\rWhenever Niblis of the Urn attacks, you may tap target creature.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23664         "Requiem Angel\n{5W}\nCreature - Angel\nDKA,R\nFlying\rWhenever another non-Spirit creature you control dies, put a 1/1 white Spirit creature token with flying onto the battlefield.\n5/5"
+    IDS_STRING23665         "Sanctuary Cat\n{W}\nCreature - Cat\nDKA,C\n\n1/2"
+    IDS_STRING23666         "Silverclaw Griffin\n{3WW}\nCreature - Griffin\nDKA,C\nFlying, first strike\n3/2"
+    IDS_STRING23667         "Skillful Lunge\n{1W}\nInstant\nDKA,C\nTarget creatures gets +2/+0 and gains first strike until end of turn."
+    IDS_STRING23668         "Thraben Heretic\n{1W}\nCreature - Human Wizard\nDKA,U\n{T}: Exile target creature card from a graveyard.\n2/2"
+    IDS_STRING23669         "Artful Dodge\n{U}\nSorcery\nDKA,C\nTarget creature is unblockable this turn.\rFlashback {U}"
+    IDS_STRING23670         "Bone to Ash\n{2UU}\nInstant\nDKA,C\nCounter target creature spell.\rDraw a card."
+    IDS_STRING23671         "Chill of Foreboding\n{2U}\nSorcery\nDKA,U\nEach player puts the top five cards of his or her library into his or her graveyard.\rFlashback {7U}"
+    IDS_STRING23672         "Divination\n{2U}\nSorcery\nDKA,C\nDraw two cards."
+    IDS_STRING23673         "Geralf's Mindcrusher\n{4UU}\nCreature - Zombie Horror\nDKA,R\nWhen Geralf's Mindcrusher enters the battlefield, target player puts the top five cards of his or her library into his or her graveyard.\rUndying\n5/5"
+    IDS_STRING23674         "Griptide\n{3U}\nInstant\nDKA,C\nPut target creature on top of its owner's library."
+    IDS_STRING23675         "Mystic Retrieval\n{3U}\nSorcery\nDKA,U\nReturn target instant or sorcery card from your graveyard to your hand.\rFlashback {2R}"
+    IDS_STRING23676         "Nephalia Seakite\n{3U}\nCreature - Bird\nDKA,U\nFlash\rFlying\n2/3"
+    IDS_STRING23677         "Niblis of the Breath\n{2U}\nCreature - Spirit\nDKA,U\nFlying\r{U}, {T}: You may tap or untap target creature.\n2/1"
+    IDS_STRING23678         "Relentless Skaabs\n{3UU}\nCreature - Zombie\nDKA,U\nAs an additional cost to cast Relentless Skaabs, exile a creature card from your graveyard.\rUndying\n4/4"
+    IDS_STRING23679         "Saving Grasp\n{U}\nInstant\nDKA,C\nReturn target creature you own to your hand.\rFlashback {W}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23680         "Screeching Skaab\n{1U}\nCreature - Zombie\nDKA,C\nWhen Screeching Skaab enters the battlefield, put the top two cards of your library into your graveyard.\n1/2"
+    IDS_STRING23681         "Shriekgeist\n{1U}\nCreature - Spirit\nDKA,C\nFlying\rWhenever Shriekgest deals combat damage to a player, that player puts the top two cards of his or her library into his or her graveyard.\n1/1"
+    IDS_STRING23682         "Stormbound Geist\n{1UU}\nCreature - Spirit\nDKA,C\nFlying\rStormbound Geist can block only creatures with flying.\rUndying\n2/2"
+    IDS_STRING23683         "Tower Geist\n{3U}\nCreature - Spirit\nDKA,U\nFlying\rWhen Tower Geist enters the battlefield, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.\n2/2"
+    IDS_STRING23684         "Black Cat\n{1B}\nCreature - Zombie Cat\nDKA,C\nWhen Black Cat dies, target opponent discards a card at random.\n1/1"
+    IDS_STRING23685         "Chosen of Markov\n{2B}\nCreature - Human\nDKA,C\n{T}, Tap an untapped Vampire you control: Transform Chosen of Markov\n2/2"
+    IDS_STRING23686         "Markov's Servant\n{}\nCreature - Vampire\nDKA,C\n\n4/4"
+    IDS_STRING23687         "Farbog Boneflinger\n{4B}\nCreature - Zombie\nDKA,U\nWhen Farbog Boneflinger enters the battlefield, target creature gets -2/-2 until end of turn.\n2/2"
+    IDS_STRING23688         "Gravepurge\n{2B}\nInstant\nDKA,C\nPut any number of target creature cards from your graveyard on top of your library.\rDraw a card."
+    IDS_STRING23689         "Harrowing Journey\n{4B}\nSorcery\nDKA,U\nTarget player draws three cards and loses 3 life."
+    IDS_STRING23690         "Highborn Ghoul\n{BB}\nCreature - Zombie\nDKA,C\nIntimidate\n2/1"
+    IDS_STRING23691         "Reap the Seagraf\n{2B}\nSorcery\nDKA,C\nPut a 2/2 black Zombie creature token onto the battlefield.\rFlashback {4U}"
+    IDS_STRING23692         "Sightless Ghoul\n{3B}\nCreature - Zombie Soldier\nDKA,C\nSightless Ghoul can't block.\rUndying\n2/2"
+    IDS_STRING23693         "Undying Evil\n{B}\nInstant\nDKA,C\nTarget creature gains undying until end of turn."
+    IDS_STRING23694         "Vengeful Vampire\n{4BB}\nCreature - Vampire\nDKA,U\nFlying\rUndying\n3/2"
+    IDS_STRING23695         "Wakedancer\n{2B}\nCreature - Human Shaman\nDKA,U\nMorbid - When Wakedancer enters the battlefield, if a creature died this turn, put a 2/2 black Zombie creature token onto the battlefield.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23696         "Burning Oil\n{1R}\nInstant\nDKA,U\nBurning Oil deals 3 damage to target attacking or blocking creature.\rFlashback {3W}"
+    IDS_STRING23697         "Erdwal Ripper\n{1RR}\nCreature - Vampire\nDKA,C\nHaste\rWhenever Erdwal Ripper deals combat damage to a player, put a +1/+1 counter on it.\n2/1"
+    IDS_STRING23698         "Fires of Undeath\n{2R}\nInstant\nDKA,C\nFires of Undeath deals 2 damage to target creature or player.\rFlashback {5B}"
+    IDS_STRING23699         "Markov Warlord\n{5R}\nCreature - Vampire Warrior\nDKA,U\nHaste\rWhen Markov Warlord enters the battlefield, up to two target creatures can't block this turn.\n4/4"
+    IDS_STRING23700         "Russet Wolves\n{3R}\nCreature - Wolf\nDKA,C\n\n3/3"
+    IDS_STRING23701         "Scorch the Fields\n{4R}\nSorcery\nDKA,C\nDestroy target land. Scorch the fields deals 1 damage to each Human creature."
+    IDS_STRING23702         "Shattered Perception\n{2R}\nSorcery\nDKA,U\nDiscard all the cards in your hand, then draw that many cards.\rFlashback {5R}"
+    IDS_STRING23703         "Torch Fiend\n{1R}\nCreature - Devil\nDKA,C\n{R}, Sacrifice Torch Fiend: Destroy target artifact.\n2/1"
+    IDS_STRING23704         "Crushing Vines\n{2G}\nInstant\nDKA,C\nChoose one - Destroy target creature with flying; or destroy target artifact."
+    IDS_STRING23705         "Dawntreader Elk\n{1G}\nCreature - Elk\nDKA,C\n{G}, Sacrifice Dawntreader Elk: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.\n2/2"
+    IDS_STRING23706         "Deranged Outcast\n{1G}\nCreature - Human Rogue\nDKA,R\n{1G}, Sacrifice a Human: Put two +1/+1 counters on target creature.\n2/1"
+    IDS_STRING23707         "Grim Flowering\n{5G}\nSorcery\nDKA,U\nDraw a card for each creature card in your graveyard."
+    IDS_STRING23708         "Hollowhenge Beast\n{3GG}\nCreature - Beast\nDKA,C\n\n5/5"
+    IDS_STRING23709         "Kessig Recluse\n{2GG}\nCreature - Spider\nDKA,C\nReach\rDeathtouch\n2/3"
+    IDS_STRING23710         "Somberwald Dryad\n{1G}\nCreature - Dryad\nDKA,C\nForestwalk\n2/2"
+    IDS_STRING23711         "Tracker's Instincts\n{1G}\nSorcery\nDKA,U\nReveal the top four cards of your library. Put a creature card from among them into your hand and the rest into your graveyard.\rFlashback {2U}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23712         "Wild Hunger\n{2G}\nInstant\nDKA,C\nTarget creature gets +3/+1 and gains trample until end of turn.\rFlashback {3R}"
+    IDS_STRING23713         "Young Wolf\n{G}\nCreature - Wolf\nDKA,C\nUndying\n1/1"
+    IDS_STRING23714         "Drogskol Captain\n{1WU}\nCreature - Spirit Soldier\nDKA,U\nFlying\rOther Spirit creatures you control get +1/+1 and have hexproof.\n2/2"
+    IDS_STRING23715         "Wolfhunter's Quiver\n{1}\nArtifact - Equipment\nDKA,U\nEquipped creature has ""{T}: This creature deals 1 damage to target creature or player"" and ""{T}: This creature deals 3 damage to target Werewolf creature.""\rEquip {5}"
+    IDS_STRING23716         "Wrack with Madness\n{3R}\nSorcery\nDKA,C\nTarget creature deals damage to itself equal to its power."
+    IDS_STRING23717         "Sorin, Lord of Innistrad\n{2WB}\nPlaneswalker - Sorin\nDKA,MR\n[+1]: Put a 1/1 black Vampire creature token with lifelink onto the battlefield.\r[-2]: You get an emblem with ""Creatures you control get +1/+0.""\r[-6]: Destroy up to three target creatures and/or other planeswalkers. Return each card put into a graveyard this way to the battlefield under your control.\n3"
+    IDS_STRING23718         "Executioner's Hood\n{2}\nArtifact - Equipment\nDKA,C\nEquipped creature has intimidate.\rEquip {2}"
+    IDS_STRING23719         "Death's Caress\n{3BB}\nSorcery\nDKA,C\nDestroy target creature. If that creature was a Human, you gain life equal to its toughness."
+    IDS_STRING23720         "Elbrus, the Binding Blade\n{7}\nLegendary Artifact - Equipment\nDKA,MR\nEquipped creature gets +1/+0.\rWhen equipped creature deals combat damage to a player, unattach Elbrus, the Binding Blade, then transform it.\rEquip {1}"
+    IDS_STRING23721         "Withengar Unbound\n{}\nLegendary Creature - Demon\nDKA,MR\nFlying, intimidate, trample\rWhenever a player loses the game, put thirteen +1/+1 counters on Withengar Unbound.\n13/13"
+    IDS_STRING23722         "Alpha Brawl\n{6RR}\nSorcery\nDKA,R\nTarget creature an opponent controls deals damage equal to its power to each other creature that player controls, then each of those creatures deals damage equal to its power to that creature."
+    IDS_STRING23723         "Blood Feud\n{4RR}\nSorcery\nDKA,U\nTarget creature fights another target creature."
+    IDS_STRING23724         "Immerwolf\n{1RG}\nCreature - Wolf\nDKA,U\nIntimidate\rOther Wolf and Werewolf creatures you control get +1/+1.\rNon-Human Werewolves you control can't transform.\n2/2"
+    IDS_STRING23725         "Huntmaster of the Fells\n{2RG}\nCreature - Human Werewolf\nDKA,MR\nWhenever this creature enters the battlefield or transforms into Huntmaster of the Fells, put a 2/2 green Wolf creature token onto the battlefield and you gain 2 life.\rAt the beginning of each upkeep, if no spells were cast last turn, transform Huntmaster of the Fells.\n2/2"
+    IDS_STRING23726         "Ravager of the Fells\n{RG}\nCreature - Werewolf\nDKA,MR\nTrample\rWhenever this creature transforms into Ravager of the Fells, it deals 2 damage to target opponent and 2 damage to up to one target creature that player controls.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Ravager of the Fells.\n4/4"
+    IDS_STRING23727         "Grafdigger's Cage\n{1}\nArtifact\nDKA,R\nCreature cards can't enter the battlefield from graveyards or libraries.\rPlayers can't cast cards in graveyards or libraries."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23728         "Gavony Ironwright\n{2W}\nCreature - Human Soldier\nDKA,U\nFateful hour - As long as you have 5 or less life, other creatures you control get +1/+4.\n1/4"
+    IDS_STRING23729         "Thraben Doomsayer\n{1WW}\nCreature - Human Cleric\nDKA,R\n{T}: Put a 1/1 white Human creature token onto the battlefield.\rFateful hour - As long as you have 5 or less life, other creatures you control get +2/+2.\n2/2"
+    IDS_STRING23730         "Village Survivors\n{4G}\nCreature - Human\nDKA,U\nVigilance\rFateful hour - As long as you have 5 or less life, other creatures you control have vigilance.\n4/5"
+    IDS_STRING23731         "Feed the Pack\n{5G}\nEnchantment\nDKA,R\nAt the beginning of your end step, you may sacrifice a nontoken creature. If you do, put X 2/2 green Wolf creature tokens onto the battlefield, where X is the sacrificed creature's toughness."
+    IDS_STRING23732         "Hollowhenge Spirit\n{3W}\nCreature - Spirit\nDKA,U\nFlash\rFlying\rWhen Hollowhenge Spirit enters the battlefield, remove target attacking or blocking creature from combat.\n2/2"
+    IDS_STRING23733         "Lost in the Woods\n{3GG}\nEnchantment\nDKA,R\nWhenever a creature attacks you or a planeswalker you control, reveal the top card of your library. If it's a Forest card, remove that creature from combat. Then put the revealed card on the bottom of your library."
+    IDS_STRING23734         "Jar of Eyeballs\n{3}\nArtifact\nDKA,R\nWhenever a creature you control dies, put two eyeball counters on Jar of Eyeballs.\r{3}, {T}, Remove all eyeball counters from Jar of Eyeballs: Look at the top X cards of your library, where X is the number of eyeball counters removed this way. Put one of them into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING23735         "Helvault\n{3}\nLegendary Artifact\nDKA,MR\n{1}, {T}: Exile target creature you control.\r{7}, {T}: Exile target creature you don't control.\rWhen Helvault is put into a graveyard from the battlefield, return all cards exiled with it to the battlefield under their owners' control."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

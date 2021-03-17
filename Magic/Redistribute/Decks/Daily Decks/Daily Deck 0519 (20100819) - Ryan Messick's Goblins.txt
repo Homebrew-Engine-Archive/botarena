@@ -1,0 +1,62 @@
+// Total cards in deck - 60
+
+// Creatures - 32 (53.33%)
+
+2 Gempalm Incinerator (14465)
+3 Goblin Chieftain (4002)
+4 Goblin Lackey (10920)
+4 Goblin Matron (959)
+4 Goblin Piledriver (14175)
+4 Goblin Ringleader (13061)
+4 Goblin Warchief (14658)
+Kiki-Jiki, Mirror Breaker (15800)
+2 Siege-Gang Commander (4101)
+Stingscourger (2582)
+2 Warren Instigator (19436)
+Wort, Boggart Auntie (17985)
+
+// Sorceries - 3 (5.00%)
+
+3 Warren Weirding (18392)
+
+// Artifacts - 4 (6.67%)
+
+4 AEther Vial (15278)
+
+// Lands - 21 (35.00%)
+
+Arid Mesa (19349)
+4 Auntie's Hovel (18050)
+4 Badlands (7207)
+2 Barbarian Ring (13282)
+Bloodstained Mire (14002)
+Mountain (19319)
+Mountain (19316)
+Mountain (19317)
+Mountain (19318)
+Scalding Tarn (19358)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Goblin King (3063)
+Goblin Sharpshooter (14082)
+
+// Instants
+
+Lightning Bolt (4060)
+4 Mindbreak Trap (19500)
+3 Pyrokinesis (6769)
+
+// Sorceries
+
+Warren Weirding (18392)
+
+// Artifacts
+
+Relic of Progenitus (8725)
+3 Tormod's Crypt (17265)

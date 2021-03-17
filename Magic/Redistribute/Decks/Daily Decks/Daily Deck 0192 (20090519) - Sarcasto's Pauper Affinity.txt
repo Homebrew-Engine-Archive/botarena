@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Creatures - 18 (30.00%)
+
+4 Disciple of the Vault (14902)
+4 Frogmite (15007)
+2 Krark-Clan Shaman (14879)
+4 Myr Enforcer (15010)
+4 Somber Hoverguard (15009)
+
+// Sorceries - 8 (13.33%)
+
+4 Rush of Knowledge (14692)
+4 Thoughtcast (15014)
+
+// Artifacts - 18 (30.00%)
+
+4 Chromatic Sphere (14873)
+4 Chromatic Star (3280)
+4 Lotus Petal (10003)
+3 Pyrite Spellbomb (14948)
+3 Springleaf Drum (17994)
+
+// Lands - 16 (26.67%)
+
+4 Darksteel Citadel (15282)
+4 Great Furnace (14929)
+4 Seat of the Synod (14930)
+4 Vault of Whispers (14932)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Gorilla Shaman (6819)
+2 Gorilla Shaman (6820)
+
+// Instants
+
+4 Hydroblast (8134)
+3 Pyroblast (8214)
+
+// Enchantments
+
+2 Circle of Protection: Black (2021)
+2 Circle of Protection: Red (2022)

@@ -1,0 +1,47 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Figure of Destiny (19006)
+4 Kitchen Finks (18593)
+4 Knight of Meadowgrain (18020)
+3 Oversoul of Dusk (18610)
+4 Painter's Servant (18720)
+4 Stillmoon Cavalier (18957)
+
+// Instants - 8 (13.33%)
+
+4 Chaotic Backlash (19016)
+4 Unmake (18930)
+
+// Sorceries - 4 (6.67%)
+
+4 Spectral Procession (18640)
+
+// Lands - 25 (41.67%)
+
+4 Battlefield Forge (3012)
+3 Plains (18519)
+3 Plains (18520)
+4 Plains (18517)
+3 Plains (18518)
+4 Rugged Prairie (18922)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Burrenton Forge-Tender (18054)
+Oversoul of Dusk (18610)
+3 Wispmare (18027)
+
+// Instants
+
+3 Guttural Response (18548)
+
+// Enchantments
+
+4 Oblivion Ring (18040)

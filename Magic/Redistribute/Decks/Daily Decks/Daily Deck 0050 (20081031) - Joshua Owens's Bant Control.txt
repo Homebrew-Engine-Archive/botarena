@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Elspeth, Knight-Errant (8722)
+
+// Creatures - 12 (20.00%)
+
+2 Chameleon Colossus (18361)
+4 Kitchen Finks (18593)
+4 Rhox War Monk (8694)
+2 Stoic Angel (8697)
+
+// Instants - 11 (18.33%)
+
+4 Bant Charm (8536)
+4 Cryptic Command (18051)
+3 Hindering Light (8732)
+
+// Sorceries - 7 (11.67%)
+
+4 Ponder (18010)
+3 Wrath of God (3200)
+
+// Enchantments - 5 (8.33%)
+
+3 Oblivion Ring (8718)
+2 Shield of the Oversoul (18704)
+
+// Lands - 24 (40.00%)
+
+Flooded Grove (18914)
+Forest (8510)
+Forest (8509)
+Island (8515)
+Island (8516)
+Island (8514)
+2 Mystic Gate (18564)
+Plains (8523)
+Plains (8524)
+Plains (8525)
+4 Seaside Citadel (8618)
+3 Treetop Village (3308)
+2 Wooded Bastion (18577)
+4 Yavimaya Coast (3202)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Burrenton Forge-Tender (18054)
+Chameleon Colossus (18361)
+3 Cloudthresher (18015)
+3 Faerie Macabre (18539)
+
+// Instants
+
+3 Flashfreeze (3234)
+Hindering Light (8732)
+
+// Enchantments
+
+3 Runed Halo (18683)

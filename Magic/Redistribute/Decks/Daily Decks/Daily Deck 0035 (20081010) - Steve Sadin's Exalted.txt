@@ -1,0 +1,49 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+Bant Battlemage (8535)
+Cloudheath Drake (8548)
+Dawnray Archer (8556)
+Fatestitcher (8667)
+Jhessian Infiltrator (8505)
+Kathari Screecher (8668)
+Knight of the Skyward Eye (8590)
+2 Outrider of Jhess (8606)
+Rhox Charger (8610)
+Sharuum the Hegemon (8621)
+2 Sighted-Caste Sorcerer (8623)
+Sigiled Paladin (8624)
+2 Waveskimmer Aven (8559)
+
+// Instants - 3 (7.50%)
+
+Angelsong (8635)
+Hindering Light (8732)
+Spell Snip (8644)
+
+// Sorceries - 3 (7.50%)
+
+3 Excommunicate (8508)
+
+// Artifacts - 1 (2.50%)
+
+Obelisk of Bant (8600)
+
+// Lands - 17 (42.50%)
+
+2 Bant Panorama (8636)
+Forest (8509)
+Forest (8510)
+Grixis Panorama (8638)
+2 Island (8514)
+Island (8515)
+Island (8516)
+Island (8517)
+2 Plains (8523)
+2 Plains (8524)
+Plains (8525)
+Plains (8526)
+Swamp (8527)

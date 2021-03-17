@@ -1,0 +1,264 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "FutureSight.ico"
+IDI_LARGE_MODULE        ICON                    "FutureSightLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Future Sight"
+    IDS_EXPANSION_ABBREV    "FUT"
+    IDS_FIRST_CARD          "17700"
+    IDS_TOTAL_CARD          "180"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "17880"
+    IDS_MODULE_LARGE_ICON_ID "17881"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "04-05-2007"
+    IDS_MWS_FOLDER          "MWS\\FUT\\"
+    IDS_PRODUCT_LIST        """Future Sight Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17700         "Korlash, Heir to Blackblade\n{2BB}\nLegendary Creature - Zombie Warrior\nFUT,R\nKorlash, Heir to Blackblade's power and toughness are each equal to the number of Swamps you control.\r{1B}: Regenerate Korlash.\rGrandeur - Discard another card named Korlash, Heir to Blackblade: Search your library for up to two Swamp cards, put them onto the battlefield tapped, then shuffle your library.\n*/*"
+    IDS_STRING17701         "Lymph Sliver\n{4W}\nCreature - Sliver\nFUT,C\nAll Sliver creatures have absorb 1.\n3/3"
+    IDS_STRING17702         "Sliver Legion\n{WUBRG}\nLegendary Creature - Sliver\nFUT,R\nAll Sliver creatures get +1/+1 for each other Sliver on the battlefield.\n7/7"
+    IDS_STRING17703         "Sliversmith\n{2}\nArtifact Creature - Spellshaper\nFUT,U\n{1}, {T}, Discard a card: Put a 1/1 colorless Sliver artifact creature token named Metallic Sliver onto the battlefield.\n1/1"
+    IDS_STRING17704         "Tarmogoyf\n{1G}\nCreature - Lhurgoyf\nFUT,R\nTarmogoyf's power is equal to the number of card types among cards in all graveyards and its toughness is equal to that number plus 1.\n*/1+*"
+    IDS_STRING17705         "Mass of Ghouls\n{3BB}\nCreature - Zombie Warrior\nFUT,C\n\n5/3"
+    IDS_STRING17706         "Graven Cairns\n\nLand\nFUT,R\n{T}: Add {1} to your mana pool.\r{D}, {T}: Add {BB}, {BR}, or {RR} to your mana pool."
+    IDS_STRING17707         "Rites of Flourishing\n{2G}\nEnchantment\nFUT,R\nAt the beginning of each player's draw step, that player draws an additional card.\rEach player may play an additional land on each of his or her turns."
+    IDS_STRING17708         "Akroma's Memorial\n{7}\nLegendary Artifact\nFUT,R\nCreatures you control have flying, first strike, vigilance, trample, haste, and protection from black and from red."
+    IDS_STRING17709         "Augur of Skulls\n{1B}\nCreature - Skeleton Wizard\nFUT,C\n{1B}: Regenerate Augur of Skulls.\rSacrifice Augur of Skulls: Target player discards two cards. Activate this ability only during your upkeep.\n1/1"
+    IDS_STRING17710         "Aven Augur\n{3U}\nCreature - Bird Wizard\nFUT,C\nFlying\rSacrifice Aven Augur: Return up to two target creatures to their owners' hands. Activate this ability only during your upkeep.\n2/2"
+    IDS_STRING17711         "Barren Glory\n{4WW}\nEnchantment\nFUT,R\nAt the beginning of your upkeep, if you control no permanents other than Barren Glory and have no cards in hand, you win the game."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17712         "Blade of the Sixth Pride\n{1W}\nCreature - Cat Rebel\nFUT,C\n\n3/1"
+    IDS_STRING17713         "Blind Phantasm\n{2U}\nCreature - Illusion\nFUT,C\n\n2/3"
+    IDS_STRING17714         "Bloodshot Trainee\n{3R}\nCreature - Goblin Warrior\nFUT,U\n{T}: Bloodshot Trainee deals 4 damage to target creature. Activate this ability only if Bloodshot Trainee's power is 4 or greater.\n2/3"
+    IDS_STRING17715         "Bonded Fetch\n{2U}\nCreature - Homunculus\nFUT,U\nDefender, haste\r{T}: Draw a card, then discard a card.\n0/2"
+    IDS_STRING17716         "Cloudseeder\n{1U}\nCreature - Faerie Spellshaper\nFUT,U\nFlying\r{U}, {T}, Discard a card: Put a 1/1 blue Faerie creature token named Cloud Sprite onto the battlefield. It has flying and ""Cloud Sprite can block only creatures with flying.""\n1/1"
+    IDS_STRING17717         "Witch's Mist\n{2B}\nEnchantment\nFUT,U\n{2B}, {T}: Destroy target creature that was dealt damage this turn."
+    IDS_STRING17718         "Edge of Autumn\n{1G}\nSorcery\nFUT,C\nIf you control four or fewer lands, search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.\rCycling - Sacrifice a land."
+    IDS_STRING17719         "Emberwilde Augur\n{1R}\nCreature - Goblin Shaman\nFUT,C\nSacrifice Emberwilde Augur: Emberwilde Augur deals 3 damage to target player. Activate this ability only during your upkeep.\n2/1"
+    IDS_STRING17720         "Emblem of the Warmind\n{1R}\nEnchantment - Aura\nFUT,U\nEnchant creature you control\rCreatures you control have haste."
+    IDS_STRING17721         "Fleshwrither\n{2BB}\nCreature - Horror\nFUT,U\nTransfigure {1BB}\n3/3"
+    IDS_STRING17722         "Flowstone Embrace\n{1R}\nEnchantment - Aura\nFUT,C\nEnchant creature\r{T}: Enchanted creature gets +2/-2 until end of turn."
+    IDS_STRING17723         "Fomori Nomad\n{4R}\nCreature - Nomad Giant\nFUT,C\n\n4/4"
+    IDS_STRING17724         "Force of Savagery\n{2G}\nCreature - Elemental\nFUT,R\nTrample\n8/0"
+    IDS_STRING17725         "Ghostfire\n{2R}\nInstant\nFUT,C\nGhostfire is colorless.\rGhostfire deals 3 damage to target creature or player."
+    IDS_STRING17726         "Gift of Granite\n{W}\nEnchantment - Aura\nFUT,C\nFlash\rEnchant creature\rEnchanted creature gets +0/+2."
+    IDS_STRING17727         "Goldmeadow Lookout\n{3W}\nCreature - Kithkin Spellshaper\nFUT,U\n{W}, {T}, Discard a card: Put a 1/1 white Kithkin Soldier creature token named Goldmeadow Harrier onto the battlefield. It has ""{W}, {T}: Tap target creature.""\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17728         "Horizon Canopy\n\nLand\nFUT,R\n{T}, Pay 1 life: Add {G} or {W} to your mana pool.\r{1}, {T}, Sacrifice Horizon Canopy: Draw a card."
+    IDS_STRING17729         "Keldon Megaliths\n\nLand\nFUT,U\nKeldon Megaliths enters the battlefield tapped.\r{T}: Add {R} to your mana pool.\rHellbent - {1R}, {T}: Keldon Megaliths deals 1 damage to target creature or player. Activate this ability only if you have no cards in hand."
+    IDS_STRING17730         "Leaden Fists\n{2U}\nEnchantment - Aura\nFUT,C\nFlash\rEnchant creature\rEnchanted creature gets +3/+3 and doesn't untap during its controller's untap step."
+    IDS_STRING17731         "Llanowar Augur\n{G}\nCreature - Elf Shaman\nFUT,C\nSacrifice Llanowar Augur: Target creature gets +3/+3 and gains trample until end of turn. Activate this ability only during your upkeep.\n0/3"
+    IDS_STRING17732         "Llanowar Mentor\n{G}\nCreature - Elf Spellshaper\nFUT,U\n{G}, {T}, Discard a card: Put a 1/1 green Elf Druid creature token named Llanowar Elves onto the battlefield. It has ""{T}: Add {G} to your mana pool.""\n1/1"
+    IDS_STRING17733         "Lucent Liminid\n{3WW}\nEnchantment Creature - Elemental\nFUT,C\nFlying\n3/3"
+    IDS_STRING17734         "Magus of the Moat\n{2WW}\nCreature - Human Wizard\nFUT,R\nCreatures without flying can't attack.\n0/3"
+    IDS_STRING17735         "Magus of the Moon\n{2R}\nCreature - Human Wizard\nFUT,R\nNonbasic lands are Mountains.\n2/2"
+    IDS_STRING17736         "Narcomoeba\n{1U}\nCreature - Illusion\nFUT,U\nFlying\rWhen Narcomoeba is put into your graveyard from your library, you may put it onto the battlefield.\n1/1"
+    IDS_STRING17737         "Nessian Courser\n{2G}\nCreature - Centaur Warrior\nFUT,C\n\n3/3"
+    IDS_STRING17738         "Nimbus Maze\n\nLand\nFUT,R\n{T}: Add {1} to your mana pool.\r{T}: Add {W} to your mana pool. Activate this ability only if you control an Island.\r{T}: Add {U} to your mana pool. Activate this ability only if you control a Plains."
+    IDS_STRING17739         "Nix\n{U}\nInstant\nFUT,R\nCounter target spell if no mana was spent to cast it."
+    IDS_STRING17740         "Quagnoth\n{5G}\nCreature - Beast\nFUT,R\nSplit second\rShroud\rWhen a spell or ability an opponent controls causes you to discard Quagnoth, return it to your hand.\n4/5"
+    IDS_STRING17741         "Ramosian Revivalist\n{3W}\nCreature - Human Rebel Cleric\nFUT,U\n{6}, {T}: Return target Rebel permanent card with converted mana cost 5 or less from your graveyard to the battlefield.\n2/2"
+    IDS_STRING17742         "Sarcomite Myr\n{2U}\nArtifact Creature - Myr\nFUT,C\n{2}: Sarcomite Myr gains flying until end of turn.\r{2}, Sacrifice Sarcomite Myr: Draw a card.\n2/1"
+    IDS_STRING17743         "Scourge of Kher Ridges\n{6RR}\nCreature - Dragon\nFUT,R\nFlying\r{1R}: Scourge of Kher Ridges deals 2 damage to each creature without flying.\r{5R}: Scourge of Kher Ridges deals 6 damage to each other creature with flying.\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17744         "Skirk Ridge Exhumer\n{1B}\nCreature - Zombie Spellshaper\nFUT,U\n{B}, {T}, Discard a card: Put a 1/1 black Zombie Goblin creature token named Festering Goblin onto the battlefield. It has ""When Festering Goblin dies, target creature gets -1/-1 until end of turn.""\n1/1"
+    IDS_STRING17745         "Sparkspitter\n{2R}\nCreature - Elemental Spellshaper\nFUT,U\n{R}, {T}, Discard a card: Put a 3/1 red Elemental creature token named Spark Elemental onto the battlefield. It has trample, haste, and ""At the beginning of the end step, sacrifice Spark Elemental.""\n1/3"
+    IDS_STRING17746         "Steamflogger Boss\n{3R}\nCreature - Goblin Rigger\nFUT,R\nOther Rigger creatures you control get +1/+0 and have haste.\rIf a Rigger you control would assemble a Contraption, it assembles two Contraptions instead.\n3/3"
+    IDS_STRING17747         "Street Wraith\n{3BB}\nCreature - Wraith\nFUT,U\nSwampwalk\rCycling - Pay 2 life.\n3/4"
+    IDS_STRING17748         "Take Possession\n{5UU}\nEnchantment - Aura\nFUT,R\nSplit second\rEnchant permanent\rYou control enchanted permanent."
+    IDS_STRING17749         "Vedalken AEthermage\n{1U}\nCreature - Vedalken Wizard\nFUT,C\nFlash\rWhen Vedalken Æthermage enters the battlefield, return target Sliver to its owner's hand.\rWizardcycling {3}\n1/2"
+    IDS_STRING17750         "Thornweald Archer\n{1G}\nCreature - Elf Archer\nFUT,C\nReach\rDeathtouch\n2/1"
+    IDS_STRING17751         "Tolaria West\n\nLand\nFUT,U\nTolaria West enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\rTransmute {1UU}"
+    IDS_STRING17752         "Char-Rumbler\n{2RR}\nCreature - Elemental\nFUT,U\nDouble strike\r{R}: Char-Rumbler gets +1/+0 until end of turn.\n-1/3"
+    IDS_STRING17753         "Marshaling Cry\n{1WW}\nInstant\nFUT\nCreatures you control get +1/+1 and gain vigilance until end of turn.\rCycling {2}\rFlashback {3W}"
+    IDS_STRING17754         "Pyromancer's Swath\n{2R}\nEnchantment\nFUT,R\nIf an instant or sorcery source you control would deal damage to a creature or player, it deals that much damage plus 2 to that creature or player instead.\rAt the beginning of each end step, discard your hand."
+    IDS_STRING17755         "Grinning Ignus\n{2R}\nCreature - Elemental\nFUT,C\n{R}, Return Grinning Ignus to its owner's hand: Add {2R} to your mana pool. Activate this ability only any time you could cast a sorcery.\n2/2"
+    IDS_STRING17756         "Henchfiend of Ukor\n{3R}\nCreature - Ogre\nFUT,C\nHaste\rEcho {1B}\r{D}: Henchfiend of Ukor gets +1/+0 until end of turn.\n3/2"
+    IDS_STRING17757         "Magus of the Vineyard\n{G}\nCreature - Human Wizard\nFUT,R\nAt the beginning of each player's precombat main phase, add {GG} to that player's mana pool.\n1/1"
+    IDS_STRING17758         "Utopia Mycon\n{G}\nCreature - Fungus\nFUT,U\nAt the beginning of your upkeep, put a spore counter on Utopia Mycon.\rRemove three spore counters from Utopia Mycon: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Add one mana of any color to your mana pool.\n0/2"
+    IDS_STRING17759         "Soultether Golem\n{2}\nArtifact Creature - Golem\nFUT,U\nVanishing 1\rWhenever another creature enters the battlefield under your control, put a time counter on Soultether Golem.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17760         "Ravaging Riftwurm\n{1GG}\nCreature - Wurm\nFUT,U\nKicker {4}\rVanishing 2\rIf Ravaging Riftwurm was kicked, it enters the battlefield with three additional time counters on it.\n6/6"
+    IDS_STRING17761         "Lost Auramancers\n{2WW}\nCreature - Human Wizard\nFUT,U\nVanishing 3\rWhen Lost Auramancers dies, if it had no time counters on it, you may search your library for an enchantment card and put it onto the battlefield. If you do, shuffle your library.\n3/3"
+    IDS_STRING17762         "Oblivion Crown\n{1B}\nEnchantment - Aura\nFUT,C\nFlash\rEnchant creature\rEnchanted creature has ""Discard a card: This creature gets +1/+1 until end of turn."""
+    IDS_STRING17763         "Sporoloth Ancient\n{3GG}\nCreature - Fungus\nFUT,C\nAt the beginning of your upkeep, put a spore counter on Sporoloth Ancient.\rCreatures you control have ""Remove two spore counters from this creature: Put a 1/1 green Saproling creature token onto the battlefield.""\n4/4"
+    IDS_STRING17764         "Cryptic Annelid\n{3U}\nCreature - Worm Beast\nFUT,U\nWhen Cryptic Annelid enters the battlefield, scry 1, then scry 2, then scry 3.\n1/4"
+    IDS_STRING17765         "New Benalia\n\nLand\nFUT,U\nNew Benalia enters the battlefield tapped.\rWhen New Benalia enters the battlefield, scry 1.\r{T}: Add {W} to your mana pool."
+    IDS_STRING17766         "Foresee\n{3U}\nSorcery\nFUT,C\nScry 4, then draw two cards."
+    IDS_STRING17767         "Mystic Speculation\n{U}\nSorcery\nFUT,U\nBuyback {2}\rScry 3."
+    IDS_STRING17768         "Llanowar Empath\n{3G}\nCreature - Elf Shaman\nFUT,C\nWhen Llanowar Empath enters the battlefield, scry 2, then reveal the top card of your library. If it's a creature card, put it into your hand.\n2/2"
+    IDS_STRING17769         "Baru, Fist of Krosa\n{3GG}\nLegendary Creature - Human Druid\nFUT,R\nWhenever a Forest enters the battlefield, green creatures you control get +1/+1 and gain trample until end of turn.\rGrandeur - Discard another card named Baru, Fist of Krosa: Put an X/X green Wurm creature token onto the battlefield, where X is the number of lands you control.\n4/4"
+    IDS_STRING17770         "Llanowar Reborn\n\nLand\nFUT,U\nLlanowar Reborn enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\rGraft 1"
+    IDS_STRING17771         "Magus of the Abyss\n{3B}\nCreature - Human Wizard\nFUT,R\nAt the beginning of each player's upkeep, destroy target nonartifact creature that player controls of his or her choice. It can't be regenerated.\n4/3"
+    IDS_STRING17772         "Augur il-Vec\n{1W}\nCreature - Human Cleric\nFUT,C\nShadow\rSacrifice Augur il-Vec: You gain 4 life. Activate this ability only during your upkeep.\n1/3"
+    IDS_STRING17773         "Cutthroat il-Dal\n{3B}\nCreature - Human Rogue\nFUT,C\nHellbent - Cutthroat il-Dal has shadow as long as you have no cards in hand.\n4/1"
+    IDS_STRING17774         "Stronghold Rats\n{2B}\nCreature - Rat\nFUT,U\nShadow\rWhenever Stronghold Rats deals combat damage to a player, each player discards a card.\n2/1"
+    IDS_STRING17775         "Bound in Silence\n{2W}\nTribal Enchantment - Rebel Aura\nFUT,U\nEnchant creature\rEnchanted creature can't attack or block."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17776         "Mistmeadow Skulk\n{1W}\nCreature - Kithkin Rogue\nFUT,U\nLifelink, protection from converted mana cost 3 or greater\n1/1"
+    IDS_STRING17777         "Tarox Bladewing\n{2RRR}\nLegendary Creature - Dragon\nFUT,R\nFlying, haste\rGrandeur - Discard another card named Tarox Bladewing: Tarox Bladewing gets +X/+X until end of turn, where X is its power.\n4/3"
+    IDS_STRING17778         "Saltskitter\n{3W}\nCreature - Wurm\nFUT,C\nWhenever another creature enters the battlefield, exile Saltskitter. Return Saltskitter to the battlefield under its owner's control at the beginning of the next end step.\n3/4"
+    IDS_STRING17779         "Bogardan Lancer\n{1R}\nCreature - Human Knight\nFUT,C\nBloodthirst 1\rFlanking\n1/1"
+    IDS_STRING17780         "River of Tears\n\nLand\nFUT,R\n{T}: Add {U} to your mana pool. If you played a land this turn, add {B} to your mana pool instead."
+    IDS_STRING17781         "Spirit en-Dal\n{2W}\nCreature - Spirit\nFUT,U\nShadow\rForecast - {1W}, Reveal Spirit en-Dal from your hand: Target creature gains shadow until end of turn.\n2/1"
+    IDS_STRING17782         "Grove of the Burnwillows\n\nLand\nFUT,R\n{T}: Add {1} to your mana pool.\r{T}: Add {R} or {G} to your mana pool. Each opponent gains 1 life."
+    IDS_STRING17783         "Dakmor Salvage\n\nLand\nFUT,U\nDakmor Salvage enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\rDredge 2"
+    IDS_STRING17784         "Sword of the Meek\n{2}\nArtifact - Equipment\nFUT,U\nEquipped creature gets +1/+2.\rEquip {2}\rWhenever a 1/1 creature enters the battlefield under your control, you may return Sword of the Meek from your graveyard to the battlefield, then attach it to that creature."
+    IDS_STRING17785         "Bridge from Below\n{BBB}\nEnchantment\nFUT,R\nWhenever a nontoken creature is put into your graveyard from the battlefield, if Bridge from Below is in your graveyard, put a 2/2 black Zombie creature token onto the battlefield.\rWhen a creature is put into an opponent's graveyard from the battlefield, if Bridge from Below is in your graveyard, exile Bridge from Below."
+    IDS_STRING17786         "Imperial Mask\n{4W}\nEnchantment\nFUT,R\nWhen Imperial Mask enters the battlefield, if it's not a token, each of your teammates puts a token that's a copy of Imperial Mask onto the battlefield.\rYou have hexproof.."
+    IDS_STRING17787         "Wrap in Vigor\n{1G}\nInstant\nFUT,C\nRegenerate each creature you control."
+    IDS_STRING17788         "Venser, Shaper Savant\n{2UU}\nLegendary Creature - Human Wizard\nFUT,R\nFlash\rWhen Venser, Shaper Savant enters the battlefield, return target spell or permanent to its owner's hand.\n2/2"
+    IDS_STRING17789         "Slaughter Pact\n{0}\nInstant\nFUT,R\nDestroy target nonblack creature.\rAt the beginning of your next upkeep, pay {2B}. If you don't, you lose the game."
+    IDS_STRING17790         "Pact of Negation\n{0}\nInstant\nFUT,R\nCounter target spell.\rAt the beginning of your next upkeep, pay {3UU}. If you don't, you lose the game.\n"
+    IDS_STRING17791         "Intervention Pact\n{0}\nInstant\nFUT,R\nThe next time a source of your choice would deal damage to you this turn, prevent that damage. You gain life equal to the damage prevented this way.\rAt the beginning of your next upkeep, pay {1WW}. If you don't, you lose the game."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17792         "Pact of the Titan\n{0}\nInstant\nFUT,R\nPut a 4/4 red Giant creature token onto the battlefield.\rAt the beginning of your next upkeep, pay {4R}. If you don't, you lose the game."
+    IDS_STRING17793         "Summoner's Pact\n{0}\nInstant\nFUT,R\nSearch your library for a green creature card, reveal it, and put it into your hand. Then shuffle your library.\rAt the beginning of your next upkeep, pay {2GG}. If you don't, you lose the game."
+    IDS_STRING17794         "Virulent Sliver\n{G}\nCreature - Sliver\nFUT,C\nAll Sliver creatures have poisonous 1.\n1/1"
+    IDS_STRING17795         "Heartwood Storyteller\n{1GG}\nCreature - Treefolk\nFUT,R\nWhenever a player casts a noncreature spell, each of that player's opponents may draw a card.\n2/3"
+    IDS_STRING17796         "Putrid Cyclops\n{2B}\nCreature - Zombie Cyclops\nFUT,C\nWhen Putrid Cyclops enters the battlefield, scry 1, then reveal the top card of your library. Putrid Cyclops gets -X/-X until end of turn, where X is that card's converted mana cost.\n3/3"
+    IDS_STRING17797         "Veilstone Amulet\n{3}\nArtifact\nFUT,R\nWhenever you cast a spell, creatures you control can't be the targets of spells or abilities your opponents control this turn."
+    IDS_STRING17798         "Snake Cult Initiation\n{3B}\nEnchantment - Aura\nFUT,U\nEnchant creature\rEnchanted creature has poisonous 3."
+    IDS_STRING17799         "Even the Odds\n{2W}\nInstant\nFUT,U\nCast Even the Odds only if you control fewer creatures than each opponent.\rPut three 1/1 white Soldier creature tokens onto the battlefield."
+    IDS_STRING17800         "Judge Unworthy\n{1W}\nInstant\nFUT,C\nChoose target attacking or blocking creature. Scry 3, then reveal the top card of your library. Judge Unworthy deals damage equal to that card's converted mana cost to that creature."
+    IDS_STRING17801         "Patrician's Scorn\n{3W}\nInstant\nFUT,C\nIf you've cast another white spell this turn, you may cast Patrician's Scorn without paying its mana cost.\rDestroy all enchantments."
+    IDS_STRING17802         "Riddle of Lightning\n{3RR}\nInstant\nFUT,C\nChoose target creature or player. Scry 3, then reveal the top card of your library. Riddle of Lightning deals damage equal to that card's converted mana cost to that creature or player."
+    IDS_STRING17803         "Minions' Murmurs\n{2BB}\nSorcery\nFUT,U\nYou draw X cards and you lose X life, where X is the number of creatures you control."
+    IDS_STRING17804         "Dryad Arbor\n{}\nLand Creature - Forest Dryad\nFUT,U\n(Dryad Arbor isn't a spell, it's affected by summoning sickness, and it has ""{T}: Add {G} to your mana pool."")\n1/1"
+    IDS_STRING17805         "Magus of the Future\n{2UUU}\nCreature - Human Wizard\nFUT,R\nPlay with the top card of your library revealed.\rYou may play the top card of your library.\n2/3"
+    IDS_STRING17806         "Haze of Rage\n{1R}\nSorcery\nFUT,U\nBuyback {2}\rCreatures you control get +1/+0 until end of turn.\rStorm"
+    IDS_STRING17807         "Arc Blade\n{3RR}\nSorcery\nFUT,U\nArc Blade deals 2 damage to target creature or player. Exile Arc Blade with three time counters on it.\rSuspend 3 - {2R}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17808         "Scout's Warning\n{W}\nInstant\nFUT,R\nThe next creature card you play this turn can be played as though it had flash.\rDraw a card."
+    IDS_STRING17809         "Cyclical Evolution\n{3GG}\nSorcery\nFUT,U\nTarget creature gets +3/+3 until end of turn. Exile Cyclical Evolution with three time counters on it.\rSuspend 3 - {2G}"
+    IDS_STRING17810         "Dust of Moments\n{2W}\nInstant\nFUT,U\nChoose one - Remove two time counters from each permanent and each suspended card; or put two time counters on each permanent with a time counter on it and each suspended card."
+    IDS_STRING17811         "Epochrasite\n{2}\nArtifact Creature - Construct\nFUT,R\nEpochrasite enters the battlefield with three +1/+1 counters on it if you didn't cast it from your hand.\rWhen Epochrasite dies, exile it with three time counters on it and it gains suspend.\n1/1"
+    IDS_STRING17812         "Festering March\n{3BB}\nSorcery\nFUT,U\nCreatures your opponents control get -1/-1 until end of turn. Exile Festering March with three time counters on it.\rSuspend 3 - {2B}"
+    IDS_STRING17813         "Infiltrator il-Kor\n{4U}\nCreature - Kor Rogue\nFUT,C\nShadow\rSuspend 2 - {1U}\n3/1"
+    IDS_STRING17814         "Knight of Sursi\n{3W}\nCreature - Human Knight\nFUT,C\nFlying; flanking\rSuspend 3 - {W}\n3/1"
+    IDS_STRING17815         "Nihilith\n{4BB}\nCreature - Horror\nFUT,R\nFear\rSuspend 7 - {1B}\rWhenever a card is put into an opponent's graveyard from anywhere, if Nihilith is suspended, you may remove a time counter from Nihilith.\n4/4"
+    IDS_STRING17816         "Storm Entity\n{1R}\nCreature - Elemental\nFUT,U\nHaste\rStorm Entity enters the battlefield with a +1/+1 counter on it for each other spell cast this turn.\n1/1"
+    IDS_STRING17817         "Petrified Plating\n{2G}\nEnchantment - Aura\nFUT,C\nEnchant creature\rEnchanted creature gets +2/+2.\rSuspend 2 - {G}"
+    IDS_STRING17818         "Reality Strobe\n{4UU}\nSorcery\nFUT,U\nReturn target permanent to its owner's hand. Exile Reality Strobe with three time counters on it.\rSuspend 3 - {2U}"
+    IDS_STRING17819         "Oriss, Samite Guardian\n{1WW}\nLegendary Creature - Human Cleric\nFUT,R\n{T}: Prevent all damage that would be dealt to target creature this turn.\rGrandeur - Discard another card named Oriss, Samite Guardian: Target player can't cast spells this turn, and creatures that player controls can't attack this turn.\n1/3"
+    IDS_STRING17820         "Linessa, Zephyr Mage\n{3U}\nLegendary Creature - Human Wizard\nFUT,R\n{XUU}, {T}: Return target creature with converted mana cost X to its owner's hand.\rGrandeur - Discard another card named Linessa, Zephyr Mage: Target player returns a creature he or she controls to its owner's hand, then repeats this process for an artifact, an enchantment, and a land.\n3/3"
+    IDS_STRING17821         "Riftsweeper\n{1G}\nCreature - Elf Shaman\nFUT,U\nWhen Riftsweeper enters the battlefield, choose target face-up exiled card. Its owner shuffles it into his or her library.\n2/2"
+    IDS_STRING17822         "Tombstalker\n{6BB}\nCreature - Demon\nFUT,R\nFlying\rDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\n5/5"
+    IDS_STRING17823         "Death Rattle\n{5B}\nInstant\nFUT, C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rDestroy target nongreen creature. It can't be regenerated."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING17824         "Glittering Wish\n{GW}\nSorcery\nFUT,R\nYou may choose a multicolored card you own from outside the game, reveal that card, and put it into your hand. Exile Glittering Wish."
+    IDS_STRING17825         "Coalition Relic\n{3}\nArtifact\nFUT,R\n{T}: Add one mana of any color to your mana pool.\r{T}: Put a charge counter on Coalition Relic.\rAt the beginning of your precombat main phase, remove all charge counters from Coalition Relic. Add one mana of any color to your mana pool for each charge counter removed this way."
+    IDS_STRING17826         "Homing Sliver\n{2R}\nCreature - Sliver\nFUT,C\nEach Sliver card in each player's hand has slivercycling {3}.\rSlivercycling {3}\n2/2"
+    IDS_STRING17827         "Boldwyr Intimidator\n{5RR}\nCreature - Giant Warrior\nFUT,U\nCowards can't block Warriors.\r{R}: Target creature becomes a Coward until end of turn.\r{2R}: Target creature becomes a Warrior until end of turn.\n5/5"
+    IDS_STRING17828         "Daybreak Coronet\n{WW}\nEnchantment - Aura\nFUT,R\nEnchant creature with another Aura attached to it\rEnchanted creature gets +3/+3 and has first strike, vigilance, and lifelink."
+    IDS_STRING17829         "Whip-Spine Drake\n{3UU}\nCreature - Drake\nFUT\nFlying\rMorph {2W}\n3/3"
+    IDS_STRING17830         "Second Wind\n{2U}\nEnchantment - Aura\nFUT,U\n{T}: Tap enchanted creature.\r{T}: Untap enchanted creature."
+    IDS_STRING17831         "Grave Scrabbler\n{3B}\nCreature - Zombie\nFUT,C\nMadness {1B}\rWhen Grave Scrabbler enters the battlefield, if its madness cost was paid, you may return target creature card from a graveyard to its owner's hand.\n2/2"
+    IDS_STRING17832         "Shimian Specter\n{2BB}\nCreature - Specter\nFUT,R\nFlying\rWhenever Shimian Specter deals combat damage to a player, that player reveals his or her hand. You choose a nonland card from it. Search that player's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library.\n2/2"
+    IDS_STRING17833         "Cloud Key\n{3}\nArtifact\nFUT,R\nFlying\rAs Cloud Key enters the battlefield, choose artifact, creature, enchantment, instant, or sorcery.\rSpells you cast of the chosen type cost {1} less to cast."
+    IDS_STRING17834         "Phosphorescent Feast\n{2GGG}\nSorcery\nFUT,U\nChroma - Reveal any number of cards in your hand. You gain 2 life for each green mana symbol in those cards' mana costs."
+    IDS_STRING17835         "Centaur Omenreader\n{3G}\nSnow Creature - Centaur Shaman\nFUT,U\nAs long as Centaur Omenreader is tapped, creature spells you cast cost {2} less to cast.\n3/3"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

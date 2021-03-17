@@ -1,0 +1,51 @@
+// Elvish Predation
+// Lorwyn Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 28 (46.67%)
+
+2 Elvish Eulogist (17936)
+2 Elvish Harbinger (17938)
+3 Gilt-Leaf Seer (17951)
+Hunter of Eyeblights (18141)
+Immaculate Magistrate (18086)
+2 Imperious Perfect (17961)
+2 Jagged-Scar Archers (17963)
+2 Leaf Gilder (17971)
+2 Lys Alana Huntmaster (17973)
+Lys Alana Scarblade (18100)
+3 Moonglove Winnower (17979)
+Nath of the Gilt-Leaf (17981)
+2 Nath's Elite (18059)
+3 Scarred Vinebreeder (18102)
+Wren's Run Vanquisher (18077)
+
+// Instants - 5 (8.33%)
+
+2 Eyeblight's Ending (18076)
+2 Gilt-Leaf Ambush (18142)
+Lammastide Weave (18140)
+
+// Sorceries - 2 (3.33%)
+
+2 Elvish Promenade (18115)
+
+// Enchantments - 1 (1.67%)
+
+Prowess of the Fair (18105)
+
+// Artifacts - 1 (1.67%)
+
+Wanderer's Twig (18006)
+
+// Lands - 23 (38.33%)
+
+4 Forest (17904)
+3 Forest (17905)
+3 Forest (17906)
+4 Forest (17903)
+2 Swamp (17922)
+2 Swamp (17921)
+2 Swamp (17920)
+3 Swamp (17919)

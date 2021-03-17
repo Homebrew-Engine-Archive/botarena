@@ -1,0 +1,29 @@
+// Total cards in deck - 61
+
+// Creatures - 28 (45.90%)
+
+4 Bloodbraid Elf (9105)
+4 Dragonmaster Outcast (19644)
+4 Goblin Artillery (4161)
+4 Goblin Chieftain (4002)
+4 Goblin Ruinblaster (19457)
+4 Siege-Gang Commander (4101)
+4 Warren Instigator (19436)
+
+// Instants - 8 (13.11%)
+
+4 Lightning Bolt (4060)
+4 Searing Blaze (19697)
+
+// Lands - 25 (40.98%)
+
+3 Arid Mesa (19349)
+Forest (19300)
+Mountain (19319)
+Mountain (19318)
+2 Mountain (19316)
+Mountain (19317)
+4 Raging Ravine (19699)
+4 Rootbound Crag (4201)
+4 Smoldering Spires (19624)
+4 Terramorphic Expanse (4111)

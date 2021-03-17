@@ -1,0 +1,58 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Elspeth, Knight-Errant (8722)
+
+// Creatures - 21 (35.00%)
+
+3 Baneslayer Angel (4224)
+4 Knight of the Reliquary (8815)
+3 Noble Hierarch (8819)
+3 Qasali Pridemage (9018)
+4 Tarmogoyf (17704)
+4 Wild Nacatl (8504)
+
+// Instants - 14 (23.33%)
+
+4 Lightning Bolt (4060)
+2 Lightning Helix (16450)
+4 Path to Exile (8897)
+4 Punishing Fire (19544)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+Forest (19300)
+Ghost Quarter (23829)
+4 Grove of the Burnwillows (17782)
+2 Marsh Flats (19357)
+4 Misty Rainforest (19356)
+Mountain (19316)
+Plains (19324)
+Sacred Foundry (16446)
+2 Stomping Ground (16810)
+Temple Garden (16447)
+2 Treetop Village (3308)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Kataki, War's Wage (16284)
+4 Meddling Mage (9016)
+
+// Instants
+
+3 Ancient Grudge (17272)
+
+// Enchantments
+
+3 Blood Moon (2351)
+
+// Lands
+
+3 Ghost Quarter (23829)
+Hallowed Fountain (23841)

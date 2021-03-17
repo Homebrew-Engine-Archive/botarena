@@ -1,0 +1,44 @@
+// Liliana
+// Duels of the Planeswalkers
+
+// Total cards in deck - 60
+
+// Creatures - 16 (26,67%)
+
+2 Abyssal Specter (1500)
+Ascendant Evincar (3323)
+Crowd of Cinders (18533)
+3 Drudge Skeletons (3037)
+2 Dusk Imp (3038)
+Mortivore (3106)
+3 Ravenous Rats (3135)
+Sengir Vampire (3152)
+2 Severed Legion (3155)
+
+// Instants - 4 (6,67%)
+
+4 Terror (3181)
+
+// Sorceries - 7 (11,67%)
+
+2 Consume Spirit (14824)
+4 Mind Rot (3105)
+Mind Shatter (18304)
+
+// Enchantments - 5 (8,33%)
+
+2 Megrim (3101)
+Underworld Dreams (3190)
+2 Unholy Strength (3191)
+
+// Artifacts - 3 (5,00%)
+
+2 Demon's Horn (3033)
+The Rack (17264)
+
+// Lands - 25 (41,67%)
+
+7 Swamp (18521)
+6 Swamp (18522)
+6 Swamp (18523)
+6 Swamp (18524)

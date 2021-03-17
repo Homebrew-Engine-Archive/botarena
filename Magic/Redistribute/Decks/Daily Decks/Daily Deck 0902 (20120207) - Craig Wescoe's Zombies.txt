@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Liliana of the Veil (23562)
+
+// Creatures - 21 (35.00%)
+
+2 Cemetery Reaper (22139)
+4 Diregraf Captain (23653)
+4 Diregraf Ghoul (23348)
+4 Geralf's Messenger (23645)
+4 Gravecrawler (23603)
+Grimgrin, Corpse-Born (23368)
+2 Skinrender (21525)
+
+// Instants - 4 (6.67%)
+
+2 Geth's Verdict (21953)
+2 Tragic Slip (23640)
+
+// Sorceries - 4 (6.67%)
+
+4 Distress (22144)
+
+// Artifacts - 2 (3.33%)
+
+2 Mortarpod (21825)
+
+// Lands - 25 (41.67%)
+
+4 Darkslick Shores (21469)
+4 Drowned Catacomb (22203)
+2 Ghost Quarter (23336)
+Island (23324)
+5 Swamp (23334)
+4 Swamp (23335)
+5 Swamp (23333)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+Doom Blade (22145)
+2 Geth's Verdict (21953)
+Go for the Throat (21752)
+2 Victim of Night (23403)
+
+// Sorceries
+
+Tribute to Hunger (23534)
+
+// Artifacts
+
+2 Mortarpod (21825)
+3 Nihil Spellbomb (21540)
+2 Ratchet Bomb (21528)
+
+// Lands
+
+Ghost Quarter (23336)

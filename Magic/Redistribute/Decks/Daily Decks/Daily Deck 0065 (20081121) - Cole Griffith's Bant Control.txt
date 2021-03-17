@@ -1,0 +1,49 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Jace Beleren (18011)
+
+// Creatures - 18 (30.00%)
+
+2 Cloudthresher (18015)
+4 Kitchen Finks (18593)
+4 Mulldrifter (18023)
+4 Rhox War Monk (8694)
+4 Stoic Angel (8697)
+
+// Instants - 14 (23.33%)
+
+4 Bant Charm (8536)
+4 Broken Ambitions (18057)
+4 Cryptic Command (18051)
+2 Negate (18305)
+
+// Lands - 26 (43.33%)
+
+4 Adarkar Wastes (3002)
+4 Flooded Grove (18914)
+Island (8514)
+Island (8515)
+4 Mystic Gate (18564)
+4 Reflecting Pool (18571)
+4 Seaside Citadel (8618)
+4 Treetop Village (3308)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Cloudthresher (18015)
+3 Wispmare (18027)
+
+// Instants
+
+4 Condemn (3291)
+2 Negate (18305)
+
+// Sorceries
+
+4 Wrath of God (3200)

@@ -1,0 +1,245 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Stronghold.ico"
+IDI_LARGE_MODULE        ICON                    "StrongholdLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Stronghold"
+    IDS_EXPANSION_ABBREV    "STH"
+    IDS_FIRST_CARD          "10400"
+    IDS_TOTAL_CARD          "143"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "10543"
+    IDS_MODULE_LARGE_ICON_ID "10544"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "02-03-1998"
+    IDS_MWS_FOLDER          "MWS\\STH\\"
+    IDS_PRODUCT_LIST        """Stronghold Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10400         "Crystalline Sliver\n{WU}\nCreature - Sliver\nSTH,U\nAll Slivers have shroud.\n2/2"
+    IDS_STRING10401         "Flowstone Hellion\n{4R}\nCreature - Hellion Beast\nSTH,U\nHaste\r{0}: Flowstone Hellion gets +1/-1 until end of turn.\n3/3"
+    IDS_STRING10402         "Ruination\n{3R}\nSorcery\nSTH,R\nDestroy all nonbasic lands."
+    IDS_STRING10403         "Bandage\n{W}\nInstant\nSTH,C\nPrevent the next 1 damage that would be dealt to target creature or player this turn.\rDraw a card."
+    IDS_STRING10404         "Dream Prowler\n{2UU}\nCreature - Illusion\nSTH,C\nDream Prowler is unblockable as long as it's attacking alone.\n1/5"
+    IDS_STRING10405         "Ensnaring Bridge\n{3}\nArtifact\nSTH,R\nCreatures with power greater than the number of cards in your hand can't attack."
+    IDS_STRING10406         "Evacuation\n{3UU}\nInstant\nSTH,R\nReturn all creatures to their owners' hands."
+    IDS_STRING10407         "Flame Wave\n{3RRRR}\nSorcery\nSTH,U\nFlame Wave deals 4 damage to target player and each creature he or she controls."
+    IDS_STRING10408         "Flowstone Shambler\n{2R}\nCreature - Beast\nSTH,C\n{R}: Flowstone Shambler gets +1/-1 until end of turn.\n2/2"
+    IDS_STRING10409         "Foul Imp\n{BB}\nCreature - Imp\nSTH,C\nFlying\rWhen Foul Imp enters the battlefield, you lose 2 life.\n2/2"
+    IDS_STRING10410         "Grave Pact\n{1BBB}\nEnchantment\nSTH,R\nWhenever a creature you control dies, each other player sacrifices a creature."
+    IDS_STRING10411         "Honor Guard\n{W}\nCreature - Human Soldier\nSTH,C\n{W}: Honor Guard gets +0/+1 until end of turn.\n1/1"
+    IDS_STRING10412         "Intruder Alarm\n{2U}\nEnchantment\nSTH,R\nCreatures don't untap during their controllers' untap steps.\rWhenever a creature enters the battlefield, untap all creatures."
+    IDS_STRING10413         "Mana Leak\n{1U}\nInstant\nSTH,C\nCounter target spell unless its controller pays {3}."
+    IDS_STRING10414         "Megrim\n{2B}\nEnchantment\nSTH,U\nWhenever an opponent discards a card, Megrim deals 2 damage to that player."
+    IDS_STRING10415         "Overgrowth\n{2G}\nEnchantment - Aura\nSTH,C\nEnchant land\rWhenever enchanted land is tapped for mana, its controller adds {GG} to his or her mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10416         "Primal Rage\n{1G}\nEnchantment\nSTH,U\nCreatures you control have trample."
+    IDS_STRING10417         "Revenant\n{4B}\nCreature - Spirit\nSTH,R\nFlying\rRevenant's power and toughness are each equal to the number of creature cards in your graveyard.\n*/*"
+    IDS_STRING10418         "Rolling Stones\n{1W}\nEnchantment\nSTH,R\nWall creatures can attack as though they didn't have defender."
+    IDS_STRING10419         "Sacred Ground\n{1W}\nEnchantment\nSTH,R\nWhenever a spell or ability an opponent controls causes a land to be put into your graveyard from the battlefield, return that card to the battlefield."
+    IDS_STRING10420         "Serpent Warrior\n{2B}\nCreature - Snake Warrior\nSTH,C\nWhen Serpent Warrior enters the battlefield, you lose 3 life.\n3/3"
+    IDS_STRING10421         "Shard Phoenix\n{4R}\nCreature - Phoenix\nSTH,R\nFlying\rSacrifice Shard Phoenix: Shard Phoenix deals 2 damage to each creature without flying.\r{RRR}: Return Shard Phoenix from your graveyard to your hand. Activate this ability only during your upkeep.\n2/2"
+    IDS_STRING10422         "Shock\n{R}\nInstant\nSTH,C\nShock deals 2 damage to target creature or player."
+    IDS_STRING10423         "Sift\n{3U}\nSorcery\nSTH,C\nDraw three cards, then discard a card."
+    IDS_STRING10424         "Skyshroud Falcon\n{1W}\nCreature - Bird\nSTH,C\nFlying, vigilance\n1/1"
+    IDS_STRING10425         "Spined Wurm\n{4G}\nCreature - Wurm\nSTH,C\n\n5/4"
+    IDS_STRING10426         "Stronghold Assassin\n{1BB}\nCreature - Zombie Assassin\nSTH,R\n{T}, Sacrifice a creature: Destroy target nonblack creature.\n2/1"
+    IDS_STRING10427         "Tidal Surge\n{1U}\nSorcery\nSTH,C\nTap up to three target creatures without flying."
+    IDS_STRING10428         "Venerable Monk\n{2W}\nCreature - Human Monk Cleric\nSTH,C\nWhen Venerable Monk enters the battlefield, you gain 2 life.\n2/2"
+    IDS_STRING10429         "Youthful Knight\n{1W}\nCreature - Human Knight\nSTH,C\nFirst strike\n2/1"
+    IDS_STRING10430         "Wall of Blossoms\n{1G}\nCreature - Plant Wall\nSTH,U\nDefender\rWhen Wall of Blossoms enters the battlefield, draw a card.\n0/4"
+    IDS_STRING10431         "Horn of Greed\n{3}\nArtifact\nSTH,R\nWhenever a player plays a land, that player draws a card."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10432         "Constant Mists\n{1G}\nInstant\nSTH,U\nBuyback - Sacrifice a land\rPrevent all combat damage that would be dealt this turn."
+    IDS_STRING10433         "Fanning the Flames\n{XRR}\nSorcery\nSTH,U\nBuyback {3}\rFanning the Flames deals X damage to target creature or player."
+    IDS_STRING10434         "Carnassid\n{4GG}\nCreature - Beast\nSTH,R\nTrample\r{1G}: Regenerate Carnassid.\n5/4"
+    IDS_STRING10435         "Cloud Spirit\n{2U}\nCreature - Spirit\nSTH,C\nFlying\rCloud Spirit can block only creatures with flying.\n3/1"
+    IDS_STRING10436         "Craven Giant\n{2R}\nCreature - Giant\nSTH,C\nCraven Giant can't block.\n4/1"
+    IDS_STRING10437         "Dungeon Shade\n{3B}\nCreature - Shade Spirit\nSTH,C\nFlying\r{B}: Dungeon Shade gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING10438         "Flowstone Mauler\n{4RR}\nCreature - Beast\nSTH,R\nTrample\r{R}: Flowstone Mauler gets +1/-1 until end of turn.\n4/5"
+    IDS_STRING10439         "Furnace Spirit\n{2R}\nCreature - Spirit\nSTH,C\nHaste\r{R}: Furnace Spirit gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING10440         "Hammerhead Shark\n{1U}\nCreature - Fish\nSTH,C\nHammerhead Shark can't attack unless defending player controls an Island.\n2/3"
+    IDS_STRING10441         "Lancers en-Kor\n{3WW}\nCreature - Kor Soldier\nSTH,U\nTrample\r{0}: The next 1 damage that would be dealt to Lancers en-Kor this turn is dealt to target creature you control instead.\n3/3"
+    IDS_STRING10442         "Morgue Thrull\n{2B}\nCreature - Thrull\nSTH,C\nSacrifice Morgue Thrull: Put the top three cards of your library into your graveyard.\n2/2"
+    IDS_STRING10443         "Nomads en-Kor\n{W}\nCreature - Kor Nomad Soldier\nSTH,C\n{0}: The next 1 damage that would be dealt to Nomads en-Kor this turn is dealt to target creature you control instead.\n1/1"
+    IDS_STRING10444         "Rabid Rats\n{1B}\nCreature - Rat\nSTH,C\n{T}: Target blocking creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING10445         "Skyshroud Archer\n{G}\nCreature - Elf Archer\nSTH,C\n{T}: Target creature with flying gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING10446         "Skyshroud Troopers\n{3G}\nCreature - Elf Druid Warrior\nSTH,C\n{T}: Add {G} to your mana pool.\n3/3"
+    IDS_STRING10447         "Sliver Queen\n{WUBRG}\nLegendary Creature - Sliver\nSTH,R\n{2}: Put a 1/1 colorless Sliver creature token onto the battlefield.\n7/7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10448         "Spindrift Drake\n{U}\nCreature - Drake\nSTH,C\nFlying\rAt the beginning of your upkeep, sacrifice Spindrift Drake unless you pay {U}.\n2/1"
+    IDS_STRING10449         "Spirit en-Kor\n{3W}\nCreature - Kor Spirit\nSTH,C\nFlying\r{0}: The next 1 damage that would be dealt to Spirit en-Kor this turn is dealt to target creature you control instead.\n2/2"
+    IDS_STRING10450         "Stronghold Taskmaster\n{2BB}\nCreature - Giant Minion\nSTH,U\nOther black creatures get -1/-1.\n4/3"
+    IDS_STRING10451         "Tidal Warrior\n{U}\nCreature - Merfolk Warrior\nSTH,C\n{T}: Target land becomes an Island until end of turn.\n1/1"
+    IDS_STRING10452         "Wall of Razors\n{1R}\nCreature - Wall\nSTH,U\nDefender\rFirst strike\n4/1"
+    IDS_STRING10453         "Wall of Tears\n{1U}\nCreature - Wall\nSTH,U\nDefender\rWhenever Wall of Tears blocks a creature, return that creature to its owner's hand at end of combat.\n0/4"
+    IDS_STRING10454         "Warrior Angel\n{4WW}\nCreature - Angel Warrior\nSTH,R\nFlying\rWhenever Warrior Angel deals damage, you gain that much life.\n3/4"
+    IDS_STRING10455         "Warrior en-Kor\n{WW}\nCreature - Kor Warrior Knight\nSTH,U\n{0}: The next 1 damage that would be dealt to Warrior en-Kor this turn is dealt to target creature you control instead.\n2/2"
+    IDS_STRING10456         "Volrath's Stronghold\n\nLegendary Land\nSTH,R\n{T}: Add {1} to your mana pool.\r{1B}, {T}: Put target creature card from your graveyard on top of your library."
+    IDS_STRING10457         "Bullwhip\n{4}\nArtifact\nSTH,U\n{2}, {T}: Bullwhip deals 1 damage to target creature. That creature attacks this turn if able."
+    IDS_STRING10458         "Sword of the Chosen\n{2}\nLegendary Artifact\nSTH,R\n{T}: Target legendary creature gets +2/+2 until end of turn."
+    IDS_STRING10459         "Awakening\n{2GG}\nEnchantment\nSTH,R\nAt the beginning of each upkeep, untap all creatures and lands."
+    IDS_STRING10460         "Bottomless Pit\n{1BB}\nEnchantment\nSTH,U\nAt the beginning of each player's upkeep, that player discards a card at random."
+    IDS_STRING10461         "Burgeoning\n{G}\nEnchantment\nSTH,R\nWhenever an opponent plays a land, you may put a land card from your hand onto the battlefield."
+    IDS_STRING10462         "Contemplation\n{1WW}\nEnchantment\nSTH,U\nWhenever you cast a spell, you gain 1 life."
+    IDS_STRING10463         "Conviction\n{1W}\nEnchantment - Aura\nSTH,C\nEnchant creature\rEnchanted creature gets +1/+3.\r{W}: Return Conviction to its owner's hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10464         "Flowstone Blade\n{R}\nEnchantment - Aura\nSTH,C\nEnchant creature\r{R}: Enchanted creature gets +1/-1 until end of turn."
+    IDS_STRING10465         "Heat of Battle\n{1R}\nEnchantment\nSTH,U\nWhenever a creature blocks, Heat of Battle deals 1 damage to that creature's controller."
+    IDS_STRING10466         "Torment\n{1B}\nEnchantment - Aura\nSTH,C\nEnchant creature\rEnchanted creature gets -3/-0."
+    IDS_STRING10467         "Tortured Existence\n{B}\nEnchantment\nSTH,C\n{B}, Discard a creature card: Return target creature card from your graveyard to your hand."
+    IDS_STRING10468         "Volrath's Gardens\n{1G}\nEnchantment\nSTH,R\n{2}, Tap an untapped creature you control: You gain 2 life. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING10469         "Change of Heart\n{W}\nInstant\nSTH,C\nBuyback {3}\rTarget creature can't attack this turn."
+    IDS_STRING10470         "Crossbow Ambush\n{G}\nInstant\nSTH,C\nCreatures you control gain reach until end of turn."
+    IDS_STRING10471         "Leap\n{U}\nInstant\nSTH,C\nTarget creature gains flying until end of turn.\rDraw a card."
+    IDS_STRING10472         "Mind Games\n{U}\nInstant\nSTH,C\nBuyback {2U}\rTap target artifact, creature, or land."
+    IDS_STRING10473         "Scapegoat\n{W}\nInstant\nSTH,U\nAs an additional cost to cast Scapegoat, sacrifice a creature.\rReturn any number of target creatures you control to their owner's hand."
+    IDS_STRING10474         "Smite\n{W}\nInstant\nSTH,C\nDestroy target blocked creature."
+    IDS_STRING10475         "Brush with Death\n{2B}\nSorcery\nSTH,C\nBuyback {2BB}\rTarget opponent loses 2 life. You gain 2 life."
+    IDS_STRING10476         "Death Stroke\n{BB}\nSorcery\nSTH,C\nDestroy target tapped creature."
+    IDS_STRING10477         "Lab Rats\n{B}\nSorcery\nSTH,C\nBuyback {4}\rPut a 1/1 black Rat creature token onto the battlefield."
+    IDS_STRING10478         "Mind Peel\n{B}\nSorcery\nSTH,U\nBuyback {2BB}\rTarget player discards a card."
+    IDS_STRING10479         "Mob Justice\n{1R}\nSorcery\nSTH,C\nMob Justice deals damage to target player equal to the number of creatures you control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10480         "Mulch\n{1G}\nSorcery\nSTH,C\nReveal the top four cards of your library. Put all land cards revealed this way into your hand and the rest into your graveyard."
+    IDS_STRING10481         "Seething Anger\n{R}\nSorcery\nSTH,C\nBuyback {3}\rTarget creature gets +3/+0 until end of turn."
+    IDS_STRING10482         "Shaman en-Kor\n{1W}\nCreature - Kor Shaman Cleric\nSTH,R\n{0}: The next 1 damage that would be dealt to Shaman en-Kor this turn is dealt to target creature you control instead.\r{1W}: The next time a source of your choice would deal damage to target creature this turn, that damage is dealt to Shaman en-Kor instead.\n1/2"
+    IDS_STRING10483         "Mogg Maniac\n{1R}\nCreature - Goblin\nSTH,U\nWhenever Mogg Maniac is dealt damage, it deals that much damage to target opponent.\n1/1"
+    IDS_STRING10484         "Acidic Sliver\n{BR}\nCreature - Sliver\nSTH,U\nAll Slivers have ""{2}, Sacrifice this permanent: This permanent deals 2 damage to target creature or player.""\n2/2"
+    IDS_STRING10485         "Hibernation Sliver\n{UB}\nCreature - Sliver\nSTH,U\nAll Slivers have ""Pay 2 life: Return this permanent to its owner's hand.""\n2/2"
+    IDS_STRING10486         "Spined Sliver\n{RG}\nCreature - Sliver\nSTH,U\nWhenever a Sliver becomes blocked, that Sliver gets +1/+1 until end of turn for each creature blocking it.\n2/2"
+    IDS_STRING10487         "Victual Sliver\n{GW}\nCreature - Sliver\nSTH,U\nAll Slivers have ""{2}, Sacrifice this permanent: You gain 4 life.""\n2/2"
+    IDS_STRING10488         "Lowland Basilisk\n{2G}\nCreature - Basilisk\nSTH,C\nWhenever Lowland Basilisk deals damage to a creature, destroy that creature at end of combat.\n1/3"
+    IDS_STRING10489         "Wall of Essence\n{1W}\nCreature - Wall\nSTH,U\nDefender\rWhenever Wall of Essence is dealt combat damage, you gain that much life.\n0/4"
+    IDS_STRING10490         "Wall of Souls\n{1B}\nCreature - Wall\nSTH,U\nDefender\rWhenever Wall of Souls is dealt combat damage, it deals that much damage to target opponent.\n0/4"
+    IDS_STRING10491         "Hornet Cannon\n{4}\nArtifact\nSTH,U\n{3}, {T}: Put a 1/1 colorless Insect artifact creature token with flying and haste named Hornet onto the battlefield. Destroy it at the beginning of the next end step."
+    IDS_STRING10492         "Samite Blessing\n{W}\nEnchantment - Aura\nSTH,C\nEnchant creature\rEnchanted creature has ""{T}: The next time a source of your choice would deal damage to target creature this turn, prevent that damage."""
+    IDS_STRING10493         "Fling\n{1R}\nInstant\nSTH,C\nAs an additional cost to cast Fling, sacrifice a creature.\rFling deals damage equal to the sacrificed creature's power to target creature or player."
+    IDS_STRING10494         "Elven Rite\n{1G}\nSorcery\nSTH,U\nDistribute two +1/+1 counters among one or two target creatures."
+    IDS_STRING10495         "Mortuary\n{3B}\nEnchantment\nSTH,U\nWhenever a creature is put into your graveyard from the battlefield, put that card on top of your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10496         "Spike Breeder\n{3G}\nCreature - Spike\nSTH,R\nSpike Breeder enters the battlefield with three +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Breeder: Put a +1/+1 counter on target creature.\r{2}, Remove a +1/+1 counter from Spike Breeder: Put a 1/1 green Spike creature token onto the battlefield.\n0/0"
+    IDS_STRING10497         "Spike Colony\n{4G}\nCreature - Spike\nSTH,C\nSpike Colony enters the battlefield with four +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Colony: Put a +1/+1 counter on target creature.\n0/0"
+    IDS_STRING10498         "Spike Feeder\n{1GG}\nCreature - Spike\nSTH,U\nSpike Feeder enters the battlefield with two +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Feeder: Put a +1/+1 counter on target creature.\rRemove a +1/+1 counter from Spike Feeder: You gain 2 life.\n0/0"
+    IDS_STRING10499         "Spike Soldier\n{2GG}\nCreature - Spike Soldier\nSTH,U\nSpike Soldier enters the battlefield with three +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Soldier: Put a +1/+1 counter on target creature.\rRemove a +1/+1 counter from Spike Soldier: Spike Soldier gets +2/+2 until end of turn.\n0/0"
+    IDS_STRING10500         "Spike Worker\n{2G}\nCreature - Spike\nSTH,C\nSpike Worker enters the battlefield with two +1/+1 counters on it.\r{2}, Remove a +1/+1 counter from Spike Worker: Put a +1/+1 counter on target creature.\n0/0"
+    IDS_STRING10501         "Spitting Hydra\n{3RR}\nCreature - Hydra\nSTH,R\nSpitting Hydra enters the battlefield with four +1/+1 counters on it.\r{1R}, Remove a +1/+1 counter from Spitting Hydra: Spitting Hydra deals 1 damage to target creature.\n0/0"
+    IDS_STRING10502         "Mindwarper\n{2BB}\nCreature - Spirit\nSTH,R\nMindwarper enters the battlefield with three +1/+1 counters on it.\r{2B}, Remove a +1/+1 counter from Mindwarper: Target player discards a card. Activate this ability only any time you could cast a sorcery.\n0/0"
+    IDS_STRING10503         "Shifting Wall\n{X}\nArtifact Creature - Wall\nSTH,U\nDefender\rShifting Wall enters the battlefield with X +1/+1 counters on it.\n0/0"
+    IDS_STRING10504         "Hermit Druid\n{1G}\nCreature - Human Druid\nSTH,R\n{G}, {T}: Reveal cards from the top of your library until you reveal a basic land card. Put that card into your hand and all other cards revealed this way into your graveyard.\n1/1"
+    IDS_STRING10505         "Dauthi Trapper\n{2B}\nCreature - Dauthi Minion\nSTH,U\n{T}: Target creature gains shadow until end of turn.\n1/1"
+    IDS_STRING10506         "Soltari Champion\n{2W}\nCreature - Soltari Soldier\nSTH,R\nShadow\rWhenever Soltari Champion attacks, all other creatures you control get +1/+1 until end of turn.\n2/2"
+    IDS_STRING10507         "Thalakos Deceiver\n{3U}\nCreature - Thalakos Wizard\nSTH,R\nShadow\rWhenever Thalakos Deceiver attacks and isn't blocked, you may sacrifice it. If you do, gain control of target creature.\n1/1"
+    IDS_STRING10508         "Ransack\n{3U}\nSorcery\nSTH,U\nLook at the top five cards of target player's library. Put any number of them on the bottom of that library in any order and the rest on top of the library in any order."
+    IDS_STRING10509         "Crovax the Cursed\n{2BB}\nLegendary Creature - Vampire\nSTH,R\nCrovax the Cursed enters the battlefield with four +1/+1 counters on it.\rAt the beginning of your upkeep, you may sacrifice a creature. If you do, put a +1/+1 counter on Crovax. If you don't, remove a +1/+1 counter from Crovax.\r{B}: Crovax gains flying until end of turn.\n0/0"
+    IDS_STRING10510         "Endangered Armodon\n{2GG}\nCreature - Elephant\nSTH,C\nWhen you control a creature with toughness 2 or less, sacrifice Endangered Armodon.\n4/5"
+    IDS_STRING10511         "Mox Diamond\n{0}\nArtifact\nSTH,R\nIf Mox Diamond would enter the battlefield, you may discard a land card instead. If you do, put Mox Diamond onto the battlefield. If you don't, put it into its owner's graveyard.\r{T}: Add one mana of any color to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING10512         "Jinxed Ring\n{2}\nArtifact\nSTH,R\nWhenever a nontoken permanent is put into your graveyard from the battlefield, Jinxed Ring deals 1 damage to you.\rSacrifice a creature: Target opponent gains control of Jinxed Ring."
+    IDS_STRING10513         "Mogg Bombers\n{3R}\nCreature - Goblin\nSTH,C\nWhen another creature enters the battlefield, sacrifice Mogg Bombers and it deals 3 damage to target player.\n3/4"
+    IDS_STRING10514         "Duct Crawler\n{R}\nCreature - Insect\nSTH,C\n{1R}: Target creature can't block Duct Crawler this turn.\n1/1"
+    IDS_STRING10515         "Reins of Power\n{2UU}\nInstant\nSTH,R\nUntap all creatures you control and all creatures target opponent controls. You and that opponent each gain control of all creatures the other controls until end of turn. Those creatures gain haste until end of turn."
+    IDS_STRING10516         "Dream Halls\n{3UU}\nEnchantment\nSTH,R\nRather than pay the mana cost for a spell, its controller may discard a card that shares a color with that spell."
+    IDS_STRING10517         "Mask of the Mimic\n{U}\nInstant\nSTH,U\nAs an additional cost to cast Mask of the Mimic, sacrifice a creature.\rSearch your library for a card with the same name as target nontoken creature and put that card onto the battlefield. Then shuffle your library."
+    IDS_STRING10518         "Verdant Touch\n{1G}\nSorcery\nSTH,R\nBuyback {3}\rTarget land becomes a 2/2 creature that's still a land."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

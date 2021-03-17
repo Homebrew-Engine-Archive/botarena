@@ -1,0 +1,35 @@
+// World Aflame
+// 9th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 10 (25.00%)
+
+2 Anarchist (2297)
+3 Balduvian Barbarians (2010)
+Dancing Scimitar (2031)
+3 Hill Giant (2077)
+Magnivore (2285)
+
+// Sorceries - 12 (30.00%)
+
+Blaze (2014)
+2 Demolish (2037)
+2 Lava Axe (2093)
+Panic Attack (2123)
+2 Stone Rain (2172)
+3 Volcanic Hammer (2200)
+Wildfire (2201)
+
+// Artifacts - 1 (2.50%)
+
+Dragon's Claw (2280)
+
+// Lands - 17 (42.50%)
+
+5 Mountain (2110)
+4 Mountain (2111)
+4 Mountain (2112)
+4 Mountain (2113)

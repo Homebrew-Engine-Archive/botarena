@@ -1,0 +1,36 @@
+// Total cards in deck - 60
+
+// Creatures - 25 (41.67%)
+
+2 Brown Ouphe (15032)
+4 Copper Myr (14801)
+4 Fangren Hunter (14876)
+Living Hive (15018)
+2 Needlebug (15004)
+Plated Slagwurm (14892)
+Slith Predator (14815)
+2 Tel-Jilad Archers (15002)
+2 Tel-Jilad Chosen (15003)
+2 Tel-Jilad Exile (14897)
+2 Trolls of Tel-Jilad (14898)
+2 Viridian Shaman (14864)
+
+// Instants - 5 (8.33%)
+
+2 Battlegrowth (14970)
+Bloodscent (14971)
+2 Predator's Strike (14974)
+
+// Sorceries - 6 (10.00%)
+
+2 Creeping Mold (14826)
+Deconstruct (14991)
+2 Journey of Discovery (15024)
+One Dozen Eyes (14981)
+
+// Lands - 24 (40.00%)
+
+6 Forest (14831)
+6 Forest (14832)
+6 Forest (14829)
+6 Forest (14830)

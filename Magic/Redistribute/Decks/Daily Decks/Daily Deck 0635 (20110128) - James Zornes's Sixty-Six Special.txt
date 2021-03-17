@@ -1,0 +1,56 @@
+// Total cards in deck - 66
+
+// Creatures - 2 (3.03%)
+
+2 Kitchen Finks (18593)
+
+// Instants - 15 (22.73%)
+
+2 Broken Ambitions (18057)
+Harrow (19347)
+4 Lightning Bolt (21124)
+4 Mana Leak (21214)
+4 Manamorphose (18561)
+
+// Sorceries - 15 (22.73%)
+
+4 Explore (19647)
+4 Ponder (4208)
+4 Scapeshift (18413)
+3 Treasure Hunt (19673)
+
+// Enchantments - 4 (6.06%)
+
+4 Prismatic Omen (18719)
+
+// Lands - 30 (45.45%)
+
+2 Fire-Lit Thicket (18542)
+Forest (21105)
+Forest (21104)
+Forest (21106)
+Island (21111)
+Island (21110)
+Island (21109)
+2 Island (21108)
+4 Misty Rainforest (19356)
+2 Mountain (21114)
+2 Mountain (21113)
+3 Mountain (21112)
+2 Mountain (21115)
+3 Terramorphic Expanse (21309)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+3 Naturalize (21167)
+4 Negate (21192)
+4 Volcanic Fallout (8860)
+
+// Sorceries
+
+4 Firespout (18674)

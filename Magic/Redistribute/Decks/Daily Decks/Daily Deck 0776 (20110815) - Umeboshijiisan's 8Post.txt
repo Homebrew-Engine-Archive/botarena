@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Creatures - 5 (8.33%)
+
+4 Mulldrifter (18023)
+Ulamog's Crusher (20825)
+
+// Instants - 12 (20.00%)
+
+Capsize (10010)
+2 Condescend (15497)
+2 Lightning Bolt (21124)
+2 Mana Leak (21214)
+2 Mystical Teachings (17467)
+2 Prohibit (12664)
+Staggershock (20984)
+
+// Sorceries - 12 (20.00%)
+
+3 Compulsive Research (16605)
+2 Firebolt (13298)
+2 Flame Slash (20924)
+4 Preordain (21152)
+Rolling Thunder (10198)
+
+// Artifacts - 8 (13.33%)
+
+2 Expedition Map (19393)
+3 Prophetic Prism (20908)
+3 Serrated Arrows (17394)
+
+// Lands - 23 (38.33%)
+
+4 Cloudpost (15037)
+4 Glimmerpost (21608)
+7 Island (3405)
+6 Mountain (3409)
+2 Terramorphic Expanse (21309)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Gorilla Shaman (6819)
+Mnemonic Wall (20821)
+
+// Instants
+
+2 Hydroblast (8134)
+3 Pyroblast (8214)
+Seismic Shudder (19422)
+Staggershock (20984)
+
+// Sorceries
+
+Deep Analysis (13607)
+2 Earth Rift (13294)
+Stone Rain (2172)

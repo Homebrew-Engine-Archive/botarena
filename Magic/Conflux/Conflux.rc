@@ -1,0 +1,266 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Conflux.ico"
+IDI_LARGE_MODULE        ICON                    "ConfluxLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Conflux"
+    IDS_EXPANSION_ABBREV    "CON"
+    IDS_FIRST_CARD          "8800"
+    IDS_TOTAL_CARD          "145"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "8945"
+    IDS_MODULE_LARGE_ICON_ID "8946"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "06-02-2009"
+    IDS_MWS_FOLDER          "MWS\\CFX\\"
+    IDS_PRODUCT_LIST        """Conflux Booster Pack"":MR-8:R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8800          "Canyon Minotaur\n{3R}\nCreature - Minotaur Warrior\nCON,C\n\n3/3"
+    IDS_STRING8801          "Celestial Purge\n{1W}\nInstant\nCON,U\nExile target black or red permanent."
+    IDS_STRING8802          "Ignite Disorder\n{1R}\nInstant\nCON,U\nIgnite Disorder deals 3 damage divided as you choose among one, two, or three target white and/or blue creatures."
+    IDS_STRING8803          "Unsummon\n{U}\nInstant\nCON,C\nReturn target creature to its owner's hand."
+    IDS_STRING8804          "Font of Mythos\n{4}\nArtifact\nCON,R\nAt the beginning of each player's draw step, that player draws two additional cards."
+    IDS_STRING8805          "Aerie Mystics\n{4W}\nCreature - Bird Wizard\nCON,U\nFlying\r{1GU}: Creatures you control gain shroud until end of turn.\n3/3"
+    IDS_STRING8806          "Aven Squire\n{1W}\nCreature - Bird Soldier\nCON,C\nFlying\rExalted\n1/1"
+    IDS_STRING8807          "Beacon Behemoth\n{3GG}\nCreature - Beast\nCON,C\n{1}: Target creature with power 5 or greater gains vigilance until end of turn.\n5/3"
+    IDS_STRING8808          "Child of Alara\n{WUBRG}\nLegendary Creature - Avatar\nCON,MR\nTrample\rWhen Child of Alara dies, destroy all nonland permanents. They can't be regenerated.\n6/6"
+    IDS_STRING8809          "Dreadwing\n{B}\nCreature - Zombie\nCON,U\n{1UR}: Dreadwing gets +3/+0 and gains flying until end of turn.\n1/1"
+    IDS_STRING8810          "Frontline Sage\n{2U}\nCreature - Human Wizard\nCON,C\nExalted\r{U}, {T}: Draw a card, then discard a card.\n0/1"
+    IDS_STRING8811          "Fusion Elemental\n{WUBRG}\nCreature - Elemental\nCON,U\n\n8/8"
+    IDS_STRING8812          "Goblin Outlander\n{BR}\nCreature - Goblin Scout\nCON,C\nProtection from white\n2/2"
+    IDS_STRING8813          "Grixis Illusionist\n{U}\nCreature - Human Wizard\nCON,C\n{T}: Target land you control becomes the basic land type of your choice until end of turn.\n1/1"
+    IDS_STRING8814          "Jhessian Balmgiver\n{1WU}\nCreature - Human Cleric\nCON,U\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\r{T}: Target creature is unblockable this turn.\n1/1"
+    IDS_STRING8815          "Knight of the Reliquary\n{1GW}\nCreature - Human Knight\nCON,R\nKnight of the Reliquary gets +1/+1 for each land card in your graveyard.\r{T}, Sacrifice a Forest or Plains: Search your library for a land card, put it onto the battlefield, then shuffle your library.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8816          "Knotvine Mystic\n{RGW}\nCreature - Elf Druid\nCON,U\n{1}, {T}: Add {RGW} to your mana pool.\n2/2"
+    IDS_STRING8817          "Kranioceros\n{4R}\nCreature - Beast\nCON,C\n{1W}: Kranioceros gets +0/+3 until end of turn.\n5/2"
+    IDS_STRING8818          "Nacatl Outlander\n{RG}\nCreature - Cat Scout\nCON,C\nProtection from blue\n2/2"
+    IDS_STRING8819          "Noble Hierarch\n{G}\nCreature - Human Druid\nCON,R\nExalted\r{T}: Add {G}, {W}, or {U} to your mana pool.\n0/1"
+    IDS_STRING8820          "Pestilent Kathari\n{2B}\nCreature - Bird Warrior\nCON,C\nFlying\rDeathtouch\r{2R}: Pestilent Kathari gains first strike until end of turn.\n1/1"
+    IDS_STRING8821          "Rakka Mar\n{2RR}\nLegendary Creature - Human Shaman\nCON,R\nHaste\r{R}, {T}: Put a 3/1 red Elemental creature token with haste onto the battlefield.\n2/2"
+    IDS_STRING8822          "Rhox Bodyguard\n{3GW}\nCreature - Rhino Monk Soldier\nCON,C\nExalted\rWhen Rhox Bodyguard enters the battlefield, you gain 3 life.\n2/3"
+    IDS_STRING8823          "Sacellum Archers\n{2G}\nCreature - Elf Archer\nCON,U\n{RW}, {T}: Sacellum Archers deals 2 damage to target attacking or blocking creature.\n2/3"
+    IDS_STRING8824          "Scarland Thrinax\n{BRG}\nCreature - Lizard\nCON,U\nSacrifice a creature: Put a +1/+1 counter on Scarland Thrinax.\n2/2"
+    IDS_STRING8825          "Scattershot Archer\n{G}\nCreature - Elf Archer\nCON,C\n{T}: Scattershot Archer deals 1 damage to each creature with flying.\n1/2"
+    IDS_STRING8826          "Skyward Eye Prophets\n{3GWU}\nCreature - Human Wizard\nCON,U\nVigilance\r{T}: Reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put it into your hand.\n3/3"
+    IDS_STRING8827          "Tukatongue Thallid\n{G}\nCreature - Fungus\nCON,C\nWhen Tukatongue Thallid dies, put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+    IDS_STRING8828          "Vagrant Plowbeasts\n{5GW}\nCreature - Beast\nCON,U\n{1}: Regenerate target creature with power 5 or greater.\n6/6"
+    IDS_STRING8829          "Valeron Outlander\n{GW}\nCreature - Human Scout\nCON,C\nProtection from black\n2/2"
+    IDS_STRING8830          "Valiant Guard\n{W}\nCreature - Human Soldier\nCON,C\n\n0/3"
+    IDS_STRING8831          "Wild Leotau\n{2GG}\nCreature - Cat\nCON,C\nAt the beginning of your upkeep, sacrifice Wild Leotau unless you pay {G}.\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8832          "Zombie Outlander\n{UB}\nCreature - Zombie Scout\nCON,C\nProtection from green\n2/2"
+    IDS_STRING8833          "Darklit Gargoyle\n{1W}\nArtifact Creature - Gargoyle\nCON,C\nFlying\r{B}: Darklit Gargoyle gets +2/-1 until end of turn.\n1/2"
+    IDS_STRING8834          "Esper Cormorants\n{2WU}\nArtifact Creature - Bird\nCON,C\nFlying\n3/3"
+    IDS_STRING8835          "Esperzoa\n{2U}\nArtifact Creature - Jellyfish\nCON,U\nFlying\rAt the beginning of your upkeep, return an artifact you control to its owner's hand.\n4/3"
+    IDS_STRING8836          "Ethersworn Adjudicator\n{4U}\nArtifact Creature - Vedalken Knight\nCON,MR\nFlying\r{1WB}, {T}: Destroy target creature or enchantment.\r{2U}: Untap Ethersworn Adjudicator.\n4/4"
+    IDS_STRING8837          "Inkwell Leviathan\n{7UU}\nArtifact Creature - Leviathan\nCON,R\nIslandwalk, trample, shroud\n7/11"
+    IDS_STRING8838          "Salvage Slasher\n{1B}\nArtifact Creature - Human Rogue\nCON,C\nSalvage Slasher gets +1/+0 for each artifact card in your graveyard.\n1/1"
+    IDS_STRING8839          "Scornful AEther-Lich\n{3U}\nArtifact Creature - Zombie Wizard\nCON,U\n{WB}: Scornful Æther-Lich gains fear and vigilance until end of turn.\n2/4"
+    IDS_STRING8840          "Sphinx Summoner\n{3UB}\nArtifact Creature - Sphinx\nCON,R\nFlying\rWhen Sphinx Summoner enters the battlefield, you may search your library for an artifact creature card, reveal it, and put it into your hand. If you do, shuffle your library.\n3/3"
+    IDS_STRING8841          "Vectis Agents\n{3UB}\nArtifact Creature - Human Rogue\nCON,C\n{UB}: Vectis Agents gets -2/-0 until end of turn and is unblockable this turn.\n4/3"
+    IDS_STRING8842          "Vedalken Outlander\n{WU}\nArtifact Creature - Vedalken Scout\nCON,C\nProtection from red\n2/2"
+    IDS_STRING8843          "Exotic Orchard\n\nLand\nCON,R\n{T}: Add to your mana pool one mana of any color that a land an opponent controls could produce."
+    IDS_STRING8844          "Reliquary Tower\n\nLand\nCON,U\nYou have no maximum hand size.\r{T}: Add {1} to your mana pool."
+    IDS_STRING8845          "Unstable Frontier\n\nLand\nCON,U\n{T}: Add {1} to your mana pool.\r{T}: Target land you control becomes the basic land type of your choice until end of turn."
+    IDS_STRING8846          "Armillary Sphere\n{2}\nArtifact\nCON,C\n{2}, {T}, Sacrifice Armillary Sphere: Search your library for up to two basic land cards, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING8847          "Bone Saw\n{0}\nArtifact - Equipment\nCON,C\nEquipped creature gets +1/+0.\rEquip {1}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8848          "Cumber Stone\n{3U}\nArtifact\nCON,U\nCreatures your opponents control get -1/-0."
+    IDS_STRING8849          "Kaleidostone\n{2}\nArtifact\nCON,C\nWhen Kaleidostone enters the battlefield, draw a card.\r{5}, {T}, Sacrifice Kaleidostone: Add {WUBRG} to your mana pool."
+    IDS_STRING8850          "Mana Cylix\n{1}\nArtifact\nCON,C\n{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING8851          "Obelisk of Alara\n{6}\nArtifact\nCON,R\n{1W}, {T}: You gain 5 life.\r{1U}, {T}: Draw a card, then discard a card.\r{1B}, {T}: Target creature gets -2/-2 until end of turn.\r{1R}, {T}: Obelisk of Alara deals 3 damage to target player.\r{1G}, {T}: Target creature gets +4/+4 until end of turn."
+    IDS_STRING8852          "Scepter of Dominance\n{1WW}\nArtifact\nCON,R\n{W}, {T}: Tap target permanent."
+    IDS_STRING8853          "Scepter of Fugue\n{BB}\nArtifact\nCON,R\n{1B}, {T}: Target player discards a card. Activate this ability only during your turn."
+    IDS_STRING8854          "Scepter of Insight\n{1UU}\nArtifact\nCON,R\n{3U}, {T}: Draw a card."
+    IDS_STRING8855          "Asha's Favor\n{2W}\nEnchantment - Aura\nCON\nEnchant creature\rEnchanted creature has flying, first strike, and vigilance."
+    IDS_STRING8856          "Maniacal Rage\n{1R}\nEnchantment - Aura\nCON,C\nEnchant creature\rEnchanted creature gets +2/+2 and can't block."
+    IDS_STRING8857          "Sigil of the Empty Throne\n{3WW}\nEnchantment\nCON,R\nWhenever you cast an enchantment spell, put a 4/4 white Angel creature token with flying onto the battlefield."
+    IDS_STRING8858          "Suicidal Charge\n{3BR}\nEnchantment\nCON,C\nSacrifice Suicidal Charge: Creatures your opponents control get -1/-1 until end of turn. Those creatures attack this turn if able."
+    IDS_STRING8859          "Lapse of Certainty\n{2W}\nInstant\nCON,C\nCounter target spell. If that spell is countered this way, put it on top of its owner's library instead of into that player's graveyard."
+    IDS_STRING8860          "Volcanic Fallout\n{1RR}\nInstant\nCON,U\nVolcanic Fallout can't be countered.\rVolcanic Fallout deals 2 damage to each creature and each player."
+    IDS_STRING8861          "Aven Trailblazer\n{2W}\nCreature - Bird Soldier\nCON,C\nFlying\rDomain - Aven Trailblazer's toughness is equal to the number of basic land types among lands you control.\n2/*"
+    IDS_STRING8862          "Charnelhoard Wurm\n{4BRG}\nCreature - Wurm\nCON,R\nTrample\rWhenever Charnelhoard Wurm deals damage to an opponent, you may return target card from your graveyard to your hand.\n6/6"
+    IDS_STRING8863          "Controlled Instincts\n{U}\nEnchantment - Aura\nCON,U\nEnchant red or green creature\rEnchanted creature doesn't untap during its controller's untap step."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8864          "Corrupted Roots\n{B}\nEnchantment - Aura\nCON,U\nEnchant Forest or Plains\rWhenever enchanted land becomes tapped, its controller loses 2 life."
+    IDS_STRING8865          "Court Homunculus\n{W}\nArtifact Creature - Homunculus\nCON,C\nCourt Homunculus gets +1/+1 as long as you control another artifact.\n1/1"
+    IDS_STRING8866          "Cylian Sunsinger\n{1G}\nCreature - Elf Shaman\nCON,R\n{RGW}: Cylian Sunsinger and each other creature with the same name as it get +3/+3 until end of turn.\n2/2"
+    IDS_STRING8867          "Paleoloth\n{4GG}\nCreature - Beast\nCON,R\nWhenever another creature with power 5 or greater enters the battlefield under your control, you may return target creature card from your graveyard to your hand.\n5/5"
+    IDS_STRING8868          "Infectious Horror\n{3B}\nCreature - Zombie Horror\nCON,C\nWhenever Infectious Horror attacks, each opponent loses 2 life.\n2/2"
+    IDS_STRING8869          "Matca Rioters\n{2G}\nCreature - Human Warrior\nCON,C\nDomain - Matca Rioters's power and toughness are each equal to the number of basic land types among lands you control.\n*/*"
+    IDS_STRING8870          "Gleam of Resistance\n{4W}\nInstant\nCON,C\nCreatures you control get +1/+2 until end of turn. Untap those creatures.\rBasic landcycling {1W}"
+    IDS_STRING8871          "Mark of Asylum\n{1W}\nEnchantment\nCON,R\nPrevent all noncombat damage that would be dealt to creatures you control."
+    IDS_STRING8872          "Rhox Meditant\n{3W}\nCreature - Rhino Monk\nCON,C\nWhen Rhox Meditant enters the battlefield, if you control a green permanent, draw a card.\n2/4"
+    IDS_STRING8873          "Constricting Tendrils\n{U}\nInstant\nCON,C\nTarget creature gets -3/-0 until end of turn.\rCycling {2}"
+    IDS_STRING8874          "Traumatic Visions\n{3UU}\nInstant\nCON,C\nCounter target spell.\rBasic landcycling {1U}"
+    IDS_STRING8875          "Absorb Vis\n{6B}\nSorcery\nCON,C\nTarget player loses 4 life and you gain 4 life.\rBasic landcycling {1B}"
+    IDS_STRING8876          "Sedraxis Alchemist\n{2B}\nCreature - Zombie Wizard\nCON,C\nWhen Sedraxis Alchemist enters the battlefield, if you control a blue permanent, return target nonland permanent to its owner's hand.\n2/2"
+    IDS_STRING8877          "Bloodhall Ooze\n{R}\nCreature - Ooze\nCON,R\nAt the beginning of your upkeep, if you control a black permanent, you may put a +1/+1 counter on Bloodhall Ooze.\rAt the beginning of your upkeep, if you control a green permanent, you may put a +1/+1 counter on Bloodhall Ooze.\n1/1"
+    IDS_STRING8878          "Fiery Fall\n{5R}\nInstant\nCON,C\nFiery Fall deals 5 damage to target creature.\rBasic landcycling {1R}"
+    IDS_STRING8879          "Molten Frame\n{1R}\nInstant\nCON,C\nDestroy target artifact creature.\rCycling {2}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8880          "Sylvan Bounty\n{5G}\nInstant\nCON,C\nTarget player gains 8 life.\rBasic landcycling {1G}"
+    IDS_STRING8881          "Magister Sphinx\n{4WUB}\nArtifact Creature - Sphinx\nCON,R\nFlying\rWhen Magister Sphinx enters the battlefield, target player's life total becomes 10.\n5/5"
+    IDS_STRING8882          "Parasitic Strix\n{2U}\nArtifact Creature - Bird\nCON,C\nFlying\rWhen Parasitic Strix enters the battlefield, if you control a black permanent, target player loses 2 life and you gain 2 life.\n2/2"
+    IDS_STRING8883          "Sludge Strider\n{1WUB}\nArtifact Creature - Insect\nCON,U\nWhenever another artifact enters the battlefield under your control or another artifact you control leaves the battlefield, you may pay {1}. If you do, target player loses 1 life and you gain 1 life.\n3/3"
+    IDS_STRING8884          "Rupture Spire\n\nLand\nCON,C\nRupture Spire enters the battlefield tapped.\rWhen Rupture Spire enters the battlefield, sacrifice it unless you pay {1}.\r{T}: Add one mana of any color to your mana pool."
+    IDS_STRING8885          "Mirror-Sigil Sergeant\n{5W}\nCreature - Rhino Soldier\nCON,MR\nTrample\rAt the beginning of your upkeep, if you control a blue permanent, you may put a token that's a copy of Mirror-Sigil Sergeant onto the battlefield.\n4/4"
+    IDS_STRING8886          "Martial Coup\n{XWW}\nSorcery\nCON,R\nPut X 1/1 white Soldier creature tokens onto the battlefield. If X is 5 or more, destroy all other creatures."
+    IDS_STRING8887          "View from Above\n{1U}\nInstant\nCON,U\nTarget creature gains flying until end of turn. If you control a white permanent, return View from Above to its owner's hand."
+    IDS_STRING8888          "Worldly Counsel\n{1U}\nInstant\nCON,C\nDomain - Look at the top X cards of your library, where X is the number of basic land types among lands you control. Put one of those cards into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING8889          "Drag Down\n{2B}\nInstant\nCON,C\nDomain - Target creature gets -1/-1 until end of turn for each basic land type among lands you control."
+    IDS_STRING8890          "Countersquall\n{UB}\nInstant\nCON,U\nCounter target noncreature spell. Its controller loses 2 life."
+    IDS_STRING8891          "Conflux\n{3WUBRG}\nSorcery\nCON,MR\nSearch your library for a white card, a blue card, a black card, a red card, and a green card. Reveal those cards and put them into your hand. Then shuffle your library."
+    IDS_STRING8892          "Cliffrunner Behemoth\n{3G}\nCreature - Rhino Beast\nCON,R\nCliffrunner Behemoth has haste as long as you control a red permanent.\rCliffrunner Behemoth has lifelink as long as you control a white permanent.\n5/3"
+    IDS_STRING8893          "Gluttonous Slime\n{2G}\nCreature - Ooze\nCON,U\nFlash\rDevour 1\n2/2"
+    IDS_STRING8894          "Grixis Slavedriver\n{5B}\nCreature - Zombie Giant\nCON,U\nWhen Grixis Slavedriver leaves the battlefield, put a 2/2 black Zombie creature token onto the battlefield.\rUnearth {3B}\n4/4"
+    IDS_STRING8895          "Hellkite Hatchling\n{2RG}\nCreature - Dragon\nCON,U\nDevour 1\rHellkite Hatchling has flying and trample if it devoured a creature.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8896          "Hellspark Elemental\n{1R}\nCreature - Elemental\nCON,U\nTrample, haste\rAt the beginning of the end step, sacrifice Hellspark Elemental.\rUnearth {1R}\n3/1"
+    IDS_STRING8897          "Path to Exile\n{W}\nInstant\nCON,U\nExile target creature. Its controller may search his or her library for a basic land card, put that card onto the battlefield tapped, then shuffle his or her library."
+    IDS_STRING8898          "Rotting Rats\n{1B}\nCreature - Zombie Rat\nCON\nWhen Rotting Rats enters the battlefield, each player discards a card.\rUnearth {1B}\n1/1"
+    IDS_STRING8899          "Shambling Remains\n{1BR}\nCreature - Zombie Horror\nCON,U\nShambling Remains can't block.\rUnearth {BR}\n4/3"
+    IDS_STRING8900          "Shard Convergence\n{3G}\nSorcery\nCON,U\nSearch your library for a Plains card, an Island card, a Swamp card, and a Mountain card. Reveal those cards and put them into your hand. Then shuffle your library."
+    IDS_STRING8901          "Viashino Slaughtermaster\n{1R}\nCreature - Viashino Warrior\nCON,U\nDouble strike\r{BG}: Viashino Slaughtermaster gets +1/+1 until end of turn. Activate this ability only once each turn.\n1/1"
+    IDS_STRING8902          "Blood Tyrant\n{4UBR}\nCreature - Vampire\nCON,R\nFlying, trample\rAt the beginning of your upkeep, each player loses 1 life. Put a +1/+1 counter on Blood Tyrant for each 1 life lost this way.\rWhenever a player loses the game, put five +1/+1 counters on Blood Tyrant.\n5/5"
+    IDS_STRING8903          "Brackwater Elemental\n{2U}\nCreature - Elemental\nCON,C\nWhen Brackwater Elemental attacks or blocks, sacrifice it at the beginning of the next end step.\rUnearth {2U}\n4/4"
+    IDS_STRING8904          "Dark Temper\n{2R}\nInstant\nCON,C\nDark Temper deals 2 damage to target creature. If you control a black permanent, destroy the creature instead."
+    IDS_STRING8905          "Ember Weaver\n{2G}\nCreature - Spider\nCON,C\nReach\rAs long as you control a red permanent, Ember Weaver gets +1/+0 and has first strike.\n2/3"
+    IDS_STRING8906          "Exploding Borders\n{2RG}\nSorcery\nCON,C\nDomain - Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library. Exploding Borders deals X damage to target player, where X is the number of basic land types among lands you control."
+    IDS_STRING8907          "Extractor Demon\n{4BB}\nCreature - Demon\nCON,R\nFlying\rWhenever another creature leaves the battlefield, you may have target player put the top two cards of his or her library into his or her graveyard.\rUnearth {2B}\n5/5"
+    IDS_STRING8908          "Filigree Fracture\n{2G}\nInstant\nCON,U\nDestroy target artifact or enchantment. If that permanent was blue or black, draw a card."
+    IDS_STRING8909          "Kederekt Parasite\n{B}\nCreature - Horror\nCON,R\nWhenever an opponent draws a card, if you control a red permanent, you may have Kederekt Parasite deal 1 damage to that player.\n1/1"
+    IDS_STRING8910          "Malfegor\n{2BBRR}\nLegendary Creature - Demon Dragon\nCON,MR\nFlying\rWhen Malfegor enters the battlefield, discard your hand. Each opponent sacrifices a creature for each card discarded this way.\n6/6"
+    IDS_STRING8911          "Manaforce Mace\n{4}\nArtifact - Equipment\nCON,U\nDomain - Equipped creature gets +1/+1 for each basic land type among lands you control.\rEquip {3}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8912          "Might of Alara\n{G}\nInstant\nCON,C\nDomain - Target creature gets +1/+1 until end of turn for each basic land type among lands you control."
+    IDS_STRING8913          "Meglonoth\n{3RGW}\nCreature - Beast\nCON,R\nVigilance, trample\rWhenever Meglonoth blocks a creature, Meglonoth deals damage to that creature's controller equal to Meglonoth's power.\n6/6"
+    IDS_STRING8914          "Nyxathid\n{1BB}\nCreature - Elemental\nCON,R\nAs Nyxathid enters the battlefield, choose an opponent.\rNyxathid gets -1/-1 for each card in the chosen player's hand.\n7/7"
+    IDS_STRING8915          "Voices from the Void\n{4B}\nSorcery\nCON,U\nDomain - Target player discards a card for each basic land type among lands you control."
+    IDS_STRING8916          "Worldheart Phoenix\n{3R}\nCreature - Phoenix\nCON,R\nFlying\rYou may cast Worldheart Phoenix from your graveyard by paying {WUBRG} rather than paying its mana cost. If you do, it enters the battlefield with two +1/+1 counters on it.\n2/2"
+    IDS_STRING8917          "Yoke of the Damned\n{1B}\nEnchantment - Aura\nCON,C\nEnchant creature\rWhen a creature dies, destroy enchanted creature."
+    IDS_STRING8918          "Wretched Banquet\n{B}\nSorcery\nCON,C\nDestroy target creature if it has the least power or is tied for least power among creatures on the battlefield."
+    IDS_STRING8919          "Wandering Goblins\n{2R}\nCreature - Goblin Warrior\nCON,C\nDomain - {3}: Wandering Goblins gets +1/+0 until end of turn for each basic land type among lands you control.\n0/3"
+    IDS_STRING8920          "Toxic Iguanar\n{R}\nCreature - Lizard\nCON\nToxic Iguanar has deathtouch as long as you control a green permanent.\n1/1"
+    IDS_STRING8921          "Progenitus\n{WWUUBBRRGG}\nLegendary Creature - Hydra Avatar\nCON,MR\nProtection from everything\rIf Progenitus would be put into a graveyard from anywhere, reveal Progenitus and shuffle it into its owner's library instead.\n10/10"
+    IDS_STRING8922          "Apocalypse Hydra\n{XRG}\nCreature - Hydra\nCON,MR\nApocalypse Hydra enters the battlefield with X +1/+1 counters on it. If X is 5 or more, it enters the battlefield with an additional X +1/+1 counters on it.\r{1R}, Remove a +1/+1 counter from Apocalypse Hydra: Apocalypse Hydra deals 1 damage to target creature or player.\n0/0"
+    IDS_STRING8923          "Wall of Reverence\n{3W}\nCreature - Spirit Wall\nCON,R\nDefender, flying\rAt the beginning of your end step, you may gain life equal to the power of target creature you control.\n1/6"
+    IDS_STRING8924          "Nicol Bolas, Planeswalker\n{4UBBR}\nPlaneswalker - Bolas\nCON,MR\n[+3]: Destroy target noncreature permanent.\r[-2]: Gain control of target creature.\r[-9]: Nicol Bolas, Planeswalker deals 7 damage to target player. That player discards seven cards, then sacrifices seven permanents.\n5"
+    IDS_STRING8925          "Spore Burst\n{3G}\nSorcery\nCON,U\nDomain - Put a 1/1 green Saproling creature token onto the battlefield for each basic land type among lands you control."
+    IDS_STRING8926          "Soul's Majesty\n{4G}\nSorcery\nCON,R\nDraw cards equal to the power of target creature you control."
+    IDS_STRING8927          "Telemin Performance\n{3UU}\nSorcery\nCON,R\nTarget opponent reveals cards from the top of his or her library until he or she reveals a creature card. That player puts all noncreature cards revealed this way into his or her graveyard, then you put the creature card onto the battlefield under your control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING8928          "Elder Mastery\n{3UBR}\nEnchantment - Aura\nCON,U\nEnchant creature\rEnchanted creature gets +3/+3 and has flying.\rWhenever enchanted creature deals damage to a player, that player discards two cards."
+    IDS_STRING8929          "Thornling\n{3GG}\nCreature - Elemental Shapeshifter\nCON,MR\n{G}: Thornling gains haste until end of turn.\r{G}: Thornling gains trample until end of turn.\r{G}: Thornling is indestructible this turn.\r{1}: Thornling gets +1/-1 until end of turn.\r{1}: Thornling gets -1/+1 until end of turn.\n4/4"
+    IDS_STRING8930          "Master Transmuter\n{3U}\nArtifact Creature - Human Artificer\nCON,R\n{U}, {T}, Return an artifact you control to its owner's hand: You may put an artifact card from your hand onto the battlefield.\n1/2"
+    IDS_STRING8931          "Nacatl Savage\n{1G}\nCreature - Cat Warrior\nCON,C\nProtection from artifacts\n2/1"
+    IDS_STRING8932          "Banefire\n{XR}\nSorcery\nCON,R\nBanefire deals X damage to target creature or player.\rIf X is 5 or more, Banefire can't be countered by spells or abilities and the damage can't be prevented."
+    IDS_STRING8933          "Gwafa Hazid, Profiteer\n{1WU}\nLegendary Creature - Human Rogue\nCON,R\n{WU}, {T}: Put a bribery counter on target creature you don't control. Its controller draws a card.\rCreatures with bribery counters on them can't attack or block.\n2/2"
+    IDS_STRING8934          "Faerie Mechanist\n{3U}\nArtifact Creature - Faerie Artificer\nCON,C\nFlying\rWhen Faerie Mechanist enters the battlefield, look at the top three cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\n2/2"
+    IDS_STRING8935          "Dragonsoul Knight\n{2R}\nCreature - Human Knight\nCON,U\nFirst strike\r{WUBRG}: Until end of turn, Dragonsoul Knight becomes a Dragon, gets +5/+3, and gains flying and trample.\n2/2"
+    IDS_STRING8936          "Paragon of the Amesha\n{2W}\nCreature - Human Knight\nCON,U\nFirst strike\r{WUBRG}:  Until end of turn, Paragon of the Amesha becomes an Angel, gets +3/+3, and gains flying and lifelink.\n2/2"
+    IDS_STRING8937          "Fleshformer\n{2B}\nCreature - Human Wizard\nCON,U\n{WUBRG}: Fleshformer gets +2/+2 and gains fear until end of turn. Target creature gets -2/-2 until end of turn. Activate this ability only during your turn.\n2/2"
+    IDS_STRING8938          "Goblin Razerunners\n{2RR}\nCreature - Goblin Warrior\nCON,R\n{1R}, Sacrifice a land: Put a +1/+1 counter on Goblin Razerunners.\rAt the beginning of your end step, you may have Goblin Razerunners deal damage equal to the number of +1/+1 counters on it to target player.\n3/4"
+    IDS_STRING8939          "Voracious Dragon\n{3RR}\nCreature - Dragon\nCON,R\nFlying\rDevour 1\rWhen Voracious Dragon enters the battlefield, it deals damage to target creature or player equal to twice the number of Goblins it devoured.\n4/4"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

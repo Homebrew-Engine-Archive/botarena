@@ -1,0 +1,272 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Morningtide.ico"
+IDI_LARGE_MODULE        ICON                    "MorningtideLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Morningtide"
+    IDS_EXPANSION_ABBREV    "MOR"
+    IDS_FIRST_CARD          "18300"
+    IDS_TOTAL_CARD          "150"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "18450"
+    IDS_MODULE_LARGE_ICON_ID "18451"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-02-2008"
+    IDS_MWS_FOLDER          "MWS\\MOR\\"
+    IDS_PRODUCT_LIST        """Morningtide Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18300         "Idyllic Tutor\n{2W}\nSorcery\nMOR,R\nSearch your library for an enchantment card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING18301         "Elvish Warrior\n{GG}\nCreature - Elf Warrior\nMOR,C\n\n2/3"
+    IDS_STRING18302         "Kindled Fury\n{R}\nInstant\nMOR,C\nTarget creature gets +1/+0 and gains first strike until end of turn."
+    IDS_STRING18303         "Mind Spring\n{XUU}\nSorcery\nMOR,R\nDraw X cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18304         "Mind Shatter\n{XBB}\nSorcery\nMOR,R\nTarget player discards X cards at random."
+    IDS_STRING18305         "Negate\n{1U}\nInstant\nMOR,C\nCounter target noncreature spell."
+    IDS_STRING18306         "Mosquito Guard\n{W}\nCreature - Kithkin Soldie\nMOR,C\nFirst strike\rReinforce 1-{1W}\n1/1"
+    IDS_STRING18307         "Heritage Druid\n{G}\nCreature - Elf Druid\nMOR,U\nTap three untapped Elves you control: Add {GGG} to your mana pool.\n1/1"
+    IDS_STRING18308         "Ambassador Oak\n{3G}\nCreature - Treefolk Warrior\nMOR,C\nWhen Ambassador Oak enters the battlefield, put a 1/1 green Elf Warrior creature token onto the battlefield.\n3/3"
+    IDS_STRING18309         "Blightsoil Druid\n{1B}\nCreature - Elf Druid\nMOR,C\n{T}, Pay 1 life: Add {G} to your mana pool.\n1/2"
+    IDS_STRING18310         "Boldwyr Heavyweights\n{2RR}\nCreature - Giant Warrior\nMOR,R\nTrample\rWhen Boldwyr Heavyweights enters the battlefield, each opponent may search his or her library for a creature card and put it onto the battlefield. Then each player who searched his or her library this way shuffles it.\n8/8"
+    IDS_STRING18311         "Borderland Behemoth\n{5RR}\nCreature - Giant Warrior\nMOR,R\nTrample\rBorderland Behemoth gets +4/+4 for each other Giant you control.\n4/4"
+    IDS_STRING18312         "Burrenton Bombardier\n{2W}\nCreature - Kithkin Soldier\nMOR,C\nFlying\rReinforce 2-{2W}\n2/2"
+    IDS_STRING18313         "Burrenton Shield-Bearers\n{4W}\nCreature - Kithkin Soldier\nMOR,C\nWhenever Burrenton Shield-Bearers attacks, target creature gets +0/+3 until end of turn.\n3/3"
+    IDS_STRING18314         "Daily Regimen\n{W}\nEnchantment - Aura\nMOR,U\nEnchant creature\r{1W}: Put a +1/+1 counter on enchanted creature."
+    IDS_STRING18315         "Dewdrop Spy\n{1UU}\nCreature - Faerie Rogue\nMOR,C\nFlash\rFlying\rWhen Dewdrop Spy enters the battlefield, look at the top card of target player's library.\n2/2"
+    IDS_STRING18316         "Disperse\n{1U}\nInstant\nMOR,C\nReturn target nonland permanent to its owner's hand."
+    IDS_STRING18317         "Earthbrawn\n{1G}\nInstant\nMOR,C\nTarget creature gets +3/+3 until end of turn.\rReinforce 1-{1G}"
+    IDS_STRING18318         "Fencer Clique\n{2UU}\nCreature - Faerie Soldier\nMOR,C\nFlying\r{U}: Put Fencer Clique on top of its owner's library.\n3/2"
+    IDS_STRING18319         "Final-Sting Faerie\n{3B}\nCreature - Faerie Assassin\nMOR,C\nFlying\rWhen Final-Sting Faerie enters the battlefield, destroy target creature that was dealt damage this turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18320         "Weirding Shaman\n{1B}\nCreature - Goblin Shaman\nMOR,R\n{3B}, Sacrifice a Goblin: Put two 1/1 black Goblin Rogue creature tokens onto the battlefield.\n2/1"
+    IDS_STRING18321         "Greatbow Doyen\n{4G}\nCreature - Elf Archer\nMOR,R\nOther Archer creatures you control get +1/+1.\rWhenever an Archer you control deals damage to a creature, that Archer deals that much damage to that creature's controller.\n2/4"
+    IDS_STRING18322         "Indomitable Ancients\n{2WW}\nCreature - Treefolk Warrior\nMOR,R\n\n2/10"
+    IDS_STRING18323         "Inspired Sprite\n{3U}\nCreature - Faerie Wizard\nMOR,U\nFlash\rFlying\rWhenever you cast a Wizard spell, you may untap Inspired Sprite.\r{T}: Draw a card, then discard a card.\n2/2"
+    IDS_STRING18324         "Lunk Errant\n{5R}\nCreature - Giant Warrior\nMOR,C\nWhenever Lunk Errant attacks alone, it gets +1/+1 and gains trample until end of turn.\n4/4"
+    IDS_STRING18325         "Lys Alana Bowmaster\n{2G}\nCreature - Elf Archer\nMOR,C\nReach\rWhenever you cast an Elf spell, you may have Lys Alana Bowmaster deal 2 damage to target creature with flying.\n2/2"
+    IDS_STRING18326         "Merrow Witsniper\n{U}\nCreature - Merfolk Rogue\nMOR,C\nWhen Merrow Witsniper enters the battlefield, target player puts the top card of his or her library into his or her graveyard.\n1/1"
+    IDS_STRING18327         "Orchard Warden\n{4GG}\nCreature - Treefolk Shaman\nMOR,U\nWhenever another Treefolk creature enters the battlefield under your control, you may gain life equal to that creature's toughness.\n4/6"
+    IDS_STRING18328         "Order of the Golden Cricket\n{1W}\nCreature - Kithkin Knight\nMOR,C\nWhenever Order of the Golden Cricket attacks, you may pay {W}. If you do, it gains flying until end of turn.\n2/2"
+    IDS_STRING18329         "Prickly Boggart\n{B}\nCreature - Goblin Rogue\nMOR,C\nFear\n1/1"
+    IDS_STRING18330         "Rhys the Exiled\n{2G}\nLegendary Creature - Elf Warrior\nMOR,R\nWhenever Rhys the Exiled attacks, you gain 1 life for each Elf you control.\r{B}, Sacrifice an Elf: Regenerate Rhys the Exiled.\n3/2"
+    IDS_STRING18331         "Seething Pathblazer\n{2R}\nCreature - Elemental Warrior\nMOR,C\nSacrifice an Elemental: Seething Pathblazer gets +2/+0 and gains first strike until end of turn.\n2/2"
+    IDS_STRING18332         "Shard Volley\n{R}\nInstant\nMOR,C\nAs an additional cost to cast Shard Volley, sacrifice a land.\rShard Volley deals 3 damage to target creature or player."
+    IDS_STRING18333         "Stenchskipper\n{3B}\nCreature - Elemental\nMOR,R\nFlying\rAt the beginning of the end step, if you control no Goblins, sacrifice Stenchskipper.\n6/5"
+    IDS_STRING18334         "Stonybrook Schoolmaster\n{2W}\nCreature - Merfolk Wizard\nMOR,C\nWhenever Stonybrook Schoolmaster becomes tapped, you may put a 1/1 blue Merfolk Wizard creature token onto the battlefield.\n1/2"
+    IDS_STRING18335         "Swell of Courage\n{3WW}\nInstant\nMOR,U\nCreatures you control get +2/+2 until end of turn.\rReinforce X-{XWW}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18336         "Weed-Pruner Poplar\n{4B}\nCreature - Treefolk Assassin\nMOR,C\nAt the beginning of your upkeep, target creature other than Weed-Pruner Poplar gets -1/-1 until end of turn.\n3/3"
+    IDS_STRING18337         "Kinsbaile Cavalier\n{3W}\nCreature - Kithkin Knight\nMOR,R\nKnight creatures you control have double strike.\n2/2"
+    IDS_STRING18338         "Bitterblossom\n{1B}\nTribal Enchantment - Faerie\nMOR,R\nAt the beginning of your upkeep, you lose 1 life and put a 1/1 black Faerie Rogue creature token with flying onto the battlefield."
+    IDS_STRING18339         "Nevermaker\n{3U}\nCreature - Elemental\nMOR,U\nFlying\rWhen Nevermaker leaves the battlefield, put target nonland permanent on top of its owner's library.\rEvoke {3U}\n2/3"
+    IDS_STRING18340         "Offalsnout\n{2B}\nCreature - Elemental\nMOR,U\nFlash\rWhen Offalsnout leaves the battlefield, exile target card from a graveyard.\rEvoke {B}\n2/2"
+    IDS_STRING18341         "Reveillark\n{4W}\nCreature - Elemental\nMOR,R\nFlying\rWhen Reveillark leaves the battlefield, return up to two target creature cards with power 2 or less from your graveyard to the battlefield.\rEvoke {5W}\n4/3"
+    IDS_STRING18342         "Spitebellows\n{5R}\nCreature - Elemental\nMOR,U\nWhen Spitebellows leaves the battlefield, it deals 6 damage to target creature.\rEvoke {1RR}\n6/1"
+    IDS_STRING18343         "Walker of the Grove\n{6GG}\nCreature - Elemental\nMOR,U\nWhen Walker of the Grove leaves the battlefield, put a 4/4 green Elemental creature token onto the battlefield.\rEvoke {4G}\n7/7"
+    IDS_STRING18344         "Hostile Realm\n{2R}\nEnchantment - Aura\nMOR,C\nEnchant land\rEnchanted land has ""{T}: Target creature can't block this turn."""
+    IDS_STRING18345         "Forfend\n{1W}\nInstant\nMOR,C\nPrevent all damage that would be dealt to creatures this turn."
+    IDS_STRING18346         "Supreme Exemplar\n{6U}\nCreature - Elemental\nMOR,R\nFlying\rChampion an Elemental\n10/10"
+    IDS_STRING18347         "Lightning Crafter\n{3R}\nCreature - Goblin Shaman\nMOR,R\nChampion a Goblin or Shaman\r{T}: Lightning Crafter deals 3 damage to target creature or player.\n3/3"
+    IDS_STRING18348         "Unstoppable Ash\n{3G}\nCreature - Treefolk Warrior\nMOR,R\nTrample\rChampion a Treefolk or Warrior\rWhenever a creature you control becomes blocked, it gets +0/+5 until end of turn.\n5/5"
+    IDS_STRING18349         "Slithermuse\n{2UU}\nCreature - Elemental\nMOR,R\nWhen Slithermuse leaves the battlefield, choose an opponent. If that player has more cards in hand than you, draw cards equal to the difference.\rEvoke {3U}\n3/3"
+    IDS_STRING18350         "Festercreep\n{1B}\nCreature - Elemental\nMOR,C\nFestercreep enters the battlefield with a +1/+1 counter on it.\r{1B}, Remove a +1/+1 counter from Festercreep: All other creatures get -1/-1 until end of turn.\n0/0"
+    IDS_STRING18351         "Floodchaser\n{5U}\nCreature - Elemental\nMOR,C\nFloodchaser enters the battlefield with six +1/+1 counters on it.\rFloodchaser can't attack unless defending player controls an Island.\r{U}, Remove a +1/+1 counter from Floodchaser: Target land becomes an Island until end of turn.\n0/0"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18352         "Shinewend\n{1W}\nCreature - Elemental\nMOR,C\nFlying\rShinewend enters the battlefield with a +1/+1 counter on it.\r{1W}, Remove a +1/+1 counter from Shinewend: Destroy target enchantment.\n0/0"
+    IDS_STRING18353         "Stingmoggie\n{3R}\nCreature - Elemental\nMOR,C\nStingmoggie enters the battlefield with two +1/+1 counters on it.\r{3R}, Remove a +1/+1 counter from Stingmoggie: Destroy target artifact or land.\n0/0"
+    IDS_STRING18354         "Countryside Crusher\n{1RR}\nCreature - Giant Warrior\nMOR,R\nAt the beginning of your upkeep, reveal the top card of your library. If it's a land card, put it into your graveyard and repeat this process.\rWhenever a land card is put into your graveyard from anywhere, put a +1/+1 counter on Countryside Crusher.\n3/3"
+    IDS_STRING18355         "Research the Deep\n{1U}\nSorcery\nMOR,U\nDraw a card. Clash with an opponent. If you win, return Research the Deep to its owner's hand."
+    IDS_STRING18356         "Redeem the Lost\n{1W}\nInstant\nMOR,U\nTarget creature you control gains protection from the color of your choice until end of turn. Clash with an opponent. If you win, return Redeem the Lost to its owner's hand."
+    IDS_STRING18357         "Release the Ants\n{1R}\nInstant\nMOR,U\nRelease the Ants deals 1 damage to target creature or player. Clash with an opponent. If you win, return Release the Ants to its owner's hand."
+    IDS_STRING18358         "Revive the Fallen\n{1B}\nSorcery\nMOR,U\nReturn target creature card from a graveyard to its owner's hand. Clash with an opponent. If you win, return Revive the Fallen to its owner's hand."
+    IDS_STRING18359         "Titan's Revenge\n{XRR}\nSorcery\nMOR,R\nTitan's Revenge deals X damage to target creature or player. Clash with an opponent. If you win, return Titan's Revenge to its owner's hand."
+    IDS_STRING18360         "Sunflare Shaman\n{1R}\nCreature - Elemental Shaman\nMOR,C\n{1R}, {T}: Sunflare Shaman deals X damage to target creature or player and X damage to itself, where X is the number of Elemental cards in your graveyard.\n2/1"
+    IDS_STRING18361         "Chameleon Colossus\n{2GG}\nCreature - Shapeshifter\nMOR,R\nChangeling\rProtection from black\r{2GG}:Chameleon Colossus gets +X/+X until end of turn, where X is its power.\n4/4"
+    IDS_STRING18362         "Changeling Sentinel\n{3W}\nCreature - Shapeshifter\nMOR,C\nChangeling\rVigilance\n3/2"
+    IDS_STRING18363         "Game-Trail Changeling\n{3GG}\nCreature - Shapeshifter\nMOR,C\nChangeling\rTrample\n4/4"
+    IDS_STRING18364         "Moonglove Changeling\n{2B}\nCreature - Shapeshifter\nMOR,C\nChangeling\r{B}: Moonglove Changeling gains deathtouch until end of turn.\n2/2"
+    IDS_STRING18365         "Mothdust Changeling\n{U}\nCreature - Shapeshifter\nMOR,C\nChangeling\rTap an untapped creature you control: Mothdust Changeling gains flying until end of turn.\n1/1"
+    IDS_STRING18366         "Taurean Mauler\n{2R}\nCreature - Shapeshifter\nMOR,R\nChangeling\rWhenever an opponent casts a spell, you may put a +1/+1 counter on Taurean Mauler.\n2/2"
+    IDS_STRING18367         "War-Spike Changeling\n{3R}\nCreature - Shapeshifter\nMOR,C\nChangeling\r{R}: War-Spike Changeling gains first strike until end of turn.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18368         "Mutavault\n\nLand\nMOR,R\n{T}: Add {1} to your mana pool.\r{1}: Mutavault becomes a 2/2 creature with all creature types until end of turn. It's still a land."
+    IDS_STRING18369         "Vendilion Clique\n{1UU}\nLegendary creature - Faerie Wizard\nMOR,R\nFlash\rFlying\rWhen Vendilion Clique enters the battlefield, look at target player's hand. You may choose a nonland card from it. If you do, that player reveals the chosen card, puts it on the bottom of his or her library, then draws a card.\n3/1"
+    IDS_STRING18370         "Everbark Shaman\n{4G}\nCreature - Treefolk Shaman\nMOR,C\n{T}, Exile a Treefolk card from your graveyard: Search your library for two Forest cards and put them onto the battlefield tapped. Then shuffle your library.\n3/5"
+    IDS_STRING18371         "Scarblade Elite\n{BB}\nCreature - Elf Assassin\nMOR,R\n{T}, Exile an Assassin card from your graveyard: Destroy target creature.\n2/2"
+    IDS_STRING18372         "Vengeful Firebrand\n{3R}\nCreature - Elemental Warrior\nMOR,R\nVengeful Firebrand has haste as long as a Warrior card is in your graveyard.\r{R}: Vengeful Firebrand gets +1/+0 until end of turn.\n5/2"
+    IDS_STRING18373         "Rustic Clachan\n\nLand\nMOR,R\nAs Rustic Clachan enters the battlefield, you may reveal a Kithkin card from your hand. If you don't, Rustic Clachan enters the battlefield tapped.\r{T}: Add {W} to your mana pool.\rReinforce 1-{1W}"
+    IDS_STRING18374         "Sage's Dousing\n{2U}\nTribal Instant - Wizard\nMOR,U\nCounter target spell unless its controller pays {3}. If you control a Wizard, draw a card."
+    IDS_STRING18375         "Stream of Unconsciousness\n{U}\nTribal Instant - Wizard\nMOR,C\nTarget creature gets -4/-0 until end of turn. If you control a Wizard, draw a card."
+    IDS_STRING18376         "Violet Pall\n{4B}\nTribal Instant - Faerie\nMOR,C\nDestroy target nonblack creature. Put a 1/1 black Faerie Rogue creature token with flying onto the battlefield."
+    IDS_STRING18377         "Hunting Triad\n{3G}\nTribal Sorcery - Elf\nMOR,U\nPut three 1/1 green Elf Warrior creature tokens onto the battlefield.\rReinforce 3-{3G}"
+    IDS_STRING18378         "Oona's Blackguard\n{1B}\nCreature - Faerie Rogue\nMOR,U\nFlying\rEach other Rogue creature you control enters the battlefield with an additional +1/+1 counter on it.\rWhenever a creature you control with a +1/+1 counter on it deals combat damage to a player, that player discards a card.\n1/1"
+    IDS_STRING18379         "Morsel Theft\n{2BB}\nTribal Sorcery - Rogue\nMOR,C\nProwl {1B}\rTarget player loses 3 life and you gain 3 life. If Morsel Theft's prowl cost was paid, draw a card."
+    IDS_STRING18380         "Stinkdrinker Bandit\n{3B}\nCreature - Goblin Rogue\nMOR,U\nProwl {1B}\rWhenever a Rogue you control attacks and isn't blocked, it gets +2/+1 until end of turn.\n2/1"
+    IDS_STRING18381         "Thieves' Fortune\n{2U}\nTribal Instant - Rogue\nMOR,U\nProwl {U}\rLook at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING18382         "Frogtosser Banneret\n{1B}\nCreature - Goblin Rogue\nMOR,C\nHaste\rGoblin spells and Rogue spells you cast cost {1} less to cast.\n1/1"
+    IDS_STRING18383         "Ballyrush Banneret\n{1W}\nCreature - Kithkin Soldier\nMOR,C\nKithkin spells and Soldier spells you cast cost {1} less to cast.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18384         "Bosk Banneret\n{1G}\nCreature - Treefolk Shaman\nMOR,C\nTreefolk spells and Shaman spells you cast cost {1} less to cast.\n1/3"
+    IDS_STRING18385         "Brighthearth Banneret\n{1R}\nCreature - Elemental Warrior\nMOR,C\nElemental spells and Warrior spells you cast cost {1} less to cast.\rReinforce 1-{1R}\n1/1"
+    IDS_STRING18386         "Stonybrook Banneret\n{1U}\nCreature - Merfolk Wizard\nMOR,C\nIslandwalk\rMerfolk spells and Wizard spells you cast cost {1} less to cast.\n1/1"
+    IDS_STRING18387         "Murmuring Bosk\n\nLand - Forest\nMOR,R\n({T}: Add {G} to your mana pool.)\rAs Murmuring Bosk enters the battlefield, you may reveal a Treefolk card from your hand. If you don't, Murmuring Bosk enters the battlefield tapped.\r{T}: Add {W} or {B} to your mana pool. Murmuring Bosk deals 1 damage to you."
+    IDS_STRING18388         "Earwig Squad\n{3BB}\nCreature - Goblin Rogue\nMOR,R\nProwl {2B}\rWhen Earwig Squad enters the battlefield, if its prowl cost was paid, search target opponent's library for three cards and exile them. Then that player shuffles his or her library.\n5/3"
+    IDS_STRING18389         "Noggin Whack\n{2BB}\nTribal Sorcery - Rogue\nMOR,U\nProwl {1B}\rTarget player reveals three cards from his or her hand. You choose two of them. That player discards those cards."
+    IDS_STRING18390         "Notorious Throng\n{3U}\nTribal Sorcery - Rogue\nMOR,R\nProwl {5U}\rPut X 1/1 black Faerie Rogue creature tokens with flying onto the battlefield, where X is the damage dealt to your opponents this turn. If Notorious Throng's prowl cost was paid, take an extra turn after this one."
+    IDS_STRING18391         "Latchkey Faerie\n{3U}\nCreature - Faerie Rogue\nMOR,C\nFlying\rProwl {2U}\rWhen Latchkey Faerie enters the battlefield, if its prowl cost was paid, draw a card.\n3/1"
+    IDS_STRING18392         "Warren Weirding\n{1B}\nTribal Sorcery - Goblin\nMOR,U\nTarget player sacrifices a creature. If a Goblin is sacrificed this way, that player puts two 1/1 black Goblin Rogue creature tokens onto the battlefield, and those tokens gain haste until end of turn."
+    IDS_STRING18393         "Sage of Fables\n{2U}\nCreature - Merfolk Wizard\nMOR,U\nEach other Wizard creature you control enters the battlefield with an additional +1/+1 counter on it.\r{2}, Remove a +1/+1 counter from a creature you control: Draw a card.\n2/2"
+    IDS_STRING18394         "Sensation Gorger\n{1RR}\nCreature - Goblin Shaman\nMOR,R\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Sensation Gorger, you may reveal it. If you do, each player discards his or her hand and draws four cards.\n2/2"
+    IDS_STRING18395         "Wolf-Skull Shaman\n{1G}\nCreature - Elf Shaman\nMOR,U\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Wolf-Skull Shaman, you may reveal it. If you do, put a 2/2 green Wolf creature token onto the battlefield.\n2/2"
+    IDS_STRING18396         "Winnower Patrol\n{2G}\nCreature - Elf Warrior\nMOR,C\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Winnower Patrol, you may reveal it. If you do, put a +1/+1 counter on Winnower Patrol.\n3/2"
+    IDS_STRING18397         "Mudbutton Clanger\n{R}\nCreature - Goblin Warrior\nMOR,C\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Mudbutton Clanger, you may reveal it. If you do, Mudbutton Clanger gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING18398         "Ink Dissolver\n{1U}\nCreature - Merfolk Wizard\nMOR,C\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Ink Dissolver, you may reveal it. If you do, each opponent puts the top three cards of his or her library into his or her graveyard.\n2/1"
+    IDS_STRING18399         "Kithkin Zephyrnaut\n{2W}\nCreature - Kithkin Soldier\nMOR,C\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Kithkin Zephyrnaut, you may reveal it. If you do, Kithkin Zephyrnaut gets +2/+2 and gains flying and vigilance until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18400         "Nightshade Schemers\n{4B}\nCreature - Faerie Wizard\nMOR,U\nFlying\rKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Nightshade Schemers, you may reveal it. If you do, each opponent loses 2 life.\n3/2"
+    IDS_STRING18401         "Wandering Graybeard\n{3WW}\nCreature - Giant Wizard\nMOR,U\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Wandering Graybeard, you may reveal it. If you do, you gain 4 life.\n4/4"
+    IDS_STRING18402         "Squeaking Pie Grubfellows\n{3B}\nCreature - Goblin Shaman\nMOR,C\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Squeaking Pie Grubfellows, you may reveal it. If you do, each opponent discards a card.\n3/2"
+    IDS_STRING18403         "Pyroclast Consul\n{3RR}\nCreature - Elemental Shaman\nMOR,U\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Pyroclast Consul, you may reveal it. If you do, Pyroclast Consul deals 2 damage to each creature.\n3/3"
+    IDS_STRING18404         "Waterspout Weavers\n{3UU}\nCreature - Merfolk Wizard\nMOR,U\nKinship - At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Waterspout Weavers, you may reveal it. If you do, each creature you control gains flying until end of turn.\n3/3"
+    IDS_STRING18405         "Cloak and Dagger\n{2}\nTribal Artifact - Rogue Equipment\nMOR,U\nEquipped creature gets +2/+0 and has shroud.\rWhenever a Rogue creature enters the battlefield, you may attach Cloak and Dagger to it.\rEquip {3}"
+    IDS_STRING18406         "Diviner's Wand\n{3}\nTribal Artifact - Wizard Equipment\nMOR,U\nEquipped creature has ""Whenever you draw a card, this creature gets +1/+1 and gains flying until end of turn"" and ""{4}: Draw a card.""\rWhenever a Wizard creature enters the battlefield, you may attach Diviner's Wand to it.\rEquip {3}"
+    IDS_STRING18407         "Obsidian Battle-Axe\n{3}\nTribal Artifact - Warrior Equipment\nMOR,U\nEquipped creature gets +2/+1 and has haste.\rWhenever a Warrior creature enters the battlefield, you may attach Obsidian Battle-Axe to it.\rEquip {3}"
+    IDS_STRING18408         "Thornbite Staff\n{2}\nTribal Artifact - Shaman Equipment\nMOR,U\nEquipped creature has ""{2}, {T}: This creature deals 1 damage to target creature or player"" and ""Whenever a creature dies, untap this creature.""\rWhenever a Shaman creature enters the battlefield, you may attach Thornbite Staff to it.\rEquip {4}"
+    IDS_STRING18409         "Veteran's Armaments\n{2}\nTribal Artifact - Soldier Equipment\nMOR,U\nEquipped creature has ""Whenever this creature attacks or blocks, it gets +1/+1 until end of turn for each attacking creature.""\rWhenever a Soldier creature enters the battlefield, you may attach Veteran's Armaments to it.\rEquip {2}"
+    IDS_STRING18410         "Auntie's Snitch\n{2B}\nCreature - Goblin Rogue\nMOR,R\nAuntie's Snitch can't block.\rProwl {1B}\rWhenever a Goblin or Rogue you control deals combat damage to a player, if Auntie's Snitch is in your graveyard, you may return Auntie's Snitch to your hand.\n3/1"
+    IDS_STRING18411         "Reach of Branches\n{4G}\nTribal Instant - Treefolk\nMOR,R\nPut a 2/5 green Treefolk Shaman creature token onto the battlefield.\rWhenever a Forest enters the battlefield under your control, you may return Reach of Branches from your graveyard to your hand."
+    IDS_STRING18412         "Bramblewood Paragon\n{1G}\nCreature - Elf Warrior\nMOR,U\nEach other Warrior creature you control enters the battlefield with an additional +1/+1 counter on it.\rEach creature you control with a +1/+1 counter on it has trample.\n2/2"
+    IDS_STRING18413         "Scapeshift\n{2GG}\nSorcery\nMOR,R\nSacrifice any number of lands. Search your library for that many land cards, put them onto the battlefield tapped, then shuffle your library."
+    IDS_STRING18414         "Fertilid\n{2G}\nCreature - Elemental\nMOR,C\nFertilid enters the battlefield with two +1/+1 counters on it.\r{1G}, Remove a +1/+1 counter from Fertilid: Target player searches his or her library for a basic land card and puts it onto the battlefield tapped. Then that player shuffles his or her library.\n0/0"
+    IDS_STRING18415         "Rage Forger\n{2R}\nCreature - Elemental Shaman\nMOR,U\nWhen Rage Forger enters the battlefield, put a +1/+1 counter on each other Shaman creature you control.\rWhenever a creature you control with a +1/+1 counter on it attacks, you may have that creature deal 1 damage to target player.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18416         "Gilt-Leaf Archdruid\n{3GG}\nCreature - Elf Druid\nMOR,R\nWhenever you cast a Druid spell, you may draw a card.\rTap seven untapped Druids you control: Gain control of all lands target player controls.\n3/3"
+    IDS_STRING18417         "Preeminent Captain\n{2W}\nCreature - Kithkin Soldier\nMOR,R\nFirst Strike\rWhenever Preeminent Captain attacks, you may put a Soldier creature card from your hand onto the battlefield tapped and attacking.\n2/2"
+    IDS_STRING18418         "Boldwyr Intimidator\n{5RR}\nCreature - Giant Warrior\nMOR,U\nCowards can't block Warriors.\r{R}: Target creature becomes a Coward until end of turn.\r{2R}: Target creature becomes a Warrior until end of turn.\n5/5"
+    IDS_STRING18419         "Reins of the Vinesteed\n{3G}\nEnchantment - Aura\nMOR,C\nEnchant creature\rEnchanted creature gets +2/+2.\rWhen enchanted creature dies, you may return Reins of the Vinesteed from your graveyard to the battlefield attached to a creature that shares a creature type with that creature."
+    IDS_STRING18420         "Distant Melody\n{3U}\nSorcery\nMOR,C\nChoose a creature type. Draw a card for each permanent you control of that type."
+    IDS_STRING18421         "Luminescent Rain\n{2G}\nInstant\nMOR,C\nChoose a creature type. You gain 2 life for each permanent you control of that type."
+    IDS_STRING18422         "Pack's Disdain\n{1B}\nInstant\nMOR,C\nChoose a creature type. Target creature gets -1/-1 until end of turn for each permanent of the chosen type you control."
+    IDS_STRING18423         "Coordinated Barrage\n{W}\nInstant\nMOR,C\nChoose a creature type. Coordinated Barrage deals damage to target attacking or blocking creature equal to the number of permanents you control of the chosen type."
+    IDS_STRING18424         "Roar of the Crowd\n{3R}\nSorcery\nMOR,C\nChoose a creature type. Roar of the Crowd deals damage to target creature or player equal to the number of permanents you control of the chosen type."
+    IDS_STRING18425         "Cenn's Tactician\n{W}\nCreature - Kithkin Soldier\nMOR,U\n{W}, {T}: Put a +1/+1 counter on target Soldier creature.\rEach creature you control with a +1/+1 counter on it can block an additional creature.\n1/1"
+    IDS_STRING18426         "Deglamer\n{1G}\nInstant\nMOR,C\nChoose target artifact or enchantment. Its owner shuffles it into his or her library."
+    IDS_STRING18427         "Sigil Tracer\n{1UU}\nCreature - Merfolk Wizard\nMOR,R\n{1U}, Tap two untapped Wizards you control: Copy target instant or sorcery spell. You may choose new targets for the copy.\n2/2"
+    IDS_STRING18428         "Stonehewer Giant\n{3WW}\nCreature - Giant Warrior\nMOR,R\nVigilance\r{1W}, {T}: Search your library for an Equipment card and put it onto the battlefield. Attach it to a creature you control. Then shuffle your library.\n4/4"
+    IDS_STRING18429         "Maralen of the Mornsong\n{1BB}\nLegendary Creature - Elf Wizard\nMOR,R\nPlayers can't draw cards.\rAt the beginning of each player's draw step, that player loses 3 life, searches his or her library for a card, puts it into his or her hand, then shuffles his or her library.\n2/3"
+    IDS_STRING18430         "Recross the Paths\n{2G}\nSorcery\nMOR,U\nReveal cards from the top of your library until you reveal a land card. Put that card onto the battlefield and the rest on the bottom of your library in any order. Clash with an opponent. If you win, return Recross the Paths to its owner's hand."
+    IDS_STRING18431         "Stomping Slabs\n{2R}\nSorcery\nMOR,U\nReveal the top seven cards of your library, then put those cards on the bottom of your library in any order. If a card named Stomping Slabs was revealed this way, Stomping Slabs deals 7 damage to target creature or player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING18432         "Declaration of Naught\n{UU}\nEnchantment\nMOR,R\nAs Declaration of Naught enters the battlefield, name a card.\r{U}: Counter target spell with the chosen name."
+    IDS_STRING18433         "Cream of the Crop\n{1G}\nEnchantment\nMOR,R\nWhenever a creature enters the battlefield under your control, you may look at the top X cards of your library, where X is that creature's power. If you do, put one of those cards on top of your library and the rest on the bottom of your library in any order."
+    IDS_STRING18434         "Kinsbaile Borderguard\n{1WW}\nCreature - Kithkin Soldier\nMOR,R\nKinsbaile Borderguard enters the battlefield with a +1/+1 counter on it for each other Kithkin you control.\rWhen Kinsbaile Borderguard dies, put a 1/1 white Kithkin Soldier creature token onto the battlefield for each counter on it."
+    IDS_STRING18435         "Feudkiller's Verdict\n{4WW}\nTribal Sorcery - Giant\nMOR,R\nYou gain 10 life. Then if you have more life than an opponent, put a 5/5 white Giant Warrior creature token onto the battlefield."
+    IDS_STRING18436         "Fendeep Summoner\n{4B}\nCreature - Treefolk Shaman\nMOR,R\n{T}: Up to two target Swamps each become 3/5 Treefolk Warrior creatures in addition to their other types until end of turn.\n3/5"
+//    IDS_STRING18433         "Door of Destinies\n{4}\nArtifact\nMOR,R\nAs Door of Destinies enters the battlefield, choose a creature type.\rWhenever you cast a spell of the chosen type, put a charge counter on Door of Destinies.\rCreatures you control of the chosen type get +1/+1 for each charge counter on Door of Destinies."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

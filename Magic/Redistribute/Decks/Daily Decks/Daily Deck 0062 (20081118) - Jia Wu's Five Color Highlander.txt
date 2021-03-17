@@ -1,0 +1,96 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+Ajani Vengeant (8720)
+Elspeth, Knight-Errant (8722)
+Jace Beleren (18011)
+
+// Creatures - 9 (15.00%)
+
+Broodmate Dragon (8543)
+Figure of Destiny (19006)
+Kitchen Finks (18593)
+Mulldrifter (18023)
+Nucklavee (18950)
+Oona, Queen of the Fae (18692)
+Plumeveil (18611)
+Rhox War Monk (8694)
+Shriekmaw (18025)
+
+// Instants - 14 (23.33%)
+
+Bant Charm (8536)
+Condemn (3291)
+4 Cryptic Command (18051)
+4 Esper Charm (8567)
+Jund Charm (8587)
+Negate (18305)
+Oona's Grace (18968)
+Remove Soul (3139)
+
+// Sorceries - 8 (13.33%)
+
+Cruel Ultimatum (8707)
+Firespout (18674)
+Hallowed Burial (19013)
+Mind Spring (18303)
+Primal Command (18131)
+Pyroclasm (3131)
+Tidings (3185)
+Wrath of God (3200)
+
+// Enchantments - 1 (1.67%)
+
+Oblivion Ring (8718)
+
+// Lands - 25 (41.67%)
+
+Adarkar Wastes (3002)
+Battlefield Forge (3012)
+Cascade Bluffs (18907)
+Crumbling Necropolis (8553)
+Flooded Grove (18914)
+Jungle Shrine (8588)
+Mystic Gate (18564)
+4 Reflecting Pool (18571)
+Shivan Reef (3158)
+Sunken Ruins (18580)
+Underground River (3189)
+Vivid Crag (18031)
+3 Vivid Creek (18032)
+Vivid Grove (18033)
+Vivid Marsh (18034)
+4 Vivid Meadow (18035)
+Yavimaya Coast (3202)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Chandra Nalaar (18028)
+Sarkhan Vol (8717)
+
+// Creatures
+
+Cloudthresher (18015)
+Doran, the Siege Tower (18133)
+Faerie Macabre (18539)
+Fulminator Mage (18600)
+Glen Elendra Archmage (18938)
+Puppeteer Clique (18671)
+Tidehollow Sculler (8721)
+Wispmare (18027)
+
+// Sorceries
+
+Mind Shatter (18304)
+Thoughtseize (17901)
+Violent Ultimatum (8562)
+
+// Enchantments
+
+Bitterblossom (18338)
+Runed Halo (18683)

@@ -1,0 +1,68 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+Jace Beleren (21258)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 9 (15.00%)
+
+Consecrated Sphinx (21722)
+4 Squadron Hawk (21218)
+4 Stoneforge Mystic (19638)
+
+// Instants - 13 (21.67%)
+
+3 Dismember (21951)
+Divine Offering (21783)
+2 Into the Roil (19373)
+4 Mana Leak (21214)
+3 Spell Pierce (19377)
+
+// Sorceries - 4 (6.67%)
+
+4 Preordain (21152)
+
+// Artifacts - 3 (5.00%)
+
+Batterskull (21983)
+Sword of Feast and Famine (21762)
+Sword of War and Peace (21999)
+
+// Lands - 26 (43.33%)
+
+4 Celestial Colonnade (19602)
+3 Glacial Fortress (21128)
+2 Inkmoth Nexus (21745)
+3 Island (21974)
+2 Island (21975)
+2 Plains (21978)
+2 Plains (21979)
+4 Seachrome Coast (21459)
+4 Tectonic Edge (19651)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Sun Titan (21161)
+
+// Instants
+
+Celestial Purge (21131)
+2 Condemn (21180)
+Dismember (21951)
+2 Divine Offering (21783)
+2 Flashfreeze (21133)
+
+// Sorceries
+
+Day of Judgment (21263)
+Despise (21950)
+3 Oust (20981)
+
+// Artifacts
+
+Batterskull (21983)

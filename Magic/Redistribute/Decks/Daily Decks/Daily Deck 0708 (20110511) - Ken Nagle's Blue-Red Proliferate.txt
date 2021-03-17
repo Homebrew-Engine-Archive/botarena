@@ -1,0 +1,29 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 6 (10.00%)
+
+3 Jace, the Mind Sculptor (19670)
+3 Koth of the Hammer (21435)
+
+// Instants - 8 (13.33%)
+
+4 Tezzeret's Gambit (21915)
+4 Volt Charge (21946)
+
+// Artifacts - 22 (36.67%)
+
+4 Contagion Clasp (21430)
+Contagion Engine (21454)
+4 Everflowing Chalice (19677)
+Lux Cannon (21521)
+4 Shrine of Burning Rage (22001)
+4 Sphere of the Suns (21731)
+4 Tumble Magnet (21447)
+
+// Lands - 24 (40.00%)
+
+Halimar Depths (19634)
+4 Inkmoth Nexus (21745)
+7 Island (3405)
+8 Mountain (3409)
+4 Scalding Tarn (19358)

@@ -1,0 +1,55 @@
+// Going Rogue
+// Morningtide Preconstructed
+
+// Total cards in deck - 60
+
+// Creatures - 20 (33.33%)
+
+Auntie's Snitch (18410)
+Dewdrop Spy (18315)
+3 Frogtosser Banneret (18382)
+2 Ghostly Changeling (18070)
+2 Latchkey Faerie (18391)
+Marsh Flitter (18101)
+Mothdust Changeling (18365)
+Nightshade Stinger (17983)
+2 Oona's Blackguard (18378)
+Paperfin Rascal (18061)
+2 Pestermite (18123)
+2 Prickly Boggart (18329)
+Stinkdrinker Bandit (18380)
+
+// Instants - 11 (18.33%)
+
+Ego Erasure (18107)
+2 Familiar's Ruse (18075)
+Nameless Inversion (18108)
+2 Peppersmoke (18109)
+2 Thieves' Fortune (18381)
+2 Violet Pall (18376)
+Whirlpool Whelm (18085)
+
+// Sorceries - 4 (6.67%)
+
+Hoarder's Greed (18124)
+2 Morsel Theft (18379)
+Notorious Throng (18390)
+
+// Enchantments - 1 (1.67%)
+
+Protective Bubble (17987)
+
+// Artifacts - 1 (1.67%)
+
+Cloak and Dagger (18405)
+
+// Lands - 23 (38.33%)
+
+2 Island (17910)
+3 Island (17907)
+3 Island (17908)
+2 Island (17909)
+4 Swamp (17919)
+3 Swamp (17920)
+3 Swamp (17921)
+3 Swamp (17922)

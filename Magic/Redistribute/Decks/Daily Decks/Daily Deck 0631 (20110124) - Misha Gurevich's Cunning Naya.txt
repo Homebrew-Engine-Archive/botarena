@@ -1,0 +1,46 @@
+// Total cards in deck - 60
+
+// Creatures - 28 (46.67%)
+
+4 Bloodbraid Elf (9105)
+4 Cunning Sparkmage (19608)
+4 Figure of Destiny (19006)
+4 Noble Hierarch (8819)
+4 Ranger of Eos (8642)
+4 Wild Nacatl (8504)
+4 Woolly Thoctar (8572)
+
+// Instants - 8 (13.33%)
+
+4 Lightning Bolt (21124)
+4 Path to Exile (8897)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+4 Copperline Gorge (21471)
+Mountain (21411)
+Mountain (21408)
+Mountain (21409)
+Mountain (21410)
+Plains (21412)
+Plains (21413)
+Plains (21414)
+4 Raging Ravine (19699)
+4 Razorverge Thicket (21472)
+Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Burrenton Forge-Tender (18054)
+3 Gaddock Teeg (18062)
+3 Kitchen Finks (18593)
+4 Qasali Pridemage (9018)
+
+// Instants
+
+2 Nature's Claim (19662)

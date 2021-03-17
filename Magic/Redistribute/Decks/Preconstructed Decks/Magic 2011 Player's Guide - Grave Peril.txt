@@ -1,0 +1,39 @@
+// Grave Peril
+// Magic 2011 Player's Guide
+
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Liliana Vess (21256)
+
+// Creatures - 11 (18.33%)
+
+4 Liliana's Specter (21149)
+4 Nightwing Shade (21150)
+2 Reassembling Skeleton (21102)
+Royal Assassin (21284)
+
+// Instants - 4 (6.67%)
+
+4 Doom Blade (21198)
+
+// Sorceries - 13 (21.67%)
+
+2 Corrupt (21196)
+2 Diabolic Tutor (21197)
+4 Duress (21280)
+Haunting Echoes (21281)
+4 Mind Rot (21200)
+
+// Enchantments - 7 (11.67%)
+
+3 Liliana's Caress (21148)
+4 Quag Sickness (21251)
+
+// Lands - 24 (40.00%)
+
+6 Swamp (21120)
+6 Swamp (21121)
+6 Swamp (21122)
+6 Swamp (21123)

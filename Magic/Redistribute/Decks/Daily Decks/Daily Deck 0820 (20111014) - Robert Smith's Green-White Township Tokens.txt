@@ -1,0 +1,65 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Elspeth Tirel (21433)
+
+// Creatures - 7 (11.67%)
+
+2 Blade Splicer (21919)
+2 Doomed Traveler (23423)
+2 Hero of Bladehold (21706)
+Mikaeus, the Lunarch (23341)
+
+// Instants - 4 (6.67%)
+
+4 Midnight Haunting (23430)
+
+// Sorceries - 6 (10.00%)
+
+3 Day of Judgment (22116)
+3 Timely Reinforcements (22315)
+
+// Enchantments - 10 (16.67%)
+
+4 Honor of the Pure (22239)
+4 Intangible Virtue (23406)
+2 Oblivion Ring (22121)
+
+// Artifacts - 4 (6.67%)
+
+4 Shrine of Loyal Legions (22017)
+
+// Lands - 25 (41.67%)
+
+4 Gavony Township (23377)
+4 Inkmoth Nexus (21745)
+3 Plains (23332)
+3 Plains (23330)
+3 Plains (23331)
+4 Razorverge Thicket (21472)
+4 Sunpetal Grove (22206)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Blade Splicer (21919)
+Doomed Traveler (23423)
+2 Hero of Bladehold (21706)
+
+// Instants
+
+4 Naturalize (23414)
+
+// Sorceries
+
+Day of Judgment (22116)
+3 Marrow Shards (21927)
+Timely Reinforcements (22315)
+
+// Enchantments
+
+Oblivion Ring (22121)

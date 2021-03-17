@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 33 (55.00%)
+
+3 Death Cultist (20868)
+3 Death's Shadow (19671)
+4 Demon of Death's Gate (21231)
+4 Fume Spitter (21574)
+4 Guul Draz Vampire (19460)
+3 Mortician Beetle (20942)
+4 Pulse Tracker (19658)
+4 Vampire Lacerator (19494)
+4 Viscera Seer (21243)
+
+// Instants - 3 (5.00%)
+
+3 Vendetta (20859)
+
+// Sorceries - 7 (11.67%)
+
+4 Duress (21280)
+3 Sign in Blood (21285)
+
+// Lands - 17 (28.33%)
+
+4 Marsh Flats (19357)
+3 Swamp (21416)
+2 Swamp (21419)
+2 Swamp (21417)
+2 Swamp (21418)
+4 Verdant Catacombs (19359)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Nantuko Shade (21242)
+
+// Instants
+
+4 Disfigure (19379)
+Vendetta (20859)
+
+// Sorceries
+
+3 Inquisition of Kozilek (20846)
+
+// Enchantments
+
+3 Quest for the Gravelord (19521)

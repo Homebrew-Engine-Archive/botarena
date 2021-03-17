@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+3 Garruk Wildspeaker (18029)
+Liliana Vess (18048)
+
+// Creatures - 23 (38.33%)
+
+4 Birds of Paradise (3013)
+4 Doran, the Siege Tower (18133)
+Hypnotic Specter (3079)
+3 Llanowar Elves (3092)
+4 Ohran Viper (7049)
+3 Shriekmaw (18025)
+4 Tarmogoyf (17704)
+
+// Instants - 4 (6.67%)
+
+2 Eyeblight's Ending (18076)
+2 Nameless Inversion (18108)
+
+// Sorceries - 6 (10.00%)
+
+2 Profane Command (18127)
+4 Thoughtseize (17901)
+
+// Lands - 23 (38.33%)
+
+Brushland (3020)
+3 Caves of Koilos (3022)
+Forest (17903)
+2 Gemstone Mine (17385)
+4 Gilt-Leaf Palace (18092)
+Horizon Canopy (17728)
+4 Llanowar Wastes (3093)
+Pendelhaven (17253)
+4 Treetop Village (3308)
+2 Urborg, Tomb of Yawgmoth (2606)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Cloudthresher (18015)
+2 Nath of the Gilt-Leaf (17981)
+3 Riftsweeper (17821)
+Shriekmaw (18025)
+
+// Sorceries
+
+2 Stupor (17263)
+
+// Enchantments
+
+Oblivion Ring (18040)
+
+// Artifacts
+
+2 Loxodon Warhammer (3096)
+2 Serrated Arrows (17394)

@@ -1,0 +1,45 @@
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 15 (36.59%)
+
+Beacon Behemoth (8807)
+Dauntless Escort (9085)
+Drumhunter (8664)
+Enlisted Wurm (9106)
+Godtoucher (8577)
+2 Grizzled Leotau (9010)
+Knight of New Alara (9115)
+Mosstodon (8597)
+2 Pale Recluse (9042)
+Qasali Pridemage (9018)
+Sigiled Behemoth (9020)
+Sunseed Nurturer (8662)
+Vagrant Plowbeasts (8828)
+
+// Instants - 2 (4.88%)
+
+Path to Exile (8897)
+Sigil Blessing (8706)
+
+// Sorceries - 4 (9.76%)
+
+Captured Sunlight (9108)
+2 Excommunicate (8508)
+Reborn Hope (9043)
+
+// Enchantments - 2 (4.88%)
+
+Mighty Emergence (8656)
+Sigil of the Nayan Gods (9069)
+
+// Lands - 18 (43.90%)
+
+3 Forest (8510)
+2 Forest (8512)
+3 Forest (8511)
+3 Plains (8525)
+2 Plains (8523)
+3 Plains (8524)
+2 Terramorphic Expanse (3278)

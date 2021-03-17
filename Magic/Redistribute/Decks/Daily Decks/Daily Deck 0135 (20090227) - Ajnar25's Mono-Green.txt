@@ -1,0 +1,48 @@
+// Total cards in deck - 60
+
+// Creatures - 29 (48.33%)
+
+4 Birds of Paradise (3013)
+2 Deity of Scars (18992)
+4 Deus of Calamity (18658)
+4 Devoted Druid (18656)
+4 Llanowar Elves (3092)
+4 Oversoul of Dusk (18610)
+4 Primalcrux (19007)
+3 Woodfall Primus (18628)
+
+// Instants - 3 (5.00%)
+
+3 Dramatic Entrance (18537)
+
+// Enchantments - 8 (13.33%)
+
+4 Impromptu Raid (18675)
+4 Overgrowth (3118)
+
+// Lands - 20 (33.33%)
+
+4 Forest (18507)
+4 Forest (18505)
+4 Forest (18504)
+4 Forest (18506)
+4 Mosswort Bridge (18154)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Cloudthresher (18015)
+2 Deity of Scars (18992)
+Woodfall Primus (18628)
+
+// Instants
+
+Dramatic Entrance (18537)
+4 Naturalize (3113)
+
+// Enchantments
+
+4 Eyes of the Wisent (18136)

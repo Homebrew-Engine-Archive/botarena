@@ -1,0 +1,242 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Homelands.ico"
+IDI_LARGE_MODULE        ICON                    "HomelandsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Homelands"
+    IDS_EXPANSION_ABBREV    "HML"
+    IDS_FIRST_CARD          "6100"
+    IDS_TOTAL_CARD          "140"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "6240"
+    IDS_MODULE_LARGE_ICON_ID "6241"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-10-1995"
+    IDS_MWS_FOLDER          "MWS\\HML\\"
+    IDS_PRODUCT_LIST        """Homelands Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6100          "Anaba Bodyguard\n{3R}\nCreature - Minotaur\nHML,C\nFirst strike\n2/3"
+    IDS_STRING6101          "Anaba Bodyguard\n{3R}\nCreature - Minotaur\nHML,C\nFirst strike\n2/3"
+    IDS_STRING6102          "Anaba Shaman\n{3R}\nCreature - Minotaur Shaman\nHML,C\n{R}, {T}: Anaba Shaman deals 1 damage to target creature or player\n2/2"
+    IDS_STRING6103          "Anaba Shaman\n{3R}\nCreature - Minotaur Shaman\nHML,C\n{R}, {T}: Anaba Shaman deals 1 damage to target creature or player\n2/2"
+    IDS_STRING6104          "Baron Sengir\n{5BBB}\nLegendary Creature - Vampire\nHML,R\nFlying\rWhenever a creature dealt damage by Baron Sengir this turn dies, put a +2/+2 counter on Baron Sengir.\r{T}: Regenerate another target Vampire.\n5/5"
+    IDS_STRING6105          "Dry Spell\n{1B}\nSorcery\nHML,C\nDry Spell deals 1 damage to each creature and each player."
+    IDS_STRING6106          "Dry Spell\n{1B}\nSorcery\nHML,C\nDry Spell deals 1 damage to each creature and each player."
+    IDS_STRING6107          "Feast of the Unicorn\n{3B}\nEnchantment - Aura\nHML,C\nEnchant creature\rEnchanted creature gets +4/+0."
+    IDS_STRING6108          "Feast of the Unicorn\n{3B}\nEnchantment - Aura\nHML,C\nEnchant creature\rEnchanted creature gets +4/+0."
+    IDS_STRING6109          "Feroz's Ban\n{6}\nArtifact\nHML,R\nCreature spells cost {2} more to cast."
+    IDS_STRING6110          "Forget\n{UU}\nSorcery\nHML,R\nTarget player discards two cards, then draws as many cards as he or she discarded in this way."
+    IDS_STRING6111          "Memory Lapse\n{1U}\nInstant\nHML,C\nCounter target spell. If that spell is countered this way, put it on top of its owner's library instead of into that player's graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6112          "Memory Lapse\n{1U}\nInstant\nHML,C\nCounter target spell. If that spell is countered this way, put it on top of its owner's library instead of into that player's graveyard."
+    IDS_STRING6113          "Merchant Scroll\n{1U}\nSorcery\nHML,C\nSearch your library for a blue instant card, reveal that card, and put it into your hand. Then shuffle your library."
+    IDS_STRING6114          "Mesa Falcon\n{1W}\nCreature - Bird\nHML,C\nFlying\r{1W}: Mesa Falcon gets +0/+1 until end of turn.\n1/1"
+    IDS_STRING6115          "Mesa Falcon\n{1W}\nCreature - Bird\nHML,C\nFlying\r{1W}: Mesa Falcon gets +0/+1 until end of turn.\n1/1"
+    IDS_STRING6116          "Roterothopter\n{1}\nArtifact Creature - Thopter\nHML,C\nFlying\r{2}: Roterothopter gets +1/+0 until end of turn. Activate this ability no more than twice each turn.\n0/2"
+    IDS_STRING6117          "Sengir Autocrat\n{3B}\nCreature - Human\nHML,U\nWhen Sengir Autocrat enters the battlefield, put three 0/1 black Serf creature tokens onto the battlefield.\rWhen Sengir Autocrat leaves the battlefield, exile all Serf tokens.\n2/2"
+    IDS_STRING6118          "Abbey Gargoyles\n{2WWW}\nCreature - Gargoyle\nHML,U\nFlying, protection from red\n3/4"
+    IDS_STRING6119          "Abbey Matron\n{2W}\nCreature - Human Cleric\nHML,C\n{W}, {T}: Abbey Matron gets +0/+3 until end of turn.\n1/3"
+    IDS_STRING6120          "Abbey Matron\n{2W}\nCreature - Human Cleric\nHML,C\n{W}, {T}: Abbey Matron gets +0/+3 until end of turn.\n1/3"
+    IDS_STRING6121          "Aliban's Tower\n{1R}\nInstant\nHML,C\nTarget blocking creature gets +3/+1 until end of turn."
+    IDS_STRING6122          "Aliban's Tower\n{1R}\nInstant\nHML,C\nTarget blocking creature gets +3/+1 until end of turn."
+    IDS_STRING6123          "Ambush\n{3R}\nInstant\nHML,C\nBlocking creatures gain first strike until end of turn."
+    IDS_STRING6124          "Ambush Party\n{4R}\nCreature - Human Rogue\nHML,C\nFirst strike, haste\n3/1"
+    IDS_STRING6125          "Ambush Party\n{4R}\nCreature - Human Rogue\nHML,C\nFirst strike, haste\n3/1"
+    IDS_STRING6126          "Anaba Ancestor\n{1R}\nCreature - Minotaur Spirit\nHML,R\n{T}: Another target Minotaur creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING6127          "Anaba Spirit Crafter\n{2RR}\nCreature - Minotaur Shaman\nHML,R\nMinotaur creatures get +1/+0.\n1/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6128          "An-Havva Constable\n{1GG}\nCreature - Human\nHML,R\nAn-Havva Constable's toughness is equal to 1 plus the number of green creatures on the battlefield.\n2/1+*"
+    IDS_STRING6129          "An-Havva Township\n\nLand\nHML,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add {G} to your mana pool.\r{2}, {T}: Add {R} or {W} to your mana pool."
+    IDS_STRING6130          "Aysen Abbey\n\nLand\nHML,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add {W} to your mana pool.\r{2}, {T}: Add {G} or {U} to your mana pool."
+    IDS_STRING6131          "Willow Priestess\n{2GG}\nCreature - Faerie Druid\nHML,R\n{T}: You may put a Faerie permanent card from your hand onto the battlefield.\r{2G}: Target green creature gains protection from black until end of turn.\n2/2"
+    IDS_STRING6132          "Aysen Bureaucrats\n{1W}\nCreature - Human Advisor\nHML,C\n{T}: Tap target creature with power 2 or less.\n1/1"
+    IDS_STRING6133          "Aysen Bureaucrats\n{1W}\nCreature - Human Advisor\nHML,C\n{T}: Tap target creature with power 2 or less.\n1/1"
+    IDS_STRING6134          "Aysen Crusader\n{2WW}\nCreature - Human Knight\nHML,R\nAysen Crusader's power and toughness are each equal to 2 plus the number of Soldiers and Warriors you control.\n2+*/2+*"
+    IDS_STRING6135          "Aysen Highway\n{3WWW}\nEnchantment\nHML,R\nWhite creatures have plainswalk."
+    IDS_STRING6136          "Black Carriage\n{3BB}\nCreature - Horse\nHML,R\nTrample\rBlack Carriage doesn't untap during your untap step.\rSacrifice a creature: Untap Black Carriage. Activate this ability only during your upkeep.\n4/4"
+    IDS_STRING6137          "Castle Sengir\n\nLand\nHML,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add {B} to your mana pool.\r{2}, {T}: Add {U} or {R} to your mana pool."
+    IDS_STRING6138          "Cemetery Gate\n{2B}\nCreature - Wall\nHML,C\nDefender\rProtection from black\n0/5"
+    IDS_STRING6139          "Cemetery Gate\n{2B}\nCreature - Wall\nHML,C\nDefender\rProtection from black\n0/5"
+    IDS_STRING6140          "Chandler\n{4R}\nLegendary Creature - Human Rogue\nHML,C\n{RRR}, {T}: Destroy target artifact creature.\n3/3"
+    IDS_STRING6141          "Clockwork Gnomes\n{4}\nArtifact Creature - Gnome\nHML,C\n{3}, {T}: Regenerate target artifact creature.\n2/2"
+    IDS_STRING6142          "Daughter of Autumn\n{2GG}\nLegendary Creature - Avatar\nHML,R\n{W}: The next 1 damage that would be dealt to target white creature this turn is dealt to Daughter of Autumn instead.\n2/4"
+    IDS_STRING6143          "Death Speakers\n{W}\nCreature - Human Cleric\nHML,U\nProtection from black\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6144          "Didgeridoo\n{1}\nArtifact\nHML,R\n{3}: You may put a Minotaur permanent card from your hand onto the battlefield."
+    IDS_STRING6145          "Dwarven Pony\n{R}\nCreature - Horse\nHML,R\n{1R}, {T}: Target Dwarf creature gains mountainwalk until end of turn.\n1/1"
+    IDS_STRING6146          "Dwarven Trader\n{R}\nCreature - Dwarf\nHML,C\n\n1/1"
+    IDS_STRING6147          "Dwarven Trader\n{R}\nCreature - Dwarf\nHML,C\n\n1/1"
+    IDS_STRING6148          "Ebony Rhino\n{7}\nArtifact Creature - Rhino\nHML,C\nTrample\n4/5"
+    IDS_STRING6149          "Eron the Relentless\n{3RR}\nLegendary Creature - Human Rogue\nHML,U\nHaste\r{RRR}: Regenerate Eron the Relentless.\n5/2"
+    IDS_STRING6150          "Evaporate\n{2R}\nSorcery\nHML,U\nEvaporate deals 1 damage to each creature that's white or blue."
+    IDS_STRING6151          "Faerie Noble\n{2G}\nCreature - Faerie\nHML,R\nFlying\rOther Faerie creatures you control get +0/+1.\r{T}: Other Faerie creatures you control get +1/+0 until end of turn.\n1/2"
+    IDS_STRING6152          "Folk of An-Havva\n{G}\nCreature - Human\nHML,C\nWhenever Folk of An-Havva blocks, it gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING6153          "Folk of An-Havva\n{G}\nCreature - Human\nHML,C\nWhenever Folk of An-Havva blocks, it gets +2/+0 until end of turn.\n1/1"
+    IDS_STRING6154          "Ghost Hounds\n{1B}\nCreature - Hound Spirit\nHML,U\nVigilance\rWhenever Ghost Hounds blocks or becomes blocked by a white creature, Ghost Hounds gains first strike until end of turn.\n1/1"
+    IDS_STRING6155          "Grandmother Sengir\n{4B}\nLegendary Creature - Human Wizard\nHML,R\n{1B}, {T}: Target creature gets -1/-1 until end of turn.\n3/3"
+    IDS_STRING6156          "Hungry Mist\n{2GG}\nCreature - Elemental\nHML,C\nAt the beginning of your upkeep, sacrifice Hungry Mist unless you pay {GG}.\n6/2"
+    IDS_STRING6157          "Hungry Mist\n{2GG}\nCreature - Elemental\nHML,C\nAt the beginning of your upkeep, sacrifice Hungry Mist unless you pay {GG}.\n6/2"
+    IDS_STRING6158          "Ihsan's Shade\n{3BBB}\nLegendary Creature - Shade Knight\nHML,U\nProtection from white\n5/5"
+    IDS_STRING6159          "Wizards' School\n\nLand\nHML,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add {U} to your mana pool.\r{2}, {T}: Add {W} or {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6160          "Joven\n{3RR}\nLegendary Creature - Human Rogue\nHML,C\n{RRR}, {T}: Destroy target noncreature artifact.\n3/3"
+    IDS_STRING6161          "Koskun Keep\n\nLand\nHML,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add {R} to your mana pool.\r{2}, {T}: Add {B} or {G} to your mana pool."
+    IDS_STRING6162          "Leaping Lizard\n{1GG}\nCreature - Lizard\nHML,C\n{1G}: Leaping Lizard gets -0/-1 and gains flying until end of turn.\n2/2"
+    IDS_STRING6163          "Narwhal\n{2UU}\nCreature - Whale\nHML,R\nFirst strike, protection from red\n2/2"
+    IDS_STRING6164          "Primal Order\n{2GG}\nEnchantment\nHML,R\nAt the beginning of each player's upkeep, Primal Order deals damage to that player equal to the number of nonbasic lands he or she controls."
+    IDS_STRING6165          "Rashka the Slayer\n{3WW}\nLegendary Creature - Human Archer\nHML,U\nReach\rWhenever Rashka blocks one or more black creatures, Rashka gets +1/+2 until end of turn.\n3/3"
+    IDS_STRING6166          "Root Spider\n{3G}\nCreature - Spider\nHML,U\nWhenever Root Spider blocks, it gets +1/+0 and gains first strike until end of turn.\n2/2"
+    IDS_STRING6167          "Sea Sprite\n{1U}\nCreature - Faerie\nHML,U\nFlying, protection from red\n1/1"
+    IDS_STRING6168          "Sengir Bats\n{1BB}\nCreature - Bat\nHML,C\nFlying\rWhenever a creature dealt damage by Sengir Bats this turn dies, put a +1/+1 counter on Sengir Bats.\n1/2"
+    IDS_STRING6169          "Sengir Bats\n{1BB}\nCreature - Bat\nHML,C\nFlying\rWhenever a creature dealt damage by Sengir Bats this turn dies, put a +1/+1 counter on Sengir Bats.\n1/2"
+    IDS_STRING6170          "Serra Inquisitors\n{4W}\nCreature - Human Cleric\nHML,U\nWhenever Serra Inquisitors blocks or becomes blocked by one or more black creatures, Serra Inquisitors gets +2/+0 until end of turn.\n3/3"
+    IDS_STRING6171          "Serra Paladin\n{2WW}\nCreature - Human Knight\nHML,C\n{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\r{1WW}, {T}: Target creature gains vigilance until end of turn.\n2/2"
+    IDS_STRING6172          "Shrink\n{G}\nInstant\nHML,C\nTarget creature gets -5/-0 until end of turn."
+    IDS_STRING6173          "Shrink\n{G}\nInstant\nHML,C\nTarget creature gets -5/-0 until end of turn."
+    IDS_STRING6174          "Veldrane of Sengir\n{5BB}\nLegendary Creature - Human Rogue\nHML,R\n{1BB}: Veldrane of Sengir gets -3/-0 and gains forestwalk until end of turn.\n5/5"
+    IDS_STRING6175          "Wall of Kelp\n{UU}\nCreature - Plant Wall\nHML,R\nDefender\r{UU}, {T}: Put a 0/1 blue Plant Wall creature token with defender named Kelp onto the battlefield.\n0/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6176          "Willow Faerie\n{1G}\nCreature - Faerie\nHML,C\nFlying\n1/2"
+    IDS_STRING6177          "Willow Faerie\n{1G}\nCreature - Faerie\nHML,C\nFlying\n1/2"
+    IDS_STRING6178          "Irini Sengir\n{2BB}\nLegendary Creature - Vampire Dwarf\nHML,U\nWhite enchantment spells and green enchantment spells cost {2} more to cast.\n2/2"
+    IDS_STRING6179          "Dark Maze\n{4U}\nCreature - Wall\nHML,C\nDefender\r{0}: Dark Maze can attack this turn as though it didn't have defender. Exile it at the beginning of the next end step.\n4/5"
+    IDS_STRING6180          "Dark Maze\n{4U}\nCreature - Wall\nHML,C\nDefender\r{0}: Dark Maze can attack this turn as though it didn't have defender. Exile it at the beginning of the next end step.\n4/5"
+    IDS_STRING6181          "Joven's Tools\n{6}\nArtifact\nHML,U\n{4}, {T}: Target creature can't be blocked this turn except by Walls."
+    IDS_STRING6182          "Autumn Willow\n{4GG}\nLegendary Creature - Avatar\nHML,R\nShroud\r{G}: Until end of turn, Autumn Willow can be the target of spells and abilities controlled by target player as though it didn't have shroud.\n4/4"
+    IDS_STRING6183          "Torture\n{B}\nEnchantment - Aura\nHML,C\nEnchant creature\r{1B}: Put a -1/-1 counter on enchanted creature."
+    IDS_STRING6184          "Torture\n{B}\nEnchantment - Aura\nHML,C\nEnchant creature\r{1B}: Put a -1/-1 counter on enchanted creature."
+    IDS_STRING6185          "Reef Pirates\n{1UU}\nCreature - Zombie Pirate\nHML,C\nWhenever Reef Pirates deals damage to an opponent, that player puts the top card of his or her library into his or her graveyard.\n2/2"
+    IDS_STRING6186          "Reef Pirates\n{1UU}\nCreature - Zombie Pirate\nHML,C\nWhenever Reef Pirates deals damage to an opponent, that player puts the top card of his or her library into his or her graveyard.\n2/2"
+    IDS_STRING6187          "Drudge Spell\n{BB}\nEnchantment\nHML,U\n{B}, Exile two creature cards from your graveyard: Put a 1/1 black Skeleton creature token onto the battlefield. It has ""{B}: Regenerate this creature.""\rWhen Drudge Spell leaves the battlefield, destroy all Skeleton tokens. They can't be regenerated."
+    IDS_STRING6188          "Serrated Arrows\n{4}\nArtifact\nHML\nSerrated Arrows enters the battlefield with three arrowhead counters on it.\rAt the beginning of your upkeep, if there are no arrowhead counters on Serrated Arrows, sacrifice it.\r{T}, Remove an arrowhead counter from Serrated Arrows: Put a -1/-1 counter on target creature."
+    IDS_STRING6189          "Headstone\n{1B}\nInstant\nHML,C\nExile target card from a graveyard.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6190          "Jinx\n{1U}\nInstant\nHML,C\nTarget land becomes the basic land type of your choice until end of turn.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6191          "Renewal\n{2G}\nSorcery\nHML,C\nAs an additional cost to cast Renewal, sacrifice a land.\rSearch your library for a basic land card and put that card onto the battlefield. Then shuffle your library.\rDraw a card at the beginning of the next turn's upkeep."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6192          "Coral Reef\n{UU}\nEnchantment\nHML,C\nCoral Reef enters the battlefield with four polyp counters on it.\rSacrifice an Island: Put two polyp counters on Coral Reef.\r{U}, Tap an untapped blue creature you control, Remove a polyp counter from Coral Reef: Put a +0/+1 counter on target creature."
+    IDS_STRING6193          "Mystic Decree\n{2UU}\nWorld Enchantment\nHML,R\nAll creatures lose flying and islandwalk."
+    IDS_STRING6194          "Serra Aviary\n{3W}\nWorld Enchantment\nHML,R\nCreatures with flying get +1/+1."
+    IDS_STRING6195          "Labyrinth Minotaur\n{3U}\nCreature - Minotaur\nHML,C\nWhenever Labyrinth Minotaur blocks a creature, that creature doesn't untap during its controller's next untap step.\n1/4"
+    IDS_STRING6196          "Labyrinth Minotaur\n{3U}\nCreature - Minotaur\nHML,C\nWhenever Labyrinth Minotaur blocks a creature, that creature doesn't untap during its controller's next untap step.\n1/4"
+    IDS_STRING6197          "An-Havva Inn\n{1GG}\nSorcery\nHML,U\nYou gain X plus 1 life, where X is the number of green creatures on the battlefield."
+    IDS_STRING6198          "Marjhan\n{5UU}\nCreature - Leviathan\nHML,R\nMarjhan doesn't untap during your untap step.\rMarjhan can't attack unless defending player controls an Island.\rWhen you control no Islands, sacrifice Marjhan.\r{UU}, Sacrifice a creature: Untap Marjhan. Activate this ability only during your upkeep.\r{UU}: Marjhan gets -1/-0 until end of turn and deals 1 damage to target attacking creature without flying.\n8/8"
+    IDS_STRING6199          "Trade Caravan\n{W}\nCreature - Human Nomad\nHML,C\nAt the beginning of your upkeep, put a currency counter on Trade Caravan.\rRemove two currency counters from Trade Caravan: Untap target basic land. Activate this ability only during an opponent's upkeep.\n1/1"
+    IDS_STRING6200          "Trade Caravan\n{W}\nCreature - Human Nomad\nHML,C\nAt the beginning of your upkeep, put a currency counter on Trade Caravan.\rRemove two currency counters from Trade Caravan: Untap target basic land. Activate this ability only during an opponent's upkeep.\n1/1"
+    IDS_STRING6201          "Spectral Bears\n{1G}\nCreature - Bear Spirit\nHML,U\nWhenever Spectral Bears attacks, if defending player controls no black nontoken permanents, it doesn't untap during your next untap step.\n3/3"
+    IDS_STRING6202          "Reveka, Wizard Savant\n{2UU}\nLegendary Creature - Dwarf Wizard\nHML,R\n{T}: Reveka, Wizard Savant deals 2 damage to target creature or player and doesn't untap during your next untap step.\n0/1"
+    IDS_STRING6203          "Samite Alchemist\n{3W}\nCreature - Human Cleric\nHML,C\n{WW}, {T}: Prevent the next 4 damage that would be dealt this turn to target creature you control. Tap that creature. It doesn't untap during your next untap step.\n0/2"
+    IDS_STRING6204          "Samite Alchemist\n{3W}\nCreature - Human Cleric\nHML,C\n{WW}, {T}: Prevent the next 4 damage that would be dealt this turn to target creature you control. Tap that creature. It doesn't untap during your next untap step.\n0/2"
+    IDS_STRING6205          "Prophecy\n{W}\nSorcery\nHML,C\nReveal the top card of target opponent's library. If it's a land, you gain 1 life. That player then shuffles his or her library.\rDraw a card at the beginning of the next turn's upkeep."
+    IDS_STRING6206          "Leeches\n{1WW}\nSorcery\nHML,R\nTarget player loses all poison counters. Leeches deals that much damage to that player."
+    IDS_STRING6207          "Serra Bestiary\n{WW}\nEnchantment - Aura\nHML\nEnchant creature\rAt the beginning of your upkeep, sacrifice Serra Bestiary unless you pay {WW}\rEnchanted creature can't attack or block, and its activated abilities with {T} in their costs can't be activated."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6208          "Carapace\n{G}\nEnchantment - Aura\nHML\nEnchant creature\rEnchanted creature gets +0/+2.\rSacrifice Carapace: Regenerate enchanted creature."
+    IDS_STRING6209          "Carapace\n{G}\nEnchantment - Aura\nHML\nEnchant creature\rEnchanted creature gets +0/+2.\rSacrifice Carapace: Regenerate enchanted creature."
+    IDS_STRING6210          "Roots\n{3G}\nEnchantment - Aura\nHML,U\nEnchant creature without flying\rWhen Roots enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING6211          "Koskun Falls\n{2BB}\nWorld Enchantment\nHML,R\nAt the beginning of your upkeep, sacrifice Koskun Falls unless you tap an untapped creature you control.\rCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
+    IDS_STRING6212          "Baki's Curse\n{2UU}\nSorcery\nHML,R\nBaki's Curse deals 2 damage to each creature for each Aura attached to that creature."
+    IDS_STRING6213          "Funeral March\n{1BB}\nEnchantment - Aura\nHML,C\nEnchant creature\rWhen enchanted creature leaves the battlefield, its controller sacrifices a creature."
+    IDS_STRING6214          "Winter Sky\n{R}\nSorcery\nHML,R\nFlip a coin. If you win the flip, Winter Sky deals 1 damage to each creature and each player. If you lose the flip, each player draws a card."
+    IDS_STRING6215          "An-Zerrin Ruins\n{2RR}\nEnchantment\nHML,R\nAs An-Zerrin Ruins enters the battlefield, choose a creature type.\rCreatures of the chosen type don't untap during their controllers' untap steps."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

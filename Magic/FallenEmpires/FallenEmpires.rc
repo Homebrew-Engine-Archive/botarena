@@ -1,0 +1,282 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "FallenEmpires.ico"
+IDI_LARGE_MODULE        ICON                    "FallenEmpiresLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Fallen Empires"
+    IDS_EXPANSION_ABBREV    "FEM"
+    IDS_FIRST_CARD          "5900"
+    IDS_TOTAL_CARD          "187"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "6087"
+    IDS_MODULE_LARGE_ICON_ID "6088"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-11-1994"
+    IDS_MWS_FOLDER          "MWS\\FEM\\"
+    IDS_PRODUCT_LIST        """FallenEmpires Booster Pack"":U-2:C-6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5900          "Hymn to Tourach\n{BB}\nSorcery\nFEM,C\nTarget player discards two cards at random."
+    IDS_STRING5901          "Order of the Ebon Hand\n{BB}\nCreature - Cleric Knight\nFEM,C\nProtection from white\r{B}: Order of the Ebon Hand gains first strike until end of turn.\r{BB}: Order of the Ebon Hand gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING5902          "Order of Leitbur\n{WW}\nCreature - Human Cleric Knight\nFEM,C\nProtection from black\r{W}: Order of Leitbur gains first strike until end of turn.\r{WW}: Order of Leitbur gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING5903          "Icatian Town\n{5W}\nSorcery\nFEM,R\nPut four 1/1 white Citizen creature tokens onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5904          "Ebon Stronghold\n\nLand\nFEM,U\nEbon Stronghold enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\r{T}, Sacrifice Ebon Stronghold: Add {BB} to your mana pool."
+    IDS_STRING5905          "Ruins of Trokair\n\nLand\nFEM,U\nRuins of Trokair enters the battlefield tapped.\r{T}: Add {W} to your mana pool.\r{T}, Sacrifice Ruins of Trokair: Add {WW} to your mana pool."
+    IDS_STRING5906          "Dwarven Ruins\n\nLand\nFEM,U\nDwarven Ruins enters the battlefield tapped.\r{T}: Add {R} to your mana pool.\r{T}, Sacrifice Dwarven Ruins: Add {RR} to your mana pool."
+    IDS_STRING5907          "Svyelunite Temple\n\nLand\nFEM,U\nSvyelunite Temple enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\r{T}, Sacrifice Svyelunite Temple: Add {UU} to your mana pool."
+    IDS_STRING5908          "Havenwood Battleground\n\nLand\nFEM,U\nHavenwood Battleground enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\r{T}, Sacrifice Havenwood Battleground: Add {GG} to your mana pool."
+    IDS_STRING5909          "Orcish Spy\n{R}\nCreature - Orc Rogue\nFEM,C\n{T}: Look at the top three cards of target player's library.\n1/1"
+    IDS_STRING5910          "Goblin War Drums\n{2R}\nEnchantment\nFEM,C\nEach creature you control can't be blocked except by two or more creatures."
+    IDS_STRING5911          "Derelor\n{3B}\nCreature - Thrull\nFEM,R\nBlack spells you cast cost {B} more to cast.\n4/4"
+    IDS_STRING5912          "Hymn to Tourach\n{BB}\nSorcery\nFEM,C\nTarget player discards two cards at random."
+    IDS_STRING5913          "Hymn to Tourach\n{BB}\nSorcery\nFEM,C\nTarget player discards two cards at random."
+    IDS_STRING5914          "Hymn to Tourach\n{BB}\nSorcery\nFEM,C\nTarget player discards two cards at random."
+    IDS_STRING5915          "Order of the Ebon Hand\n{BB}\nCreature - Cleric Knight\nFEM,C\nProtection from white\r{B}: Order of the Ebon Hand gains first strike until end of turn.\r{BB}: Order of the Ebon Hand gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING5916          "Order of the Ebon Hand\n{BB}\nCreature - Cleric Knight\nFEM,C\nProtection from white\r{B}: Order of the Ebon Hand gains first strike until end of turn.\r{BB}: Order of the Ebon Hand gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING5917          "Order of Leitbur\n{WW}\nCreature - Human Cleric Knight\nFEM,C\nProtection from black\r{W}: Order of Leitbur gains first strike until end of turn.\r{WW}: Order of Leitbur gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING5918          "Order of Leitbur\n{WW}\nCreature - Human Cleric Knight\nFEM,C\nProtection from black\r{W}: Order of Leitbur gains first strike until end of turn.\r{WW}: Order of Leitbur gets +1/+0 until end of turn.\n2/1"
+    IDS_STRING5919          "Orcish Spy\n{R}\nCreature - Orc Rogue\nFEM,C\n{T}: Look at the top three cards of target player's library.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5920          "Orcish Spy\n{R}\nCreature - Orc Rogue\nFEM,C\n{T}: Look at the top three cards of target player's library.\n1/1"
+    IDS_STRING5921          "Goblin War Drums\n{2R}\nEnchantment\nFEM,C\nEach creature you control can't be blocked except by two or more creatures."
+    IDS_STRING5922          "Goblin War Drums\n{2R}\nEnchantment\nFEM,C\nEach creature you control can't be blocked except by two or more creatures."
+    IDS_STRING5923          "Goblin War Drums\n{2R}\nEnchantment\nFEM,C\nEach creature you control can't be blocked except by two or more creatures."
+    IDS_STRING5924          "Vodalian Soldiers\n{1U}\nCreature - Merfolk Soldier\nFEM,C\n\n1/2"
+    IDS_STRING5925          "Vodalian Soldiers\n{1U}\nCreature - Merfolk Soldier\nFEM,C\n\n1/2"
+    IDS_STRING5926          "Vodalian Soldiers\n{1U}\nCreature - Merfolk Soldier\nFEM,C\n\n1/2"
+    IDS_STRING5927          "Vodalian Soldiers\n{1U}\nCreature - Merfolk Soldier\nFEM,C\n\n1/2"
+    IDS_STRING5928          "Goblin Warrens\n{2R}\nEnchantment\nFEM,R\n{2R}, Sacrifice two Goblins: Put three 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING5929          "Icatian Priest\n{W}\nCreature - Human Cleric\nFEM,U\n{1WW}: Target creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING5930          "Goblin Grenade\n{R}\nSorcery\nFEM,C\nAs an additional cost to cast Goblin Grenade, sacrifice a Goblin.\rGoblin Grenade deals 5 damage to target creature or player."
+    IDS_STRING5931          "Goblin Grenade\n{R}\nSorcery\nFEM,C\nAs an additional cost to cast Goblin Grenade, sacrifice a Goblin.\rGoblin Grenade deals 5 damage to target creature or player."
+    IDS_STRING5932          "Goblin Grenade\n{R}\nSorcery\nFEM,C\nAs an additional cost to cast Goblin Grenade, sacrifice a Goblin.\rGoblin Grenade deals 5 damage to target creature or player."
+    IDS_STRING5933          "Implements of Sacrifice\n{2}\nArtifact\nFEM,R\n{1}, {T}: Sacrifice Implements of Sacrifice: Add two mana of any one color to your mana pool."
+    IDS_STRING5934          "Aeolipile\n{2}\nArtifact\nFEM,R\n{1}, {T}, Sacrifice Aeolipile: Aeolipile deals 2 damage to target creature or player."
+    IDS_STRING5935          "Balm of Restoration\n{2}\nArtifact\nFEM,R\n{1}, {T}: Sacrifice Balm of Restoration: Choose one - You gain 2 life; or prevent the next 2 damage that would be dealt to target creature or player this turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5936          "Basal Thrull\n{BB}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Basal Thrull: Add {BB} to your mana pool.\n1/2"
+    IDS_STRING5937          "Basal Thrull\n{BB}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Basal Thrull: Add {BB} to your mana pool.\n1/2"
+    IDS_STRING5938          "Basal Thrull\n{BB}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Basal Thrull: Add {BB} to your mana pool.\n1/2"
+    IDS_STRING5939          "Basal Thrull\n{BB}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Basal Thrull: Add {BB} to your mana pool.\n1/2"
+    IDS_STRING5940          "Brassclaw Orcs\n{2R}\nCreature - Orc\nFEM,C\nBrassclaw Orcs can't block creatures with power 2 or greater.\n3/2"
+    IDS_STRING5941          "Brassclaw Orcs\n{2R}\nCreature - Orc\nFEM,C\nBrassclaw Orcs can't block creatures with power 2 or greater.\n3/2"
+    IDS_STRING5942          "Brassclaw Orcs\n{2R}\nCreature - Orc\nFEM,C\nBrassclaw Orcs can't block creatures with power 2 or greater.\n3/2"
+    IDS_STRING5943          "Brassclaw Orcs\n{2R}\nCreature - Orc\nFEM,C\nBrassclaw Orcs can't block creatures with power 2 or greater.\n3/2"
+    IDS_STRING5944          "Breeding Pit\n{3B}\nEnchantment\nFEM,U\nAt the beginning of your upkeep, sacrifice Breeding Pit unless you pay {BB}.\rAt the beginning of your end step, put a 0/1 black Thrull creature token onto the battlefield."
+    IDS_STRING5945          "Combat Medic\n{2W}\nCreature - Human Cleric Soldier\nFEM,C\n{1W}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n0/2"
+    IDS_STRING5946          "Combat Medic\n{2W}\nCreature - Human Cleric Soldier\nFEM,C\n{1W}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n0/2"
+    IDS_STRING5947          "Combat Medic\n{2W}\nCreature - Human Cleric Soldier\nFEM,C\n{1W}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n0/2"
+    IDS_STRING5948          "Combat Medic\n{2W}\nCreature - Human Cleric Soldier\nFEM,C\n{1W}: Prevent the next 1 damage that would be dealt to target creature or player this turn.\n0/2"
+    IDS_STRING5949          "Conch Horn\n{2}\nArtifact\nFEM,R\n{1}, {T}, Sacrifice Conch Horn: Draw two cards, then put a card from your hand on top of your library."
+    IDS_STRING5950          "Dwarven Lieutenant\n{RR}\nCreature - Dwarf Soldier\nFEM,U\n{1R}: Target Dwarf creature gets +1/+0 until end of turn.\n1/2"
+    IDS_STRING5951          "Elven Fortress\n{G}\nEnchantment\nFEM,C\n{1G}: Target blocking creature gets +0/+1 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5952          "Elven Fortress\n{G}\nEnchantment\nFEM,C\n{1G}: Target blocking creature gets +0/+1 until end of turn."
+    IDS_STRING5953          "Elven Fortress\n{G}\nEnchantment\nFEM,C\n{1G}: Target blocking creature gets +0/+1 until end of turn."
+    IDS_STRING5954          "Elven Fortress\n{G}\nEnchantment\nFEM,C\n{1G}: Target blocking creature gets +0/+1 until end of turn."
+    IDS_STRING5955          "Elven Lyre\n{2}\nArtifact\nFEM,R\n{1}, {T}, Sacrifice Elven Lyre: Target creature gets +2/+2 until end of turn."
+    IDS_STRING5956          "Elvish Scout\n{G}\nCreature - Elf Scout\nFEM,C\n{G}, {T}: Untap target attacking creature you control. Prevent all combat damage that would be dealt to and dealt by it this turn.\n1/1"
+    IDS_STRING5957          "Elvish Scout\n{G}\nCreature - Elf Scout\nFEM,C\n{G}, {T}: Untap target attacking creature you control. Prevent all combat damage that would be dealt to and dealt by it this turn.\n1/1"
+    IDS_STRING5958          "Elvish Scout\n{G}\nCreature - Elf Scout\nFEM,C\n{G}, {T}: Untap target attacking creature you control. Prevent all combat damage that would be dealt to and dealt by it this turn.\n1/1"
+    IDS_STRING5959          "Goblin Chirurgeon\n{R}\nCreature - Goblin Shaman\nFEM,C\nSacrifice a Goblin: Regenerate target creature.\n0/2"
+    IDS_STRING5960          "Goblin Chirurgeon\n{R}\nCreature - Goblin Shaman\nFEM,C\nSacrifice a Goblin: Regenerate target creature.\n0/2"
+    IDS_STRING5961          "Goblin Chirurgeon\n{R}\nCreature - Goblin Shaman\nFEM,C\nSacrifice a Goblin: Regenerate target creature.\n0/2"
+    IDS_STRING5962          "Hand of Justice\n{5W}\nCreature - Avatar\nFEM,R\n{T}, Tap three untapped white creatures you control: Destroy target creature.\n2/6"
+    IDS_STRING5963          "High Tide\n{U}\nInstant\nFEM,C\nUntil end of turn, whenever a player taps an Island for mana, that player adds {U} to his or her mana pool."
+    IDS_STRING5964          "High Tide\n{U}\nInstant\nFEM,C\nUntil end of turn, whenever a player taps an Island for mana, that player adds {U} to his or her mana pool."
+    IDS_STRING5965          "High Tide\n{U}\nInstant\nFEM,C\nUntil end of turn, whenever a player taps an Island for mana, that player adds {U} to his or her mana pool."
+    IDS_STRING5966          "Homarid Shaman\n{2UU}\nCreature - Homarid Shaman\nFEM,R\n{U}: Tap target green creature.\n2/1"
+    IDS_STRING5967          "Icatian Lieutenant\n{WW}\nCreature - Human Soldier\nFEM,R\n{1W}: Target Soldier creature gets +1/+0 until end of turn.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5968          "Icatian Scout\n{W}\nCreature - Human Soldier Scout\nFEM,C\n{1}, {T}: Target creature gains first strike until end of turn.\n1/1"
+    IDS_STRING5969          "Icatian Scout\n{W}\nCreature - Human Soldier Scout\nFEM,C\n{1}, {T}: Target creature gains first strike until end of turn.\n1/1"
+    IDS_STRING5970          "Icatian Scout\n{W}\nCreature - Human Soldier Scout\nFEM,C\n{1}, {T}: Target creature gains first strike until end of turn.\n1/1"
+    IDS_STRING5971          "Icatian Scout\n{W}\nCreature - Human Soldier Scout\nFEM,C\n{1}, {T}: Target creature gains first strike until end of turn.\n1/1"
+    IDS_STRING5972          "River Merfolk\n{UU}\nCreature - Merfolk\nFEM,R\n{U}: River Merfolk gains mountainwalk until end of turn.\n2/1"
+    IDS_STRING5973          "Svyelunite Priest\n{1U}\nCreature - Merfolk Cleric\nFEM,U\n{UU}, {T}: Target creature gains shroud until end of turn. Activate this ability only during your upkeep.\n1/1"
+    IDS_STRING5974          "Thelonite Druid\n{2G}\nCreature - Human Cleric Druid\nFEM,U\n{1G}, {T}, Sacrifice a creature: Forests you control become 2/3 creatures until end of turn. They're still lands.\n1/1"
+    IDS_STRING5975          "Vodalian Knights\n{1UU}\nCreature - Merfolk Knight\nFEM,R\nFirst strike\rVodalian Knights can't attack unless defending player controls an Island.\rWhen you control no Islands, sacrifice Vodalian Knights.\r{U}: Vodalian Knights gains flying until end of turn.\n2/2"
+    IDS_STRING5976          "Vodalian Mage\n{2U}\nCreature - Merfolk Wizard\nFEM,C\n{U}, {T}: Counter target spell unless its controller pays {1}.\n1/1"
+    IDS_STRING5977          "Vodalian Mage\n{2U}\nCreature - Merfolk Wizard\nFEM,C\n{U}, {T}: Counter target spell unless its controller pays {1}.\n1/1"
+    IDS_STRING5978          "Vodalian Mage\n{2U}\nCreature - Merfolk Wizard\nFEM,C\n{U}, {T}: Counter target spell unless its controller pays {1}.\n1/1"
+    IDS_STRING5979          "Dwarven Soldier\n{1R}\nCreature - Dwarf Soldier\nFEM,C\nWhenever Dwarven Soldier blocks or becomes blocked by one or more Orcs, Dwarven Soldier gets +0/+2 until end of turn.\n2/1"
+    IDS_STRING5980          "Dwarven Soldier\n{1R}\nCreature - Dwarf Soldier\nFEM,C\nWhenever Dwarven Soldier blocks or becomes blocked by one or more Orcs, Dwarven Soldier gets +0/+2 until end of turn.\n2/1"
+    IDS_STRING5981          "Dwarven Soldier\n{1R}\nCreature - Dwarf Soldier\nFEM,C\nWhenever Dwarven Soldier blocks or becomes blocked by one or more Orcs, Dwarven Soldier gets +0/+2 until end of turn.\n2/1"
+    IDS_STRING5982          "Thrull Wizard\n{2B}\nCreature - Thrull Wizard\nFEM,U\n{1B}: Counter target black spell unless that spell's controller pays {B} or {3}.\n1/1"
+    IDS_STRING5983          "Orcish Veteran\n{2R}\nCreature - Orc\nFEM,C\nOrcish Veteran can't block white creatures with power 2 or greater.\r{R}: Orcish Veteran gains first strike until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5984          "Orcish Veteran\n{2R}\nCreature - Orc\nFEM,C\nOrcish Veteran can't block white creatures with power 2 or greater.\r{R}: Orcish Veteran gains first strike until end of turn.\n2/2"
+    IDS_STRING5985          "Orcish Veteran\n{2R}\nCreature - Orc\nFEM,C\nOrcish Veteran can't block white creatures with power 2 or greater.\r{R}: Orcish Veteran gains first strike until end of turn.\n2/2"
+    IDS_STRING5986          "Orcish Veteran\n{2R}\nCreature - Orc\nFEM,C\nOrcish Veteran can't block white creatures with power 2 or greater.\r{R}: Orcish Veteran gains first strike until end of turn.\n2/2"
+    IDS_STRING5987          "Thallid\n{G}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thallid.\rRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+    IDS_STRING5988          "Thallid\n{G}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thallid.\rRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+    IDS_STRING5989          "Thallid\n{G}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thallid.\rRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+    IDS_STRING5990          "Thallid\n{G}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thallid.\rRemove three spore counters from Thallid: Put a 1/1 green Saproling creature token onto the battlefield.\n1/1"
+    IDS_STRING5991          "Thallid Devourer\n{1GG}\nCreature - Fungus\nFEM,U\nAt the beginning of your upkeep, put a spore counter on Thallid Devourer.\rRemove three spore counters from Thallid Devourer: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: Thallid Devourer gets +1/+2 until end of turn.\n2/2"
+    IDS_STRING5992          "Elvish Farmer\n{1G}\nCreature - Elf\nFEM, R\nAt the beginning of your upkeep, put a spore counter on Elvish Farmer.\rRemove three spore counters from Elvish Farmer: Put a 1/1 green Saproling creature token onto the battlefield.\rSacrifice a Saproling: You gain 2 life.\n0/2"
+    IDS_STRING5993          "Spore Flower\n{GG}\nCreature - Fungus\nFEM, U\nAt the beginning of your upkeep, put a spore counter on Spore Flower.\rRemove three spore counters from Spore Flower: Prevent all combat damage that would be dealt this turn.\n0/1"
+    IDS_STRING5994          "Thorn Thallid\n{1GG}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thorn Thallid.\rRemove three spore counters from Thorn Thallid: Thorn Thallid deals 1 damage to target creature or player.\n2/2"
+    IDS_STRING5995          "Thorn Thallid\n{1GG}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thorn Thallid.\rRemove three spore counters from Thorn Thallid: Thorn Thallid deals 1 damage to target creature or player.\n2/2"
+    IDS_STRING5996          "Thorn Thallid\n{1GG}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thorn Thallid.\rRemove three spore counters from Thorn Thallid: Thorn Thallid deals 1 damage to target creature or player.\n2/2"
+    IDS_STRING5997          "Thorn Thallid\n{1GG}\nCreature - Fungus\nFEM\nAt the beginning of your upkeep, put a spore counter on Thorn Thallid.\rRemove three spore counters from Thorn Thallid: Thorn Thallid deals 1 damage to target creature or player.\n2/2"
+    IDS_STRING5998          "Feral Thallid\n{3GGG}\nCreature - Fungus\nFEM,U\nAt the beginning of your upkeep, put a spore counter on Feral Thallid.\rRemove three spore counters from Feral Thallid: Regenerate Feral Thallid.\n6/3"
+    IDS_STRING5999          "Armor Thrull\n{2B}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Armor Thrull: Put a +1/+2 counter on target creature.\n1/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6000          "Armor Thrull\n{2B}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Armor Thrull: Put a +1/+2 counter on target creature.\n1/3"
+    IDS_STRING6001          "Armor Thrull\n{2B}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Armor Thrull: Put a +1/+2 counter on target creature.\n1/3"
+    IDS_STRING6002          "Armor Thrull\n{2B}\nCreature - Thrull\nFEM,C\n{T}, Sacrifice Armor Thrull: Put a +1/+2 counter on target creature.\n1/3"
+    IDS_STRING6003          "Dwarven Armorer\n{R}\nCreature - Dwarf\nFEM,R\n{R}, {T}, Discard a card: Put a +0/+1 counter or a +1/+0 counter on target creature.\n0/2"
+    IDS_STRING6004          "Thelonite Monk\n{2GG}\nCreature - Insect Monk Cleric\nFEM,R\n{T}, Sacrifice a green creature: Target land becomes a Forest.\n1/2"
+    IDS_STRING6005          "Icatian Javelineers\n{W}\nCreature - Human Soldier\nFEM\nIcatian Javelineers enters the battlefield with a javelin counter on it.\r{T}, Remove a javelin counter from Icatian Javelineers: Icatian Javelineers deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING6006          "Icatian Javelineers\n{W}\nCreature - Human Soldier\nFEM\nIcatian Javelineers enters the battlefield with a javelin counter on it.\r{T}, Remove a javelin counter from Icatian Javelineers: Icatian Javelineers deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING6007          "Icatian Javelineers\n{W}\nCreature - Human Soldier\nFEM\nIcatian Javelineers enters the battlefield with a javelin counter on it.\r{T}, Remove a javelin counter from Icatian Javelineers: Icatian Javelineers deals 1 damage to target creature or player.\n1/1"
+    IDS_STRING6008          "Fungal Bloom\n{GG}\nEnchantment\nFEM,R\n{GG}: Put a spore counter on target Fungus."
+    IDS_STRING6009          "Elvish Hunter\n{1G}\nCreature - Elf Archer\nFEM,C\n{1G}, {T}: Target creature doesn't untap during its controller's next untap step.\n1/1"
+    IDS_STRING6010          "Elvish Hunter\n{1G}\nCreature - Elf Archer\nFEM,C\n{1G}, {T}: Target creature doesn't untap during its controller's next untap step.\n1/1"
+    IDS_STRING6011          "Elvish Hunter\n{1G}\nCreature - Elf Archer\nFEM,C\n{1G}, {T}: Target creature doesn't untap during its controller's next untap step.\n1/1"
+    IDS_STRING6012          "Necrite\n{1BB}\nCreature - Thrull\nFEM,C\nWhenever Necrite attacks and isn't blocked, you may sacrifice it. If you do, destroy target creature defending player controls. It can't be regenerated.\n2/2"
+    IDS_STRING6013          "Necrite\n{1BB}\nCreature - Thrull\nFEM,C\nWhenever Necrite attacks and isn't blocked, you may sacrifice it. If you do, destroy target creature defending player controls. It can't be regenerated.\n2/2"
+    IDS_STRING6014          "Necrite\n{1BB}\nCreature - Thrull\nFEM,C\nWhenever Necrite attacks and isn't blocked, you may sacrifice it. If you do, destroy target creature defending player controls. It can't be regenerated.\n2/2"
+    IDS_STRING6015          "Mindstab Thrull\n{1BB}\nCreature - Thrull\nFEM,C\nWhenever Mindstab Thrull attacks and isn't blocked, you may sacrifice it. If you do, defending player discards three cards.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6016          "Mindstab Thrull\n{1BB}\nCreature - Thrull\nFEM,C\nWhenever Mindstab Thrull attacks and isn't blocked, you may sacrifice it. If you do, defending player discards three cards.\n2/2"
+    IDS_STRING6017          "Mindstab Thrull\n{1BB}\nCreature - Thrull\nFEM,C\nWhenever Mindstab Thrull attacks and isn't blocked, you may sacrifice it. If you do, defending player discards three cards.\n2/2"
+    IDS_STRING6018          "Homarid Warrior\n{4U}\nCreature - Homarid Warrior\nFEM,C\n{U}: Homarid Warrior gains shroud until end of turn and doesn't untap during your next untap step. Tap Homarid Warrior.\n3/3"
+    IDS_STRING6019          "Homarid Warrior\n{4U}\nCreature - Homarid Warrior\nFEM,C\n{U}: Homarid Warrior gains shroud until end of turn and doesn't untap during your next untap step. Tap Homarid Warrior.\n3/3"
+    IDS_STRING6020          "Homarid Warrior\n{4U}\nCreature - Homarid Warrior\nFEM,C\n{U}: Homarid Warrior gains shroud until end of turn and doesn't untap during your next untap step. Tap Homarid Warrior.\n3/3"
+    IDS_STRING6021          "Initiates of the Ebon Hand\n{B}\nCreature - Cleric\nFEM,C\n{1}: Add {B} to your mana pool. If this ability has been activated four or more times this turn, sacrifice Initiates of the Ebon Hand at the beginning of the next end step.\n1/1"
+    IDS_STRING6022          "Initiates of the Ebon Hand\n{B}\nCreature - Cleric\nFEM,C\n{1}: Add {B} to your mana pool. If this ability has been activated four or more times this turn, sacrifice Initiates of the Ebon Hand at the beginning of the next end step.\n1/1"
+    IDS_STRING6023          "Initiates of the Ebon Hand\n{B}\nCreature - Cleric\nFEM,C\n{1}: Add {B} to your mana pool. If this ability has been activated four or more times this turn, sacrifice Initiates of the Ebon Hand at the beginning of the next end step.\n1/1"
+    IDS_STRING6024          "Farrelite Priest\n{1WW}\nCreature - Human Cleric\nFEM,U\n{1}: Add {W} to your mana pool. If this ability has been activated four or more times this turn, sacrifice Farrelite Priest at the beginning of the next end step.\n1/3"
+    IDS_STRING6025          "Orgg\n{3RR}\nCreature - Orgg\nFEM,R\nTrample\rOrgg can't attack if defending player controls an untapped creature with power 3 or greater.\rOrgg can't block creatures with power 3 or greater.\n6/6"
+    IDS_STRING6026          "Thrull Retainer\n{B}\nEnchantment - Aura\nFEM,U\nEnchant creature\rEnchanted creature gets +1/+1.\rSacrifice Thrull Retainer: Regenerate enchanted creature."
+    IDS_STRING6027          "Bottomless Vault\n\nLand\nFEM,R\nBottomless Vault enters the battlefield tapped.\rYou may choose not to untap Bottomless Vault during your untap step.\rAt the beginning of your upkeep, if Bottomless Vault is tapped, put a storage counter on it.\r{T}, Remove any number of storage counters from Bottomless Vault: Add {B} to your mana pool for each storage counter removed this way."
+    IDS_STRING6028          "Dwarven Hold\n\nLand\nFEM,R\nDwarven Hold enters the battlefield tapped.\rYou may choose not to untap Dwarven Hold during your untap step.\rAt the beginning of your upkeep, if Dwarven Hold is tapped, put a storage counter on it.\r{T}, Remove any number of storage counters from Dwarven Hold: Add {R} to your mana pool for each storage counter removed this way."
+    IDS_STRING6029          "Hollow Trees\n\nLand\nFEM,R\nHollow Trees enters the battlefield tapped.\rYou may choose not to untap Hollow Trees during your untap step.\rAt the beginning of your upkeep, if Hollow Trees is tapped, put a storage counter on it.\r{T}, Remove any number of storage counters from Hollow Trees: Add {G} to your mana pool for each storage counter removed this way."
+    IDS_STRING6030          "Icatian Store\n\nLand\nFEM,R\nIcatian Store enters the battlefield tapped.\rYou may choose not to untap Icatian Store during your untap step.\rAt the beginning of your upkeep, if Icatian Store is tapped, put a storage counter on it.\r{T}, Remove any number of storage counters from Icatian Store: Add {W} to your mana pool for each storage counter removed this way."
+    IDS_STRING6031          "Sand Silos\n\nLand\nFEM,R\nSand Silos enters the battlefield tapped.\rYou may choose not to untap Sand Silos during your untap step.\rAt the beginning of your upkeep, if Sand Silos is tapped, put a storage counter on it.\r{T}, Remove any number of storage counters from Sand Silos: Add {U} to your mana pool for each storage counter removed this way."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING6032          "Homarid Spawning Bed\n{UU}\nEnchantment\nFEM,U\n{1UU}, Sacrifice a blue creature: Put X 1/1 blue Camarid creature tokens onto the battlefield, where X is the sacrificed creature's converted mana cost."
+    IDS_STRING6033          "Rainbow Vale\n\nLand\nFEM,R\n{T}: Add one mana of any color to your mana pool. An opponent gains control of Rainbow Vale at the beginning of the next end step."
+    IDS_STRING6034          "Tourach's Gate\n{1BB}\nEnchantment - Aura\nFEM,R\nEnchant land you control\rSacrifice a Thrull: Put three time counters on Tourach's Gate.\rAt the beginning of your upkeep, remove a time counter from Tourach's Gate. If there are no time counters on Tourach's Gate, sacrifice it.\rTap enchanted land: Attacking creatures you control get +2/-1 until end of turn. Activate this ability only if enchanted land is untapped."
+    IDS_STRING6035          "Ring of Renewal\n{5}\nArtifact\nFEM,R\n{5}, {T}: Discard a card at random, then draw two cards."
+    IDS_STRING6036          "Thrull Champion\n{4B}\nCreature - Thrull\nFEM,R\nThrull creatures get +1/+1.\r{T}: Gain control of target Thrull for as long as you control Thrull Champion.\n2/2"
+    IDS_STRING6037          "Homarid\n{2U}\nCreature - Homarid\nFEM,C\nHomarid enters the battlefield with a tide counter on it.\rAt the beginning of your upkeep, put a tide counter on Homarid.\rAs long as there is exactly one tide counter on Homarid, it gets -1/-1.\rAs long as there are exactly three tide counters on Homarid, it gets +1/+1.\rWhenever there are four tide counters on Homarid, remove all tide counters from it.\n2/2"
+    IDS_STRING6038          "Homarid\n{2U}\nCreature - Homarid\nFEM,C\nHomarid enters the battlefield with a tide counter on it.\rAt the beginning of your upkeep, put a tide counter on Homarid.\rAs long as there is exactly one tide counter on Homarid, it gets -1/-1.\rAs long as there are exactly three tide counters on Homarid, it gets +1/+1.\rWhenever there are four tide counters on Homarid, remove all tide counters from it.\n2/2"
+    IDS_STRING6039          "Homarid\n{2U}\nCreature - Homarid\nFEM,C\nHomarid enters the battlefield with a tide counter on it.\rAt the beginning of your upkeep, put a tide counter on Homarid.\rAs long as there is exactly one tide counter on Homarid, it gets -1/-1.\rAs long as there are exactly three tide counters on Homarid, it gets +1/+1.\rWhenever there are four tide counters on Homarid, remove all tide counters from it.\n2/2"
+    IDS_STRING6040          "Homarid\n{2U}\nCreature - Homarid\nFEM,C\nHomarid enters the battlefield with a tide counter on it.\rAt the beginning of your upkeep, put a tide counter on Homarid.\rAs long as there is exactly one tide counter on Homarid, it gets -1/-1.\rAs long as there are exactly three tide counters on Homarid, it gets +1/+1.\rWhenever there are four tide counters on Homarid, remove all tide counters from it.\n2/2"
+    IDS_STRING6041          "Orcish Captain\n{R}\nCreature - Orc Warrior\nFEM,U\n{1}: Flip a coin. If you win the flip, target Orc creature gets +2/+0 until end of turn. If you lose the flip, it gets -0/-2 until end of turn.\n1/1"
+    IDS_STRING6042          "Dwarven Catapult\n{XR}\nInstant\nFEM,U\nDwarven Catapult deals X damage divided evenly, rounded down, among all creatures target opponent controls."
+    IDS_STRING6043          "Tidal Influence\n{2U}\nEnchantment\nFEM,U\nCast Tidal Influence only if no permanents named Tidal Influence are on the battlefield.\rTidal Influence enters the battlefield with a tide counter on it.\rAt the beginning of your upkeep, put a tide counter on Tidal Influence.\rAs long as there is exactly one tide counter on Tidal Influence, all blue creatures get -2/-0.\rAs long as there are exactly three tide counters on Tidal Influence, all blue creatures get +2/+0.\rWhenever there are four tide counters on Tidal Influence, remove all tide counters from it."
+    IDS_STRING6044          "Icatian Moneychanger\n{W}\nCreature - Human\nFEM,C\nIcatian Moneychanger enters the battlefield with three credit counters on it.\rWhen Icatian Moneychanger enters the battlefield, it deals 3 damage to you.\rAt the beginning of your upkeep, put a credit counter on Icatian Moneychanger.\rSacrifice Icatian Moneychanger: You gain 1 life for each credit counter on Icatian Moneychanger. Activate this ability only during your upkeep.\n0/2"
+    IDS_STRING6045          "Icatian Moneychanger\n{W}\nCreature - Human\nFEM,C\nIcatian Moneychanger enters the battlefield with three credit counters on it.\rWhen Icatian Moneychanger enters the battlefield, it deals 3 damage to you.\rAt the beginning of your upkeep, put a credit counter on Icatian Moneychanger.\rSacrifice Icatian Moneychanger: You gain 1 life for each credit counter on Icatian Moneychanger. Activate this ability only during your upkeep.\n0/2"
+    IDS_STRING6046          "Icatian Moneychanger\n{W}\nCreature - Human\nFEM,C\nIcatian Moneychanger enters the battlefield with three credit counters on it.\rWhen Icatian Moneychanger enters the battlefield, it deals 3 damage to you.\rAt the beginning of your upkeep, put a credit counter on Icatian Moneychanger.\rSacrifice Icatian Moneychanger: You gain 1 life for each credit counter on Icatian Moneychanger. Activate this ability only during your upkeep.\n0/2"
+    IDS_STRING6047          "Ebon Praetor\n{4BB}\nCreature - Avatar Praetor\nFEM,R\nFirst strike, trample\rAt the beginning of your upkeep, put a -2/-2 counter on Ebon Praetor.\rSacrifice a creature: Remove a -2/-2 counter from Ebon Praetor. If the sacrificed creature was a Thrull, put a +1/+0 counter on Ebon Praetor. Activate this ability only during your upkeep and only once each turn.\n5/5"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

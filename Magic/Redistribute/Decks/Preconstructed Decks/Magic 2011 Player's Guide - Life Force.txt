@@ -1,0 +1,39 @@
+// Life Force
+// Magic 2011 Player's Guide
+
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Ajani Goldmane (21259)
+
+// Creatures - 20 (33.33%)
+
+3 Ajani's Pridemate (21138)
+4 Goldenglow Moth (21183)
+4 Palace Guard (21265)
+2 Roc Egg (21224)
+2 Serra Angel (21188)
+Serra Ascendant (21247)
+4 Tireless Missionaries (21154)
+
+// Instants - 2 (3.33%)
+
+2 Condemn (21180)
+
+// Sorceries - 5 (8.33%)
+
+Day of Judgment (21263)
+4 Solemn Offering (21190)
+
+// Enchantments - 8 (13.33%)
+
+4 Ajani's Mantra (21137)
+4 Pacifism (21186)
+
+// Lands - 24 (40.00%)
+
+6 Plains (21116)
+6 Plains (21117)
+6 Plains (21118)
+6 Plains (21119)

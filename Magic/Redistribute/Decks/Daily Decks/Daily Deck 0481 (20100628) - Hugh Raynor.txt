@@ -1,0 +1,53 @@
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+4 Goblin Arsonist (20872)
+4 Goblin Guide (19456)
+4 Hell's Thunder (8676)
+4 Hellspark Elemental (8896)
+
+// Instants - 13 (21.67%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (4060)
+Searing Blaze (19697)
+4 Staggershock (20984)
+
+// Sorceries - 4 (6.67%)
+
+4 Forked Bolt (20847)
+
+// Enchantments - 4 (6.67%)
+
+4 Quest for Pure Flame (19523)
+
+// Artifacts - 3 (5.00%)
+
+3 Howling Mine (4050)
+
+// Lands - 20 (33.33%)
+
+4 Mountain (20811)
+4 Mountain (20808)
+4 Mountain (20809)
+4 Mountain (20810)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+3 Punishing Fire (19544)
+3 Unstable Footing (19535)
+
+// Sorceries
+
+3 Earthquake (4034)
+3 Mark of Mutiny (19497)
+
+// Enchantments
+
+3 Manabarbs (4064)

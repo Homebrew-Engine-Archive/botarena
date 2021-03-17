@@ -1,0 +1,52 @@
+// Total cards in deck - 60
+
+// Creatures - 23 (38.33%)
+
+4 Lord of Atlantis (8170)
+4 Man-o'-War (9652)
+4 Manta Riders (10132)
+4 Merfolk Traders (9891)
+4 Suq'Ata Firewalker (9391)
+3 Waterspout Djinn (9661)
+
+// Instants - 10 (16.67%)
+
+4 Counterspell (10112)
+4 Force of Will (6759)
+2 Force Spike (8100)
+
+// Enchantments - 2 (3.33%)
+
+2 Curiosity (10607)
+
+// Artifacts - 3 (5.00%)
+
+3 Nevinyrral's Disk (8189)
+
+// Lands - 22 (36.67%)
+
+5 Island (10053)
+5 Island (10052)
+4 Island (10055)
+4 Island (10054)
+4 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Bottle Gnomes (10019)
+
+// Instants
+
+2 Disrupt (9846)
+2 Force Spike (8100)
+4 Hydroblast (8134)
+
+// Artifacts
+
+Nevinyrral's Disk (8189)
+2 Phyrexian Furnace (9893)
+2 Serrated Arrows (6188)

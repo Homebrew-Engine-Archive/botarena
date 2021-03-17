@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 2 (3.33%)
+
+2 Koth of the Hammer (21435)
+
+// Creatures - 15 (25.00%)
+
+3 Inferno Titan (21321)
+4 Lotus Cobra (19389)
+4 Overgrown Battlement (20890)
+4 Primeval Titan (21223)
+
+// Instants - 8 (13.33%)
+
+4 Harrow (19347)
+4 Summoning Trap (19540)
+
+// Sorceries - 4 (6.67%)
+
+4 Explore (19647)
+
+// Enchantments - 3 (5.00%)
+
+3 Khalni Heart Expedition (19516)
+
+// Lands - 28 (46.67%)
+
+Evolving Wilds (20905)
+2 Forest (21769)
+3 Forest (21768)
+Khalni Garden (19621)
+3 Misty Rainforest (19356)
+6 Mountain (21772)
+5 Mountain (21773)
+3 Terramorphic Expanse (21309)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Acidic Slime (21311)
+Terastodon (19715)
+
+// Sorceries
+
+3 Green Sun's Zenith (21720)
+3 Pyroclasm (21291)
+2 Slagstorm (21756)
+
+// Artifacts
+
+3 Tumble Magnet (21447)

@@ -1,0 +1,60 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 5 (8.33%)
+
+2 Elspeth, Knight-Errant (8722)
+3 Jace Beleren (4210)
+
+// Creatures - 10 (16.67%)
+
+3 Baneslayer Angel (4224)
+Iona, Shield of Emeria (19468)
+4 Knight of the White Orchid (8657)
+2 Sphinx of Jwar Isle (19378)
+
+// Instants - 11 (18.33%)
+
+3 Essence Scatter (4143)
+4 Flashfreeze (4038)
+4 Path to Exile (8897)
+
+// Sorceries - 8 (13.33%)
+
+4 Day of Judgment (19340)
+2 Martial Coup (8886)
+2 Mind Spring (4004)
+
+// Artifacts - 4 (6.67%)
+
+4 Fieldmist Borderpost (9091)
+
+// Lands - 22 (36.67%)
+
+4 Glacial Fortress (4200)
+Island (19308)
+Island (19309)
+Island (19311)
+Island (19310)
+2 Kabira Crossroads (19401)
+2 Plains (19324)
+2 Plains (19325)
+2 Plains (19326)
+2 Plains (19327)
+4 Sejiri Refuge (19400)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+3 Wall of Reverence (8923)
+
+// Instants
+
+4 Cancel (4023)
+4 Celestial Purge (4014)
+
+// Enchantments
+
+4 Luminarch Ascension (19527)

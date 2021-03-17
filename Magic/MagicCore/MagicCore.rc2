@@ -1,0 +1,48 @@
+//
+// MagicWand.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,1,0
+ PRODUCTVERSION 1,43,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "This application is not published or endorsed by Wizards of the Coast LLC."
+            VALUE "CompanyName", "EpochSoft"
+            VALUE "FileDescription", "BotArena"
+            VALUE "FileVersion", "1,43,1,0"
+            VALUE "InternalName", "BotArena"
+            VALUE "LegalCopyright", "This application is not published or endorsed by Wizards of the Coast LLC."
+            VALUE "LegalTrademarks", "This application is not published or endorsed by Wizards of the Coast LLC."
+            VALUE "OriginalFilename", "BotArena.exe"
+            VALUE "ProductName", "BotArena"
+            VALUE "ProductVersion", "1,43,1,0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END

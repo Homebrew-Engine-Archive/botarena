@@ -1,0 +1,37 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Garruk Wildspeaker (21205)
+
+// Creatures - 15 (25.00%)
+
+3 Inferno Titan (21321)
+4 Obstinate Baloth (21217)
+4 Overgrown Battlement (20890)
+4 Primeval Titan (21223)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (21124)
+
+// Sorceries - 12 (20.00%)
+
+4 Cultivate (21319)
+2 Destructive Force (21254)
+4 Growth Spasm (20925)
+2 Pyroclasm (21291)
+
+// Lands - 26 (43.33%)
+
+2 Forest (21104)
+2 Forest (21107)
+2 Forest (21105)
+2 Forest (21106)
+2 Mountain (21114)
+2 Mountain (21112)
+2 Mountain (21113)
+2 Mountain (21115)
+4 Raging Ravine (19699)
+4 Rootbound Crag (21129)
+2 Valakut, the Molten Pinnacle (19344)

@@ -1,0 +1,75 @@
+// Total cards in deck - 60
+
+// Creatures - 16 (26.67%)
+
+4 Dark Confidant (16449)
+3 Gatekeeper of Malakir (19442)
+2 Mirran Crusader (21703)
+3 Phyrexian Obliterator (21903)
+4 Stoneforge Mystic (19638)
+
+// Instants - 7 (11.67%)
+
+3 Dark Ritual (11619)
+4 Swords to Plowshares (6372)
+
+// Sorceries - 11 (18.33%)
+
+Hymn to Tourach (5914)
+Hymn to Tourach (5900)
+Hymn to Tourach (5912)
+Hymn to Tourach (5913)
+4 Thoughtseize (17901)
+3 Vindicate (13007)
+
+// Enchantments - 1 (1.67%)
+
+Bitterblossom (18338)
+
+// Artifacts - 6 (10.00%)
+
+2 Chrome Mox (15001)
+Sensei's Divining Top (15640)
+Sword of Fire and Ice (15222)
+2 Umezawa's Jitte (19149)
+
+// Lands - 19 (31.67%)
+
+3 Bloodstained Mire (14002)
+Fetid Heath (18912)
+4 Marsh Flats (19357)
+Plains (21978)
+4 Scrubland (7356)
+Swamp (21980)
+Swamp (21981)
+Urborg, Tomb of Yawgmoth (2606)
+3 Wasteland (10008)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+Phyrexian Revoker (21727)
+2 Shriekmaw (18025)
+2 Tidehollow Sculler (8721)
+
+// Instants
+
+Darkblast (16596)
+
+// Sorceries
+
+2 Perish (394)
+
+// Enchantments
+
+2 Bitterblossom (18338)
+
+// Artifacts
+
+Batterskull (21983)
+2 Pithing Needle (4081)
+Sword of Feast and Famine (21762)
+Sword of War and Peace (21999)

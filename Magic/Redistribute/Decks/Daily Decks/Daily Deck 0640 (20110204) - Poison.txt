@@ -1,0 +1,38 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Tezzeret, Agent of Bolas (21765)
+
+// Creatures - 19 (31.67%)
+
+4 Necropede (21555)
+4 Phyrexian Crusader (21702)
+4 Phyrexian Vatmother (21728)
+4 Plague Myr (21708)
+Skithiryx, the Blight Dragon (21438)
+2 Vector Asp (21548)
+
+// Instants - 1 (1.67%)
+
+Go for the Throat (21752)
+
+// Sorceries - 1 (1.67%)
+
+Duress (21280)
+
+// Artifacts - 11 (18.33%)
+
+4 Contagion Clasp (21430)
+Darksteel Axe (21451)
+4 Sphere of the Suns (21731)
+Sword of Body and Mind (21420)
+Sword of Feast and Famine (21762)
+
+// Lands - 24 (40.00%)
+
+4 Darkslick Shores (21469)
+4 Drowned Catacomb (21127)
+4 Inkmoth Nexus (21745)
+6 Swamp (21776)
+6 Swamp (21777)

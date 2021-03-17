@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Creatures - 13 (21.67%)
+
+4 Countryside Crusher (18354)
+4 Dark Confidant (16449)
+4 Tarmogoyf (17704)
+Terravore (13214)
+
+// Instants - 1 (1.67%)
+
+Terminate (9001)
+
+// Sorceries - 6 (10.00%)
+
+4 Life from the Loam (16597)
+2 Maelstrom Pulse (9055)
+
+// Enchantments - 3 (5.00%)
+
+3 Seismic Assault (3151)
+
+// Artifacts - 10 (16.67%)
+
+4 Chalice of the Void (15015)
+2 Engineered Explosives (15510)
+4 Mox Diamond (10511)
+
+// Lands - 27 (45.00%)
+
+Badlands (7207)
+Bayou (7209)
+3 Bloodstained Mire (14002)
+Forest (8509)
+4 Forgotten Cave (14128)
+Mountain (8518)
+Mountain (8519)
+2 Taiga (7377)
+4 Tranquil Thicket (14135)
+Volrath's Stronghold (10456)
+4 Wasteland (10008)
+4 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Instants
+
+3 Krosan Grip (17369)
+
+// Sorceries
+
+3 Firespout (18674)
+
+// Enchantments
+
+4 Leyline of the Void (16893)
+
+// Artifacts
+
+Thorn of Amethyst (18000)
+4 Zuran Orb (6380)

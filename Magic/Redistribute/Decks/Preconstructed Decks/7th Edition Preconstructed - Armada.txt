@@ -1,0 +1,39 @@
+// Armada
+// 7th Edition Preconstructed
+
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 16 (40.00%)
+
+Angelic Page (722)
+Crossbow Infantry (728)
+2 Eager Cadet (723)
+Heavy Ballista (715)
+2 Knight Errant (707)
+2 Longbow Archer (716)
+Master Healer (727)
+Razorfoot Griffin (724)
+2 Samite Healer (717)
+Serra Advocate (726)
+2 Standing Troops (725)
+
+// Instants - 3 (7.50%)
+
+Disenchant (713)
+2 Healing Salve (714)
+
+// Enchantments - 6 (15.00%)
+
+Glorious Anthem (730)
+2 Pacifism (712)
+2 Serra's Embrace (729)
+Spirit Link (797)
+
+// Lands - 15 (37.50%)
+
+4 Plains (718)
+4 Plains (719)
+4 Plains (720)
+3 Plains (721)

@@ -1,0 +1,50 @@
+// Starter 2000 Player B Advanced
+
+#PRE
+#NO_CARD_LIMIT
+
+// Total cards in deck - 37
+
+// Creatures - 14 (37.84%)
+
+2 Eager Cadet (20701)
+Giant Octopus (20702)
+Knight Errant (20703)
+Merfolk of the Pearl Trident (363)
+Obsianus Golem (329)
+Prodigal Sorcerer (306)
+Royal Falcon (20708)
+Samite Healer (328)
+Sea Eagle (20709)
+Venerable Monk (325)
+Vizzerdrix (20711)
+Wild Griffin (20712)
+Wind Drake (308)
+
+// Instants - 3 (8.11%)
+
+Counterspell (344)
+Disenchant (340)
+Inspiration (430)
+
+// Sorceries - 3 (8.11%)
+
+Angelic Blessing (20714)
+Breath of Life (20715)
+Time Ebb (20719)
+
+// Enchantments - 2 (5.41%)
+
+Flight (413)
+Hero's Resolve (347)
+
+// Lands - 15 (40.54%)
+
+2 Island (303)
+2 Island (522)
+2 Island (523)
+Island (524)
+2 Plains (302)
+2 Plains (528)
+2 Plains (529)
+2 Plains (530)

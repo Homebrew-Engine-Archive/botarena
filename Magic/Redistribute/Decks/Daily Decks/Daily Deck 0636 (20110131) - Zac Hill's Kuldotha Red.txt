@@ -1,0 +1,32 @@
+// Total cards in deck - 60
+
+// Creatures - 21 (35.00%)
+
+4 Goblin Bushwhacker (19455)
+4 Goblin Guide (19456)
+Goblin Wardriver (21735)
+4 Memnite (21440)
+4 Ornithopter (21306)
+4 Signal Pest (21709)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (21124)
+
+// Sorceries - 6 (10.00%)
+
+2 Devastating Summons (20990)
+4 Kuldotha Rebirth (21499)
+
+// Artifacts - 12 (20.00%)
+
+Chimeric Mass (21609)
+3 Flayer Husk (21763)
+4 Mox Opal (21434)
+4 Panic Spellbomb (21542)
+
+// Lands - 17 (28.33%)
+
+4 Contested War Zone (21792)
+7 Mountain (21772)
+6 Mountain (21773)

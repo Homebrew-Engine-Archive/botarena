@@ -1,0 +1,67 @@
+// Total cards in deck - 61
+
+// Planeswalkers - 8 (13.11%)
+
+3 Gideon Jura (20966)
+Jace Beleren (21258)
+4 Jace, the Mind Sculptor (19670)
+
+// Creatures - 8 (13.11%)
+
+4 Squadron Hawk (21218)
+4 Stoneforge Mystic (19638)
+
+// Instants - 6 (9.84%)
+
+Condemn (21180)
+Doom Blade (21198)
+Go for the Throat (21752)
+3 Mana Leak (21214)
+
+// Sorceries - 8 (13.11%)
+
+4 Inquisition of Kozilek (20846)
+4 Preordain (21152)
+
+// Artifacts - 4 (6.56%)
+
+2 Sword of Feast and Famine (21762)
+2 Tumble Magnet (21447)
+
+// Lands - 27 (44.26%)
+
+4 Creeping Tar Pit (19622)
+3 Darkslick Shores (21469)
+3 Glacial Fortress (21128)
+Island (21771)
+Island (21770)
+4 Marsh Flats (19357)
+3 Plains (21774)
+2 Plains (21775)
+4 Seachrome Coast (21459)
+Swamp (21776)
+Swamp (21777)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Jace Beleren (21258)
+
+// Instants
+
+3 Condemn (21180)
+Doom Blade (21198)
+4 Flashfreeze (21133)
+2 Into the Roil (19373)
+
+// Sorceries
+
+2 Duress (21280)
+Memoricide (21564)
+
+// Enchantments
+
+Volition Reins (21478)

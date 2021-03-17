@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 11 (18.33%)
+
+4 Meddling Mage (9016)
+4 Sower of Temptation (18074)
+3 Vendilion Clique (18369)
+
+// Instants - 21 (35.00%)
+
+4 Broken Ambitions (18057)
+4 Cryptic Command (18051)
+3 Negate (18305)
+4 Path to Exile (8897)
+4 Peek (3225)
+2 Remove Soul (3139)
+
+// Sorceries - 4 (6.67%)
+
+Austere Command (18024)
+3 Wrath of God (3200)
+
+// Lands - 24 (40.00%)
+
+4 Adarkar Wastes (3002)
+4 Faerie Conclave (3304)
+2 Island (8515)
+Island (8516)
+2 Island (8514)
+Island (8517)
+4 Mutavault (18368)
+4 Mystic Gate (18564)
+Plains (8524)
+Plains (8523)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Burrenton Forge-Tender (18054)
+3 Wall of Denial (9023)
+3 Windborn Muse (3358)
+
+// Instants
+
+Negate (18305)
+
+// Sorceries
+
+2 Austere Command (18024)
+
+// Artifacts
+
+2 Pithing Needle (3301)

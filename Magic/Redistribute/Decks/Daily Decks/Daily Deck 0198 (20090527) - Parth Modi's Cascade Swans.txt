@@ -1,0 +1,56 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+4 Bloodbraid Elf (9105)
+4 Swans of Bryn Argoll (18708)
+
+// Instants - 6 (10.00%)
+
+2 Ad Nauseam (8703)
+4 Bituminous Blast (9107)
+
+// Enchantments - 4 (6.67%)
+
+4 Seismic Assault (3151)
+
+// Lands - 42 (70.00%)
+
+4 Cascade Bluffs (18907)
+4 Fire-Lit Thicket (18542)
+4 Ghitu Encampment (3307)
+4 Graven Cairns (18547)
+Mountain (8518)
+Mutavault (18368)
+4 Reflecting Pool (18571)
+4 Rugged Prairie (18922)
+4 Spinerock Knoll (18151)
+4 Treetop Village (3308)
+4 Vivid Crag (18031)
+4 Vivid Marsh (18034)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+2 Ajani Vengeant (8720)
+
+// Creatures
+
+4 Qasali Pridemage (9018)
+3 Vexing Shusher (18682)
+
+// Instants
+
+Ad Nauseam (8703)
+2 Volcanic Fallout (8860)
+
+// Sorceries
+
+Maelstrom Pulse (9055)
+
+// Enchantments
+
+2 Aura of Silence (3221)

@@ -1,0 +1,273 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Dissension.ico"
+IDI_LARGE_MODULE        ICON                    "DissensionLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Dissension"
+    IDS_EXPANSION_ABBREV    "DIS"
+    IDS_FIRST_CARD          "23800"
+    IDS_TOTAL_CARD          "180"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "23798"
+    IDS_MODULE_LARGE_ICON_ID "23799"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "05-05-2006"
+    IDS_MWS_FOLDER          "MWS\\DIS\\"
+    IDS_PRODUCT_LIST        """Dissension Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23800         "Sky Hussar\n{3WU}\nCreature - Human Knight\nDIS,U\nFlying\rWhen Sky Hussar enters the battlefield, untap all creatures you control.\rForecast - Tap two untapped white and/or blue creatures you control, Reveal Sky Hussar from your hand: Draw a card.\n4/3"
+    IDS_STRING23801         "Steeling Stance\n{1WW}\nInstant\nDIS,C\nCreatures you control get +1/+1 until end of turn.\rForecast - {W}, Reveal Steeling Stance from your hand: Target creature gets +1/+1 until end of turn."
+    IDS_STRING23802         "Skyscribing\n{XUU}\nSorcery\nDIS,U\nEach player draws X cards.\rForecast - {2U}, Reveal Skyscribing from your hand: Each player draws a card."
+    IDS_STRING23803         "Pride of the Clouds\n{WU}\nCreature - Elemental Cat\nDIS,R\nFlying\rPride of the Clouds gets +1/+1 for each other creature with flying on the battlefield.\rForecast - {2WU}, Reveal Pride of the Clouds from your hand: Put a 1/1 white and blue Bird creature token with flying onto the battlefield.\n1/1"
+    IDS_STRING23804         "Plumes of Peace\n{1WU}\nEnchantment - Aura\nDIS,C\nEnchanted creature doesn't untap during its controller's untap step.\rForecast - {WU}, Reveal Plumes of Peace from your hand: Tap target creature."
+    IDS_STRING23805         "Govern the Guildless\n{5U}\nSorcery\nDIS,R\nGain control of target monocolored creature.\rForecast - {1U}, Reveal Govern the Guildless from your hand: Target creature becomes the color or colors of your choice until end of turn."
+    IDS_STRING23806         "Proclamation of Rebirth\n{2W}\nSorcery\nDIS,R\nReturn up to three target creature cards with converted mana cost 1 or less from your graveyard to the battlefield.\rForecast - {5W}, Reveal Proclamation of Rebirth from your hand: Return target creature card with converted mana cost 1 or less from your graveyard to the battlefield."
+    IDS_STRING23807         "Guardian of the Guildpact\n{3W}\nCreature - Spirit\nDIS,C\nProtection from monocolored\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23808         "Street Savvy\n{G}\nEnchantment - Aura\nDIS,C\nEnchant creature\rEnchanted creature gets +0/+2 and can block creatures with landwalk abilities as though they didn't have those abilities."
+    IDS_STRING23809         "Azorius Guildmage\n{AA}\nCreature - Vedalken Wizard\nDIS,U\n{2W}: Tap target creature\r{2U}: Counter target activated ability.\n2/2"
+    IDS_STRING23810         "Voidslime\n{GUU}\nInstant\nDIS,R\nCounter target spell, activated ability, or triggered ability. (Mana abilities can't be targeted.)"
+    IDS_STRING23811         "Simic Basilisk\n{4GG}\nCreature - Basilisk Mutant\nDIS,U\nGraft 3\r{1G}: Until end of turn, target creature with a +1/+1 counter on it gains ""Whenever this creature deals combat damage to a creature, destroy that creature at end of combat.""\n0/0"
+    IDS_STRING23812         "Stomp and Howl\n{2G}\nSorcery\nDIS,U\nDestroy target artifact and target enchantment."
+    IDS_STRING23813         "Delirium Skeins\n{2B}\nSorcery\nDIS,C\nEach player discards three cards."
+    IDS_STRING23814         "Might of the Nephilim\n{1G}\nInstant\nDIS,U\nTarget creature gets +2/+2 until end of turn for each of its colors."
+    IDS_STRING23815         "Rix Maadi, Dungeon Palace\n\nLand\nDIS,U\n{T}: Add {1} to your mana pool.\r{1BR}, {T}: Each player discards a card. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING23816         "Walking Archive\n{3}\nArtifact Creature - Golem\nDIS,R\nDefender\rWalking Archive enters the battlefield with a +1/+1 counter on it.\rAt the beginning of each player's upkeep, that player draws a card for each +1/+1 counter on Walking Archive.\r{2WU}: Put a +1/+1 counter on Walking Archive.\n1/1"
+    IDS_STRING23817         "Wakestone Gargoyle\n{3W}\nCreature - Gargoyle\nDIS,R\nDefender\rFlying\r{1W}: Creatures you control with defender can attack this turn as though they didn't have defender.\n3/4"
+    IDS_STRING23818         "Stalking Vengeance\n{5RR}\nCreature - Avatar\nDIS,R\nHaste\rWhenever another creature you control dies, it deals damage equal to its power to target player.\n5/5"
+    IDS_STRING23819         "Rakdos Ickspitter\n{1BR}\nCreature - Thrull\nDIS,C\n{T}: Rakdos Ickspitter deals 1 damage to target creature and that creature's controller loses 1 life.\n1/1"
+    IDS_STRING23820         "Flame-Kin War Scout\n{3R}\nCreature - Elemental Scout\nDIS,U\nWhen another creature enters the battlefield, sacrifice Flame-Kin War Scout. If you do, Flame-Kin War Scout deals 4 damage to that creature.\n2/4"
+    IDS_STRING23821         "Court Hussar\n{2U}\nCreature - Vedalken Knight\nDIS,U\nVigilance\rWhen Court Hussar enters the battlefield, look at the top three cards of your library, then put one of them into your hand and the rest on the bottom of your library in any order.\rWhen Court Hussar enters the battlefield, sacrifice it unless {W} was spent to cast it.\n1/3"
+    IDS_STRING23822         "Windreaver\n{3WU}\nCreature - Elemental\nDIS,R\nFlying\r{W}: Windreaver gains vigilance until end of turn.\r{W}: Windreaver gets +0/+1 until end of turn.\r{U}: Switch Windreaver's power and toughness until end of turn.\r{U}: Return Windreaver to its owner's hand.\n1/3"
+    IDS_STRING23823         "Verdant Eidolon\n{3G}\nCreature - Spirit\nDIS,C\n{G}, Sacrifice Verdant Eidolon: Add three mana of any one color to your mana pool.\rWhenever you cast a multicolored spell, you may return Verdant Eidolon from your graveyard to your hand.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23824         "Sandstorm Eidolon\n{3R}\nCreature - Spirit\nDIS,C\n{R}, Sacrifice Sandstorm Eidolon: Target creature can't block this turn.\rWhenever you cast a multicolored spell, you may return Sandstorm Eidolon from your graveyard to your hand.\n2/2"
+    IDS_STRING23825         "Entropic Eidolon\n{3B}\nCreature - Spirit\nDIS,C\n{B}, Sacrifice Entropic Eidolon: Target player loses 1 life and you gain 1 life.\rWhenever you cast a multicolored spell, you may return Entropic Eidolon from your graveyard to your hand.\n2/2"
+    IDS_STRING23826         "Enigma Eidolon\n{3U}\nCreature - Spirit\nDIS,C\n{U}, Sacrifice Enigma Eidolon: Target player puts the top three cards of his or her library into his or her graveyard.\rWhenever you cast a multicolored spell, you may return Enigma Eidolon from your graveyard to your hand.\n2/2"
+    IDS_STRING23827         "Aurora Eidolon\n{3W}\nCreature - Spirit\nDIS,C\n{W}, Sacrifice Aurora Eidolon: Prevent the next 3 damage that would be dealt to target creature or player this turn.\rWhenever you cast a multicolored spell, you may return Aurora Eidolon from your graveyard to your hand.\n2/2"
+    IDS_STRING23828         "Grand Arbiter Augustin IV\n{2WU}\nLegendary Creature - Human Advisor\nDIS,R\nWhite spells you cast cost {1} less to cast.\rBlue spells you cast cost {1} less to cast.\rSpells your opponents cast cost {1} more to cast.\n2/3"
+    IDS_STRING23829         "Ghost Quarter\n\nLand\nDIS,U\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Ghost Quarter: Destroy target land. Its controller may search his or her library for a basic land card, put it onto the battlefield, then shuffle his or her library."
+    IDS_STRING23830         "Novijen Sages\n{4UU}\nCreature - Human Advisor Mutant\nDIS,R\nGraft 4\r{1}, Remove two +1/+1 counters from among creatures you control: Draw a card.\n0/0"
+    IDS_STRING23831         "Azorius First-Wing\n{WU}\nCreature - Griffin\nDIS,C\nFlying, protection from enchantments\n2/2"
+    IDS_STRING23832         "Enemy of the Guildpact\n{4B}\nCreature - Spirit\nDIS,C\nProtection from multicolored\n4/2"
+    IDS_STRING23833         "Azorius Chancery\n\nLand\nDIS,C\nAzorius Chancery enters the battlefield tapped.\rWhen Azorius Chancery enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {WU} to your mana pool."
+    IDS_STRING23834         "Rakdos Carnarium\n\nLand\nDIS,C\nRakdos Carnarium enters the battlefield tapped.\rWhen Rakdos Carnarium enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {BR} to your mana pool."
+    IDS_STRING23835         "Simic Growth Chamber\n\nLand\nDIS,C\nSimic Growth Chamber enters the battlefield tapped.\rWhen Simic Growth Chamber enters the battlefield, return a land you control to its owner's hand.\r{T}: Add {GU} to your mana pool."
+    IDS_STRING23836         "Simic Ragworm\n{3G}\nCreature - Worm\nDIS,C\n{U}: Untap Simic Ragworm.\n3/3"
+    IDS_STRING23837         "Simic Sky Swallower\n{5GU}\nCreature - Leviathan\nDIS,R\nFlying; trample; shroud\n6/6"
+    IDS_STRING23838         "Condemn\n{W}\nInstant\nDIS,U\nPut target attacking creature on the bottom of its owner's library. Its controller gains life equal to its toughness."
+    IDS_STRING23839         "Blood Crypt\n\nLand - Swamp Mountain\nDIS,R\n{T}: Add {B} or {R} to your mana pool.\rAs Blood Crypt enters the battlefield, you may pay 2 life. If you don't, Blood Crypt enters the battlefield tapped."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23840         "Breeding Pool\n\nLand - Forest Island\nDIS,R\n{T}: Add {G} or {U} to your mana pool.\rAs Breeding Pool enters the battlefield, you may pay 2 life. If you don't, Breeding Pool enters the battlefield tapped."
+    IDS_STRING23841         "Hallowed Fountain\n\nLand - Plains Island\nDIS,R\n{T}: Add {W} or {U} to your mana pool.\rAs Hallowed Fountain enters the battlefield, you may pay 2 life. If you don't, Hallowed Fountain enters the battlefield tapped."
+    IDS_STRING23842         "Tidespout Tyrant\n{5UUU}\nCreature - Djinn\nDIS,R\nFlying\rWhenever you cast a spell, return target permanent to its owner's hand.\n5/5"
+    IDS_STRING23843         "Protean Hulk\n{5GG}\nCreature - Beast\nDIS,R\nWhen Protean Hulk dies, search your library for any number of creature cards with total converted mana cost 6 or less and put them onto the battlefield. Then shuffle your library.\n6/6"
+    IDS_STRING23844         "Seal of Doom\n{2B}\nEnchantment\nDIS,C\nSacrifice Seal of Doom: Destroy target nonblack creature. It can't be regenerated."
+    IDS_STRING23845         "Seal of Fire\n{R}\nEnchantment\nDIS,C\nSacrifice Seal of Fire: Seal of Fire deals 2 damage to target creature or player."
+    IDS_STRING23846         "Thrive\n{XG}\nSorcery\nDIS,C\nPut a +1/+1 counter on each of X target creatures."
+    IDS_STRING23847         "Transguild Courier\n{4}\nArtifact Creature - Golem\nDIS,U\n\n3/3"
+    IDS_STRING23848         "Assault Zeppelid\n{2GU}\nCreature - Beast\nDIS,C\nFlying, trample\n3/3"
+    IDS_STRING23849         "Avatar of Discord\n{DDD}\nCreature - Avatar\nDIS,R\nFlying\rWhen Avatar of Discord enters the battlefield, sacrifice it unless you discard two cards.\n5/3"
+    IDS_STRING23850         "Azorius AEthermage\n{1WU}\nCreature - Human Wizard\nDIS,U\nWhenever a permanent is returned to your hand, you may pay {1}. If you do, draw a card.\n1/1"
+    IDS_STRING23851         "Beacon Hawk\n{1W}\nCreature - Bird\nDIS,C\nFlying\rWhenever Beacon Hawk deals combat damage to a player, you may untap target creature.\r{W}: Beacon Hawk gets +0/+1 until end of turn.\n1/1"
+    IDS_STRING23852         "Celestial Ancient\n{3WW}\nCreature - Elemental\nDIS,R\nFlying\rWhenever you cast an enchantment spell, put a +1/+1 counter on each creature you control.\n3/3"
+    IDS_STRING23853         "Demon's Jester\n{3B}\nCreature - Imp\nDIS,C\nFlying\rHellbent - Demon's Jester gets +2/+1 as long as you have no cards in hand.\n2/2"
+    IDS_STRING23854         "Dread Slag\n{3BR}\nCreature - Horror\nDIS,R\nTrample\rDread Slag gets -4/-4 for each card in your hand.\n9/9"
+    IDS_STRING23855         "Drekavac\n{1B}\nCreature - Beast\nDIS,U\nWhen Drekavac enters the battlefield, sacrifice it unless you discard a noncreature card.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23856         "Gnat Alley Creeper\n{2R}\nCreature - Human Rogue\nDIS,U\nGnat Alley Creeper can't be blocked by creatures with flying.\n3/1"
+    IDS_STRING23857         "Haazda Exonerator\n{W}\nCreature - Human Cleric\nDIS,C\n{T}, Sacrifice Haazda Exonerator: Destroy target Aura.\n1/1"
+    IDS_STRING23858         "Haazda Shield Mate\n{2W}\nCreature - Human Soldier\nDIS,R\nAt the beginning of your upkeep, sacrifice Haazda Shield Mate unless you pay {WW}.\r{W}: The next time a source of your choice would deal damage to you this turn, prevent that damage.\n1/1"
+    IDS_STRING23859         "Indrik Stomphowler\n{4G}\nCreature - Beast\nDIS,U\nWhen Indrik Stomphowler enters the battlefield, destroy target artifact or enchantment.\n4/4"
+    IDS_STRING23860         "Minister of Impediments\n{2A}\nCreature - Human Advisor\nDIS,C\n{T}: Tap target creature.\n1/1"
+    IDS_STRING23861         "Mistral Charger\n{1W}\nCreature - Pegasus\nDIS,U\nFlying\n2/1"
+    IDS_STRING23862         "Ragamuffyn\n{2B}\nCreature - Zombie Cleric\nDIS,U\nHellbent - {T}, Sacrifice a creature or land: Draw a card. Activate this ability only if you have no cards in hand.\n2/2"
+    IDS_STRING23863         "Gobhobbler Rats\n{BR}\nCreature - Rat\nDIS,C\nHellbent - As long as you have no cards in hand, Gobhobbler Rats gets +1/+0 and has ""{B}: Regenerate Gobhobbler Rats.""\n2/2"
+    IDS_STRING23864         "Rakdos Guildmage\n{DD}\nCreature - Zombie Shaman\nDIS,U\n{3B}, Discard a card: Target creature gets -2/-2 until end of turn.\r{3R}: Put a 2/1 red Goblin creature token with haste onto the battlefield. Exile it at the beginning of the next end step.\n2/2"
+    IDS_STRING23865         "Rakdos Pit Dragon\n{2RR}\nCreature - Dragon\nDIS,R\n{RR}: Rakdos Pit Dragon gains flying until end of turn.\r{R}: Rakdos Pit Dragon gets +1/+0 until end of turn.\rHellbent - Rakdos Pit Dragon has double strike as long as you have no cards in hand.\n3/3"
+    IDS_STRING23866         "Ratcatcher\n{4BB}\nCreature - Ogre Rogue\nDIS,R\nFear\rAt the beginning of your upkeep, you may search your library for a Rat card, reveal it, and put it into your hand. If you do, shuffle your library.\n4/4"
+    IDS_STRING23867         "Silkwing Scout\n{2U}\nCreature - Faerie Scout\nDIS,C\nFlying\r{G}, Sacrifice Silkwing Scout: Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\n2/1"
+    IDS_STRING23868         "Slithering Shade\n{B}\nCreature - Shade\nDIS,U\nDefender\r{B}: Slithering Shade gets +1/+1 until end of turn.\rHellbent - Slithering Shade can attack as though it didn't have defender as long as you have no cards in hand.\n0/1"
+    IDS_STRING23869         "Soulsworn Jury\n{2W}\nCreature - Spirit\nDIS,C\nDefender\r{1U}, Sacrifice Soulsworn Jury: Counter target creature spell.\n1/4"
+    IDS_STRING23870         "Stoic Ephemera\n{2W}\nCreature - Spirit\nDIS,U\nDefender\rFlying\rWhen Stoic Ephemera blocks, sacrifice it at end of combat.\n5/5"
+    IDS_STRING23871         "Trygon Predator\n{1GU}\nCreature - Beast\nDIS,U\nFlying\rWhenever Trygon Predator deals combat damage to a player, you may destroy target artifact or enchantment that player controls.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23872         "Utvara Scalper\n{1R}\nCreature - Goblin Scout\nDIS,C\nFlying\rUtvara Scalper attacks each turn if able.\n1/2"
+    IDS_STRING23873         "Vesper Ghoul\n{2B}\nCreature - Zombie Druid\nDIS,C\n{T}, Pay 1 life: Add one mana of any color to your mana pool.\n1/1"
+    IDS_STRING23874         "Whiptail Moloch\n{4R}\nCreature - Lizard\nDIS,C\nWhen Whiptail Moloch enters the battlefield, it deals 3 damage to target creature you control.\n6/3"
+    IDS_STRING23875         "Azorius Signet\n{2}\nArtifact\nDIS,C\n{1}, {T}: Add {WU} to your mana pool."
+    IDS_STRING23876         "Rakdos Signet\n{2}\nArtifact\nDIS,C\n{1}, {T}: Add {BR} to your mana pool."
+    IDS_STRING23877         "Simic Signet\n{2}\nArtifact\nDIS,C\n{1}, {T}: Add {GU} to your mana pool."
+    IDS_STRING23878         "Skullmead Cauldron\n{4}\nArtifact\nDIS,U\n{T}: You gain 1 life.\r{T}, Discard a card: You gain 3 life."
+    IDS_STRING23879         "Leafdrake Roost\n{3GU}\nEnchantment - Aura\nDIS,U\nEnchant land\rEnchanted land has ""{GU}, {T}: Put a 2/2 green and blue Drake creature token with flying onto the battlefield."""
+    IDS_STRING23880         "Nihilistic Glee\n{2BB}\nEnchantment\nDIS,R\n{2B}, Discard a card: Target opponent loses 1 life and you gain 1 life.\rHellbent - {1}, Pay 2 life: Draw a card. Activate this ability only if you have no cards in hand."
+    IDS_STRING23881         "Proper Burial\n{3W}\nEnchantment\nDIS,R\nWhenever a creature you control dies, you gain life equal to that creature's toughness."
+    IDS_STRING23882         "Psychotic Fury\n{1R}\nInstant\nDIS,C\nTarget multicolored creature gains double strike until end of turn.\rDraw a card."
+    IDS_STRING23883         "Spell Snare\n{U}\nInstant\nDIS,U\nCounter target spell with converted mana cost 2."
+    IDS_STRING23884         "Vision Skeins\n{1U}\nInstant\nDIS,C\nEach player draws two cards."
+    IDS_STRING23885         "Weight of Spires\n{R}\nInstant\nDIS,U\nWeight of Spires deals damage to target creature equal to the number of nonbasic lands that creature's controller controls."
+    IDS_STRING23886         "Wrecking Ball\n{2BR}\nInstant\nDIS,C\nDestroy target creature or land."
+    IDS_STRING23887         "Wit's End\n{5BB}\nSorcery\nDIS,R\nTarget player discards his or her hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23888         "PureSimple\n{1RG} // {1GW}\nSorcery // Sorcery\nDIS,U\nPURE: Destroy target multicolored permanent.\rSIMPLE: Destroy all Auras and Equipment."
+    IDS_STRING23889         "SupplyDemand\n{XGW} // {1WU}\nSorcery // Sorcery\nDIS,U\nSUPPLY: Put X 1/1 green Saproling creature tokens onto the battlefield.\rDEMAND: Search your library for a multicolored card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING23890         "Slaughterhouse Bouncer\n{4B}\nCreature - Ogre Warrior\nDIS,C\nHellbent - When Slaughterhouse Bouncer dies, if you have no cards in hand, target creature gets -3/-3 until end of turn.\n3/3"
+    IDS_STRING23891         "Palliation Accord\n{3WU}\nEnchantment\nDIS,U\nWhenever a creature an opponent controls becomes tapped, put a shield counter on Palliation Accord.\rRemove a shield counter from Palliation Accord: Prevent the next 1 damage that would be dealt to you this turn."
+    IDS_STRING23892         "Ogre Gatecrasher\n{3R}\nCreature - Ogre Rogue\nDIS,C\nWhen Ogre Gatecrasher enters the battlefield, destroy target creature with defender.\n3/3"
+    IDS_STRING23893         "Azorius Ploy\n{1WWU}\nInstant\nDIS,U\nPrevent all combat damage target creature would deal this turn.\rPrevent all combat damage that would be dealt to target creature this turn."
+    IDS_STRING23894         "Macabre Waltz\n{1B}\nSorcery\nDIS,C\nReturn up to two target creature cards from your graveyard to your hand, then discard a card."
+    IDS_STRING23895         "Momir Vig, Simic Visionary\n{3GU}\nLegendary Creature - Elf Wizard\nDIS,R\nWhenever you cast a green creature spell, you may search your library for a creature card and reveal it. If you do, shuffle your library and put that card on top of it.\rWhenever you cast a blue creature spell, reveal the top card of your library. If it's a creature card, put that card into your hand.\n2/2"
+    IDS_STRING23896         "Coiling Oracle\n{GU}\nCreature - Snake Elf Druid\nDIS,C\nWhen Coiling Oracle enters the battlefield, reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put that card into your hand.\n1/1"
+    IDS_STRING23897         "Sprouting Phytohydra\n{4G}\nCreature - Plant Hydra\nDIS,R\nDefender\rWhenever Sprouting Phytohydra is dealt damage, you may put a token that's a copy of Sprouting Phytohydra onto the battlefield.\n0/2"
+    IDS_STRING23898         "Patagia Viper\n{3G}\nCreature - Snake\nDIS,U\nFlying\rWhen Patagia Viper enters the battlefield, put two 1/1 green and blue Snake creature tokens onto the battlefield.\rWhen Patagia Viper enters the battlefield, sacrifice it unless {U} was spent to cast it.\n2/1"
+    IDS_STRING23899         "Azorius Herald\n{2W}\nCreature - Spirit\nDIS,U\nAzorius Herald is unblockable.\rWhen Azorius Herald enters the battlefield, you gain 4 life.\rWhen Azorius Herald enters the battlefield, sacrifice it unless {U} was spent to cast it.\n2/1"
+    IDS_STRING23900         "Crypt Champion\n{3B}\nCreature - Zombie\nDIS,U\nDouble strike\rWhen Crypt Champion enters the battlefield, each player puts a creature card with converted mana cost 3 or less from his or her graveyard onto the battlefield.\rWhen Crypt Champion enters the battlefield, sacrifice it unless {R} was spent to cast it.\n2/2"
+    IDS_STRING23901         "Plaxmanta\n{1U}\nCreature - Beast\nDIS,U\nFlash\rWhen Plaxmanta enters the battlefield, creatures you control gain shroud until end of turn.\rWhen Plaxmanta enters the battlefield, sacrifice it unless {G} was spent to cast it.\n2/2"
+    IDS_STRING23902         "Cytoplast Root-Kin\n{2GG}\nCreature - Elemental Mutant\nDIS,R\nGraft 4\rWhen Cytoplast Root-Kin enters the battlefield, put a +1/+1 counter on each other creature you control that has a +1/+1 counter on it.\r{2}: Move a +1/+1 counter from target creature you control onto Cytoplast Root-Kin.\n0/0"
+    IDS_STRING23903         "Simic Initiate\n{G}\nCreature - Human Mutant\nDIS,C\nGraft 1\n0/0"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23904         "Vigean Hydropon\n{1GU}\nCreature - Plant Mutant\nDIS,C\nGraft 5\rVigean Hydropon can't attack or block.\n0/0"
+    IDS_STRING23905         "Aquastrand Spider\n{1G}\nCreature - Spider Mutant\nDIS,C\nGraft 2\r{G}: Target creature with a +1/+1 counter on it gains reach until end of turn.\n0/0"
+    IDS_STRING23906         "Cytospawn Shambler\n{6G}\nCreature - Elemental Mutant\nDIS,C\nGraft 6\r{G}: Target creature with a +1/+1 counter on it gains trample until end of turn.\n0/0"
+    IDS_STRING23907         "Helium Squirter\n{4U}\nCreature - Beast Mutant\nDIS,C\nGraft 3\r{1}: Target creature with a +1/+1 counter on it gains flying until end of turn.\n0/0"
+    IDS_STRING23908         "Plaxcaster Frogling\n{1GU}\nCreature - Frog Mutant\nDIS,U\nGraft 3\r{2}: Target creature with a +1/+1 counter on it gains shroud until end of turn.\n0/0"
+    IDS_STRING23909         "Sporeback Troll\n{3G}\nCreature - Troll Mutant\nDIS,C\nGraft 2\r{1G}: Regenerate target creature with a +1/+1 counter on it.\n0/0"
+    IDS_STRING23910         "Vigean Graftmage\n{2U}\nCreature - Vedalken Wizard Mutant\nDIS,U\nGraft 2\r{1U}: Untap target creature with a +1/+1 counter on it.\n0/0"
+    IDS_STRING23911         "Novijen, Heart of Progress\n\nLand\nDIS,U\n{T}: Add {1} to your mana pool.\r{UG}, {T}: Put a +1/+1 counter on each creature that entered the battlefield this turn."
+    IDS_STRING23912         "Cytoplast Manipulator\n{2UU}\nCreature - Human Wizard Mutant\nDIS,R\nGraft 2\r{U}, {T}: Gain control of target creature with a +1/+1 counter on it for as long as Cytoplast Manipulator remains on the battlefield.\n0/0"
+    IDS_STRING23913         "Dovescape\n{3AAA}\nEnchantment\nDIS,R\nWhenever a player casts a noncreature spell, counter that spell. That player puts X 1/1 white and blue Bird creature tokens with flying onto the battlefield, where X is the spell's converted mana cost."
+    IDS_STRING23914         "Pain Magnification\n{1BR}\nEnchantment\nDIS,U\nWhenever an opponent is dealt 3 or more damage by a single source, that player discards a card."
+    IDS_STRING23915         "Cackling Flames\n{3R}\nInstant\nDIS,C\nCackling Flames deals 3 damage to target creature or player.\rHellbent - Cackling Flames deals 5 damage to that creature or player instead if you have no cards in hand."
+    IDS_STRING23916         "Evolution Vat\n{3}\nArtifact\nDIS,R\n{3}, {T}: Tap target creature and put a +1/+1 counter on it. Until end of turn, that creature gains ""{2GU}: Double the number of +1/+1 counters on this creature."""
+    IDS_STRING23917         "Jagged Poppet\n{1BR}\nCreature - Ogre Warrior\nDIS,U\nWhenever Jagged Poppet is dealt damage, discard that many cards.\rHellbent - Whenever Jagged Poppet deals combat damage to a player, if you have no cards in hand, that player discards cards equal to the damage.\n3/4"
+    IDS_STRING23918         "Lyzolda, the Blood Witch\n{1BR}\nLegendary Creature - Human Cleric\nDIS,R\n{2}, Sacrifice a creature: Lyzolda, the Blood Witch deals 2 damage to target creature or player if the sacrificed creature was red. Draw a card if the sacrificed creature was black.\n3/1"
+    IDS_STRING23919         "Rakdos the Defiler\n{2BBRR}\nLegendary Creature - Demon\nDIS,R\nFlying, trample\rWhenever Rakdos the Defiler attacks, sacrifice half the non-Demon permanents you control, rounded up.\rWhenever Rakdos deals combat damage to a player, that player sacrifices half the non-Demon permanents he or she controls, rounded up.\n7/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING23920         "Anthem of Rakdos\n{2BRR}\nEnchantment\nDIS,R\nWhenever a creature you control attacks, it gets +2/+0 until end of turn and Anthem of Rakdos deals 1 damage to you.\rHellbent - As long as you have no cards in hand, if a source you control would deal damage to a creature or player, it deals double that damage to that creature or player instead. "
+	IDS_STRING23921         "CrimePunishment\n{3WB} // {XBG}\nSorcery // Sorcery\nDIS,R\nCRIME: Put target creature or enchantment card from an opponent's graveyard onto the battlefield under your control.\rPUNISHMENT: Destroy each artifact, creature, and enchantment with converted mana cost X."
+	IDS_STRING23922         "Fertile Imagination\n{2GG}\nSorcery\nDIS,U\nChoose a card type. Target opponent reveals his or her hand. Put two 1/1 green Saproling creature tokens onto the battlefield for each card of the chosen type revealed this way."
+	IDS_STRING23923         "Unliving Psychopath\n{2BB}\nCreature - Zombie Assassin\nDIS,R\n{B}: Unliving Psychopath gets +1/-1 until end of turn.\r{B}, {T}: Destroy target creature with power less than Unliving Psychopath's power.\n0/4"
+	IDS_STRING23924         "Hellhole Rats\n{2BR}\nCreature - Rat\nDIS,U\nHaste\rWhen Hellhole Rats enters the battlefield, target player discards a card. Hellhole Rats deals damage to that player equal to that card's converted mana cost.\n2/2"
+	IDS_STRING23925         "HitRun\n{1BR} // {3RG}\nInstant // Instant\nDIS,U\nHIT: Target player sacrifices an artifact or creature. Hit deals damage to that player equal to that permanent's converted mana cost.\rRUN: Attacking creatures you control get +1/+0 until end of turn for each other attacking creature."
+	IDS_STRING23926         "Nettling Curse\n{2B}\nEnchantment - Aura\nDIS,C\nEnchant creature\rWhenever enchanted creature attacks or blocks, its controller loses 3 life.\r{1R}: Enchanted creature attacks this turn if able."
+	IDS_STRING23927         "RiseFall\n{UB} // {BR}\nSorcery // Sorcery\nDIS,U\nRISE: Return target creature card from a graveyard and target creature on the battlefield to their owners' hands.\rFALL: Target player reveals two cards at random from his or her hand, then discards each nonland card revealed this way."
+	IDS_STRING23928         "Brain Pry\n{1B}\nSorcery\nDIS,U\nName a nonland card. Target player reveals his or her hand. That player discards a card with that name. If he or she can't, you draw a card."
+	IDS_STRING23929         "Infernal Tutor\n{1B}\nSorcery\nDIS,R\nReveal a card from your hand. Search your library for a card with the same name as that card, reveal it, put it into your hand, then shuffle your library.\rHellbent - If you have no cards in hand, instead search your library for a card, put it into your hand, then shuffle your library."
+	IDS_STRING23930         "Isperia the Inscrutable\n{1WWUU}\nLegendary Creature - Sphinx\nDIS,R\nFlying\rWhenever Isperia the Inscrutable deals combat damage to a player, name a card. That player reveals his or her hand. If he or she reveals the named card, search your library for a creature card with flying, reveal it, put it into your hand, then shuffle your library.\n3/6"
+	IDS_STRING23931         "Swift Silence\n{2WUU}\nInstant\nDIS,R\nCounter all other spells. Draw a card for each spell countered this way."
+	IDS_STRING23932         "Vigean Intuition\n{3GU}\nInstant\nDIS,U\nChoose a card type, then reveal the top four cards of your library. Put all cards of the chosen type revealed this way into your hand and the rest into your graveyard."
+	IDS_STRING23933         "TrialError\n{WU} // {UB}\nInstant // Instant\nDIS,U\nTRIAL: Return all creatures blocking or blocked by target creature to their owner's hand.\rERROR: Counter target multicolored spell."
+	IDS_STRING23934         "ResearchDevelopment\n{GU} // {3UR}\nInstant // Instant\nDIS,R\nRESEARCH: Choose up to four cards you own from outside the game and shuffle them into your library.\rDEVELOPMENT: Put a 3/1 red Elemental creature token onto the battlefield unless any opponent has you draw a card. Repeat this process two more times."
+	IDS_STRING23935         "HideSeek\n{RW} // {WB}\nInstant // Instant\nDIS,R\nHIDE: Put target artifact or enchantment on the bottom of its owner's library.\rSEEK: Search target opponent's library for a card and exile it. You gain life equal to its converted mana cost. Then that player shuffles his or her library."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING23936         "BoundDetermined\n{3BG} // {GU}\nInstant // Instant\nDIS,R\nBOUND: Sacrifice a creature. Return up to X cards from your graveyard to your hand, where X is the number of colors that creature was. Exile this card.\rDETERMINED: Other spells you control can't be countered by spells or abilities this turn.\rDraw a card."
+	IDS_STRING23937         "AEthermage's Touch\n{2WU}\nInstant\nDIS,R\nReveal the top four cards of your library. You may put a creature card from among them onto the battlefield. It has ""At the beginning of your end step, return this creature to its owner's hand."" Then put the rest of the cards revealed this way on the bottom of your library in any order."
+	IDS_STRING23938         "Riot Spikes\n{D}\nEnchantment - Aura\nDIS,C\nEnchant creature\rEnchanted creature gets +2/-1."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

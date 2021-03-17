@@ -1,0 +1,25 @@
+// Total cards in deck - 60
+
+// Creatures - 28 (46.67%)
+
+4 Ball Lightning (4180)
+4 Goblin Bushwhacker (19455)
+4 Goblin Chieftain (4002)
+4 Goblin Guide (19456)
+4 Hellspark Elemental (8896)
+4 Siege-Gang Commander (4101)
+4 Warren Instigator (19436)
+
+// Instants - 8 (13.33%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (4060)
+
+// Lands - 24 (40.00%)
+
+2 Arid Mesa (19349)
+5 Mountain (19316)
+5 Mountain (19317)
+4 Mountain (19318)
+4 Mountain (19319)
+4 Teetering Peaks (19351)

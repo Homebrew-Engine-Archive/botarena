@@ -1,0 +1,59 @@
+// Total cards in deck - 61
+
+// Creatures - 8 (13.11%)
+
+4 Bloodbraid Elf (9105)
+4 Swans of Bryn Argoll (18708)
+
+// Instants - 4 (6.56%)
+
+4 Bituminous Blast (9107)
+
+// Sorceries - 5 (8.20%)
+
+2 Deny Reality (9111)
+3 Primal Command (18131)
+
+// Enchantments - 4 (6.56%)
+
+4 Seismic Assault (3151)
+
+// Lands - 40 (65.57%)
+
+4 Battlefield Forge (3012)
+2 Cascade Bluffs (18907)
+3 Fire-Lit Thicket (18542)
+2 Ghitu Encampment (3307)
+2 Graven Cairns (18547)
+3 Karplusan Forest (3086)
+Mountain (8518)
+4 Reflecting Pool (18571)
+Shivan Reef (3158)
+3 Spinerock Knoll (18151)
+Sunken Ruins (18580)
+4 Treetop Village (3308)
+4 Vivid Crag (18031)
+Vivid Creek (18032)
+4 Vivid Grove (18033)
+Vivid Marsh (18034)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Countryside Crusher (18354)
+
+// Instants
+
+3 Volcanic Fallout (8860)
+
+// Sorceries
+
+3 Maelstrom Pulse (9055)
+3 Wrath of God (3200)
+
+// Enchantments
+
+2 Aura of Silence (3221)

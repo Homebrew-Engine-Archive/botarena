@@ -1,0 +1,71 @@
+// Total cards in deck - 60
+
+// Creatures - 8 (13.33%)
+
+4 Kitchen Finks (18593)
+4 Tarmogoyf (17704)
+
+// Instants - 9 (15.00%)
+
+4 Darkblast (16596)
+3 Putrefy (16408)
+2 Slaughter Pact (17789)
+
+// Sorceries - 11 (18.33%)
+
+4 Life from the Loam (16597)
+3 Raven's Crime (18970)
+3 Thoughtseize (17901)
+Worm Harvest (18996)
+
+// Enchantments - 3 (5.00%)
+
+3 Bitterblossom (18338)
+
+// Artifacts - 3 (5.00%)
+
+3 Umezawa's Jitte (19149)
+
+// Lands - 26 (43.33%)
+
+4 Barren Moor (14126)
+2 Bloodstained Mire (14002)
+Forest (18504)
+Forest (18505)
+2 Ghost Quarter (23829)
+Golgari Rot Farm (16405)
+Mutavault (18368)
+2 Overgrown Tomb (16445)
+2 Polluted Delta (14000)
+Swamp (18523)
+Swamp (18521)
+Swamp (18522)
+2 Tranquil Thicket (14135)
+2 Twilight Mire (18929)
+3 Windswept Heath (14003)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Ravenous Baloth (14078)
+
+// Instants
+
+3 Extirpate (2594)
+
+// Sorceries
+
+3 Damnation (2505)
+
+// Enchantments
+
+3 Choke (1796)
+2 Seal of Primordium (2535)
+
+// Artifacts
+
+Engineered Explosives (15510)
+Pithing Needle (3301)

@@ -1,0 +1,63 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 3 (5.00%)
+
+3 Liliana of the Veil (23562)
+
+// Creatures - 15 (25.00%)
+
+4 Bloodgift Demon (23543)
+3 Inferno Titan (22167)
+3 Olivia Voldaren (23561)
+3 Solemn Simulacrum (22199)
+2 Wurmcoil Engine (21439)
+
+// Instants - 9 (15.00%)
+
+3 Doom Blade (22145)
+4 Geistflame (23474)
+Go for the Throat (21752)
+Victim of Night (23403)
+
+// Sorceries - 5 (8.33%)
+
+Arc Trail (21554)
+4 Slagstorm (21756)
+
+// Enchantments - 3 (5.00%)
+
+3 Heartless Summoning (23393)
+
+// Artifacts - 1 (1.67%)
+
+Mimic Vat (21559)
+
+// Lands - 24 (40.00%)
+
+4 Blackcleave Cliffs (21470)
+4 Dragonskull Summit (22202)
+2 Mountain (23329)
+3 Mountain (23327)
+3 Mountain (23328)
+2 Swamp (23335)
+3 Swamp (23333)
+3 Swamp (23334)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Manic Vandal (22169)
+
+// Sorceries
+
+Sever the Bloodline (23463)
+Tribute to Hunger (23534)
+
+// Artifacts
+
+2 Mimic Vat (21559)
+4 Nihil Spellbomb (21540)
+3 Ratchet Bomb (21528)

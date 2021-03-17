@@ -1,0 +1,61 @@
+// Total cards in deck - 60
+
+// Creatures - 14 (23.33%)
+
+4 Countryside Crusher (18354)
+4 Dark Confidant (16449)
+2 Grim Lavamancer (22165)
+2 Scavenging Ooze (23230)
+2 Tarmogoyf (17704)
+
+// Instants - 4 (6.67%)
+
+4 Lightning Bolt (21124)
+
+// Sorceries - 6 (10.00%)
+
+4 Life from the Loam (16597)
+2 Maelstrom Pulse (9055)
+
+// Enchantments - 3 (5.00%)
+
+3 Seismic Assault (3151)
+
+// Artifacts - 6 (10.00%)
+
+2 Engineered Explosives (15510)
+4 Mox Diamond (10511)
+
+// Lands - 27 (45.00%)
+
+Badlands (7207)
+Bayou (7209)
+3 Bloodstained Mire (14002)
+Forest (22207)
+4 Forgotten Cave (23206)
+Mountain (22216)
+Mountain (22215)
+3 Taiga (7377)
+3 Tranquil Thicket (23222)
+Volrath's Stronghold (10456)
+4 Wasteland (10008)
+4 Wooded Foothills (14004)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+Liliana of the Veil (23562)
+
+// Instants
+
+2 Krosan Grip (17369)
+2 Noxious Revival (21965)
+4 Pyroblast (8214)
+3 Surgical Extraction (22003)
+
+// Sorceries
+
+3 Thoughtseize (17901)

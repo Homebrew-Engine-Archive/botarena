@@ -1,0 +1,53 @@
+// Eldrazi Arisen
+// Rise of the Eldrazi Intro Pack
+
+#PRE
+
+// Total cards in deck - 41
+
+// Creatures - 14 (34.15%)
+
+Akoum Boulderfoot (20861)
+Conquering Manticore (20936)
+Daggerback Basilisk (20867)
+Goblin Piker (4046)
+Hand of Emrakul (20845)
+Kozilek's Predator (20841)
+Nest Invader (20887)
+Ondu Giant (20889)
+Pathrazer of Ulamog (20822)
+Rapacious One (20933)
+Runed Servitor (20930)
+2 Sporecap Spider (20897)
+Ulamog's Crusher (20825)
+
+// Instants - 2 (4.88%)
+
+Might of the Masses (20917)
+Windstorm (4177)
+
+// Sorceries - 5 (12.20%)
+
+Act of Treason (4157)
+Bountiful Harvest (4165)
+2 Flame Slash (20924)
+Growth Spasm (20925)
+
+// Enchantments - 1 (2.44%)
+
+Awakening Zone (20851)
+
+// Artifacts - 1 (2.44%)
+
+Dreamstone Hedron (20834)
+
+// Lands - 18 (43.90%)
+
+2 Forest (20802)
+2 Forest (20803)
+3 Forest (20801)
+3 Forest (20800)
+2 Mountain (20811)
+2 Mountain (20808)
+2 Mountain (20809)
+2 Mountain (20810)

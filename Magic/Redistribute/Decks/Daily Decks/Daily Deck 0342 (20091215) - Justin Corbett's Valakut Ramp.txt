@@ -1,0 +1,59 @@
+// Total cards in deck - 60
+
+// Creatures - 12 (20.00%)
+
+4 Bloodbraid Elf (9105)
+4 Goblin Ruinblaster (19457)
+4 Siege-Gang Commander (4101)
+
+// Instants - 11 (18.33%)
+
+3 Burst Lightning (19384)
+4 Harrow (19347)
+4 Lightning Bolt (4060)
+
+// Sorceries - 4 (6.67%)
+
+4 Rampant Growth (4091)
+
+// Enchantments - 4 (6.67%)
+
+4 Khalni Heart Expedition (19516)
+
+// Artifacts - 4 (6.67%)
+
+4 Expedition Map (19393)
+
+// Lands - 25 (41.67%)
+
+Forest (19302)
+Forest (19301)
+Forest (19300)
+3 Mountain (19319)
+3 Mountain (19318)
+3 Mountain (19316)
+3 Mountain (19317)
+2 Naya Panorama (8640)
+4 Terramorphic Expanse (4111)
+4 Valakut, the Molten Pinnacle (19344)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Planeswalkers
+
+3 Chandra Nalaar (4209)
+
+// Creatures
+
+3 Blitz Hellion (9063)
+4 Hell's Thunder (8676)
+
+// Instants
+
+2 Unstable Footing (19535)
+
+// Sorceries
+
+3 Earthquake (4034)

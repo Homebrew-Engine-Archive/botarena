@@ -1,0 +1,52 @@
+#PRE
+
+// Total cards in deck - 40
+
+// Creatures - 12 (30.00%)
+
+Child of Night (4206)
+Dragon Whelp (4212)
+Dread Warlock (4151)
+Drudge Skeletons (4032)
+Goblin Piker (4046)
+Howling Banshee (4152)
+Inferno Elemental (4195)
+Nightmare (4075)
+Siege-Gang Commander (4101)
+Vampire Aristocrat (4005)
+Viashino Spearhunter (4163)
+Wall of Fire (4117)
+
+// Instants - 2 (5.00%)
+
+Doom Blade (4150)
+Seismic Strike (4162)
+
+// Sorceries - 6 (15.00%)
+
+Consume Spirit (4025)
+Deathmark (4028)
+Diabolic Tutor (4030)
+Duress (4033)
+Fireball (4230)
+Mind Rot (4069)
+
+// Enchantments - 1 (2.50%)
+
+Weakness (4118)
+
+// Artifacts - 1 (2.50%)
+
+Rod of Ruin (4095)
+
+// Lands - 18 (45.00%)
+
+2 Mountain (4070)
+2 Mountain (4071)
+2 Mountain (4072)
+Mountain (4073)
+3 Swamp (4105)
+3 Swamp (4106)
+2 Swamp (4107)
+2 Swamp (4108)
+Terramorphic Expanse (4111)

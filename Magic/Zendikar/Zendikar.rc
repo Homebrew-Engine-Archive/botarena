@@ -1,0 +1,409 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Zendikar.ico"
+IDI_LARGE_MODULE        ICON                    "ZendikarLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Zendikar"
+    IDS_EXPANSION_ABBREV    "ZEN"
+    IDS_FIRST_CARD          "19300"
+    IDS_TOTAL_CARD          "269"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "19569"
+    IDS_MODULE_LARGE_ICON_ID "19570"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "02-10-2009"
+    IDS_MWS_FOLDER          "MWS\\ZEN\\"
+    IDS_PRODUCT_LIST        """Zendikar Starter Box"":MR-8:R-3:U-10:C-32:BL-30,""Zendikar Booster Pack"":MR-8:R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19300         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19301         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19302         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19303         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19304         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19305         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19306         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19307         "Forest\n\nBasic Land - Forest\nZEN,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING19308         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19309         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19310         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19311         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19312         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19313         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19314         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19315         "Island\n\nBasic Land - Island\nZEN,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING19316         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19317         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19318         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19319         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19320         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19321         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19322         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19323         "Mountain\n\nBasic Land - Mountain\nZEN,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING19324         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19325         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19326         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19327         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19328         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19329         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19330         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19331         "Plains\n\nBasic Land - Plains\nZEN,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING19332         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19333         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19334         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19335         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19336         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19337         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19338         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19339         "Swamp\n\nBasic Land - Swamp\nZEN,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING19340         "Day of Judgment\n{2WW}\nSorcery\nZEN,R\nDestroy all creatures."
+    IDS_STRING19341         "Beast Hunt\n{3G}\nSorcery\nZEN,C\nReveal the top three cards of your library. Put all creature cards revealed this way into your hand and the rest into your graveyard."
+    IDS_STRING19342         "Rampaging Baloths\n{4GG}\nCreature - Beast\nZEN,MR\nTrample\rLandfall - Whenever a land enters the battlefield under your control, you may put a 4/4 green Beast creature token onto the battlefield.\n6/6"
+    IDS_STRING19343         "Hideous End\n{1BB}\nInstant\nZEN,C\nDestroy target nonblack creature. Its controller loses 2 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19344         "Valakut, the Molten Pinnacle\n\nLand\nZEN,R\nValakut, the Molten Pinnacle enters the battlefield tapped.\rWhenever a Mountain enters the battlefield under your control, if you control at least five other Mountains, you may have Valakut, the Molten Pinnacle deal 3 damage to target creature or player.\r{T}: Add {R} to your mana pool."
+    IDS_STRING19345         "Plated Geopede\n{1R}\nCreature - Insect\nZEN,C\nFirst strike\rLandfall - Whenever a land enters the battlefield under your control, Plated Geopede get +2/+2 until end of turn.\n1/1"
+    IDS_STRING19346         "Cancel\n{1UU}\nInstant\nZEN,C\nCounter target spell."
+    IDS_STRING19347         "Harrow\n{2G}\nInstant\nZEN,C\nAs an additional cost to cast Harrow, sacrifice a land.\rSearch your library for up to two basic land cards and put them onto the battlefield. Then shuffle your library."
+    IDS_STRING19348         "Emeria, the Sky Ruin\n\nLand\nZEN,R\nEmeria, the Sky Ruin enters the battlefield tapped.\rAt the beginning of your upkeep, if you control seven or more Plains, you may return target creature card from your graveyard to the battlefield.\r{T}: Add {W} to your mana pool."
+    IDS_STRING19349         "Arid Mesa\n\nLand\nZEN,R\n{T}, Pay 1 life, Sacrifice Arid Mesa: Search your library for a Mountain or Plains card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING19350         "Scythe Tiger\n{G}\nCreature - Cat\nZEN,C\nShroud\rWhen Scythe Tiger enters the battlefield, sacrifice it unless you sacrifice a land.\n3/2"
+    IDS_STRING19351         "Teetering Peaks\n\nLand\nZEN,C\nTeetering Peaks enters the battlefield tapped.\rWhen Teerering Peaks enters the battlefield, target creature gets +2/+0 until end of turn.\r{T}: Add {R} to your mana pool."
+    IDS_STRING19352         "Windrider Eel\n{3U}\nCreature - Fish\nZEN,C\nFlying\rLandfall - Whenever a land enters the battlefield under your control, Windrider Eel get +2/+2 until end of turn.\n2/2"
+    IDS_STRING19353         "Elemental Appeal\n{RRRR}\nSorcery\nZEN,R\nKicker {5}\rPut a 7/1 red Elemental creature token with trample and haste onto the battlefield. Exile it at the beginning of the next end step. If Elemental Appeal was kicked, that creature gets +7/+0 until end of turn."
+    IDS_STRING19354         "Nissa's Chosen\n{GG}\nCreature - Elf Warrior\nZEN,C\nIf Nissa's Chosen would die, put it on the bottom of its owner's library instead.\n2/3"
+    IDS_STRING19355         "Vampire Nighthawk\n{1BB}\nCreature - Vampire Shaman\nZEN,U\nFlying\rDeathtouch\rLifelink\n2/3"
+    IDS_STRING19356         "Misty Rainforest\n\nLand\nZEN,R\n{T}, Pay 1 Life, Sacrifice Misty Rainforest: Search your library for a Forest or Island card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING19357         "Marsh Flats\n\nLand\nZEN,R\n{T}, Pay 1 Life, Sacrifice Marsh Flats: Search your library for a Plains or Swamp card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING19358         "Scalding Tarn\n\nLand\nZEN,R\n{T}, Pay 1 Life, Sacrifice Scalding Tarn: Search your library for a Island or Mountain card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING19359         "Verdant Catacombs\n\nLand\nZEN,R\n{T}, Pay 1 Life, Sacrifice Verdant Catacombs: Search your library for a Swamp or Forest card and put it onto the battlefield. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19360         "Devout Lightcaster\n{WWW}\nCreature - Kor Cleric\nZEN,R\nProtection from black\rWhen Devout Lightcaster enters the battlefield, exile target black permanent.\n2/2"
+    IDS_STRING19361         "Carnage Altar\n{3}\nArtifact\nZEN,U\n{3}, Sacrifice a creature: Draw a card."
+    IDS_STRING19362         "Scute Mob\n{G}\nCreature - Insect\nZEN,R\nAt the beginning of your upkeep, if you control five or more lands, put four +1/+1 counters on Scute Mob.\n1/1"
+    IDS_STRING19363         "Geyser Glider\n{3RR}\nCreature - Elemental Beast\nZEN,U\nLandfall - Whenever a land enters the battlefield under your control, Geyser Glider gains flying until end of turn.\n4/4"
+    IDS_STRING19364         "Baloth Woodcrasher\n{4GG}\nCreature - Beast\nZEN,U\nLandfall - Whenever a land enters the battlefield under your control, baloth Woodcrasher gets +4/+4 and gains Trample until end of turn.\n4/4"
+    IDS_STRING19365         "Conqueror's Pledge\n{2WWW}\nSorcery\nZEN,R\nKicker {6}\rPut six 1/1 white Kor Soldier creature tokens onto the battlefield. If Conqueror's Pledge was kicked, put twelve 1/1 white Kor Soldier creature tokens onto the battlefield instead."
+    IDS_STRING19366         "Emeria Angel\n{2WW}\nCreature - Angel\nZEN,R\nFlying\rLandfall - Whenever a land enters the battlefield under your control, you may put a 1/1 white Bird creature token with flying onto the battlefield.\n3/3"
+    IDS_STRING19367         "Kor Cartographer\n{3W}\nCreature - Kor Scout\nZEN,C\nWhen Kor Cartographer enters the battlefield, you may search your library for a Plains card, put it onto the battlefield tapped, then shuffle your library.\n2/2"
+    IDS_STRING19368         "Kor Skyfisher\n{1W}\nCreature - Kor Soldier\nZEN,C\nFlying\rWhen Kor Skyfisher enters the battlefield, return a permanent you control to its owner's hand.\n2/3"
+    IDS_STRING19369         "Shepherd of the Lost\n{4W}\nCreature - Angel\nZEN,U\nFlying, first strike, vigilance\n3/3"
+    IDS_STRING19370         "Narrow Escape\n{2W}\nInstant\nZEN,C\nReturn target permanent you control to its owner's hand. You gain 4 life."
+    IDS_STRING19371         "Steppe Lynx\n{W}\nCreature - Cat\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, Steppe Lynx gets +2/+2 until end of turn.\n0/1"
+    IDS_STRING19372         "Hedron Crab\n{U}\nCreature - Crab\nZEN,U\nLandfall - Whenever a land enters the battlefield under your control, target player puts the top three cards of his or her library into his or her graveyard.\n0/2"
+    IDS_STRING19373         "Into the Roil\n{1U}\nInstant\nZEN,C\nKicker {1U}\rReturn target nonland permanent to its owner's hand. If Into the Roil was kicked, draw a card."
+    IDS_STRING19374         "Kraken Hatchling\n{U}\nCreature - Kraken\nZEN,C\n\n0/4"
+    IDS_STRING19375         "Living Tsunami\n{2UU}\nCreature - Elemental\nZEN,U\nFlying\rAt the beginning of your upkeep, sacrifice Living Tsunami unless you return a land you control to its owner's hand.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19376         "Reckless Scholar\n{2U}\nCreature - Human Wizard\nZEN,C\n{T}: Target player draws a card, then discards a card.\n2/1"
+    IDS_STRING19377         "Spell Pierce\n{U}\nInstant\nZEN,C\nCounter target noncreature spell unless its controller pays {2}."
+    IDS_STRING19378         "Sphinx of Jwar Isle\n{4UU}\nCreature - Sphinx\nZEN,R\nFlying, shroud\rYou may look at the top card of your library.(You may do this at any time)\n5/5"
+    IDS_STRING19379         "Disfigure\n{B}\nInstant\nZEN,C\nTarget creature gets -2/-2 until end of turn."
+    IDS_STRING19380         "Giant Scorpion\n{2B}\nCreature - Scorpion\nZEN,C\nDeathtouch\n1/3"
+    IDS_STRING19381         "Mind Sludge\n{4B}\nSorcery\nZEN,U\nTarget player discards a card for each Swamp you control."
+    IDS_STRING19382         "Sadistic Sacrament\n{BBB}\nSorcery\nZEN,R\nKicker {7}\rSearch target player's library for up to three cards, exile them, then that player shuffles his or her library. If Sadistic Sacrament was kicked, instead search that player's library for up to fifteen cards, exile them, then that player shuffles his of her library."
+    IDS_STRING19383         "Demolish\n{3R}\nSorcery\nZEN,C\nDestroy target artifact or land."
+    IDS_STRING19384         "Burst Lightning\n{R}\nInstant\nZEN,C\nKicker {4}\rBurst Lightning deals 2 damage to target creature or player. If Burst Lightning was kicked, it deals 4 damage to that creature or player instead."
+    IDS_STRING19385         "Goblin War Paint\n{1R}\nEnchantment - Aura\nZEN,C\nEnchant creature\rEnchanted creature gets +2/+2 and has haste."
+    IDS_STRING19386         "Frontier Guide\n{1G}\nCreature - Elf Scout\nZEN,U\n{3G}, {T}: : Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library.\n1/1"
+    IDS_STRING19387         "Grazing Gladehart\n{2G}\nCreature - Antelope\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may gain 2 life.\n2/2"
+    IDS_STRING19388         "Greenweaver Druid\n{2G}\nCreature - Elf Druid\nZEN,U\n{T}: Add {GG} to your mana pool.\n1/1"
+    IDS_STRING19389         "Lotus Cobra\n{1G}\nCreature - Snake\nZEN,MR\nLandfall - Whenever a land enters the battlefield under your control, you may add one mana of any color to your mana pool.\n2/1"
+    IDS_STRING19390         "River Boa\n{1G}\nCreature - Snake\nZEN,U\nIslandwalk\r{G}: Regenerate River Boa.\n2/1"
+    IDS_STRING19391         "Terra Stomper\n{3GGG}\nCreature - Beast\nZEN,R\nTerra Stomper can't be countered.\rTrample\n8/8"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19392         "Zendikar Farguide\n{4G}\nCreature - Elemental\nZEN,C\nForestwalk\n3/3"
+    IDS_STRING19393         "Expedition Map\n{1}\nArtifact\nZEN,C\n{2}, {T}, Sacrifice Expedition Map: Search your library for a land card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING19394         "Hedron Scrabbler\n{2}\nArtifact Creature - Construct\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, Hedron Scrabbler gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING19395         "Trusty Machete\n{1}\nArtifact - Equipment\nZEN,U\nEquipped creature gets +2/+1.\rEquip {2}"
+    IDS_STRING19396         "Akoum Refuge\n\nLand\nZEN,U\nAkoum Refuge enters the battlefield tapped.\rWhen Akoum Refuge enters the battlefield, you gain 1 life.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING19397         "Graypelt Refuge\n\nLand\nZEN,U\nGraypelt Refuge enters the battlefield tapped.\rWhen Graypelt Refuge enters the battlefield, you gain 1 life.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING19398         "Jwar Isle Refuge\n\nLand\nZEN,U\nJwar Isle Refuge enters the battlefield tapped.\rWhen Jwar Isle Refuge enters the battlefield, you gain 1 life.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING19399         "Kazandu Refuge\n\nLand\nZEN,U\nKazandu Refuge enters the battlefield tapped.\rWhen Kazandu Refuge enters the battlefield, you gain 1 life.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING19400         "Sejiri Refuge\n\nLand\nZEN,U\nSejiri Refuge enters the battlefield tapped.\rWhen Sejiri Refuge enters the battlefield, you gain 1 life.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING19401         "Kabira Crossroads\n\nLand\nZEN,C\nKabira Crossroads enters the battlefield tapped.\rWhen Kabira Crossroads enters the battlefield, you gain 2 life.\r{T}: Add {W} to your mana pool."
+    IDS_STRING19402         "Piranha Marsh\n\nLand\nZEN,C\nPiranha Marsh enters the battlefield tapped.\rWhen Piranha Marsh enters the battlefield, target player loses 1 life.\r{T}: Add {B} to your mana pool."
+    IDS_STRING19403         "Soaring Seacliff\n\nLand\nZEN,C\nSoaring Seacliff enters the battlefield tapped.\rWhen Soaring Seacliff enters the battlefield, target creature gains flying until end of turn.\r{T}: Add {U} to your mana pool."
+    IDS_STRING19404         "Turntimber Grove\n\nLand\nZEN,C\nTurntimber Grove enters the battlefield tapped.\rWhen Turntimber Grove enters the battlefield, target creature gets +1/+1 until end of turn.\r{T}: Add {G} to your mana pool."
+    IDS_STRING19405         "Bog Tatters\n{4B}\nCreature - Wraith\nZEN,C\nSwampwalk\n4/2"
+    IDS_STRING19406         "Bold Defense\n{2W}\nInstant\nZEN,C\nKicker {3W}\rCreatures you control get +1/+1 until end of turn. If Bold Defense was kicked, instead creatures you control get +2/+2 and gain first strike until end of turn."
+    IDS_STRING19407         "Caller of Gales\n{U}\nCreature - Merfolk Wizard\nZEN,C\n{1U}, {T}:Target creature gains flying until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19408         "Caravan Hurda\n{4W}\nCreature - Giant\nZEN,C\nLifelink\n1/5"
+    IDS_STRING19409         "Cliff Threader\n{1W}\nCreature - Kor Scout\nZEN,C\nMountainwalk\n2/1"
+    IDS_STRING19410         "Crypt Ripper\n{2BB}\nCreature - Shade\nZEN,C\nHaste\r{B}: Crypt Ripper gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING19411         "Hagra Crocodile\n{3B}\nCreature - Crocodile\nZEN,C\nHagra Crocodile can't block.\rLandfall - Whenever a land enters the battlefield under your control, Hagra Crocodile gets +2/+2 until end of turn.\n3/1"
+    IDS_STRING19412         "Hellfire Mongrel\n{2R}\nCreature - Elemental Hound\nZEN,U\nAt the beginning of each opponent's upkeep, if that player has two or fewer cards in hand, Hellfire Mongrel deals 2 damage to him or her.\n2/2"
+    IDS_STRING19413         "Landbind Ritual\n{3WW}\nSorcery\nZEN,U\nYou gain 2 life for each Plains you control."
+    IDS_STRING19414         "Magma Rift\n{2R}\nSorcery\nZEN,C\nAs an additional cost to cast Magma Rift, sacrifice a land.\rMagma Rift deals 5 damage to target creature."
+    IDS_STRING19415         "Marsh Casualties\n{BB}\nSorcery\nZEN,U\nKicker {3}\rCreatures target player controls get -1/-1 until end of turn. If Marsh Casualties was kicked, those creatures get -2/-2 until end of turn instead."
+    IDS_STRING19416         "Merfolk Seastalkers\n{3U}\nCreature - Merfolk Scout\nZEN,U\nIslandwalk\r{2U}: Tap target creature without flying.\n2/3"
+    IDS_STRING19417         "Molten Ravager\n{2R}\nCreature - Elemental\nZEN,C\n{R}: Molten Ravager gets +1/+0 until end of turn.\n0/4"
+    IDS_STRING19418         "Nimbus Wings\n{1W}\nEnchantment - Aura\nZEN,C\nEnchant creature\rEnchanted creature gets +1/+2 and has flying."
+    IDS_STRING19419         "Noble Vestige\n{2W}\nCreature - Spirit\nZEN,C\nFlying\r{T}: Prevent the next 1 damage that would be dealt to target player this turn.\n1/2"
+    IDS_STRING19420         "Paralyzing Grasp\n{2U}\nEnchantment - Aura\nZEN,C\nEnchant creature\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING19421         "Pillarfield Ox\n{3W}\nCreature - Ox\nZEN,C\n\n2/4"
+    IDS_STRING19422         "Seismic Shudder\n{1R}\nInstant\nZEN,C\nSeismic Shudder deals 1 damage to each creature without flying."
+    IDS_STRING19423         "Shatterskull Giant\n{2RR}\nCreature - Giant Warrior\nZEN,C\n\n4/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19424         "Shieldmate's Blessing\n{W}\nInstant\nZEN,C\nPrevent the next 3 damage that would be dealt to target creature or player this turn."
+    IDS_STRING19425         "Shoal Serpent\n{5U}\nCreature - Serpent\nZEN,C\nDefender\rLandfall - Whenever a land enters the battlefield under your control, Shoal Serpent loses defender until end of turn.\n5/5"
+    IDS_STRING19426         "Sky Ruin Drake\n{4U}\nCreature - Drake\nZEN,C\nFlying\n2/5"
+    IDS_STRING19427         "Slaughter Cry\n{2R}\nInstant\nZEN,C\nTarget creature gets +3/+0 and gains first strike until end of turn."
+    IDS_STRING19428         "Spidersilk Net\n{0}\nArtifact - Equipment\nZEN,C\nEquipped creature gets +0/+2 and has reach.\rEquip {2}"
+    IDS_STRING19429         "Spire Barrage\n{4R}\nSorcery\nZEN,C\nSpire Barrage deals damage to target creature or player equal to the number of Mountains you control."
+    IDS_STRING19430         "Spreading Seas\n{1U}\nEnchantment - Aura\nZEN,C\nEnchant land\rWhen Spreading Seas enters the battlefield, draw a card.\rEnchanted land is an Island."
+    IDS_STRING19431         "Stonework Puma\n{3}\nArtifact Creature - Cat Ally\nZEN,C\n\n2/2"
+    IDS_STRING19432         "Summoner's Bane\n{2UU}\nInstant\nZEN,U\nCounter target creature spell. Put a 2/2 blue Illusion creature token onto the battlefield."
+    IDS_STRING19433         "Territorial Baloth\n{4G}\nCreature - Beast\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, Territorial Baloth gets +2/+2 until end of turn.\n4/4"
+    IDS_STRING19434         "Vastwood Gorger\n{5G}\nCreature - Wurm\nZEN,C\n\n5/6"
+    IDS_STRING19435         "Vines of Vastwood\n{G}\nInstant\nZEN,C\nKicker {G}\rTarget creature can't be the target of spells or abilities your opponents control this turn. If Vines of Vastwood was kicked, that creature gets +4/+4 until end of turn."
+    IDS_STRING19436         "Warren Instigator\n{RR}\nCreature - Goblin Berserker\nZEN,MR\nDouble strike\rWhenever Warren Instigator deals damage to an opponent, you may put a Goblin creature card from your hand onto the battlefield.\n1/1"
+    IDS_STRING19437         "Welkin Tern\n{1U}\nCreature - Bird\nZEN,C\nFlying\rWelkin Tern can block only creatures with flying.\n2/1"
+    IDS_STRING19438         "Adventuring Gear\n{1}\nArtifact - Equipment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, equipped creature gets +2/+2 until end of turn.\rEquip {1}"
+    IDS_STRING19439         "AEther Figment\n{1U}\nCreature - Illusion\nZEN,U\nKicker {3}\r∆ther Figment is unblockable.\rIf ∆ther Figment was kicked, it enters the battlefield with two +1/+1 counters on it.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19440         "Arrow Volley Trap\n{3WW}\nInstant - Trap\nZEN,U\nIf four or more creatures are attacking, you may pay {1W} rather than pay Arrow Volley Trap's mana cost.\rArrow Volley Trap deals 5 damage divided as you choose among any number of target attacking creatures."
+    IDS_STRING19441         "Bladetusk Boar\n{3R}\nCreature - Boar\nZEN,C\nIntimidate\n3/2"
+    IDS_STRING19442         "Gatekeeper of Malakir\n{BB}\nCreature - Vampire Warrior\nZEN,U\nKicker {B}\rWhen Gatekeeper of Malakir enters the battlefield, if it was kicked, target player sacrifices a creature.\n2/2"
+    IDS_STRING19443         "Blade of the Bloodchief\n{1}\nArtifact - Equipment\nZEN,R\nWhenever a creature dies, put a +1/+1 counter on equipped creature. If equipped creature is a Vampire, put two +1/+1 counters on it instead.\rEquip {1}"
+    IDS_STRING19444         "Kor Sanctifiers\n{2W}\nCreature - Kor Cleric\nZEN,C\nKicker {W}\rWhen Kor Sanctifiers enters the battlefield, if it was kicked, destroy target artifact or enchantment.\n2/3"
+    IDS_STRING19445         "Blazing Torch\n{1}\nArtifact - Equipment\nZEN,U\nEquipped creature can't be blocked by Vampires or Zombies.\rEquipped creature has ""{T}, Sacrifice Blazing Torch: Blazing Torch deals 2 damage to target creature or player.""\rEquip {1}"
+    IDS_STRING19446         "Blood Seeker\n{1B}\nCreature - Vampire Shaman\nZEN,C\nWhenever a creature enters the battlefield under an opponent's control, you may have that player lose 1 life.\n1/1"
+    IDS_STRING19447         "Blood Tribute\n{4BB}\nSorcery\nZEN,R\nKicker-Tap an untapped Vampire you control.\rTarget opponent loses half his or her life, rounded up. If Blood Tribute was kicked, you gain life equal to the life lost this way."
+    IDS_STRING19448         "Brave the Elements\n{W}\nInstant\nZEN,U\nChoose a color. White creatures you control gain protection from the chosen color until end of turn."
+    IDS_STRING19449         "Crypt of Agadeem\n\nLand\nZEN,R\nCrypt of Agadeem enters the battlefield tapped.\r{T}: Add {B} to your mana pool.\r{2}, {T}: Add {B} to your mana pool for each black creature card in your graveyard."
+    IDS_STRING19450         "Desecrated Earth\n{4B}\nSorcery\nZEN,C\nDestroy target land. Its controller discards a card."
+    IDS_STRING19451         "Electropotence\n{2R}\nEnchantment\nZEN,R\nWhenever a creature enters the battlefield under your control, you may pay {2R}. If you do, that creature deals damage equal to its power to target creature or player."
+    IDS_STRING19452         "Explorer's Scope\n{1}\nArtifact - Equipment\nZEN,C\nWhenever equipped creature attacks, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped.\rEquip {1}"
+    IDS_STRING19453         "Feast of Blood\n{1B}\nSorcery\nZEN,U\nCast Feast of Blood only if you control two or more Vampires.\rDestroy target creature. You gain 4 life."
+    IDS_STRING19454         "Felidar Sovereign\n{4WW}\nCreature - Cat Beast\nZEN,MR\nVigilance, lifelink\rAt the beginning of your upkeep, if you have 40 or more life, you win the game.\n4/6"
+    IDS_STRING19455         "Goblin Bushwhacker\n{R}\nCreature - Goblin Warrior\nZEN,C\nKicker {R}\rWhen Goblin Bushwhacker enters the battlefield, if it was kicked, creatures you control get +1/+0 and gain haste until end of turn.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19456         "Goblin Guide\n{R}\nCreature - Goblin Scout\nZEN,R\nHaste\rWhenever Goblin Guide attacks, defending player reveals the top card of his or her library. If it's a land card, that player puts it into his or her hand.\n2/2"
+    IDS_STRING19457         "Goblin Ruinblaster\n{2R}\nCreature - Goblin Shaman\nZEN,U\nKicker {R}\rHaste\rWhen Goblin Ruinblaster enters the battlefield, if it was kicked, destroy target nonbasic land.\n2/1"
+    IDS_STRING19458         "Goblin Shortcutter\n{1R}\nCreature - Goblin Scout\nZEN,C\nWhen Goblin Shortcutter enters the battlefield, target creature can't block this turn.\n2/1"
+    IDS_STRING19459         "Guul Draz Specter\n{2BB}\nCreature - Specter\nZEN,R\nFlying\rGuul Draz Specter gets +3/+3 as long as an opponent has no cards in hand.\rWhenever Guul Draz Specter deals combat damage to a player, that player discards a card.\n2/2"
+    IDS_STRING19460         "Guul Draz Vampire\n{B}\nCreature - Vampire Rogue\nZEN,C\nAs long as an opponent has 10 or less life, Guul Draz Vampire gets +2/+1 and has intimidate.\n1/1"
+    IDS_STRING19461         "Grim Discovery\n{1B}\nSorcery\nZEN,C\nChoose one or both - Return target creature card from your graveyard to your hand; and/or return target land card from your graveyard to your hand."
+    IDS_STRING19462         "Halo Hunter\n{2BBB}\nCreature - Demon\nZEN,R\nIntimidate\rWhen Halo Hunter enters the battlefield, destroy target Angel.\n6/3"
+    IDS_STRING19463         "Heartstabber Mosquito\n{3B}\nCreature - Insect\nZEN,C\nKicker {2B}\rFlying\rWhen Heartstabber Mosquito enters the battlefield, if it was kicked, destroy target creature.\n2/2"
+    IDS_STRING19464         "Hagra Diabolist\n{4B}\nCreature - Ogre Shaman Ally\nZEN,U\nWhenever Hagra Diabolist or another Ally enters the battlefield under your control, you may have target player lose life equal to the number of Allies you control.\n3/2"
+    IDS_STRING19465         "Highland Berserker\n{1R}\nCreature - Human Berserker Ally\nZEN,C\nWhenever Highland Berserker or another Ally enters the battlefield under your control, you may have Ally creatures you control gain first strike until end of turn.\n2/1"
+    IDS_STRING19466         "Hellkite Charger\n{4RR}\nCreature - Dragon\nZEN,R\nFlying, haste\rWhenever Hellkite Charger attacks, you may pay {5RR}. If you do, untap all attacking creatures and after this phase, there is an additional combat phase.\n5/5"
+    IDS_STRING19467         "Kabira Evangel\n{2W}\nCreature - Human Cleric Ally\nZEN,R\nWhenever Kabira Evangel or another Ally enters the battlefield under your control, you may choose a color. If you do, Allies you control gain protection from the chosen color until end of turn.\n2/3"
+    IDS_STRING19468         "Iona, Shield of Emeria\n{6WWW}\nLegendary Creature - Angel\nZEN,MR\nFlying\rAs Iona, Shield of Emeria enters the battlefield, choose a color.\rYour opponents can't cast spells of the chosen color.\n7/7"
+    IDS_STRING19469         "Kalitas, Bloodchief of Ghet\n{5BB}\nLegendary Creature - Vampire Warrior\nZEN,MR\n{BBB}, {T}: Destroy target creature. If that creature dies this way, put a black Vampire creature token onto the battlefield. Its power is equal to that creature's power and its toughness is equal to that creature's toughness.\n5/5"
+    IDS_STRING19470         "Joraga Bard\n{3G}\nCreature - Elf Rogue Ally\nZEN,C\nWhenever Joraga Bard or another Ally enters the battlefield under your control, you may have Ally creatures you control gain vigilance until end of turn.\n1/4"
+    IDS_STRING19471         "Seascape Aerialist\n{4U}\nCreature - Merfolk Wizard Ally\nZEN,U\nWhenever Seascape Aerialist or another Ally enters the battlefield under your control, you may have Ally creatures you control gain flying until end of turn.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19472         "Kazandu Blademaster\n{WW}\nCreature - Human Soldier Ally\nZEN,U\nFirst strike, vigilance\rWhenever Kazandu Blademaster or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Kazandu Blademaster.\n1/1"
+    IDS_STRING19473         "Kazuul Warlord\n{4R}\nCreature - Minotaur Warrior Ally\nZEN,R\nWhenever Kazuul Warlord or another Ally enters the battlefield under your control, you may put a +1/+1 counter on each Ally creature you control.\n3/3"
+    IDS_STRING19474         "Kor Aeronaut\n{WW}\nCreature - Kor Soldier\nZEN,U\nKicker {1W}\rFlying\rWhen Kor Aeronaut enters the battlefield, if it was kicked, target creature gains flying until end of turn.\n2/2"
+    IDS_STRING19475         "Khalni Gem\n{4}\nArtifact\nZEN,U\nWhen Khalni Gem enters the battlefield, return two lands you control to their owner's hand.\r{T}: Add two mana of any one color to your mana pool."
+    IDS_STRING19476         "Lethargy Trap\n{3U}\nInstant - Trap\nZEN,C\nIf three or more creatures are attacking, you may pay {U} rather than pay Lethargy Trap's mana cost.\rAttacking creatures get -3/-0 until end of turn."
+    IDS_STRING19477         "Bala Ged Thief\n{3B}\nCreature - Human Rogue Ally\nZEN,R\nWhenever Bala Ged Thief or another Ally enters the battlefield under your control, target player reveals a number of cards from his or her hand equal to the number of Allies you control. You choose one of them. That player discards that card.\n2/2"
+    IDS_STRING19478         "Makindi Shieldmate\n{2W}\nCreature - Kor Soldier Ally\nZEN,C\nDefender\rWhenever Makindi Shieldmate or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Makindi Shieldmate.\n0/3"
+    IDS_STRING19479         "Mindless Null\n{2B}\nCreature - Zombie\nZEN,C\nMindless Null can't block unless you control a Vampire.\n2/2"
+    IDS_STRING19480         "Mold Shambler\n{3G}\nCreature - Fungus Beast\nZEN,C\nKicker {1G}\rWhen Mold Shambler enters the battlefield, if it was kicked, destroy target noncreature permanent.\n3/3"
+    IDS_STRING19481         "Murasa Pyromancer\n{4RR}\nCreature - Human Shaman Ally\nZEN,U\nWhenever Murasa Pyromancer or another Ally enters the battlefield under your control, you may have Murasa Pyromancer deal damage to target creature equal to the number of Allies you control.\n3/2"
+    IDS_STRING19482         "Nimana Sell-Sword\n{3B}\nCreature - Human Warrior Ally\nZEN,C\nWhenever Nimana Sell-Sword or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Nimana Sell-Sword.\n2/2"
+    IDS_STRING19483         "Ondu Cleric\n{1W}\nCreature - Kor Cleric Ally\nZEN,C\nWhenever Ondu Cleric or another Ally enters the battlefield under your control, you may gain life equal to the number of Allies you control.\n1/1"
+    IDS_STRING19484         "Oran-Rief Recluse\n{2G}\nCreature - Spider\nZEN,C\nKicker {2G}\rReach\rWhen Oran-Rief Recluse enters the battlefield, if it was kicked, destroy target creature with flying.\n1/3"
+    IDS_STRING19485         "Oran-Rief Survivalist\n{1G}\nCreature - Human Warrior Ally\nZEN,C\nWhenever Oran-Rief Survivalist or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Oran-Rief Survivalist.\n1/1"
+    IDS_STRING19486         "Pitfall Trap\n{2W}\nInstant - Trap\nZEN,U\nIf exactly one creature is attacking, you may pay {W} rather than pay Pitfall Trap's mana cost.\rDestroy target attacking creature without flying."
+    IDS_STRING19487         "Relic Crush\n{4G}\nInstant\nZEN,C\nDestroy target artifact or enchantment and up to one other target artifact or enchantment."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19488         "Surrakar Marauder\n{1B}\nCreature - Surrakar\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, Surrakar Marauder gains intimidate until end of turn.\n2/1"
+    IDS_STRING19489         "Tajuru Archer\n{2G}\nCreature - Elf Archer Ally\nZEN,U\nWhenever Tajuru Archer or another Ally enters the battlefield under your control, you may have Tajuru Archer deal damage to target creature with flying equal to the number of Allies you control.\n1/2"
+    IDS_STRING19490         "Tempest Owl\n{1U}\nCreature - Bird\nZEN,C\nKicker {4U}\rFlying\rWhen Tempest Owl enters the battlefield, if it was kicked, tap up to three target permanents.\n1/2"
+    IDS_STRING19491         "Torch Slinger\n{2R}\nCreature - Goblin Shaman\nZEN,C\nKicker {1R}\rWhen Torch Slinger enters the battlefield, if it was kicked, it deals 2 damage to target creature.\n2/2"
+    IDS_STRING19492         "Tuktuk Grunts\n{4R}\nCreature - Goblin Warrior Ally\nZEN,C\nHaste\rWhenever Tuktuk Grunts or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Tuktuk Grunts.\n2/2"
+    IDS_STRING19493         "Umara Raptor\n{2U}\nCreature - Bird Ally\nZEN,C\nFlying\rWhenever Umara Raptor or another Ally enters the battlefield under your control, you may put a +1/+1 counter on Umara Raptor.\n1/1"
+    IDS_STRING19494         "Vampire Lacerator\n{B}\nCreature - Vampire Warrior\nZEN,C\nAt the beginning of your upkeep, you lose 1 life unless an opponent has 10 or less life.\n2/2"
+    IDS_STRING19495         "Windborne Charge\n{2WW}\nSorcery\nZEN,U\nTwo target creatures you control each get +2/+2 and gain flying until end of turn."
+    IDS_STRING19496         "Malakir Bloodwitch\n{3BB}\nCreature - Vampire Shaman\nZEN,R\nFlying, protection from white\rWhen Malakir Bloodwitch enters the battlefield, each opponent loses life equal to the number of Vampires you control. You gain life equal to the life lost this way.\n4/4"
+    IDS_STRING19497         "Mark of Mutiny\n{2R}\nSorcery\nZEN,U\nGain control of target creature until end of turn. Put a +1/+1 counter on it and untap it. That creature gains haste until end of turn."
+    IDS_STRING19498         "Merfolk Wayfinder\n{2U}\nCreature - Merfolk Scout\nZEN,U\nFlying\rWhen Merfolk Wayfinder enters the battlefield, reveal the top three cards of your library. Put all Island cards revealed this way into your hand and the rest on the bottom of your library in any order.\n1/2"
+    IDS_STRING19499         "Mire Blight\n{B}\nEnchantment - Aura\nZEN,C\nEnchant creature\rWhen enchanted creature is dealt damage, destroy it."
+    IDS_STRING19500         "Mindbreak Trap\n{2UU}\nInstant - Trap\nZEN,MR\nIf an opponent cast three or more spells this turn, you may pay {0} rather than pay Mindbreak Trap's mana cost.\rExile any number of target spells."
+    IDS_STRING19501         "Nissa Revane\n{2GG}\nPlaneswalker - Nissa\nZEN,MR\n[+1]: Search your library for a card named Nissa's Chosen and put it onto the battlefield. Then shuffle your library.\r[+1]: You gain 2 life for each Elf you control.\r[-7]: Search your library for any number of Elf creature cards and put them onto the battlefield. Then shuffle your library.\n2"
+    IDS_STRING19502         "Ob Nixilis, the Fallen\n{3BB}\nLegendary Creature - Demon\nZEN,MR\nLandfall - Whenever a land enters the battlefield under your control, you may have target player lose 3 life. If you do, put three +1/+1 counters on Ob Nixilis, the Fallen.\n3/3"
+    IDS_STRING19503         "Predatory Urge\n{3G}\nEnchantment - Aura\nZEN,R\nEnchant creature\rEnchanted creature has ""{T}: This creature deals damage equal to its power to target creature. That creature deals damage equal to its power to this creature."""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19504         "Primal Bellow\n{G}\nInstant\nZEN,U\nTarget creature gets +1/+1 until end of turn for each Forest you control."
+    IDS_STRING19505         "Ruinous Minotaur\n{1RR}\nCreature - Minotaur Warrior\nZEN,C\nWhenever Ruinous Minotaur deals damage to an opponent, sacrifice a land.\n5/2"
+    IDS_STRING19506         "Runeflare Trap\n{4RR}\nInstant - Trap\nZEN,U\nIf an opponent drew three or more cards this turn, you may pay {R} rather than pay Runeflare Trap's mana cost.\rRuneflare Trap deals damage to target player equal to the number of cards in that player's hand."
+    IDS_STRING19507         "Sea Gate Loremaster\n{4U}\nCreature - Merfolk Wizard Ally\nZEN,R\n{T}: Draw a card for each Ally you control.\n1/3"
+    IDS_STRING19508         "Sphinx of Lost Truths\n{3UU}\nCreature - Sphinx\nZEN,R\nKicker {1U}\rFlying\rWhen Sphinx of Lost Truths enters the battlefield, draw three cards. Then if it wasn't kicked, discard three cards.\n3/5"
+    IDS_STRING19509         "Tanglesap\n{1G}\nInstant\nZEN,C\nPrevent all combat damage that would be dealt this turn by creatures without trample."
+    IDS_STRING19510         "Timbermaw Larva\n{3G}\nCreature - Beast\nZEN,C\nWhenever Timbermaw Larva attacks, it gets +1/+1 until end of turn for each Forest you control.\n2/2"
+    IDS_STRING19511         "Turntimber Ranger\n{3GG}\nCreature - Elf Scout Ally\nZEN,R\nWhenever Turntimber Ranger or another Ally enters the battlefield under your control, you may put a 2/2 green Wolf creature token onto the battlefield. If you do, put a +1/+1 counter on Turntimber Ranger.\n2/2"
+    IDS_STRING19512         "Trailblazer's Boots\n{2}\nArtifact - Equipment\nZEN,U\nEquipped creature has nonbasic landwalk.\rEquip {2}"
+    IDS_STRING19513         "Magosi, the Waterveil\n\nLand\nZEN,R\nMagosi, the Waterveil enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\r{U}, {T}: Put an eon counter on Magosi, the Waterveil. Skip your next turn.\r{T}, Remove an eon counter from Magosi, the Waterveil and return it to its owner's hand: Take an extra turn after this one."
+    IDS_STRING19514         "Trapfinder's Trick\n{1U}\nSorcery\nZEN,C\nTarget player reveals his or her hand and discards all Trap cards."
+    IDS_STRING19515         "Trapmaker's Snare\n{1U}\nInstant\nZEN,U\nSearch your library for a Trap card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING19516         "Khalni Heart Expedition\n{1G}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Khalni Heart Expedition.\rRemove three quest counters from Khalni Heart Expedition and sacrifice it: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle your library."
+    IDS_STRING19517         "Ior Ruin Expedition\n{1U}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Ior Ruin Expedition.\rRemove three quest counters from Ior Ruin Expedition and sacrifice it: Draw two cards."
+    IDS_STRING19518         "Soul Stair Expedition\n{B}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Soul Stair Expedition.\rRemove three quest counters from Soul Stair Expedition and sacrifice it: Return up to two target creature cards from your graveyard to your hand."
+    IDS_STRING19519         "Sunspring Expedition\n{W}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Sunspring Expedition.\rRemove three quest counters from Sunspring Expedition and sacrifice it: You gain 8 life."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19520         "Zektar Shrine Expedition\n{1R}\nEnchantment\nZEN,C\nLandfall - Whenever a land enters the battlefield under your control, you may put a quest counter on Zektar Shrine Expedition.\rRemove three quest counters from Zektar Shrine Expedition and sacrifice it: Put a 7/1 red Elemental creature token with trample and haste onto the battlefield. Exile it at the beginning of the next end step."
+    IDS_STRING19521         "Quest for the Gravelord\n{B}\nEnchantment\nZEN,U\nWhenever a creature dies, you may put a quest counter on Quest for the Gravelord.\rRemove three quest counters from Quest for the Gravelord and sacrifice it: Put a 5/5 black Zombie Giant creature token onto the battlefield."
+    IDS_STRING19522         "Quest for Ancient Secrets\n{U}\nEnchantment\nZEN,U\nWhenever a card is put into your graveyard from anywhere, you may put a quest counter on Quest for Ancient Secrets.\rRemove five quest counters from Quest for Ancient Secrets and sacrifice it: Target player shuffles his or her graveyard into his or her library."
+    IDS_STRING19523         "Quest for Pure Flame\n{R}\nEnchantment\nZEN,U\nWhenever a source you control deals damage to an opponent, you may put a quest counter on Quest for Pure Flame.\rRemove four quest counters from Quest for Pure Flame and sacrifice it: If any source you control would deal damage to a creature or player this turn, it deals double that damage to that creature or player instead."
+    IDS_STRING19524         "Journey to Nowhere\n{1W}\nEnchantment\nZEN,C\nWhen Journey to Nowhere enters the battlefield, exile target creature.\rWhen Journey to Nowhere leaves the battlefield, return the exiled card to the battlefield under its owner's control."
+    IDS_STRING19525         "Eternity Vessel\n{6}\nArtifact\nZEN,MR\nEternity Vessel enters the battlefield with X charge counters on it, where X is your life total.\rLandfall - Whenever a land enters the battlefield under your control, you may have your life total become the number of charge counters on Eternity Vessel."
+    IDS_STRING19526         "Bloodchief Ascension\n{B}\nEnchantment\nZEN,R\nAt the beginning of each end step, if an opponent lost 2 or more life this turn, you may put a quest counter on Bloodchief Ascension.\rWhenever a card is put into an opponent's graveyard from anywhere, if Bloodchief Ascension has three or more quest counters on it, you may have that player lose 2 life. If you do, you gain 2 life."
+    IDS_STRING19527         "Luminarch Ascension\n{1W}\nEnchantment\nZEN,R\nAt the beginning of each opponent's end step, if you didn't lose life this turn, you may put a quest counter on Luminarch Ascension.\r{1W}: Put a 4/4 white Angel creature token with flying onto the battlefield. Activate this ability only if Luminarch Ascension has four or more quest counters on it."
+    IDS_STRING19528         "Quest for the Gemblades\n{1G}\nEnchantment\nZEN,U\nWhenever a creature you control deals combat damage to a creature, you may put a quest counter on Quest for the Gemblades.\rRemove a quest counter from Quest for the Gemblades and sacrifice it: Put four +1/+1 counters on target creature."
+    IDS_STRING19529         "Archive Trap\n{3UU}\nInstant - Trap\nZEN,R\nIf an opponent searched his or her library this turn, you may pay {0} rather than pay Archive Trap's mana cost.\rTarget opponent puts the top thirteen cards of his or her library into his or her graveyard."
+    IDS_STRING19530         "Eldrazi Monument\n{5}\nArtifact\nZEN,MR\nCreatures you control get +1/+1, have flying, and are indestructible.\rAt the beginning of your upkeep, sacrifice a creature. If you can't, sacrifice Eldrazi Monument."
+    IDS_STRING19531         "Oran-Rief, the Vastwood\n\nLand\nZEN,R\nOran-Rief, the Vastwood enters the battlefield tapped.\r{T}: Add {G} to your mana pool.\r{T}: Put a +1/+1 counter on each green creature that entered the battlefield this turn."
+    IDS_STRING19532         "Celestial Mantle\n{3WWW}\nEnchantment - Aura\nZEN,R\nEnchant creature\rEnchanted creature gets +3/+3.\rWhenever enchanted creature deals combat damage to a player, double its controller's life total."
+    IDS_STRING19533         "Vampire's Bite\n{B}\nInstant\nZEN,C\nKicker {2B}\rTarget creature gets +3/+0 until end of turn. If Vampire's Bite was kicked, that creature gains lifelink until end of turn."
+    IDS_STRING19534         "Bloodghast\n{BB}\nCreature - Vampire Spirit\nZEN,R\nBloodghast can't block.\rBloodghast has haste as long as an opponent has 10 or less life.\rLandfall - Whenever a land enters the battlefield under your control, you may return Bloodghast from your graveyard to the battlefield.\n2/1"
+    IDS_STRING19535         "Unstable Footing\n{R}\nInstant\nZEN,U\nKicker {3R}\rDamage can't be prevented this turn. If Unstable Footing was kicked, it deals 5 damage to target player."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING19536         "Vampire Hexmage\n{BB}\nCreature - Vampire Shaman\nZEN,U\nFirst Strike\rSacrifice Vampire Hexmage: Remove all counters from target permanent.\n2/1"
+    IDS_STRING19537         "World Queller\n{3WW}\nCreature - Avatar\nZEN,R\nAt the beginning of your upkeep, you may choose a card type. If you do, each player sacrifices a permanent of that type.\n4/4"
+    IDS_STRING19538         "Beastmaster Ascension\n{2G}\nEnchantment\nZEN,R\nWhenever a creature you control attacks, you may put a quest counter on Beastmaster Ascension.\rAs long as Beastmaster Ascension has seven or more quest counters on it, creatures you control get +5/+5."
+    IDS_STRING19539         "Quest for the Holy Relic\n{W}\nEnchantment\nZEN,U\nWhenever you cast a creature spell, you may put a quest counter on Quest for the Holy Relic.\rRemove five quest counters from Quest for the Holy Relic and sacrifice it: Search your library for an Equipment card, put it onto the battlefield, and attach it to a creature you control. Then shuffle your library."
+    IDS_STRING19540         "Summoning Trap\n{4GG}\nInstant - Trap\nZEN,R\nIf a creature spell you cast this turn was countered by a spell or ability an opponent controlled, you may pay {0} rather than pay Summoning Trap's mana cost.\rLook at the top seven cards of your library. You may put a creature card from among them onto the battlefield. Put the rest on the bottom of your library in any order."
+    IDS_STRING19541         "Rite of Replication\n{2UU}\nSorcery\nZEN,R\nKicker {5}\rPut a token that's a copy of target creature onto the battlefield. If Rite of Replication was kicked, put five of those tokens onto the battlefield instead."
+    IDS_STRING19542         "Oracle of Mul Daya\n{3G}\nCreature - Elf Shaman\nZEN,R\nYou may play an additional land on each of your turns.\rPlay with the top card of your library revealed.\rYou may play the top card of your library if it's a land card.\n2/2"
+    IDS_STRING19543         "Lorthos, the Tidemaker\n{5UUU}\nLegendary Creature - Octopus\nZEN,MR\nWhenever Lorthos, the Tidemaker attacks, you may pay {8}. If you do, tap up to eight target permanents. Those permanents don't untap during their controllers' next untap steps.\n8/8"
+    IDS_STRING19544         "Punishing Fire\n{1R}\nInstant\nZEN,U\nPunishing Fire deals 2 damage to target creature or player.\rWhenever an opponent gains life, you may pay {R}. If you do, return Punishing Fire from your graveyard to your hand."
+    IDS_STRING19545         "Kor Outfitter\n{WW}\nCreature - Kor Soldier\nZEN,C\nWhen Kor Outfitter enters the battlefield, you may attach target Equipment you control to target creature you control.\n2/2"
+    IDS_STRING19546         "Kor Duelist\n{W}\nCreature - Kor Soldier\nZEN,U\nAs long as Kor Duelist is equipped, it has double strike. \n1/1"
+    IDS_STRING19547         "Savage Silhouette\n{2G}\nEnchantment - Aura\nZEN\nEnchant creature\rEnchanted creature gets +2/+2 and has ""{1G}: Regenerate this creature."""
+    IDS_STRING19548         "Pyromancer Ascension\n{1R}\nEnchantment\nZEN,R\nWhenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.\rWhenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy."
+    IDS_STRING19549         "Chandra Ablaze\n{4RR}\nPlaneswalker - Chandra\nZEN,MR\n[+1] Discard a card. If a red card is discarded this way, Chandra Ablaze deals 4 damage to target creature or player.\r[-2] Each player discards his or her hand, then draws three cards.\r[-7] Cast any number of red instant and/or sorcery cards from your graveyard without paying their mana costs.\n5"
+    IDS_STRING19550         "Gomazoa\n{2U}\nCreature - Jellyfish\nZEN,U\nDefender, flying\r{T}: Put Gomazoa and each creature it's blocking on top of their owners' libraries, then those players shuffle their libraries.\n0/3"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

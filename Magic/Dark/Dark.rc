@@ -1,0 +1,196 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Dark.ico"
+IDI_LARGE_MODULE        ICON                    "DarkLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "The Dark"
+    IDS_EXPANSION_ABBREV    "DRK"
+    IDS_FIRST_CARD          "5700"
+    IDS_TOTAL_CARD          "119"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "5819"
+    IDS_MODULE_LARGE_ICON_ID "5820"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "01-08-1994"
+    IDS_MWS_FOLDER          "MWS\\DRK\\"
+    IDS_PRODUCT_LIST        """The Dark Starter Box"":R-3:U-10:C-32:BL-30,""The Dark Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5700          "Ball Lightning\n{RRR}\nCreature - Elemental\nDRK,R\nTrample\rHaste\rAt the beginning of the end step, sacrifice Ball Lightning.\n6/1"
+    IDS_STRING5701          "Bog Imp\n{1B}\nCreature - Imp\nDRK,C\nFlying\n1/1"
+    IDS_STRING5702          "Bog Rats\n{B}\nCreature - Rat\nDRK,C\nBog Rats can't be blocked by Walls.\n1/1"
+    IDS_STRING5703          "Fellwar Stone\n{2}\nArtifact\nDRK,U\n{T}: Add to your mana pool one mana of any color that a land an opponent controls could produce."
+    IDS_STRING5704          "Fountain of Youth\n{0}\nArtifact\nDRK,U\n{2}, {T}: You gain 1 life."
+    IDS_STRING5705          "Goblin Digging Team\n{R}\nCreature - Goblin\nDRK,C\n{T}, Sacrifice Goblin Digging Team: Destroy target Wall.\n1/1"
+    IDS_STRING5706          "Goblin Hero\n{2R}\nCreature - Goblin\nDRK,C\n\n2/2"
+    IDS_STRING5707          "Inferno\n{5RR}\nInstant\nDRK,R\nInferno deals 6 damage to each creature and each player."
+    IDS_STRING5708          "Mana Clash\n{R}\nSorcery\nDRK,R\nYou and target opponent each flip a coin. Mana Clash deals 1 damage to each player whose coin comes up tails. Repeat this process until both players' coins come up heads on the same flip."
+    IDS_STRING5709          "Rag Man\n{2BB}\nCreature - Human Minion\nDRK,R\n{BBB}, {T}: Target opponent reveals his or her hand and discards a creature card at random. Activate this ability only during your turn.\n2/1"
+    IDS_STRING5710          "Scavenger Folk\n{G}\nCreature - Human\nDRK,C\n{G}, {T}, Sacrifice Scavenger Folk: Destroy target artifact.\n1/1"
+    IDS_STRING5711          "Skull of Orm\n{3}\nArtifact\nDRK,U\n{5}, {T}: Return target enchantment card from your graveyard to your hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5712          "Apprentice Wizard\n{1UU}\nCreature - Human Wizard\nDRK,R\n{U}, {T}: Add {3} to your mana pool.\n0/1"
+    IDS_STRING5713          "Ashes to Ashes\n{1BB}\nSorcery\nDRK,C\nExile two target nonartifact creatures. Ashes to Ashes deals 5 damage to you."
+    IDS_STRING5714          "Book of Rass\n{6}\nArtifact\nDRK,U\n{2}, Pay 2 life: Draw a card."
+    IDS_STRING5715          "Brothers of Fire\n{1RR}\nCreature - Human Shaman\nDRK,U\n{1RR}: Brothers of Fire deals 1 damage to target creature or player and 1 damage to you.\n2/2"
+    IDS_STRING5716          "Carnivorous Plant\n{3G}\nCreature - Plant Wall\nDRK,C\nDefender\n4/5"
+    IDS_STRING5717          "Coal Golem\n{5}\nArtifact Creature - Golem\nDRK,U\n{3}, Sacrifice Coal Golem: Add {RRR} to your mana pool.\n3/3"
+    IDS_STRING5718          "Cave People\n{1RR}\nCreature - Human\nDRK,U\nWhenever Cave People attacks, it gets +1/-2 until end of turn.\r{1RR}, {T}: Target creature gains mountainwalk until end of turn.\n1/4"
+    IDS_STRING5719          "Dark Heart of the Wood\n{BG}\nEnchantment\nDRK,C\nSacrifice a Forest: You gain 3 life."
+    IDS_STRING5720          "Diabolic Machine\n{7}\nArtifact Creature - Construct\nDRK,U\n{3}: Regenerate Diabolic Machine.\n4/4"
+    IDS_STRING5721          "Drowned\n{1U}\nCreature - Zombie\nDRK,C\n{B}: Regenerate Drowned.\n1/1"
+    IDS_STRING5722          "Dust to Dust\n{1WW}\nSorcery\nDRK,C\nExile two target artifacts."
+    IDS_STRING5723          "Electric Eel\n{U}\nCreature - Fish\nDRK,U\nWhen Electric Eel enters the battlefield, it deals 1 damage to you.\r{RR}: Electric Eel gets +2/+0 until end of turn and deals 1 damage to you.\n1/1"
+    IDS_STRING5724          "Elves of Deep Shadow\n{G}\nCreature - Elf Druid\nDRK,U\n{T}: Add {B} to your mana pool. Elves of Deep Shadow deals 1 damage to you.\n1/1"
+    IDS_STRING5725          "Exorcist\n{WW}\nCreature - Human Cleric\nDRK,R\n{1W}, {T}: Destroy target black creature.\n1/1"
+    IDS_STRING5726          "Fire Drake\n{1RR}\nCreature - Drake\nDRK,U\nFlying\r{R}: Fire Drake gets +1/+0 until end of turn. Activate this ability only once each turn.\n1/2"
+    IDS_STRING5727          "Fissure\n{3RR}\nInstant\nDRK,C\nDestroy target creature or land. It can't be regenerated."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5728          "Flood\n{U}\nEnchantment\nDRK,U\n{UU}: Tap target creature without flying."
+    IDS_STRING5729          "Ghost Ship\n{2UU}\nCreature - Spirit\nDRK,C\nFlying\r{UUU}: Regenerate Ghost Ship.\n2/4"
+    IDS_STRING5730          "Goblin Wizard\n{2RR}\nCreature - Goblin Wizard\nDRK,R\n{T}: You may put a Goblin permanent card from your hand onto the battlefield.\r{R}: Target Goblin gains protection from white until end of turn.\n1/1"
+    IDS_STRING5731          "Grave Robbers\n{1BB}\nCreature - Human Rogue\nDRK,R\n{B}, {T}: Exile target artifact card from a graveyard. You gain 2 life.\n1/1"
+    IDS_STRING5732          "Hidden Path\n{2GGGG}\nEnchantment\nDRK,R\nGreen creatures have forestwalk."
+    IDS_STRING5733          "Holy Light\n{2W}\nInstant\nDRK,C\nNonwhite creatures get -1/-1 until end of turn."
+    IDS_STRING5734          "Land Leeches\n{1GG}\nCreature - Leech\nDRK,C\nFirst strike\n2/2"
+    IDS_STRING5735          "Marsh Gas\n{B}\nInstant\nDRK,C\nAll creatures get -2/-0 until end of turn."
+    IDS_STRING5736          "Marsh Goblins\n{BR}\nCreature - Goblin\nDRK,C\nSwampwalk\n1/1"
+    IDS_STRING5737          "Maze of Ith\n\nLand\nDRK,U\n{T}: Untap target attacking creature. Prevent all combat damage that would be dealt to and dealt by that creature this turn."
+    IDS_STRING5738          "Merfolk Assassin\n{UU}\nCreature - Merfolk Assassin\nDRK,U\n{T}: Destroy target creature with islandwalk.\n1/2"
+    IDS_STRING5739          "Morale\n{1WW}\nInstant\nDRK,C\nAttacking creatures get +1/+1 until end of turn."
+    IDS_STRING5740          "Niall Silvain\n{GGG}\nCreature - Ouphe\nDRK,R\n{GGGG}, {T}: Regenerate target creature.\n2/2"
+    IDS_STRING5741          "People of the Woods\n{GG}\nCreature - Human\nDRK,U\nPeople of the Woods's toughness is equal to the number of Forests you control.\n1/*"
+    IDS_STRING5742          "Riptide\n{U}\nInstant\nDRK,C\nTap all blue creatures."
+    IDS_STRING5743          "Savaen Elves\n{G}\nCreature - Elf\nDRK,C\n{GG}, {T}: Destroy target Aura attached to a land.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5744          "Scarwood Goblins\n{RG}\nCreature - Goblin\nDRK,C\n\n2/2"
+    IDS_STRING5745          "Scarwood Hag\n{1G}\nCreature - Hag\nDRK,U\n{GGGG}, {T}: Target creature gains forestwalk until end of turn.\r{T}: Target creature loses forestwalk until end of turn.\n1/1"
+    IDS_STRING5746          "Sisters of the Flame\n{1RR}\nCreature - Human Shaman\nDRK,U\n{T}: Add {R} to your mana pool.\n2/2"
+    IDS_STRING5747          "Squire\n{1W}\nCreature - Human Soldier\nDRK,C\n\n1/2"
+    IDS_STRING5748          "Standing Stones\n{3}\nArtifact\nDRK,U\n{1}, {T}, Pay 1 life: Add one mana of any color to your mana pool."
+    IDS_STRING5749          "Sunken City\n{UU}\nEnchantment\nDRK,C\nAt the beginning of your upkeep, sacrifice Sunken City unless you pay {UU}.\rBlue creatures get +1/+1."
+    IDS_STRING5750          "Tivadar's Crusade\n{1WW}\nSorcery\nDRK,U\nDestroy all Goblins."
+    IDS_STRING5751          "Amnesia\n{3UUU}\nSorcery\nDRK,U\nTarget player reveals his or her hand and discards all nonland cards."
+    IDS_STRING5752          "Tower of Coireall\n{2}\nArtifact\nDRK,U\n{T}: Target creature can't be blocked by Walls this turn."
+    IDS_STRING5753          "Tracker\n{2G}\nCreature - Human\nDRK,R\n{GG}, {T}: Tracker deals damage equal to its power to target creature. That creature deals damage equal to its power to Tracker.\n2/2"
+    IDS_STRING5754          "Witch Hunter\n{2WW}\nCreature - Human Cleric\nDRK,R\n{T}: Witch Hunter deals 1 damage to target player.\r{1WW}, {T}: Return target creature an opponent controls to its owner's hand.\n1/1"
+    IDS_STRING5755          "Wormwood Treefolk\n{3GG}\nCreature - Treefolk\nDRK,R\n{GG}: Wormwood Treefolk gains forestwalk until end of turn and deals 2 damage to you.\r{BB}: Wormwood Treefolk gains swampwalk until end of turn and deals 2 damage to you.\n4/4"
+    IDS_STRING5756          "Word of Binding\n{XBB}\nSorcery\nDRK,C\nTap X target creatures."
+    IDS_STRING5757          "Tormod's Crypt\n{0}\nArtifact\nDRK,U\n{T}, Sacrifice Tormod's Crypt: Exile all cards from target player's graveyard."
+    IDS_STRING5758          "Blood Moon\n{2R}\nEnchantment\nDRK,R\nNonbasic lands are Mountains."
+    IDS_STRING5759          "Bone Flute\n{3}\nArtifact\nDRK,U\n{2}, {T}: All creatures get -1/-0 until end of turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING5760          "Giant Shark\n{5U}\nCreature - Fish\nDRK,C\nGiant Shark can't attack unless defending player controls an Island.\rWhenever Giant Shark blocks or becomes blocked by a creature that has been dealt damage this turn, Giant Shark gets +2/+0 and gains trample until end of turn.\rWhen you control no Islands, sacrifice Giant Shark.\n4/4"
+    IDS_STRING5761          "Orc General\n{2R}\nCreature - Orc Warrior\nDRK,U\n{T}, Sacrifice another Orc or Goblin: Other Orc creatures get +1/+1 until end of turn.\n2/2"
+    IDS_STRING5762          "Festival\n{W}\nInstant\nDRK,C\nCast Festival only during an opponent's upkeep.\rCreatures can't attack this turn."
+    IDS_STRING5763          "Venom\n{1GG}\nEnchantment - Aura\nDRK,C\nEnchant creature\rWhenever enchanted creature blocks or becomes blocked by a non-Wall creature, destroy the other creature at end of combat."
+    IDS_STRING5764          "Water Wurm\n{U}\nCreature - Wurm\nDRK,C\nWater Wurm gets +0/+1 as long as an opponent controls an Island.\n1/1"
+    IDS_STRING5765          "Barl's Cage\n{4}\nArtifact\nDRK,R\n{3}: Target creature doesn't untap during its controller's next untap step."
+    IDS_STRING5766          "Murk Dwellers\n{3B}\nCreature - Zombie\nDRK,C\nWhenever Murk Dwellers attacks and isn't blocked, it gets +2/+0 until end of combat.\n2/2"
+    IDS_STRING5767          "Curse Artifact\n{2BB}\nEnchantment - Aura\nDRK,U\nEnchant artifact\rAt the beginning of the upkeep of enchanted artifact's controller, Curse Artifact deals 2 damage to that player unless he or she sacrifices that artifact."
+    IDS_STRING5768          "Goblins of the Flarg\n{R}\nCreature - Goblin Warrior\nDRK,C\nMountainwalk\rWhen you control a Dwarf, sacrifice Goblins of the Flarg.\n1/1"
+    IDS_STRING5769          "Marsh Viper\n{3G}\nCreature - Snake\nDRK,C\nWhenever Marsh Viper deals damage to an opponent, that player gets two poison counters.\n1/2"
+    IDS_STRING5770          "Uncle Istvan\n{1BBB}\nCreature - Human\nDRK,U\nPrevent all damage that would be dealt to Uncle Istvan by creatures.\n1/3"
+    IDS_STRING5771          "Lurker\n{2G}\nCreature - Beast\nDRK,R\nLurker can't be the target of spells unless it attacked or blocked this turn.\n2/3"
+    IDS_STRING5772          "Leviathan\n{5UUUU}\nCreature - Leviathan\nDRK,R\nTrample\rLeviathan enters the battlefield tapped and doesn't untap during your untap step.\rAt the beginning of your upkeep, you may sacrifice two Islands. If you do, untap Leviathan.\rLeviathan can't attack unless you sacrifice two Islands.\n10/10"
+    IDS_STRING5773          "City of Shadows\n\nLand\nDRK,R\n{T}, Exile a creature you control: Put a storage counter on City of Shadows.\r{T}: Add {X} to your mana pool, where X is the number of storage counters on City of Shadows."
+	IDS_STRING5774          "Wand of Ith\n{4}\nArtifact\nDRK,U\n{3}, {T}: Target player reveals a card at random from his or her hand. If it's a land card, that player discards it unless he or she pays 1 life. If it isn't a land card, the player discards it unless he or she pays life equal to its converted mana cost. Activate this ability only during your turn."
+	IDS_STRING5775          "Psychic Allergy\n{3UU}\nEnchantment\nDRK,R\nAs Psychic Allergy enters the battlefield, choose a color.\rAt the beginning of each opponent's upkeep, Psychic Allergy deals X damage to that player, where X is the number of nontoken permanents of the chosen color he or she controls.\rAt the beginning of your upkeep, destroy Psychic Allergy unless you sacrifice two Islands."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING5776          "Necropolis\n{5}\nArtifact Creature - Wall\nDRK,U\nDefender\rExile a creature card from your graveyard: Put X +0/+1 counters on Necropolis, where X is the exiled card's converted mana cost.\n0/1"
+    //IDS_STRING5776          "Goblin Rock Sled\n{1R}\nCreature - Goblin\nDRK,C\nTrample\rGoblin Rock Sled doesn't untap during your untap step if it attacked during your last turn.\rGoblin Rock Sled can't attack unless defending player controls a Mountain.\n3/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

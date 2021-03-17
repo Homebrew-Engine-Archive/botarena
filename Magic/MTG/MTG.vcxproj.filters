@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CardMTG.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CardMTG.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Back.bmp" />
+    <None Include="Watermark2.bmp" />
+    <None Include="Watermark.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MTG.rc" />
+  </ItemGroup>
+</Project>

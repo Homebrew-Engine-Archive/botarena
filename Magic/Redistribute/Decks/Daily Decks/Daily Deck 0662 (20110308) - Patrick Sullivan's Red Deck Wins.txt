@@ -1,0 +1,46 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 4 (6.67%)
+
+4 Koth of the Hammer (21435)
+
+// Creatures - 16 (26.67%)
+
+4 Ember Hauler (21141)
+4 Goblin Guide (19456)
+4 Plated Geopede (19345)
+4 Spikeshot Elder (21467)
+
+// Instants - 16 (26.67%)
+
+4 Burst Lightning (19384)
+4 Lightning Bolt (21124)
+4 Searing Blaze (19697)
+4 Staggershock (20984)
+
+// Lands - 24 (40.00%)
+
+4 Arid Mesa (19349)
+3 Mountain (21409)
+3 Mountain (21410)
+3 Mountain (21411)
+3 Mountain (21408)
+4 Scalding Tarn (19358)
+4 Teetering Peaks (19351)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+4 Manic Vandal (21260)
+
+// Sorceries
+
+4 Arc Trail (21554)
+3 Mark of Mutiny (19497)
+
+// Artifacts
+
+4 Ratchet Bomb (21528)

@@ -1,0 +1,50 @@
+// Total cards in deck - 60
+
+// Creatures - 31 (51.67%)
+
+3 Baneslayer Angel (21125)
+4 Birds of Paradise (21103)
+4 Emrakul, the Aeons Torn (20937)
+4 Knight of the Reliquary (8815)
+4 Lotus Cobra (19389)
+4 Nest Invader (20887)
+4 Noble Hierarch (8819)
+4 Primeval Titan (21223)
+
+// Instants - 4 (6.67%)
+
+4 Summoning Trap (19540)
+
+// Lands - 25 (41.67%)
+
+Forest (21402)
+Forest (21403)
+2 Forest (21400)
+Forest (21401)
+3 Misty Rainforest (19356)
+Mosswort Bridge (18154)
+Murmuring Bosk (18387)
+Mutavault (18368)
+Plains (21412)
+3 Razorverge Thicket (21472)
+Sejiri Steppe (19691)
+Stirring Wildwood (19623)
+3 Verdant Catacombs (19359)
+4 Windbrisk Heights (18152)
+Wooded Bastion (18577)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Burrenton Forge-Tender (18054)
+2 Chameleon Colossus (18361)
+4 Great Sable Stag (4013)
+Obstinate Baloth (21217)
+2 Reveillark (18341)
+
+// Instants
+
+4 Nature's Claim (19662)
