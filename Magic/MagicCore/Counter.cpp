@@ -157,8 +157,8 @@ void Counter::ChangePTCounter(int nCount)
 				pCreatureCard->IncreasePermanentLife(nToughnessDelta, FALSE);
 
 				Damage damage;
-				damage.m_DamageType = DamageType::NotDealingDamage;
-				damage.m_nLifeDelta = nToughnessDelta;
+				damage.m_DamageType  = DamageType::NotDealingDamage;
+				damage.m_nLifeDelta  = nToughnessDelta;
 				damage.m_Preventable = PreventableType::NotPreventable;
 				damage.m_pSourceCard = pCreatureCard;
 				pCreatureCard->ChangeLife(damage, TRUE);
@@ -204,15 +204,15 @@ void CounterContainer::AddCounter(std::auto_ptr<Counter>& apCounter)
 void CounterContainer::ScheduleCounter(LPCTSTR strName, int nCount,		// set this counter to the value
 									   bool bReplace,
 									   ZoneId fromZone, ZoneId toZone,	// when the associated card changes zone
-									   bool bBefore)						// true - set the counter before the zone change; false - after the zone change
+									   bool bBefore)					// true - set the counter before the zone change; false - after the zone change
 {
 	ScheduleEntry entry;
 	entry.strCounter = strName;
-	entry.nCount = nCount;
-	entry.bReplace = bReplace;
-	entry.fromZone = fromZone;
-	entry.toZone = toZone;
-	entry.bBefore = bBefore;
+	entry.nCount	 = nCount;
+	entry.bReplace	 = bReplace;
+	entry.fromZone	 = fromZone;
+	entry.toZone	 = toZone;
+	entry.bBefore	 = bBefore;
 
 	m_Scheduled.push_back(entry);
 }

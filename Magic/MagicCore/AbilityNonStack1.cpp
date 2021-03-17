@@ -133,6 +133,18 @@ BOOL CAttackAbility::CanAttackImpl() const
 
 	if (m_pCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HedronFields) && (pCard->GetLastKnownPower() > 6))
 		return FALSE;
+	
+	// Ref: Oriss, Samite Guardian
+	std::set<const CCardFilter*> cardFilters;
+	if (m_pCard->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantAttackWithCreatures, cardFilters))
+	{
+		if (!cardFilters.size())
+			return FALSE;		// no card filter, prevent all cards attacking
+
+		for (std::set<const CCardFilter*>::const_iterator i = cardFilters.begin(); i != cardFilters.end(); ++i)
+			if ((*i)->IsCardIncluded(m_pCard))
+				return FALSE;
+	}
 
 	if (pCard->IsAttacking())	// Some creature can attack without tap
 		return FALSE;
@@ -2005,6 +2017,19 @@ BOOL CLandAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) c
 
 	if (m_pGame->GetStack().GetStackSize())
 		return FALSE;
+	// Ref: Aggressive Mining 3R
+	// Enchantment
+	// You can't play lands. Sacrifice a land: Draw two cards. Activate this ability only once each turn.
+	std::set<const CCardFilter*> cardFilters;
+	if (pPlayer->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPlayLands, cardFilters))
+	{
+		if (!cardFilters.size())			// no card filter, prevent all lands
+			return FALSE; 
+
+		for (std::set<const CCardFilter*>::const_iterator i = cardFilters.begin(); i != cardFilters.end(); ++i)
+			if ((*i)->IsCardIncluded(m_pCard))
+				return FALSE;
+	}
 
 	return TRUE;
 }

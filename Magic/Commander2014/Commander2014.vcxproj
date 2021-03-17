@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6089ED17-FED0-4FA3-B333-FBECD7A008CB}</ProjectGuid>
-    <RootNamespace>NewExpansion</RootNamespace>
+    <RootNamespace>Commander2014</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

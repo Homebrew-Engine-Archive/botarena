@@ -4075,6 +4075,7 @@ CChaliceOfTheVoidCard::CChaliceOfTheVoidCard(CGame* pGame, UINT nID)
 		_T("0"), AbilityType::Artifact)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CChaliceOfTheVoidCard::OnZoneChanged))
 {
+	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, TRUE);
 
 	{

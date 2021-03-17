@@ -2041,3 +2041,10 @@ protected:
 
 //____________________________________________________________________________
 //
+class CTerritorialDisputeCard : public CInPlaySpellCard 
+{
+	DECLARE_CARD_CSTOR(CTerritorialDisputeCard);
+};
+
+//____________________________________________________________________________
+//

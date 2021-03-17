@@ -229,20 +229,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CMurderInvestigationCard : public CEnchantCard
-{
-    DECLARE_CARD_CSTOR(CMurderInvestigationCard);
-
-protected:
-	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenCardMoved > TriggeredAbility;
-
-	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
-											CCard* pEnchantedCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-};
-
-//____________________________________________________________________________
-//
 class CRubblehulkCard : public CCreatureCard
 {
     DECLARE_CARD_CSTOR(CRubblehulkCard);

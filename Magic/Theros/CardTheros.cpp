@@ -84,7 +84,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGlareOfHeresyCard);
 		DEFINE_CARD(CGodsWillingCard);
 		DEFINE_CARD(CGrayMerchantOfAsphodelCard);
-		DEFINE_CARD(CGuardiansOfMeletisCard);
 		DEFINE_CARD(CHammerOfPurphorosCard);
 		DEFINE_CARD(CHerosDownfallCard);
 		DEFINE_CARD(CHorizonChimeraCard);
@@ -135,10 +134,8 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRageOfPurphorosCard);
 		DEFINE_CARD(CRagebloodShamanCard);
 		DEFINE_CARD(CRayOfDissolutionCard);
-		DEFINE_CARD(CReadTheBonesCard);
 		DEFINE_CARD(CReaperOfTheWildsCard);
 		DEFINE_CARD(CRescueFromTheUnderworldCard);
-		DEFINE_CARD(CReturnedCentaurCard);
 		DEFINE_CARD(CReturnedPhalanxCard);
 		DEFINE_CARD(CReverentHunterCard);
 		DEFINE_CARD(CSatyrHedonistCard);
@@ -174,7 +171,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CThassasBountyCard);
 		DEFINE_CARD(CTimeToFeedCard);
 		DEFINE_CARD(CTitanOfEternalFireCard);
-		DEFINE_CARD(CTitansStrengthCard);
 		DEFINE_CARD(CTormentedHeroCard);
 		DEFINE_CARD(CTravelingPhilosopherCard);
 		DEFINE_CARD(CTriadOfFatesCard);
@@ -195,8 +191,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CWildCelebrantsCard);
 		DEFINE_CARD(CWingsteedRiderCard);
 		DEFINE_CARD(CWitchesEyeCard);
-		DEFINE_CARD(CXenagosTheRevelerCard);
-		DEFINE_CARD(CYokedOxCard);		
+		DEFINE_CARD(CXenagosTheRevelerCard);	
 	} while (false);
 
 	return cpCard;
@@ -4368,15 +4363,6 @@ void CGodsWillingCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 
 //____________________________________________________________________________
 //
-CGuardiansOfMeletisCard::CGuardiansOfMeletisCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Guardians of Meletis"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
-		_T("3"), Power(0), Life(6))
-{
-	GetCreatureKeyword()->AddDefender(FALSE);
-}
-
-//____________________________________________________________________________
-//
 CHerosDownfallCard::CHerosDownfallCard(CGame* pGame, UINT nID)
 	: CTargetMoveCardSpellCard(pGame, _T("Hero's Downfall"), CardType::Instant, nID,
 		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT, AbilityType::Instant,
@@ -6462,59 +6448,6 @@ void CRayOfDissolutionCard::OnResolutionCompleted(const CAbilityAction* pAbility
 
 //____________________________________________________________________________
 //
-CReadTheBonesCard::CReadTheBonesCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Read the Bones"), CardType::Sorcery, nID)
-{
-	counted_ptr<CGenericSpell> cpSpell(
-		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
-			_T("2") BLACK_MANA_TEXT));
-
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CReadTheBonesCard::BeforeResolution));
-	AddSpell(cpSpell.GetPointer());
-}
-
-bool CReadTheBonesCard::BeforeResolution(CAbilityAction* pAction)
-{
-	CPlayer* pController = pAction->GetController();
-
-	//Scry 2 start----------------------
-	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
-		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-		pModifier->GetSelection(0).moveType = MoveType::Others;
-		pModifier->AddSelection(MinimumValue(0), MaximumValue(2), // select cards to bottom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL,									// any cards
-			ZoneId::Library,						// if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom,					// put selected cards on top
-			MoveType::Others,						// move type
-			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
-
-		// and finally put the last ones on top of the library
-		pModifier->SetReorderInformation(
-			true, 
-			ZoneId::Library,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-//Scry 2 end--------------------------
-	pModifier->ApplyTo(pController);
-
-	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
-	pScryModifier.ApplyTo(this);
-
-	CDrawCardModifier pModifier1 = CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));
-	pModifier1.ApplyTo(pController);
-
-	CLifeModifier pModifier2 = CLifeModifier(Life(-2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-	pModifier2.ApplyTo(pController);
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
 CReaperOfTheWildsCard::CReaperOfTheWildsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Reaper of the Wilds"), CardType::Creature, CREATURE_TYPE(Gorgon), nID,
 		_T("2") BLACK_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(5))
@@ -6632,29 +6565,6 @@ bool CRescueFromTheUnderworldCard::BeforeResolution(CAbilityAction* pAction)
 	pModifier2.ApplyTo(this);
 
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CReturnedCentaurCard::CReturnedCentaurCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Returned Centaur"), CardType::Creature, CREATURE_TYPE2(Zombie, Centaur), nID,
-		_T("3") BLACK_MANA_TEXT, Power(2), Life(4))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredRevealLibraryAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback,
-			&CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->GetTargeting().SetIncludePlayers(TRUE);
-
-	cpAbility->SetReorder(true, ZoneId::Graveyard);
-	cpAbility->SetRevealCount(4);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -6910,7 +6820,7 @@ CSilentArtisanCard::CSilentArtisanCard(CGame* pGame, UINT nID)
 //____________________________________________________________________________
 //
 CSipOfHemlockCard::CSipOfHemlockCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Hideous End"), CardType::Sorcery, nID,
+	: CTargetMoveCardSpellCard(pGame, _T("Sip of Hemlock"), CardType::Sorcery, nID,
 		_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT, AbilityType::Sorcery,
 		new AnyCreatureComparer,
 		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
@@ -7473,52 +7383,6 @@ counted_ptr<CAbility> CTitanOfEternalFireCard::CreateAbility(CCard* pCard)
 
 //____________________________________________________________________________
 //
-CTitansStrengthCard::CTitansStrengthCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrSpellCard(pGame, _T("Titan's Strength"), CardType::Instant, nID, AbilityType::Instant,
-		RED_MANA_TEXT,
-		Power(+3), Life(+1),
-		CreatureKeyword::Null, CreatureKeyword::Null,
-		TRUE, PreventableType::NotPreventable)
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-				&CTitansStrengthCard::OnResolutionCompleted))
-{
-	m_pTargetChgPwrTghAttrSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-}
-
-void CTitansStrengthCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	if (!bResult) return;
-
-	//Scry 1 start----------------------
-	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
-		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-		pModifier->GetSelection(0).moveType = MoveType::Others;
-		pModifier->AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bottom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL,									// any cards
-			ZoneId::Library,						// if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom,					// put selected cards on top
-			MoveType::Others,						// move type
-			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
-
-		// and finally put the last ones on top of the library
-		pModifier->SetReorderInformation(
-			true, 
-			ZoneId::Library,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-//Scry 1 end--------------------------
-	pModifier->ApplyTo(pAbilityAction->GetController());
-
-	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
-	pScryModifier.ApplyTo(this);
-}
-
-//____________________________________________________________________________
-//
 CTravelingPhilosopherCard::CTravelingPhilosopherCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Traveling Philosopher"), CardType::Creature, CREATURE_TYPE2(Human, Advisor), nID,
 		_T("1") WHITE_MANA_TEXT, Power(2), Life(2))
@@ -7881,14 +7745,6 @@ bool CWitchesEyeCard::BeforeResolution(CAbilityAction* pAction)
 	pScryModifier.ApplyTo(pAction->GetOriginatingCard());
 
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CYokedOxCard::CYokedOxCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Yoked Ox"), CardType::Creature, CREATURE_TYPE(Ox), nID,
-		WHITE_MANA_TEXT, Power(0), Life(4))
-{
 }
 
 //____________________________________________________________________________

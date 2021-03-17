@@ -1585,6 +1585,13 @@ void CCardFilter::AddPredefinedFilters()
 		AddFilter(apFilter);
 	}
 
+	{	// nonlegendary creatures
+		std::auto_ptr<CCardFilter> apFilter(CCardFilter::GetFilter(_T("creatures"))->Clone());
+		apFilter->AddNegateComparer(new CardTypeComparer(CardType::Legendary, false));
+		apFilter->SetFilterName(_T("a nonlegendary creature"), _T("nonlegendary creatures"));
+		AddFilter(apFilter);
+	}
+
 	{
 		// permanents
 		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a permanent"), _T("permanents"), new CardZoneComparer(ZoneId::Battlefield))));

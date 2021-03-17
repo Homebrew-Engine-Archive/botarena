@@ -184,6 +184,7 @@
 #define IDS_STRING19067                 19067
 #define IDS_STRING19068                 19068
 #define IDS_STRING19069                 19069
+#define IDS_STRING19070                 19070
 #define IDI_MODULE                      19080
 #define IDI_LARGE_MODULE                19081
 

@@ -907,6 +907,54 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	701.30. Bolster
+	701.30a "Bolster N" means "Choose a creature you control with the least toughness or tied for least toughness
+	among creatures you control. Put N +1/+1 counters on that creature."
+*/
+struct _CTriggeredBolsterAbility_TriggerContextType
+{
+	_CTriggeredBolsterAbility_TriggerContextType()
+		: m_pCard(NULL)
+	{}
+	CCardCounterModifier m_CardCounterModifier;
+	CCard*				 m_pCard;
+
+	bool operator==(const _CTriggeredBolsterAbility_TriggerContextType& rhs) const
+	{
+		return m_pCard == rhs.m_pCard
+			&& m_CardCounterModifier.Equals(rhs.m_CardCounterModifier);
+	}
+};
+
+class CORE_EXPORT CTriggeredBolsterAbility 
+	: public CTriggeredAbility<_CTriggeredBolsterAbility_TriggerContextType>
+
+{
+	public:	
+			  CCardCounterModifier& GetCounterCardModifier()	   { return m_CardCounterModifier; }
+		const CCardCounterModifier& GetCounterCardModifier() const { return m_CardCounterModifier; }
+	protected:
+		CTriggeredBolsterAbility(CCard* pCard);
+
+		OVERRIDE(TriggerContextType, GetTriggerContext)() const 
+		{ 
+			TriggerContextType triggerContext;
+			triggerContext.m_CardCounterModifier = m_CardCounterModifier;
+			return triggerContext; 
+		}
+
+		OVERRIDE(BOOL, ResolveSelection)(CPlayer* pTriggeredPlayer, CTriggeredAction* pAction);
+		VIRTUAL(void, GetSelectionEntries)(const CTriggeredAction* pAction, CPlayer* pPlayer, std::vector<SelectionEntry>& entries);
+
+		void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+		CCardCounterModifier m_CardCounterModifier;
+		CSelectionSupport	 m_SelectionSupport;	
+};
+
+//____________________________________________________________________________
+//
 struct _CTriggeredCounterSpellAbility_TriggerContextType
 {
 	_CTriggeredCounterSpellAbility_TriggerContextType()

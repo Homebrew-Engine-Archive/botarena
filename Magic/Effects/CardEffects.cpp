@@ -43,6 +43,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBloodlordOfVaasgothEffectToken);
 		DEFINE_TOKEN(CBroodOfCockroachesEffectToken);
 		DEFINE_TOKEN(CBubblingMuckEffectToken);
+		DEFINE_TOKEN(CBurnAwayEffectToken);
 //		DEFINE_TOKEN(CChancellorOfTheAnnexEffectToken);
 //		DEFINE_TOKEN(CChancellorOfTheDrossEffectToken);
 //		DEFINE_TOKEN(CChancellorOfTheForgeEffectToken);
@@ -131,6 +132,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSavageSummoningFirstEffectToken);
 		DEFINE_TOKEN(CSavageSummoningSecondEffectToken);
 		DEFINE_TOKEN(CSawtoothOgreEffectToken);
+		DEFINE_TOKEN(CSearingBloodEffectToken);
 		DEFINE_TOKEN(CSeismicStompEffectToken);
 		DEFINE_TOKEN(CSeraphFirstEffectToken);
 		DEFINE_TOKEN(CSeraphSecondEffectToken);
@@ -151,6 +153,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CThePiecesAreComingTogetherEffectToken);
 		DEFINE_TOKEN(CTimeToFeedEffectToken);
 		DEFINE_TOKEN(CTransluminantEffectToken);
+		DEFINE_TOKEN(CUpkeepStepReanimateEffectToken);
 		DEFINE_TOKEN(CVanishIntoMemoryEffectToken);
 		DEFINE_TOKEN(CVirulentWoundEffectToken);
 		DEFINE_TOKEN(CVizkopaGuildmageEffectToken);
@@ -1013,7 +1016,6 @@ CChandraTheFirebrandEffectToken::CChandraTheFirebrandEffectToken(CGame* pGame, U
 	, bFired(0)
 {
 	GetCardKeyword()->AddEmblem(FALSE);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredCopyCastAbility1, CWhenSpellCastAny > TriggeredAbility;
@@ -1052,7 +1054,8 @@ CChandraTheFirebrandEffectToken::CChandraTheFirebrandEffectToken(CGame* pGame, U
 bool CChandraTheFirebrandEffectToken::SetTriggerContext(CTriggeredCopyCastAbility1::TriggerContextType& triggerContext, 
 										 CCard* pCard)
 {
-	if ((bFired != 0) || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+	if ((bFired != 0) || (GetZone()->GetZoneId() != ZoneId::_Effects)) 
+		return false;
 
 	bFired = 1;
 
@@ -1062,12 +1065,11 @@ bool CChandraTheFirebrandEffectToken::SetTriggerContext(CTriggeredCopyCastAbilit
 
 	for (int l = 0; l < stack.GetStackSize(); ++l)
 	{
-						triggerContext.m_pStackAction = const_cast<CStackAbilityAction*>(stack.GetStackAction(l).GetPointer());
-						if (triggerContext.m_pStackAction->IsSpell() && (triggerContext.m_pStackAction->GetAbility()->GetCard() == pCard))
-						{
-							break;
-						}
-
+		triggerContext.m_pStackAction = const_cast<CStackAbilityAction*>(stack.GetStackAction(l).GetPointer());
+		if (triggerContext.m_pStackAction->IsSpell() && (triggerContext.m_pStackAction->GetAbility()->GetCard() == pCard))
+		{
+			break;
+		}
 	}
 	return true;
 }
@@ -5147,20 +5149,32 @@ bool CIgnorantBlissEffectToken::SetTriggerContextAux2(CTriggeredMoveCardAbility:
 
 //____________________________________________________________________________
 //
+/*
+	This generic effect is used when designated card(s) normally the creature card that this effect originated from
+	are put into the graveyard (die) and they are required to return to the battlefield under their owner's 
+	control at the beginning of the next end step.
+	Ref: 
+	Molten Firebird (2/2) 4R
+	Creature - Phoenix
+	Flying
+	When Molten Firebird dies, return it to the battlefield under its owner's 
+	control at the beginning of the next end step and you skip your next draw step.
+	4R: Exile Molten Firebird.
+
+	Most of this code is template derived from other similar effects.
+*/
 CEndStepReanimateEffectToken::CEndStepReanimateEffectToken(CGame* pGame, UINT nID)
 	: CContainerEffectCard(pGame, _T("End Step Reanimate Effect"), CardType::GlobalEnchantment, nID)	
 	, bFired(FALSE)
 {
 	GetCardKeyword()->AddEmblem(FALSE);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-
+		// below modify phase in which card is required to return
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep, FALSE));
-		
+		//
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEndStepReanimateEffectToken::SetTriggerContext));
 		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CEndStepReanimateEffectToken::BeforeResolution));
 
@@ -5171,10 +5185,8 @@ CEndStepReanimateEffectToken::CEndStepReanimateEffectToken(CGame* pGame, UINT nI
 			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::Graveyard, ZoneId::_AllZones, TRUE, FALSE, FALSE));
-
+												ZoneId::Graveyard, ZoneId::_AllZones, TRUE, FALSE, FALSE));
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEndStepReanimateEffectToken::SetTriggerContextAux1));
 		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
@@ -5186,11 +5198,8 @@ CEndStepReanimateEffectToken::CEndStepReanimateEffectToken(CGame* pGame, UINT nI
 
 		counted_ptr<TriggeredAbility> cpAbility(
 			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
-
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
 		cpAbility->SetSkipStack(TRUE);
-
 		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
 		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
 		cpAbility->SetPlayableFrom(ZoneId::_Effects);
@@ -5205,37 +5214,37 @@ CEndStepReanimateEffectToken::CEndStepReanimateEffectToken(CGame* pGame, UINT nI
 
 bool CEndStepReanimateEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
 {
-	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
-
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) 
+		return false;
 	bFired = TRUE;
-
 	return true;
 }
 
 bool CEndStepReanimateEffectToken::BeforeResolution(CAbilityAction* pAction) const
 {
+	// below modify where effect requires card(s) to be moved from then to
 	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Others, pAction->GetController());
-
+	//
 	for (int i = pCards.GetSize() - 1; i >= 0; --i)
 		pModifier.ApplyTo(pCards.GetAt(i));
-
 	return true;
 }
 
 bool CEndStepReanimateEffectToken::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
 {
-	if (!pCards.HasCard(pCard)) return false;
-	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
-	
+	if (!pCards.HasCard(pCard)) 
+		return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) 
+		return false;
 	pCards.RemoveCard(pCard);
 	return false;
 }
 
 bool CEndStepReanimateEffectToken::SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
 {
-	if (!bFired) return false;
-
+	if (!bFired) 
+		return false;
 	return true;
 }
 
@@ -10971,6 +10980,229 @@ CTemurCharmEffectToken::CTemurCharmEffectToken(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
     }
+}
+
+//____________________________________________________________________________
+//
+CSearingBloodEffectToken::CSearingBloodEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("Searing Blood Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSearingBloodEffectToken::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CSearingBloodEffectToken::BeforeResolveSelection));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CSearingBloodEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if(!pCards.HasCard(pCard)) 
+		return false;
+	if(GetZone()->GetZoneId() != ZoneId::_Effects) 
+		return false;	
+	pCards.RemoveCard(pCard);
+	if(pToZone->GetZoneId() != ZoneId::Graveyard) 
+		return false;
+	triggerContext.nValue1 = (DWORD)pCard->GetController();
+	return true;
+}
+
+bool CSearingBloodEffectToken::BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CPlayer* pPlayer = (CPlayer*)pAction->GetTriggerContext().nValue1;
+	//deal 3 damage to the target creature's controller.
+	CLifeModifier pModifier = CLifeModifier(Life(-3), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+	pModifier.ApplyTo(pPlayer);
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CBurnAwayEffectToken::CBurnAwayEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("Burn Away Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBurnAwayEffectToken::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CBurnAwayEffectToken::BeforeResolveSelection));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CBurnAwayEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if(!pCards.HasCard(pCard)) 
+		return false;
+	if(GetZone()->GetZoneId() != ZoneId::_Effects) 
+		return false;	
+	pCards.RemoveCard(pCard);
+	if(pToZone->GetZoneId() != ZoneId::Graveyard) 
+		return false;
+	triggerContext.nValue1 = (DWORD)pCard->GetController();
+	return true;
+}
+
+bool CBurnAwayEffectToken::BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CPlayer* pPlayer = (CPlayer*)pAction->GetTriggerContext().nValue1;
+	// Exile all cards from target creature's controller's graveyard.
+	CZoneCardModifier pModifier = CZoneCardModifier(ZoneId::Graveyard, CCardFilter::GetFilter(_T("cards")),
+		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Graveyard, ZoneId::Exile, TRUE, MoveType::Others)));
+	pModifier.ApplyTo(pPlayer);
+	return true;
+}
+
+//____________________________________________________________________________
+//
+/*
+	This generic effect is used when designated card(s) normally the creature card that this effect originated from
+	are put into the graveyard (die) and they are required to return to the battlefield under their owner's 
+	control at the beginning of their next upkeep.
+	Ref: 
+	Phytotitan (7/2) 4GG
+	Creature - Plant Elemental
+	When Phytotitan dies, return it to the battlefield tapped under its owner's 
+	control at the beginning of his or her next upkeep.7/2
+
+	Most of this code is template derived from other similar effects such as CEndStepReanimateEffectToken.
+*/
+CUpkeepStepReanimateEffectToken::CUpkeepStepReanimateEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("Upkeep Step Reanimate Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		// below modify phase in which card is required to return
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+		//
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CUpkeepStepReanimateEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CUpkeepStepReanimateEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+												ZoneId::Graveyard, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CUpkeepStepReanimateEffectToken::SetTriggerContextAux1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetSkipStack(TRUE);
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CUpkeepStepReanimateEffectToken::SetTriggerContextAux2));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+	// Generic effect used by Phytotitan
+}
+
+bool CUpkeepStepReanimateEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) 
+		return false;
+	bFired = TRUE;
+	return true;
+}
+
+bool CUpkeepStepReanimateEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	// below modify where effect requires card(s) to be moved from then to
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Others, pAction->GetController());
+	//
+	for (int i = pCards.GetSize() - 1; i >= 0; --i)
+		pModifier.ApplyTo(pCards.GetAt(i));
+	return true;
+}
+
+bool CUpkeepStepReanimateEffectToken::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+														    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pCards.HasCard(pCard)) 
+		return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) 
+		return false;
+	pCards.RemoveCard(pCard);
+	return false;
+}
+
+bool CUpkeepStepReanimateEffectToken::SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) 
+		return false;
+	return true;
 }
 
 //____________________________________________________________________________

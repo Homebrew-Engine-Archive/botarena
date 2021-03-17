@@ -212,9 +212,9 @@ CGame::CGame()
 	, m_Stack(this)
 	, m_Selection(this)
 {
-	STATIC_CHECK(sizeof(int) == sizeof(void*));
-	STATIC_CHECK(sizeof(DWORD) == sizeof(void*));
-	STATIC_CHECK(sizeof(BOOL) == sizeof(void*));
+	STATIC_CHECK(sizeof(int)	== sizeof(void*));
+	STATIC_CHECK(sizeof(DWORD)	== sizeof(void*));
+	STATIC_CHECK(sizeof(BOOL)	== sizeof(void*));
 	STATIC_CHECK(sizeof(size_t) == sizeof(void*));
 
 	CString strModulePath(g_pCoreApp->GetModulePath());
@@ -792,18 +792,18 @@ void CGame::Mulligan()
 			CCountedCardContainer pContainer;
 
 			int previous = 0;
-			int next = 1;
+			int next	 = 1;
 			CZoneModifier pModifier2 = CZoneModifier(this, ZoneId::Hand,SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
-			CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-			pModifier2.AddSelection(MinimumValue(0), MaximumValue(100), // select cards to reorder
-			CZoneModifier::RoleType::PrimaryPlayer, // select by
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // what cards
-			ZoneId::_ExileFaceDown, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player			
+													 CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
+			pModifier2.AddSelection(MinimumValue(0), MaximumValue(100),		 // select cards to reorder
+									CZoneModifier::RoleType::PrimaryPlayer,	 // select by
+									CZoneModifier::RoleType::PrimaryPlayer,  // reveal to
+									NULL,									 // what cards
+									ZoneId::_ExileFaceDown,					 // if selected, move cards to
+									CZoneModifier::RoleType::PrimaryPlayer,  // select by this player
+									CardPlacement::Top,						 // put selected cards on
+									MoveType::Others,						 // move type
+									CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player			
 
 			for (int i = 0; previous != next; ++i)
 			{
@@ -817,7 +817,7 @@ void CGame::Mulligan()
 				if (previous - next > 0)
 				{
 					CDrawCardModifier pModifier = CDrawCardModifier(this, MinimumValue(previous - next - 1), 
-						MaximumValue(previous - next - 1));
+																	MaximumValue(previous - next - 1));
 					pModifier.ApplyTo(m_pMulliganPlayer);					
 				}
 				else
@@ -828,17 +828,15 @@ void CGame::Mulligan()
 
 					pModifier4->ApplyTo(m_pMulliganPlayer);
 
-
 					m_pMulliganPlayer->GetZoneById(ZoneId::Library)->Shuffle();
 
 					CPlayer* pNextMulliganPlayer = GetNextPlayer(m_pMulliganPlayer);
 					if (pNextMulliganPlayer->GetStartingPlayer())
 					{
-						m_pStartWithPlayer =  pNextMulliganPlayer;
-						m_pMulliganPlayer = NULL;
-						return; // done
+						m_pStartWithPlayer = pNextMulliganPlayer;
+						m_pMulliganPlayer  = NULL;
+						return;						// done
 					}
-
 					m_pMulliganPlayer = pNextMulliganPlayer;
 					return;
 				}
@@ -848,11 +846,9 @@ void CGame::Mulligan()
 		}
 
 		else
-		MulliganAsk();	
-	
-	
-		
+		MulliganAsk();		
 }
+
 void CGame::StartWith()
 {
 	if (m_pStartWithPlayer && !m_pStartWithPlayer->IsPlanechase() && GetNextPlayer(m_pStartWithPlayer)->IsPlanechase())
@@ -930,7 +926,7 @@ void CGame::MulliganAsk()
 	{
 		// Computer
 
-		CZone* pHand = m_pMulliganPlayer->GetZoneById(ZoneId::Hand);
+		CZone* pHand	= m_pMulliganPlayer->GetZoneById(ZoneId::Hand);
 		CZone* pLibrary = m_pMulliganPlayer->GetZoneById(ZoneId::Library);
 		
 		for (int i = 0; i < 3; ++i)
@@ -995,16 +991,16 @@ void CGame::OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection
 					int previous = 0;
 					int next = 1;
 					CZoneModifier pModifier2 = CZoneModifier(this, ZoneId::Hand,SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
-						CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-					pModifier2.AddSelection(MinimumValue(0), MaximumValue(100), // select cards to reorder
-						CZoneModifier::RoleType::PrimaryPlayer, // select by
-						CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-						NULL, // what cards
-						ZoneId::_ExileFaceDown, // if selected, move cards to
-						CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-						CardPlacement::Top, // put selected cards on
-						MoveType::Others, // move type
-						CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player			
+															 CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
+					pModifier2.AddSelection(MinimumValue(0), MaximumValue(100),		// select cards to reorder
+											CZoneModifier::RoleType::PrimaryPlayer, // select by
+											CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+											NULL,									// what cards
+											ZoneId::_ExileFaceDown,					// if selected, move cards to
+											CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+											CardPlacement::Top,						// put selected cards on
+											MoveType::Others,						// move type
+											CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player			
 
 					for (int i = 0; previous != next; ++i)
 					{
@@ -1029,7 +1025,6 @@ void CGame::OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection
 
 							pModifier4->ApplyTo(m_pMulliganPlayer);
 
-
 							m_pMulliganPlayer->GetZoneById(ZoneId::Library)->Shuffle();
 
 							CPlayer* pNextMulliganPlayer = GetNextPlayer(m_pMulliganPlayer);
@@ -1044,8 +1039,6 @@ void CGame::OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection
 							return;
 						}
 					}
-
-
 				}
 				else
 				{
@@ -1069,7 +1062,6 @@ void CGame::OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection
 						break;
 
 					// otherwise ask next player
-
 					CString strMessage;
 					strMessage.Format(_T("%s keeps hand"), 
 						pSelectionPlayer->GetPlayerName());
@@ -1077,21 +1069,19 @@ void CGame::OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection
 					}
 				}
 			}
-				// 1 -> keep cards
-				CPlayer* pNextMulliganPlayer = GetNextPlayer(pSelectionPlayer);
-				if (pNextMulliganPlayer->GetStartingPlayer())
-				{
-					m_pStartWithPlayer =  pNextMulliganPlayer;
-					m_pMulliganPlayer = NULL;
-					return; // done
-				}
-
-				m_pMulliganPlayer = pNextMulliganPlayer;
-
-				break;
+			// 1 -> keep cards
+			CPlayer* pNextMulliganPlayer = GetNextPlayer(pSelectionPlayer);
+			if (pNextMulliganPlayer->GetStartingPlayer())
+			{
+				m_pStartWithPlayer =  pNextMulliganPlayer;
+				m_pMulliganPlayer = NULL;
+				return; // done
 			}
-		
+			m_pMulliganPlayer = pNextMulliganPlayer;
+			break;
+		}	
 }
+
 void CGame::StartWithAsk()
 {
 	/*
@@ -1102,7 +1092,6 @@ void CGame::StartWithAsk()
 	{
 	*/
 	std::vector<SelectionEntry> entries;		
-
 	{
 		// Choose player
 		SelectionEntry selectionEntry;
@@ -1117,14 +1106,14 @@ void CGame::StartWithAsk()
 	{						
 		const CCard* pCard =  pHand->GetAt(i);
 
-		if ((pCard->GetPrintedCardName() == _T("Leyline of Anticipation")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of Lifeforce")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of Lightning")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of Punishment")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of Sanctity")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of Singularity")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of Vitality")) ||
-			(pCard->GetPrintedCardName() == _T("Leyline of the Meek")) ||
+		if ((pCard->GetPrintedCardName() == _T("Leyline of Anticipation"))	||
+			(pCard->GetPrintedCardName() == _T("Leyline of Lifeforce"))		||
+			(pCard->GetPrintedCardName() == _T("Leyline of Lightning"))		||
+			(pCard->GetPrintedCardName() == _T("Leyline of Punishment"))	||
+			(pCard->GetPrintedCardName() == _T("Leyline of Sanctity"))		||
+			(pCard->GetPrintedCardName() == _T("Leyline of Singularity"))	||
+			(pCard->GetPrintedCardName() == _T("Leyline of Vitality"))		||
+			(pCard->GetPrintedCardName() == _T("Leyline of the Meek"))		||
 			(pCard->GetPrintedCardName() == _T("Leyline of the Void")))
 		{
 			SelectionEntry selectionEntry;
@@ -1136,8 +1125,8 @@ void CGame::StartWithAsk()
 		}
 
 		if (((pCard->GetPrintedCardName() == _T("Chancellor of the Annex")) ||
-			(pCard->GetPrintedCardName() == _T("Chancellor of the Dross")) ||
-			(pCard->GetPrintedCardName() == _T("Chancellor of the Forge")) ||
+			(pCard->GetPrintedCardName() == _T("Chancellor of the Dross"))	||
+			(pCard->GetPrintedCardName() == _T("Chancellor of the Forge"))	||
 			(pCard->GetPrintedCardName() == _T("Chancellor of the Spires")) ||
 			(pCard->GetPrintedCardName() == _T("Chancellor of the Tangle"))) &&
 			(((CChancellorCreatureCard*)pCard)->bIsRevealed == FALSE))
@@ -1204,14 +1193,14 @@ void CGame::OnStartWithSelectionDone(const std::vector<SelectionEntry>& selectio
 				//CMoveCardModifier pModifier = CMoveCardModifier (ZoneId::Hand, ZoneId::Battlefield, TRUE, MoveType::Others, pSelectionPlayer);
 				//pModifier.ApplyTo(pCard);
 
-				if ((pCard->GetPrintedCardName() == _T("Leyline of Anticipation")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of Lifeforce")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of Lightning")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of Punishment")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of Sanctity")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of Singularity")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of Vitality")) ||
-					(pCard->GetPrintedCardName() == _T("Leyline of the Meek")) ||
+				if ((pCard->GetPrintedCardName() == _T("Leyline of Anticipation"))	||
+					(pCard->GetPrintedCardName() == _T("Leyline of Lifeforce"))		||
+					(pCard->GetPrintedCardName() == _T("Leyline of Lightning"))		||
+					(pCard->GetPrintedCardName() == _T("Leyline of Punishment"))	||
+					(pCard->GetPrintedCardName() == _T("Leyline of Sanctity"))		||
+					(pCard->GetPrintedCardName() == _T("Leyline of Singularity"))	||
+					(pCard->GetPrintedCardName() == _T("Leyline of Vitality"))		||
+					(pCard->GetPrintedCardName() == _T("Leyline of the Meek"))		||
 					(pCard->GetPrintedCardName() == _T("Leyline of the Void")))
 				{
 					CZone* pBattlefield = pSelectionPlayer->GetZoneById(ZoneId::Battlefield);
@@ -1220,10 +1209,10 @@ void CGame::OnStartWithSelectionDone(const std::vector<SelectionEntry>& selectio
 					return;
 				}
 
-				if ((pCard->GetPrintedCardName() == _T("Chancellor of the Annex")) ||
-					(pCard->GetPrintedCardName() == _T("Chancellor of the Dross")) ||
-					(pCard->GetPrintedCardName() == _T("Chancellor of the Forge")) ||
-					(pCard->GetPrintedCardName() == _T("Chancellor of the Spires")) ||
+				if ((pCard->GetPrintedCardName() == _T("Chancellor of the Annex"))	||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Dross"))	||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Forge"))	||
+					(pCard->GetPrintedCardName() == _T("Chancellor of the Spires"))	||
 					(pCard->GetPrintedCardName() == _T("Chancellor of the Tangle")))
 				{
 					((CChancellorCreatureCard*)pCard)->RevealAtBeginning();
@@ -1290,9 +1279,9 @@ void CGame::OnStartWithSelectionDone(const std::vector<SelectionEntry>& selectio
 						for (int i = 0; i < pPHand->GetSize(); ++i)
 						{
 							CCard* pCard = pPHand->GetAt(i);
-							if ((pCard->GetPrintedCardName() == _T("Chancellor of the Annex")) ||
-								(pCard->GetPrintedCardName() == _T("Chancellor of the Dross")) ||
-								(pCard->GetPrintedCardName() == _T("Chancellor of the Forge")) ||
+							if ((pCard->GetPrintedCardName() == _T("Chancellor of the Annex"))	||
+								(pCard->GetPrintedCardName() == _T("Chancellor of the Dross"))	||
+								(pCard->GetPrintedCardName() == _T("Chancellor of the Forge"))	||
 								(pCard->GetPrintedCardName() == _T("Chancellor of the Spires")) ||
 								(pCard->GetPrintedCardName() == _T("Chancellor of the Tangle")))
 								((CChancellorCreatureCard*)pCard)->bIsRevealed = FALSE;
@@ -1340,7 +1329,7 @@ void CGame::OnGemstoneCavernsSelectionDone(const std::vector<SelectionEntry>& se
 void CGame::StatebasedCheck()
 {
 	if (GetSelection().Pending() ||		// wait until all selections are gone to support Primal Plasma
-		GetTriggeredResolutionPlayer())	//    and until all triggered selections are done (to support Flash + Crovax, Ascendant Hero + 1/1 creature)
+		GetTriggeredResolutionPlayer())	// and until all triggered selections are done (to support Flash + Crovax, Ascendant Hero + 1/1 creature)
 		return;
 
 	CheckPlayersLost();
@@ -1423,13 +1412,10 @@ void CGame::StatebasedCheck()
 					cpCard->GetCardName(),
 					ZoneId::ToString(ZoneId::Battlefield),
 					ZoneId::ToString(ZoneId::Graveyard));
-				Message(
-					strMessage, 
+				Message(strMessage, 
 					cpCard->GetOwner()->IsComputer() ? GetComputerImage() : GetHumanImage(),
-					MessageImportance::High
-					);
+					MessageImportance::High);
 			}
-
 			bRemovedCards = true;
 		}
 
@@ -1511,22 +1497,22 @@ void CGame::CheckPlayersLost()
 void CGame::CheckPhenomenon(CCountedCardContainer& phenomenon)
 {
 	for (int j = 0; j < m_Players.GetSize(); ++j)
-			{
-				CPlayer* pPlayer = m_Players.GetAt(j);
-				CZone* pInplay = pPlayer->GetZoneById(ZoneId::_Effects);
-				for (int i = 0; i < pInplay->GetSize(); ++i)
+	{
+		CPlayer* pPlayer = m_Players.GetAt(j);
+		CZone* pInplay = pPlayer->GetZoneById(ZoneId::_Effects);
+		for (int i = 0; i < pInplay->GetSize(); ++i)
+		{
+			CCard* pCard = pInplay->GetAt(i);
+			if (!(pCard->GetCardType() & CardType::Plane).Any())
+				continue;
+			else 
+				if (((CPlaneCard*)pCard)->GetPlaneType() == PlaneType::Phenomenon)
 				{
-					CCard* pCard = pInplay->GetAt(i);
-					if (!(pCard->GetCardType() & CardType::Plane).Any())
-						continue;
-					else 
-						if (((CPlaneCard*)pCard)->GetPlaneType() == PlaneType::Phenomenon)
-						{
-							phenomenon.AddCard(pCard, CardPlacement::Top);
-							 break;
-						}
+					phenomenon.AddCard(pCard, CardPlacement::Top);
+					break;
 				}
-			}
+		}
+	}
 }
 
 void CGame::CheckLegendaryCards(CCountedCardContainer& cardsToRemove)
@@ -1658,11 +1644,9 @@ void CGame::OnLegendarySelectionDone(const std::vector<SelectionEntry>& selectio
 				cpCard->GetCardName(),
 				ZoneId::ToString(ZoneId::Battlefield),
 				ZoneId::ToString(ZoneId::Graveyard));
-			Message(
-				strMessage, 
+			Message(strMessage, 
 				cpCard->GetOwner()->IsComputer() ? GetComputerImage() : GetHumanImage(),
-				MessageImportance::High
-				);
+				MessageImportance::High);
 		}
 	}
 }
@@ -1797,11 +1781,11 @@ void CGame::CheckMisplacedTokens(CCountedCardContainer& cardsToRemove)
 	for (int j = 0; j < m_Players.GetSize(); ++j)
 	{
 		CPlayer* pPlayer = m_Players.GetAt(j);
-		CZone* pGrave = pPlayer->GetZoneById(ZoneId::Graveyard);
-		CZone* pExile = pPlayer->GetZoneById(ZoneId::Exile);
-		CZone* pHand = pPlayer->GetZoneById(ZoneId::Hand);
-		CZone* pLib = pPlayer->GetZoneById(ZoneId::Library);
-		CCard* pCard;
+		CZone*	 pGrave  = pPlayer->GetZoneById(ZoneId::Graveyard);
+		CZone*	 pExile	 = pPlayer->GetZoneById(ZoneId::Exile);
+		CZone*	 pHand   = pPlayer->GetZoneById(ZoneId::Hand);
+		CZone*	 pLib    = pPlayer->GetZoneById(ZoneId::Library);
+		CCard*	 pCard;
 
 		for (int i = 0; i < pGrave->GetSize(); ++i)
 		{
@@ -1838,8 +1822,7 @@ void CGame::CheckCreatureCards(CCountedCardContainer& dyingCreatures)
 	for (int i = 0; i < m_Players.GetSize(); ++i)
 	{
 		CPlayer* pPlayer = m_Players.GetAt(i);
-
-		CZone* pZone = pPlayer->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone	 = pPlayer->GetZoneById(ZoneId::Battlefield);
 
 		for (int k = 0; k < pZone->GetSize(); ++k)
 		{
@@ -2338,7 +2321,7 @@ void CGame::GetActionAbilities(CAbilityContainer& actionAbilities, CCountedCardC
 	// Ability actions
 
 	bool bThinking = IsThinking();
-	NodeId nodeId = m_pActivePlayer->GetGraph()->GetCurrentNode()->GetNodeId();
+	NodeId nodeId  = m_pActivePlayer->GetGraph()->GetCurrentNode()->GetNodeId();
 	bool bOptimizationAllowed = bThinking && !m_Stack.GetStackSize() && !m_pTriggeredResolutionPlayer;
 
 	CAbilityContainer nodeAbilities;
@@ -2639,11 +2622,11 @@ int CGame::Think(const CActionContainer& actionContainer,
 	ShowProgress();
 
 	m_TD.Reset();
-	m_TD.m_pThinkingPlayer = m_pPriorityPlayer;
-	m_TD.m_nTurnStartedThinking = m_nGameTurnNumber;
-	m_TD.m_nDrawStartedThinking = m_nGameDrawNumber;
+	m_TD.m_pThinkingPlayer		  = m_pPriorityPlayer;
+	m_TD.m_nTurnStartedThinking	  = m_nGameTurnNumber;
+	m_TD.m_nDrawStartedThinking	  = m_nGameDrawNumber;
 	m_TD.m_nActionStartedThinking = m_nActionNumber;
-	m_TD.m_pRootActionContainer = &actionContainer;
+	m_TD.m_pRootActionContainer   = &actionContainer;
 
 	m_SearchBreak = SearchBreak::Continue;
 
@@ -3298,30 +3281,29 @@ bool CGame::HasCombatDamageAssignment(const CCreatureCard* pCreature) const
 void CGame::Push()
 {
 	++m_TS.m_lPushCount;
-
 	m_pStateManager->Push();
 }
 
 void CGame::Pop()
 {
-	m_TD.m_bRestoring = true;
+	m_TD.m_bRestoring	  = true;
 	s_bEventFiringEnabled = false;
 
 	m_pStateManager->Pop();
 
 	s_bEventFiringEnabled = true;
-	m_TD.m_bRestoring = false;
+	m_TD.m_bRestoring	  = false;
 }
 
 void CGame::Peek()
 {
-	m_TD.m_bRestoring = true;
+	m_TD.m_bRestoring	  = true;
 	s_bEventFiringEnabled = false;
 
 	m_pStateManager->Peek();
 
 	s_bEventFiringEnabled = true;
-	m_TD.m_bRestoring = false;
+	m_TD.m_bRestoring	  = false;
 }
 
 void CGame::IncreaseGameTurnNumber()
@@ -3331,9 +3313,7 @@ void CGame::IncreaseGameTurnNumber()
 	if (!IsThinking())
 	{
 		if (!m_BeginningOfTurnCallback.empty())
-		{
 			m_BeginningOfTurnCallback();
-		}
 	}
 }
 
@@ -3359,9 +3339,7 @@ void CGame::RemoveAllStrategies(StrategyRemovalReason reason)
 	{
 		CPlayer* pPlayer = m_Players.GetAt(i);
 		if (pPlayer->IsComputer())
-		{
 			pPlayer->RemoveStrategy(reason);
-		}
 	}		
 }
 
@@ -3436,8 +3414,7 @@ CScore CGame::MinimaxAB(int nPly,
 	if (searchStatus.Any() ||
 			(dwTimeAllowed < MIN_TIME_ALLOWED
 				//&& !m_Stack.GetStackSize()	// 8/13/2001: Added to allow stack to clear (removed because the thinking time will exceed the specified limit)
-			)
-		)	
+			))	
 	{
 		if (dwTimeAllowed < MIN_TIME_ALLOWED)
 		{
@@ -3453,7 +3430,7 @@ CScore CGame::MinimaxAB(int nPly,
 					if (m_Players.GetAt(i)->GetManaPool().GetTotal())
 					{
 						m_SearchBreak |= SearchBreak::ManaBurn;
-						searchStatus |= SearchStatus::ManaBurn;
+						searchStatus  |= SearchStatus::ManaBurn;
 						break;
 					}
 			}
@@ -3717,7 +3694,7 @@ CScore CGame::MinimaxAB(int nPly,
 
 		ATLASSERT(!pAction->IsTrick());
 
-		DWORD dwCurrentTime = GetTickCount();
+		DWORD dwCurrentTime    = GetTickCount();
 		DWORD dwLastReportTime = dwCurrentTime - m_TS.m_dwLastProgressTime;
 		if (dwLastReportTime > m_TP.m_dwMaxDuration / 60)
 		{
@@ -4663,13 +4640,13 @@ void CGame::ProcessManaGroups(std::vector<std::vector<const CManaCost*>>& hintCo
 							  CManaPool::Colors& wantedMana) // wanted mana so far, if we reach all 6 colors, we can stop
 {
 	// Put here to optimize array allocations and deallocations of local variables
-	static int* groupIndex = NULL;
-	static int nGroupIndexSize = 0;
-	static int nGroupIndexCount = 0;
-	static int* config1 = NULL;
-	static int nConfigSize1 = 0;
-	static int* bound1 = NULL;
-	static int nBoundSize1 = 0;
+	static int* groupIndex		 = NULL;
+	static int  nGroupIndexSize  = 0;
+	static int  nGroupIndexCount = 0;
+	static int* config1			 = NULL;
+	static int  nConfigSize1	 = 0;
+	static int* bound1			 = NULL;
+	static int  nBoundSize1		 = 0;
 
 	struct StaticCleanup
 	{
@@ -4680,7 +4657,7 @@ void CGame::ProcessManaGroups(std::vector<std::vector<const CManaCost*>>& hintCo
 				delete[] groupIndex;
 				groupIndex = NULL;
 			}
-			nGroupIndexSize = 0;
+			nGroupIndexSize  = 0;
 			nGroupIndexCount = 0;
 
 			if (config1)
@@ -5170,12 +5147,12 @@ void CGame::SetMessageOwner(HWND hwndOwner,
 							int nDebugImage,
 							int nBugImage)
 {
-	m_hwndMessageOwner = hwndOwner;
+	m_hwndMessageOwner  = hwndOwner;
 
-	m_nComputerImage = nComputerImage;
-	m_nHumanImage = nHumanImage;
-	m_nDebugImage = nDebugImage;
-	m_nBugImage = nBugImage;
+	m_nComputerImage	= nComputerImage;
+	m_nHumanImage		= nHumanImage;
+	m_nDebugImage		= nDebugImage;
+	m_nBugImage			= nBugImage;
 }
 
 void CGame::SetProgressOwner(HWND hwndOwner)
@@ -5185,9 +5162,9 @@ void CGame::SetProgressOwner(HWND hwndOwner)
 
 void CGame::SetBoardOwner(HWND hwndOwner, HANDLE hUpdateComplete, bool* pbDecideNow)
 {
-	m_hwndBoardOwner = hwndOwner;
-	m_hUpdateCompleted = hUpdateComplete;
-	m_pbDecideNow = pbDecideNow;
+	m_hwndBoardOwner	= hwndOwner;
+	m_hUpdateCompleted	= hUpdateComplete;
+	m_pbDecideNow		= pbDecideNow;
 }
 
 void CGame::Message(LPCTSTR strMessage, int nImageIndex, MessageImportance importance,
@@ -5354,7 +5331,7 @@ void CGame::SetThinkParameter(DWORD dwMaxDuration,
 	m_TP.m_dwMaxDuration = dwMaxDuration;
 	m_TP.m_bExtraCareful = bExtraCareful;
 	m_TP.m_bBoostProcess = bBoostProcess;
-	m_TP.m_bOverkill = bOverkill;
+	m_TP.m_bOverkill	 = bOverkill;
 	m_TP.m_bConservative = bConservative;
 }
 
@@ -5623,3 +5600,6 @@ int CGame::GetLastTurnCastedSpellCount() const
 	
 	return count;
 }
+
+//____________________________________________________________________________
+//

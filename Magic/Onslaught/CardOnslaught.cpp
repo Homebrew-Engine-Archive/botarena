@@ -16,7 +16,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
 		DEFINE_CARD(CAEtherChargeCard);
 		DEFINE_CARD(CAccursedCentaurCard);
 		DEFINE_CARD(CAggravatedAssaultCard);
@@ -62,7 +61,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCoverOfDarknessCard);
 		DEFINE_CARD(CCrowdFavoritesCard);
 		DEFINE_CARD(CCrudeRampartCard);
-		DEFINE_CARD(CCruelRevivalCard);
 		DEFINE_CARD(CDaruCavalierCard);
 		DEFINE_CARD(CDaruEncampmentCard);
 		DEFINE_CARD(CDaruHealerCard);
@@ -99,7 +97,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGigapedeCard);
 		DEFINE_CARD(CGoblinBurrowsCard);
 		DEFINE_CARD(CGoblinMachinistCard);
-		DEFINE_CARD(CGoblinPiledriverCard);
 		DEFINE_CARD(CGoblinPyromancerCard);
 		DEFINE_CARD(CGoblinSharpshooterCard);
 		DEFINE_CARD(CGoblinSledderCard);
@@ -3010,55 +3007,6 @@ BOOL CComplicateCard::CanPlay(BOOL bIncludeTricks)
 
 //____________________________________________________________________________
 //
-CCruelRevivalCard::CCruelRevivalCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Cruel Revival"), CardType::Instant, nID,
-		_T("4") BLACK_MANA_TEXT, AbilityType::Instant,
-		new AnyCreatureComparer,
-		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration)
-{
-	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
-		new CreatureTypeComparer(CREATURE_TYPE(Zombie), false));
-
-	m_pTargetMoveCardSpell->SetToZoneIfSuccess(ZoneId::_Tokens, TRUE);
-
-	{
-		typedef
-            TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
-
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::Stack, ZoneId::_Tokens));
-
-        cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Tokens);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->SetSkipStack(TRUE);
-
-        AddAbility(cpAbility.GetPointer());
-    }
-	{
-		typedef
-            TTriggeredTargetAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
-
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-            ZoneId::Stack, ZoneId::_Tokens));
-
-		cpAbility->GetTargeting().GetSubjectCardFilter().SetThisCardsControllerOnly(this);
-		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Graveyard);
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Zombie), false));
-
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
-
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
-
-		cpAbility->SetSkipStack(TRUE);
-
-        AddAbility(cpAbility.GetPointer());
-    }
-}
-
-//____________________________________________________________________________
-//
 CDeathPulseCard::CDeathPulseCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Death Pulse"), CardType::Instant, nID)
 {
@@ -3936,48 +3884,6 @@ counted_ptr<CAbility> CPsychicTranceCard::CreateAbility(CCard* pCard)
 
 //____________________________________________________________________________
 //
-CGoblinPiledriverCard::CGoblinPiledriverCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Goblin Piledriver"), CardType::Creature, CREATURE_TYPE2(Goblin, Warrior), nID,
-		_T("1") RED_MANA_TEXT, Power(1), Life(2))
-
-	, m_CardFilter(_T("a Goblin"), _T("Goblins"), new CreatureTypeComparer(CREATURE_TYPE(Goblin), false))
-{
-	GetCardKeyword()->AddProtection(CardKeyword::ProtectionFromBlue, FALSE);
-
-	{
-		m_CardFilter.AddComparer(new AttackingCreatureComparer);
-		m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
-		m_CardFilter.SetFilterName(_T("another attacking Goblin"), _T("other attacking Goblins"));
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Flash);
-		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CGoblinPiledriverCard::BeforeResolution));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CGoblinPiledriverCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
-{
-	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
-
-	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield);
-
-	int nCount = m_CardFilter.CountIncluded(pInplay->GetCardContainer());
-
-	//triggerContext.m_LifeModifier.SetLifeDelta(Life(nCount));
-	//triggerContext.m_LifeModifier.SetPreventable(PreventableType::NotPreventable);
-	triggerContext.m_PowerModifier.SetPowerDelta(Power(nCount*2));
-
-	pAction->SetTriggerContext(triggerContext);
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
 CShaleskinBruiserCard::CShaleskinBruiserCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Shaleskin Bruiser"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("6") RED_MANA_TEXT, Power(4), Life(4))
@@ -4520,7 +4426,6 @@ CAphettoAlchemistCard::CAphettoAlchemistCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Wizard);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetTapUntapCardSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetTapUntapCardSpell>>(this,
@@ -4551,10 +4456,9 @@ CBirchloreRangersCard::CBirchloreRangersCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Elf);
 	this->AddCreatureType(SingleCreatureType::Druid);
-
 	{
-			counted_ptr<CManaProductionAbility> cpAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT));		
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT));		
 
 		cpAbility->GetCost().AddTapCardCost(2, &m_ElfCardFilter);
 
@@ -4569,8 +4473,8 @@ CBirchloreRangersCard::CBirchloreRangersCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());	
 	}
 	{
-			counted_ptr<CManaProductionAbility> cpAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));		
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));		
 
 		cpAbility->GetCost().AddTapCardCost(2, &m_ElfCardFilter);
 
@@ -4585,8 +4489,8 @@ CBirchloreRangersCard::CBirchloreRangersCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());	
 	}
 	{
-			counted_ptr<CManaProductionAbility> cpAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));		
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));		
 
 		cpAbility->GetCost().AddTapCardCost(2, &m_ElfCardFilter);
 
@@ -4601,8 +4505,8 @@ CBirchloreRangersCard::CBirchloreRangersCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());	
 	}
 	{
-			counted_ptr<CManaProductionAbility> cpAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));		
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));		
 
 		cpAbility->GetCost().AddTapCardCost(2, &m_ElfCardFilter);
 
@@ -4617,8 +4521,8 @@ CBirchloreRangersCard::CBirchloreRangersCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());	
 	}
 	{
-			counted_ptr<CManaProductionAbility> cpAbility(
-		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT));		
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT));		
 
 		cpAbility->GetCost().AddTapCardCost(2, &m_ElfCardFilter);
 
@@ -4639,26 +4543,24 @@ CExaltedAngelCard::CExaltedAngelCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Exalted Angel"), CardType::Creature, CREATURE_TYPE(Angel), nID,
 		_T("4") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(4), Life(5), _T("2") WHITE_MANA_TEXT WHITE_MANA_TEXT)
 {
-	GetCreatureKeyword()->AddFlying(false);
-
 	this->AddCreatureType(SingleCreatureType::Angel);	
 	this->AddCreatureKeyword(CreatureKeyword::Flying);
 
-
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
-	typedef
-		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfDamageDealt, 
-							CWhenSelfDamageDealt::DamageEventCallback, 
-							&CWhenSelfDamageDealt::SetDamageEventCallback > TriggeredAbility;
+		typedef
+			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfDamageDealt, 
+								CWhenSelfDamageDealt::DamageEventCallback, 
+								&CWhenSelfDamageDealt::SetDamageEventCallback > TriggeredAbility;
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CExaltedAngelCard::SetTriggerContext));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CExaltedAngelCard::SetTriggerContext));
 
-	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 }
 
@@ -4693,9 +4595,8 @@ CAscendingAvenCard::CAscendingAvenCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
 	this->AddCreatureType(SingleCreatureType::Soldier);
-
-	GetCreatureKeyword()->AddCanOnlyBlockFlying(FALSE);	
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::OnlyBlockFlying, true, false));
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 }
 
 //____________________________________________________________________________
@@ -4706,8 +4607,7 @@ CBatteringCraghornCard::CBatteringCraghornCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Goat);
 	this->AddCreatureType(SingleCreatureType::Beast);
-
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::FirstStrike, true, false));
 }
 
 //____________________________________________________________________________
@@ -4718,9 +4618,8 @@ CBlisteringFirecatCard::CBlisteringFirecatCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Elemental);
 	this->AddCreatureType(SingleCreatureType::Cat);
-
-	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCreatureKeyword()->AddHaste(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Haste,   true, false));
 	{
 		typedef
 			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
@@ -4751,7 +4650,6 @@ CBoneknitterCard::CBoneknitterCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Zombie);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetRegenerationSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetRegenerationSpell>>(this,
@@ -4778,7 +4676,6 @@ CBroodhatchNantukoCard::CBroodhatchNantukoCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Insect);
 	this->AddCreatureType(SingleCreatureType::Druid);
-
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
@@ -4801,7 +4698,7 @@ bool CBroodhatchNantukoCard::SetTriggerContextL(CTriggeredCreateTokenAbility::Tr
 										CCard* pCard, CCreatureCard* pToCreature, Damage damage) const
 {
 	triggerContext.nValue1 = GET_INTEGER(-damage.m_nLifeDelta);
-		return !this->GetOrientation()->IsMorphed();
+	return !this->GetOrientation()->IsMorphed();
 }
 
 //____________________________________________________________________________
@@ -4812,7 +4709,6 @@ CCabalExecutionerCard::CCabalExecutionerCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	{
 		typedef
 			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfDamageDealt,
@@ -4852,8 +4748,7 @@ CChargingSlatebackCard::CChargingSlatebackCard(CGame* pGame, UINT nID)
 		_T("4") RED_MANA_TEXT, Power(4), Life(3), _T("4") RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
-
-	GetCreatureKeyword()->AddCantBlock(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::CantBlock, true, false));
 }
 
 //____________________________________________________________________________
@@ -4863,8 +4758,7 @@ CCrudeRampartCard::CCrudeRampartCard(CGame* pGame, UINT nID)
 		_T("3") WHITE_MANA_TEXT, Power(4), Life(5), _T("4") WHITE_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Wall);
-
-	GetCreatureKeyword()->AddDefender(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Defender, true, false));
 }
 
 //____________________________________________________________________________
@@ -4875,7 +4769,6 @@ CDaruHealerCard::CDaruHealerCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetDamagePreventionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetDamagePreventionSpell>>(this,
@@ -4905,8 +4798,7 @@ CDaruLancerCard::CDaruLancerCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Soldier);
-
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::FirstStrike, true, false));
 }
 
 //____________________________________________________________________________
@@ -4917,7 +4809,6 @@ CDawningPuristCard::CDawningPuristCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CWhenSelfDamageDealt,
@@ -4955,7 +4846,6 @@ CDisruptivePitmageCard::CDisruptivePitmageCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Wizard);
-
 	{
 		counted_ptr<CActivatedAbility<CCounterSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CCounterSpell>>(this,
@@ -4987,7 +4877,6 @@ CDwarvenBlastminerCard::CDwarvenBlastminerCard(CGame* pGame, UINT nID)
 		_T("1") RED_MANA_TEXT, Power(1), Life(1), _T("") RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Dwarf);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
@@ -5005,7 +4894,6 @@ CDwarvenBlastminerCard::CDwarvenBlastminerCard(CGame* pGame, UINT nID)
 				&CMorphCreatureCard::CanPlayUnMorph)));
   
 		cpAbility->Add(cpTrait.GetPointer());
-
 		AddAbility(cpAbility.GetPointer());
 	}
 }
@@ -5019,7 +4907,6 @@ CFallenClericCard::CFallenClericCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Zombie);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	GetCardKeyword()->AddSpecialProtection(false, &m_CardFilter);
 }
 
@@ -5032,7 +4919,6 @@ CFoothillGuideCard::CFoothillGuideCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	GetCardKeyword()->AddSpecialProtection(false, &m_CardFilter);
 }
 
@@ -5043,7 +4929,6 @@ CGoblinTaskmasterCard::CGoblinTaskmasterCard(CGame* pGame, UINT nID)
 		_T("") RED_MANA_TEXT, Power(1), Life(1), _T("") RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Goblin);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
@@ -5074,7 +4959,6 @@ CGravelSlingerCard::CGravelSlingerCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Soldier);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
 			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
@@ -5107,7 +4991,6 @@ CGrinningDemonCard::CGrinningDemonCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(6), Life(6), _T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Demon);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
@@ -5143,7 +5026,6 @@ CHauntedCadaverCard::CHauntedCadaverCard(CGame* pGame, UINT nID)
 	, m_CardFilter(_T("this card"), _T("these cards"), new SpecificCardComparer(this))
 {
 	this->AddCreatureType(SingleCreatureType::Zombie);
-
 	{
 		typedef
 		TTriggeredAbility< CTriggeredDiscardCardAbility, CWhenSelfDamageDealt,
@@ -5179,7 +5061,6 @@ CHeadhunterCard::CHeadhunterCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Cleric);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredDiscardCardAbility, CWhenSelfDamageDealt,
@@ -5209,9 +5090,7 @@ CHystrodonCard::CHystrodonCard(CGame* pGame, UINT nID)
 		_T("4") GREEN_MANA_TEXT, Power(3), Life(4), _T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
-
-	GetCreatureKeyword()->AddTrample(FALSE);
-
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));
 	{
 		typedef
 			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenSelfDamageDealt, 
@@ -5291,7 +5170,6 @@ CRiptideBiologistCard::CRiptideBiologistCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Wizard);
-
 	GetCardKeyword()->AddSpecialProtection(false, &m_CardFilter);
 }
 
@@ -5302,7 +5180,6 @@ CSerpentineBasiliskCard::CSerpentineBasiliskCard(CGame* pGame, UINT nID)
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(3), _T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Basilisk);
-
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
@@ -5345,9 +5222,7 @@ CSilentSpecterCard::CSilentSpecterCard(CGame* pGame, UINT nID)
 		_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(4), Life(4), _T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Specter);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
-
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
 		typedef
 			TTriggeredAbility< CTriggeredDiscardCardAbility, CWhenSelfDamageDealt,
@@ -5378,7 +5253,6 @@ CSnarlingUndorakCard::CSnarlingUndorakCard(CGame* pGame, UINT nID)
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(3), Life(3), _T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
@@ -5408,7 +5282,6 @@ CSpinedBasherCard::CSpinedBasherCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Zombie);
 	this->AddCreatureType(SingleCreatureType::Beast);
-
 }
 
 //____________________________________________________________________________
@@ -5417,10 +5290,8 @@ CSpittingGournaCard::CSpittingGournaCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Spitting Gourna"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(3), Life(4), _T("4") GREEN_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Beast);
-
-		GetCreatureKeyword()->AddReach(FALSE);
-
+	this->AddCreatureType(SingleCreatureType::Beast);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Reach, true, false));
 }
 
 //____________________________________________________________________________
@@ -5429,8 +5300,7 @@ CToweringBalothCard::CToweringBalothCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Towering Baloth"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("6") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(7), Life(6), _T("6") GREEN_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Beast);
-
+	this->AddCreatureType(SingleCreatureType::Beast);
 }
 
 //____________________________________________________________________________
@@ -5439,8 +5309,7 @@ CTreespringLorianCard::CTreespringLorianCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Treespring Lorian"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("5") GREEN_MANA_TEXT, Power(5), Life(4), _T("5") GREEN_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Beast);
-
+	this->AddCreatureType(SingleCreatureType::Beast);
 }
 
 //____________________________________________________________________________
@@ -5449,8 +5318,7 @@ CVenomspoutBrackusCard::CVenomspoutBrackusCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Venomspout Brackus"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("6") GREEN_MANA_TEXT, Power(5), Life(5), _T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Beast);
-
+	this->AddCreatureType(SingleCreatureType::Beast);
 	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
 			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
@@ -5475,7 +5343,6 @@ CVenomspoutBrackusCard::CVenomspoutBrackusCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-
 }
 
 //____________________________________________________________________________
@@ -5485,9 +5352,8 @@ CVoidmageProdigyCard::CVoidmageProdigyCard(CGame* pGame, UINT nID)
 		_T("") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(2), Life(1), _T("") BLUE_MANA_TEXT)
 		, m_CardFilter(_T("a Wizard"), _T("Wizards"), new CreatureTypeComparer(CREATURE_TYPE(Wizard), false))
 {
-		this->AddCreatureType(SingleCreatureType::Human);
-		this->AddCreatureType(SingleCreatureType::Wizard);
-
+	this->AddCreatureType(SingleCreatureType::Human);
+	this->AddCreatureType(SingleCreatureType::Wizard);
 	{
 		counted_ptr<CActivatedAbility<CCounterSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CCounterSpell>>(this,
@@ -5513,10 +5379,9 @@ CWhipcorderCard::CWhipcorderCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Whipcorder"), CardType::Creature, CREATURE_TYPE3(Human, Soldier, Rebel), nID,
 		_T("") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(2), Life(2), _T("") WHITE_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Human);
-		this->AddCreatureType(SingleCreatureType::Soldier);
-		this->AddCreatureType(SingleCreatureType::Rebel);
-
+	this->AddCreatureType(SingleCreatureType::Human);
+	this->AddCreatureType(SingleCreatureType::Soldier);
+	this->AddCreatureType(SingleCreatureType::Rebel);
 	{
 		counted_ptr<CActivatedAbility<CTargetTapUntapCardSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetTapUntapCardSpell>>(this,
@@ -5536,7 +5401,6 @@ CWhipcorderCard::CWhipcorderCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-
 }
 
 //____________________________________________________________________________

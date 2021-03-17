@@ -157,11 +157,11 @@ public:
 	typedef std::vector<std::pair<Color, DWORD>> ManaArray;
 
 	CManaPoolBase2()
-		: m_WhiteMana(0)
-		, m_BlueMana(0)
-		, m_BlackMana(0)
-		, m_RedMana(0)
-		, m_GreenMana(0)
+		: m_WhiteMana	 (0)
+		, m_BlueMana	 (0)
+		, m_BlackMana	 (0)
+		, m_RedMana		 (0)
+		, m_GreenMana	 (0)
 		, m_ColorlessMana(0)
 	{
 	}
@@ -173,11 +173,11 @@ public:
 		Color manaColor4 = Color::Null, DWORD dwValue4 = 0,
 		Color manaColor5 = Color::Null, DWORD dwValue5 = 0,
 		Color manaColor6 = Color::Null, DWORD dwValue6 = 0)
-		: m_WhiteMana(0)
-		, m_BlueMana(0)
-		, m_BlackMana(0)
-		, m_RedMana(0)
-		, m_GreenMana(0)
+		: m_WhiteMana	 (0)
+		, m_BlueMana	 (0)
+		, m_BlackMana	 (0)
+		, m_RedMana		 (0)
+		, m_GreenMana	 (0)
 		, m_ColorlessMana(0)
 	{
 		SetAllMana(
@@ -190,33 +190,33 @@ public:
 	}
 
 	CManaPoolBase2(LPCTSTR strManaText)
-		: m_WhiteMana(0)
-		, m_BlueMana(0)
-		, m_BlackMana(0)
-		, m_RedMana(0)
-		, m_GreenMana(0)
+		: m_WhiteMana	 (0)
+		, m_BlueMana	 (0)
+		, m_BlackMana	 (0)
+		, m_RedMana		 (0)
+		, m_GreenMana	 (0)
 		, m_ColorlessMana(0)
 	{
 		SetMana(strManaText);
 	}
 
 	CManaPoolBase2(const CManaPoolBase2& manaPool)
-		: m_WhiteMana(0)
-		, m_BlueMana(0)
-		, m_BlackMana(0)
-		, m_RedMana(0)
-		, m_GreenMana(0)
+		: m_WhiteMana	 (0)
+		, m_BlueMana	 (0)
+		, m_BlackMana	 (0)
+		, m_RedMana		 (0)
+		, m_GreenMana	 (0)
 		, m_ColorlessMana(0)
 	{
 		SetMana(manaPool);
 	}
 
 	CManaPoolBase2(const ManaArray& manaArray)
-		: m_WhiteMana(0)
-		, m_BlueMana(0)
-		, m_BlackMana(0)
-		, m_RedMana(0)
-		, m_GreenMana(0)
+		: m_WhiteMana	 (0)
+		, m_BlueMana	 (0)
+		, m_BlackMana	 (0)
+		, m_RedMana		 (0)
+		, m_GreenMana	 (0)
 		, m_ColorlessMana(0)
 	{
 		SetMana(manaArray);
@@ -234,22 +234,22 @@ public:
 	
 	bool operator==(const CManaPoolBase2& manaPool) const
 	{
-		return (m_WhiteMana == manaPool.m_WhiteMana) &&
-			(m_BlueMana == manaPool.m_BlueMana) &&
-			(m_BlackMana == manaPool.m_BlackMana) &&
-			(m_RedMana == manaPool.m_RedMana) &&
-			(m_GreenMana == manaPool.m_GreenMana) &&
-			(m_ColorlessMana == manaPool.m_ColorlessMana);
+		return (m_WhiteMana		== manaPool.m_WhiteMana) &&
+			   (m_BlueMana		== manaPool.m_BlueMana)  &&
+			   (m_BlackMana		== manaPool.m_BlackMana) &&
+			   (m_RedMana		== manaPool.m_RedMana)	 &&
+			   (m_GreenMana		== manaPool.m_GreenMana) &&
+			   (m_ColorlessMana == manaPool.m_ColorlessMana);
 	}
 
 	CManaPoolBase2 operator+(const CManaPoolBase2& manaPool) const
 	{
 		CManaPoolBase2 result;
-		result.m_WhiteMana = m_WhiteMana + manaPool.m_WhiteMana;
-		result.m_BlueMana = m_BlueMana + manaPool.m_BlueMana;
-		result.m_BlackMana = m_BlackMana + manaPool.m_BlackMana;
-		result.m_RedMana = m_RedMana + manaPool.m_RedMana;
-		result.m_GreenMana = m_GreenMana + manaPool.m_GreenMana;
+		result.m_WhiteMana	   = m_WhiteMana	 + manaPool.m_WhiteMana;
+		result.m_BlueMana	   = m_BlueMana		 + manaPool.m_BlueMana;
+		result.m_BlackMana	   = m_BlackMana	 + manaPool.m_BlackMana;
+		result.m_RedMana	   = m_RedMana		 + manaPool.m_RedMana;
+		result.m_GreenMana	   = m_GreenMana	 + manaPool.m_GreenMana;
 		result.m_ColorlessMana = m_ColorlessMana + manaPool.m_ColorlessMana;
 		return result;
 	}
@@ -290,19 +290,19 @@ public:
 				 DWORD dwValue)		// Note: dwValue is for each cost color
 	{
 		if (manaColors.HasColor(CManaPool::Color::White))
-			m_WhiteMana += dwValue;
+			m_WhiteMana		 += dwValue;
 
 		if (manaColors.HasColor(CManaPool::Color::Blue))
-			m_BlueMana += dwValue;
+			m_BlueMana		+= dwValue;
 
 		if (manaColors.HasColor(CManaPool::Color::Black))
-			m_BlackMana += dwValue;
+			m_BlackMana		+= dwValue;
 
 		if (manaColors.HasColor(CManaPool::Color::Red))
-			m_RedMana += dwValue;
+			m_RedMana		+= dwValue;
 
 		if (manaColors.HasColor(CManaPool::Color::Green))
-			m_GreenMana += dwValue;
+			m_GreenMana		+= dwValue;
 
 		if (manaColors.HasColor(CManaPool::Color::Colorless))
 			m_ColorlessMana += dwValue;
@@ -310,11 +310,11 @@ public:
 
 	void AddMana(const CManaPoolBase2& manaPool)
 	{
-		m_WhiteMana += manaPool.m_WhiteMana;
-		m_BlueMana += manaPool.m_BlueMana;
-		m_BlackMana += manaPool.m_BlackMana;
-		m_RedMana += manaPool.m_RedMana;
-		m_GreenMana += manaPool.m_GreenMana;
+		m_WhiteMana		+= manaPool.m_WhiteMana;
+		m_BlueMana		+= manaPool.m_BlueMana;
+		m_BlackMana		+= manaPool.m_BlackMana;
+		m_RedMana		+= manaPool.m_RedMana;
+		m_GreenMana		+= manaPool.m_GreenMana;
 		m_ColorlessMana += manaPool.m_ColorlessMana;		
 	}
 
@@ -325,11 +325,11 @@ public:
 
 	void SetMana(const CManaPoolBase2& manaPool)
 	{
-		m_WhiteMana = manaPool.m_WhiteMana;
-		m_BlueMana = manaPool.m_BlueMana;
-		m_BlackMana = manaPool.m_BlackMana;
-		m_RedMana = manaPool.m_RedMana;
-		m_GreenMana = manaPool.m_GreenMana;
+		m_WhiteMana		= manaPool.m_WhiteMana;
+		m_BlueMana		= manaPool.m_BlueMana;
+		m_BlackMana		= manaPool.m_BlackMana;
+		m_RedMana		= manaPool.m_RedMana;
+		m_GreenMana		= manaPool.m_GreenMana;
 		m_ColorlessMana = manaPool.m_ColorlessMana;		
 	}
 
@@ -510,11 +510,11 @@ public:
 
 	bool Any() const // has slightly better performance than GetTotal() if all you need is a simple check and not the total
 	{
-		return m_BlueMana > 0 ||
-				m_BlackMana > 0 ||
-				m_RedMana > 0 ||
-				m_GreenMana > 0 ||
-				m_WhiteMana > 0 ||
+		return  m_BlueMana		> 0 ||
+				m_BlackMana		> 0 ||
+				m_RedMana		> 0 ||
+				m_GreenMana		> 0 ||
+				m_WhiteMana		> 0 ||
 				m_ColorlessMana > 0;
 	}
 
@@ -535,30 +535,30 @@ public:
 
 	void Clear()
 	{
-		m_WhiteMana = 0;
-		m_BlueMana = 0;
-		m_BlackMana = 0;
-		m_RedMana = 0;
-		m_GreenMana = 0;
+		m_WhiteMana		= 0;
+		m_BlueMana		= 0;
+		m_BlackMana		= 0;
+		m_RedMana		= 0;
+		m_GreenMana		= 0;
 		m_ColorlessMana = 0;		
 	}
 
 	void RemoveAllManaOf(const Colors& manaColors)
 	{
 		if (manaColors.HasColor(CManaPool::Color::White))
-			m_WhiteMana = 0;
+			m_WhiteMana		= 0;
 
 		if (manaColors.HasColor(CManaPool::Color::Blue))
-			m_BlueMana = 0;
+			m_BlueMana		= 0;
 
 		if (manaColors.HasColor(CManaPool::Color::Black))
-			m_BlackMana = 0;
+			m_BlackMana		= 0;
 
 		if (manaColors.HasColor(CManaPool::Color::Red))
-			m_RedMana = 0;
+			m_RedMana		= 0;
 
 		if (manaColors.HasColor(CManaPool::Color::Green))
-			m_GreenMana = 0;
+			m_GreenMana		= 0;
 
 		if (manaColors.HasColor(CManaPool::Color::Colorless))
 			m_ColorlessMana = 0;
@@ -567,19 +567,19 @@ public:
 	void KeepOnlyManaOf(const Colors& manaColors)
 	{
 		if (!(manaColors.HasColor(CManaPool::Color::White)))
-			m_WhiteMana = 0;
+			m_WhiteMana		= 0;
 
 		if (!(manaColors.HasColor(CManaPool::Color::Blue)))
-			m_BlueMana = 0;
+			m_BlueMana		= 0;
 
 		if (!(manaColors.HasColor(CManaPool::Color::Black)))
-			m_BlackMana = 0;
+			m_BlackMana		= 0;
 
 		if (!(manaColors.HasColor(CManaPool::Color::Red)))
-			m_RedMana = 0;
+			m_RedMana		= 0;
 
 		if (!(manaColors.HasColor(CManaPool::Color::Green)))
-			m_GreenMana = 0;
+			m_GreenMana		= 0;
 
 		if (!(manaColors.HasColor(CManaPool::Color::Colorless)))
 			m_ColorlessMana = 0;
@@ -592,12 +592,12 @@ public:
 
 		switch(manaColor.Get())
 		{
-		case Color::White:		if (m_WhiteMana >= dwValue) { m_WhiteMana -= dwValue; return TRUE; } else { if (bForced) m_WhiteMana = 0; return FALSE; }
-		case Color::Blue:		if (m_BlueMana >= dwValue) { m_BlueMana -= dwValue; return TRUE; } else { if (bForced) m_BlueMana = 0; return FALSE; }
-		case Color::Black:		if (m_BlackMana >= dwValue) { m_BlackMana -= dwValue; return TRUE; } else { if (bForced) m_BlackMana = 0; return FALSE; }
-		case Color::Red:		if (m_RedMana >= dwValue) { m_RedMana -= dwValue; return TRUE; } else { if (bForced) m_RedMana = 0; return FALSE; }
-		case Color::Green:		if (m_GreenMana >= dwValue) { m_GreenMana -= dwValue; return TRUE; } else { if (bForced) m_GreenMana = 0; return FALSE; }
-		case Color::Colorless:	if (m_ColorlessMana >= dwValue) { m_ColorlessMana -= dwValue; return TRUE; } else { if (bForced) m_ColorlessMana = 0; return FALSE; }
+			case Color::White:		if (m_WhiteMana		>= dwValue) { m_WhiteMana	  -= dwValue; return TRUE; } else { if (bForced) m_WhiteMana	 = 0; return FALSE; }
+			case Color::Blue:		if (m_BlueMana		>= dwValue) { m_BlueMana	  -= dwValue; return TRUE; } else { if (bForced) m_BlueMana		 = 0; return FALSE; }
+			case Color::Black:		if (m_BlackMana		>= dwValue) { m_BlackMana	  -= dwValue; return TRUE; } else { if (bForced) m_BlackMana	 = 0; return FALSE; }
+			case Color::Red:		if (m_RedMana		>= dwValue) { m_RedMana		  -= dwValue; return TRUE; } else { if (bForced) m_RedMana		 = 0; return FALSE; }
+			case Color::Green:		if (m_GreenMana		>= dwValue) { m_GreenMana	  -= dwValue; return TRUE; } else { if (bForced) m_GreenMana	 = 0; return FALSE; }
+			case Color::Colorless:	if (m_ColorlessMana >= dwValue) { m_ColorlessMana -= dwValue; return TRUE; } else { if (bForced) m_ColorlessMana = 0; return FALSE; }
 		}
 
 		return TRUE;
@@ -687,7 +687,7 @@ public:
 
 		const CManaPool manaPool(GetManaPool());
 
-		if (!dwColorlessCost ||								// Cost has no generic cost or
+		if (!dwColorlessCost		   ||					// Cost has no generic cost or
 			(GetColorCount(TRUE) == 1) ||					// Pool has only one type of mana
 			(manaCost.GetTotal() == GetTotal()))
 		{													// Only one possible mana configuration
@@ -818,11 +818,11 @@ protected:
 
 		CString strColorlessText;
 		
-		DWORD dwWhiteMana = 0;
-		DWORD dwBlueMana = 0;
-		DWORD dwBlackMana = 0;
-		DWORD dwRedMana = 0;
-		DWORD dwGreenMana = 0;
+		DWORD dwWhiteMana	  = 0;
+		DWORD dwBlueMana	  = 0;
+		DWORD dwBlackMana	  = 0;
+		DWORD dwRedMana		  = 0;
+		DWORD dwGreenMana	  = 0;
 		DWORD dwColorlessMana = 0;
 
 		size_t nLen = _tcslen(strManaText);
@@ -838,9 +838,9 @@ protected:
 				switch(strManaText[i])
 				{
 				case WHITE_MANA_CHAR: ++dwWhiteMana; break;
-				case BLUE_MANA_CHAR: ++dwBlueMana; break;
+				case BLUE_MANA_CHAR:  ++dwBlueMana;  break;
 				case BLACK_MANA_CHAR: ++dwBlackMana; break;
-				case RED_MANA_CHAR: ++dwRedMana; break;
+				case RED_MANA_CHAR:   ++dwRedMana;	 break;
 				case GREEN_MANA_CHAR: ++dwGreenMana; break;
 				}
 			}
@@ -891,11 +891,11 @@ protected:
 	{
 		switch(color.Get())
 		{
-		case Color::White:		m_WhiteMana = dwValue; break;
-		case Color::Blue:		m_BlueMana = dwValue; break;
-		case Color::Black:		m_BlackMana = dwValue; break;
-		case Color::Red:		m_RedMana = dwValue; break;
-		case Color::Green:		m_GreenMana = dwValue; break;
+		case Color::White:		m_WhiteMana		= dwValue; break;
+		case Color::Blue:		m_BlueMana		= dwValue; break;
+		case Color::Black:		m_BlackMana		= dwValue; break;
+		case Color::Red:		m_RedMana		= dwValue; break;
+		case Color::Green:		m_GreenMana		= dwValue; break;
 		case Color::Colorless:	m_ColorlessMana = dwValue; break;
 		}
 	}
@@ -907,12 +907,12 @@ protected:
 
 		switch(color.Get())
 		{
-		case Color::White:		if (nDelta < 0 && m_WhiteMana < (DWORD)-nDelta) m_WhiteMana = 0; else m_WhiteMana += nDelta; break;
-		case Color::Blue:		if (nDelta < 0 && m_BlueMana < (DWORD)-nDelta) m_BlueMana = 0; else m_BlueMana += nDelta; break;
-		case Color::Black:		if (nDelta < 0 && m_BlackMana < (DWORD)-nDelta) m_BlackMana = 0; else m_BlackMana += nDelta; break;
-		case Color::Red:		if (nDelta < 0 && m_RedMana < (DWORD)-nDelta) m_RedMana = 0; else m_RedMana += nDelta; break;
-		case Color::Green:		if (nDelta < 0 && m_GreenMana < (DWORD)-nDelta) m_GreenMana = 0; else m_GreenMana += nDelta; break;
-		case Color::Colorless:	if (nDelta < 0 && m_ColorlessMana < (DWORD)-nDelta) m_ColorlessMana = 0; else m_ColorlessMana += nDelta; break;
+			case Color::White:		if (nDelta < 0 && m_WhiteMana	  < (DWORD)-nDelta) m_WhiteMana		= 0; else m_WhiteMana	  += nDelta; break;
+			case Color::Blue:		if (nDelta < 0 && m_BlueMana	  < (DWORD)-nDelta) m_BlueMana		= 0; else m_BlueMana	  += nDelta; break;
+			case Color::Black:		if (nDelta < 0 && m_BlackMana	  < (DWORD)-nDelta) m_BlackMana	    = 0; else m_BlackMana	  += nDelta; break;
+			case Color::Red:		if (nDelta < 0 && m_RedMana		  < (DWORD)-nDelta) m_RedMana		= 0; else m_RedMana		  += nDelta; break;
+			case Color::Green:		if (nDelta < 0 && m_GreenMana	  < (DWORD)-nDelta) m_GreenMana		= 0; else m_GreenMana	  += nDelta; break;
+			case Color::Colorless:	if (nDelta < 0 && m_ColorlessMana < (DWORD)-nDelta) m_ColorlessMana = 0; else m_ColorlessMana += nDelta; break;
 		}
 	}
 
@@ -920,12 +920,12 @@ protected:
 	{
 		switch(color.Get())
 		{
-		case Color::White:		return m_WhiteMana;
-		case Color::Blue:		return m_BlueMana; 
-		case Color::Black:		return m_BlackMana;
-		case Color::Red:		return m_RedMana;
-		case Color::Green:		return m_GreenMana;
-		case Color::Colorless:	return m_ColorlessMana;
+			case Color::White:		return m_WhiteMana;
+			case Color::Blue:		return m_BlueMana; 
+			case Color::Black:		return m_BlackMana;
+			case Color::Red:		return m_RedMana;
+			case Color::Green:		return m_GreenMana;
+			case Color::Colorless:	return m_ColorlessMana;
 		}		
 
 		return 0;
@@ -1029,11 +1029,11 @@ public:
 	operator CManaPool() const
 	{
 		CManaPool manaPool;
-		manaPool.m_WhiteMana = m_WhiteMana;
-		manaPool.m_BlackMana = m_BlackMana;
-		manaPool.m_BlueMana = m_BlueMana;
-		manaPool.m_RedMana = m_RedMana;
-		manaPool.m_GreenMana = m_GreenMana;
+		manaPool.m_WhiteMana	 = m_WhiteMana;
+		manaPool.m_BlackMana	 = m_BlackMana;
+		manaPool.m_BlueMana		 = m_BlueMana;
+		manaPool.m_RedMana		 = m_RedMana;
+		manaPool.m_GreenMana	 = m_GreenMana;
 		manaPool.m_ColorlessMana = m_ColorlessMana;
 
 		return manaPool;
@@ -1041,21 +1041,21 @@ public:
 
 	void SetMana(const CManaPool& manaPool)
 	{
-		m_WhiteMana = manaPool.m_WhiteMana;
-		m_BlueMana = manaPool.m_BlueMana;
-		m_BlackMana = manaPool.m_BlackMana;
-		m_RedMana = manaPool.m_RedMana;
-		m_GreenMana = manaPool.m_GreenMana;
+		m_WhiteMana		= manaPool.m_WhiteMana;
+		m_BlueMana		= manaPool.m_BlueMana;
+		m_BlackMana		= manaPool.m_BlackMana;
+		m_RedMana		= manaPool.m_RedMana;
+		m_GreenMana		= manaPool.m_GreenMana;
 		m_ColorlessMana = manaPool.m_ColorlessMana;		
 	}
 
 	void AddMana2(const CManaPool& manaPool)			// Renamed to 2 to avoid redefining all the AddMana() overloads here
 	{
-		m_WhiteMana += manaPool.m_WhiteMana;
-		m_BlueMana += manaPool.m_BlueMana;
-		m_BlackMana += manaPool.m_BlackMana;
-		m_RedMana += manaPool.m_RedMana;
-		m_GreenMana += manaPool.m_GreenMana;
+		m_WhiteMana		+= manaPool.m_WhiteMana;
+		m_BlueMana		+= manaPool.m_BlueMana;
+		m_BlackMana		+= manaPool.m_BlackMana;
+		m_RedMana		+= manaPool.m_RedMana;
+		m_GreenMana		+= manaPool.m_GreenMana;
 		m_ColorlessMana += manaPool.m_ColorlessMana;		
 	}
 
@@ -1117,11 +1117,11 @@ private:
 		for (int i = 0; i < nCount; ++i)
 		{
 			CManaPool entry;
-			entry.AddMana(CManaPool::Color::White, (DWORD)m_Stack.RemoveTail());
-			entry.AddMana(CManaPool::Color::Blue, (DWORD)m_Stack.RemoveTail());
-			entry.AddMana(CManaPool::Color::Black, (DWORD)m_Stack.RemoveTail());
-			entry.AddMana(CManaPool::Color::Red, (DWORD)m_Stack.RemoveTail());
-			entry.AddMana(CManaPool::Color::Green, (DWORD)m_Stack.RemoveTail());
+			entry.AddMana(CManaPool::Color::White,	   (DWORD)m_Stack.RemoveTail());
+			entry.AddMana(CManaPool::Color::Blue,	   (DWORD)m_Stack.RemoveTail());
+			entry.AddMana(CManaPool::Color::Black,	   (DWORD)m_Stack.RemoveTail());
+			entry.AddMana(CManaPool::Color::Red,	   (DWORD)m_Stack.RemoveTail());
+			entry.AddMana(CManaPool::Color::Green,	   (DWORD)m_Stack.RemoveTail());
 			entry.AddMana(CManaPool::Color::Colorless, (DWORD)m_Stack.RemoveTail());
 
 			CValueContainer<CManaPool>::AddImpl(entry);
@@ -1138,11 +1138,11 @@ private:
 		for (int i = 0; i < nCount; ++i)
 		{
 			CManaPool entry;
-			entry.AddMana(CManaPool::Color::White, (DWORD)m_Stack.GetPrev(pos));
-			entry.AddMana(CManaPool::Color::Blue, (DWORD)m_Stack.GetPrev(pos));
-			entry.AddMana(CManaPool::Color::Black, (DWORD)m_Stack.GetPrev(pos));
-			entry.AddMana(CManaPool::Color::Red, (DWORD)m_Stack.GetPrev(pos));
-			entry.AddMana(CManaPool::Color::Green, (DWORD)m_Stack.GetPrev(pos));
+			entry.AddMana(CManaPool::Color::White,	   (DWORD)m_Stack.GetPrev(pos));
+			entry.AddMana(CManaPool::Color::Blue,	   (DWORD)m_Stack.GetPrev(pos));
+			entry.AddMana(CManaPool::Color::Black,	   (DWORD)m_Stack.GetPrev(pos));
+			entry.AddMana(CManaPool::Color::Red,	   (DWORD)m_Stack.GetPrev(pos));
+			entry.AddMana(CManaPool::Color::Green,	   (DWORD)m_Stack.GetPrev(pos));
 			entry.AddMana(CManaPool::Color::Colorless, (DWORD)m_Stack.GetPrev(pos));
 
 			CValueContainer<CManaPool>::AddImpl(entry);

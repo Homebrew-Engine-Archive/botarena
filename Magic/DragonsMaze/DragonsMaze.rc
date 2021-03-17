@@ -246,7 +246,7 @@ BEGIN
     IDS_STRING25832         "Tithe Drinker\n{WB}\nCreature - Vampire\nDGM,C\nLifelink\rExtort\n2/1"
     IDS_STRING25833         "Woodlot Crawler\n{UB}\nCreature - Insect\nDGM,U\nForestwalk, protection from green\n2/1"
 	IDS_STRING25834         "Zhur-Taa Druid\n{RG}\nCreature - Human Druid\nDGM,C\n{T}: Add {G} to your mana pool.\rWhenever you tap Zhur-Taa Druid for mana, it deals 1 damage to each opponent.\n1/1"
-	IDS_STRING25835         "Blaze Commando\n{3RW}\nCreature - Minotaur Soldier\nDRM,U\nWhenever an instant or sorcery spell you control deals damage, put two red and white Soldier creature tokens with haste onto the battlefield.\n5/3"
+	IDS_STRING25835         "Blaze Commando\n{3RW}\nCreature - Minotaur Soldier\nDGM,U\nWhenever an instant or sorcery spell you control deals damage, put two red and white Soldier creature tokens with haste onto the battlefield.\n5/3"
 END
 
 #endif    // English (United States) resources

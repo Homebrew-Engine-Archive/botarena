@@ -1,0 +1,160 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "ShadowsOverInnistrad.ico"
+IDI_LARGE_MODULE        ICON                    "ShadowsOverInnistradLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Shadows Over Innistrad"
+    IDS_EXPANSION_ABBREV    "SOI"
+    IDS_FIRST_CARD          "33900"
+    IDS_TOTAL_CARD          "297"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "34198"
+    IDS_MODULE_LARGE_ICON_ID "34199"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "08-04-2016"
+    IDS_MWS_FOLDER          "MWS\\SOI\\"
+    IDS_PRODUCT_LIST        """Shadows Over Innistrad Starter Box"":R-3:U-10:C-32:BL-30,""Shadows Over Innistrad Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33900         "Forest\n\nBasic Land - Forest\nSOI,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING33901         "Forest\n\nBasic Land - Forest\nSOI,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING33902         "Forest\n\nBasic Land - Forest\nSOI,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING33903         "Island\n\nBasic Land - Island\nSOI,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33904         "Island\n\nBasic Land - Island\nSOI,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING33905         "Island\n\nBasic Land - Island\nSOI,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING33906         "Mountain\n\nBasic Land - Mountain\nSOI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING33907         "Mountain\n\nBasic Land - Mountain\nSOI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING33908         "Mountain\n\nBasic Land - Mountain\nSOI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING33909         "Plains\n\nBasic Land - Plains\nSOI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING33910         "Plains\n\nBasic Land - Plains\nSOI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING33911         "Plains\n\nBasic Land - Plains\nSOI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING33912         "Swamp\n\nBasic Land - Swamp\nSOI,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING33913         "Swamp\n\nBasic Land - Swamp\nSOI,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING33914         "Swamp\n\nBasic Land - Swamp\nSOI,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING33915         "Catalog\n{2U}\nInstant\nSOI,C\nDraw two cards, then discard a card."
+    IDS_STRING33916         "Dead Weight\n{B}\nEnchantment - Aura\nSOI,C\nEnchant creature\rEnchanted creature gets -2/-2."
+    IDS_STRING33917         "Fiery Temper\n{1RR}\nInstant\nSOI,C\nFiery Temper deals 3 damage to target creature or player.\rMadness {R}"
+    IDS_STRING33918         "Ghostly Wings\n{1U}\nEnchantment - Aura\nSOI,C\nEnchant creature\rEnchanted creature gets +1/+1 and has flying.\rDiscard a card: Return enchanted creature to its owner's hand."
+    IDS_STRING33919         "Gloomwidow\n{2G}\nCreature - Spider\nSOI,U\nReach\rGloomwidow can block only creatures with flying.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33920         "Groundskeeper\n{G}\nCreature - Human Druid\nSOI,U\n{1G}: Return target basic land card from your graveyard to your hand.\n1/1"
+    IDS_STRING33921         "Macabre Waltz\n{1B}\nSorcery\nSOI,C\nReturn up to two target creature cards from your graveyard to your hand, then discard a card."
+    IDS_STRING33922         "Magmatic Chasm\n{1R}\nSorcery\nSOI,C\nCreatures without flying can't block this turn."
+    IDS_STRING33923         "Puncturing Light\n{1W}\nInstant\nSOI,C\nDestroy target attacking or blocking creature with power 3 or less."
+    IDS_STRING33924         "Throttle\n{4B}\nInstant\nSOI,C\nTarget creature gets -4/-4 until end of turn."
+    IDS_STRING33925         "Tormenting Voice\n{1R}\nSorcery\nSOI,C\nAs an additional cost to cast Tormenting Voice, discard a card.\rDraw two cards."
+    IDS_STRING33926         "Unruly Mob\n{1W}\nCreature - Human\nSOI,C\nWhenever another creature you control dies, put a +1/+1 counter on Unruly Mob.\n1/1"
+    IDS_STRING33927         "Mad Prophet\n{3R}\nCreature - Human Shaman\nSOI,U\nHaste\r{T}, Discard a card: Draw a card.\n2/2"
+    IDS_STRING33928         "Lightning Axe\n{R}\nInstant\nSOI,U\nAs an additional cost to cast Lightning Axe, discard a card or pay {5}.\rLightning Axe deals 5 damage to target creature."
+    IDS_STRING33929         "Reckless Scholar\n{2U}\nCreature - Human Wizard\nSOI,U\n{T}: Target player draws a card, then discards a card.\n2/1"
+    IDS_STRING33930         "Devilthorn Fox\n{1W}\nCreature - Fox\nSOI,C\n\n3/1"
+    IDS_STRING33931         "Hulking Devil\n{3R}\nCreature - Devil\nSOI,C\n\n5/2"
+    IDS_STRING33932         "Niblis of Dusk\n{2U}\nCreature - Spirit\nSOI,C\nFlying\rProwess\n2/1"
+    IDS_STRING33933         "Seagraf Skaab\n{1U}\nCreature - Zombie\nSOI,C\n\n1/3"
+    IDS_STRING33934         "Thornhide Wolves\n{4G}\nCreature - Wolf\nSOI,C\n\n4/5"
+    IDS_STRING33935         "Vampire Noble\n{2B}\nCreature - Vampire\nSOI,C\n\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33936         "Warped Landscape\n\nLand\nSOI,C\n{T}: Add {1} to your mana pool.\r{2}, {T}, Sacrifice Warped Landscape: Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING33937         "Silent Observer\n{3U}\nCreature - Spirit\nSOI,C\nFlying\n1/5"
+    IDS_STRING33938         "Sanguinary Mage\n{1R}\nCreature - Vampire Wizard\nSOI,C\nProwess\n1/3"
+    IDS_STRING33939         "Choked Estuary\n\nLand\nSOI,R\nAs Choked Estuary enters the battlefield, you may reveal an Island or a Swamp card from your hand. If you don't, Choked Estuary enters the battlefield tapped.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING33940         "Foreboding Ruins\n\nLand\nSOI,R\nAs Foreboding Ruins enters the battlefield, you may reveal a Swamp or a Mountain card from your hand. If you don't, Foreboding Ruins enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING33941         "Fortified Village\n\nLand\nSOI,R\nAs Fortified Village enters the battlefield, you may reveal a Forest or a Plains card from your hand. If you don't, Fortified Village enters the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING33942         "Game Trail\n\nLand\nSOI,R\nAs Game Trail enters the battlefield, you may reveal a Mountain or a Forest card from your hand. If you don't, Game Trail enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING33943         "Port Town\n\nLand\nSOI,R\nAs Port Town enters the battlefield, you may reveal a Plains or an Island card from your hand. If you don't, Port Town enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING33944         "Drownyard Temple\n\nLand\nSOI,R\n{T}, Add {1} to your mana pool.\r{3}: Return Drownyard Temple from your graveyard to the battlefield tapped."
+    IDS_STRING33945         "Highland Lake\n\nLand\nSOI,U\nHighland Lake enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {U} or {R} to your mana pool."
+    IDS_STRING33946         "Woodland Stream\n\nLand\nSOI,U\nWoodland Stream enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {G} or {U} to your mana pool."
+    IDS_STRING33947         "Foul Orchard\n\nLand\nSOI,U\nFoul Orchard enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {B} or {G} to your mana pool."
+    IDS_STRING33948         "Forsaken Santuary\n\nLand\nSOI,U\nForsaken Santuary enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {W} or {B} to your mana pool."
+    IDS_STRING33949         "Stone Quarry\n\nLand\nSOI,U\nStone Quarry enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {R} or {W} to your mana pool."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

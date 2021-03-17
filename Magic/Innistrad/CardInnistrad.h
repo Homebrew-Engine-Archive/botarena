@@ -500,13 +500,6 @@ class CSkaabRuinatorCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CSkaabGoliathCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CSkaabGoliathCard);
-};
-
-//____________________________________________________________________________
-//
 class CHeartlessSummoningCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CHeartlessSummoningCard);
@@ -1177,16 +1170,6 @@ class CKindercatchCard : public CCreatureCard
 class CLumberknotCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CLumberknotCard);
-};
-
-//____________________________________________________________________________
-//
-class COrchardSpiritCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(COrchardSpiritCard);
-
-protected:
-	CCardFilter m_CardFilter;
 };
 
 //____________________________________________________________________________

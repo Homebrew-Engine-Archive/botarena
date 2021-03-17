@@ -140,7 +140,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMindGrindCard);
 		DEFINE_CARD(CMoltenPrimordialCard);
 		DEFINE_CARD(CMortusStriderCard);
-		DEFINE_CARD(CMurderInvestigationCard);
 		DEFINE_CARD(CMuggingCard);
 		DEFINE_CARD(CMysticGenesisCard);
 		DEFINE_CARD(CNavSquadCommandosCard);
@@ -612,7 +611,7 @@ CDeathpactAngelCard::CDeathpactAngelCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Cleric"), 2986, 1);
+	cpAbility->SetCreateTokenOption(TRUE, _T("Cleric A"), 2986, 1);
 
 	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -1003,42 +1002,6 @@ bool CHellkiteTyrantCard::BeforeResolution(TriggeredAbility::TriggeredActionType
 	}
 
 	return false;
-}
-
-//____________________________________________________________________________
-//
-CMurderInvestigationCard::CMurderInvestigationCard(CGame* pGame, UINT nID)
-	: CEnchantCard(pGame, _T("Murder Investigation"), CardType::EnchantCreature, nID,
-		_T("1") WHITE_MANA_TEXT,
-		new AnyCreatureComparer)		
-{
-	m_pEnchantSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard, TRUE, FALSE));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMurderInvestigationCard::SetTriggerContext));
-	
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new EnchantedByComparer(this));
-
-	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier M"), 2908, 0);	
-
-	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-bool CMurderInvestigationCard::SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
-											CCard* pEnchantedCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	CCreatureCard* pCreature = dynamic_cast<CCreatureCard*>(pEnchantedCard);
-	if (!pCreature) return false;
-
-	triggerContext.nValue1 = GET_INTEGER(pCreature->GetLastKnownPower());
-	return true;
 }
 
 //____________________________________________________________________________

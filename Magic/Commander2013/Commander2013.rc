@@ -193,7 +193,7 @@ BEGIN
     IDS_STRING27088         "Tooth and Claw\n{3R}\nEnchantment\nC13,R\nSacrifice two creatures: Put a 3/1 red Beast creature token named Carnivore onto the battlefield."
     IDS_STRING27089         "Warstorm Surge\n{5R}\nEnchantment\nC13,R\nWhenever a creature enters the battlefield under your control, it deals damage equal to its power to target creature or player."
     IDS_STRING27090         "Where Ancients Tread\n{4R}\nEnchantment\nC13,R\nWhenever a creature with power 5 or greater enters the battlefield under your control, you may have Where Ancients Tread deal 5 damage to target creature or player."
-    IDS_STRING27091         "Fissure Vent\n{3RR}\nSorcery\nC13,C\nChoose one or both - Destroy target artifact; and/or destroy target nonbasic land. "
+    IDS_STRING27091         "Fissure Vent\n{3RR}\nSorcery\nC13,C\nChoose one or both - Destroy target artifact; and/or destroy target nonbasic land."
     IDS_STRING27092         "Mass Mutiny\n{3RR}\nSorcery\nC13,R\nFor each opponent, gain control of up to one target creature that player controls until end of turn. Untap those creatures. They gain haste until end of turn."
     IDS_STRING27093         "Tempt with Immortality\n{4B}\nSorcery\nC13,R\nTempting offer - Return a creature card from your graveyard to the battlefield. Each opponent may return a creature card from his or her graveyard to the battlefield. For each player who does, return a creature card from your graveyard to the battlefield."
     IDS_STRING27094         "Acidic Slime\n{3GG}\nCreature - Ooze\nC13,U\nDeathtouch\rWhen Acidic Slime enters the battlefield, destroy target artifact, enchantment, or land.\n2/2"

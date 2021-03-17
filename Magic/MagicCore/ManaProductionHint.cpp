@@ -11,11 +11,11 @@ void CManaProductionHint::Add(const CAbility* pAbility,
 {
 	if (pManaCost)
 	{
-		if (manaPool.GetMana(CManaPool::Color::Black) == pManaCost->GetCost(CManaCost::Color::Black) &&
-			manaPool.GetMana(CManaPool::Color::Blue) == pManaCost->GetCost(CManaCost::Color::Blue) &&
-			manaPool.GetMana(CManaPool::Color::Green) == pManaCost->GetCost(CManaCost::Color::Green) &&
-			manaPool.GetMana(CManaPool::Color::Red) == pManaCost->GetCost(CManaCost::Color::Red) &&
-			manaPool.GetMana(CManaPool::Color::White) == pManaCost->GetCost(CManaCost::Color::White) &&
+		if (manaPool.GetMana(CManaPool::Color::Black)	  == pManaCost->GetCost(CManaCost::Color::Black) &&
+			manaPool.GetMana(CManaPool::Color::Blue)	  == pManaCost->GetCost(CManaCost::Color::Blue)  &&
+			manaPool.GetMana(CManaPool::Color::Green)	  == pManaCost->GetCost(CManaCost::Color::Green) &&
+			manaPool.GetMana(CManaPool::Color::Red)		  == pManaCost->GetCost(CManaCost::Color::Red)	 &&
+			manaPool.GetMana(CManaPool::Color::White)	  == pManaCost->GetCost(CManaCost::Color::White) &&
 			manaPool.GetMana(CManaPool::Color::Colorless) == pManaCost->GetCost(CManaCost::Color::Generic))
 			return;
 
@@ -103,7 +103,7 @@ void CManaProductionHint::SetFromCard(CCard* pCard)
 
 			for (DWORD i = 0; i < dwGenericCost; ++i)
 			{
-				bound[i] = ARRAY_SIZE(costColors) - 1;	// Generates 0..5
+				bound[i]   = ARRAY_SIZE(costColors) - 1;	// Generates 0..5
 				current[i] = 0;
 			}
 
@@ -160,7 +160,7 @@ void CManaProductionHint::SetFromCard(CCard* pCard)
 
 			for (DWORD i = 0; i < dwGenericCost; ++i)
 			{
-				bound[i] = ARRAY_SIZE(costColors) - 1;	// Generates 0..5
+				bound[i]   = ARRAY_SIZE(costColors) - 1;	// Generates 0..5
 				current[i] = 0;
 			}
 

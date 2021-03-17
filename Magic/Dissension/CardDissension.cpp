@@ -76,7 +76,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CJaggedPoppetCard);
 		DEFINE_CARD(CLeafdrakeRoostCard);
 		DEFINE_CARD(CLyzoldaTheBloodWitchCard);
-		DEFINE_CARD(CMacabreWaltzCard);
 		DEFINE_CARD(CMightOfTheNephilimCard);
 		DEFINE_CARD(CMinisterOfImpedimentsCard);
 		DEFINE_CARD(CMistralChargerCard);
@@ -1973,50 +1972,6 @@ CAzoriusPloyCard::CAzoriusPloyCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-}
-
-//____________________________________________________________________________
-//
-CMacabreWaltzCard::CMacabreWaltzCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Macabre Waltz"), CardType::Sorcery, nID,
-		_T("1") BLACK_MANA_TEXT, AbilityType::Sorcery,
-		new AnyCreatureComparer,
-		ZoneId::Graveyard, ZoneId::Hand, TRUE, MoveType::Others)
-		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-					&CMacabreWaltzCard::OnResolutionCompleted))
-{
-	m_pTargetMoveCardSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-	m_pTargetMoveCardSpell->GetTargeting()->SetSubjectCount(1, 2);
-	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-
-	{
-		counted_ptr<CGenericSpell> cpSpell(
-			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
-				_T("1") BLACK_MANA_TEXT));
-
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-
-		AddSpell(cpSpell.GetPointer());
-	}
-}
-
-void CMacabreWaltzCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	if (!bResult) return;
-
-	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
-		CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		CCardFilter::GetFilter(_T("cards")), // any cards
-		ZoneId::Graveyard, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on top
-		MoveType::Discard, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-		
-	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

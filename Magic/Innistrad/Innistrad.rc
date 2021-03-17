@@ -138,7 +138,7 @@ BEGIN
     IDS_STRING23365         "Village Cannibals\n{2B}\nCreature - Human\nISD,U\nWhenever another Human creature dies, put a +1/+1 counter on Village Cannibals.\n2/2"
     IDS_STRING23366         "Balefire Dragon\n{5RR}\nCreature - Dragon\nISD,MR\nFlying\rWhenever Balefire Dragon deals combat damage to a player, it deals that much damage to each creature that player controls.\n6/6"
     IDS_STRING23367         "Army of the Damned\n{5BBB}\nSorcery\nISD,MR\nPut thirteen 2/2 black Zombie creature tokens onto the battlefield tapped.\rFlashback {7BBB}"
-    IDS_STRING23368         "Grimgrin, Corpse-Born\n{3UB}\nLegendary Creaute - Zombie Warrior\nISD,MR\nGrimgrin, Corpse-Born enters the battlefield tapped and doesn't untap during your untap step.\rSacrifice another creature: Untap Grimgrin and put a +1/+1 counter on it.\rWhenever Grimgrin attacks, destroy target creature defending player controls, then put a +1/+1 counter on Grimgrin.\n5/5"
+    IDS_STRING23368         "Grimgrin, Corpse-Born\n{3UB}\nLegendary Creature - Zombie Warrior\nISD,MR\nGrimgrin, Corpse-Born enters the battlefield tapped and doesn't untap during your untap step.\rSacrifice another creature: Untap Grimgrin and put a +1/+1 counter on it.\rWhenever Grimgrin attacks, destroy target creature defending player controls, then put a +1/+1 counter on Grimgrin.\n5/5"
     IDS_STRING23369         "Champion of the Parish\n{W}\nCreature - Human Soldier\nISD,R\nWhenever another Human enters the battlefield under your control, put a +1/+1 counter on Champion of the Parish.\n1/1"
     IDS_STRING23370         "Kessig Wolf Run\n\nLand\nISD,R\n{T}: Add 1 to your mana pool.\r{XRG}, {T}: Target creature gets +X/+0 and gains trample until end of turn."
     IDS_STRING23371         "Skeletal Grimace\n{1B}\nEnchantment - Aura\nISD,C\nEnchant creature\rEnchanted creature gets +1/+1 and has ""{B}: Regenerate this creature."""
@@ -171,7 +171,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING23392         "Skaab Goliath\n{5U}\nCreature - Zombie Giant\nISD,U\nAs an additional cost to cast Skaab Goliath, exile two creature cards from your graveyard.\rTrample\n6/9"
-    IDS_STRING23393         "Heartless Summoning\n{1B}\nEnchantment\nISD,R\nCreature spells you cast cost {2}  less to cast.\rCreatures you control -1/-1."
+    IDS_STRING23393         "Heartless Summoning\n{1B}\nEnchantment\nISD,R\nCreature spells you cast cost {2} less to cast.\rCreatures you control -1/-1."
     IDS_STRING23394         "Laboratory Maniac\n{2U}\nCreature - Human Wizard\nISD,R\nIf you would draw a card while your library has no cards in it, you win the game instead.\n2/2"
     IDS_STRING23395         "Parallel Lives\n{3G}\nEnchantment\nISD,R\nIf an effect would put one or more tokens onto the battlefield under your control, it puts twice that many tokens onto the battlefield instead."
     IDS_STRING23396         "Stensia Bloodhall\n\nLand\nISD,R\n{T}: Add {1} to your mana pool.\r{3BR}, {T}:Stensia Bloodhall deals 2 damage to target player."
@@ -402,9 +402,9 @@ BEGIN
     IDS_STRING23577         "Unbreathing Horde\n{2B}\nCreature - Zombie\nISD,R\nUnbreathing Horde enters the battlefield with a +1/+1 counter on it for each other Zombie you control and each Zombie card in your graveyard.\rIf Unbreathing Horde would be dealt damage, prevent that damage and remove a +1/+1 counter from it.\n0/0"
     IDS_STRING23578         "Dearly Departed\n{4WW}\nCreature - Spirit\nISD,R\nFlying\rAs long as Dearly Departed is in your graveyard, each Human creature you control enters the battlefield with an additional +1/+1 counter on it.\n5/5"
     IDS_STRING23579         "Gutter Grime\n{4G}\nEnchantment\nISD,R\nWhenever a nontoken creature you control dies, put a slime counter on Gutter Grime, then put a green Ooze creature token onto the battlefield with ""This creature's power and toughness are each equal to the number of slime counters on Gutter Grime."""
-    IDS_STRING23580         "Undead Alchemist\n{3U}\nCreature - Zombie\nISD,R\nIf a Zombie you control would deal combat damage to a player, instead that player puts that many cards from the top of his or her library into his or her graveyard.\rWhenever a creature card is put into an opponent's graveyard from his or her library, exile that card and put a 2/2 black Zombie creature token onto the battlefield."
+    IDS_STRING23580         "Undead Alchemist\n{3U}\nCreature - Zombie\nISD,R\nIf a Zombie you control would deal combat damage to a player, instead that player puts that many cards from the top of his or her library into his or her graveyard.\rWhenever a creature card is put into an opponent's graveyard from his or her library, exile that card and put a 2/2 black Zombie creature token onto the battlefield.\n4/2"
     IDS_STRING23581         "Civilized Scholar\n{2U}\nCreature - Human Advisor\nISD,U\n{T}: Draw a card, then discard a card. If a creature card is discarded this way, untap Civilized Scholar, then transform it.\n0/1"
-    IDS_STRING23582         "Homicidal Brute\n{R}\nCreature - Human Mutant\nISD,U\nAt the beginning of your end step, if Homicidal Brute didn't attack this turn, tap Homicidal Brute, then transform it."
+    IDS_STRING23582         "Homicidal Brute\n{R}\nCreature - Human Mutant\nISD,U\nAt the beginning of your end step, if Homicidal Brute didn't attack this turn, tap Homicidal Brute, then transform it.\n5/1"
     IDS_STRING23583         "Moonmist\n{1G}\nInstant\nISD,C\nTransform all Humans. Prevent all combat damage that would be dealt this turn by creatures other than Werewolves and Wolves."
     //IDS_STRING23579         "Blasphemous Act\n{8R}\nSorcery\nISD,R\nBlasphemous Act costs {1} less to cast for each creature on the battlefield.\rBlasphemous Act deals 13 damage to each creature."
 END

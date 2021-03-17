@@ -79,7 +79,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CEtherealUsherCard);
 		DEFINE_CARD(CExcruciatorCard);
 		DEFINE_CARD(CFaithsFettersCard);
-		DEFINE_CARD(CFieryConclusionCard);
 		DEFINE_CARD(CFiremaneAngelCard);
 		DEFINE_CARD(CFistsOfIronwoodCard);
 		DEFINE_CARD(CFlameFusilladeCard);
@@ -3418,25 +3417,6 @@ CDogpileCard::CDogpileCard(CGame* pGame, UINT nID)
 			new AnyCreatureComparer, TRUE,
 			ZoneId::Battlefield, TRUE,
 			new AttackingCreatureComparer, PreventableType::Preventable));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CFieryConclusionCard::CFieryConclusionCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Fiery Conclusion"), CardType::Instant, nID)
-{
-	counted_ptr<CTargetChgLifeSpell> cpSpell(
-		::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
-			_T("1") RED_MANA_TEXT,
-			new AnyCreatureComparer,
-			FALSE,
-			Life(-5), PreventableType::Preventable));
-
-	cpSpell->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("creatures")));
-
-	cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
 
 	AddSpell(cpSpell.GetPointer());
 }

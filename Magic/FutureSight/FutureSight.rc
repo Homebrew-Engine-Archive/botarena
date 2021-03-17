@@ -229,8 +229,8 @@ BEGIN
     IDS_STRING17819         "Oriss, Samite Guardian\n{1WW}\nLegendary Creature - Human Cleric\nFUT,R\n{T}: Prevent all damage that would be dealt to target creature this turn.\rGrandeur - Discard another card named Oriss, Samite Guardian: Target player can't cast spells this turn, and creatures that player controls can't attack this turn.\n1/3"
     IDS_STRING17820         "Linessa, Zephyr Mage\n{3U}\nLegendary Creature - Human Wizard\nFUT,R\n{XUU}, {T}: Return target creature with converted mana cost X to its owner's hand.\rGrandeur - Discard another card named Linessa, Zephyr Mage: Target player returns a creature he or she controls to its owner's hand, then repeats this process for an artifact, an enchantment, and a land.\n3/3"
     IDS_STRING17821         "Riftsweeper\n{1G}\nCreature - Elf Shaman\nFUT,U\nWhen Riftsweeper enters the battlefield, choose target face-up exiled card. Its owner shuffles it into his or her library.\n2/2"
-    IDS_STRING17822         "Tombstalker\n{6BB}\nCreature - Demon\nFUT,R\nFlying\rDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\n5/5"
-    IDS_STRING17823         "Death Rattle\n{5B}\nInstant\nFUT, C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rDestroy target nongreen creature. It can't be regenerated."
+    IDS_STRING17822         "Tombstalker\n{6BB}\nCreature - Demon\nFUT,R\nFlying\rDelve\n5/5"
+    IDS_STRING17823         "Death Rattle\n{5B}\nInstant\nFUT, C\nDelve\rDestroy target nongreen creature. It can't be regenerated."
 END
 
 STRINGTABLE
@@ -246,11 +246,15 @@ BEGIN
     IDS_STRING17832         "Shimian Specter\n{2BB}\nCreature - Specter\nFUT,R\nFlying\rWhenever Shimian Specter deals combat damage to a player, that player reveals his or her hand. You choose a nonland card from it. Search that player's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library.\n2/2"
     IDS_STRING17833         "Cloud Key\n{3}\nArtifact\nFUT,R\nFlying\rAs Cloud Key enters the battlefield, choose artifact, creature, enchantment, instant, or sorcery.\rSpells you cast of the chosen type cost {1} less to cast."
     IDS_STRING17834         "Phosphorescent Feast\n{2GGG}\nSorcery\nFUT,U\nChroma - Reveal any number of cards in your hand. You gain 2 life for each green mana symbol in those cards' mana costs."
-    IDS_STRING17835         "Quiet Disrepair\n{1G}\nEnchanment - Aura\nFUT,C\nEnchant artifact or enchantment\rAt the beginning of your upkeep, choose one - Destroy enchanted permanent; or you gain 2 life."
+    IDS_STRING17835         "Quiet Disrepair\n{1G}\nEnchantment - Aura\nFUT,C\nEnchant artifact or enchantment\rAt the beginning of your upkeep, choose one - Destroy enchanted permanent; or you gain 2 life."
     IDS_STRING17836         "Bitter Ordeal\n{2B}\nSorcery\nFUT,R\nSearch target player's library for a card and exile it. Then that player shuffles his or her library.\rGravestorm"
     IDS_STRING17837         "Seht's Tiger\n{2WW}\nCreature - Cat\nFUT,R\nFlash\rWhen Seht's Tiger enters the battlefield, you gain protection from the color of your choice until end of turn.\n3/3"
     IDS_STRING17838         "Lost Hours\n{1B}\nSorcery\nFUT,C\nTarget player reveals his or her hand. You choose a nonland card from it. That player puts that card into his or her library third from the top."
     IDS_STRING17839         "Spin into Myth\n{4U}\nInstant\nFUT,U\nPut target creature on top of its owner's library, then fateseal 2."
+END
+
+STRINGTABLE
+BEGIN
     IDS_STRING17840         "Mesmeric Sliver\n{3U}\nCreature - Sliver\nFUT,C\nAll Slivers have ""When this permanent enters the battlefield, you may fateseal 1.""\n2/2"
     IDS_STRING17841         "Frenzy Sliver\n{1B}\nCreature - Sliver\nFUT,C\nAll Sliver creatures have frenzy 1.\n1/1"
     //IDS_STRING17835         "Centaur Omenreader\n{3G}\nSnow Creature - Centaur Shaman\nFUT,U\nAs long as Centaur Omenreader is tapped, creature spells you cast cost {2} less to cast.\n3/3"

@@ -951,13 +951,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CGuardiansOfMeletisCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CGuardiansOfMeletisCard);
-};
-
-//____________________________________________________________________________
-//
 class CHerosDownfallCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CHerosDownfallCard);
@@ -1424,16 +1417,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CReadTheBonesCard : public CCard 
-{
-	DECLARE_CARD_CSTOR(CReadTheBonesCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
 class CReaperOfTheWildsCard: public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CReaperOfTheWildsCard);
@@ -1450,13 +1433,6 @@ class CRescueFromTheUnderworldCard : public CCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
-class CReturnedCentaurCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CReturnedCentaurCard);
 };
 
 //____________________________________________________________________________
@@ -1674,17 +1650,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CTitansStrengthCard : public CChgPwrTghAttrSpellCard
-{
-	DECLARE_CARD_CSTOR(CTitansStrengthCard);
-
-protected:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-};
-
-//____________________________________________________________________________
-//
 class CTravelingPhilosopherCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CTravelingPhilosopherCard);
@@ -1793,13 +1758,6 @@ class CWitchesEyeCard : public CInPlaySpellCard
 protected:
 	counted_ptr<CAbility> CreateEquipmentAbility(CCard* pCard);
 	bool BeforeResolution(CAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
-class CYokedOxCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CYokedOxCard);
 };
 
 //____________________________________________________________________________

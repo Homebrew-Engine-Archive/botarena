@@ -65,7 +65,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDeftDuelistCard);
 		DEFINE_CARD(CDemonsHeraldCard);
 		DEFINE_CARD(CDispellersCapsuleCard);
-		DEFINE_CARD(CDragonFodderCard);
 		DEFINE_CARD(CDragonsHeraldCard);
 		DEFINE_CARD(CDregReaverCard);
 		DEFINE_CARD(CDregscapeZombieCard);
@@ -84,7 +83,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFatestitcherCard);
 		DEFINE_CARD(CFiligreeSagesCard);
 		DEFINE_CARD(CFireFieldOgreCard);
-		DEFINE_CARD(CFleshbagMarauderCard);
 		DEFINE_CARD(CGiftOfTheGargantuanCard);
 		DEFINE_CARD(CGlazeFiendCard);
 		DEFINE_CARD(CGoblinAssaultCard);
@@ -116,7 +114,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKissOfTheAmeshaCard);
 		DEFINE_CARD(CKnightCaptainOfEosCard);
 		DEFINE_CARD(CKnightOfTheSkywardEyeCard);
-		DEFINE_CARD(CKnightOfTheWhiteOrchidCard);
 		DEFINE_CARD(CKreshTheBloodbraidedCard);
 		DEFINE_CARD(CMagmaSprayCard);
 		DEFINE_CARD(CManaplasmCard);
@@ -1098,20 +1095,6 @@ CDispellersCapsuleCard::CDispellersCapsuleCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CDragonFodderCard::CDragonFodderCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Dragon Fodder"), CardType::Sorcery, nID)
-{
-	counted_ptr<CTokenProductionSpell> cpSpell(
-		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
-			_T("1") RED_MANA_TEXT,
-			_T("Goblin C"), 2702,
-			2));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CDregReaverCard::CDregReaverCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dreg Reaver"), CardType::Creature, CREATURE_TYPE2(Zombie, Beast), nID,
 		_T("4") BLACK_MANA_TEXT, Power(4), Life(3))
@@ -1278,31 +1261,6 @@ CFiligreeSagesCard::CFiligreeSagesCard(CGame* pGame, UINT nID)
 			_T("2") BLUE_MANA_TEXT,
 			FALSE, TRUE,
 			new CardTypeComparer(CardType::Artifact, false)));
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CFleshbagMarauderCard::CFleshbagMarauderCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Fleshbag Marauder"), CardType::Creature, CREATURE_TYPE2(Zombie, Warrior), nID,
-		_T("2") BLACK_MANA_TEXT, Power(3), Life(1))
-{
-	typedef
-		TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfInplay, 
-								 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToAllPlayers);
-	cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetGatherer().SetIncludeControllerCardsOnly();
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -5079,76 +5037,6 @@ bool CMightyEmergenceCard::SetTriggerContext(CTriggeredModifyCardAbility::Trigge
 {
 	triggerContext.m_pCard = pCard;
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CKnightOfTheWhiteOrchidCard::CKnightOfTheWhiteOrchidCard(CGame* pGame, UINT nID)
-	: CFirstStrikeCreatureCard(pGame, _T("Knight of the White Orchid"), CardType::Creature, CREATURE_TYPE2(Human, Knight), nID,
-		WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(2), Life(2))
-{
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("Plains")));
-	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
-	cpAbility->SetToZone(ZoneId::Battlefield);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKnightOfTheWhiteOrchidCard::SetTriggerContext));
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CKnightOfTheWhiteOrchidCard::BeforeResolution));
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-bool CKnightOfTheWhiteOrchidCard::SetTriggerContext(CTriggeredSearchLibraryAbility::TriggerContextType& triggerContext, 
-											CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	CZone* pSurvey = GetController()->GetZoneById(ZoneId::Battlefield);
-
-	int nCount1 = 0;
-	for (int i = 0; i < pSurvey->GetSize(); ++i)
-	{
-		CCard* pCard = pSurvey->GetAt(i);
-		if (pCard->GetCardType().IsLand())
-			++nCount1;
-	}
-
-	CPlayer* pNextPlayer = m_pGame->GetNextPlayer(GetController());
-	CZone* pInplay = pNextPlayer->GetZoneById(ZoneId::Battlefield);
-
-	int nCount2 = 0;
-	for (int i = 0; i < pInplay->GetSize(); ++i)
-	{
-		CCard* pCard = pInplay->GetAt(i);
-		if (pCard->GetCardType().IsLand())
-			++nCount2;
-	}
-
-	return nCount2 > nCount1;
-}
-
-bool CKnightOfTheWhiteOrchidCard::BeforeResolution(CKnightOfTheWhiteOrchidCard::TriggeredAbility::TriggeredActionType* pAction)
-{
-	CZone* pSurvey = GetController()->GetZoneById(ZoneId::Battlefield);
-
-	int nCount1 = 0;
-	for (int i = 0; i < pSurvey->GetSize(); ++i)
-	{
-		CCard* pCard = pSurvey->GetAt(i);
-		if (pCard->GetCardType().IsLand())
-			++nCount1;
-	}
-
-	CPlayer* pNextPlayer = m_pGame->GetNextPlayer(GetController());
-	CZone* pInplay = pNextPlayer->GetZoneById(ZoneId::Battlefield);
-
-	int nCount2 = 0;
-	for (int i = 0; i < pInplay->GetSize(); ++i)
-	{
-		CCard* pCard = pInplay->GetAt(i);
-		if (pCard->GetCardType().IsLand())
-			++nCount2;
-	}
-
-	return nCount2 > nCount1;
 }
 
 //____________________________________________________________________________

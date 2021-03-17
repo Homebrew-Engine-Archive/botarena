@@ -21,13 +21,6 @@ class CTempleOfMaladyCard : public CNonbasicLandCard
 
 //____________________________________________________________________________
 //
-class CGoldForgedSentinelCard : public CFlyingCreatureCard
-{
-	DECLARE_CARD_CSTOR(CGoldForgedSentinelCard);
-};
-
-//____________________________________________________________________________
-//
 class CAkroanMastiffCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAkroanMastiffCard);
@@ -210,16 +203,6 @@ class CRiseOfEaglesCard : public CCard
 protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-};
-
-//____________________________________________________________________________
-//
-class CSigiledStarfishCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CSigiledStarfishCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

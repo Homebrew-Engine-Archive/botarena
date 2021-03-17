@@ -113,7 +113,7 @@ BEGIN
     IDS_STRING28428         "Radiant's Judgment\n{2W}\nInstant\nVMA,C\nDestroy target creature with power 4 or greater.\rCycling {2}"
     IDS_STRING28429         "Renewed Faith\n{2W}\nInstant\nVMA,C\nYou gain 6 life.\rCycling {1W}\rWhen you cycle Renewed Faith, you may gain 2 life."
     IDS_STRING28430         "Seal of Cleansing\n{1W}\nEnchantment\nVMA,C\nSacrifice Seal of Cleansing: Destroy target artifact or enchantment."
-    IDS_STRING28431         "Shelter\n{1W}\nInstant\nVMS,C\nTarget creature you control gains protection from the color of your choice until end of turn.\rDraw a card."
+    IDS_STRING28431         "Shelter\n{1W}\nInstant\nVMA,C\nTarget creature you control gains protection from the color of your choice until end of turn.\rDraw a card."
 END
 
 STRINGTABLE

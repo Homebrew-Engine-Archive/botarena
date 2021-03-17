@@ -663,7 +663,7 @@ CHydroblastCard::CHydroblastCard(CGame* pGame, UINT nID)
 				new TrueCardComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy));
 
-		cpSpell->SetAbilityText(_T("Destroy target permanent if it's red. Casts"));
+		cpSpell->SetAbilityText(_T("destroy target permanent if it's red. Casts"));
 		cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHydroblastCard::BeforeResolution));
 
@@ -702,7 +702,7 @@ CPyroblastCard::CPyroblastCard(CGame* pGame, UINT nID)
 				new TrueCardComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy));
 
-		cpSpell->SetAbilityText(_T("Destroy target permanent if it's blue. Casts"));
+		cpSpell->SetAbilityText(_T("destroy target permanent if it's blue. Casts"));
 		cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPyroblastCard::BeforeResolution));
 
@@ -3568,14 +3568,14 @@ CRabidWombatCard::CRabidWombatCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Rabid Wombat"), CardType::Creature, CREATURE_TYPE(Wombat), nID,
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(1))
 {
-	{
-		counted_ptr<CPwrTghAttrEnchantmentCount> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantmentCount>(this,
-				new SpecificCardComparer(this),
-				Power(+2), Life(+2)));		
+	GetCreatureKeyword()->AddVigilance(FALSE);
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	counted_ptr<CPwrTghAttrEnchantmentCount> cpAbility(
+		::CreateObject<CPwrTghAttrEnchantmentCount>(this,
+			new SpecificCardComparer(this),
+			Power(+2), Life(+2)));		
+
+	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

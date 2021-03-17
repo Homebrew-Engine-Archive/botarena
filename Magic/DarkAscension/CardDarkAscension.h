@@ -601,13 +601,6 @@ class CArtfulDodgeCard : public CCard
 
 //____________________________________________________________________________
 //
-class CBoneToAshCard : public CCounterSpellCard
-{
-	DECLARE_CARD_CSTOR(CBoneToAshCard);
-};
-
-//____________________________________________________________________________
-//
 class CChillOfForebodingCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CChillOfForebodingCard);
@@ -657,13 +650,6 @@ class CSavingGraspCard : public CCard
 
 //____________________________________________________________________________
 //
-class CScreechingSkaabCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CScreechingSkaabCard);
-};
-
-//____________________________________________________________________________
-//
 class CShriekgeistCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CShriekgeistCard);
@@ -674,13 +660,6 @@ class CShriekgeistCard : public CFlyingCreatureCard
 class CStormboundGeistCard : public CFlyingCreatureCard, public CUndyingKeyword
 {
 	DECLARE_CARD_CSTOR(CStormboundGeistCard);
-};
-
-//____________________________________________________________________________
-//
-class CTowerGeistCard : public CFlyingCreatureCard
-{
-    DECLARE_CARD_CSTOR(CTowerGeistCard);
 };
 
 //____________________________________________________________________________

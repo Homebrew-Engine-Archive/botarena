@@ -149,7 +149,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLairwatchGiantCard);
 		DEFINE_CARD(CLammastideWeaveCard);
 		DEFINE_CARD(CLashOutCard);
-		DEFINE_CARD(CLeafGilderCard);
 		DEFINE_CARD(CLowlandOafCard);
 		DEFINE_CARD(CLysAlanaHuntmasterCard);
 		DEFINE_CARD(CLysAlanaScarbladeCard);
@@ -1353,15 +1352,6 @@ CLaceWithMoongloveCard::CLaceWithMoongloveCard(CGame* pGame, UINT nID)
 	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Deathtouch);
 	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
 	m_pTargetChgPwrTghAttrSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
-}
-
-//____________________________________________________________________________
-//
-CLeafGilderCard::CLeafGilderCard(CGame* pGame, UINT nID)
-	: CManaProductionTCreatureCard(pGame, _T("Leaf Gilder"), CardType::Creature, CREATURE_TYPE2(Elf, Druid), nID,
-		_T("1") GREEN_MANA_TEXT, Power(2), Life(1),
-		GREEN_MANA_TEXT)
-{
 }
 
 //____________________________________________________________________________
@@ -8178,6 +8168,40 @@ void CIncendiaryCommandCard::OnResolutionCompleted1(const CAbilityAction* pAbili
 
 void CIncendiaryCommandCard::OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
+	CPlayer* pController = GetController();
+	CPlayer* pOpponent   = m_pGame->GetNextPlayer(GetController());
+
+	int iHandSizeNewController = pController->GetZoneById(ZoneId::Hand)->GetSize(); // draw number of cards equal to "pre discard" hand size.                                        
+	int iHandSizeNewOpponent   = pOpponent->GetZoneById(ZoneId::Hand)->GetSize();	// draw number of cards equal to "pre discard" hand size.  
+
+	CZoneCardModifier pModifierDiscardController = CZoneCardModifier(ZoneId::Hand, CCardFilter::GetFilter(_T("cards")),
+		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Hand, ZoneId::Graveyard, TRUE, MoveType::Discard, pController)));
+	CZoneCardModifier pModifierDiscardOpponent = CZoneCardModifier(ZoneId::Hand, CCardFilter::GetFilter(_T("cards")),
+		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Hand, ZoneId::Graveyard, TRUE, MoveType::Discard, pOpponent)));
+	
+	pModifierDiscardController.ApplyTo(pController);
+	pModifierDiscardOpponent.ApplyTo(pOpponent);
+	
+	if (pController->GetZoneById(ZoneId::Library)->GetSize() < iHandSizeNewController)  // if library contains not enough cards
+	{
+		pController->SetDrawFailed();						 // can not draw a card to put into your hand, so draw has failed
+		return;												 // no point continuing
+	}
+	if (pOpponent->GetZoneById(ZoneId::Library)->GetSize() < iHandSizeNewOpponent)		// if library contains not enough cards
+	{
+		pOpponent->SetDrawFailed();							 // can not draw a card to put into opponent's hand, so draw has failed
+		return;												 // no point continuing
+	}
+	CDrawCardModifier pModifierDrawController = CDrawCardModifier(GetGame(), MinimumValue(iHandSizeNewController), MaximumValue(iHandSizeNewController));
+	CDrawCardModifier pModifierDrawOpponent   = CDrawCardModifier(GetGame(), MinimumValue(iHandSizeNewOpponent),  MaximumValue(iHandSizeNewOpponent));
+	
+	pModifierDrawController.ApplyTo(pController);
+	pModifierDrawOpponent.ApplyTo(pOpponent); 
+/*
+	Isochron: 26 Nov 2015 replaced this code, to fix the fault.  The fault occurred when a player did not have enough cards in their library to
+	draw the required number of cards. They were not losing the game as required.  The replacement code above does not use a container for the
+	player hands.  Isochron believes in these circumstances a container for the hand is not required.
+
 	int controller = GetController()->GetZoneById(ZoneId::Hand)->GetSize();                                        
 	int opponent =  m_pGame->GetNextPlayer(GetController())->GetZoneById(ZoneId::Hand)->GetSize();
 
@@ -8193,9 +8217,6 @@ void CIncendiaryCommandCard::OnResolutionCompleted2(const CAbilityAction* pAbili
 	CZoneCardModifier pModifier1 = CZoneCardModifier(ZoneId::Hand, CCardFilter::GetFilter(_T("cards")),
 		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Hand, ZoneId::Graveyard, TRUE, MoveType::Discard, GetController())));
 
-	
-
-
 	if (m_CardFilter_temp.GetIncluded(*pCon , pContHand))	
 	{
 		pModifier1.ApplyTo(GetController());
@@ -8208,7 +8229,6 @@ void CIncendiaryCommandCard::OnResolutionCompleted2(const CAbilityAction* pAbili
 			if (m_CardFilter_temp.CountIncluded(GetController()->GetZoneById(ZoneId::Stack)->GetCardContainer())) controller=controller-1;
 		}
 	}
-
 	m_CardFilter_temp.SetComparer(new TrueCardComparer);
 
 	if (m_CardFilter_temp.GetIncluded(*pOpp , pOppHand))	
@@ -8223,12 +8243,11 @@ void CIncendiaryCommandCard::OnResolutionCompleted2(const CAbilityAction* pAbili
 			if (m_CardFilter_temp.CountIncluded(m_pGame->GetNextPlayer(GetController())->GetZoneById(ZoneId::Stack)->GetCardContainer())) opponent=opponent-1;
 		}
 	}
-
 	CDrawCardModifier pModifier_con = CDrawCardModifier(GetGame(),  MinimumValue(controller), MaximumValue(controller));
 	CDrawCardModifier pModifier_opp = CDrawCardModifier(GetGame(),  MinimumValue(opponent), MaximumValue(opponent));
 	
 	pModifier_con.ApplyTo(GetController());
-	pModifier_opp.ApplyTo(m_pGame->GetNextPlayer(GetController()));
+	pModifier_opp.ApplyTo(m_pGame->GetNextPlayer(GetController()));*/
 }
 
 //____________________________________________________________________________
@@ -10136,6 +10155,12 @@ CSentryOakCard::CSentryOakCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Sentry Oak"), CardType::Creature, CREATURE_TYPE2(Treefolk, Warrior), nID,
 		_T("4") WHITE_MANA_TEXT, Power(3), Life(5))
 {
+	/*
+		!Outstanding Issue!
+		When there are no attack-able creatures with Sentry Oak, the BeginningOfCombatStep/Combat phase 
+		becomes skipped(!) and it doesn't trigger. When there is an attack-able creature with Sentry Oak, 
+		it triggers as it should.
+	*/	
 	GetCreatureKeyword()->AddDefender(FALSE);
 
 	counted_ptr<TriggeredAbility> cpAbility(

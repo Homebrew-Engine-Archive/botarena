@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+#include "afxres.h"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -154,7 +153,7 @@ BEGIN
     IDS_STRING27956         "Squelching Leeches\n{2BB}\nCreature - Leech\nJOU,U\nSquelching Leeches's power and toughness are each equal to the number of Swamps you control.\n*/*"
     IDS_STRING27957         "Underworld Coinsmith\n{WB}\nEnchantment Creature - Human Cleric\nJOU,U\nConstellation - Whenever Underworld Coinsmith or another enchantment enters the battlefield under your control, you gain 1 life.\r{WB}, Pay 1 life: Each opponent loses 1 life.\n2/2"
     IDS_STRING27958         "Whitewater Naiads\n{3UU}\nEnchantment Creature - Nymph\nJOU,U\nConstellation - Whenever Whitewater Naiads or another enchantment enters the battlefield under your control, target creature can't be blocked this turn.\n4/4"
-    IDS_STRING27959         "Akroan Line Breaker\n{2R}\nCreature - Human Warrior\nJOU,U\nHeroic — Whenever you cast a spell that targets Akroan Line Breaker, Akroan Line Breaker gets +2/+0 and gains intimidate until end of turn.\n2/2"
+    IDS_STRING27959         "Akroan Line Breaker\n{2R}\nCreature - Human Warrior\nJOU,U\nHeroic - Whenever you cast a spell that targets Akroan Line Breaker, Akroan Line Breaker gets +2/+0 and gains intimidate until end of turn.\n2/2"
     IDS_STRING27960         "Extinguish All Hope\n{4BB}\nSorcery\nJOU,R\nDestroy all nonenchantment creatures."
     IDS_STRING27961         "Feast of Dreams\n{1B}\nInstant\nJOU,C\nDestroy target enchanted creature or enchantment creature."
     IDS_STRING27962         "Bladetusk Boar\n{3R}\nCreature - Boar\nJOU,C\nIntimidate\n3/2"
@@ -233,8 +232,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-
+#include "..\MagicCore\MagicCore.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

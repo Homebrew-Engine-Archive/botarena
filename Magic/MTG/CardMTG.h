@@ -818,9 +818,9 @@ class CPincherToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CPlantToken : public CTokenCreature
+class CPlantAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CPlantToken);
+	DECLARE_CARD_CSTOR(CPlantAToken);
 };
 
 //____________________________________________________________________________
@@ -1453,9 +1453,9 @@ class CElementalHToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CClericToken : public CTokenCreature
+class CClericAToken : public CTokenCreature
 {
-	DECLARE_CARD_CSTOR(CClericToken);
+	DECLARE_CARD_CSTOR(CClericAToken);
 
 protected:
 	CSelectionSupport m_CardSelection;

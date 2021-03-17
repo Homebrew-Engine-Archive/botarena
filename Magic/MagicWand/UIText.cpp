@@ -24,10 +24,10 @@ CGdipBitmap CUIText::s_DefaultFrameRight;
 void CUIText::InitializeFonts()
 {
 	if (!s_apSmallFont.get())
-		s_apSmallFont.reset(new Gdiplus::Font(_T("MPlantin"), 18, Gdiplus::FontStyleBold, Gdiplus::UnitPixel));
+		s_apSmallFont.reset(new Gdiplus::Font(_T("mplantin"), 18, Gdiplus::FontStyleBold, Gdiplus::UnitPixel));
 
 	if (!s_apLargeFont.get())
-		s_apLargeFont.reset(new Gdiplus::Font(_T("MPlantin"), 48, Gdiplus::FontStyleBold, Gdiplus::UnitPixel));
+		s_apLargeFont.reset(new Gdiplus::Font(_T("mplantin"), 48, Gdiplus::FontStyleBold, Gdiplus::UnitPixel));
 }
 
 void CUIText::InitializeBackground()

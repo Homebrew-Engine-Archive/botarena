@@ -1949,7 +1949,6 @@ CCardTypeEnchantment::CCardTypeEnchantment(CCard* pCard, LPCTSTR strManaCost,
 	: CEnchantment(pCard, strManaCost, pComparer)
 	, m_AddCardType(addCardType)
 	, m_AddCardTypeMask(addCardTypeMask)
-	, m_pExcluding_Types(FALSE)
 {
 	AddAbilityTag(AbilityTag::CardChange);
 }
@@ -1960,7 +1959,6 @@ CCardTypeEnchantment::CCardTypeEnchantment(CCard* pCard, AbilityType abilityType
 	: CEnchantment(pCard, abilityType, strManaCost, pComparer)
 	, m_AddCardType(addCardType)
 	, m_AddCardTypeMask(addCardTypeMask)
-	, m_pExcluding_Types(FALSE)
 {
 	AddAbilityTag(AbilityTag::CardChange);
 }
@@ -1971,7 +1969,6 @@ CCardTypeEnchantment::CCardTypeEnchantment(CCard* pCard,
 	: CEnchantment(pCard, pComparer)
 	, m_AddCardType(addCardType)
 	, m_AddCardTypeMask(addCardTypeMask)
-	, m_pExcluding_Types(FALSE)
 {
 	AddAbilityTag(AbilityTag::CardChange);
 }
@@ -1988,19 +1985,17 @@ void CCardTypeEnchantment::OnDisenchantCard(CCard* pCard, const ContextValue& co
 
 void CCardTypeEnchantment::CheckCard(CCard* pCard)
 {	
-	if (m_pExcluding_Types && !IsCardAffected(pCard) )
+	if(!IsCardAffected(pCard))
 	{
 		for (int j = 0; j < m_AffectedCards.GetSize(); ++j)
-	{
-		CCard* pCard1 = m_AffectedCards.GetAt(j);
-		if (pCard == pCard1)
-			return;
-	}
-
+		{
+			CCard* pCard1 = m_AffectedCards.GetAt(j);
+			if (pCard == pCard1)
+				return;
+		}
 	}
 	else
-
-	__super::CheckCard(pCard);
+		__super::CheckCard(pCard);
 }
 
 //____________________________________________________________________________
@@ -2011,7 +2006,6 @@ CCardTypeEnchantment2::CCardTypeEnchantment2(CCard* pCard, LPCTSTR strManaCost,
 	: CEnchantment(pCard, strManaCost, pComparer)
 	, m_AddCardType(addCardType)
 	, m_AddCardTypeMask(addCardTypeMask)
-	, m_pExcluding_Types(FALSE)
 {
 	AddAbilityTag(AbilityTag::CardChange);
 }
@@ -2022,7 +2016,6 @@ CCardTypeEnchantment2::CCardTypeEnchantment2(CCard* pCard, AbilityType abilityTy
 	: CEnchantment(pCard, abilityType, strManaCost, pComparer)
 	, m_AddCardType(addCardType)
 	, m_AddCardTypeMask(addCardTypeMask)
-	, m_pExcluding_Types(FALSE)
 {
 	AddAbilityTag(AbilityTag::CardChange);
 }
@@ -2033,7 +2026,6 @@ CCardTypeEnchantment2::CCardTypeEnchantment2(CCard* pCard,
 	: CEnchantment(pCard, pComparer)
 	, m_AddCardType(addCardType)
 	, m_AddCardTypeMask(addCardTypeMask)
-	, m_pExcluding_Types(FALSE)
 {
 	AddAbilityTag(AbilityTag::CardChange);
 }
@@ -2050,19 +2042,17 @@ void CCardTypeEnchantment2::OnDisenchantCard(CCard* pCard, const ContextValue& c
 
 void CCardTypeEnchantment2::CheckCard(CCard* pCard)
 {	
-	if (m_pExcluding_Types && !IsCardAffected(pCard) )
+	if (!IsCardAffected(pCard))
 	{
 		for (int j = 0; j < m_AffectedCards.GetSize(); ++j)
-	{
-		CCard* pCard1 = m_AffectedCards.GetAt(j);
-		if (pCard == pCard1)
-			return;
-	}
-
+		{
+			CCard* pCard1 = m_AffectedCards.GetAt(j);
+			if (pCard == pCard1)
+				return;
+		}
 	}
 	else
-
-	__super::CheckCard(pCard);
+		__super::CheckCard(pCard);
 }
 
 //____________________________________________________________________________

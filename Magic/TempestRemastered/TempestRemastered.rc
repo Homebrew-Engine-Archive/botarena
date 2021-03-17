@@ -1,0 +1,154 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "TempestRemastered.ico"
+IDI_LARGE_MODULE        ICON                    "TempestRemasteredLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Tempest Remastered"
+    IDS_EXPANSION_ABBREV    "TPR"
+    IDS_FIRST_CARD          "32100"
+    IDS_TOTAL_CARD          "269"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "32370"
+    IDS_MODULE_LARGE_ICON_ID "32371"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "06-05-2015"
+    IDS_MWS_FOLDER          "MWS\\TPR\\"
+    IDS_PRODUCT_LIST        """New Expansion Starter Box"":R-3:U-10:C-32:BL-30,""New Expansion Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32100         "Forest\n\nBasic Land - Forest\nTPR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32101         "Forest\n\nBasic Land - Forest\nTPR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32102         "Forest\n\nBasic Land - Forest\nTPR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32103         "Forest\n\nBasic Land - Forest\nTPR,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32104         "Island\n\nBasic Land - Island\nTPR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32105         "Island\n\nBasic Land - Island\nTPR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32106         "Island\n\nBasic Land - Island\nTPR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32107         "Island\n\nBasic Land - Island\nTPR,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32108         "Mountain\n\nBasic Land - Mountain\nTPR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32109         "Mountain\n\nBasic Land - Mountain\nTPR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32110         "Mountain\n\nBasic Land - Mountain\nTPR,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32111         "Mountain\n\nBasic Land - Mountain\nTPR,BL\n{T}: Add {R} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32112         "Plains\n\nBasic Land - Plains\nTPR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32113         "Plains\n\nBasic Land - Plains\nTPR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32114         "Plains\n\nBasic Land - Plains\nTPR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32115         "Plains\n\nBasic Land - Plains\nTPR,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32116         "Swamp\n\nBasic Land - Swamp\nTPR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32117         "Swamp\n\nBasic Land - Swamp\nTPR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32118         "Swamp\n\nBasic Land - Swamp\nTPR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32119         "Swamp\n\nBasic Land - Swamp\nTPR,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32120         "Caldera Lake\n\nLand\nTPR,U\nCaldera Lake enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {U} or {R} to your mana pool. Caldera Lake deals 1 damage to you."
+    IDS_STRING32121         "Cinder Marsh\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {B} or {R} to your mana pool. Cinder Marsh doesn't untap during your next untap step."
+    IDS_STRING32122         "City of Traitors\n\nLand\nTPR,R\nWhen you play another land, sacrifice City of Traitors.\r{T}: Add {2} to your mana pool."
+    IDS_STRING32123         "Maze of Shadows\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{T}: Untap target attacking creature with shadow. Prevent all combat damage that would be dealt to and dealt by that creature this turn."
+    IDS_STRING32124         "Mogg Hollows\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {R} or {G} to your mana pool. Mogg Hollows doesn't untap during your next untap step."
+    IDS_STRING32125         "Pine Barrens\n\nLand\nTPR,U\nPine Barrens enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {B} or {G} to your mana pool. Pine Barrens deals 1 damage to you."
+    IDS_STRING32126         "Rootwater Depths\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {U} or {B} to your mana pool. Rootwater Depths doesn't untap during your next untap step."
+    IDS_STRING32127         "Salt Flats\n\nLand\nTPR,U\nSalt Flats enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {W} or {B} to your mana pool. Salt Flats deals 1 damage to you."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32128         "Scabland\n\nLand\nTPR,U\nScabland enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {R} or {W} to your mana pool. Scabland deals 1 damage to you."
+    IDS_STRING32129         "Skyshroud Forest\n\nLand\nTPR,U\nSkyshroud Forest enters the battlefield tapped.\r{T}: Add {1} to your mana pool.\r{T}: Add {G} or {U} to your mana pool. Skyshroud Forest deals 1 damage to you."
+    IDS_STRING32130         "Stalking Stones\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{6}: Stalking Stones becomes a 3/3 Elemental artifact creature that's still a land. (This effect lasts indefinitely.)"
+    IDS_STRING32131         "Thalakos Lowlands\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {W} or {U} to your mana pool. Thalakos Lowlands doesn't untap during your next untap step."
+    IDS_STRING32132         "Vec Townships\n\nLand\nTPR,U\n{T}: Add {1} to your mana pool.\r{T}: Add {G} or {W} to your mana pool. Vec Townships doesn't untap during your next untap step."
+    IDS_STRING32133         "Volrath's Stronghold\n\nLegendary Land\nTPR,MR\n{T}: Add {1} to your mana pool.\r{1B}, {T}: Put target creature card from your graveyard on top of your library."
+    IDS_STRING32134         "Wasteland\n\nLand\nTPR,R\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Wasteland: Destroy target nonbasic land."
+    IDS_STRING32135         "Angelic Blessing\n{2W}\nSorcery\nTPR,C\nTarget creature gets +3/+3 and gains flying until end of turn."
+    IDS_STRING32136         "Angelic Protector\n{3W}\nCreature - Angel\nTPR,U\nFlying\rWhenever Angelic Protector becomes the target of a spell or ability, Angelic Protector gets +0/+3 until end of turn.\n2/2"
+    IDS_STRING32137         "Anoint\n{W}\nInstant\nTPR,C\nBuyback {3}\rPrevent the next 3 damage that would be dealt to target creature this turn."
+    IDS_STRING32138         "Armor Sliver\n{2W}\nCreature - Sliver\nTPR,C\nAll Sliver creatures have """"{2}: This creature gets +0/+1 until end of turn.""""\n2/2"
+    IDS_STRING32139         "Armored Pegasus\n{1W}\nCreature - Pegasus\nTPR,C\nFlying\n1/2"
+    IDS_STRING32140         "Avenging Angel\n{3WW}\nCreature - Angel\nTPR,U\nFlying\rWhen Avenging Angel dies, you may put Avenging Angel on top of its owner's library.\n3/3"
+    IDS_STRING32141         "Bandage\n{W}\nInstant\nTPR,C\nPrevent the next 1 damage that would be dealt to target creature or player this turn.\rDraw a card."
+    IDS_STRING32142         "Cataclysm\n{2WW}\nSorcery\nTPR,MR\nEach player chooses from the permanents he or she controls an artifact, a creature, an enchantment, and a land, then sacrifices the rest."
+    IDS_STRING32143         "Charging Paladin\n{2W}\nCreature - Human Knight\nTPR,C\nWhenever Charging Paladin attacks, it gets +0/+3 until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32144         "Conviction\n{1W}\nEnchantment - Aura\nTPR,C\nEnchant creature\rEnchanted creature gets +1/+3.\r{W}: Return Conviction to its owner's hand."
+    IDS_STRING32145         "Disenchant\n{1W}\nInstant\nTPR,C\nDestroy target artifact or enchantment."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

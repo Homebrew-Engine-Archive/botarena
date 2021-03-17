@@ -1,0 +1,137 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "OathOfTheGatewatch.ico"
+IDI_LARGE_MODULE        ICON                    "OathOfTheGatewatchLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Oath of the Gatewatch"
+    IDS_EXPANSION_ABBREV    "OGW"
+    IDS_FIRST_CARD          "33700"
+    IDS_TOTAL_CARD          "184"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "33885"
+    IDS_MODULE_LARGE_ICON_ID "33886"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "22-01-2016"
+    IDS_MWS_FOLDER          "MWS\\OGW\\"
+    IDS_PRODUCT_LIST        """Oath of the Gatewatch Starter Box"":R-3:U-10:C-32:BL-30,""Oath of the Gatewatch Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33700         "Bone Saw\n{0}\nArtifact - Equipment\nOGW,C\nEquipped creature gets +1/+0.\rEquip {1}"
+    IDS_STRING33701         "Mighty Leap\n{1W}\nInstant\nOGW,C\nTarget creature gets +2/+2 and gains flying until end of turn."
+    IDS_STRING33702         "Negate\n{1U}\nInstant\nOGW,C\nCounter target noncreature spell."
+    IDS_STRING33703         "Netcaster Spider\n{2G}\nCreature - Spider\nOGW,C\nReach\rWhenever Netcaster Spider blocks a creature with flying, Netcaster Spider gets +2/+0 until end of turn.\n2/3"
+    IDS_STRING33704         "Affa Protector\n{2W}\nCreature - Human Soldier Ally\nOGW,C\nVigilance\n1/4"
+    IDS_STRING33705         "Grasp of Darkness\n{BB}\nInstant\nOGW,U\nTarget creature gets -4/-4 until end of turn."
+    IDS_STRING33706         "Strider Harness\n{3}\nArtifact - Equipment\nOGW,U\nEquipped creature gets +1/+1 and has haste.\rEquip {1}"
+    IDS_STRING33707         "Meandering River\n\nLand\nOGW,U\nMeandering River enters the battlefield tapped.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING33708         "Submerged Boneyard\n\nLand\nOGW,U\n Submerged Boneyard enters the battlefield tapped.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING33709         "Cinder Barrens\n\nLand\nOGW,U\nCinder Barrens enters the battlefield tapped.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING33710         "Timber Gorge\n\nLand\nOGW,U\nTimber Gorge enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING33711         "Tranquil Expanse\n\nLand\nOGW,U\nTranquil Expanse enters the battlefield tapped.\r{T}: Add {G} or {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33712         "Canopy Gorger\n{4GG}\nCreature - Wurm\nOGW,C\n\n6/5"
+    IDS_STRING33713         "Makindi Aeronaut\n{1W}\nCreature - Kor Scout Ally\nOGW,C\nFlying\n1/3"
+    IDS_STRING33714         "Kor Sky Climber\n{2W}\nCreature - Kor Soldier Ally\nOGW,C\n{1W}: Kor Sky Climber gains flying until end of turn.\n3/2"
+    IDS_STRING33715         "Searing Light\n{W}\nInstant\nOGW,C\nDestroy target attacking or blocking creature with power 2 or less."
+    IDS_STRING33716         "Shoulder to Shoulder\n{2W}\nSorcery\nOGW,C\nSupport 2.\rDraw a card."
+    IDS_STRING33717         "Call the Gatewatch\n{2W}\nSorcery\nOGW,R\nSearch your library for a planeswalker card, reveal it, and put that card into your hand. Then shuffle your library."
+    IDS_STRING33718         "Make a Stand\n{2W}\nInstant\nOGW,U\nCreatures you control gain +1/+0 and gain indestructible until end of turn."
+    IDS_STRING33719         "Kor Scythemaster\n{2W}\nCreature - Kor Soldier Ally\nOGW,C\nKor Scythemaster has first strike as long as it's attacking.\n3/1"
+    IDS_STRING33720         "Spawnbinder Mage\n{3W}\nCreature - Human Wizard Ally\nOGW,C\nCohort - {T}, Tap an untapped Ally you control: Tap target creature.\n2/4"
+    IDS_STRING33721         "Ondu War Cleric\n{1W}\nCreature - Human Wizard Ally\nOGW,C\nCohort - {T}, Tap an untapped Ally you control: You gain 2 life.\n2/2"
+    IDS_STRING33722         "Stoneforge Acolyte\n{W}\nCreature - Kor Artificer Ally\nOGW,U\nCohort - {T}, Tap an untapped Ally you control: Look at the top four cards of your library. You may reveal an Equipment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\n1/2"
+    IDS_STRING33723         "Munda's Vanguard\n{4W}\nCreature - Kor Knight Ally\nOGW,R\nCohort - {T}, Tap an untapped Ally you control: Put a +1/+1 counter on each creature you control.\n3/3"
+    IDS_STRING33724         "Steppe Glider\n{4W}\nCreature - Elemental\nOGW,U\nFlying, vigilance\r{1W}: Target creature with a +1/+1 counter on it gains flying and vigilance until end of turn.\n2/4"
+    IDS_STRING33725         "Relief Captain\n{2WW}\nCreature - Kor Knight Ally\nOGW,U\nWhen Relief Captain enters the battlefield, support 3.\n3/2"
+    IDS_STRING33726         "Expedition Raptor\n{3WW}\nCreature - Bird\nOGW,C\nFlying\rWhen Expedition Raptor enters the battlefield, support 2.\n2/2"
+    IDS_STRING33727         "Isolation Zone\n{2WW}\nEnchantment\nOGW,C\nWhen Isolation Zone enters the battlefield, exile target creature or enchantment an opponent controls until Isolation Zone leaves the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING33728         "Ancient Crab\n{1UU}\nCreature - Crab\nOGW,C\n\n1/5"
+    IDS_STRING33729         "Allied Reinforcements\n{3W}\nSorcery\nOGW,U\nPut two 2/2 white Knight Ally creature tokens onto the battlefield."
+    IDS_STRING33730         "Immolating Glare\n{1W}\nInstant\nOGW,U\nDestroy target attacking creature."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

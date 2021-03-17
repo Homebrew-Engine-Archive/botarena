@@ -78,11 +78,11 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING27400         "Ashiok's Adept\n{2B}\nCreature - Human Wizard\nBNG,U\nHeroic — Whenever you cast a spell that targets Ashiok's Adept, each opponent discards a card.\n1/3"
-    IDS_STRING27401         "Vanguard of Brimaz\n{WW}\nCreature - Cat Soldier\nBNG,U\nHeroic — Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.\n2/2"
+    IDS_STRING27400         "Ashiok's Adept\n{2B}\nCreature - Human Wizard\nBNG,U\nHeroic - Whenever you cast a spell that targets Ashiok's Adept, each opponent discards a card.\n1/3"
+    IDS_STRING27401         "Vanguard of Brimaz\n{WW}\nCreature - Cat Soldier\nBNG,U\nHeroic - Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.\n2/2"
     IDS_STRING27402         "Fated Retribution\n{4WWW}\nInstant\nBNG,R\nDestroy all creatures and planeswalkers. If it's your turn, scry 2."
     IDS_STRING27403         "Dawn to Dusk\n{2WW}\nSorcery\nBNG,U\nChoose one or both - Return target enchantment card from your graveyard to your hand; and/or destroy target enchantment."
-    IDS_STRING27404         "Vanguard of Brimaz\n{WW}\nCreature - Cat Soldier\nBNG,U\nHeroic — Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.\n2/2"
+    IDS_STRING27404         "Vanguard of Brimaz\n{WW}\nCreature - Cat Soldier\nBNG,U\nHeroic - Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.\n2/2"
     IDS_STRING27405         "Oreskos Sun Guide\n{1W}\nCreature - Cat Monk\nBNG,C\nInspired - Whenever Oreskos Sun Guide becomes untapped, you gain 2 life.\n2/2"
     IDS_STRING27406         "Aspect of Hydra\n{G}\nInstant\nBNG,C\nTarget creature gets +X/+X until end of turn, where X is your devotion to green."
     IDS_STRING27407         "Sanguimancy\n{4B}\nSorcery\nBNG,U\nYou draw X cards and you lose X life, where X is your devotion to black."
@@ -91,8 +91,8 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING27408         "Acolyte's Reward\n{1W}\nInstant\nBNG,U\nPrevent the next X damage that would be dealt to target creature this turn where X is your devotion to white. If damage is prevented this way, Acolyte's Reward deals that much damage to target creature or player. "
-    IDS_STRING27409         "Hero of Iroas\n{1W}\nCreature - Human Soldier\nBNG,R\nAura spells you cast cost 1 less to cast. \rHeroic — Whenever you cast a spell that targets Hero of Iroas, put a +1/+1 counter on Hero of Iroas.\n2/2"
-    IDS_STRING27410         "Akroan Skyguard\n{1W}\nCreature - Human Soldier\nBNG,C\nFlying\rHeroic — Whenever you cast a spell that targets Akroan Skyguard, put a +1/+1 counter on Akroan Skyguard.\n1/1"
+    IDS_STRING27409         "Hero of Iroas\n{1W}\nCreature - Human Soldier\nBNG,R\nAura spells you cast cost {1} less to cast. \rHeroic - Whenever you cast a spell that targets Hero of Iroas, put a +1/+1 counter on Hero of Iroas.\n2/2"
+    IDS_STRING27410         "Akroan Skyguard\n{1W}\nCreature - Human Soldier\nBNG,C\nFlying\rHeroic - Whenever you cast a spell that targets Akroan Skyguard, put a +1/+1 counter on Akroan Skyguard.\n1/1"
     IDS_STRING27411         "Plea for Guidance\n{5W}\nSorcery\nBNG,R\nSearch your library for up to two enchantment cards and put them into your hand. Then shuffle your library."
     IDS_STRING27412         "Silent Sentinel\n{5WW}\nCreature - Archon\nBNG,R\nWhenever Silent Sentinel attacks, you may return target enchantment card from your graveyard to your hand.\n4/6"
     IDS_STRING27413         "Akroan Phalanx\n{3W}\nCreature - Human Soldier\nBNG,U\nVigilance\r{2R}: Creatures you control get +1/+0 until end of turn.\n3/3"
@@ -124,7 +124,7 @@ BEGIN
     IDS_STRING27435         "Charging Badger\n{G}\nCreature - Badger\nBNG,C\nTrample\n1/1"
     IDS_STRING27436         "Courser of Kruphix\n{1GG}\nEnchantment Creature - Centaur\nBNG,R\nPlay with the top card of your library revealed.  You may play the top card of your library if it's a land card. Whenever a land enters the battlefield under your control, you gain 1 life.\n2/4"
     IDS_STRING27437         "Eater of Hope\n{5BB}\nCreature - Demon\nBNG,R\nFlying.\r{B}, Sacrifice another creature: Regenerate Eater of Hope.\r{2B}, Sacrifice two other creatures: Destroy target creature.\n6/4"
-    IDS_STRING27438         "Forgestoker Dragon\n{4RR}\nCreature - Dragon\nBNG,R\nFlying\r{1R}: Forgestoker Dragon deals 1 damage to target creature. That creature can't block this combat.  Activate this ability only if Forgestoker Dragon is attacking.\n5/4"""
+    IDS_STRING27438         "Forgestoker Dragon\n{4RR}\nCreature - Dragon\nBNG,R\nFlying\r{1R}: Forgestoker Dragon deals 1 damage to target creature. That creature can't block this combat.  Activate this ability only if Forgestoker Dragon is attacking.\n5/4"
     IDS_STRING27439         "Pharagax Giant\n{4R}\nCreature - Giant\nBNG,C\nTribute 2\rWhen Pharagax Giant enters the battlefield, if tribute wasn't paid, Pharagax Giant deals 5 damage to each opponent.\n3/3"
 END
 
@@ -160,7 +160,7 @@ BEGIN
     IDS_STRING27463         "Black Oak of Odunos\n{2B}\nCreature - Zombie Treefolk\nBNG,R\nDefender\r{B}, Tap another untapped creature you control: Black Oak of Odunos gets +1/+1 until end of turn.\n0/5"
     IDS_STRING27464         "Weight of the Underworld\n{3B}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature gets -3/-2."
     IDS_STRING27465         "Felhide Brawler\n{1B}\nCreature - Minotaur\nBNG,C\nFelhide Brawler can't block unless you control another Minotaur.\n2/2"
-    IDS_STRING27466         "Akroan Conscriptor\n{4R}\nCreature - Human Shaman\nBNG,U\nHeroic — Whenever you cast a spell that targets Akroan Conscriptor, gain control of another target creature until end of turn. Untap that creature. It gains haste until end of turn.\n3/2"
+    IDS_STRING27466         "Akroan Conscriptor\n{4R}\nCreature - Human Shaman\nBNG,U\nHeroic - Whenever you cast a spell that targets Akroan Conscriptor, gain control of another target creature until end of turn. Untap that creature. It gains haste until end of turn.\n3/2"
     IDS_STRING27467         "Bolt of Keranos\n{1RR}\nSorcery\nBNG,C\nBolt of Keranos deals 3 damage to target creature or player. Scry 1."
     IDS_STRING27468         "Cyclops of One Eyed-Pass\n{2RR}\nCreature - Cyclops\nBNG,C\n\n5/2"
     IDS_STRING27469         "Fall of the Hammer\n{1R}\nInstant\nBNG,C\nTarget creature you control deals damage equal to its power to another target creature."
@@ -221,6 +221,7 @@ BEGIN
     IDS_STRING27512         "Pillar of War\n{3}\nArtifact Creature - Golem\nBNG,U\nDefender\rAs long as Pillar of War is enchanted, it can attack as though it didn't have defender.\n3/3"
     IDS_STRING27513         "Sunbond\n{3W}\nEnchantment - Aura\nBNG,U\nEnchant creature\rEnchanted creature has ""Whenever you gain life, put that many +1/+1 counters on this creature."""
     IDS_STRING27514         "Crypsis\n{1U}\nInstant\nBNG,C\nTarget creature gains protection from creatures your opponents control until end of turn.\rUntap it."
+    IDS_STRING27515         "Searing Blood\n{RR}\nInstant\nBNG,U\nSearing Blood deals 2 damage to target creature. When that creature dies this turn, Searing Blood deals 3 damage to the creature's controller."
 END
 
 #endif    // English (United States) resources

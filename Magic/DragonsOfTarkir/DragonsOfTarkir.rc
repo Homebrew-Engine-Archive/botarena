@@ -1,0 +1,221 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "DragonsOfTarkir.ico"
+IDI_LARGE_MODULE        ICON                    "DragonsOfTarkirLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Dragons of Tarkir"
+    IDS_EXPANSION_ABBREV    "DTK"
+    IDS_FIRST_CARD          "29700"
+    IDS_TOTAL_CARD          "264"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "29765"
+    IDS_MODULE_LARGE_ICON_ID "29766"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "27-03-2015"
+    IDS_MWS_FOLDER          "MWS\\DTK\\"
+    IDS_PRODUCT_LIST        """Dragons of Tarkir Starter Box"":R-3:U-10:C-32:BL-30,""Dragons of Tarkir Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29700         "Forest\n\nBasic Land - Forest\nDTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING29701         "Forest\n\nBasic Land - Forest\nDTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING29702         "Forest\n\nBasic Land - Forest\nDTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING29703         "Island\n\nBasic Land - Island\nDTK,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29704         "Island\n\nBasic Land - Island\nDTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING29705         "Island\n\nBasic Land - Island\nDTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING29706         "Mountain\n\nBasic Land - Mountain\nDTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING29707         "Mountain\n\nBasic Land - Mountain\nDTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING29708         "Mountain\n\nBasic Land - Mountain\nDTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING29709         "Plains\n\nBasic Land - Plains\nDTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING29710         "Plains\n\nBasic Land - Plains\nDTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING29711         "Plains\n\nBasic Land - Plains\nDTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING29712         "Swamp\n\nBasic Land - Swamp\nDTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING29713         "Swamp\n\nBasic Land - Swamp\nDTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING29714         "Swamp\n\nBasic Land - Swamp\nDTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING29715         "Battle Mastery\n{2W}\nEnchantment - Aura\nDTK,U\nEnchant creature\rEnchanted creature has double strike."
+    IDS_STRING29716         "Death Wind\n{XB}\nInstant\nDTK,U\nTarget creature gets -X/-X until end of turn."
+    IDS_STRING29717         "Dragon Fodder\n{1R}\nSorcery\nDTK,C\nPut two 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING29718         "Duress\n{B}\nSorcery\nDTK,C\nTarget opponent reveals his or her hand. You choose a noncreature, nonland card from it. That player discards that card."
+    IDS_STRING29719         "Evolving Wilds\n\nLand\nDTK,C\n{T}, Sacrifice Evolving Wilds: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29720         "Explosive Vegetation\n{3G}\nSorcery\nDTK,U\nSearch your library for up to two basic land cards and put them onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING29721         "Gravepurge\n{2B}\nInstant\nDTK,C\nPut any number of target creature cards from your graveyard on top of your library.\rDraw a card."
+    IDS_STRING29722         "Kindled Fury\n{R}\nInstant\nDTK,C\nTarget creature gets +1/+0 and gains first strike until end of turn."
+    IDS_STRING29723         "Mind Rot\n{2B}\nSorcery\nDTK,C\nTarget player discards two cards."
+    IDS_STRING29724         "Naturalize\n{1G}\nInstant\nDTK,C\nDestroy target artifact or enchantment."
+    IDS_STRING29725         "Negate\n{1U}\nInstant\nDTK,C\nCounter target noncreature spell."
+    IDS_STRING29726         "Pacifism\n{1W}\nEnchantment - Aura\nDTK,C\nEnchant creature\rEnchanted creature can't attack or block."
+    IDS_STRING29727         "Spidersilk Net\n{0}\nArtifact - Equipment\nDTK,C\nEquipped creature gets +0/+2 and has reach.\rEquip {2}"
+    IDS_STRING29728         "Summit Prowler\n{2RR}\nCreature - Yeti\nDTK,C\n\n4/3"
+    IDS_STRING29729         "Tormenting Voice\n{1R}\nSorcery\nDTK,C\nAs an additional cost to cast Tormenting Voice, discard a card.\rDraw two cards."
+    IDS_STRING29730         "Ultimate Price\n{1B}\nInstant\nDTK,U\nDestroy target monocolored creature."
+    IDS_STRING29731         "Dromoka Warrior\n{1W}\nCreature - Human Warrior\nDTK,C\n\n3/1"
+    IDS_STRING29732         "Magmatic Chasm\n{1R}\nSorcery\nDTK,C\nCreatures without flying can't block this turn."
+    IDS_STRING29733         "Territorial Roc\n{1W}\nCreature - Bird\nDTK,C\nFlying\n1/3"
+    IDS_STRING29734         "Contradict\n{3UU}\nInstant\nDTK,C\nCounter target spell.\rDraw a card."
+    IDS_STRING29735         "Stormrider Rig\n{2}\nArtifact - Equipment\nDTK,U\nEquipped creature gets +1/+1.\rWhenever a creature enters the battlefield under your control, you may attach Stormrider Rig to it.\rEquip {2}"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29736         "Gate Smasher\n{3}\nArtifact - Equipment\nDTK,U\nGate Smasher can be attached only to a creature with toughness 4 or greater.\rEquipped creature gets +3/+0 and has trample.\rEquip {3}"
+    IDS_STRING29737         "Dragonloft Idol\n{4}\nArtifact Creature - Gargoyle\nDTK,U\nAs long as you control a Dragon, Dragonloft Idol gets +1/+1 and has flying and trample.\n3/3"
+    IDS_STRING29738         "Ancestral Statue\n{4}\nArtifact Creature - Golem\nDTK,C\nWhen Ancestral Statue enters the battlefield, return target nonland permanent to its owner's hand.\n3/4"
+    IDS_STRING29739         "Atarka Monument\n{3}\nArtifact\nDTK,U\n{T}: Add {R} or {G} to your mana pool.\r{4RG}: Atarka Monument becomes a 4/4 red and green Dragon artifact creature with flying until end of turn."
+    IDS_STRING29740         "Dromoka Monument\n{3}\nArtifact\nDTK,U\n{T}: Add {G} or {W} to your mana pool.\r{4GW}: Dromoka Monument becomes a 4/4 green and white Dragon artifact creature with flying until end of turn."
+    IDS_STRING29741         "Kolaghan Monument\n{3}\nArtifact\nDTK,U\n{T}: Add {B} or {R} to your mana pool.\r{4BR}: Kolaghan Monument becomes a 4/4 black and red Dragon artifact creature with flying until end of turn."
+    IDS_STRING29742         "Ojutai Monument\n{3}\nArtifact\nDTK,U\n{T}: Add {W} or {U} to your mana pool.\r{4WU}: Ojutai Monument becomes a 4/4 white and blue Dragon artifact creature with flying until end of turn."
+    IDS_STRING29743         "Silumgar Monument\n{3}\nArtifact\nDTK,U\n{T}: Add {U} or {B} to your mana pool.\r{4UB}: Silumgar Monument becomes a 4/4 blue and black Dragon artifact creature with flying until end of turn."
+    IDS_STRING29744         "Custodian of the Trove\n{3}\nArtifact Creature - Golem\nDTK,C\nDefender\rCustodian of the Trove enters the battlefield tapped.\n2/5"
+    IDS_STRING29745         "Scion of Ugin\n{6}\nCreature - Dragon Spirit\nDTK,U\nFlying\n4/4"
+    IDS_STRING29746         "Tapestry of the Ages\n{4}\nArtifact\nDTK,U\n{2},{T}: Draw a card. Activate this ability only if you've cast a noncreature spell this turn."
+    IDS_STRING29747         "Vial of Dragonfire\n{2}\nArtifact\nDTK,C\n{2}, {T}, Sacrifice Vial of Dragonfire: Vial of Dragonfire deals 2 damage to target creature."
+    IDS_STRING29748         "Sarkhan Unbroken\n{2GUR}\nPlaneswalker - Sarkhan\nDTK,MR\n[+1]: Draw a card, then add one mana of any color to your mana pool.\r[-2]: Put a 4/4 red Dragon creature token with flying onto the battlefield.\r[-8]: Search your library for any number of Dragon creature cards and put them onto the battlefield. Then shuffle your library.\n4"
+    IDS_STRING29749         "Cunning Breezedancer\n{4WU}\nCreature - Dragon\nDTK,U\nFlying\rWhenever you cast a noncreature spell, Cunning Breezedancer gets +2/+2 until end of turn.\n4/4"
+    IDS_STRING29750         "Dragonlord Dromoka\n{4GW}\nLegendary Creature - Elder Dragon\nDTK,MR\nDragonlord Dromoka can't be countered.\rFlying, lifelink\rYour opponents can't cast spells during your turn.\n5/7"
+    IDS_STRING29751         "Arashin Sovereign\n{5GW}\nCreature - Dragon\nDTK,R\nFlying\rWhen Arashin Sovereign dies, you may put it on the top or bottom of its owner's library.\n6/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29752         "Segmented Krotiq\n{5G}\nCreature - Insect\nDTK,C\nMegamorph {6G}\n6/5"
+    IDS_STRING29753         "Aerie Bowmasters\n{2GG}\nCreature - Hound Archer\nDTK,C\nReach\rMegamorph {5G}\n3/4"
+    IDS_STRING29754         "Aven Sunstriker\n{1WW}\nCreature - Bird Warrior\nDTK,U\nFlying\rDouble strike\rMegamorph {4W}\n1/1"
+    IDS_STRING29755         "Dirgur Nemesis\n{5U}\nCreature - Serpent\nDTK,C\nDefender\rMegamorph {6U}\n6/5"
+    IDS_STRING29756         "Gudul Lurker\n{U}\nCreature - Salamander\nDTK,U\nGudul Lurker can't be blocked.\rMegamorph {U}\n1/1"
+    IDS_STRING29757         "Marsh Hulk\n{4BB}\nCreature - Zombie Ogre\nDTK,C\nMegamorph {6B}\n4/6"
+    IDS_STRING29758         "Misthoof Kirin\n{2W}\nCreature - Kirin\nDTK,C\nFlying, vigilance\rMegamorph {1W}\n2/1"
+    IDS_STRING29759         "Ojutai Interceptor\n{3U}\nCreature - Bird Soldier\nDTK,C\nFlying\rMegamorph {3U}\n3/1"
+    IDS_STRING29760         "Sandstorm Charger\n{4W}\nCreature - Beast\nDTK,C\nMegamorph {4W}\n3/4"
+    IDS_STRING29761         "Stormcrag Elemental\n{5R}\nCreature - Elemental\nDTK,U\nTrample\rMegamorph {4RR}\n5/5"
+    IDS_STRING29762         "Acid-Spewer Dragon\n{5B}\nCreature - Dragon\nDTK,U\nMegamorph {5BB}\rWhen Acid-Spewer Dragon is turned face up, put a +1/+1 counter on each other Dragon creature you control.\n3/3"
+    IDS_STRING29763         "Ancient Carp\n{4U}\nCreature - Fish\nDTK,C\n\n2/5"
+    IDS_STRING29764         "Wandering Tombshell\n{3B}\nCreature - Zombie Turtle\nDTK,C\n\n1/6"
+    IDS_STRING29765         "Youthful Scholar\n{3U}\nCreature - Human Wizard\nDTK,U\nWhen Youthful Scholar dies, draw two cards.\n2/2"
+    IDS_STRING29766         "Updraft Elemental\n{2U}\nCreature - Elemental\nDTK,C\nFlying\n1/4"
+    IDS_STRING29767         "Virulent Plague\n{2B}\nEnchantment\nDTK,U\nCreature tokens get -2/-2."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29768         "Ukud Cobra\n{3B}\nCreature - Snake\nDTK,U\nDeathtouch\n2/5"
+    IDS_STRING29769         "Sibsig Icebreakers\n{2B}\nCreature - Zombie\nDTK,C\nWhen Sibsig Icebreakers enters the battlefield, each player discards a card.\n2/3"
+    IDS_STRING29770         "Hand of Silumgar\n{1B}\nCreature - Human Warrior\nDTK,C\nDeathtouch\n2/1"
+    IDS_STRING29771         "Flatten\n{3B}\nInstant\nDTK,C\nTarget creature gets -4/-4 until end of turn."
+    IDS_STRING29772         "Dutiful Attendant\n{2B}\nCreature - Human Warrior\nDTK,C\nWhen Dutiful Attendant dies, return another target creature card from your graveyard to your hand.\n1/2"
+    IDS_STRING29773         "Defeat\n{1B}\nSorcery\nDTK,C\nDestroy target creature with power 2 or less."
+    IDS_STRING29774         "Deadly Wanderings\n{3BB}\nEnchantment\nDTK,U\nAs long as you control exactly one creature, that creature gets +2/+0 and has deathtouch and lifelink."
+    IDS_STRING29775         "Coat with Venom\n{B}\nInstant\nDTK,C\nTarget creature gets +1/+2 and gains deathtouch until end of turn."
+    IDS_STRING29776         "Butcher's Glee\n{2B}\nInstant\nDTK,C\nTarget creature gets +3/+0 and gains lifelink until end of turn. Regenerate it."
+    IDS_STRING29777         "Dragonlord's Servant\n{1R}\nCreature - Goblin Shaman\nDTK,U\nDragon spells you cast cost {1} less to cast.\n1/3"
+    IDS_STRING29778         "Rending Volley\n{R}\nInstant\nDTK,U\nRending Volley can't be countered by spells or abilities.\rRending Volley deals 4 damage to target white or blue creature."
+    IDS_STRING29779         "Assault Formation\n{1G}\nEnchantment\nDTK,R\nEach creature you control assigns combat damage equal to its toughness rather than its power.\r{G}: Target creature with defender can attack this turn as though it didn't have defender.\r{2G}: Creatures you control get +0/+1 until end of turn."
+    IDS_STRING29780         "Atarka Beastbreaker\n{1G}\nCreature - Human Warrior\nDTK,C\nFormidable - {4G}: Atarka Beastbreaker gets +4/+4 until end of turn. Activate this ability only if creatures you control have total power 8 or greater.\n2/2"
+    IDS_STRING29781         "Atarka Pummeler\n{4R}\nCreature - Ogre Warrior\nDTK,U\nFormidable - {3RR}: Each creature you control can't be blocked this turn except by two or more creatures. Activate this ability only if creatures you control have total power 8 or greater.\n4/5"
+    IDS_STRING29782         "Circle of Elders\n{2GG}\nCreature - Human Shaman\nDTK,U\nVigilance\rFormidable - {T}: Add {3} to your mana pool. Activate this ability only if creatures you control have total power 8 or greater.\n2/4"
+    IDS_STRING29783         "Anafenza, Kin-Tree Spirit\n{WW}\nLegendary Creature - Spirit Soldier\nDTK,R\nWhenever another nontoken creature enters the battlefield under your control, bolster 1.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29784         "Sandcrafter Mage\n{2W}\nCreature - Human Wizard\nDTK,C\nWhen Sandcrafter Mage enters the battlefield, bolster 1.\n2/2"
+    IDS_STRING29785         "Aven Tactician\n{4W}\nCreature - Bird Soldier\nDTK,C\nFlying\rWhen Aven Tactician enters the battlefield, bolster 1.\n2/3"
+    IDS_STRING29786         "Dromoka Captain\n{2W}\nCreature - Human Soldier\nDTK,U\nFirst Strike\rWhenever Dromoka Captain attacks, bolster 1.\n1/1"
+    IDS_STRING29787         "Sandsteppe Scavenger\n{4G}\nCreature - Hound Scout\nDTK,C\nWhen Sandsteppe Scavenger enters the battlefield, bolster 2.\n2/2"
+    IDS_STRING29788         "Shambling Goblin\n{B}\nCreature - Zombie Goblin\nDTK,C\nWhen Shambling Goblin dies, target creature an opponent controls gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING29789         "Twin Bolt\n{1R}\nInstant\nDTK,C\nTwin Bolt deals 2 damage divided as you choose among one or two target creatures and/or players."
+    IDS_STRING29790         "Berserkers' Onslaught\n{3RR}\nEnchantment\nDTK,R\nAttacking creatures you control have double strike."
+    IDS_STRING29791         "Harbinger of the Hunt\n{3RG}\nCreature - Dragon\nDTK,R\nFlying\r{2R}: Harbinger of the Hunt deals 1 damage to each creature without flying.\r{2G}: Harbinger of the Hunt deals 1 damage to each other creature with flying.\n5/3"
+    IDS_STRING29792         "Lose Calm\n{3R}\nSorcery\nDTK,C\nGain control of target creature until end of turn. Untap that creature. It gains haste and menace until end of turn."
+    IDS_STRING29793         "Roast\n{1R}\nSorcery\nDTK,U\nRoast deals 5 damage to target creature without flying."
+    IDS_STRING29794         "Sarkhan's Triumph\n{2R}\nInstant\nDTK,U\nSearch your library for a Dragon creature card, reveal it, put it into your hand, then shuffle your library."
+    IDS_STRING29795         "Seismic Rupture\n{2R}\nSorcery\nDTK,U\nSeismic Rupture deals 2 damage to each creature without flying."
+    IDS_STRING29796         "Tail Slash\n{2R}\nInstant\nDTK,C\nTarget creature you control deals damage equal to its power to target creature you don't control."
+    IDS_STRING29797         "Vandalize\n{4R}\nSorcery\nDTK,C\nChoose one or both - \rDestroy target artifact. \rDestroy target land."
+    IDS_STRING29798         "Volcanic Rush\n{4R}\nInstant\nDTK,C\nAttacking creatures get +2/+0 and gain trample until end of turn."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -21,13 +21,6 @@ class CHeapDollCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CSmashToSmithereensCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CSmashToSmithereensCard);
-};
-
-//____________________________________________________________________________
-//
 class CApothecaryInitiateCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CApothecaryInitiateCard);

@@ -13,10 +13,6 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
-		// Add new card class names here:
-		// For example:
-		// 	DEFINE_CARD(CDefenderEnVecCard);
 		DEFINE_TOKEN(CAnimatedArtifactAToken);
 		DEFINE_TOKEN(CAnimatedArtifactBToken);
 		DEFINE_TOKEN(CAnimatedForestAToken);
@@ -52,6 +48,11 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CConstructAFToken);
 		DEFINE_TOKEN(CCrabAAToken);
 		DEFINE_TOKEN(CDevilAAToken);
+		DEFINE_TOKEN(CDragonAAToken);
+		DEFINE_TOKEN(CDragonABToken);
+		DEFINE_TOKEN(CDragonACToken);
+		DEFINE_TOKEN(CDragonADToken);
+		DEFINE_TOKEN(CDragonAEToken);
 		DEFINE_TOKEN(CElementalAAToken);
 		DEFINE_TOKEN(CElementalABToken);
 		DEFINE_TOKEN(CElementalACToken);
@@ -65,6 +66,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CElementalAKToken);
 		DEFINE_TOKEN(CElementalALToken);
 		DEFINE_TOKEN(CElementalAMToken);
+		DEFINE_TOKEN(CElementalANToken);
+		DEFINE_TOKEN(CElementalAOToken);
 		DEFINE_TOKEN(CElementalHorrorAAToken);
 		DEFINE_TOKEN(CElfAAToken);
 		DEFINE_TOKEN(CFaerieAAToken);
@@ -1381,6 +1384,107 @@ CSpiritAIToken::CSpiritAIToken(CGame* pGame, UINT nID)
 		Power(4), Life(4))
 {
 // Animation of Haunted Plate Mail
+}
+
+//____________________________________________________________________________
+//
+CDragonAAToken::CDragonAAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Dragon"), CardType::_ArtifactCreature,
+		CREATURE_TYPE(Dragon), nID,
+		_T(""),							// not used
+		Power(4), Life(4))
+{
+	AddCardType(CardType::Red | CardType::Green, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Animation of DTK Atarka Monument
+}
+
+//____________________________________________________________________________
+//
+CDragonABToken::CDragonABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Dragon"), CardType::_ArtifactCreature,
+		CREATURE_TYPE(Dragon), nID,
+		_T(""),							// not used
+		Power(4), Life(4))
+{
+	AddCardType(CardType::Green | CardType::White, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Animation of DTK Dromoka Monument
+}
+
+//____________________________________________________________________________
+//
+CDragonACToken::CDragonACToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Dragon"), CardType::_ArtifactCreature,
+		CREATURE_TYPE(Dragon), nID,
+		_T(""),							// not used
+		Power(4), Life(4))
+{
+	AddCardType(CardType::Black | CardType::Red, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Animation of DTK Kolaghan Monument
+}
+
+//____________________________________________________________________________
+//
+CDragonADToken::CDragonADToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Dragon"), CardType::_ArtifactCreature,
+		CREATURE_TYPE(Dragon), nID,
+		_T(""),							// not used
+		Power(4), Life(4))
+{
+	AddCardType(CardType::White | CardType::Blue, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Animation of DTK Ojutai Monument
+}
+
+//____________________________________________________________________________
+//
+CDragonAEToken::CDragonAEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Dragon"), CardType::_ArtifactCreature,
+		CREATURE_TYPE(Dragon), nID,
+		_T(""),							// not used
+		Power(4), Life(4))
+{
+	AddCardType(CardType::Blue | CardType::Black, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Animation of DTK Silumgar Monument
+}
+
+//____________________________________________________________________________
+//
+CElementalANToken::CElementalANToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(4), Life(4))
+{
+	GetCreatureKeyword()->AddTrample(FALSE);
+
+// Used by M15 Nissa, Worldwaker
+}
+
+//____________________________________________________________________________
+//
+CElementalAOToken::CElementalAOToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(3), Life(3))
+{
+	GetCreatureKeyword()->AddHaste(FALSE);
+
+// Used by OGW Embodiment of Insight
 }
 
 //____________________________________________________________________________

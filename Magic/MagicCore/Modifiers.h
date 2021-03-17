@@ -1982,9 +1982,10 @@ class CORE_EXPORT CCardCounterModifier
 	: public CCardModifier
 {
 public:
-	CCardCounterModifier(LPCTSTR strCounter, int nValue, 
-						 bool bReplace = false,		// true: replace counter value with nValue (must be positive); false: add (+n) or subtract (-n) the counter value
-						 CCard* pFromCard = NULL)	// if set: move counter from/to this card (bReplace parameter is ignored and nValue is the number of counter moved)
+	CCardCounterModifier(LPCTSTR strCounter = _T("+1/+1"), 
+						 int	 nValue		= 1, 
+						 bool	 bReplace	= false,	// true->replace counter value with nValue (must be positive); false->add (+n) or subtract (-n) the counter value
+						 CCard*  pFromCard	= NULL)		// if set: move counter from/to this card (bReplace parameter is ignored and nValue is the number of counter moved)
 		: m_strCounter(strCounter)
 		, m_nValue(nValue)
 		, m_bReplace(bReplace)
@@ -1992,15 +1993,15 @@ public:
 		, m_bDoubling(true)
 	{}
 
-	virtual void ApplyTo(CCard* pCard) const;
+	virtual void ApplyTo   (CCard* pCard) const;
 	virtual void RemoveFrom(CCard* pCard) const;
 
-
+	void SetValue   (int  nValue)  { m_nValue    = nValue;  } // used by CTriggeredBolsterAbility to set bolster number
 	void SetDoubling(bool nDouble) { m_bDoubling = nDouble; }
 
 	virtual CCardModifier* CloneCardModifier() const
 	{
-		CCardCounterModifier* pModifier = new CCardCounterModifier(m_strCounter, m_nValue, m_bReplace, m_cpFromCard.GetPointer());
+		CCardCounterModifier* pModifier  = new CCardCounterModifier(m_strCounter, m_nValue, m_bReplace, m_cpFromCard.GetPointer());
 		pModifier->m_LinkedCardModifiers = m_LinkedCardModifiers;
 		return pModifier;
 	}
@@ -2015,20 +2016,20 @@ public:
 			return true;
 
 		return
-			__super::Equals(rhs) &&
+			__super::Equals(rhs)				&&
 			m_strCounter == pThis->m_strCounter &&
-			m_nValue == pThis->m_nValue &&
-			m_bReplace == pThis->m_bReplace &&
+			m_nValue	 == pThis->m_nValue		&&
+			m_bReplace	 == pThis->m_bReplace	&&
 			m_cpFromCard == pThis->m_cpFromCard &&
-			m_bDoubling == pThis->m_bDoubling;
+			m_bDoubling  == pThis->m_bDoubling;
 	}
 
 protected:
-	CString m_strCounter;
-	int m_nValue;
-	bool m_bReplace;
+	CString			   m_strCounter;
+	int				   m_nValue;
+	bool			   m_bReplace;
 	counted_ptr<CCard> m_cpFromCard;
-	bool m_bDoubling;
+	bool			   m_bDoubling;
 };
 //____________________________________________________________________________
 //

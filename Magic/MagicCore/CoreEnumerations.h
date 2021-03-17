@@ -213,36 +213,34 @@ public:
 
 		switch (nodeId.Get())
 		{
-		case BeforeBeginningStep: strNodeName = _T("Before Beginning turn"); break;
-		case BeginningStep: strNodeName = _T("Beginning phase"); break;
-		case UntapStep: strNodeName = _T("Untap step"); break;
-		case UpkeepStep: strNodeName = _T("Upkeep step"); break;
-		case DrawStep1: strNodeName = _T("Draw step (Normal Draws)"); break;
-		case DrawStep2: strNodeName = _T("Draw step"); break;
-		case MainPhaseStep: strNodeName = _T("Main phase"); break;
-		case EndStep: strNodeName = _T("End step"); break;
-		case CleanupStep1: strNodeName = _T("Clean Up step (Discard)"); break;
-		case CleanupStep2: strNodeName = _T("Clean Up step"); break;
-		case BeginningOfCombatStep: strNodeName = _T("Beginning Combat step"); break;
-		case DeclareAttackersStep1: strNodeName = _T("Declare Attackers step"); break;
-		case DeclareAttackersStep2: strNodeName = _T("End of Attacker Declaration"); break;
-		case DeclareBlockersStep1: strNodeName = _T("Declare Blockers step"); break;
+			case BeforeBeginningStep:	strNodeName = _T("Before Beginning turn");		 break;
+			case BeginningStep:			strNodeName = _T("Beginning phase");			 break;
+			case UntapStep:				strNodeName = _T("Untap step");					 break;
+			case UpkeepStep:			strNodeName = _T("Upkeep step");				 break;
+			case DrawStep1:				strNodeName = _T("Draw step (Normal Draws)");	 break;
+			case DrawStep2:				strNodeName = _T("Draw step");					 break;
+			case MainPhaseStep:			strNodeName = _T("Main phase");					 break;
+			case EndStep:				strNodeName = _T("End step");					 break;
+			case CleanupStep1:			strNodeName = _T("Clean Up step (Discard)");	 break;
+			case CleanupStep2:			strNodeName = _T("Clean Up step");				 break;
+			case BeginningOfCombatStep: strNodeName = _T("Beginning Combat step");		 break;
+			case DeclareAttackersStep1: strNodeName = _T("Declare Attackers step");		 break;
+			case DeclareAttackersStep2: strNodeName = _T("End of Attacker Declaration"); break;
+			case DeclareBlockersStep1:  strNodeName = _T("Declare Blockers step");		 break;
 #ifdef M10_COMBAT
-		case DeclareBlockersStep1a: strNodeName = _T("Declare Blockers step: damage assignment orderings"); break;
+			case DeclareBlockersStep1a: strNodeName = _T("Declare Blockers step: damage assignment orderings");  break;
 #endif
-		case DeclareBlockersStep2: strNodeName = _T("End of Blocker Declaration"); break;
-		case CombatDamageStep1a: strNodeName = _T("Combat Damage Step: first strike damage assignments)"); break;
-		case CombatDamageStep1b: strNodeName = _T("Combat Damage Step: end of first strike damage assignments "); break;
-		case CombatDamageStep2a: strNodeName = _T("Combat Damage step: damage assignments"); break;
-		case CombatDamageStep2b: strNodeName = _T("Combat Damage step: end of damage assignments"); break;
-		case EndOfCombatStep: strNodeName = _T("End of Combat step"); break;
-		default:
-			ATLASSERT(false);
+			case DeclareBlockersStep2:  strNodeName = _T("End of Blocker Declaration");							 break;
+			case CombatDamageStep1a:    strNodeName = _T("Combat Damage Step: first strike damage assignments)");break;
+			case CombatDamageStep1b:    strNodeName = _T("Combat Damage Step: end of first strike damage assignments "); break;
+			case CombatDamageStep2a:    strNodeName = _T("Combat Damage step: damage assignments");				 break;
+			case CombatDamageStep2b:    strNodeName = _T("Combat Damage step: end of damage assignments");		 break;
+			case EndOfCombatStep:	    strNodeName = _T("End of Combat step");									 break;
+			default:
+				ATLASSERT(false);
 		}
-
 		return strNodeName;
 	}
-
 	CString ToString() const { return ToString(m_Value); }
 };
 
@@ -300,19 +298,17 @@ public:
 
 		switch (sourceColor.Get())
 		{
-		case BlueSource: strSourceColor = _T("Blue Source"); break;
-		case BlackSource: strSourceColor = _T("Black Source"); break;
-		case RedSource: strSourceColor = _T("Red Source"); break;
-		case GreenSource: strSourceColor = _T("Green Source"); break;
-		case WhiteSource: strSourceColor = _T("White Source"); break;
-		case ColorlessSource: strSourceColor = _T("Colorless Source"); break;
-		default:
-			ATLASSERT(false);
+			case BlueSource:	  strSourceColor = _T("Blue Source");	   break;
+			case BlackSource:	  strSourceColor = _T("Black Source");	   break;
+			case RedSource:		  strSourceColor = _T("Red Source");	   break;
+			case GreenSource:	  strSourceColor = _T("Green Source");	   break;
+			case WhiteSource:	  strSourceColor = _T("White Source");	   break;
+			case ColorlessSource: strSourceColor = _T("Colorless Source"); break;
+			default:
+				ATLASSERT(false);
 		}
-
 		return strSourceColor;
 	}
-
 	CString ToString() const { return ToString(m_Value); }
 };
 
@@ -394,7 +390,7 @@ struct ZoneId
 		Exile			= 0x0020,		
 
 		_OwnedCards		= 0x0040, // pseudo zone: contains all the player's owned cards plus temporary view of all owned tokens
-		_Tokens			= 0x0080,	// pseudo zone: use for tokens to transit into/remove from in-play zones
+		_Tokens			= 0x0080, // pseudo zone: use for tokens to transit into/remove from in-play zones
 
 		_Effects        = 0x0100,
 
@@ -427,23 +423,21 @@ public:
 
 		switch (zoneId.Get())
 		{
-		case Graveyard: strZoneName = _T("Graveyard"); break;
-		case Hand: strZoneName = _T("Hand"); break;
-		case Battlefield: strZoneName = _T("Battlefield"); break;
-		case Library: strZoneName = _T("Library"); break;
-		case Stack: strZoneName = _T("Stack"); break;
-		case Exile: strZoneName = _T("Exile"); break;
-		case _OwnedCards: strZoneName = _T("Owned cards"); break;
-		case _Tokens: strZoneName = _T("Tokens"); break;
-		case _Effects: strZoneName = _T("Effects"); break;
-		case _ExileFaceDown: strZoneName = _T("Exile"); break;
-		default:
-			ATLASSERT(false);
+			case Graveyard:		 strZoneName = _T("Graveyard");	  break;
+			case Hand:			 strZoneName = _T("Hand");		  break;
+			case Battlefield:	 strZoneName = _T("Battlefield"); break;
+			case Library:		 strZoneName = _T("Library");	  break;
+			case Stack:			 strZoneName = _T("Stack");		  break;
+			case Exile:			 strZoneName = _T("Exile");		  break;
+			case _OwnedCards:	 strZoneName = _T("Owned cards"); break;
+			case _Tokens:		 strZoneName = _T("Tokens");	  break;
+			case _Effects:		 strZoneName = _T("Effects");	  break;
+			case _ExileFaceDown: strZoneName = _T("Exile");		  break;
+			default:
+				ATLASSERT(false);
 		}
-
 		return strZoneName;
 	}
-
 	CString ToString() const { return ToString(m_Value); }
 };
 
@@ -520,6 +514,7 @@ struct PlayerEffectType
 		CantGainLife,				// Player can't gain life
 		CantChangeLife,             // Player's life total can't change
 		CantPreventDamage,			// Damage can't be prevented
+		CantAttackWithCreatures,	// Players can't attack with creatures (Parameter is card filter pointer)
 
 		WitherDamage,				// All damage is dealt as though its source had wither.
 
@@ -560,6 +555,7 @@ struct PlayerEffectType
 
 		CantPlayActivatedAbilities,	// Players can't play activated abilities (mana abilities not okay) (Parameter is card filter pointer)
 		CantPlayActivatedAbilities2,// Players can't play activated abilities (mana abilities okay) (Parameter is card filter pointer)
+		CantPlayLands,				// Players can't play lands  (Parameter is card filter pointer)
 		CantPlaySpells,				// Players can't play spells (Parameter is card filter pointer)
 		TeferiEffect,				// Players can cast spells only any time they could cast a sorcery
 		GrafdiggersCage,			// Players can't cast spells from graveyard or library, creatures can't move from graveyard or library to battlefield
@@ -678,7 +674,7 @@ struct Orientation
 		_DoubleFaceMask   = (FaceFirst | FaceSecond),
 		UnMorph		= 0x00000100,
 		Morph		= 0x00000200,
-		_MorphMask   = (UnMorph | Morph),
+		_MorphMask  = (UnMorph | Morph),
 
 		_All		= 0xffffffff
 	};
@@ -863,6 +859,7 @@ struct CreatureKeyword
 
 		MustAttackEachCombat				= 0x0010000000000000,	// Ref: Hellraiser Goblin
 		Monstrous							= 0x0020000000000000,
+		Renowned							= 0x0040000000000000,
 
 		_All								= 0xffffffffffffffff,
 
@@ -1249,38 +1246,40 @@ struct CardType
 	DEFINE_BITFLAG_ENUM_OPS(CardType, unsigned __int64);
 
 public:
-	bool IsCreature() const { return (m_Value & Creature).Any(); }
-	bool IsToken() const { return (m_Value & Token).Any(); }
-	bool IsCopy() const { return (m_Value & Copy).Any(); }
+	bool IsCreature()	  const { return (m_Value & Creature).Any();	 }
+	bool IsToken()		  const { return (m_Value & Token).Any();		 }
+	bool IsCopy()		  const { return (m_Value & Copy).Any();		 }
 	bool IsPlaneswalker() const { return (m_Value & Planeswalker).Any(); }
-	bool IsLand() const { return (m_Value & _Land).Any(); }
-	bool IsEmblem() const { return (m_Value & Vanguard).Any(); }
-	bool IsScheme() const { return (m_Value & Scheme).Any();   }
-	bool IsPlane() const { return (m_Value & Plane).Any();   }
-	bool IsEnchantment() const { return (m_Value & _Enchantment).Any(); }
-	bool IsArtifact() const { return (m_Value & Artifact).Any(); }
-	bool IsSorcery() const { return (m_Value & Sorcery).Any(); }
-	bool IsInstant() const { return (m_Value & Instant).Any(); }
-	bool IsTribal() const { return (m_Value & Tribal).Any(); }
-	bool IsPermanent() const { return (m_Value & _Permanent).Any(); }
-	bool IsMulticolor() const
+	bool IsLand()		  const { return (m_Value & _Land).Any();		 }
+	bool IsEmblem()		  const { return (m_Value & Vanguard).Any();	 }
+	bool IsScheme()		  const { return (m_Value & Scheme).Any();		 }
+	bool IsPlane()		  const { return (m_Value & Plane).Any();		 }
+	bool IsEnchantment()  const { return (m_Value & _Enchantment).Any(); }
+	bool IsArtifact()	  const { return (m_Value & Artifact).Any();	 }
+	bool IsSorcery()	  const { return (m_Value & Sorcery).Any();		 }
+	bool IsInstant()	  const { return (m_Value & Instant).Any();		 }
+	bool IsTribal()		  const { return (m_Value & Tribal).Any();		 }
+	bool IsPermanent()	  const { return (m_Value & _Permanent).Any();	 }
+	bool IsLegendary()	  const { return (m_Value & Legendary).Any();	 }
+	bool IsMulticolor()	  const
 	{
-		enum{	mask4 = unsigned __int64(_ColorMask - Green),	//WUBR
-				mask2 = mask4 & (mask4>>2),			//  BR
-				mask1 = mask2 & (mask2<<1)			//  B
+		enum{	mask4 = unsigned __int64(_ColorMask - Green),		//WUBR
+				mask2 = mask4 & (mask4>>2),							//  BR
+				mask1 = mask2 & (mask2<<1)							//  B
 		};
-		STATIC_CHECK(((mask4<<4)&mask4)==0); //4 consecutive bits
-		STATIC_CHECK(((mask2>>2)<<2)==mask2); //2 free bits to the right
+		STATIC_CHECK(((mask4<<4)&mask4) == 0);						//4 consecutive bits
+		STATIC_CHECK(((mask2>>2)<<2)    == mask2);					//2 free bits to the right
 
 		unsigned __int64 colors=unsigned __int64(m_Value) & mask4;
 		
-		if(colors==0)return false; //Green or colorless
-		if((m_Value & Green).Any()) return true; //Green and something else
+		if(colors == 0)
+			return false;											//Green or colorless
+		if((m_Value & Green).Any()) 
+			return true;											//Green and something else
 
-		unsigned __int64 shiftplus=(colors&mask2) + (colors>>2); // only 1001==0100+0101<1100
-		return(shiftplus>mask1)&&(colors!=mask1); //1100>1001>1000 but 1000+0010==1010>1000 too!
-	}//7 operations but only 3 jumps, all of them predictable!
-
+		unsigned __int64 shiftplus=(colors&mask2) + (colors>>2);	// only 1001==0100+0101<1100
+		return(shiftplus>mask1)&&(colors!=mask1);					//1100>1001>1000 but 1000+0010==1010>1000 too!
+	}																//7 operations but only 3 jumps, all of them predictable!
 	friend class CGame;
 };
 
@@ -1452,6 +1451,7 @@ struct CORE_EXPORT SingleCreatureType
 		Plant,
 		Praetor,
 		Prism,
+		Processor,
 		Rabbit,
 		Rat,
 		Rebel,
@@ -1466,6 +1466,7 @@ struct CORE_EXPORT SingleCreatureType
 		Saproling,
 		Satyr,
 		Scarecrow,
+		Scion,
 		Scorpion,
 		Scout,
 		Serf,

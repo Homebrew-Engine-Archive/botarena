@@ -833,7 +833,7 @@ CElementalSToken::CElementalSToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
 
-// Used by Young Pyromancer
+// M14 version; used by Molten Birth, Young Pyromancer
 }
 
 //____________________________________________________________________________
@@ -859,7 +859,7 @@ CSaprolingNToken::CSaprolingNToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
-// M14 version; used by Sporemound
+// M14 version: used by Sporemound
 }
 
 //____________________________________________________________________________
@@ -882,7 +882,7 @@ CDragonGToken::CDragonGToken(CGame* pGame, UINT nID)
 
 	AddAbility(cpAbility.GetPointer());
 
-// Used by Dragon Egg
+// M14 version: used by Dragon Egg
 }
 
 //____________________________________________________________________________
@@ -895,7 +895,7 @@ CWolfIToken::CWolfIToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
-// M14 version; used by Howl of the Night Pack
+// M14 version: used by Howl of the Night Pack
 }
 
 //____________________________________________________________________________
@@ -908,7 +908,7 @@ CElementalTToken::CElementalTToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
 
-// Used by Molten Birth
+// M14 version: used by Molten Birth
 }
 
 //____________________________________________________________________________
@@ -922,7 +922,7 @@ CHarpyToken::CHarpyToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Black, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
-// Used by Abhorrent Overloard
+// THS version: used by Abhorrent Overloard
 }
 
 //____________________________________________________________________________
@@ -935,7 +935,7 @@ CElementalUToken::CElementalUToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Blue, CardType::_ColorMask);
 
-// Used by Master of Waves
+// THS version: used by Master of Waves
 }
 
 //____________________________________________________________________________
@@ -950,7 +950,7 @@ CSoldierNToken::CSoldierNToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddHaste(FALSE);
 
-// Used by Akroan Crusader
+// THS version: used by Akroan Crusader
 }
 
 //____________________________________________________________________________
@@ -988,7 +988,7 @@ CGolemEToken::CGolemEToken(CGame* pGame, UINT nID)
 		Power(3), Life(3))
 {
 
-// Used by Hammer of Purphoros
+// THS version: used by Hammer of Purphoros
 }
 
 //____________________________________________________________________________
@@ -1001,7 +1001,7 @@ CBoarBToken::CBoarBToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
-// Used by Curse of the Swine
+// THS version: used by Curse of the Swine
 }
 
 //____________________________________________________________________________
@@ -1016,7 +1016,7 @@ CBirdIToken::CBirdIToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddFlying(FALSE);
 
-// Used by Swan Song
+// THS version: used by Swan Song
 }
 
 //____________________________________________________________________________
@@ -1029,7 +1029,7 @@ CSatyrToken::CSatyrToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Red | CardType::Green, CardType::_ColorMask);
 	GetCreatureKeyword()->AddHaste(FALSE);
-// Used by Xenagos, the Reveler
+// THS version: used by Xenagos, the Reveler
 }
 
 //____________________________________________________________________________
@@ -1042,7 +1042,7 @@ CSnakeGToken::CSnakeGToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
 	GetCardKeyword()->AddDeathtouch(FALSE);
-// Used by Ophiomancer
+// C13 version: used by Ophiomancer
 }
 
 //____________________________________________________________________________
@@ -1055,7 +1055,7 @@ CElementalVToken::CElementalVToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
 	GetCreatureKeyword()->AddHaste(FALSE);
-// Used by Tempt With Vengeance
+// C13 version: used by Tempt With Vengeance
 }
 
 //____________________________________________________________________________
@@ -1068,7 +1068,7 @@ CBeastNToken::CBeastNToken(CGame* pGame, UINT nID)
 {
     AddCardType(CardType::Green, CardType::_ColorMask);
 	GetCreatureKeyword()->AddTrample(FALSE);
-// C13 version; used by Spawning Grounds
+// C13 version: used by Spawning Grounds
 }
 
 //____________________________________________________________________________
@@ -1155,7 +1155,7 @@ CWolfJToken::CWolfJToken(CGame* pGame, UINT nID)
 		Power(2), Life(2))
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
-// BNG version: 
+// BNG version: used by Raised by Wolves
 }
 
 //____________________________________________________________________________
@@ -1167,7 +1167,7 @@ CKrakenAToken::CKrakenAToken(CGame* pGame, UINT nID)
 		Power(9), Life(9))
 {
 	AddCardType(CardType::Blue, CardType::_ColorMask);
-// BNG version: 
+// BNG version: used by Kiora, the Crashing Wave
 }
 
 //____________________________________________________________________________
@@ -1180,7 +1180,7 @@ CBirdKToken::CBirdKToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::White, CardType::_ColorMask);
 	GetCreatureKeyword()->AddFlying(FALSE);
-// BNG version:
+// BNG version: used by Aerie Worshippers, Ornitharch
 }
 
 //____________________________________________________________________________
@@ -1192,7 +1192,7 @@ CZombieOToken::CZombieOToken(CGame* pGame, UINT nID)
 		Power(0), Life(0))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
-// JOU version:
+// JOU version: used by Ritual of the Returned
 }
 
 //____________________________________________________________________________

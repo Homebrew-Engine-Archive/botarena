@@ -976,13 +976,6 @@ class CDogpileCard : public CCard
 
 //____________________________________________________________________________
 //
-class CFieryConclusionCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CFieryConclusionCard);
-};
-
-//____________________________________________________________________________
-//
 class CLastGaspCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CLastGaspCard);

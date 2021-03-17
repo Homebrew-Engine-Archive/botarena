@@ -592,16 +592,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CLlanowarEmpathCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CLlanowarEmpathCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
 class CBaruFistOfKrosaCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBaruFistOfKrosaCard);

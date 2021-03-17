@@ -64,7 +64,7 @@ public:
 	//________________________________________________________________________
 	// Event Sources
 
-	CPtrEventSource<CNode>* GetCurrentNodeEventSource()	const { return m_cpCurrentNode.GetPointer(); }
+	CPtrEventSource<CNode>* GetCurrentNodeEventSource()		const { return m_cpCurrentNode.GetPointer();			  }
 
 	// OnSubjectTargeted(const CSubjectGroup& subjectGroup)
 	TargetSubjectEventSource* GetTargetSubjectEventSource() const { return m_cpTargetSubjectEventSource.GetPointer(); }
@@ -76,46 +76,46 @@ public:
 	CGame();
 	virtual ~CGame();
 
-	bool HasInitialized() const								{ return m_bInitialized; }
-	bool InDestruction() const								{ return m_bInDestruction; }
+	bool HasInitialized()						const		{ return m_bInitialized;		 }
+	bool InDestruction()						const		{ return m_bInDestruction;		 }
 
 	void DefineAllClassIDs();
 
 	void SetConsoleGame(bool bConsoleGame)					{ m_bConsoleGame = bConsoleGame; }
 	void SetVerboseConsoleOutput(bool bVerboseConsoleOutput){ m_bVerboseConsoleOutput = bVerboseConsoleOutput; }
-	bool GetVerboseConsoleOutput() const					{ return m_bVerboseConsoleOutput; }
+	bool GetVerboseConsoleOutput()				const		{ return m_bVerboseConsoleOutput;}
 		
 	void Run();
-	bool Ended() const;
+	bool Ended()								const;
 
 	void Stop();
-	bool IsStopping() const;
+	bool IsStopping()							const;
 
-	int GetGameTurnNumber() const							{ return m_nGameTurnNumber; }
+	int GetGameTurnNumber()						const		{ return m_nGameTurnNumber;		 }
 	void IncreaseGameTurnNumber();
 
-	int GetGameMorphNumber()								{ return m_nGameMorphNumber; }
+	int GetGameMorphNumber()								{ return m_nGameMorphNumber;	 }
 	void IncreaseGameMorphNumber();
 
-	int GetGameDrawNumber() const							{ return m_nGameDrawNumber; }
+	int GetGameDrawNumber()						const		{ return m_nGameDrawNumber;		 }
 	void IncreaseGameDrawNumber();
 
-	int GetActionNumber() const								{ return m_nActionNumber; }
+	int GetActionNumber()						const		{ return m_nActionNumber;		 }
 	void PerformedAction(const CAction* pAction);
-	const CAction* GetLastPerformedAction() const			{ return m_cpLastPerformedAction.GetPointer(); }
+	const CAction* GetLastPerformedAction()		const		{ return m_cpLastPerformedAction.GetPointer(); }
 
 	void SetStoppingEvent(HANDLE hStoppingEvent);
-	HANDLE GetStoppingEvent() const							{ return m_hStoppingEvent; }
+	HANDLE GetStoppingEvent()					const		{ return m_hStoppingEvent;		 }
 
 	void SetOwningThread(Threading::CThread* pThread);
 
-	void GetChecksum(CMD5Checksum& Checksum) const;
+	void GetChecksum(CMD5Checksum& Checksum)	const;
 
 	int GetUniqueId()										{ ++m_nUniqueId; return m_nUniqueId; }
 
 	void SetBeginningOfTurnCallback(BeginningOfTurnCallback callback) { m_BeginningOfTurnCallback = callback; }
 
-	void AddStatebasedHint(StatebasedHint hint)				{ m_StatebasedHint |= hint; }
+	void AddStatebasedHint(StatebasedHint hint)				{ m_StatebasedHint |= hint;			 }
 
 	//________________________________________________________________________
 	// U.I. and Logging
@@ -136,12 +136,12 @@ public:
 	void Message(LPCTSTR strMessage, int nImageIndex, 
 				 MessageImportance importance = MessageImportance::Normal,
 				 BOOL bToPastTense = TRUE);
-	int GetComputerImage() const							{ return m_nComputerImage; }
-	int GetHumanImage() const								{ return m_nHumanImage; }
-	int GetDebugImage() const								{ return m_nDebugImage; }
-	int GetBugImage() const									{ return m_nBugImage; }
+	int GetComputerImage()			const							{ return m_nComputerImage; }
+	int GetHumanImage()				const							{ return m_nHumanImage;	   }
+	int GetDebugImage()				const							{ return m_nDebugImage;    }
+	int GetBugImage()				const							{ return m_nBugImage;	   }
 
-	void Speak(LPCTSTR strMessage) const;
+	void Speak(LPCTSTR strMessage)  const;
 
 	//________________________________________________________________________
 	// Players
@@ -149,39 +149,39 @@ public:
 	void CreatePlayers(int nPlayerCount = 2);
 	void SetStartFirst(int nPlayer);
 
-	BOOL GetMulligan() const								{ return m_bMulligan; }
-	void SetMulligan(BOOL bMulligan)						{ m_bMulligan = bMulligan; }
+	BOOL GetMulligan()							   const	{ return m_bMulligan;				   }
+	void SetMulligan(BOOL bMulligan)						{ m_bMulligan = bMulligan;			   }
 
-	int GetHumanPlayerCount() const;
+	int GetHumanPlayerCount()					   const;
 
-	int GetPlayerCount() const								{ return m_Players.GetSize(); }
-	CPlayer* GetPlayer(int nIndex)							{ return m_Players.GetAt(nIndex); }
-	const CPlayer* GetPlayer(int nIndex) const				{ return m_Players.GetAt(nIndex); }
-	const CPlayerContainer& GetPlayerContainer() const		{ return m_Players; }
+	int GetPlayerCount()						   const	{ return m_Players.GetSize();		   }
+	CPlayer* GetPlayer(int nIndex)							{ return m_Players.GetAt(nIndex);	   }
+	const CPlayer* GetPlayer(int nIndex) const				{ return m_Players.GetAt(nIndex);	   }
+	const CPlayerContainer& GetPlayerContainer()   const	{ return m_Players;					   }
 
-	int GetPlayerIndex(const CPlayer* pPlayer) const		{ return m_Players.FindIndex(pPlayer); }
+	int GetPlayerIndex(const CPlayer* pPlayer)     const	{ return m_Players.FindIndex(pPlayer); }
 
-	CPlayer* GetActivePlayer() const 						{ return m_pActivePlayer.GetPointer(); }
-	CPlayer* GetPriorityPlayer() const						{ return m_pPriorityPlayer.GetPointer(); }
+	CPlayer* GetActivePlayer()					   const 	{ return m_pActivePlayer.GetPointer(); }
+	CPlayer* GetPriorityPlayer()				   const	{ return m_pPriorityPlayer.GetPointer(); }
 
 	CPlayer* GetNextPlayer(const CPlayer* pPlayer) const;
 	void SetNextActivePlayer();
-	void SetActivePlayer(CPlayer* pPlayer)                 {m_pActivePlayer = pPlayer; } 
+	void SetActivePlayer(CPlayer* pPlayer)                  { m_pActivePlayer = pPlayer;		   } 
 	void SetNextPriorityPlayer();
 	void SetPriorityPlayer(CPlayer* pPlayer);
-	CPlayer* GetThinkingPlayer() const;
+	CPlayer* GetThinkingPlayer()				   const;
 	void SetThinkingPlayer(CPlayer* pPlayer);
 
 	// These normalized operations are needed to maintain network checksum orders and interface orders
 	void SetNormalizedPlayerIndex(int nNormalizedPlayerIndex) { m_nNormalizedPlayerIndex = nNormalizedPlayerIndex; }
 	CPlayerContainer GetPlayersInNormalizedOrder() const;
 
-	bool IsDeveloper() const								{ return m_bDeveloper; }
+	bool IsDeveloper()							   const	{ return m_bDeveloper;				   }
 
 	void Concede();
 
 	void SetTriggeredResolutionPlayer(CPlayer* pPlayer);
-	CPlayer* GetTriggeredResolutionPlayer() const			{ return m_pTriggeredResolutionPlayer.GetPointer(); }
+	CPlayer* GetTriggeredResolutionPlayer()		   const	{ return m_pTriggeredResolutionPlayer.GetPointer(); }
 
 	/*
 	const std::set<SingleCreatureType>* GetPlayerCreatureTypes() const	{ return &m_TP.m_PlayerCreatureTypes; }
@@ -192,55 +192,55 @@ public:
 	// Global information
 
 	int GetCertainTypeDiedCount(CardType pType) const;
-	//int GetDeadZuberas() const { return m_nDeadZuberas; };
+	//int GetDeadZuberas()						const		{ return m_nDeadZuberas; };
 	//void IncreaseDeadZuberas(CCard* pCard);
-	//void ResetDeadZuberas() { m_nDeadZuberas = 0; };
-	int GetTurnCastedSpellCount() const;
-	int GetLastTurnCastedSpellCount() const;
+	//void ResetDeadZuberas()								{ m_nDeadZuberas = 0;    };
+	int GetTurnCastedSpellCount()				const;
+	int GetLastTurnCastedSpellCount()			const;
 
 	//________________________________________________________________________
 	// Steps
 
-	CNode* GetCurrentNode() const							{ return m_cpCurrentNode->GetPointer(); }
+	CNode* GetCurrentNode()						const		{ return m_cpCurrentNode->GetPointer(); }
 	void SetCurrentNode(CNode* pNode);
 
-	bool IsMainPhase(bool bPrecombat) const;
-	bool IsFirstMainPhase() const;
+	bool IsMainPhase(bool bPrecombat)			const;
+	bool IsFirstMainPhase()						const;
 
-	//BOOL IsAfterUpkeep() const								{ return m_bAfterUpkeep; } // needed for Reset to work correctly with upkeep-skipping effects
-	//void SetAfterUpkeep(BOOL bAfterUpkeep)					{ m_bAfterUpkeep = bAfterUpkeep; } // needed for Reset to work correctly with upkeep-skipping effects
+	//BOOL IsAfterUpkeep()						const		{ return m_bAfterUpkeep; } // needed for Reset to work correctly with upkeep-skipping effects
+	//void SetAfterUpkeep(BOOL bAfterUpkeep)				{ m_bAfterUpkeep = bAfterUpkeep; } // needed for Reset to work correctly with upkeep-skipping effects
 
-	const CSelection& GetSelection() const					{ return m_Selection; }
-	CSelection& GetSelection()								{ return m_Selection; }
+	const CSelection& GetSelection()			const		{ return m_Selection;		  }
+	CSelection& GetSelection()								{ return m_Selection;		  }
 
 	CScheduler* GetScheduler()								{ return m_apScheduler.get(); }
 
 	//________________________________________________________________________
 	// Stack
 
-	const CStack& GetStack() const							{ return m_Stack; }
-	CStack& GetStack()										{ return m_Stack; }
+	const CStack& GetStack()										 const	{ return m_Stack; }
+	CStack& GetStack()														{ return m_Stack; }
 
-	BOOL HasTarget(const CCard* pCard) const								{ return m_Stack.HasTarget(pCard) || m_Selection.HasTarget(pCard); }
-	BOOL HasTargetedCards(const CPlayer* pControlledBy) const				{ return m_Stack.HasTargetedCards(pControlledBy) || m_Selection.HasTargetedCards(pControlledBy); }
-	BOOL HasTargetedCreatures(const CPlayer* pControlledBy) const			{ return m_Stack.HasTargetedCreatures(pControlledBy) || m_Selection.HasTargetedCreatures(pControlledBy); }
-	BOOL HasTarget(const CPlayer* pPlayer) const							{ return m_Stack.HasTarget(pPlayer) || m_Selection.HasTarget(pPlayer); }
-	BOOL HasOtherCardTargets(const CPlayer* pExceptControlledBy) const		{ return m_Stack.HasOtherCardTargets(pExceptControlledBy) || m_Selection.HasOtherCardTargets(pExceptControlledBy); }
+	BOOL HasTarget(const CCard* pCard)								 const	{ return m_Stack.HasTarget(pCard) || m_Selection.HasTarget(pCard); }
+	BOOL HasTargetedCards(const CPlayer* pControlledBy)				 const	{ return m_Stack.HasTargetedCards(pControlledBy) || m_Selection.HasTargetedCards(pControlledBy); }
+	BOOL HasTargetedCreatures(const CPlayer* pControlledBy)			 const	{ return m_Stack.HasTargetedCreatures(pControlledBy) || m_Selection.HasTargetedCreatures(pControlledBy); }
+	BOOL HasTarget(const CPlayer* pPlayer)							 const	{ return m_Stack.HasTarget(pPlayer) || m_Selection.HasTarget(pPlayer); }
+	BOOL HasOtherCardTargets(const CPlayer* pExceptControlledBy)	 const	{ return m_Stack.HasOtherCardTargets(pExceptControlledBy) || m_Selection.HasOtherCardTargets(pExceptControlledBy); }
 	BOOL HasOtherCreatureTargets(const CPlayer* pExceptControlledBy) const	{ return m_Stack.HasOtherCreatureTargets(pExceptControlledBy) || m_Selection.HasOtherCreatureTargets(pExceptControlledBy); }
-	BOOL HasOtherPlayerTargets(const CPlayer* pExceptThisPlayer) const		{ return m_Stack.HasOtherPlayerTargets(pExceptThisPlayer) || m_Selection.HasOtherPlayerTargets(pExceptThisPlayer); }
+	BOOL HasOtherPlayerTargets(const CPlayer* pExceptThisPlayer)	 const	{ return m_Stack.HasOtherPlayerTargets(pExceptThisPlayer) || m_Selection.HasOtherPlayerTargets(pExceptThisPlayer); }
 
 	//________________________________________________________________________
 	// Combat
 
-	const CSubjectGroupContainer_& GetCombatDamageAssignment() const	{ return m_CombatDamageAssignment; }
-	CSubjectGroupContainer_& GetCombatDamageAssignment()				{ return m_CombatDamageAssignment; }
-	bool HasCombatDamageAssignment(const CCreatureCard* pCreature) const;
+	const CSubjectGroupContainer_& GetCombatDamageAssignment()		 const	{ return m_CombatDamageAssignment; }
+	CSubjectGroupContainer_& GetCombatDamageAssignment()					{ return m_CombatDamageAssignment; }
+	bool HasCombatDamageAssignment(const CCreatureCard* pCreature)   const;
 
 	void GetAttackingCreatures(CCountedCardContainer& AttackingCreatures) const;
-	void GetBlockingCreatures(CCountedCardContainer& BlockingCreatures) const;
-	void GetBlockedCreatures(CCountedCardContainer& BlockedCreatures) const;
+	void GetBlockingCreatures(CCountedCardContainer& BlockingCreatures)   const;
+	void GetBlockedCreatures(CCountedCardContainer& BlockedCreatures)	  const;
 
-	//bool SuspendAllCreatures() const						{ return To_bool(m_bSuspendAllCreatures); }
+	//bool SuspendAllCreatures()									 const	{ return To_bool(m_bSuspendAllCreatures); }
 	//void SuspendAllCreatures(bool bSuspend);
 
 	//________________________________________________________________________
@@ -251,28 +251,28 @@ public:
 	void UpdateAbility(CAbility* pAbility);
 	//_____________________________________________________________________________
 	// For restarting
-	void SetMulliganAgain()              {m_bMulligan = TRUE; m_bStartWith = TRUE;}   // not state managed
-	void ResetTurnNumbers()          {  m_nGameTurnNumber = 0; }
-	void NullMulliganPlayers()      {m_pMulliganPlayer = NULL; m_pStartWithPlayer = NULL;}
+	void SetMulliganAgain()              { m_bMulligan = TRUE; m_bStartWith = TRUE; }				// not state managed
+	void ResetTurnNumbers()				 { m_nGameTurnNumber = 0;					}
+	void NullMulliganPlayers()			 { m_pMulliganPlayer = NULL; m_pStartWithPlayer = NULL;}
 	
 	//________________________________________________________________________
 	// A.I.
 
-	bool IsThinking() const									{ return m_TD.m_pThinkingPlayer != NULL; }
-	int GetTurnStartedThinking() const						{ return m_TD.m_nTurnStartedThinking; }
+	bool IsThinking()								const						{ return m_TD.m_pThinkingPlayer != NULL; }
+	int GetTurnStartedThinking()					const						{ return m_TD.m_nTurnStartedThinking;	 }
 
 	void RemoveAllStrategies(StrategyRemovalReason reason);
 
-	bool IsRestoring() const								{ return m_TD.m_bRestoring; }
+	bool IsRestoring()								const						{ return m_TD.m_bRestoring;				 }
 
-	bool ExtraCareful() const								{ return m_TP.m_bExtraCareful; }
+	bool ExtraCareful()								const						{ return m_TP.m_bExtraCareful;			 }
 
 	void ClearVisibilityMap();
 	void AddVisibleCard(const CCard* pCard);				// Applicable only when in thinking
 	void RemoveVisibleCard(const CCard* pCard);
 	bool IsCardVisible(const CCard* pCard) const;			// "
 
-	void TrickInManaControl(bool bTrick)					{ m_TP.m_bTrick = bTrick; }	// Call only when stalled
+	void TrickInManaControl(bool bTrick)										{ m_TP.m_bTrick = bTrick;				 }	// Call only when stalled
 
 	int Think(const CActionContainer& actionContainer,
 			  CStrategy& strategy,
@@ -280,10 +280,10 @@ public:
 
 	//void InitializeThinkParameter();
 	void SetThinkParameter(DWORD dwMaxDuration = s_dwDefaultMaxDuration,
-						   bool bExtraCareful = true,	// in combat
-						   bool bBoostProcess = false,
-						   bool bOverkill = true,
-						   bool bConservative = false);
+						   bool bExtraCareful  = true,	// in combat
+						   bool bBoostProcess  = false,
+						   bool bOverkill	   = true,
+						   bool bConservative  = false);
 
 	void AddSearchBreak(SearchBreak toAdd);
 
@@ -542,14 +542,14 @@ protected:
 
 		void Reset()
 		{
-			m_pThinkingPlayer = NULL;
-			m_nTurnStartedThinking = -1;
-			m_nDrawStartedThinking = -1;
+			m_pThinkingPlayer		 = NULL;
+			m_nTurnStartedThinking	 = -1;
+			m_nDrawStartedThinking	 = -1;
 			m_nActionStartedThinking = -1;
-			m_nDrawLookAhead = -1;
+			m_nDrawLookAhead		 = -1;
 			m_bRemoveNegativeActions = true;
-			m_bRestoring = false;
-			m_pRootActionContainer = NULL;
+			m_bRestoring			 = false;
+			m_pRootActionContainer	 = NULL;
 #ifdef THINK_HISTORY
 			m_ThinkHistory.Clear();
 #endif
@@ -730,7 +730,7 @@ protected:
 	void StartWith();
 	void MulliganAsk();
 	void StartWithAsk();
-	void OnMulliganSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void OnMulliganSelectionDone (const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	void OnStartWithSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	//void OnGemstoneCavernsSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 
@@ -814,13 +814,13 @@ protected:
 	void SetupVisibilityMap(CPlayer* pPlayer);
 	SearchStatus GetSearchStatus();
 
-	void ShowProgress() const;
-	void StepProgress() const;
+	void ShowProgress()				const;
+	void StepProgress()				const;
 	void SetProgress(int nProgress) const;
-	void HideProgress() const;
+	void HideProgress()				const;
 
-	void ThinkingStarted() const;
-	void ThinkingStopped() const;
+	void ThinkingStarted()			const;
+	void ThinkingStopped()			const;
 
 	//________________________________________________________________________
 	//
@@ -866,32 +866,32 @@ protected:
 	CStateSupportPtrType<CPlayer>	m_pTriggeredResolutionPlayer;
 	int								m_nNormalizedPlayerIndex;
 
-	int_					m_nGameTurnNumber;
-	int_					m_nGameDrawNumber;
-	int_					m_nActionNumber;
-	int_                    m_nGameMorphNumber;
+	int_							m_nGameTurnNumber;
+	int_							m_nGameDrawNumber;
+	int_							m_nActionNumber;
+	int_							m_nGameMorphNumber;
 	CStateSupportCountedPtrType<const CAction> m_cpLastPerformedAction;
-	//BOOL_					m_bSuspendAllCreatures;
-	int_					m_nUniqueId;
-	//int_					m_nDeadZuberas;
+	//BOOL_							m_bSuspendAllCreatures;
+	int_							m_nUniqueId;
+	//int_							m_nDeadZuberas;
 	
-	//BOOL_					m_bAfterUpkeep; // needed for Reset
+	//BOOL_							m_bAfterUpkeep;						// needed for Reset
 	
-	CSubjectGroupContainer_	m_CombatDamageAssignment;			// changed to CSubjectGroupContainer
-	CStack					m_Stack;
+	CSubjectGroupContainer_			m_CombatDamageAssignment;			// changed to CSubjectGroupContainer
+	CStack							m_Stack;
 
-	CSelection				m_Selection;
+	CSelection						m_Selection;
 	
 
-	std::auto_ptr<CScheduler>	m_apScheduler;
+	std::auto_ptr<CScheduler>		m_apScheduler;
 
 	BOOL							m_bMulligan;
 	CStateSupportPtrType<CPlayer>	m_pMulliganPlayer;
 	BOOL							m_bStartWith;
 	CStateSupportPtrType<CPlayer>	m_pStartWithPlayer;
-	ListenerPtr<SelectionEventSource::Listener>	m_cpMulliganSelectionListener;
+	ListenerPtr<SelectionEventSource::Listener>		m_cpMulliganSelectionListener;
 	//ListenerPtr<SelectionEventSource::Listener>	m_cpStartWithSelectionListener;
-	ListenerPtr<SelectionEventSource::Listener>	m_cpLegendarySelectionListener;
+	ListenerPtr<SelectionEventSource::Listener>		m_cpLegendarySelectionListener;
 	CSelectionSupport		m_StartWithSelection;
 	//CSelectionSupport		m_GemstoneCavernsSelection;
 

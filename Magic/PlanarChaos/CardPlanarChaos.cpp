@@ -4668,19 +4668,12 @@ CAkromaAngelofFuryCard::CAkromaAngelofFuryCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Akroma, Angel of Fury"), CardType::_LegendaryCreature, CREATURE_TYPE(Angel), nID,
 		_T("5") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, Power(6), Life(6), _T("3") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT)
 {
-	GetCardKeyword()->AddProtection(CardKeyword::ProtectionFromBlue, false);
-	GetCardKeyword()->AddProtection(CardKeyword::ProtectionFromWhite, false);
-	GetCardKeyword()->AddCantBeCountered(false);
-	GetCreatureKeyword()->AddFlying(false);
-	GetCreatureKeyword()->AddTrample(false);
-
 	this->AddCreatureType(SingleCreatureType::Angel);
-	this->AddCardKeyword(CardKeyword::CantBeCountered);
-	this->AddCardKeyword(CardKeyword::ProtectionFromBlue);
-	this->AddCardKeyword(CardKeyword::ProtectionFromWhite);
-	this->AddCreatureKeyword(CreatureKeyword::Trample);
-	this->AddCreatureKeyword(CreatureKeyword::Flying);
-
+	this->AddCardModifier(new CCardKeywordModifier(CardKeyword::CantBeCountered, true, false));
+	this->AddCardModifier(new CCardKeywordModifier(CardKeyword::ProtectionFromBlue, true, false));
+	this->AddCardModifier(new CCardKeywordModifier(CardKeyword::ProtectionFromWhite, true, false));
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
 		counted_ptr<CPumpAbility> cpAbility(
 			::CreateObject<CPumpAbility>(this,

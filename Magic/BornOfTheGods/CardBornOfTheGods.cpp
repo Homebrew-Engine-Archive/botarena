@@ -43,6 +43,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CEvanescentIntellectCard);
 		DEFINE_CARD(CExcoriateCard);
 		DEFINE_CARD(CEyeGougeCard);
+		DEFINE_CARD(CFallOfTheHammerCard);
 		DEFINE_CARD(CFanaticOfXenagosCard);
 		DEFINE_CARD(CFatedConflagrationCard);
 		DEFINE_CARD(CFatedInfatuationCard);
@@ -100,6 +101,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSatyrNyxSmithCard);
 		DEFINE_CARD(CScourgeOfSkolaValeCard);
 		DEFINE_CARD(CScouringSandsCard);
+		DEFINE_CARD(CSearingBloodCard);
 		DEFINE_CARD(CServantOfTymaretCard);
 		DEFINE_CARD(CSetessanOathswornCard);
 		DEFINE_CARD(CSetessanStarbreakerCard);
@@ -111,7 +113,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSphinxsDiscipleCard);
 		DEFINE_CARD(CSpiritOfTheLabyrinthCard);
 		DEFINE_CARD(CStormcallerOfKeranosCard);
-		DEFINE_CARD(CStratusWalkCard);
 		DEFINE_CARD(CSuddenStormCard);
 		DEFINE_CARD(CSunbondCard);
 		DEFINE_CARD(CSwordwiseCentaurCard);
@@ -124,7 +125,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CUnravelTheAetherCard);
 		DEFINE_CARD(CVanguardOfBrimazCard);
 		DEFINE_CARD(CWarchanterOfMogisCard);
-		DEFINE_CARD(CWeightOfTheUnderworldCard);
 		DEFINE_CARD(CWhelmingWaveCard);
 	} while (false);
 
@@ -1119,26 +1119,6 @@ bool COraclesInsightCard::BeforeResolution(CAbilityAction* pAction)
 // end draw a card code
 	return true;
 }
-//____________________________________________________________________________
-//
-CStratusWalkCard::CStratusWalkCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Stratus Walk"), nID,
-		_T("1") BLUE_MANA_TEXT,
-		Power(+0), Life(+0),
-		CreatureKeyword::Flying | CreatureKeyword::OnlyBlockFlying)
-{
-	typedef
-		TTriggeredAbility< CTriggeredDrawCardAbility, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-	
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetDrawCount(1);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
 //____________________________________________________________________________
 //
 CFatedRetributionCard::CFatedRetributionCard(CGame* pGame, UINT nID)
@@ -2527,15 +2507,6 @@ CBlackOakOfOdunosCard::CBlackOakOfOdunosCard(CGame* pGame, UINT nID)
 	m_pPumpAbility->GetCost().AddTapCardCost(1, &m_CardFilter);
 	
 	GetCreatureKeyword()->AddDefender(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CWeightOfTheUnderworldCard::CWeightOfTheUnderworldCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Weight of the Underworld"), nID,
-		_T("3") BLACK_MANA_TEXT,
-		Power(-3), Life(-2))
-{
 }
 
 //____________________________________________________________________________
@@ -4870,7 +4841,82 @@ void CCrypsisCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, B
 		pCard->GetCardKeyword()->AddSpecialProtection(TRUE, &m_CardFilter);	   // TRUE->this turn only
 		pModifier.ApplyTo(pCard);
 	}
+}
 
+//____________________________________________________________________________
+//
+CSearingBloodCard::CSearingBloodCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Searing Blood"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			RED_MANA_TEXT RED_MANA_TEXT,
+			new AnyCreatureComparer, false));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSearingBloodCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CSearingBloodCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
+	pSubjects.AddCard(pTarget, CardPlacement::Top);
+	
+	CLifeModifier pModifier1 = CLifeModifier(Life(-2), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+	pModifier1.ApplyTo(pTarget);
+	
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("Searing Blood Effect"), 61137, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CFallOfTheHammerCard::CFallOfTheHammerCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Fall of the Hammer"), CardType::Instant, nID)
+{
+	counted_ptr<CSoulsFireSpell> cpSpell(
+		::CreateObject <CSoulsFireSpell>(this, AbilityType::Instant,
+			_T("1") RED_MANA_TEXT));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+CFallOfTheHammerCard::CSoulsFireSpell::CSoulsFireSpell(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost)
+	: CDoubleTargetSpell(pCard, abilityType, strManaCost,
+		new AnyCreatureComparer, false,	//false->do not allow player targets
+		new AnyCreatureComparer, false, //false->do not allow player targets
+		_T(""), true)					//true->target another creature (do not allow the same target for both parts of the spell)
+{
+	GetTargeting1()->SetIncludeControllerCardsOnly();
+	GetTargeting1()->SetDefaultCharacteristic(Characteristic::Positive);
+	GetTargeting2()->SetDefaultCharacteristic(Characteristic::Negative);
+}
+
+void CFallOfTheHammerCard::CSoulsFireSpell::ResolveGroup(const CCountedCardContainer& pContainer1, const CCountedCardContainer& pContainer2,
+														 const CPlayerContainer& pPContainer1, const CPlayerContainer& pPContainer2)
+{
+	if (!pContainer1.GetSize() || (!pContainer2.GetSize() && !pPContainer2.GetSize())) 
+		return;
+
+	const CCreatureCard* pCreature1 = dynamic_cast<const CCreatureCard*>(pContainer1.GetAt(0));
+	
+	if (!pCreature1) 
+		return;
+
+	CLifeModifier modifier = CLifeModifier(Life(-GET_INTEGER(pCreature1->GetPower())),
+										   pCreature1, PreventableType::Preventable, DamageType::NonCombatDamage);
+	if (pContainer2.GetSize())
+	{
+		CCreatureCard* pCreature2 = dynamic_cast<CCreatureCard*>(pContainer2.GetAt(0));
+		if (pCreature2) 
+			modifier.ApplyTo(pCreature2);
+	}
+	else 
+		if (pPContainer2.GetSize()) modifier.ApplyTo(pPContainer2.GetAt(0));
 }
 
 //____________________________________________________________________________

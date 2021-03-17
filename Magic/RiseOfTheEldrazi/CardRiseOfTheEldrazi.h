@@ -558,13 +558,6 @@ class CStomperCubCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CTotemGuideHartebeestCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CTotemGuideHartebeestCard);
-};
-
-//____________________________________________________________________________
-//
 class CWildheartInvokerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWildheartInvokerCard);
@@ -677,16 +670,6 @@ class CLeafArrowCard : public CTargetChgLifeSpellCard
 
 //____________________________________________________________________________
 //
-class CMightOfTheMassesCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CMightOfTheMassesCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction) const;
-};
-
-//____________________________________________________________________________
-//
 class CPuncturingLightCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CPuncturingLightCard);
@@ -763,13 +746,6 @@ class CSharedDiscoveryCard : public CCard
 class CWrapInFlamesCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CWrapInFlamesCard);
-};
-
-//____________________________________________________________________________
-//
-class CRunedServitorCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CRunedServitorCard);
 };
 
 //____________________________________________________________________________
@@ -1297,8 +1273,8 @@ class CStaggershockCard : public CTargetChgLifeSpellCard
 	DECLARE_CARD_CSTOR(CStaggershockCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1307,7 +1283,6 @@ protected:
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
@@ -1320,8 +1295,8 @@ class CDistortionStrikeCard : public CChgPwrTghAttrSpellCard
 	DECLARE_CARD_CSTOR(CDistortionStrikeCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1330,7 +1305,6 @@ protected:
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
@@ -1343,8 +1317,8 @@ class CConsumingVaporsCard : public CCard
 	DECLARE_CARD_CSTOR(CConsumingVaporsCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1353,7 +1327,6 @@ protected:
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
@@ -1366,8 +1339,8 @@ class CEmergeUnscathedCard : public CCard
 	DECLARE_CARD_CSTOR(CEmergeUnscathedCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1376,7 +1349,6 @@ protected:
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
@@ -1389,8 +1361,8 @@ class CNomadsAssemblyCard : public CCard
 	DECLARE_CARD_CSTOR(CNomadsAssemblyCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1412,8 +1384,8 @@ class CSurvivalCacheCard : public CCard
 	DECLARE_CARD_CSTOR(CSurvivalCacheCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1421,13 +1393,10 @@ protected:
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 
 private:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-
 	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
+	void OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener2;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
 };
@@ -1456,8 +1425,8 @@ class CVirulentSwipeCard : public CChgPwrTghAttrSpellCard
 	DECLARE_CARD_CSTOR(CVirulentSwipeCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1466,7 +1435,6 @@ protected:
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
@@ -1498,8 +1466,8 @@ class CPreysVengeanceCard : public CChgPwrTghAttrSpellCard
 	DECLARE_CARD_CSTOR(CPreysVengeanceCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1508,7 +1476,6 @@ protected:
 
 private:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 	CCardFlagModifier m_CardFlagModifier1;
 	CCardFlagModifier m_CardFlagModifier2;
@@ -1782,8 +1749,8 @@ class CRecurringInsightCard : public CCard
 	DECLARE_CARD_CSTOR(CRecurringInsightCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef
@@ -1806,8 +1773,8 @@ class CSurrealMemoirCard : public CCard
 	DECLARE_CARD_CSTOR(CSurrealMemoirCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
 	BOOL CanPlay1(BOOL bIncludeTricks);	
 	BOOL CanPlay2(BOOL bIncludeTricks);		
 	typedef

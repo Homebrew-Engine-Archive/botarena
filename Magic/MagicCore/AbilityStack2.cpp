@@ -1908,71 +1908,6 @@ void CDeflectionSpell::DeflectTargetToSpell(CTargetStackSpellAction* pAction, CC
 
 //____________________________________________________________________________
 //
-CDrawCardSpellEx::CDrawCardSpellEx(CCard* pCard, AbilityType abilityType,
-								   LPCTSTR strManaCost,
-								   int nDrawCount)
-	: CSpell(pCard, abilityType, strManaCost, FALSE)
-	, m_nDrawCount(nDrawCount)
-	, m_ZoneModifier(pCard->GetGame(), ZoneId::Library, nDrawCount, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top, 
-		CZoneModifier::RoleType::None)
-{
-	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
-
-	// Draw card
-	m_ZoneModifier.AddSelection(MinimumValue(nDrawCount), MaximumValue(nDrawCount), CZoneModifier::RoleType::PrimaryPlayer, CZoneModifier::RoleType::PrimaryPlayer);
-}
-
-CActionContainer* CDrawCardSpellEx::GetAbilityActions(BOOL bIncludeTricks, BOOL bSetNames)
-{
-	CActionContainer* pActionContainer = __super::GetAbilityActions(bIncludeTricks, bSetNames);
-	if (!pActionContainer)
-		return NULL;
-
-	for (int i = 0; i < pActionContainer->GetSize(); ++i)
-	{
-		CManaConsumptionAbilityAction* pAction = (CManaConsumptionAbilityAction*)pActionContainer->GetAt(i).GetPointer();
-
-		int nDrawCount = m_nDrawCount;
-		if (m_Cost.GetExtraManaCost() != 0)
-		{
-			nDrawCount += m_Cost.GetExtraValue(pAction->GetCostConfigEntry());
-		}
-
-		pAction->SetValue(ContextValue(nDrawCount));
-
-		if (bSetNames)
-		{
-			CString strActionName;
-			if (nDrawCount == 1)
-				strActionName = _T(" to draw a card");
-			else
-				strActionName.Format(_T(" to draw %d cards"), nDrawCount);
-		
-			pAction->AppendToActionName(strActionName);
-		}
-	}
-
-	return pActionContainer;
-}
-
-BOOL CDrawCardSpellEx::ResolveImpl(const CAbilityAction* pAction)
-{
-	if (!__super::ResolveImpl(pAction))
-		return FALSE;
-
-	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
-	CPlayer* pCaster = pAction1->GetController();
-
-	int nDrawCount = pAction1->GetValue().nValue1;
-
-	m_ZoneModifier.SetCount(nDrawCount);
-	m_ZoneModifier.ApplyTo(pCaster);
-
-	return TRUE;
-}
-
-//____________________________________________________________________________
-//
 CDrawCardSpell::CDrawCardSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   int nDrawCount)
@@ -2181,10 +2116,142 @@ void CDrawCardSpell::OnSelectionDone(const std::vector<SelectionEntry>& selectio
 
 //____________________________________________________________________________
 //
-// Ref: Tolarian Winds: Discard your hand, then draw that many cards
-CDrawCardSpell3::CDrawCardSpell3(CCard* pCard, AbilityType abilityType,
-							     LPCTSTR strManaCost)
+CDrawCardSpellEx::CDrawCardSpellEx(CCard* pCard, AbilityType abilityType,
+								   LPCTSTR strManaCost,
+								   int nDrawCount)
 	: CSpell(pCard, abilityType, strManaCost, FALSE)
+	, m_nDrawCount(nDrawCount)
+	, m_ZoneModifier(pCard->GetGame(), ZoneId::Library, nDrawCount, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top, 
+		CZoneModifier::RoleType::None)
+{
+	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
+
+	// Draw card
+	m_ZoneModifier.AddSelection(MinimumValue(nDrawCount), MaximumValue(nDrawCount), CZoneModifier::RoleType::PrimaryPlayer, CZoneModifier::RoleType::PrimaryPlayer);
+}
+
+CActionContainer* CDrawCardSpellEx::GetAbilityActions(BOOL bIncludeTricks, BOOL bSetNames)
+{
+	CActionContainer* pActionContainer = __super::GetAbilityActions(bIncludeTricks, bSetNames);
+	if (!pActionContainer)
+		return NULL;
+
+	for (int i = 0; i < pActionContainer->GetSize(); ++i)
+	{
+		CManaConsumptionAbilityAction* pAction = (CManaConsumptionAbilityAction*)pActionContainer->GetAt(i).GetPointer();
+
+		int nDrawCount = m_nDrawCount;
+		if (m_Cost.GetExtraManaCost() != 0)
+		{
+			nDrawCount += m_Cost.GetExtraValue(pAction->GetCostConfigEntry());
+		}
+
+		pAction->SetValue(ContextValue(nDrawCount));
+
+		if (bSetNames)
+		{
+			CString strActionName;
+			if (nDrawCount == 1)
+				strActionName = _T(" to draw a card");
+			else
+				strActionName.Format(_T(" to draw %d cards"), nDrawCount);
+		
+			pAction->AppendToActionName(strActionName);
+		}
+	}
+
+	return pActionContainer;
+}
+
+BOOL CDrawCardSpellEx::ResolveImpl(const CAbilityAction* pAction)
+{
+	if (!__super::ResolveImpl(pAction))
+		return FALSE;
+
+	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
+	CPlayer* pCaster = pAction1->GetController();
+
+	int nDrawCount = pAction1->GetValue().nValue1;
+
+	m_ZoneModifier.SetCount(nDrawCount);
+	m_ZoneModifier.ApplyTo(pCaster);
+
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+CDrawCardSpell2::CDrawCardSpell2(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
+								 ZoneId uSurveyZoneId, BOOL bSurveyCastersZone, 
+								 BOOL bSurveyOpponentsZone)
+	: CSpell(pCard, abilityType, strManaCost, FALSE)
+	, m_uSurveyZoneId(uSurveyZoneId)
+	, m_bSurveyCastersZone(bSurveyCastersZone)
+	, m_bSurveyOpponentsZone(bSurveyOpponentsZone)
+{
+	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
+}
+
+BOOL CDrawCardSpell2::ResolveImpl(const CAbilityAction* pAction)
+{
+	if (!__super::ResolveImpl(pAction))
+		return FALSE;
+
+	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
+	CPlayer* pCaster = pAction1->GetController();
+
+	int nDrawCount = 0;
+
+	for (int i = 0; i < m_pGame->GetPlayerCount(); ++i)
+	{
+		CPlayer* pPlayer = m_pGame->GetPlayer(i);
+		if (pPlayer == pCaster && !m_bSurveyCastersZone)
+			continue;
+
+		if (pPlayer != pCaster && !m_bSurveyOpponentsZone)
+			continue;
+
+		CZone* pSurveyZone = pPlayer->GetZoneById(m_uSurveyZoneId);
+
+		for (int j = 0; j < pSurveyZone->GetSize(); ++j)
+			if (m_SurveyCardFilter.IsCardIncluded(pSurveyZone->GetAt(j)))
+				++nDrawCount;
+	}
+
+	if (nDrawCount &&
+		!CDrawCardCommon::ResolveDrawCards(pCaster, pCaster, nDrawCount))
+	{
+		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+/*
+ CDrawCardSpell3 caters for the cases where the caster discards their hand and draws from their 
+ library a number of cards that is related to the size of the hand they have just discarded.
+ 
+ Ref: Tolarian Winds      : Discard your hand, then draw that many cards
+	  Chandra, Flamecaller: Discard all the cards in your hand, then draw that many cards plus one.
+ The variable nHandCardAntAdjustment is set to the difference between the size of the hand discarded
+ and the number of cards required by the card text to replace them. 
+ Valid values for nHandCardAntAdjustment are -1, 0, +1, etc..
+ Any negative new hand size is set to 0.
+ Examples
+	Tolarian Winds set nHandCardAntAdjustment to 0 because the discarded hand and number of cards to replace them is the
+		same amount.
+	Chandra, Flamecaller set nHandCardAntAdjustment to +1 because the discarded hand and the number of cards to replace them
+	is one greater than the original discarded hand count. 
+*/
+CDrawCardSpell3::CDrawCardSpell3(CCard* pCard, 
+								 AbilityType abilityType,
+							     LPCTSTR strManaCost,
+								 int nHandCardCntAdjustment)
+	: CSpell(pCard, abilityType, strManaCost, FALSE)
+	, m_nHandCardCntAdjustment(nHandCardCntAdjustment)
 {
 	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
 }
@@ -2195,31 +2262,207 @@ BOOL CDrawCardSpell3::ResolveImpl(const CAbilityAction* pAction)
 		return FALSE;
 
 	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
+	const CPlayer* pCaster	   = pAction1->GetController();
 
-	const CPlayer* pCaster = pAction1->GetController();
-
-	int nHandCount = pCaster->GetZoneById(ZoneId::Hand)->GetSize();
-
-	// Discard hand
-	if (!CDiscardCardCommon::ResolveDiscardAll(
-		const_cast<CPlayer*>(pCaster), 
-		const_cast<CPlayer*>(pCaster), MoveType::Discard))
+	int nHandCardCnt	       = pCaster->GetZoneById(ZoneId::Hand)->GetSize(); // the size of the hand to be discarded
+	int nHandCardCntAdjustment = m_nHandCardCntAdjustment;						// difference between the size of the hand to be discarded
+																				// and the number of replacement cards to be drawn 
+	int nHandCardCntNew        = nHandCardCnt + nHandCardCntAdjustment;			// new hand size
+	if(nHandCardCntNew < 0)														// new hand size can not be negative
+		nHandCardCntNew = 0;
+	// Discard entire hand
+	if(!CDiscardCardCommon::ResolveDiscardAll(const_cast<CPlayer*>(pCaster), 
+											  const_cast<CPlayer*>(pCaster), 
+											  MoveType::Discard))
 	{
 		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
 		return FALSE;
 	}
+	// Draw the replacemnt cards
+	if (!CDrawCardCommon::ResolveDrawCards(const_cast<CPlayer*>(pCaster),
+										   const_cast<CPlayer*>(pCaster),
+										   nHandCardCntNew))
+	{
+		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
+		return FALSE;
+	}
+	return TRUE;
+}
 
-	// Draw the same number of cards
-	if (!CDrawCardCommon::ResolveDrawCards(
-		const_cast<CPlayer*>(pCaster),
-		const_cast<CPlayer*>(pCaster),
-		nHandCount))
+//____________________________________________________________________________
+//
+#if 1	// Re-implemented with resolution time sacrifices instead of as a cost
+CDrawCardSpell4::CDrawCardSpell4(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
+								 int nSacrificeCount,
+								 const CCardFilter* pSacrificeCardFilter)
+	: CSpell(pCard, abilityType, strManaCost, FALSE)
+	, m_nSacrificeCount(nSacrificeCount)
+	, m_pSacrificeCardFilter(pSacrificeCardFilter)
+	, m_cpSelectionListener(VAR_NAME(m_cpSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CDrawCardSpell4::OnSelectionDone))
+{
+	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
+}
+
+BOOL CDrawCardSpell4::ResolveImpl(const CAbilityAction* pAction)
+{
+	if (!__super::ResolveImpl(pAction))
+		return FALSE;
+
+	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
+	CZone* pZone = pAction1->GetController()->GetZoneById(ZoneId::Battlefield);
+
+	vector<SelectionEntry> entries;
+
+	for (int i = 0; i < pZone->GetSize(); ++i)
+	{
+		CCard* pCard = pZone->GetAt(i);
+		if (m_pSacrificeCardFilter->IsCardIncluded(pCard))
+		{
+			SelectionEntry entry;
+
+			entry.dwContext = (DWORD)pCard;
+			entry.cpAssociatedCard = pCard;
+
+			if ((pCard->GetCardType() & CardType::Creature).Any())
+			{
+				CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
+
+				entry.strText.Format(_T("sacrifices %s"),
+					pCreatureCard->GetCreatureName(TRUE));
+			}
+			else
+				entry.strText.Format(_T("sacrifices %s"),
+					pCard->GetCardName());
+		
+			entries.push_back(entry);
+		}
+	}
+
+	if (entries.size())
+	{
+		//m_pGame->GetSelection()->GetSelectionEventSource()->AddListener(m_cpSelectionListener.GetPointer());
+		m_pGame->GetSelection().AddSelectionRequest(m_cpSelectionListener.GetPointer(), entries, 0, m_nSacrificeCount,
+			GetCard(),
+			const_cast<CPlayer*>(pAction1->GetController()),
+			(DWORD)pAction1->GetController());	// Context 1
+	}
+
+	return TRUE;
+}
+
+void CDrawCardSpell4::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{	
+	m_cpSelectionListener->RemoveAllEventSources();
+
+	CPlayer* pCaster = (CPlayer*)dwContext1;
+	ATLASSERT(pCaster);
+	CZone* pZone = pCaster->GetZoneById(ZoneId::Graveyard);
+
+	for (vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)(it->dwContext);
+			pCard->Move(pZone, pSelectionPlayer, MoveType::Sacrifice);
+		}
+
+	if (!CDrawCardCommon::ResolveDrawCards(pCaster, pCaster, nSelectedCount))
+	{
+		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
+	}
+}
+
+#else
+/*
+CDrawCardSpell4::CDrawCardSpell4(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
+								 int nSacrificeCount,
+								 DWORD dwSacrificeCardFilter)
+	: CSpell(pCard, abilityType, strManaCost, FALSE)
+{
+	AddSacrificeCardCost(nSacrificeCount, dwSacrificeCardFilter);
+}
+
+BOOL CDrawCardSpell4::ResolveImpl(const CAbilityAction* pAction)
+{
+	if (!__super::ResolveImpl(pAction))
+		return FALSE;
+
+	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
+
+	int nSacrificeCount = pAction1->GetCostConfigEntry()->GetSacrificeCards()->GetSize();	// HACK: This shouldn't be a cost but a selection during the resolution
+	//when reverting, remember GetSacrificeCards() can now return NULL!
+	CPlayer* pCaster = pAction1->GetController();
+
+	if (!CDrawCardCommon::ResolveDrawCards(pCaster, nSacrificeCount, 0, FALSE,
+											 0, FALSE, m_pGame->IsThinking(), pCaster))
 	{
 		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
 		return FALSE;
 	}
 
 	return TRUE;
+}
+*/
+#endif
+
+//____________________________________________________________________________
+//
+CDrawCardSpell5::CDrawCardSpell5(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost)
+	: CSpell(pCard, abilityType, strManaCost, FALSE)
+{
+	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
+}
+
+BOOL CDrawCardSpell5::ResolveImpl(const CAbilityAction* pAction)
+{
+	if (!__super::ResolveImpl(pAction))
+		return FALSE;
+
+	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
+
+	Life nPaidLifeDeltaCost = pAction1->GetCostConfigEntry().GetPlayerLifeCost();
+
+	CPlayer* pCaster = pAction1->GetController();
+
+	ATLASSERT(!SpecialNumber::IsSpecialNumber(GET_INTEGER(nPaidLifeDeltaCost)));
+
+	if (!SpecialNumber::IsSpecialNumber(GET_INTEGER(nPaidLifeDeltaCost)) && (nPaidLifeDeltaCost < Life(0)) &&
+		!CDrawCardCommon::ResolveDrawCards(pCaster, pCaster, GET_INTEGER(-nPaidLifeDeltaCost)))
+	{
+		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+//____________________________________________________________________________
+//
+CDrawCardSpell6::CDrawCardSpell6(CCard* pCard, AbilityType abilityType,
+								 LPCTSTR strManaCost,
+								 const CCardFilter* pSacrificeCardFilter)
+								 : CDrawCardSpell(pCard, abilityType, strManaCost, 0)
+{
+	m_Cost.AddSacrificeCardCost(1,	pSacrificeCardFilter);
+}
+
+int CDrawCardSpell6::GetExtraDrawCount(const CManaConsumptionAbilityAction* pAction)
+{
+	const CCostConfigEntry& costEntry = pAction->GetCostConfigEntry();
+	const CCountedCardContainer* pSacrificedCards = costEntry.GetSacrificeCards();
+
+	ATLASSERT(pSacrificedCards&&pSacrificedCards->GetSize() == 1);
+
+	if (pSacrificedCards==NULL || pSacrificedCards->GetSize() == 0)
+		return 0;
+
+	CCard* pCard = pSacrificedCards->GetAt(0);
+
+	ATLASSERT(pCard->GetCardType().IsCreature());
+
+	if (!pCard->GetCardType().IsCreature())
+		return 0;
+
+	return GET_INTEGER(((CCreatureCard*)pCard)->GetPower());
 }
 
 //____________________________________________________________________________
@@ -4044,231 +4287,6 @@ counted_ptr<CAbilityAction> CManaFilterSpell::CreateAction() const
 
 	return cpAction.GetPointer();
 }
-
-//____________________________________________________________________________
-//
-CDrawCardSpell5::CDrawCardSpell5(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost)
-	: CSpell(pCard, abilityType, strManaCost, FALSE)
-{
-	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
-}
-
-BOOL CDrawCardSpell5::ResolveImpl(const CAbilityAction* pAction)
-{
-	if (!__super::ResolveImpl(pAction))
-		return FALSE;
-
-	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
-
-	Life nPaidLifeDeltaCost = pAction1->GetCostConfigEntry().GetPlayerLifeCost();
-
-	CPlayer* pCaster = pAction1->GetController();
-
-	ATLASSERT(!SpecialNumber::IsSpecialNumber(GET_INTEGER(nPaidLifeDeltaCost)));
-
-	if (!SpecialNumber::IsSpecialNumber(GET_INTEGER(nPaidLifeDeltaCost)) && (nPaidLifeDeltaCost < Life(0)) &&
-		!CDrawCardCommon::ResolveDrawCards(pCaster, pCaster, GET_INTEGER(-nPaidLifeDeltaCost)))
-	{
-		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
-		return FALSE;
-	}
-
-	return TRUE;
-}
-
-//____________________________________________________________________________
-//
-CDrawCardSpell6::CDrawCardSpell6(CCard* pCard, AbilityType abilityType,
-								 LPCTSTR strManaCost,
-								 const CCardFilter* pSacrificeCardFilter)
-								 : CDrawCardSpell(pCard, abilityType, strManaCost, 0)
-{
-	m_Cost.AddSacrificeCardCost(1,	pSacrificeCardFilter);
-}
-
-int CDrawCardSpell6::GetExtraDrawCount(const CManaConsumptionAbilityAction* pAction)
-{
-	const CCostConfigEntry& costEntry = pAction->GetCostConfigEntry();
-	const CCountedCardContainer* pSacrificedCards = costEntry.GetSacrificeCards();
-
-	ATLASSERT(pSacrificedCards&&pSacrificedCards->GetSize() == 1);
-
-	if (pSacrificedCards==NULL || pSacrificedCards->GetSize() == 0)
-		return 0;
-
-	CCard* pCard = pSacrificedCards->GetAt(0);
-
-	ATLASSERT(pCard->GetCardType().IsCreature());
-
-	if (!pCard->GetCardType().IsCreature())
-		return 0;
-
-	return GET_INTEGER(((CCreatureCard*)pCard)->GetPower());
-}
-
-//____________________________________________________________________________
-//
-CDrawCardSpell2::CDrawCardSpell2(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
-								 ZoneId uSurveyZoneId, BOOL bSurveyCastersZone, 
-								 BOOL bSurveyOpponentsZone)
-	: CSpell(pCard, abilityType, strManaCost, FALSE)
-	, m_uSurveyZoneId(uSurveyZoneId)
-	, m_bSurveyCastersZone(bSurveyCastersZone)
-	, m_bSurveyOpponentsZone(bSurveyOpponentsZone)
-{
-	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
-}
-
-BOOL CDrawCardSpell2::ResolveImpl(const CAbilityAction* pAction)
-{
-	if (!__super::ResolveImpl(pAction))
-		return FALSE;
-
-	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
-	CPlayer* pCaster = pAction1->GetController();
-
-	int nDrawCount = 0;
-
-	for (int i = 0; i < m_pGame->GetPlayerCount(); ++i)
-	{
-		CPlayer* pPlayer = m_pGame->GetPlayer(i);
-		if (pPlayer == pCaster && !m_bSurveyCastersZone)
-			continue;
-
-		if (pPlayer != pCaster && !m_bSurveyOpponentsZone)
-			continue;
-
-		CZone* pSurveyZone = pPlayer->GetZoneById(m_uSurveyZoneId);
-
-		for (int j = 0; j < pSurveyZone->GetSize(); ++j)
-			if (m_SurveyCardFilter.IsCardIncluded(pSurveyZone->GetAt(j)))
-				++nDrawCount;
-	}
-
-	if (nDrawCount &&
-		!CDrawCardCommon::ResolveDrawCards(pCaster, pCaster, nDrawCount))
-	{
-		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
-		return FALSE;
-	}
-
-	return TRUE;
-}
-
-//____________________________________________________________________________
-//
-#if 1	// Re-implemented with resolution time sacrifices instead of as a cost
-CDrawCardSpell4::CDrawCardSpell4(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
-								 int nSacrificeCount,
-								 const CCardFilter* pSacrificeCardFilter)
-	: CSpell(pCard, abilityType, strManaCost, FALSE)
-	, m_nSacrificeCount(nSacrificeCount)
-	, m_pSacrificeCardFilter(pSacrificeCardFilter)
-	, m_cpSelectionListener(VAR_NAME(m_cpSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CDrawCardSpell4::OnSelectionDone))
-{
-	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
-}
-
-BOOL CDrawCardSpell4::ResolveImpl(const CAbilityAction* pAction)
-{
-	if (!__super::ResolveImpl(pAction))
-		return FALSE;
-
-	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
-	CZone* pZone = pAction1->GetController()->GetZoneById(ZoneId::Battlefield);
-
-	vector<SelectionEntry> entries;
-
-	for (int i = 0; i < pZone->GetSize(); ++i)
-	{
-		CCard* pCard = pZone->GetAt(i);
-		if (m_pSacrificeCardFilter->IsCardIncluded(pCard))
-		{
-			SelectionEntry entry;
-
-			entry.dwContext = (DWORD)pCard;
-			entry.cpAssociatedCard = pCard;
-
-			if ((pCard->GetCardType() & CardType::Creature).Any())
-			{
-				CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
-
-				entry.strText.Format(_T("sacrifices %s"),
-					pCreatureCard->GetCreatureName(TRUE));
-			}
-			else
-				entry.strText.Format(_T("sacrifices %s"),
-					pCard->GetCardName());
-		
-			entries.push_back(entry);
-		}
-	}
-
-	if (entries.size())
-	{
-		//m_pGame->GetSelection()->GetSelectionEventSource()->AddListener(m_cpSelectionListener.GetPointer());
-		m_pGame->GetSelection().AddSelectionRequest(m_cpSelectionListener.GetPointer(), entries, 0, m_nSacrificeCount,
-			GetCard(),
-			const_cast<CPlayer*>(pAction1->GetController()),
-			(DWORD)pAction1->GetController());	// Context 1
-	}
-
-	return TRUE;
-}
-
-void CDrawCardSpell4::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
-{	
-	m_cpSelectionListener->RemoveAllEventSources();
-
-	CPlayer* pCaster = (CPlayer*)dwContext1;
-	ATLASSERT(pCaster);
-	CZone* pZone = pCaster->GetZoneById(ZoneId::Graveyard);
-
-	for (vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
-		if (it->bSelected)
-		{
-			CCard* pCard = (CCard*)(it->dwContext);
-			pCard->Move(pZone, pSelectionPlayer, MoveType::Sacrifice);
-		}
-
-	if (!CDrawCardCommon::ResolveDrawCards(pCaster, pCaster, nSelectedCount))
-	{
-		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
-	}
-}
-
-#else
-/*
-CDrawCardSpell4::CDrawCardSpell4(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
-								 int nSacrificeCount,
-								 DWORD dwSacrificeCardFilter)
-	: CSpell(pCard, abilityType, strManaCost, FALSE)
-{
-	AddSacrificeCardCost(nSacrificeCount, dwSacrificeCardFilter);
-}
-
-BOOL CDrawCardSpell4::ResolveImpl(const CAbilityAction* pAction)
-{
-	if (!__super::ResolveImpl(pAction))
-		return FALSE;
-
-	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
-
-	int nSacrificeCount = pAction1->GetCostConfigEntry()->GetSacrificeCards()->GetSize();	// HACK: This shouldn't be a cost but a selection during the resolution
-	//when reverting, remember GetSacrificeCards() can now return NULL!
-	CPlayer* pCaster = pAction1->GetController();
-
-	if (!CDrawCardCommon::ResolveDrawCards(pCaster, nSacrificeCount, 0, FALSE,
-											 0, FALSE, m_pGame->IsThinking(), pCaster))
-	{
-		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
-		return FALSE;
-	}
-
-	return TRUE;
-}
-*/
-#endif
 
 //____________________________________________________________________________
 //

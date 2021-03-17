@@ -222,6 +222,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSustenanceCard);
 		DEFINE_CARD(CTaskForceCard);
 		DEFINE_CARD(CTectonicBreakCard);
+		DEFINE_CARD(CTerritorialDisputeCard);
 		DEFINE_CARD(CThermalGliderCard);
 		DEFINE_CARD(CThrashingWumpusCard);
 		DEFINE_CARD(CThunderclapCard);
@@ -7899,6 +7900,43 @@ void CSpiritualFocusCard::OnDrawSelected(const std::vector<SelectionEntry>& sele
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CTerritorialDisputeCard::CTerritorialDisputeCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Territorial Dispute"), CardType::GlobalEnchantment, nID,
+		_T("4") RED_MANA_TEXT RED_MANA_TEXT, AbilityType::Enchantment)
+{
+	{
+		typedef
+			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::OptionalTrick);
+		cpAbility->GetOptionalModifier().CCardModifiers::push_back(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice));
+
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new CardTypeComparer(CardType::_Land, false));
+		cpAbility->GetGatherer().SetDefaultCharacteristic(Characteristic::Negative);
+		cpAbility->GetGatherer().SetIncludeControllerCardsOnly();
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
+		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
+
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{//Players can't play lands.
+		counted_ptr<CPlayerEffectEnchantment> cpAbility(
+			::CreateObject<CPlayerEffectEnchantment>(this,
+				PlayerEffectType::CantPlayLands,
+				(int)CCardFilter::GetFilter(_T("lands"))));
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 //____________________________________________________________________________

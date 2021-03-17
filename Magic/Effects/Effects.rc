@@ -247,6 +247,9 @@ BEGIN
     IDS_STRING61134          "Rescue from the Underworld Effect\n\nEffect\nToken\nReturn target creature card and sacrificed card to the battlefield under your control at the beginning of your next upkeep."
     IDS_STRING61135          "Time to Feed Effect\n\nEffect\nToken\nWhen the subject dies this turn, you gain 3 life."
     IDS_STRING61136          "Temur Charm Effect\n\nEffect\nToken\nCreatures with power 3 or less can't block."
+    IDS_STRING61137          "Searing Blood Effect\n\nEffect\nToken\nWhen the target creature dies this turn, its controller is dealt 3 damage."
+    IDS_STRING61138          "Burn Away Effect\n\nEffect\nToken\nWhen the target creature dies this turn, its controller exiles all cards from their graveyard."
+    IDS_STRING61139         "Upkeep Step Reanimate Effect\n\nEffect\nToken\nAt the beginning of your next upkeep step, return the subjects to the battlefield under their owner's control."
 //	IDS_STRING61040          "Chancellor of the Annex Effect\n\nEffect\nToken\nWhen each opponent casts his or her first spell of the game, counter that spell unless that player pays {1}."
 END
 #endif    // English (United States) resources

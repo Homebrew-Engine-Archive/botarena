@@ -335,6 +335,12 @@ void CTargetSpell::OnResolutionCompleted(const CAbilityAction* pAction, BOOL bRe
 
 //____________________________________________________________________________
 //
+/*
+	Ref:
+	Rod of Ruin 4
+	Artifact
+	3, Tap: Rod of Ruin deals 1 damage to target creature or player.
+*/
 CTargetChgLifeSpell::CTargetChgLifeSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 CardComparer* pComparer,
@@ -599,6 +605,14 @@ void CTargetChgLifeSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlay
 
 //____________________________________________________________________________
 //
+/*
+	Ref:
+	Bloodshot Cyclops 5R
+	Creature — Cyclops Giant (4/4)
+	Tap, Sacrifice a creature: Bloodshot Cyclops deals damage equal to the sacrificed creature's 
+	power to target creature or player.
+
+*/
 CTargetChgLifeSpell2::CTargetChgLifeSpell2(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer,
@@ -756,6 +770,23 @@ void CTargetChgLifeSpell2::ResolvePlayer(const CTargetSpellAction* pAction, CPla
 
 //____________________________________________________________________________
 //
+/*
+	Ref:
+	Ghitu Fire-Eater 2R
+    Creature — Human Nomad (2/2)
+	Tap, Sacrifice Ghitu Fire-Eater: Ghitu Fire-Eater deals damage equal to its power to target 
+	creature or player.
+
+	Abyssal Hunter 3B
+	Creature — Human Assassin (1/1)
+	B, Tap: Tap target creature. Abyssal Hunter deals damage equal to Abyssal Hunter's power to 
+	that creature.
+	 
+	Karplusan Yeti 3RR
+	Creature — Yeti (3/3)
+	Tap: Karplusan Yeti deals damage equal to its power to target creature. That creature deals 
+	damage equal to its power to Karplusan Yeti.
+*/
 CTargetChgLifeSpell3::CTargetChgLifeSpell3(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer,
@@ -935,6 +966,17 @@ void CTargetChgLifeSpell3::ResolvePlayer(const CTargetSpellAction* pAction, CPla
 
 //____________________________________________________________________________
 //
+/*
+	Planewalker version of CTargetChgLifeSpell3
+    Ref: 
+	Ghitu Fire Eater, Abyssal Hunter, Karplusan Yeti
+	Specific Ref:
+	Garruk, the Veil-Cursed
+	Planeswalker — Garruk
+	relevant ability
+		-3: Creatures you control gain trample and get +X/+X until end of turn, where X is the
+	number of creature cards in your graveyard.
+*/
 CTargetPlaneswalkerChgLifeSpell3::CTargetPlaneswalkerChgLifeSpell3(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer,
@@ -1115,6 +1157,13 @@ void CTargetPlaneswalkerChgLifeSpell3::ResolvePlayer(const CTargetSpellAction* p
 
 //____________________________________________________________________________
 //
+/*
+	Ref:
+	Corrupt 5B
+	Sorcery
+	Corrupt deals damage equal to the number of Swamps you control to target creature or player.
+	You gain life equal to the damage dealt this way.
+*/
 CTargetChgLifeBySurveySpell::CTargetChgLifeBySurveySpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer,
@@ -1255,10 +1304,14 @@ BOOL CTargetChgLifeBySurveySpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
-// Mana Crash: You and target opponent each flip a coin. Mana Clash deals 1
-//			   damage to each player whose coin comes up tails. Repeat this
-//			   process until both players' coins come up heads on the same flip.
-//
+/*
+Ref:
+	Mana Clash R
+	Sorcery
+	You and target opponent each flip a coin. Mana Clash deals 1 damage to each player whose
+	coin comes up tails. Repeat this process until both players' coins come up heads on the
+	same flip.
+*/
 CTargetRandomChgLifeSpell::CTargetRandomChgLifeSpell(CCard* pCard, AbilityType abilityType,
 													 LPCTSTR strManaCost,
 													 CardComparer* pComparer,
@@ -1396,6 +1449,16 @@ BOOL CTargetRandomChgLifeSpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Dwarven Warriors 2R
+	Creature — Dwarf Warrior (1/1)
+	Tap: Target creature with power 2 or less can't be blocked this turn.
+
+	Fit of Rage 1R
+	Sorcery
+	Target creature gets +3/+3 and gains first strike until end of turn.
+*/
 CTargetChgPwrTghAttrSpell::CTargetChgPwrTghAttrSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 Power nPowerDelta, Life nLifeDelta,
@@ -1552,6 +1615,12 @@ BOOL CTargetChgPwrTghAttrSpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Samite Healer 1W
+	Creature — Human Cleric (1/1)
+	Tap: Prevent the next 1 damage that would be dealt to target creature or player this turn.
+*/
 CTargetDamagePreventionSpell::CTargetDamagePreventionSpell(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   CardComparer* pComparer,
@@ -2097,6 +2166,17 @@ BOOL CTargetDamagePreventionSpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Ashen Powder 2BB
+	Sorcery
+	Put target creature card from an opponent’s graveyard onto the battlefield under your control.
+
+	Threaten 2R
+	Sorcery
+	Untap target creature and gain control of it until end of turn. That creature gains haste until
+	end of turn. (It can attack and Tap this turn.)
+*/
 CTargetMoveCardSpell::CTargetMoveCardSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -2385,6 +2465,12 @@ BOOL CTargetControlSpell::ResolveImpl(const CAbilityAction* pAction)	// Ref: CCo
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Dregs of Sorrow 4B
+	Sorcery
+	Destroy X target nonblack creatures. Draw X cards.
+*/
 CTargetMoveCardSpell2::CTargetMoveCardSpell2(CCard* pCard, AbilityType abilityType,
 											 LPCTSTR strManaCost,
 											 CardComparer* pComparer,
@@ -2478,6 +2564,12 @@ BOOL CTargetMoveCardSpell2::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Exile 2W
+	Instant
+	Exile target nonwhite attacking creature. You gain life equal to its toughness.
+*/
 CTargetMoveCardSpell3::CTargetMoveCardSpell3(CCard* pCard, AbilityType abilityType,
 											 LPCTSTR strManaCost,
 											 CardComparer* pComparer,
@@ -2560,6 +2652,14 @@ BOOL CTargetMoveCardSpell3::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Polymorph 3U
+	Sorcery
+	Destroy target creature. It can't be regenerated. Its controller reveals cards from the top of his or her 
+	library until he or she reveals a creature card. The player puts that card onto the battlefield, then 
+	shuffles all other cards revealed this way into his or her library.
+*/
 CTargetMoveCardSpell4::CTargetMoveCardSpell4(CCard* pCard, AbilityType abilityType,
 											 LPCTSTR strManaCost,
 											 CardComparer* pComparer,
@@ -2671,6 +2771,16 @@ BOOL CTargetMoveCardSpell4::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Twiddle U
+	Instant
+	You may tap or untap target artifact, creature, or land.
+	
+	Elder Druid 3G (2/2)
+	Creature — Elf Cleric Druid
+	3G, Tap: You may tap or untap target artifact, creature, or land.
+*/
 CTargetTapUntapCardSpell::CTargetTapUntapCardSpell(CCard* pCard, AbilityType abilityType,
 												   LPCTSTR strManaCost,
 												   BOOL bTap,
@@ -2875,6 +2985,14 @@ void CTargetTapUntapCardSpell::OnSelectionDone(const std::vector<SelectionEntry>
 
 //____________________________________________________________________________
 //
+/*
+	This class is used for spells which are targeting a player and in resolution
+	affects a certain type of cards controlled by that player.
+Ref:
+	Mana Short 2U
+	Instant
+	Tap all lands target player controls and empty his or her mana pool.
+*/
 CTargetPlayerCardsSpell::CTargetPlayerCardsSpell(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   ZoneId fromZone,
@@ -2940,6 +3058,12 @@ void CTargetPlayerCardsSpell::ResolvePlayerCards(const CTargetSpellAction* pActi
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Ancestral Recall U
+	Instant
+	Target player draws three cards.
+*/
 CTargetDrawCardSpell::CTargetDrawCardSpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   int nDrawCount)
@@ -3103,6 +3227,11 @@ BOOL CTargetDrawCardSpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+   Mind Twist XB
+   Sorcery
+   Target player discards X cards at random.
+*/
 CTargetPlayerDiscardCardSpell::CTargetPlayerDiscardCardSpell(CCard* pCard, AbilityType abilityType,
 															 LPCTSTR strManaCost,
 															 int nDiscardCount,
@@ -3359,6 +3488,12 @@ void CTargetPlayerDiscardCardSpell::ResolvePlayer(const CTargetSpellAction* pAct
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Mind Sludge 4B
+	Sorcery
+	Target player discards a card for each Swamp you control.
+*/
 CTargetPlayerDiscardCardSpell3::CTargetPlayerDiscardCardSpell3(CCard* pCard, AbilityType abilityType,
 															 LPCTSTR strManaCost,
 															 MoveType discardMoveType,
@@ -3399,6 +3534,12 @@ void CTargetPlayerDiscardCardSpell3::ResolvePlayer(const CTargetSpellAction* pAc
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Persecute 2BB
+	Sorcery
+	Choose a color. Target player reveals his or her hand and discards all cards of that color.
+*/
 CTargetPlayerDiscardCardSpell2::CTargetPlayerDiscardCardSpell2(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   ZoneId toZoneId,
@@ -3597,6 +3738,13 @@ void CTargetPlayerDiscardCardSpell2::DiscardCards(CPlayer* pCaster, CPlayer* pDi
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Jester's Cap 4
+	Artifact
+	2, Tap, Sacrifice Jester's Cap: Search target player's library for three cards and exile them. 
+	Then that player shuffles his or her library.
+*/
 CTargetPlayerSearchLibraryCardSpell::CTargetPlayerSearchLibraryCardSpell(CCard* pCard, AbilityType abilityType,
 															LPCTSTR strManaCost,
 															MinimumValue nMinSearchCount,
@@ -3722,6 +3870,12 @@ void CTargetPlayerSearchLibraryCardSpell::ResolvePlayer(const CTargetSpellAction
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Baleful Stare 2U
+	Sorcery
+	Target opponent reveals his or her hand. You draw a card for each Mountain and red card in it.
+*/
 CTargetPlayerRevealHandSpell2::CTargetPlayerRevealHandSpell2(CCard* pCard, AbilityType abilityType,
 															 LPCTSTR strManaCost,
 															 const CCardFilter* pCardFilter,
@@ -3804,6 +3958,13 @@ void CTargetPlayerRevealHandSpell2::ResolvePlayer(const CTargetSpellAction* pAct
 //
 // Psychic Transfer
 //
+/* 
+Ref:
+	Psychic Transfer 4U
+	Sorcery
+	If the difference between your life total and target player's life total is 5 or less, 
+	exchange life totals with that player.
+*/
 CExchangeLifeSpell::CExchangeLifeSpell(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   int nAbsLifeDiff)
@@ -3915,6 +4076,12 @@ BOOL CExchangeLifeSpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Orcish Spy R (1/1)
+	Creature — Orc Rogue
+	Tap: Look at the top three cards of target player's library.
+*/
 CTargetRevealLibraryCardSpell::CTargetRevealLibraryCardSpell(CCard* pCard, AbilityType abilityType,
 								   LPCTSTR strManaCost,
 								   int nRevealCount)
@@ -4117,6 +4284,12 @@ BOOL CTargetRevealLibraryCardSpell::ResolveImpl(const CAbilityAction* pAction)
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Deathlace B
+	Instant
+	Target spell or permanent becomes black. (Mana symbols on that permanent remain unchanged.)
+*/
 CTargetChangeCardTypeSpell::CTargetChangeCardTypeSpell(
 		CCard* pCard, AbilityType abilityType,
 		LPCTSTR strManaCost,
@@ -4209,6 +4382,14 @@ void CTargetChangeCardTypeSpell::OnSelectionDone(const std::vector<SelectionEntr
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Juxtapose 3U
+	Sorcery
+	You and target player exchange control of the creature you each control with the highest converted mana cost. 
+	Then exchange control of artifacts the same way. If two or more permanents a player controls are tied for 
+	highest cost, their controller chooses one of them.
+*/
 CExchangeControlSpell::CExchangeControlSpell(CCard* pCard, AbilityType abilityType,
 											 LPCTSTR strManaCost)
 	: CTargetSpell(pCard, abilityType, strManaCost,FALSE_CARD_COMPARER, TRUE, new CMyTargeting)
@@ -4425,6 +4606,12 @@ void CExchangeControlSpell::OnSelectionDone(const std::vector<SelectionEntry>& s
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Balance of Power 3UU
+	Sorcery
+	If target opponent has more cards in hand than you, draw cards equal to the difference.
+*/
 CTargetPlayerSurveyDrawCardSpell::CTargetPlayerSurveyDrawCardSpell(CCard* pCard, AbilityType abilityType,
 																   LPCTSTR strManaCost,
 																   CTargeting* pTargeting)
@@ -4513,6 +4700,12 @@ void CTargetPlayerSurveyDrawCardSpell::ResolvePlayer(const CTargetSpellAction* p
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Death Ward W
+	Instant
+	Regenerate target creature.
+*/
 CTargetRegenerationSpell::CTargetRegenerationSpell(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   CardComparer* pComparer)
@@ -4533,6 +4726,12 @@ void CTargetRegenerationSpell::ResolveCard(const CTargetSpellAction* pAction, CC
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Final Punishment 3BB
+	Sorcery
+	Target player loses life equal to the damage already dealt to him or her this turn.
+*/
 CTargetChgLifeSpell4::CTargetChgLifeSpell4(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 PreventableType preventable)
@@ -4608,6 +4807,12 @@ BOOL CTargetChgLifeSpell4::CMyTargeting::SubjectAllowed(const CPlayer* pPlayer, 
 
 //____________________________________________________________________________
 //
+/* 
+Ref:
+	Cruel Edict 1B
+	Sorcery
+	Target opponent sacrifices a creature.
+*/
 CTargetPlayerSacrificeSpell::CTargetPlayerSacrificeSpell(CCard* pCard, AbilityType abilityType,
 														 LPCTSTR strManaCost,
 														 const CCardFilter* pCardFilter,
@@ -4690,6 +4895,12 @@ BOOL CTargetPlayerSacrificeSpell::CMyTargeting::SubjectAllowed(const CPlayer* pP
 
 //____________________________________________________________________________
 //
+/*
+Ref:  
+   Give and Take 6
+   Artifact
+   2 Tap, sacrifice a permanent: Target opponent sacrifices a permanent with the same card type.
+*/
 CTargetPlayerSacrificeSpell2::CTargetPlayerSacrificeSpell2(CCard* pCard, AbilityType abilityType,
 														   LPCTSTR strManaCost,
 														   const CCardFilter* pSacrificeCardFilter)
@@ -4764,6 +4975,13 @@ void CTargetPlayerSacrificeSpell2::GetSelectionEntries(const CTargetSpellAction*
 
 //____________________________________________________________________________
 //
+/* 
+Ref:  
+	Jade Monolith 1
+	Artifact
+	The next time a source of your choice would deal damage to target creature this turn, 
+	that source deals that damage to you instead. 
+*/
 CTargetCreatureDamageRedirectionSpell::CTargetCreatureDamageRedirectionSpell(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   CardComparer* pComparer,
@@ -5186,6 +5404,12 @@ counted_ptr<CAbilityAction> CTargetCreatureDamageRedirectionSpell::CreateAction(
 
 //____________________________________________________________________________
 //
+/*
+Ref:	
+	Zealous Inquisitor 1W
+	Creature - Human Cleric (2/2)
+	The next 1 damage that would be dealt to <this> this turn is dealt to target creature instead.
+*/
 CTargetCreatureDamageRedirectionSpell2::CTargetCreatureDamageRedirectionSpell2(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   CardComparer* pComparer,
@@ -5789,6 +6013,13 @@ counted_ptr<CAbilityAction> CTargetCreatureDamageRedirectionSpell2::CreateAction
 
 //____________________________________________________________________________
 //
+/* 
+Ref:
+	Oracle's Attandents 3W
+	Creature - Human Soldier (1/5)
+	Tap: All damage that would be dealt to target creature this turn by a source of your 
+	choice is dealt to Oracle's Attendants <this> instead.
+*/
 CTargetCreatureDamageRedirectionSpell3::CTargetCreatureDamageRedirectionSpell3(CCard* pCard, AbilityType abilityType,
 											   LPCTSTR strManaCost,
 											   CardComparer* pComparer,
@@ -6361,6 +6592,12 @@ counted_ptr<CAbilityAction> CTargetCreatureDamageRedirectionSpell3::CreateAction
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Exhaustion 2U
+	Sorcery
+	Creatures and lands target opponent controls don't untap during his or her next untap step.
+*/
 CTargetChgUntapCardTypeSpell::CTargetChgUntapCardTypeSpell(CCard* pCard, AbilityType abilityType,
 														   LPCTSTR strManaCost,
 														   CardType untapCardTypeToRemove)
@@ -6390,6 +6627,12 @@ void CTargetChgUntapCardTypeSpell::ResolvePlayer(const CTargetSpellAction* pActi
 //____________________________________________________________________________
 //
 /*
+Ref:	
+	Vulshok Morningstar 2
+	Artifact — Equipment
+	Equipped creature gets +2/+2.
+	Equip 2 (2: Attach to target creature you control. Equip only as a sorcery.)
+
 502.33 - Equip
 
 	502.33a - Equip is an activated ability of artifact Equipment cards.
@@ -6776,8 +7019,12 @@ BOOL CEquipAbility::CMyTargeting::SubjectAllowed(const CCard* pCard,
 
 //____________________________________________________________________________
 //
-// Starlight: You gain 3 life for each black creature target opponent controls.
-//
+/* 
+Ref:
+	Starlight 1W
+	Sorcery
+	You gain 3 life for each black creature target opponent controls.
+*/
 CTargetChgLifeBySurveySpell2::CTargetChgLifeBySurveySpell2(CCard* pCard, AbilityType abilityType,
 															LPCTSTR strManaCost,
 															const CCardFilter* pCardFilter,
@@ -6830,6 +7077,13 @@ BOOL CTargetChgLifeBySurveySpell2::CMyTargeting::SubjectAllowed(const CPlayer* p
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Plague of Damnation XBG (custom card)
+	Sorcery
+	Destroy each artifact, creature, and enchantment with converted mana cost X. Then target opponent reveals 
+	his or her hand and discards each artifact, creature, and enchantment with converted mana cost X.
+*/
 CTargetPlayerDiscardCardSpell4::CTargetPlayerDiscardCardSpell4(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   const CCardFilter* pCardFilter,
@@ -6930,6 +7184,13 @@ void CTargetPlayerDiscardCardSpell4::ResolvePlayer(const CTargetSpellAction* pAc
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Plague of Damnation XBG (custom card)
+	Sorcery
+	Destroy each artifact, creature, and enchantment with converted mana cost X. Then target opponent reveals 
+	his or her hand and discards each artifact, creature, and enchantment with converted mana cost X.
+*/
 CTargetPlayerDiscardCardSpell5::CTargetPlayerDiscardCardSpell5(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   const CCardFilter* pCardFilter,
@@ -6983,6 +7244,12 @@ BOOL CTargetPlayerDiscardCardSpell5::ResolveImpl(const CAbilityAction* pAction)
 }
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Imperial Edict 1B
+	Sorcery
+	Target opponent chooses a creature he or she controls. Destroy it.
+*/
 CImperialEdictSpell::CImperialEdictSpell(CCard* pCard, AbilityType abilityType,
 														 LPCTSTR strManaCost,
 														 const CCardFilter* pCardFilter,
@@ -7067,6 +7334,14 @@ BOOL CImperialEdictSpell::CMyTargeting::SubjectAllowed(const CPlayer* pPlayer, B
 
 //____________________________________________________________________________
 //
+/*
+	Target opponent sacrifices a creature + some effect.
+Ref:
+	Warren Weirding 1B
+	Tribal Sorcery — Goblin
+	Target player sacrifices a creature. If a Goblin is sacrificed this way, that player puts two 1/1 black 
+	Goblin Rogue creature tokens onto the battlefield, and those tokens gain haste until end of turn.
+*/
 CTargetSacrificePlusSpell::CTargetSacrificePlusSpell(CCard* pCard, AbilityType abilityType,
 														 LPCTSTR strManaCost,
 														 const CCardFilter* pCardFilter,
@@ -7179,6 +7454,16 @@ BOOL CTargetSacrificePlusSpell::CMyTargeting::SubjectAllowed(const CPlayer* pPla
 
 //____________________________________________________________________________
 //
+/*
+	Specific to Oona, Queen of the Fae
+Ref:
+	Oona, Queen of the Fae 3 U/B U/B U/B
+	Legendary Creature — Faerie Wizard (5/5)
+	Flying
+	X U/B: Choose a color. Target opponent exiles the top X cards of his or her library. 
+	For each card of the chosen color exiled this way, put a 1/1 blue and black 
+	Faerie Rogue creature token with flying onto the battlefield.
+*/
 COonaQueenoftheFaeSpell::COonaQueenoftheFaeSpell(CCard* pCard, AbilityType abilityType,
 								   LPCTSTR strManaCost,
 								   int nRevealCount)
@@ -7465,6 +7750,14 @@ void COonaQueenoftheFaeSpell::DiscardCards(CPlayer* pCaster, CPlayer* pPlayer, c
 }
 //____________________________________________________________________________
 //
+/*
+	Specific to Banfire card.
+Ref:
+	Banefire XR
+	Sorcery
+	Banefire deals X damage to target creature or player.
+	If X is 5 or more, Banefire can't be countered by spells or abilities and the damage can't be prevented.
+*/
 CBanefireSpell::CBanefireSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 CardComparer* pComparer,
@@ -7725,6 +8018,20 @@ void CBanefireSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlayer* p
 
 //____________________________________________________________________________
 //
+/* 
+Ref:
+	Path to Exile W	
+	Instant
+	Exile target creature. Its controller may search his or her library for a basic land card, 
+	put that card onto the battlefield tapped, then shuffle his or her library.
+
+	Ghost Quarter
+	Land
+	Tap: Add 1 to your mana pool.
+	Tap, Sacrifice Ghost Quarter: Destroy target land. Its controller may search his or her 
+	library for a basic land card, put it onto the battlefield, then shuffle his or her library.
+
+*/
 CTargetMoveCardSearchSpell::CTargetMoveCardSearchSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -7933,6 +8240,25 @@ void CTargetMoveCardSearchSpell::OnSearchSelected(const std::vector<SelectionEnt
 }
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Cabal Therapy B
+	Sorcery
+	Name a nonland card. Target player reveals his or her hand and discards all cards with that name.
+	Flashback—Sacrifice a creature. (You may cast this card from your graveyard for its flashback cost. 
+	Then exile it.)
+
+	Cranial Extraction 3B
+	Sorcery — Arcane
+	Name a nonland card. Search target player's graveyard, hand, and library for all cards with that name 
+	and exile them. Then that player shuffles his or her library.
+
+	Thought Hemorrhage 2BR
+	Sorcery
+	Name a nonland card. Target player reveals his or her hand. Thought Hemorrhage deals 3 damage to that 
+	player for each card with that name revealed this way. Search that player's graveyard, hand, and library 
+	for all cards with that name and exile them. Then that player shuffles his or her library.
+*/
 CTargetPlayerDiscardCardNameSpell::CTargetPlayerDiscardCardNameSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   ZoneId toZoneId,
@@ -8183,6 +8509,15 @@ void CTargetPlayerDiscardCardNameSpell::DiscardCards(CPlayer* pCaster, CPlayer* 
 
 //____________________________________________________________________________
 //
+/*
+	Specific to Lammastide Weave card.
+Ref:
+	Lammastide Weave 1G
+	Instant
+	Name a card, then target player puts the top card of his or her library into his or her graveyard. 
+	If that card is the named card, you gain life equal to its converted mana cost.
+	Draw a card.
+*/
 CLammastideWeaveSpell::CLammastideWeaveSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   CTargeting* pTargeting)
@@ -8372,6 +8707,14 @@ void CLammastideWeaveSpell::DiscardCards(CPlayer* pCaster, CPlayer* pDiscarder, 
 //____________________________________________________________________________
 //
 // If you have time please convert from CTargetDrawCard spell via __super (only last selection need to be added)
+/*
+	Specific to Compulsive Research card.
+Ref:
+	Compulsive Research 2U
+	Sorcery
+	Target player draws three cards. Then that player discards two cards unless he or she 
+	discards a land card.
+*/
 CCompulsiveResearchSpell::CCompulsiveResearchSpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   int nDrawCount)
@@ -8564,6 +8907,15 @@ ATLASSERT(nSelectedCount == 1);
 
 //____________________________________________________________________________
 //
+/*
+	Specific to Intuition card.
+Ref:
+	Intuition 2U
+	Instant
+	Search your library for three cards and reveal them. Target opponent chooses one. 
+	Put that card into your hand and the rest into your graveyard. 
+	Then shuffle your library.
+*/
 CIntuitionSpell::CIntuitionSpell(CCard* pCard, AbilityType abilityType,
 															LPCTSTR strManaCost,
 															MinimumValue nMinSearchCount,
@@ -8749,6 +9101,13 @@ void CIntuitionSpell::OnSelectionDone(const std::vector<SelectionEntry>& selecti
 }
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Stave Off W
+	Instant
+	Target creature gains protection from the color of your choice until end of turn. (It can't be 
+	blocked, targeted, dealt damage, or enchanted by anything of that color.)
+*/
 CTargetGainKeywordSpell::CTargetGainKeywordSpell(
 		CCard* pCard, AbilityType abilityType,
 		LPCTSTR strManaCost,
@@ -8809,6 +9168,13 @@ void CTargetGainKeywordSpell::OnSelectionDone(const std::vector<SelectionEntry>&
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Detonate XR
+	Sorcery
+	Destroy target artifact with converted mana cost X. It can't be regenerated. Detonate deals 
+	X damage to that artifact's controller.
+*/
 CTargetExtraMoveCardSpell::CTargetExtraMoveCardSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -8970,6 +9336,15 @@ void CTargetExtraMoveCardSpell::ResolveCard(const CTargetSpellAction* pAction, C
 }
 //____________________________________________________________________________
 //
+/*
+Specific to Gifts Ungiven card.
+Ref:
+	Gifts Ungiven 3U
+	Instant
+	Search your library for up to four cards with different names and reveal them. 
+	Target opponent chooses two of those cards. Put the chosen cards into your graveyard and 
+	the rest into your hand. Then shuffle your library.
+*/
 CGiftsUngivenSpell::CGiftsUngivenSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer, CTargeting* pTargeting)
@@ -9109,6 +9484,15 @@ void CGiftsUngivenSpell::OnSelectionDone(const std::vector<SelectionEntry>& sele
 
 //____________________________________________________________________________
 //
+/*
+Specific to Searing Blaze card.
+Ref:
+	Searing Blaze RR
+	Instant	
+	Searing Blaze deals 1 damage to target player and 1 damage to target creature that player controls.
+	Landfall — If you had a land enter the battlefield under your control this turn, Searing Blaze deals 
+	3 damage to that player and 3 damage to that creature instead.
+*/
 CSearingBlazeSpell::CSearingBlazeSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 CardComparer* pComparer,
@@ -9387,6 +9771,14 @@ void CSearingBlazeSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlaye
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Horde of Notions
+	WUBRG
+	Legendary Creature — Elemental
+	Vigilance, trample, haste
+	WUBRG: You may play target Elemental card from your graveyard without paying its mana cost.
+*/
 CTargetFreeCastSpell::CTargetFreeCastSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -9503,6 +9895,13 @@ void CTargetFreeCastSpell::OnSelectionDone(const std::vector<SelectionEntry>& se
 }
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Cursed Scroll 1
+	Artifact
+	3, Tap: Name a card. Reveal a card at random from your hand. If it's the named card, 
+	Cursed Scroll deals 2 damage to target creature or player.
+*/
 CCursedScrollSpell::CCursedScrollSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   CTargeting* pTargeting)
@@ -9895,6 +10294,12 @@ void CCursedScrollSpell::OnSelectionDone2(const std::vector<SelectionEntry>& sel
 }
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Peel From Reality 1U
+	Instant
+	Return target creature you control and target creature you don't control to their owners' hands.
+*/
 void CDoubleTargetSpell::FlagTargets(BOOL bFlagTargets, BOOL bKeepFlagUntilEndOfTurn)
 {
 	m_CardFlagModifier.GetModifier().RemoveAll();
@@ -10314,6 +10719,13 @@ void CTargetSpell::OnResolutionCompleted(const CAbilityAction* pAction, BOOL bRe
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Auriok Windwalker 3W
+	Creature — Human Wizard
+	Flying
+	Tap: Attach target Equipment you control to target creature you control.
+*/
 CEquipSpell::CEquipSpell(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost)
 	: CDoubleTargetSpell(pCard, abilityType, strManaCost, new CardTypeComparer(CardType::Equipment, false), FALSE,
 						new AnyCreatureComparer, FALSE, _T(" to equip"))	
@@ -10337,6 +10749,12 @@ void CEquipSpell::ResolveGroup(const CCountedCardContainer& pContainer1,const  C
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Donate 2U
+	Sorcery
+	Target player gains control of target permanent you control.
+*/
 CDonateSpell::CDonateSpell(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost)
 	: CDoubleTargetSpell(pCard, abilityType, strManaCost, new TrueCardComparer, FALSE,
 						FALSE_CARD_COMPARER, TRUE, _T(" to"))	
@@ -10366,6 +10784,12 @@ void CDonateSpell::ResolveGroup(const CCountedCardContainer& pContainer1,const  
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Consume Strength 1BG
+	Instant
+	Target creature gets +2/+2 until end of turn. Another target creature gets -2/-2 until end of turn.
+*/
 CDoubleTargetChgPwrTghAttrSpell::CDoubleTargetChgPwrTghAttrSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 Power nPowerDelta1, Life nLifeDelta1,
@@ -10498,6 +10922,14 @@ void CDoubleTargetChgPwrTghAttrSpell::ResolveGroup(const CCountedCardContainer& 
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Orim's Chant W
+	Instant
+	Kicker W (You may pay an additional W as you cast this spell.)
+	Target player can't cast spells this turn.
+	If Orim's Chant was kicked, creatures can't attack this turn.
+*/
 COrimsChantSpell::COrimsChantSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost)
 	: CTargetSpell(pCard, abilityType, strManaCost, FALSE_CARD_COMPARER, TRUE)
@@ -10535,6 +10967,16 @@ void COrimsChantSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlayer*
 
 //____________________________________________________________________________
 //
+/*
+Specific to Vengeful Rebirth card.
+Ref:
+	Vengeful Rebirth 4RG
+	Sorcery
+	Return target card from your graveyard to your hand. If you return a nonland card to 
+	your hand this way, Vengeful Rebirth deals damage equal to that card's converted mana 
+	cost to target creature or player.
+	Exile Vengeful Rebirth.
+*/
 CVengefulRebirthSpell::CVengefulRebirthSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost)
 : CDoubleTargetSpell(pCard, abilityType, strManaCost, new TrueCardComparer, FALSE,
@@ -10577,6 +11019,14 @@ void CVengefulRebirthSpell::ResolveGroup(const CCountedCardContainer& pContainer
 
 //____________________________________________________________________________
 //
+/*
+Specific to Blinding Beam card.
+Ref:	
+	Blinding Beam 2W
+	Instant
+	Choose one — Tap two target creatures; or creatures don't untap during target player's next untap step.
+	Entwine 1 (Choose both if you pay the entwine cost.)
+*/
 CBlindingBeamSpell::CBlindingBeamSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost)
 : CDoubleTargetSpell(pCard, abilityType, strManaCost, new AnyCreatureComparer, FALSE,
@@ -10609,6 +11059,22 @@ void CBlindingBeamSpell::ResolveGroup(const CCountedCardContainer& pContainer1,c
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Shrine of Burning Rage 2
+	Artifact
+	At the beginning of your upkeep or whenever you cast a red spell, put a charge 
+	counter on Shrine of Burning Rage.
+	3, Tap, Sacrifice Shrine of Burning Rage: Shrine of Burning Rage deals damage 
+	equal to the number of charge counters on it to target creature or player.
+
+	Magma Mine 1
+	Artifact
+	4: Put a pressure counter on Magma Mine.
+	Tap, Sacrifice Magma Mine: Magma Mine deals damage equal to the number of pressure 
+	counters on it to target creature or player.
+
+*/
 CTargetChgLifeSpellCounter::CTargetChgLifeSpellCounter(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer,
@@ -10780,6 +11246,14 @@ void CTargetChgLifeSpellCounter::ResolvePlayer(const CTargetSpellAction* pAction
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Hex Parasite 1
+	Artifact Creature — Insect
+	X Phyrexian B: Remove up to X counters from target permanent. For each counter removed this way, 
+	Hex Parasite gets +1/+0 until end of turn. (Phyrexian Black can be paid with either Black or 
+	2 life.)
+*/
 CTargetCounterPumpSpell::CTargetCounterPumpSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 CardComparer* pComparer)
@@ -10905,6 +11379,16 @@ void CTargetCounterPumpSpell::OnProliferateSelected(const std::vector<SelectionE
 
 //____________________________________________________________________________
 //
+/*
+Specific to Surgical Extraction card.
+Ref:
+	Surgical Extraction Phyrexian B
+	Instant
+	(Phyrexian Black can be paid with either Black or 2 life.)
+	Choose target card in a graveyard other than a basic land card. Search its owner's graveyard, 
+	hand, and library for any number of cards with the same name as that card and exile them. 
+	Then that player shuffles his or her library.
+*/
 CSurgicalExtractionSpell::CSurgicalExtractionSpell(CCard* pCard, AbilityType abilityType,
 										 LPCTSTR strManaCost,
 										 CardComparer* pComparer)
@@ -11083,6 +11567,14 @@ void CSurgicalExtractionSpell::ResolveCard(const CTargetSpellAction* pAction, CC
 }
 //____________________________________________________________________________
 //
+// 10/08/2011 Created using CTargetDrawCardSpell as template. This type of spell can be used to add a CPlayerEffectModifier to a target player
+// Using this ability class would fix deflection effect bug on some spells, which can'be be deflected.
+/*
+Ref:
+	Sleep 2UU
+	Sorcery
+	Tap all creatures target player controls. Those creatures don't untap during that player's next untap step.
+*/
 CGenericTargetPlayerSpell::CGenericTargetPlayerSpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost)
 	: CTargetSpell(pCard, abilityType, strManaCost, FALSE_CARD_COMPARER, TRUE)
@@ -11091,6 +11583,13 @@ CGenericTargetPlayerSpell::CGenericTargetPlayerSpell(CCard* pCard, AbilityType a
 
 //____________________________________________________________________________
 //
+/*
+Ref:	
+	Roar of the Crowd 3R
+	Sorcery
+	Choose a creature type. Roar of the Crowd deals damage to target creature or player equal
+	to the number of permanents you control of the chosen type.
+*/
 CGenericTargetPlayerCreatureSpell::CGenericTargetPlayerCreatureSpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost, CardComparer* comparer)
 	: CTargetSpell(pCard, abilityType, strManaCost, comparer, TRUE)
@@ -11099,6 +11598,12 @@ CGenericTargetPlayerCreatureSpell::CGenericTargetPlayerCreatureSpell(CCard* pCar
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Repentance 2W
+	Sorcery
+	Target creature deals damage to itself equal to its power.
+*/
 CGenericTargetCreatureSpell::CGenericTargetCreatureSpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost, CardComparer* comparer)
 	: CTargetSpell(pCard, abilityType, strManaCost, comparer, FALSE)
@@ -11107,6 +11612,14 @@ CGenericTargetCreatureSpell::CGenericTargetCreatureSpell(CCard* pCard, AbilityTy
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Gauntlets of Chaos 5
+	Artifact
+	5, Sacrifice Gauntlets of Chaos: Exchange control of target artifact, creature, or land you control 
+	and target permanent an opponent controls that shares one of those types with it. If those permanents 
+	are exchanged this way, destroy all Auras attached to them.
+*/
 CExhangeControllSpell::CExhangeControllSpell(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer1,
@@ -11134,6 +11647,14 @@ void CExhangeControllSpell::ResolveGroup(const CCountedCardContainer& pContainer
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Thrull Parasite B
+	Creature — Thrull
+	Extort (Whenever you cast a spell, you may pay White or Black. If you do, each opponent 
+	loses 1 life and you gain that much life.)
+	Tap, Pay 2 life: Remove a counter from target nonland permanent.
+*/
 CTargetRemoveCounterSpell::CTargetRemoveCounterSpell(CCard* pCard, AbilityType abilityType,
 												   LPCTSTR strManaCost,
 												   CardComparer* pComparer,
@@ -11252,6 +11773,12 @@ void CTargetRemoveCounterSpell::OnSelectionDone(const std::vector<SelectionEntry
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Reverberate RR
+	Instant
+	Copy target instant or sorcery spell. You may choose new targets for the copy.
+*/
 CTargetCopyCastSpell::CTargetCopyCastSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -11490,6 +12017,20 @@ void CTargetCopyCastSpell::OnSelectionDone(const std::vector<SelectionEntry>& se
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Echo Mage 1UU
+	Creature - Human Wizard
+	Level up 1U (1U: Put a level counter on this. Level up only as a sorcery.)
+	LEVEL 2-3
+	2/4
+	UU, Tap: Copy target instant or sorcery spell. You may choose new targets for the copy.
+	LEVEL 4+
+	2/5
+	UU, Tap: Copy target instant or sorcery spell twice. You may choose new targets for the copies.
+
+	Used at LEVEL 4+ ability
+*/
 CTargetCopyCastTwiceSpell::CTargetCopyCastTwiceSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -11835,6 +12376,9 @@ void CTargetCopyCastTwiceSpell::OnSelectionDone(const std::vector<SelectionEntry
 //____________________________________________________________________________
 //
 /*
+Ref:
+*/
+/*
 CMeletisCharlatanSpell::CMeletisCharlatanSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -12073,6 +12617,15 @@ void CMeletisCharlatanSpell::OnSelectionDone(const std::vector<SelectionEntry>& 
 */
 //____________________________________________________________________________
 //
+/*
+	Specific to Foreshadow card.	
+Ref:
+	Foreshadow 1U
+	Instant
+	Name a card, then target opponent puts the top card of his or her library into his or her graveyard. 
+	If that card is the named card, you draw a card.
+	Draw a card at the beginning of the next turn's upkeep.
+*/
 CForeshadowSpell::CForeshadowSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   CTargeting* pTargeting)
@@ -12261,6 +12814,14 @@ void CForeshadowSpell::DiscardCards(CPlayer* pCaster, CPlayer* pDiscarder, const
 }
 //____________________________________________________________________________
 //
+/*
+	Specific to Predict card.	
+Ref:
+	Predict 1U
+	Instant
+	Name a card, then target player puts the top card of his or her library into his or her graveyard. 
+	If that card is the named card, you draw two cards. Otherwise, you draw a card.
+*/
 CPredictSpell::CPredictSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   CTargeting* pTargeting)
@@ -12452,6 +13013,18 @@ void CPredictSpell::DiscardCards(CPlayer* pCaster, CPlayer* pDiscarder, const CC
 }
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Karn Liberated 7
+	Planeswalker — Karn
+	+4: Target player exiles a card from his or her hand.
+	-3: Exile target permanent.
+	-14: Restart the game, leaving in exile all non-Aura permanent cards exiled with Karn Liberated. 
+	Then put those cards onto the battlefield under your control.
+
+	Used in +4 part of card.
+
+*/
 CTargetPlayerExileSpell::CTargetPlayerExileSpell(CCard* pCard, AbilityType abilityType,
 														 LPCTSTR strManaCost,
 														 const CCardFilter* pCardFilter,
@@ -12539,6 +13112,12 @@ BOOL CTargetPlayerExileSpell::CMyTargeting::SubjectAllowed(const CPlayer* pPlaye
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Killing Glare XB
+	Instant
+	Destroy target creature with power X or less.
+*/
 CTargetExtraPowerMoveCardSpell::CTargetExtraPowerMoveCardSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -12702,6 +13281,12 @@ void CTargetExtraPowerMoveCardSpell::ResolveCard(const CTargetSpellAction* pActi
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Minamo Sightbender 1U
+	Creature — Human Wizard
+	X, Tap: Target creature with power X or less can't be blocked this turn.
+*/
 CTargetExtraPowerSpell::CTargetExtraPowerSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -12776,6 +13361,16 @@ void CTargetExtraPowerSpell::ResolveCard(const CTargetSpellAction* pAction, CCar
 
 //____________________________________________________________________________
 //
+/*
+Ref:
+	Helm of Obedience 4	
+	Artifact
+	X, Tap: Target opponent puts cards from the top of his or her library into his or her 
+	graveyard until a creature card or X cards are put into that graveyard this way, 
+	whichever comes first. If a creature card is put into that graveyard this way, 
+	sacrifice Helm of Obedience and put that card onto the battlefield under your control. 
+	X can't be 0.
+*/
 CXLowerLimitTargetSpell::CXLowerLimitTargetSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,
@@ -12836,6 +13431,17 @@ void CXLowerLimitTargetSpell::ResolveCard(const CTargetSpellAction* pAction, CCa
 
 //____________________________________________________________________________
 //
+/*
+	Specific to Simic Manipulator card.
+Ref:
+	Simic Manipulator 1UU
+	Creature — Mutant Wizard
+	Evolve (Whenever a creature enters the battlefield under your control, if that 
+	creature has greater power or toughness than this creature, put a +1/+1 counter 
+	on this creature.)
+	Tap, Remove one or more +1/+1 counters from Simic Manipulator: Gain control of 
+	target creature with power less than or equal to the number of +1/+1 counters removed this way.
+*/
 CSimicManipulatorSpell::CSimicManipulatorSpell(CCard* pCard, AbilityType abilityType,
 							   LPCTSTR strManaCost,
 							   CardComparer* pComparer,

@@ -285,13 +285,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CStratusWalkCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CStratusWalkCard);
-};
-
-//____________________________________________________________________________
-//
 class CFatedRetributionCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CFatedRetributionCard);
@@ -594,13 +587,6 @@ class CBlackOakOfOdunosCard : public CPumpCreatureCard
 
 protected:
 	CCardFilter m_CardFilter;
-};
-
-//____________________________________________________________________________
-//
-class CWeightOfTheUnderworldCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CWeightOfTheUnderworldCard);
 };
 
 //____________________________________________________________________________
@@ -1119,6 +1105,35 @@ protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 	CCardFilter m_CardFilter;
+};
+
+//____________________________________________________________________________
+//
+class CSearingBloodCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSearingBloodCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CFallOfTheHammerCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CFallOfTheHammerCard);
+
+protected:
+	class CSoulsFireSpell : public CDoubleTargetSpell	
+	{
+		DEFINE_CREATE_TO_CPTR_ONLY;
+
+	protected:
+		CSoulsFireSpell(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost);
+		virtual ~CSoulsFireSpell() {}
+
+		OVERRIDE(void, ResolveGroup)(const CCountedCardContainer& pContainer1, const CCountedCardContainer& pContainer2, const CPlayerContainer& pPContainer1, const CPlayerContainer& pPContainer2);
+	};
 };
 
 //____________________________________________________________________________

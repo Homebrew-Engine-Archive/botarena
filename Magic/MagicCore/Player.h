@@ -66,11 +66,11 @@ public:
 		RemoveSavedState();
 	}
 
-	int GetSizeSpecial() const {return GetSize();}
-	CardTypeStoreEntry GetAtSpecial(int i) const {return GetAt(i);}
-	void RemoveAllSpecial() { RemoveAll(); }
-	void AddCardType(CardType cardType) { Add(CardTypeStoreEntry(cardType));}
-             
+	int  GetSizeSpecial()				   const {return GetSize();					  }
+	CardTypeStoreEntry GetAtSpecial(int i) const {return GetAt(i);					  }
+	void RemoveAllSpecial()						 { RemoveAll();						  }
+	void AddCardType(CardType cardType)			 { Add(CardTypeStoreEntry(cardType)); }
+
 private:
 	OVERRIDE(void, Push)(StateStack& stateStack)
 	{
@@ -130,9 +130,10 @@ struct ZoneIdStoreEntry
 		return m_ZoneId == entry.m_ZoneId;
 	}
 	
-	ZoneId	m_ZoneId;	
+	ZoneId	m_ZoneId;
 	
 };
+
 class CZoneIdStoreStack
 	: protected CValueContainerBase_<ZoneIdStoreEntry>
 {
@@ -146,11 +147,11 @@ public:
 		RemoveSavedState();
 	}
 
-	int GetSizeSpecial() const {return GetSize();}
-	ZoneIdStoreEntry GetAtSpecial(int i) const {return GetAt(i);}
-	void RemoveAllSpecial() { RemoveAll(); }
-	void AddZoneId(ZoneId zoneId) { Add(ZoneIdStoreEntry(zoneId));}
-             
+	int  GetSizeSpecial()				 const { return GetSize();				}
+	ZoneIdStoreEntry GetAtSpecial(int i) const { return GetAt(i);				}
+	void RemoveAllSpecial()					   { RemoveAll();					}
+	void AddZoneId(ZoneId zoneId)			   { Add(ZoneIdStoreEntry(zoneId));	}
+
 private:
 	OVERRIDE(void, Push)(StateStack& stateStack)
 	{
@@ -158,7 +159,6 @@ private:
 		for (int i = nCount - 1; i >= 0; --i)
 		{
 			const ZoneIdStoreEntry& entry = GetAt(i);
-
 			stateStack.AddTail((PVOID)entry.m_ZoneId.Get());
 		}
 
@@ -174,7 +174,6 @@ private:
 		{
 			ZoneIdStoreEntry entry;
 			entry.m_ZoneId = (ZoneId::Enum)(DWORD)m_Stack.RemoveTail();
-
 			CValueContainer<ZoneIdStoreEntry>::AddImpl(entry);
 		}
 	}
@@ -190,12 +189,9 @@ private:
 		{
 			ZoneIdStoreEntry entry;
 					entry.m_ZoneId = (ZoneId::Enum)(DWORD)m_Stack.GetPrev(pos);
-
 			CValueContainer<ZoneIdStoreEntry>::AddImpl(entry);
 		}
 	}
-
-
 };
 //____________________________________________________________________________
 /*//
@@ -286,125 +282,126 @@ public:
 	// Event Sources
 
 	// void OnPlayerChangedLife(CPlayer* pPlayer, Life nFromLife, Life nToLife)
-	ChangeLifeEventSource* GetChangeLifeEventSource() const	{ return m_cpChangeLifeEventSource.GetPointer(); }	
+	ChangeLifeEventSource*		  GetChangeLifeEventSource()		const	{ return m_cpChangeLifeEventSource.GetPointer();		}
 
 	// Event source for notifying if any of this player's cards are dealing damage
 	// void OnDealtDamage(CCard* pFromCard, CPlayer* pToPlayer, CCreatureCard* pToCreature, Damage damage)
-	DamageDealEventSource* GetDamageDealEventSource() const	{ return m_cpDamageDealEventSource.GetPointer(); }
-
-	BeforeDamageDealtEventSource* GetBeforeDamageDealtEventSource() const	{ return m_cpBeforeDamageDealtEventSource.GetPointer(); }
-
-	CounterMovedEventSource* GetCounterMovedEventSource() const	{ return m_cpCounterMovedEventSource.GetPointer(); }
-
-	SpecialTriggerEventSource* GetSpecialTriggerEventSource() const	{ return m_cpSpecialTriggerEventSource.GetPointer(); }
-
-	CardCycledEventSource* GetCardCycledEventSource() const	{ return m_cpCardCycledEventSource.GetPointer(); }
-	
-	ManaAddEventSource* GetManaAddEventSource() const	{ return m_cpManaAddEventSource.GetPointer(); }	
+	DamageDealEventSource*		  GetDamageDealEventSource()		const	{ return m_cpDamageDealEventSource.GetPointer();		}
+	BeforeDamageDealtEventSource* GetBeforeDamageDealtEventSource()	const	{ return m_cpBeforeDamageDealtEventSource.GetPointer();	}
+	CounterMovedEventSource*	  GetCounterMovedEventSource()		const	{ return m_cpCounterMovedEventSource.GetPointer();		}
+	SpecialTriggerEventSource*	  GetSpecialTriggerEventSource()	const	{ return m_cpSpecialTriggerEventSource.GetPointer();	}
+	CardCycledEventSource*		  GetCardCycledEventSource()		const	{ return m_cpCardCycledEventSource.GetPointer();		}
+	ManaAddEventSource*			  GetManaAddEventSource()			const	{ return m_cpManaAddEventSource.GetPointer();			}
 
 	CPlayer(CGame* pGame);
 	virtual ~CPlayer();
 
-	CZone* GetZoneById(ZoneId zoneId) const;
-	int GetZoneCount() const						{ return m_Zones.GetSize(); }
-	CZone* GetZone(int nIndex)						{ return m_Zones.GetAt(nIndex); }
-	const CZone* GetZone(int nIndex) const			{ return m_Zones.GetAt(nIndex); }
+	CZone* GetZoneById(ZoneId zoneId)	   const;
+	int	   GetZoneCount()				   const	{ return m_Zones.GetSize();		}
+	CZone* GetZone(int nIndex)						{ return m_Zones.GetAt(nIndex);	}
+	const  CZone* GetZone(int nIndex)	   const	{ return m_Zones.GetAt(nIndex);	}
 
-	CGame* GetGame() const							{ return m_pGame; }
+	CGame* GetGame()					   const	{ return m_pGame;				}
 
-	void SetSeed(unsigned uSeed);					// 0 - time based
-	unsigned GetSeed() const						{ return m_uSeed; }
-	unsigned long GetRand() const;
+	void  SetSeed(unsigned uSeed);					// 0 - time based
+	unsigned GetSeed()					   const	{ return m_uSeed;				}
+	unsigned long GetRand()				   const;
 
-	void SetStartingPlayer(BOOL bStartingPlayer)	{ m_bStartingPlayer = bStartingPlayer; }
-	BOOL GetStartingPlayer() const					{ return m_bStartingPlayer; }
+	void SetStartingPlayer(BOOL bStartingPlayer)	{ m_bStartingPlayer = bStartingPlayer;	}
+	BOOL GetStartingPlayer()			   const	{ return m_bStartingPlayer;				}
 
-	CGraph* GetGraph() const;
+	CGraph* GetGraph()					   const;
 	void SetGraph(CGraph* pGraph);
 
-	Life GetLife() const;
+	Life GetLife()						   const;
 	void SetLife(Life nLife);
 	void ChangeLife(Damage damage, int prev_index = 0);
 
-	Life GetLifeAtBeginningOfTurn() const;
-	Life GetStartingLife() const;
+	Life GetLifeAtBeginningOfTurn()		   const;		//life at beginning of turn is life carried from the conclusion of last turn
+	Life GetStartingLife()				   const;
 	void SetStartingLife(Life nLife);
-	Life GetCombatDamageTakenThisTurn() const;
+	Life GetCombatDamageTakenThisTurn()	   const;
 	Life GetNoncombatDamageTakenThisTurn() const;
-	Life GetLifeLossTakenThisTurn() const;
-	Life GetLifeGainThisTurn() const;
-	Life GetDamageTakenThisTurn() const;		// Only damage
-	Life GetTotalLifeLossTakenThisTurn() const; // Total delta
+	Life GetLifeLossTakenThisTurn()		   const;
+	Life GetLifeGainThisTurn()			   const;
+	Life GetDamageTakenThisTurn()		   const;		// Only damage
+	Life GetTotalLifeLossTakenThisTurn()   const;		// Total delta
+//last turn start-----------------------------------------------
+	Life GetCombatDamageTakenLastTurn()	   const;
+	Life GetNoncombatDamageTakenLastTurn() const;
+	Life GetLifeLossTakenLastTurn()		   const;
+	Life GetDamageTakenLastTurn()		   const;		// Only damage
+	Life GetTotalLifeLossTakenLastTurn()   const;		// Total delta last turn
+//last turn end-------------------------------------------------
+	BOOL IsProwled()		const;
 
-	BOOL IsProwled() const;
+	BOOL IsArchenemy()		const				{ return m_archenemy;		 }
+	BOOL IsPlanechase()		const				{ return m_planechase;		 }
+	BOOL IsPhasing()		const				{ return m_phasing;			 }
+	void SetPhasing()   						{ m_phasing = TRUE;			 }
+	BOOL IsCommander()      const				{ return m_commander;		 }
 
-	BOOL IsArchenemy() const					{ return m_archenemy; }
-	BOOL IsPlanechase() const					{ return m_planechase; }
-	BOOL IsPhasing() const						{ return m_phasing; }
-	void SetPhasing()   						{ m_phasing = TRUE; }
-	BOOL IsCommander() const					{ return m_commander; }
-
-	BOOL CanResolveScheme() const					{ return !m_resolved_scheme; }
-	void ResolveScheme()                             {m_resolved_scheme = TRUE; }
-	void SetPlanechase()                        { m_planechase = TRUE; }
+	BOOL CanResolveScheme() const				{ return !m_resolved_scheme; }
+	void ResolveScheme()						{ m_resolved_scheme = TRUE;	 }
+	void SetPlanechase()						{ m_planechase      = TRUE;	 }
 
 	const CDamagePrevention_& GetDamagePrevention() const;
 	CDamagePrevention_& GetDamagePrevention();
 
 	void Reset();
 
-	BOOL GetLost() const;
-	void SetLostByOtherReasons()					{ m_bLostByOtherReasons = TRUE; }
+	BOOL GetLost()						  const;
+	void SetLostByOtherReasons()				{ m_bLostByOtherReasons = TRUE; }
 	void UpdateLost();
-	void SetDrawFailed()							{ m_bDrawFailed = TRUE; }
+	void SetDrawFailed()						{ m_bDrawFailed			= TRUE; }
 
-	const CManaPool_& GetManaPool() const;
+	const CManaPool_& GetManaPool()		  const;
 	CManaPool_& GetManaPool();
 
-	int GetMaxHandSize() const;
+	int GetMaxHandSize()				  const;
 	void SetMaxHandSize(int nMaxHandSize);
 	void IncreaseMaxHandSize(int nMaxHandSize);
 
-	BOOL GetSearchedLibraryThisTurn() const;
+	BOOL GetSearchedLibraryThisTurn()	  const;
 	void SetSearchedLibraryThisTurn(BOOL searched);
 	
 	BOOL GetCreatureCounteredByOpponent() const;
 	void SetCreatureCounteredByOpponent(BOOL searched);
 
 	void SetPoisonCounters(int value,BOOL replace);
-	int GetPoisonCounters() const					{ return m_nPoisonCounters; }
+	int GetPoisonCounters()				  const				{ return m_nPoisonCounters;		 }
 
 	void AddLifeLossTakenThisTurn(Life pLifeLost);
 	void AddLifeGainThisTurn(Life pLifeGained);
 
-	void IncreaseTurnDrawCount()					{ ++m_nTurnDrawCount; }
-	int GetTurnDrawCount() const					{ return m_nTurnDrawCount; }	
+	void IncreaseTurnDrawCount()							{ ++m_nTurnDrawCount;			 }
+	int GetTurnDrawCount()				  const				{ return m_nTurnDrawCount;		 }
 
-	void AddToCardsDrawnThisTurn(CCard* pCard)		{ m_pCardsDrawnThisTurn.AddCard(pCard, CardPlacement::Top); m_pLastDrawThisTurn = pCard; }
-	void RemoveFromCardsDrawnThisTurn (CCard* pCard)	{ m_pCardsDrawnThisTurn.RemoveCard(pCard); if (m_pLastDrawThisTurn == pCard) m_pLastDrawThisTurn = NULL; }
-	CCountedCardContainer GetCardsDrawnThisTurn() const					{ return m_pCardsDrawnThisTurn; }
-	CCard* GetLastDraw()						{ return m_pLastDrawThisTurn; }
+	void AddToCardsDrawnThisTurn(CCard* pCard)				{ m_pCardsDrawnThisTurn.AddCard(pCard, CardPlacement::Top); m_pLastDrawThisTurn = pCard; }
+	void RemoveFromCardsDrawnThisTurn (CCard* pCard)		{ m_pCardsDrawnThisTurn.RemoveCard(pCard); if (m_pLastDrawThisTurn == pCard) m_pLastDrawThisTurn = NULL; }
+	CCountedCardContainer GetCardsDrawnThisTurn()	const	{ return m_pCardsDrawnThisTurn;	 }
+	CCard* GetLastDraw()									{ return m_pLastDrawThisTurn;	 }
 
-	void AddToDamageSourcesThisTurn(CCard* pCard)		{ m_pDamageSourcesThisTurn.AddCard(pCard, CardPlacement::Top); }
-	void RemoveFromDamageSourcesThisTurn (CCard* pCard)	{ m_pDamageSourcesThisTurn.RemoveCard(pCard); }
-	CCountedCardContainer GetDamageSourcesThisTurn() const					{ return m_pDamageSourcesThisTurn; }
+	void AddToDamageSourcesThisTurn(CCard* pCard)		    { m_pDamageSourcesThisTurn.AddCard(pCard, CardPlacement::Top); }
+	void RemoveFromDamageSourcesThisTurn (CCard* pCard)	    { m_pDamageSourcesThisTurn.RemoveCard(pCard); }
+	CCountedCardContainer GetDamageSourcesThisTurn() const	{ return m_pDamageSourcesThisTurn;			  }
 
-	void IncreaseTurnDiscardCount()					{ ++m_nTurnDiscardCount; }
-	int GetTurnDiscardCount() const					{ return m_nTurnDiscardCount; }
+	void IncreaseTurnDiscardCount()							{ ++m_nTurnDiscardCount;         }
+	int GetTurnDiscardCount()			  const				{ return m_nTurnDiscardCount;    }
 
-	void IncreaseAttackCount()					{ ++m_nTurnAttackCount; }              // Could be merged with prowl/attacking creatures history someday
-	int GetAttackCount() const					{ return m_nTurnAttackCount; }
+	void IncreaseAttackCount()								{ ++m_nTurnAttackCount;          }      // Could be merged with prowl/attacking creatures history someday
+	int GetAttackCount()				  const				{ return m_nTurnAttackCount;     }
 
-	CString GetPlayerName() const;
+	CString GetPlayerName()				  const;
 	void SetPlayerName(LPCTSTR strName);
 
 	const CTriggeredActionContainer* GetTriggeredActionContainer() const;
-	CTriggeredActionContainer* GetTriggeredActionContainer();
+	CTriggeredActionContainer*		 GetTriggeredActionContainer();
 
-	const CCountedPtrContainer<CUndoAction>* GetUndoActions() const;
+	const CCountedPtrContainer<CUndoAction>* GetUndoActions()	   const;
 	CCountedPtrContainer<CUndoAction>* GetUndoActions();
 
-	int GetPlayerTurnNumber() const;
+	int GetPlayerTurnNumber()			  const;
 	void IncreasePlayerTurnNumber();
 
 	/*
@@ -412,67 +409,67 @@ public:
 	void IncreasePlayerDrawNumber();
 	*/
 
-	void SetComputer();
-	BOOL IsComputer() const;
+	void  SetComputer();
+	BOOL  IsComputer()					  const;
 
-	BOOL IsLocal() const;	// Computer and net players are not local
-	BOOL IsRemote() const;
+	BOOL  IsLocal()						  const;	// Computer and net players are not local
+	BOOL  IsRemote()					  const;
 
-	void SetManaBurn(int nManaBurn);
-	int GetManaBurn() const;
+	void  SetManaBurn(int nManaBurn);
+	int   GetManaBurn()					  const;
 
 	counted_ptr<CAction> GetNextStrategy();
-	void RemoveNextStrategy();
-	void RemoveStrategy(StrategyRemovalReason reason);
-	void SetStrategy(const CStrategy& strategy);
+	void  RemoveNextStrategy();
+	void  RemoveStrategy(StrategyRemovalReason reason);
+	void  SetStrategy(const CStrategy& strategy);
 
-	void AddInPlayBonus(int nBonus);
-	int GetInPlayBonus() const;
-	void ResetInPlayBonus();
+	void  AddInPlayBonus(int nBonus);
+	int   GetInPlayBonus()				  const;
+	void  ResetInPlayBonus();
 
-	void AddInHandBonus(int nBonus);
-	int GetInHandBonus() const;
-	void ResetInHandBonus();
+	void  AddInHandBonus(int nBonus);
+	int   GetInHandBonus()				  const;
+	void  ResetInHandBonus();
 
-	void AddMiscBonus(int nBonus);
-	int GetMiscBonus() const;
-	void ResetMiscBonus();
+	void  AddMiscBonus(int nBonus);
+	int   GetMiscBonus()				  const;
+	void  ResetMiscBonus();
 
 	void SetInterface(CInterface* pInterface);
-	CInterface* GetInterface() const;
+	CInterface* GetInterface()			  const;
 
-	void MemorizeCard(const CCard* pCard);
-	void ForgetCard(const CCard* pCard);
-	bool IsMemorizedCard(const CCard* pCard) const;
-	bool AreMemorizedCards(const CCountedCardContainer& cards) const;
-	const CCountedPtrSet<const CCard>& GetMemorizedCards() const;
+	void  MemorizeCard(const CCard* pCard);
+	void  ForgetCard(const CCard* pCard);
+	bool  IsMemorizedCard(const CCard* pCard)					const;
+	bool  AreMemorizedCards(const CCountedCardContainer& cards) const;
+	const CCountedPtrSet<const CCard>& GetMemorizedCards()		const;
 
-	void SetDeck(const CDeck& deck);
-	const CDeck& GetDeck() const					{ return m_Deck; }
+	void  SetDeck(const CDeck& deck);
+	const CDeck& GetDeck()					const	{ return m_Deck;						}
 
-	const CPlayerEffect_& GetPlayerEffect() const	{ return m_PlayerEffect; }
-	CPlayerEffect_& GetPlayerEffect()				{ return m_PlayerEffect; }
+	const CPlayerEffect_& GetPlayerEffect() const	{ return m_PlayerEffect;				}
+	CPlayerEffect_& GetPlayerEffect()				{ return m_PlayerEffect;				}
 
-	int GetTurnUntappedCount() const				{ return m_nTurnUntappedCount; }
-	void IncreaseTurnUntapCount()					{ m_nTurnUntappedCount += 1; }
+	int   GetTurnUntappedCount()			const	{ return m_nTurnUntappedCount;			}
+	void  IncreaseTurnUntapCount()					{ m_nTurnUntappedCount += 1;			}
 
-	int GetTurnUntappedLandsCount() const				{ return m_nTurnUntappedLandsCount; }
-	void IncreaseTurnUntapLandsCount()					{ m_nTurnUntappedLandsCount += 1; }
+	int   GetTurnUntappedLandsCount()		const	{ return m_nTurnUntappedLandsCount;		}
+	void  IncreaseTurnUntapLandsCount()				{ m_nTurnUntappedLandsCount += 1;		}
 
-	int GetTurnUntappedCreaturesCount() const				{ return m_nTurnUntappedCreaturesCount; }
-	void IncreaseTurnUntapCreaturesCount()					{ m_nTurnUntappedCreaturesCount += 1; }
+	int   GetTurnUntappedCreaturesCount()	const	{ return m_nTurnUntappedCreaturesCount; }
+	void  IncreaseTurnUntapCreaturesCount()			{ m_nTurnUntappedCreaturesCount += 1;   }
 
-	int GetTurnCastedSpellCount() const				{ return m_nTurnCastedSpellCount; }
-	int GetLastTurnCastedSpellCount() const				{ return m_nLastTurnCastedSpellCount; }
-	void IncreaseTurnCastedSpellCount()				{ m_nTurnCastedSpellCount += 1; }
+	int   GetTurnCastedSpellCount()			const	{ return m_nTurnCastedSpellCount;       }
+	int   GetLastTurnCastedSpellCount()		const	{ return m_nLastTurnCastedSpellCount;   }
+	void  IncreaseTurnCastedSpellCount()			{ m_nTurnCastedSpellCount += 1;         }
 
-	void AddTurnCastedSpell(CCard* pCard, CardType pTypes, ZoneId fromZone, ZoneId toZone)							{ s_hCard.AddCard(pCard, CardPlacement::Top);
-																													  s_hTypes.AddCardType(pTypes);
-																													  s_hfromZones.AddZoneId(fromZone);
-																													   s_htoZones.AddZoneId(toZone);}
-	void AddDetainedCard(CCard* pCard)					{ detainedCard.AddCard(pCard, CardPlacement::Top); }
+	void AddTurnCastedSpell(CCard* pCard, CardType pTypes, ZoneId fromZone, ZoneId toZone)			{ s_hCard.AddCard(pCard, CardPlacement::Top);
+																									  s_hTypes.AddCardType(pTypes);
+																									  s_hfromZones.AddZoneId(fromZone);
+																									  s_htoZones.AddZoneId(toZone); }
+	void AddDetainedCard(CCard* pCard)				{ detainedCard.AddCard(pCard, CardPlacement::Top); }
 	
-	//void AddTurnCastedSpellTypes(CardType pTypes)				    { s_hTypes.AddCardType(pTypes); }	
+	//void AddTurnCastedSpellTypes(CardType pTypes)	{ s_hTypes.AddCardType(pTypes);					   }	
 
 	void AddTurnMovementHistory(CCard* pCard, CardType pTypes, ZoneId fromZone, ZoneId toZone)
 	{
@@ -486,61 +483,61 @@ public:
 
 	bool ExternalDamageReplacementCards();
 
-	int GetCertainTypeCastedCount(CardType pType);
-	int GetCertainAntiTypeCastedCount(CardType pType);
-	int GetCertainTypeEnteredBattlefieldCount(CardType pType);
-	int GetCertainAntiTypeEnteredBattlefieldCount(CardType pType);
-	int GetCertainTypeDiedCount(CardType pType);
-	int GetCertainTypeDiedCountNonToken(CardType pType);	// for Caller of the Claw
-	int GetDetainedCount()                  {return detainedCard.GetSize();}
+	int  GetCertainTypeCastedCount(CardType pType);
+	int  GetCertainAntiTypeCastedCount(CardType pType);
+	int  GetCertainTypeEnteredBattlefieldCount(CardType pType);
+	int  GetCertainAntiTypeEnteredBattlefieldCount(CardType pType);
+	int  GetCertainTypeDiedCount(CardType pType);
+	int  GetCertainTypeDiedCountNonToken(CardType pType);	// for Caller of the Claw
+	int  GetDetainedCount()							 { return detainedCard.GetSize(); }
 	bool IsCertainCardPresentInHistory(CCard* pCard, ZoneId toZone, ZoneId fromZone);
 	bool IsCertainCardDetained(CCard* pCard);
 
-	void RemoveDetain(CCard* pCard)               { detainedCard.RemoveCard(pCard);}
+	void RemoveDetain(CCard* pCard)					 { detainedCard.RemoveCard(pCard);}
 
-	//CCard* GetTurnCastedSpell(int pIndex) const                        { return s_hCard.GetAt(pIndex);}
-//	CardType GetTurnCastedSpellTypes(int pIndex) const                   { return s_hTypes.GetAtSpecial(pIndex).m_CardType;}	
+//	CCard* GetTurnCastedSpell(int pIndex)				const		{ return s_hCard.GetAt(pIndex);					   }
+//	CardType GetTurnCastedSpellTypes(int pIndex)		const		{ return s_hTypes.GetAtSpecial(pIndex).m_CardType; }
 
-	//CardType GetTurnEnteredBattlefieldTypes(int pIndex) const                   { return b_fTypes.GetAtSpecial(pIndex).m_CardType;}	
+//	CardType GetTurnEnteredBattlefieldTypes(int pIndex) const		{ return b_fTypes.GetAtSpecial(pIndex).m_CardType; }
 
-//	CCountedCardContainer GetAllTurnCastedSpell()	 { return s_hCard;}
-//	CCardTypeStoreStack GetAllTurnCastedSpellTypes()                    { return s_hTypes;}	
+//	CCountedCardContainer GetAllTurnCastedSpell()					{ return s_hCard;  }
+//	CCardTypeStoreStack GetAllTurnCastedSpellTypes()				{ return s_hTypes; }
 
-//	CCardTypeStoreStack GetAllTurnEnteredBattlefieldTypes()                    { return b_fTypes;}	
+//	CCardTypeStoreStack GetAllTurnEnteredBattlefieldTypes()			{ return b_fTypes; }
 
-	void ResetTurnInfo();
+	void  ResetTurnInfo();
 
-	void ResetPlayerTurnNumber()                               { m_nPlayerTurnNumber = 0; }
+	void  ResetPlayerTurnNumber()							{ m_nPlayerTurnNumber = 0;	  }
 
 	const CDamageRedirection_& GetDamageRedirection() const	{ return m_DamageRedirection; }
 	CDamageRedirection_& GetDamageRedirection()				{ return m_DamageRedirection; }
 
-	int AddUntapCardType(CardType cardType, CardType mask, BOOL bThisTurnOnly);
-	void RemoveUntapCardType(int nUniqueId);
-	int AddCantUntapCardType(CardType cardType, CardType mask, BOOL bThisTurnOnly);
-	void RemoveCantUntapCardType(int nUniqueId);
-	BOOL CanUntap(const CCard* pCard) const;
+	int   AddUntapCardType(CardType cardType, CardType mask, BOOL bThisTurnOnly);
+	void  RemoveUntapCardType(int nUniqueId);
+	int   AddCantUntapCardType(CardType cardType, CardType mask, BOOL bThisTurnOnly);
+	void  RemoveCantUntapCardType(int nUniqueId);
+	BOOL  CanUntap(const CCard* pCard)							  const;
 
-	int SetCanBeAttackedBy(const CCardFilter* pCardFilter, BOOL bThisTurnOnly);
-	void RemoveCanBeAttackedBy(int nUniqueId);
-	bool CanBeAttackedBy(const CCreatureCard* pCreature) const;
+	int   SetCanBeAttackedBy(const CCardFilter* pCardFilter, BOOL bThisTurnOnly);
+	void  RemoveCanBeAttackedBy(int nUniqueId);
+	bool  CanBeAttackedBy(const CCreatureCard* pCreature)		  const;
 
-	void GetState(StringArray& lines, BOOL bLibrary, BOOL bHand) const;
+	void  GetState(StringArray& lines, BOOL bLibrary, BOOL bHand) const;
 
-	BOOL GetFinishedMulligan() const { return m_bFinishedMulligan; }
-	void SetFinishedMulligan(BOOL bFinishedMulligan) { m_bFinishedMulligan = bFinishedMulligan; }
+	BOOL  GetFinishedMulligan()									  const { return m_bFinishedMulligan;			   }
+	void  SetFinishedMulligan(BOOL bFinishedMulligan)					{ m_bFinishedMulligan = bFinishedMulligan; }
 
-	int GetDevotion(CManaCost::Color DevotionColor);
+	int   GetDevotion(CManaCost::Color DevotionColor);
 protected:
-	void OnDamageRedirectionSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
-	void OnPlaneswalkerSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
-	void OnReplacementSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
-	void OnCurrentNodeChanged(CNode* pToNode);
+	void  OnDamageRedirectionSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void  OnPlaneswalkerSelected	 (const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void  OnReplacementSelected		 (const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void  OnCurrentNodeChanged		 (CNode* pToNode);
 
-	void ChangeLifeImpl(Damage damage);
-	void ChangeLifeImpl2(Damage damage);
-	bool HasPlaneswalkers() const;
-	bool CanRedirectToPlaneswalkers(Damage damage) const;
+	void  ChangeLifeImpl (Damage damage);
+	void  ChangeLifeImpl2(Damage damage);
+	bool  HasPlaneswalkers()						const;
+	bool  CanRedirectToPlaneswalkers(Damage damage) const;
 
 	CGame*						m_pGame;
 
@@ -566,88 +563,88 @@ protected:
 	BOOL_	m_bLost;
 	BOOL_	m_bDrawFailed;
 	BOOL_	m_bLostByOtherReasons;
-	BOOL_   m_bLostByPoison;
-	BOOL_   m_bSearchedLibraryThisTurn;
-	BOOL_   m_bCreatureCounteredByOpponent;
-	BOOL_   m_nProwl;
-	BOOL_   m_archenemy;
-	BOOL_   m_planechase;
-	BOOL_   m_resolved_scheme;
-	BOOL_   m_commander;
-	BOOL_   m_phasing;
+	BOOL_	m_bLostByPoison;
+	BOOL_	m_bSearchedLibraryThisTurn;
+	BOOL_	m_bCreatureCounteredByOpponent;
+	BOOL_	m_nProwl;
+	BOOL_	m_archenemy;
+	BOOL_	m_planechase;
+	BOOL_	m_resolved_scheme;
+	BOOL_	m_commander;
+	BOOL_	m_phasing;
 	Life_	m_nLife;
 	int_	m_nMaxHandSize;
 	int_	m_nPlayerTurnNumber;
 	int_	m_nInPlayBonus;
 	int_	m_nInHandBonus;
 	int_	m_nMiscBonus;
-	int_	m_nTurnUntappedCount;	// Untapped cards count during the untap step
+	int_	m_nTurnUntappedCount;				// untapped cards count during the untap step
 	int_	m_nTurnUntappedLandsCount;
 	int_	m_nTurnUntappedCreaturesCount;
 	int_	m_nTurnCastedSpellCount;
-	int_	m_nLastTurnCastedSpellCount;
-	int_    m_nPoisonCounters;
-	Life_	m_nLifeAtBeginningOfTurn;
+	int_	m_nLastTurnCastedSpellCount;		// last turn
+	int_	m_nPoisonCounters;
+	
 	Life_	m_nStartingLife;
 	Life_	m_nTurnCombatDamageTaken;
 	Life_	m_nTurnNoncombatDamageTaken;
 	Life_	m_nTurnLifeLossTaken;
+//last turn start-----------------------------------------------	
+	Life_	m_nLifeAtBeginningOfTurn;			//life at beginning of turn is life carried from the conclusion of last turn
+	Life_	m_nTurnLifeLossTakenLastTurn;
+	Life_	m_nTurnCombatDamageTakenLastTurn;
+	Life_	m_nTurnNoncombatDamageTakenLastTurn;
+//last turn end-------------------------------------------------	
 	Life_	m_nTurnLifeGain;
-
 	BOOL_	m_bFinishedMulligan;
-
 	int_	m_nTurnDrawCount;
 	CCountedCardContainer_ m_pCardsDrawnThisTurn;
-	CCard* m_pLastDrawThisTurn;
-
+	CCard*	m_pLastDrawThisTurn;
 	CCountedCardContainer_ m_pDamageSourcesThisTurn;
-
 	int_	m_nTurnAttackCount;
-
 	int_	m_nTurnDiscardCount;
-
 	std::auto_ptr<CGraph>	m_apGraph;
 	CManaPool_				m_ManaPool;
 	CPlayerEffect_			m_PlayerEffect;
 
 	std::auto_ptr<CTriggeredActionContainer>	m_apTriggeredMoveContainer;
 
-	counted_ptr<DamageDealEventSource>	m_cpDamageDealEventSource;
+	counted_ptr<DamageDealEventSource>			m_cpDamageDealEventSource;
 	counted_ptr<BeforeDamageDealtEventSource>	m_cpBeforeDamageDealtEventSource;
-	counted_ptr<CounterMovedEventSource>	m_cpCounterMovedEventSource;
-	counted_ptr<SpecialTriggerEventSource>	m_cpSpecialTriggerEventSource;
-	counted_ptr<CardCycledEventSource>	m_cpCardCycledEventSource;
-	counted_ptr<ChangeLifeEventSource>	m_cpChangeLifeEventSource;
-	counted_ptr<ManaAddEventSource>	m_cpManaAddEventSource;
+	counted_ptr<CounterMovedEventSource>		m_cpCounterMovedEventSource;
+	counted_ptr<SpecialTriggerEventSource>		m_cpSpecialTriggerEventSource;
+	counted_ptr<CardCycledEventSource>			m_cpCardCycledEventSource;
+	counted_ptr<ChangeLifeEventSource>			m_cpChangeLifeEventSource;
+	counted_ptr<ManaAddEventSource>				m_cpManaAddEventSource;
 
-	CDamagePrevention_		m_DamagePrevention;
-	CDamageRedirection_		m_DamageRedirection;
-	CSelectionSupport		m_DamageRedirectionSelection;
-	CSelectionSupport		m_PlaneswalkerSelection;
-	CSelectionSupport		m_ReplacementSelection;
+	CDamagePrevention_							m_DamagePrevention;
+	CDamageRedirection_							m_DamageRedirection;
+	CSelectionSupport							m_DamageRedirectionSelection;
+	CSelectionSupport							m_PlaneswalkerSelection;
+	CSelectionSupport							m_ReplacementSelection;
 
-	CCardTypeStack			m_UntapCardType;
-	CCardTypeStack			m_CantUntapCardType;
+	CCardTypeStack								m_UntapCardType;
+	CCardTypeStack								m_CantUntapCardType;
 
-	CPredefinedCardFilterStack	m_CanBeAttackedBy;
+	CPredefinedCardFilterStack					m_CanBeAttackedBy;
 
 	// Casted spells history
 
-	//CCountedCardContainer s_hCard;	
-	//CCardTypeStoreStack s_hTypes;
+	//CCountedCardContainer s_hCard;
+	//CCardTypeStoreStack	s_hTypes;
 
 	// Entered battlefield history
 
-	//CCardTypeStoreStack b_fTypes;
+	//CCardTypeStoreStack	b_fTypes;
 
 	// Moving Card History
 
-	CCountedCardContainer_ s_hCard;	
-	CCardTypeStoreStack s_hTypes;
-	CZoneIdStoreStack s_hfromZones;
-	CZoneIdStoreStack s_htoZones;
+	CCountedCardContainer_	s_hCard;
+	CCardTypeStoreStack		s_hTypes;
+	CZoneIdStoreStack		s_hfromZones;
+	CZoneIdStoreStack		s_htoZones;
 
-	CCountedCardContainer_ detainedCard;	
+	CCountedCardContainer_ detainedCard;
 
 };
 
@@ -667,7 +664,7 @@ public:
 
 	void SetIncludes(BOOL bIncludeOpponents = TRUE, BOOL bIncludeController = TRUE)
 	{
-		m_bIncludeOpponents = bIncludeOpponents;
+		m_bIncludeOpponents  = bIncludeOpponents;
 		m_bIncludeController = bIncludeController;
 	}
 

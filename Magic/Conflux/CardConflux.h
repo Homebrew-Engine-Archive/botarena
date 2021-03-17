@@ -365,13 +365,6 @@ class CAshasFavorCard : public CChgPwrTghAttrEnchantCard
 
 //____________________________________________________________________________
 //
-class CSigilOfTheEmptyThroneCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CSigilOfTheEmptyThroneCard);
-};
-
-//____________________________________________________________________________
-//
 class CSuicidalChargeCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CSuicidalChargeCard);

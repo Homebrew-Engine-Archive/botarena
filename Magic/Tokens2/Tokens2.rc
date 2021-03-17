@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -105,6 +106,70 @@ BEGIN
     IDS_STRING55019         "Snake (I)\n{G}\nCreature - Snake\nToken\n\n1/1"
     IDS_STRING55020         "Goblin (N)\n{R}\nCreature - Goblin\nToken\n\n1/1"
     IDS_STRING55021         "Spirit Warrior (A)\n{BG}\nCreature - Spirit Warrior\nToken\n\n*/*"
+    IDS_STRING55022         "Spirit (Q)\n{W}\nCreature - Spirit\nToken\nFlying\n1/1"
+    IDS_STRING55023         "Warrior (C)\n{B}\nCreature - Warrior\nToken\n\n2/1"
+    IDS_STRING55024         "Monk (A)\n{W}\nCreature - Monk\nToken\nProwess\n1/1"
+    IDS_STRING55025         "Cat (F)\n{W}\nCreature - Cat\nToken\n\n2/2"
+    IDS_STRING55026         "Cleric (B)\n{W}\nEnchantment Creature - Cleric\nToken\n\n2/1"
+    IDS_STRING55027         "Dragon (H)\n{R}\nCreature - Dragon\nToken\nFlying\n4/4"
+    IDS_STRING55028         "Warrior (D)\n{W}\nCreature - Warrior\nToken\n\n1/1"
+    IDS_STRING55029         "Djinn Monk (A)\n{U}\nCreature - Djinn Monk\nToken\nFlying\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING55030         "Zombie (R)\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING55031         "Zombie Horror (A)\n{B}\nCreature - Zombie\nToken\n\n*/*"
+    IDS_STRING55032         "Goblin (O)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING55033         "Sliver (D)\n{1}\nCreature - Sliver\nToken\n\n1/1"
+    IDS_STRING55034         "Soldier (R)\n{W}\nCreature - Soldier\nToken\n\n1/1"
+    IDS_STRING55035         "Zombie (S)\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING55036         "Goblin (P)\n{R}\nCreature - Goblin\nToken\nHaste\n1/1"
+    IDS_STRING55037         "Beast (O)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING55038         "Beast (P)\n{B}\nCreature - Beast\nToken\nDeathtouch\n3/3"
+    IDS_STRING55039         "Insect (I)\n{G}\nCreature - Insect\nToken\nFlying, Deathtouch\n1/1"
+    IDS_STRING55040         "Spirit (R)\n{W}\nCreature - Spirit\nToken\nFlying\n1/1"
+    IDS_STRING55041         "Squid (A)\n{U}\nCreature - Squid\nToken\nIslandwalk\n1/1"
+    IDS_STRING55042         "Dragon (I)\n{R}\nCreature - Dragon\nToken\nFlying\r{R}: This creature gets +1/+0 until end of turn.\n2/2"
+    IDS_STRING55043         "Treefolk Warrior (A)\n{G}\nCreature - Treefolk Warrior\nToken\nThis creature's power and toughness are each equal to the number of Forests you control.\n*/*"
+    IDS_STRING55044         "Ashaya, the Awoken World\n{G}\nLegendary Creature - Elemental\nToken\n\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING55045         "Angel (J)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+    IDS_STRING55046         "Knight (E)\n{W}\nCreature - Knight\nToken\nVigilance\n2/2"
+    IDS_STRING55047         "Soldier (S)\n{W}\nCreature - Soldier\nToken\n\n1/1"
+    IDS_STRING55048         "Demon (E)\n{B}\nCreature - Demon\nToken\nFlying\n5/5"
+    IDS_STRING55049         "Zombie (T)\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING55050         "Goblin (Q)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING55051         "Elemental (X)\n{G}\nCreature - Elemental\nToken\n\n2/2"
+    IDS_STRING55052         "Elf Warrior (D)\n{G}\nCreature - Elf Warrior\nToken\n\n1/1"
+    IDS_STRING55053         "Thopter (D)\n{1}\nArtifact Creature - Thopter\nToken\nFlying\n1/1"
+    IDS_STRING55054         "Thopter (E)\n{1}\nArtifact Creature - Thopter\nToken\nFlying\n1/1"
+    IDS_STRING55055         "Octopus (A)\n{U}\nCreature - Octopus\nToken\n\n8/8"
+    IDS_STRING55056         "Eldrazi Scion (A)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n1/1"
+    IDS_STRING55057         "Eldrazi Scion (B)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n1/1"
+    IDS_STRING55058         "Eldrazi Scion (C)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n1/1"
+    IDS_STRING55059         "Eldrazi (A)\n{1}\nCreature - Eldrazi\nToken\n\n10/10"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING55060         "Knight Ally (A)\n{W}\nCreature - Knight Ally\nToken\n\n2/2"
+    IDS_STRING55061         "Kor Ally (A)\n{W}\nCreature - Kor Ally\nToken\n\n1/1"
+    IDS_STRING55062         "Dragon (J)\n{R}\nCreature - Dragon\nToken\nFlying\r\n5/5"
+    IDS_STRING55063         "Elemental (Y)\n{R}\nCreature - Elemental\nToken\nTrample, haste\n3/1"
+    IDS_STRING55064         "Plant (B)\n{G}\nCreature - Plant\nToken\n\n1/1"
+    IDS_STRING55065         "Elemental (Z)\n{RG}\nCreature - Elemental\nToken\n\n5/5"
+    IDS_STRING55066         "Plant (C)\n{G}\nCreature - Plant\nToken\n\n0/1"
+    IDS_STRING55067         "Elemental (ZA)\n{G}\nCreature - Elemental\nToken\n\n*/*"
+    IDS_STRING55068         "Elemental (ZB)\n{R}\nCreature - Elemental\nToken\nHaste\n3/1"
+    IDS_STRING55069         "Zombie (U)\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING55070         "Angel (K)\n{W}\nCreature - Angel\nToken\nFlying\n3/3"
+    IDS_STRING55071         "Eldrazi Scion (D)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n1/1"
+    IDS_STRING55072         "Eldrazi Scion (E)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n1/1"
+    IDS_STRING55073         "Eldrazi Scion (F)\n{1}\nCreature - Eldrazi Spawn\nToken\nSacrifice this creature: Add {1} to your mana pool.\n1/1"
 END
 
 #endif    // English (United States) resources
@@ -117,7 +182,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

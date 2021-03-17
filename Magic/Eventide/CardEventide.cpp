@@ -102,6 +102,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMerrowBonegnawerCard);
 		DEFINE_CARD(CMindwrackLiegeCard);
 		DEFINE_CARD(CMirrorSheenCard);
+		DEFINE_CARD(CMoonholdCard);
 		DEFINE_CARD(CMurkfiendLiegeCard);
 		DEFINE_CARD(CMerrowLevitatorCard);
 		DEFINE_CARD(CMonstrifyCard);
@@ -9250,6 +9251,53 @@ void CTalarasBaneCard::OnCardSelected(const std::vector<SelectionEntry>& selecti
 
 			return;
 		}
+}
+
+//____________________________________________________________________________
+//
+CMoonholdCard::CMoonholdCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Moonhold"), CardType::Instant, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			   &CMoonholdCard::OnResolutionCompleted))
+{
+	{//hybrid mana cost
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
+				_T("2") WHITE_MANA_TEXT));
+
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//hybrid mana cost
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
+				_T("2") RED_MANA_TEXT));
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+			
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+void CMoonholdCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CPlayer* pTarget   = pAbilityAction->GetAssociatedPlayer();
+	int iRedColorCnt   = GetLastCastingManaCost().GetMana(CManaPool::Color::Red);
+	int iWhiteColorCnt = GetLastCastingManaCost().GetMana(CManaPool::Color::White);
+
+	CScheduledPlayerModifier* pModifier1 = new CScheduledPlayerModifier(GetGame(),
+			new CPlayerEffectModifier(PlayerEffectType::CantPlayLands, (int)CCardFilter::GetFilter(_T("lands")), true),
+			TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::ApplyToNowRemoveLater);
+	
+	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(GetGame(),
+			new CPlayerEffectModifier(PlayerEffectType::CantPlaySpells, (int)CCardFilter::GetFilter(_T("creatures")), true),
+			TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::ApplyToNowRemoveLater);
+
+	if(iRedColorCnt > 0)					//Target player can't play land cards this turn if {R} was spent to cast Moonhold
+		pModifier1->ApplyTo(pTarget);
+
+	if(iWhiteColorCnt > 0)					//Target player can't play creature cards this turn if {W} was spent to cast Moonhold
+		pModifier2->ApplyTo(pTarget);
 }
 
 //____________________________________________________________________________

@@ -800,13 +800,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CCruelRevivalCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CCruelRevivalCard);
-};
-
-//____________________________________________________________________________
-//
 class CDeathPulseCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDeathPulseCard);
@@ -1041,21 +1034,6 @@ class CPsychicTranceCard : public CCard
 
 protected:
 	counted_ptr<CAbility> CreateAbility(CCard* pCard);
-};
-
-//____________________________________________________________________________
-//
-class CGoblinPiledriverCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CGoblinPiledriverCard);
-
-protected:
-	typedef 
-		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfAttackedBlocked,
-						   CWhenSelfAttackedBlocked::AttackEventCallback,
-						   &CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
-	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
-	CCardFilter m_CardFilter;
 };
 
 //____________________________________________________________________________

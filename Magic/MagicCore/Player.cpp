@@ -31,13 +31,18 @@ CPlayer::CPlayer(CGame* pGame)
 	, m_nTurnUntappedLandsCount(0)
 	, m_nTurnUntappedCreaturesCount(0)
 	, m_nTurnCastedSpellCount(0)
-	, m_nLastTurnCastedSpellCount(0)
 	, m_apTriggeredMoveContainer(new CTriggeredActionContainer)
-	, m_nLifeAtBeginningOfTurn(Life(0))
-	, m_nStartingLife(Life(0))
+	, m_nStartingLife(Life(0))						//life player starts the game at normally 20
 	, m_nTurnCombatDamageTaken(Life(0))
 	, m_nTurnNoncombatDamageTaken(Life(0))
 	, m_nTurnLifeLossTaken(Life(0))
+//last turn start-----------------------------------------------	
+	, m_nLastTurnCastedSpellCount(0)
+	, m_nLifeAtBeginningOfTurn(Life(0))				//life at beginning of turn is life carried from the conclusion of last turn
+	, m_nTurnCombatDamageTakenLastTurn(Life(0))
+	, m_nTurnNoncombatDamageTakenLastTurn(Life(0))
+	, m_nTurnLifeLossTakenLastTurn(Life(0))
+//last turn end-------------------------------------------------
 	, m_nTurnLifeGain(Life(0))
 	, m_nProwl(FALSE)
 	, m_DamageRedirectionSelection(pGame,
@@ -82,19 +87,19 @@ CPlayer::CPlayer(CGame* pGame)
 	//m_nPlayerDrawNumber.SetUseInThinkHistory(false);
 #endif
 
-	m_Zones.Add(new CZone(ZoneId::Battlefield, TRUE, TRUE, TRUE, this));
-	m_Zones.Add(new CZone(ZoneId::_PhasedOut, TRUE, TRUE, TRUE, this));
-	m_Zones.Add(new CZone(ZoneId::Hand, TRUE, FALSE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::Graveyard, TRUE, TRUE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::Library, FALSE, FALSE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::Stack, TRUE, TRUE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::Exile, FALSE, FALSE, FALSE, this));  // If visibility changed to true cascade freecast crashes the game, for getting actions visibility is overriden in game.cpp (str 1824, 1911)
-	m_Zones.Add(new CZone(ZoneId::_Tokens, FALSE, FALSE, FALSE, this));	
-	m_Zones.Add(new CZone(ZoneId::_Effects, TRUE, TRUE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::_ExileFaceDown, TRUE, FALSE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::_Sideboard, TRUE, FALSE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::_Schemes, FALSE, FALSE, FALSE, this));
-	m_Zones.Add(new CZone(ZoneId::_Planes, FALSE, FALSE, FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::Battlefield,	  TRUE,  TRUE,  TRUE,  this));
+	m_Zones.Add(new CZone(ZoneId::_PhasedOut,	  TRUE,  TRUE,  TRUE,  this));
+	m_Zones.Add(new CZone(ZoneId::Hand,			  TRUE,  FALSE, FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::Graveyard,	  TRUE,  TRUE,  FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::Library,		  FALSE, FALSE, FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::Stack,		  TRUE,  TRUE,  FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::Exile,		  FALSE, FALSE, FALSE, this));  // If visibility changed to true cascade freecast crashes the game, for getting actions visibility is overriden in game.cpp (str 1824, 1911)
+	m_Zones.Add(new CZone(ZoneId::_Tokens,		  FALSE, FALSE, FALSE, this));	
+	m_Zones.Add(new CZone(ZoneId::_Effects,		  TRUE,  TRUE,  FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::_ExileFaceDown, TRUE,  FALSE, FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::_Sideboard,	  TRUE,  FALSE, FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::_Schemes,		  FALSE, FALSE, FALSE, this));
+	m_Zones.Add(new CZone(ZoneId::_Planes,		  FALSE, FALSE, FALSE, this));
 }
 
 CPlayer::~CPlayer()
@@ -182,10 +187,10 @@ function and include in the card level code.
 int CPlayer::GetDevotion(CManaCost::Color DevotionColor)
 {	
 	CZone* pBattlefield = m_pGame->GetActivePlayer()->GetZoneById(ZoneId::Battlefield);
-	int nCardCount = pBattlefield->GetSize();
-	int SymDevotionCur = 0;						// current devotion symbol total
-	int SymDevotionTmp = 0;
-	int SymDevotionCnt = 0;						// devotion symbol count
+	int nCardCount		= pBattlefield->GetSize();
+	int SymDevotionCur	= 0;						// current devotion symbol total
+	int SymDevotionTmp	= 0;
+	int SymDevotionCnt	= 0;						// devotion symbol count
 	for (int i = 0; i < nCardCount; ++i)
 	{
 		SymDevotionCur = 0;						
@@ -482,9 +487,9 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 	if (GetPlayerEffect().HasPlayerEffect(PlayerEffectType::DamageToLifeReplacement) && (damage.m_DamageType & DamageType::NonCombatDamage).Any() && damage.m_Preventable == PreventableType::Preventable && n<2)
 	{
 		Damage lifelink_damage;
-		lifelink_damage.m_nLifeDelta = Life(-damage.m_nLifeDelta);
+		lifelink_damage.m_nLifeDelta  = Life(-damage.m_nLifeDelta);
 		lifelink_damage.m_Preventable = PreventableType::NotPreventable;
-		lifelink_damage.m_DamageType = DamageType::NotDealingDamage;
+		lifelink_damage.m_DamageType  = DamageType::NotDealingDamage;
 		lifelink_damage.m_pSourceCard = damage.m_pSourceCard;
 		ChangeLife(lifelink_damage);
 		return;
@@ -737,9 +742,9 @@ void CPlayer::OnReplacementSelected(const std::vector<SelectionEntry>& selection
 			if (it->dwContext == 7)
 			{
 				Damage lifelink_damage;
-				lifelink_damage.m_nLifeDelta = Life(-damage.m_nLifeDelta);
+				lifelink_damage.m_nLifeDelta  = Life(-damage.m_nLifeDelta);
 				lifelink_damage.m_Preventable = PreventableType::NotPreventable;
-				lifelink_damage.m_DamageType = DamageType::NotDealingDamage;
+				lifelink_damage.m_DamageType  = DamageType::NotDealingDamage;
 				lifelink_damage.m_pSourceCard = damage.m_pSourceCard;
 				ChangeLife(lifelink_damage);
 			}
@@ -813,9 +818,9 @@ void CPlayer::ChangeLifeImpl(Damage damage)
 void CPlayer::OnDamageRedirectionSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	Damage damage;
-	damage.m_nLifeDelta = Life(dwContext1);
+	damage.m_nLifeDelta  = Life(dwContext1);
 	damage.m_Preventable = PreventableType::Enum(dwContext2);
-	damage.m_DamageType = static_cast<DamageType::Enum>(dwContext3);
+	damage.m_DamageType  = static_cast<DamageType::Enum>(dwContext3);
 	damage.m_pSourceCard = (CCard*)dwContext4;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
@@ -833,9 +838,9 @@ void CPlayer::OnPlaneswalkerSelected(const std::vector<SelectionEntry>& selectio
 	ATLASSERT(nSelectedCount == 1);
 
 	Damage damage;
-	damage.m_nLifeDelta = Life(dwContext1);
+	damage.m_nLifeDelta  = Life(dwContext1);
 	damage.m_Preventable = PreventableType::Enum(dwContext2);
-	damage.m_DamageType = static_cast<DamageType::Enum>(dwContext3);
+	damage.m_DamageType  = static_cast<DamageType::Enum>(dwContext3);
 	damage.m_pSourceCard = (CCard*)dwContext4;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
@@ -862,9 +867,9 @@ void CPlayer::OnPlaneswalkerSelected(const std::vector<SelectionEntry>& selectio
 				if (damage.m_pSourceCard->GetCardKeyword()->HasLifelink())
 				{
 					Damage lifelink_damage;
-					lifelink_damage.m_nLifeDelta = Life(-damage.m_nLifeDelta);
+					lifelink_damage.m_nLifeDelta  = Life(-damage.m_nLifeDelta);
 					lifelink_damage.m_Preventable = PreventableType::NotPreventable;
-					lifelink_damage.m_DamageType = DamageType::NotDealingDamage;
+					lifelink_damage.m_DamageType  = DamageType::NotDealingDamage;
 					lifelink_damage.m_pSourceCard = damage.m_pSourceCard;
 					damage.m_pSourceCard->GetController()->ChangeLife(lifelink_damage);
 				}
@@ -955,9 +960,9 @@ void CPlayer::ChangeLifeImpl2(Damage damage)
 	if (damage.m_pSourceCard->GetCardKeyword()->HasLifelink() && !(damage.m_DamageType == DamageType::NotDealingDamage))
 	{
 		Damage lifelink_damage;
-		lifelink_damage.m_nLifeDelta = Life(-damage.m_nLifeDelta);
+		lifelink_damage.m_nLifeDelta  = Life(-damage.m_nLifeDelta);
 		lifelink_damage.m_Preventable = PreventableType::NotPreventable;
-		lifelink_damage.m_DamageType = DamageType::NotDealingDamage;
+		lifelink_damage.m_DamageType  = DamageType::NotDealingDamage;
 		lifelink_damage.m_pSourceCard = damage.m_pSourceCard;
 		damage.m_pSourceCard->GetController()->ChangeLife(lifelink_damage);
 	}
@@ -1037,7 +1042,7 @@ Life CPlayer::GetLife() const
 	return m_nLife;
 }
 
-Life CPlayer::GetLifeAtBeginningOfTurn() const
+Life CPlayer::GetLifeAtBeginningOfTurn() const			//life at beginning of turn is life carried from the conclusion of last turn
 {
 	return m_nLifeAtBeginningOfTurn;
 }
@@ -1066,23 +1071,48 @@ Life CPlayer::GetLifeLossTakenThisTurn() const
 {
 	return m_nTurnLifeLossTaken;
 }
+//last turn start-----------------------------------------------
+Life CPlayer::GetLifeLossTakenLastTurn()		const 
+{
+	return m_nTurnLifeLossTakenLastTurn; 
+}
 
-Life CPlayer::GetLifeGainThisTurn() const
+Life CPlayer::GetCombatDamageTakenLastTurn()	const 
+{
+	return m_nTurnCombatDamageTakenLastTurn;
+}
+
+Life CPlayer::GetNoncombatDamageTakenLastTurn() const 
+{
+	return m_nTurnNoncombatDamageTakenLastTurn;
+}
+
+Life CPlayer::GetDamageTakenLastTurn()			const		
+{
+	return m_nTurnCombatDamageTakenLastTurn + m_nTurnNoncombatDamageTakenLastTurn;
+}
+
+Life CPlayer::GetTotalLifeLossTakenLastTurn()	const
+{
+	return m_nTurnLifeLossTakenLastTurn + m_nTurnCombatDamageTakenLastTurn + m_nTurnNoncombatDamageTakenLastTurn;
+}
+//last turn end--------------------------------------------------
+Life CPlayer::GetLifeGainThisTurn()				const
 {
 	return m_nTurnLifeGain;
 }
 
-Life CPlayer::GetDamageTakenThisTurn() const
+Life CPlayer::GetDamageTakenThisTurn()			const
 {
 	return m_nTurnCombatDamageTaken + m_nTurnNoncombatDamageTaken;
 }
 
-Life CPlayer::GetTotalLifeLossTakenThisTurn() const
+Life CPlayer::GetTotalLifeLossTakenThisTurn()	const
 {
 	return m_nTurnLifeLossTaken + m_nTurnCombatDamageTaken + m_nTurnNoncombatDamageTaken;
 }
 
-BOOL CPlayer::IsProwled() const
+BOOL CPlayer::IsProwled()						const
 {
 	return m_nProwl;
 }
@@ -1444,14 +1474,14 @@ void CPlayer::SetDeck(const CDeck& deck)
 
 	m_Deck = deck;
 
-	CZone* pLibrary = GetZoneById(ZoneId::Library);
+	CZone* pLibrary		= GetZoneById(ZoneId::Library);
 	CZone* pBattlefield = GetZoneById(ZoneId::Battlefield);
-	CZone* pEmblems = GetZoneById(ZoneId::_Effects);
-	CZone* pTokens = GetZoneById(ZoneId::_Tokens);
-	CZone* pSideboard = GetZoneById(ZoneId::_Sideboard);
-	CZone* pHand = GetZoneById(ZoneId::Hand);
-	CZone* pScheme = GetZoneById(ZoneId::_Schemes);
-	CZone* pPlane = GetZoneById(ZoneId::_Planes);
+	CZone* pEmblems		= GetZoneById(ZoneId::_Effects);
+	CZone* pTokens		= GetZoneById(ZoneId::_Tokens);
+	CZone* pSideboard	= GetZoneById(ZoneId::_Sideboard);
+	CZone* pHand		= GetZoneById(ZoneId::Hand);
+	CZone* pScheme		= GetZoneById(ZoneId::_Schemes);
+	CZone* pPlane		= GetZoneById(ZoneId::_Planes);
 
 	m_pGame->Log(_T("/// %s's deck\n"), GetPlayerName());
 
@@ -1706,15 +1736,15 @@ void CPlayer::SetDeck(const CDeck& deck)
 
 	m_pGame->Log(_T("\n/// Statistics\n"));
 	m_pGame->Log(_T("/// ====================================\n"));
-	m_pGame->Log(_T("///         Cards: %d (unique: %d)\n"), deckCards.size(), deck.GetCardNames().size());
+	m_pGame->Log(_T("///         Cards: %d (unique: %d)\n"), deckCards.size(),		  deck.GetCardNames().size());
 	if (deck.GetLandCount())
-		m_pGame->Log(_T("///         Lands: %d (%.2f%%)\n"), deck.GetLandCount(), deck.GetLandPercentage());
+		m_pGame->Log(_T("///         Lands: %d (%.2f%%)\n"), deck.GetLandCount(),	  deck.GetLandPercentage());
 	if (deck.GetCreatureCount())
 		m_pGame->Log(_T("///     Creatures: %d (%.2f%%)\n"), deck.GetCreatureCount(), deck.GetCreaturePercentage());
 	if (deck.GetInstantCount())
-		m_pGame->Log(_T("///      Instants: %d (%.2f%%)\n"), deck.GetInstantCount(), deck.GetInstantPercentage());
+		m_pGame->Log(_T("///      Instants: %d (%.2f%%)\n"), deck.GetInstantCount(),  deck.GetInstantPercentage());
 	if (deck.GetSorceryCount())
-		m_pGame->Log(_T("///     Sorceries: %d (%.2f%%)\n"), deck.GetSorceryCount(), deck.GetSorceryPercentage());
+		m_pGame->Log(_T("///     Sorceries: %d (%.2f%%)\n"), deck.GetSorceryCount(),  deck.GetSorceryPercentage());
 	if (deck.GetEnchantmentCount())
 		m_pGame->Log(_T("///  Enchantments: %d (%.2f%%)\n"), deck.GetEnchantmentCount(), deck.GetEnchantmentPercentage());
 	if (deck.GetArtifactCount())
@@ -1735,29 +1765,32 @@ void CPlayer::SetDeck(const CDeck& deck)
 
 void CPlayer::ResetTurnInfo()
 {
-	m_nLifeAtBeginningOfTurn = m_nLife;
-	m_nTurnUntappedCount = 0;
-	m_nTurnUntappedLandsCount = 0;
-	m_nTurnUntappedCreaturesCount = 0;
-	m_nLastTurnCastedSpellCount = m_nTurnCastedSpellCount;
-	m_nTurnCastedSpellCount = 0;
-	
-	m_nTurnDrawCount = 0;
+//last turn start-----------------------------------------------
+	m_nLifeAtBeginningOfTurn			= m_nLife;						//life at beginning of turn is life carried from the conclusion of last turn
+	m_nLastTurnCastedSpellCount			= m_nTurnCastedSpellCount;
+	m_nTurnCombatDamageTakenLastTurn	= m_nTurnCombatDamageTaken;
+	m_nTurnNoncombatDamageTakenLastTurn = m_nTurnNoncombatDamageTaken;
+	m_nTurnLifeLossTakenLastTurn		= m_nTurnLifeLossTaken;
+//last turn end-------------------------------------------------
+//this turn below-----------------------------------------------
+	m_nTurnUntappedCount				= 0;
+	m_nTurnUntappedLandsCount			= 0;
+	m_nTurnUntappedCreaturesCount		= 0;
+	m_nTurnCastedSpellCount				= 0;
+	m_nTurnDrawCount					= 0;
 	m_pCardsDrawnThisTurn.RemoveAll();
-	m_pLastDrawThisTurn = NULL;
-
+	m_pLastDrawThisTurn					= NULL;
 	m_pDamageSourcesThisTurn.RemoveAll();
-
-	m_nTurnDiscardCount = 0;
-	m_nTurnAttackCount = 0;
-	m_nTurnCombatDamageTaken = Life(0);
-	m_nTurnNoncombatDamageTaken = Life(0);
-	m_nTurnLifeLossTaken = Life(0);
-	m_nTurnLifeGain = Life(0);
-	m_nProwl = FALSE;
-	m_bSearchedLibraryThisTurn = FALSE;
-	m_bCreatureCounteredByOpponent = FALSE;
-	m_resolved_scheme = FALSE;
+	m_nTurnDiscardCount					= 0;
+	m_nTurnAttackCount					= 0;
+	m_nTurnCombatDamageTaken			= Life(0);
+	m_nTurnNoncombatDamageTaken			= Life(0);
+	m_nTurnLifeLossTaken				= Life(0);
+	m_nTurnLifeGain						= Life(0);
+	m_nProwl							= FALSE;
+	m_bSearchedLibraryThisTurn			= FALSE;
+	m_bCreatureCounteredByOpponent		= FALSE;
+	m_resolved_scheme					= FALSE;
 
 	m_UntapCardType.ResetTurnCardTypes();
 	m_CantUntapCardType.ResetTurnCardTypes();
@@ -1801,7 +1834,8 @@ bool CPlayer::IsCertainCardDetained(CCard* pCard)
 
 	if (detainedCard.GetSize())
 		for (int i = 0; i < detainedCard.GetSize(); ++i) 
-			if (detainedCard.GetAt(i) == pCard) return true;
+			if (detainedCard.GetAt(i) == pCard) 
+				return true;
 
 	return false;
 }
@@ -1813,7 +1847,8 @@ int CPlayer::GetCertainTypeDiedCount(CardType pType)
 	if (s_hTypes.GetSizeSpecial())
 		for (int i = 0; i < s_hTypes.GetSizeSpecial(); ++i) 
 			if ((s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Graveyard
-				&& s_hfromZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) ++count;
+				&& s_hfromZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) 
+				++count;
 
 	return count;
 }
@@ -1825,7 +1860,8 @@ int CPlayer::GetCertainTypeDiedCountNonToken(CardType pType)
 	if (s_hTypes.GetSizeSpecial())
 		for (int i = 0; i < s_hTypes.GetSizeSpecial(); ++i) 
 			if ((s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && !(s_hTypes.GetAtSpecial(i).m_CardType & CardType::Token).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Graveyard
-				&& s_hfromZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) ++count;
+				&& s_hfromZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) 
+				++count;
 
 	return count;
 }
@@ -1836,7 +1872,8 @@ int CPlayer::GetCertainAntiTypeCastedCount(CardType pType)
 
 	if (s_hTypes.GetSizeSpecial())
 		for (int i = 0; i < s_hTypes.GetSizeSpecial(); ++i) 
-			if (!(s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Stack) ++count;
+			if (!(s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Stack) 
+				++count;
 
 	return count;
 }
@@ -1846,7 +1883,8 @@ int CPlayer::GetCertainTypeEnteredBattlefieldCount(CardType pType)
 
 	if (s_hTypes.GetSizeSpecial())
 		for (int i = 0; i < s_hTypes.GetSizeSpecial(); ++i) 
-			if ((s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) ++count;
+			if ((s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Battlefield) 
+				++count;
 
 	return count;
 }
@@ -1857,7 +1895,8 @@ int CPlayer::GetCertainAntiTypeEnteredBattlefieldCount(CardType pType)
 
 	if (s_hTypes.GetSizeSpecial())
 		for (int i = 0; i < s_hTypes.GetSizeSpecial(); ++i) 
-			if (!(s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Stack) ++count;
+			if (!(s_hTypes.GetAtSpecial(i).m_CardType & pType).Any() && s_htoZones.GetAtSpecial(i).m_ZoneId == ZoneId::Stack) 
+				++count;
 
 	return count;
 }
@@ -1947,7 +1986,7 @@ void CPlayer::GetState(StringArray& lines, BOOL bLibrary, BOOL bHand) const
 			strTemp.AppendFormat(_T(", Active, Priority) "));
 		else
 			strTemp.AppendFormat(_T(", %s%s) "),
-			(m_pGame->GetActivePlayer() == this) ? _T("Active") : _T(""),
+			(m_pGame->GetActivePlayer()   == this) ? _T("Active")   : _T(""),
 			(m_pGame->GetPriorityPlayer() == this) ? _T("Priority") : _T(""));
 	}
 	else
@@ -2030,13 +2069,11 @@ void CPlayer::GetState(StringArray& lines, BOOL bLibrary, BOOL bHand) const
 
 				switch (k % 3)
 				{
-				case 0: strTemp.Format(_T("| %s "), strCardName); break;
-				case 1: strTemp.AppendFormat(_T(" %s "), strCardName); break;
-				case 2: 
-					strTemp.AppendFormat(_T(" %s|"), strCardName); 
-					lines.push_back(strTemp);
-					strTemp.Empty();
-					break;
+					case 0: strTemp.Format(_T("| %s "), strCardName);	   break;
+					case 1: strTemp.AppendFormat(_T(" %s "), strCardName); break;
+					case 2: strTemp.AppendFormat(_T(" %s|"), strCardName); 
+							lines.push_back(strTemp);
+							strTemp.Empty();							   break;
 				}
 
 				if (bLibrary && k == 2)
@@ -2072,7 +2109,7 @@ void CPlayer::GetState(StringArray& lines, BOOL bLibrary, BOOL bHand) const
 //
 void CPlayerFilter::GetPlayers(const CPlayer* pController, std::vector<CPlayer*>& players) const
 {
-	CGame* pGame = pController->GetGame();
+	CGame* pGame     = pController->GetGame();
 	int nPlayerCount = pGame->GetPlayerCount();
 	for (int i = 0; i < nPlayerCount; ++i)
 	{
@@ -2081,3 +2118,5 @@ void CPlayerFilter::GetPlayers(const CPlayer* pController, std::vector<CPlayer*>
 			players.push_back(pPlayer);
 	}
 }
+//____________________________________________________________________________
+//

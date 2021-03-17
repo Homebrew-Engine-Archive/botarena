@@ -48,7 +48,7 @@ BOOL CCardTip::Create(CWnd* pParentWnd)
 		WS_POPUP | WS_BORDER, 0, 0, 0, 0,
 		m_pParentWnd->GetSafeHwnd(), NULL, NULL))
 	{
-		m_apTextFont.reset(new Gdiplus::Font(_T("Mplantin"), TEXTFONTHEIGHT, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel));
+		m_apTextFont.reset(new Gdiplus::Font(_T("mplantin"), TEXTFONTHEIGHT, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel));
 		SetTimer(0, 2500, NULL);
 
 		return TRUE;

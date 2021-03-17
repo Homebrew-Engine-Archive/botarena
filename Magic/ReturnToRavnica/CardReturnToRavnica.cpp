@@ -40,21 +40,18 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAzoriusKeyruneCard);
 		DEFINE_CARD(CBatterhornCard);
 		DEFINE_CARD(CBazaarKrovodCard);
-		DEFINE_CARD(CBellowsLizardCard);
 		DEFINE_CARD(CBlistercoilWeirdCard);
 		DEFINE_CARD(CBloodfrayGiantCard);
 		DEFINE_CARD(CBlustersquallCard);
 		DEFINE_CARD(CBrushstriderCard);
 		DEFINE_CARD(CCallOfTheConclaveCard);
 		DEFINE_CARD(CCarnivalHellsteedCard);
-		DEFINE_CARD(CCatacombSlugCard);
 		DEFINE_CARD(CCentaurHealerCard);
 		DEFINE_CARD(CCentaursHeraldCard);
 		DEFINE_CARD(CChaosImpsCard);
 		DEFINE_CARD(CChemistersTrickCard);
 		DEFINE_CARD(CChorusOfMightCard);
 		DEFINE_CARD(CChromaticLanternCard);
-		DEFINE_CARD(CCobblebruteCard);
 		DEFINE_CARD(CCodexShredderCard);
 		DEFINE_CARD(CCollectiveBlessingCard);
 		DEFINE_CARD(CCommonBondCard);
@@ -132,7 +129,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CJaradGolgariLichLordCard);
 		DEFINE_CARD(CJudgesFamiliarCard);
 		DEFINE_CARD(CKeeningApparitionCard);
-		DEFINE_CARD(CKnightlyValorCard);
 		DEFINE_CARD(CKorozdaGuildmageCard);
 		DEFINE_CARD(CKorozdaMonitorCard);
 		DEFINE_CARD(CLaunchPartyCard);
@@ -173,7 +169,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRisenSanctuaryCard);
 		DEFINE_CARD(CRitesOfReapingCard);
 		DEFINE_CARD(CRixMaadiGuildmageCard);
-		DEFINE_CARD(CRoguesPassageCard);
 		DEFINE_CARD(CRootbornDefensesCard);
 		DEFINE_CARD(CRubblebackRhinoCard);
 		DEFINE_CARD(CRunewingCard);
@@ -3460,27 +3455,6 @@ CKeeningApparitionCard::CKeeningApparitionCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CKnightlyValorCard::CKnightlyValorCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Knightly Valor"), nID,
-		_T("4") WHITE_MANA_TEXT,
-		Power(+2), Life(+2), CreatureKeyword::Vigilance)
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Knight D"), 2967, 1);
-
-	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CCrosstownCourierCard::CCrosstownCourierCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Crosstown Courier"), CardType::Creature, CREATURE_TYPE(Vedalken), nID,
 		_T("1") BLUE_MANA_TEXT, Power(2), Life(1))
@@ -4020,33 +3994,6 @@ CTrainedCaracalCard::CTrainedCaracalCard(CGame* pGame, UINT nID)
 		WHITE_MANA_TEXT, Power(1), Life(1))
 {
 	GetCardKeyword()->AddLifelink(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CRoguesPassageCard::CRoguesPassageCard(CGame* pGame, UINT nID)
-	: CNonbasicLandCard(pGame, _T("Rogue's Passage"), nID)
-{
-	{
-		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
-
-		cpNonbasicLandManaAbility->AddTapCost();
-
-		AddAbility(cpNonbasicLandManaAbility.GetPointer());
-	}
-	{
-		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
-				_T("4"),
-				Power(+0), Life(+0),
-				CreatureKeyword::Unblockable, CreatureKeyword::Null,
-				TRUE, PreventableType::NotPreventable));
-
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
 }
 
 //____________________________________________________________________________
@@ -5621,14 +5568,6 @@ void CAssassinsStrikeCard::OnResolutionCompleted(const CAbilityAction* pAbilityA
 
 //____________________________________________________________________________
 //
-CCatacombSlugCard::CCatacombSlugCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Catacomb Slug"), CardType::Creature, CREATURE_TYPE(Slug), nID,
-		_T("4") BLACK_MANA_TEXT, Power(2), Life(6))
-{
-}
-
-//____________________________________________________________________________
-//
 CDaggerdromeImpCard::CDaggerdromeImpCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Daggerdrome Imp"), CardType::Creature, CREATURE_TYPE(Imp), nID,
 		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
@@ -5885,14 +5824,6 @@ CRitesOfReapingCard::CRitesOfReapingCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CCobblebruteCard::CCobblebruteCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Cobblebrute"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
-		_T("3") RED_MANA_TEXT, Power(5), Life(2))
-{
-}
-
-//____________________________________________________________________________
-//
 CDynachargeCard::CDynachargeCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Dynacharge"), CardType::Instant, nID)
 {
@@ -6008,15 +5939,6 @@ CBatterhornCard::CBatterhornCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CBellowsLizardCard::CBellowsLizardCard(CGame* pGame, UINT nID)
-	: CPumpCreatureCard(pGame, _T("Bellows Lizard"), CardType::Creature, CREATURE_TYPE(Lizard), nID,
-		RED_MANA_TEXT, Power(1), Life(1),
-		_T("1") RED_MANA_TEXT, Power(+1), Life(0))
-{
 }
 
 //____________________________________________________________________________

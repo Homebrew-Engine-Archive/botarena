@@ -396,18 +396,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CSylvanMessengerCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CSylvanMessengerCard);
-
-private:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-};
-
-//____________________________________________________________________________
-//
 class CTidalCourierCard : public CPumpCreatureCard
 {
 	DECLARE_CARD_CSTOR(CTidalCourierCard);

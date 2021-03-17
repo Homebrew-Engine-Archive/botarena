@@ -1163,3 +1163,203 @@ class CWatcherOfTheRoostCard : public CMorphCreatureCard
 
 //____________________________________________________________________________
 //
+class CDeadDropCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CDeadDropCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CEmptyThePitsCard : public CCard 
+{
+	DECLARE_CARD_CSTOR(CEmptyThePitsCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CGrimHaruspexCard : public CMorphCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGrimHaruspexCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+};
+
+//____________________________________________________________________________
+//
+class CKheruBloodsuckerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKheruBloodsuckerCard);
+protected:
+	CCardFilter m_CardFilter;
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CKheruDreadmawCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKheruDreadmawCard);
+protected:
+	CCardFilter m_CardFilter;
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//
+class CNecropolisFiendCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNecropolisFiendCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CRaidersSpoilsCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CRaidersSpoilsCard);
+};
+
+//____________________________________________________________________________
+//
+class CRakshasasSecretCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CRakshasasSecretCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+/*class CRetributionOfTheAncientsCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CRetributionOfTheAncientsCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};*/
+
+//____________________________________________________________________________
+//
+class CRiteOfTheSerpentCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CRiteOfTheSerpentCard);
+
+protected:	
+	CCardFilter m_CardFilter;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CSidisisPetCard : public CMorphCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSidisisPetCard);
+};
+
+//____________________________________________________________________________
+//
+class CSwarmOfBloodfliesCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSwarmOfBloodfliesCard);
+};
+
+//____________________________________________________________________________
+//
+class CUnyieldingKrumarCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CUnyieldingKrumarCard);
+};
+
+//____________________________________________________________________________
+//
+class CAshcloudPhoenixCard : public CMorphCreatureCard
+{
+	DECLARE_CARD_CSTOR(CAshcloudPhoenixCard);
+protected:	
+	typedef
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CBarrageOfBouldersCard : public CGlobalChgLifeSpellCard
+{
+	DECLARE_CARD_CSTOR(CBarrageOfBouldersCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//_____________________________________________________________________________
+//
+class CBringLowCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBringLowCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//_____________________________________________________________________________
+//
+class CBurnAwayCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBurnAwayCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CCratersClawsCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CCratersClawsCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//_____________________________________________________________________________
+//
+class CJungleHollowCard : public CNonbasicLandCard
+{
+	DECLARE_CARD_CSTOR(CJungleHollowCard);
+};
+
+//____________________________________________________________________________
+//
+class CScouredBarrensCard : public CNonbasicLandCard
+{
+	DECLARE_CARD_CSTOR(CScouredBarrensCard);
+};
+
+//____________________________________________________________________________
+//
+class CSwiftwaterCliffsCard : public CNonbasicLandCard
+{
+	DECLARE_CARD_CSTOR(CSwiftwaterCliffsCard);
+};
+
+//____________________________________________________________________________
+//
+class CThornwoodFallsCard : public CNonbasicLandCard
+{
+	DECLARE_CARD_CSTOR(CThornwoodFallsCard);
+};
+
+//____________________________________________________________________________
+//
+class CGoblinslideCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CGoblinslideCard);
+};
+
+//____________________________________________________________________________
+//

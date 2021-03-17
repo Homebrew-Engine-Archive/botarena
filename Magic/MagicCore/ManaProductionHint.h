@@ -11,8 +11,8 @@ public:
 
 	bool HasHint() const { return GetSize() > 0; }
 
-	int GetSize() const;
-	const CAbility* GetAbilityAt(int nIndex) const;
+	int   GetSize() const;
+	const CAbility*  GetAbilityAt(int nIndex)  const;
 	const CManaPool& GetManaPoolAt(int nIndex) const;
 	const CManaCost& GetManaCostAt(int nIndex) const;
 

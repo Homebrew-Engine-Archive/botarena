@@ -738,7 +738,7 @@ public:
 	BOOL Devour() const;
 	BOOL Amplify() const;
 	BOOL HasMonstrous() const;
-
+	BOOL HasRenowned()  const;
 
 	BOOL HasNonBasicWalk() const;
 	const CCardFilter* CCreatureKeyword::GetNonBasicWalkFilter() const;
@@ -812,6 +812,7 @@ public:
 	void AddUnblockableWalk(BOOL bThisTurnOnly, const CCardFilter* pCardFilter);
 	void AddLandwalkReach(BOOL bThisTurnOnly);
 	void AddMonstrous(BOOL bThisTurnOnly);
+	void AddRenowned (BOOL bThisTurnOnly);
 
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 //
@@ -879,6 +880,7 @@ public:
 	void RemoveUnblockableWalk(BOOL bThisTurnOnly, const CCardFilter* pCardFilter);
 	void RemoveLandwalkReach(BOOL bThisTurnOnly);
 	void RemoveMonstrous(BOOL bThisTurnOnly);
+	void RemoveRenowned (BOOL bThisTurnOnly);
 
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 //

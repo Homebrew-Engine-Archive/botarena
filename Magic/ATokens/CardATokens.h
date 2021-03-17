@@ -636,3 +636,52 @@ class CSpiritAIToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CDragonAAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CDragonAAToken);
+};
+
+//____________________________________________________________________________
+//
+class CDragonABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CDragonABToken);
+};
+
+//____________________________________________________________________________
+//
+class CDragonACToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CDragonACToken);
+};
+
+//____________________________________________________________________________
+//
+class CDragonADToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CDragonADToken);
+};
+
+//____________________________________________________________________________
+//
+class CDragonAEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CDragonAEToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalANToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalANToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalAOToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalAOToken);
+};
+
+//____________________________________________________________________________
+//

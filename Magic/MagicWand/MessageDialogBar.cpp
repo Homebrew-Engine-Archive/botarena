@@ -140,11 +140,13 @@ void CMessageDialogBar::AddMessage(LPCTSTR strMessage, int nImageIndex, int nTur
 		CString strTurnNumber;
 		strTurnNumber.Format(_T("%d"), m_nTurnNumber);
 
+		//m_MessageList.SetColumnWidth(2, LVSCW_AUTOSIZE);//TESTING
+
 		m_MessageList.SetItemText(nItem, 1, strTurnNumber);
 
 		m_MessageList.SetItemText2(nItem, 2, pNewItem->strMessage);
 
-		m_MessageList.SetColumnWidth(2, LVSCW_AUTOSIZE);//TESTING
+		
 
 		m_MessageList.SetItemData(nItem, nTurnNumber);
 		m_MessageList.EnsureVisible(m_MessageList.GetItemCount() - 1, FALSE);
@@ -236,7 +238,10 @@ void CMessageDialogBar::UpdateList()
 	}
 
 	m_MessageList.SetColumnWidth(2, LVSCW_AUTOSIZE);//TESTING
+	
 	m_MessageList.EnsureVisible(m_MessageList.GetItemCount() - 1, FALSE);
+
+		
 }
 
 //_____________________________________________________________________________
@@ -326,7 +331,7 @@ int CMessageDialogBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_MessageList.SetImageList(&m_ImageList, LVSIL_SMALL);
 
-    if (!m_Font.CreatePointFont(80, _T("MS Sans Serif")))
+    if (!m_Font.CreatePointFont(80, _T("Magic")))
         return -1;
 
 	m_ConciseButton.Create(_T("Concise"), BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE,

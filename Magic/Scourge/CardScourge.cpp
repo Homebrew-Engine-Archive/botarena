@@ -3903,9 +3903,8 @@ CTitanicBulvoxCard::CTitanicBulvoxCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Titanic Bulvox"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("6") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(7), Life(4), _T("4") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Beast);
-
-		GetCreatureKeyword()->AddTrample(FALSE);
+	this->AddCreatureType(SingleCreatureType::Beast);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));
 }
 
 //____________________________________________________________________________
@@ -4053,35 +4052,33 @@ CAvenLiberatorCard::CAvenLiberatorCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
 	this->AddCreatureType(SingleCreatureType::Soldier);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
-
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
-	typedef
-		TTriggeredTargetAbility< CTriggeredGainKeywordAbility, CSpecialTrigger > TriggeredAbility;
+		typedef
+			TTriggeredTargetAbility< CTriggeredGainKeywordAbility, CSpecialTrigger > TriggeredAbility;
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Positive);
-	cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);		
-	cpAbility->GetTargeting().GetSubjectCardFilter().SetThisCardsControllerOnly(this);
+		cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Positive);
+		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);		
+		cpAbility->GetTargeting().GetSubjectCardFilter().SetThisCardsControllerOnly(this);
 
-	cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
-	cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue, TRUE, _T("blue"));
-	cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
-	cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed, TRUE, _T("red"));
-	cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
+		cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
+		cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue, TRUE, _T("blue"));
+		cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
+		cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed, TRUE, _T("red"));
+		cpAbility->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
 
-	cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-	cpAbility->AddAbilityTag(AbilityTag::CardChange);
+		cpAbility->AddAbilityTag(AbilityTag::CardChange);
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 }
 
@@ -4092,9 +4089,7 @@ CSkirkVolcanistCard::CSkirkVolcanistCard(CGame* pGame, UINT nID)
 		_T("3") RED_MANA_TEXT, Power(3), Life(1), _T(""))
 {
 	this->AddCreatureType(SingleCreatureType::Goblin);
-
 	this->GetMorphAbility()->GetCost().AddSacrificeCardCost(2, CCardFilter::GetFilter(_T("Mountains")));
-
 	{
 		typedef
 			TTriggeredTargetDivisionAbility< CTriggeredDividedModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
@@ -4127,7 +4122,6 @@ CWoodcloakerCard::CWoodcloakerCard(CGame* pGame, UINT nID)
 		_T("5") GREEN_MANA_TEXT, Power(3), Life(3), _T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Elf);
-
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;

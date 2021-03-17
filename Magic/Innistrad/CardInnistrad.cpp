@@ -167,7 +167,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CNightTerrorsCard);
 		DEFINE_CARD(COliviaVoldarenCard);
 		DEFINE_CARD(COneEyedScarecrowCard);
-		DEFINE_CARD(COrchardSpiritCard);
 		DEFINE_CARD(CParallelLivesCard);
 		DEFINE_CARD(CParaseleneCard);
 		DEFINE_CARD(CPastInFlamesCard);
@@ -190,7 +189,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSeverTheBloodlineCard);
 		DEFINE_CARD(CSilentDepartureCard);
 		DEFINE_CARD(CSilverchaseFoxCard);
-		DEFINE_CARD(CSkaabGoliathCard);
 		DEFINE_CARD(CSkaabRuinatorCard);
 		DEFINE_CARD(CSkeletalGrimaceCard);
 		DEFINE_CARD(CSkirsdagCultistCard);
@@ -2347,18 +2345,6 @@ CSkaabRuinatorCard::CSkaabRuinatorCard(CGame* pGame, UINT nID)
 
         AddSpell(cpSpell.GetPointer());
     }
-}
-
-//____________________________________________________________________________
-//
-CSkaabGoliathCard::CSkaabGoliathCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Skaab Goliath"), CardType::Creature, CREATURE_TYPE2(Zombie, Giant), nID,
-		_T("5") BLUE_MANA_TEXT, Power(6), Life(9))
-{
-	GetCreatureKeyword()->AddTrample(false);
-
-	GetSpells().GetAt(0)->GetCost().AddExileGraveyardCardCost(2, CCardFilter::GetFilter(_T("creatures")));
-
 }
 
 //____________________________________________________________________________
@@ -4675,16 +4661,6 @@ CLumberknotCard::CLumberknotCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-COrchardSpiritCard::COrchardSpiritCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Orchard Spirit"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
-		_T("2") GREEN_MANA_TEXT, Power(2), Life(2))
-	, m_CardFilter(new CreatureKeywordComparer(CreatureKeyword::Flying | CreatureKeyword::Reach, false))
-{
-	GetCreatureKeyword()->AddUnblockable(false, &m_CardFilter);
 }
 
 //____________________________________________________________________________

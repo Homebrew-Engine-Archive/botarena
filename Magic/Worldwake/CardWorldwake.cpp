@@ -483,7 +483,7 @@ CKhalniGardenCard::CKhalniGardenCard(CGame* pGame, UINT nID)
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Plant"), 2831, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Plant A"), 2831, 1);
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
@@ -1591,7 +1591,7 @@ CAvengerOfZendikarCard::CAvengerOfZendikarCard(CGame* pGame, UINT nID)
 
 		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CAvengerOfZendikarCard::BeforeResolution));
-		cpAbility->SetCreateTokenOption(TRUE, _T("Plant"), 2831, 0);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Plant A"), 2831, 0);
 
 		AddAbility(cpAbility.GetPointer());
 	}

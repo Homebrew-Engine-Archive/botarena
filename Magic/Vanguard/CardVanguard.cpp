@@ -1095,7 +1095,7 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 
 			if (!m_pGame->IsThinking())
 			{
-				nRand = pAction->GetController()->GetRand() % 23;
+				nRand = pAction->GetController()->GetRand() % 24;
 			}
 		
 			if (nRand == 0)
@@ -1209,6 +1209,11 @@ bool CSliverQueenAvatarCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 				name = _T("Two-Headed Sliver");
 			}
 			else if (nRand == 21)
+			{
+				nUID = 27738;
+				name = _T("Venom Sliver");
+			}
+			else if (nRand == 22)
 			{
 				nUID = 10487;
 				name = _T("Victual Sliver");

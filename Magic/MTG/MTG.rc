@@ -231,7 +231,7 @@ BEGIN
     IDS_STRING2828          "Soldier Ally\n{W}\nCreature - Soldier Ally\nToken\n\n1/1"
     IDS_STRING2829          "Elephant (D)\n{G}\nCreature - Elephant\nToken\nThis creature's power and toughness are each equal to the number of creature cards in its controller's graveyard.\n*/*"
     IDS_STRING2830          "Bear (A)\n{G}\nCreature - Bear\nToken\n\n2/2"
-    IDS_STRING2831          "Plant\n{G}\nCreature - Plant\nToken\n\n0/1"
+    IDS_STRING2831          "Plant (A)\n{G}\nCreature - Plant\nToken\n\n0/1"
 END
 
 STRINGTABLE
@@ -426,7 +426,7 @@ BEGIN
     IDS_STRING2983          "Soldier (K)\n{W}\nCreature - Soldier\nToken\n\n1/1"
     IDS_STRING2984          "Starfish\n(U)\nCreature - Starfish\nToken\n\n0/1"
     IDS_STRING2985          "Elemental (H)\n{R}\nCreature - Elemental\nToken\n\n3/1"
-    IDS_STRING2986          "Cleric\n{WB}\nCreature - Cleric\nToken\n{3WBB}, {T}, Sacrifice this creature: Return a card named Deathpact Angel from your graveyard to the battlefield.\n1/1"
+    IDS_STRING2986          "Cleric (A)\n{WB}\nCreature - Cleric\nToken\n{3WBB}, {T}, Sacrifice this creature: Return a card named Deathpact Angel from your graveyard to the battlefield.\n1/1"
     IDS_STRING2987          "Zombie (H)\n{B}\nCreature - Zombie\nToken\n\n2/2"
     IDS_STRING2988          "Soldier (E)\n{W}\nCreature - Soldier\nToken\n\n1/1"
     IDS_STRING2989          "Beast (H)\n{G}\nCreature - Beast\nToken\n\n3/3"

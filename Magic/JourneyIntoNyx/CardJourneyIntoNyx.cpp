@@ -65,7 +65,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGluttonousCyclopsCard);
 		DEFINE_CARD(CGodhunterOctopusCard);
 		DEFINE_CARD(CGoldenHindCard);
-		DEFINE_CARD(CGoldForgedSentinelCard);
 		DEFINE_CARD(CGrimGuardianCard);
 		DEFINE_CARD(CHallOfTriumphCard);
 		DEFINE_CARD(CHarnessByForceCard);
@@ -108,7 +107,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSatyrGrovedancerCard);
 		DEFINE_CARD(CSatyrHopliteCard);
 		DEFINE_CARD(CSigiledSkinkCard);
-		DEFINE_CARD(CSigiledStarfishCard);
 		DEFINE_CARD(CSkybindCard);
 		DEFINE_CARD(CSkyspearCavalryCard);
 		DEFINE_CARD(CSolidarityOfHeroesCard);
@@ -258,14 +256,6 @@ CTempleOfMaladyCard::CTempleOfMaladyCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
-}
-
-//____________________________________________________________________________
-//
-CGoldForgedSentinelCard::CGoldForgedSentinelCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Gold-Forged Sentinel"), CardType::_ArtifactCreature, CREATURE_TYPE(Chimera), nID,
-		_T("6"), Power(4), Life(4))
-{
 }
 
 //____________________________________________________________________________
@@ -805,53 +795,6 @@ void CRiseOfEaglesCard::OnResolutionCompleted(const CAbilityAction* pAbilityActi
 
 	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
 	pScryModifier.ApplyTo(this);
-}
-
-//____________________________________________________________________________
-//
-CSigiledStarfishCard::CSigiledStarfishCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Sigiled Starfish"), CardType::Creature, CREATURE_TYPE(Starfish), nID,
-		_T("1") BLUE_MANA_TEXT, Power(0), Life(3))
-{
-	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
-			_T("")));
-
-	cpAbility->AddTapCost();
-	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSigiledStarfishCard::BeforeResolution));
-	AddAbility(cpAbility.GetPointer());
-}
-
-bool CSigiledStarfishCard::BeforeResolution(CAbilityAction* pAction)
-{
-	//Scry start----------------------
-	int SCRY_NUMBER = 1;
-	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(SCRY_NUMBER), MaximumValue(SCRY_NUMBER));	
-	pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier->GetSelection(0).moveType = MoveType::Others;
-	pModifier->AddSelection(MinimumValue(0), MaximumValue(SCRY_NUMBER),		// select cards to bottom
-							CZoneModifier::RoleType::PrimaryPlayer,			// select by 
-							CZoneModifier::RoleType::PrimaryPlayer,			// reveal to
-							NULL,											// any cards
-							ZoneId::Library,								// if selected, move cards to
-							CZoneModifier::RoleType::PrimaryPlayer,			// select by this player
-							CardPlacement::Bottom,							// put selected cards on top
-							MoveType::Others,								// move type
-							CZoneModifier::RoleType::PrimaryPlayer);		// order selected cards by this player
-
-	// and finally put the last ones on top of the library
-	pModifier->SetReorderInformation(true, 
-									 ZoneId::Library,	
-									 CZoneModifier::RoleType::PrimaryPlayer,// this player's library
-									 CardPlacement::Top);
-	//Scry end--------------------------
-	pModifier->ApplyTo(pAction->GetController());
-
-	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
-	pScryModifier.ApplyTo(this);
-
-	return true;
 }
 
 //____________________________________________________________________________

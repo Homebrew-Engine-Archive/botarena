@@ -14,7 +14,7 @@
 //
 
 const TCHAR CMListCtrl2::s_strSeparator[] = _T("|");
-const LPCTSTR CMListCtrl2::s_strFont = _T("MPlantin");
+const LPCTSTR CMListCtrl2::s_strFont = _T("mplantin");
 
 CMListCtrl2::CMListCtrl2()
 	: m_pSmallSymbols(NULL)

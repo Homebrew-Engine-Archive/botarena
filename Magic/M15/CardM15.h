@@ -341,3 +341,396 @@ class CSanctifiedChargeCard : public CCard
 
 //____________________________________________________________________________
 //
+class CReclamationSageCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CReclamationSageCard);
+};
+
+//____________________________________________________________________________
+//
+class CShamanOfSpringCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CShamanOfSpringCard);
+};
+
+//____________________________________________________________________________
+//
+class CSoulOfZendikarCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSoulOfZendikarCard);
+protected:
+	CCardFilter m_CardFilter;
+};
+
+//____________________________________________________________________________
+//
+class CSunbladeElfCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSunbladeElfCard);
+};
+
+//____________________________________________________________________________
+//
+class CVenomSliverCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CVenomSliverCard);
+};
+
+//____________________________________________________________________________
+//
+class CVineweftCard : public CChgPwrTghAttrEnchantCard
+{
+	DECLARE_CARD_CSTOR(CVineweftCard);
+};
+
+//____________________________________________________________________________
+//
+class CHuntersAmbushCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CHuntersAmbushCard);
+};
+
+//____________________________________________________________________________
+//
+class CCarnivorousMossBeastCard : public CCreatureCard 
+{
+	DECLARE_CARD_CSTOR(CCarnivorousMossBeastCard);
+};
+
+//____________________________________________________________________________
+//
+class CHornetNestCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CHornetNestCard);
+
+protected:
+	typedef 
+		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenDamageDealt,
+								 CWhenDamageDealt::CreatureEventCallback, 
+								 &CWhenDamageDealt::SetCreatureEventCallback > TriggeredAbility;
+	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext,
+						   CCard* pCard, CCreatureCard* pToCreature, Damage damage) const;
+	TriggeredAbility* m_pTriggeredAbility;
+};
+
+//____________________________________________________________________________
+//
+class CInvasiveSpeciesCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CInvasiveSpeciesCard);
+};
+
+//____________________________________________________________________________________________
+//
+class CKalonianTwingroveCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKalonianTwingroveCard);
+};
+
+//____________________________________________________________________________
+//
+class CLifesLegacyCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CLifesLegacyCard);
+};
+
+//____________________________________________________________________________
+//
+class CNetcasterSpiderCard : public CCreatureCard
+{
+    DECLARE_CARD_CSTOR(CNetcasterSpiderCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
+						   CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const;
+};
+
+//____________________________________________________________________________
+//
+class CNissaWorldwakerCard : public CPlaneswalkerCard
+{
+	DECLARE_CARD_CSTOR(CNissaWorldwakerCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;	
+};
+
+//____________________________________________________________________________
+//
+class CParagonOfEternalWildsCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CParagonOfEternalWildsCard);
+};
+
+//____________________________________________________________________________
+//
+class CPhytotitanCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CPhytotitanCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+class CAggressiveMiningCard : public CInPlaySpellCard 
+{
+	DECLARE_CARD_CSTOR(CAggressiveMiningCard);
+};
+
+//____________________________________________________________________________
+//
+class CAltacBloodseekerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CAltacBloodseekerCard);
+};
+
+//____________________________________________________________________________
+//
+class CBelligerentSliverCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBelligerentSliverCard);
+protected:	
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CBlastfireBoltCard : public CTargetChgLifeSpellCard
+{
+	DECLARE_CARD_CSTOR(CBlastfireBoltCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CBorderlandMarauderCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBorderlandMarauderCard);
+};
+
+//____________________________________________________________________________
+//
+class CBroodKeeperCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBroodKeeperCard);
+};
+
+//____________________________________________________________________________
+//
+class CBurningAngerCard : public CCard
+{
+    DECLARE_CARD_CSTOR(CBurningAngerCard);
+private:
+	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
+};
+
+//____________________________________________________________________________
+//
+class CScrapyardMongrelCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CScrapyardMongrelCard);
+};
+
+//____________________________________________________________________________
+//
+class CGoblinRabblemasterCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGoblinRabblemasterCard);
+protected:
+	typedef 
+		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfAttackedBlocked,
+						   CWhenSelfAttackedBlocked::AttackEventCallback,
+						   &CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	CCardFilter m_CardFilter;
+};
+
+//____________________________________________________________________________
+//
+class CHammerhandCard : public CChgPwrTghAttrEnchantCard
+{
+	DECLARE_CARD_CSTOR(CHammerhandCard);
+};
+
+//___________________________________________________________________________________________
+//
+class CInfernoFistCard : public CChgPwrTghAttrEnchantCard
+{
+	DECLARE_CARD_CSTOR(CInfernoFistCard);
+};
+
+//___________________________________________________________________________________________
+//
+class CKirdChieftainCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKirdChieftainCard);
+};
+
+//____________________________________________________________________________
+//
+class CKrenkosEnforcerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKrenkosEnforcerCard);
+};
+
+//____________________________________________________________________________
+//
+class CMinersBaneCard : public CPumpCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMinersBaneCard);
+};
+
+//____________________________________________________________________________
+//
+class CParagonOfFierceDefianceCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CParagonOfFierceDefianceCard);
+};
+
+//____________________________________________________________________________
+//
+class CParagonOfGatheringMistsCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CParagonOfGatheringMistsCard);
+};
+
+//____________________________________________________________________________
+//
+class CParagonOfNewDawnsCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CParagonOfNewDawnsCard);
+};
+
+//____________________________________________________________________________
+//
+class CParagonOfOpenGravesCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CParagonOfOpenGravesCard);
+};
+
+//____________________________________________________________________________
+//
+class CSiegeDragonCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSiegeDragonCard);
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfAttackedBlocked,
+						   CWhenSelfAttackedBlocked::AttackEventCallback, &CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
+						   AttackSubject attacked) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CBloodHostCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBloodHostCard);
+protected:
+	CCardFilter m_CardFilter;
+};
+
+//______________________________________________________________________________
+//
+class CCarrionCrowCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCarrionCrowCard);
+};
+
+//______________________________________________________________________________
+//
+class CCruelSadistCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCruelSadistCard);
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//______________________________________________________________________________
+//
+class CFirstResponseCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CFirstResponseCard);
+protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+};
+
+//____________________________________________________________________________
+//
+class CFeastOnTheFallenCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CFeastOnTheFallenCard);
+protected:
+	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CFestergloomCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CFestergloomCard);
+};
+
+//____________________________________________________________________________
+//
+class CFleshToDustCard : public CTargetMoveCardSpellCard
+{
+	DECLARE_CARD_CSTOR(CFleshToDustCard);
+};
+
+//____________________________________________________________________________
+//
+class CInGarruksWakeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CInGarruksWakeCard);
+};
+
+//____________________________________________________________________________
+//
+class CIndulgentTormentorCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CIndulgentTormentorCard);
+protected:
+	CSelectionSupport m_PunisherSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void PunisherChoice(CPlayer* pTarget, CPlayer* pController);
+	void OnPunisherSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CLeechingSliverCard : public CCreatureCard 
+{
+	DECLARE_CARD_CSTOR(CLeechingSliverCard);
+protected:
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
+										CCreatureCard* pCreature, AttackSubject attacked) const;
+};
+
+//____________________________________________________________________________
+//
+class CNecromancersAssistantCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNecromancersAssistantCard);
+};
+
+//______________________________________________________________________________
+//
+class CNecromancersStockpileCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CNecromancersStockpileCard);
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//

@@ -165,6 +165,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(COtarianJuggernautCard);
 		DEFINE_CARD(COvereagerApprenticeCard);
 		DEFINE_CARD(CPardicFirecatCard);
+		DEFINE_CARD(CPardicMinerCard);
 		DEFINE_CARD(CPatrolHoundCard);
 		DEFINE_CARD(CPatronWizardCard);
 		DEFINE_CARD(CPedanticLearningCard);
@@ -3806,36 +3807,19 @@ CStillLifeCard::CStillLifeCard(CGame* pGame, UINT nID)
 CCeaseFireCard::CCeaseFireCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Cease-Fire"), CardType::Instant, nID)
 {
-	{
-		//Your Opponent can't cast creature spells this turn.
-		counted_ptr<CPlayerEffectEnchantment> cpSpell(
-			::CreateObject<CPlayerEffectEnchantment>(this, AbilityType::Instant,
-				_T("2") WHITE_MANA_TEXT,
-				PlayerEffectType::CantPlaySpells, (int)CCardFilter::GetFilter(_T("creatures"))));
+	counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+		::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
+			_T("2") WHITE_MANA_TEXT));
 
-		cpSpell->SetAffectOpponentsOnly();
+	CScheduledPlayerModifier* pModifier1 = new CScheduledPlayerModifier(GetGame(),
+			new CPlayerEffectModifier(PlayerEffectType::CantPlaySpells, (int)CCardFilter::GetFilter(_T("creatures")), true),
+			TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::ApplyToNowRemoveLater);
+	cpSpell->GetTargetModifier().CPlayerModifiers::Add(pModifier1);
+	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
+	cpSpell->SetAbilityText(_T("Target player can't play creature spells this turn."));
 
-		cpSpell->SetAbilityText(_T("Your Opponent can't cast creature spells this turn with"));
-
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		//You can't cast creature spells this turn.
-		counted_ptr<CPlayerEffectEnchantment> cpSpell(
-			::CreateObject<CPlayerEffectEnchantment>(this, AbilityType::Instant,
-				_T("2") WHITE_MANA_TEXT,
-				PlayerEffectType::CantPlaySpells, (int)CCardFilter::GetFilter(_T("creatures"))));
-
-		cpSpell->SetAffectControllerOnly();
-
-		cpSpell->SetAbilityText(_T("You can't cast creature spells this turn with"));
-
-		cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
-
-		AddSpell(cpSpell.GetPointer());
-	}
+	AddSpell(cpSpell.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -9094,6 +9078,29 @@ void CBalshanBeguilerCard::OnCardSelected(const std::vector<SelectionEntry>& sel
 
 			return;
 		}
+}
+
+//____________________________________________________________________________
+//
+CPardicMinerCard::CPardicMinerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Pardic Miner"), CardType::Creature, CREATURE_TYPE(Dwarf), nID,
+		_T("1") RED_MANA_TEXT, Power(1), Life(1))
+{
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+			_T(""),
+			FALSE_CARD_COMPARER, TRUE));
+		
+	cpAbility->AddSacrificeCost();
+	cpAbility->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
+	CPlayerEffectModifier*    pModifier1 = new CPlayerEffectModifier(PlayerEffectType::CantPlayLands, (int)CCardFilter::GetFilter(_T("cards")));	
+	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
+			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);
+	pModifier1->LinkPlayerModifier(pModifier2);
+	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier1);		
+
+	cpAbility->SetAbilityText(_T("Target player can't play lands this turn."));
+	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

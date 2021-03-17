@@ -206,7 +206,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSilkbindFaerieCard);
 		DEFINE_CARD(CSinkingFeelingCard);
 		DEFINE_CARD(CSlinkingGiantCard);
-		DEFINE_CARD(CSmashToSmithereensCard);
 		DEFINE_CARD(CSmolderInitiateCard);
 		DEFINE_CARD(CSomnomancerCard);
 		DEFINE_CARD(CSootstokeKindlerCard);
@@ -364,18 +363,6 @@ CHeapDollCard::CHeapDollCard(CGame* pGame, UINT nID)
 	cpAbility->AddSacrificeCost();
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CSmashToSmithereensCard::CSmashToSmithereensCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Smash to Smithereens"), CardType::Instant, nID,
-		_T("1") RED_MANA_TEXT, AbilityType::Instant,
-		new CardTypeComparer(CardType::Artifact, false),
-		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
-{
-	m_pTargetMoveCardSpell->GetCardControllerModifier().push_back(new CLifeModifier(Life(-3), this, PreventableType::Preventable,
-																  DamageType::SpellDamage | DamageType::NonCombatDamage));
 }
 
 //____________________________________________________________________________

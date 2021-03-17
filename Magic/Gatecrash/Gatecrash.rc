@@ -163,7 +163,7 @@ BEGIN
     IDS_STRING25466         "Lord of the Void\n{4BBB}\nCreature - Demon\nGTC,MR\nFlying\rWhenever Lord of the Void deals combat damage to a player, exile the top seven cards of that player's library, then put a creature card from among them onto the battlefield under your control.\n7/7"
     IDS_STRING25467         "Basilica Guards\n{2W}\nCreature - Human Soldier\nGTC,C\nDefender\rExtort\n1/4"
     IDS_STRING25468         "Blind Obedience\n{1W}\nEnchantment\nGTC,R\nExtort\rArtifacts and creatures your opponents control enter the battlefield tapped."
-    IDS_STRING25469         "Crypt Ghast\n{3B}\nCreature - Spirit\nGTC,R\nExtort\rWhenever you tap a Swamp for mana, add {B} to your mana pool."
+    IDS_STRING25469         "Crypt Ghast\n{3B}\nCreature - Spirit\nGTC,R\nExtort\rWhenever you tap a Swamp for mana, add {B} to your mana pool.\n2/2"
     IDS_STRING25470         "Syndic of Tithes\n{1W}\nCreature - Human Cleric\nGTC,C\nExtort\n2/2"
     IDS_STRING25471         "Thrull Parasite\n{B}\nCreature - Thrull\nGTC,U\nExtort\r{T}, Pay 2 life: Remove a counter from target nonland permanent.\n1/1"
 END
@@ -176,7 +176,7 @@ BEGIN
     IDS_STRING25475         "Legion Loyalist\n{R}\nCreature - Goblin Soldier\nGTC,R\nHaste\rBattalion - Whenever Legion Loyalist and at least two other creatures attack, creatures you control gain first strike and trample until end of turn and can't be blocked by creature tokens this turn.\n1/1"
     IDS_STRING25476         "Simic Charm\n{GU}\nInstant\nGTC,U\nChoose one - Target creature gets +3/+3 until end of turn; or permanents you control gain hexproof until end of turn; or return target creature to its owner's hand."
     IDS_STRING25477         "Orzhov Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {W} or {B} to your mana pool.\r{WB}: Orzhov Keyrune becomes a 1/4 white and black Thrull artifact creature with lifelink until end of turn."
-    IDS_STRING25478         "Call of the Nightwing\n{2UB}\nSorcery\nGTC,U\nPut a 1/1/ blue and black Horror creature token with flying onto the battlefield.\rCipher"
+    IDS_STRING25478         "Call of the Nightwing\n{2UB}\nSorcery\nGTC,U\nPut a 1/1 blue and black Horror creature token with flying onto the battlefield.\rCipher"
     IDS_STRING25479         "Gruul Charm\n{RG}\nSorcery\nGTC,U\nChoose one - Creatures without flying can't block this turn; or gain control of all permanents you own; or Gruul Charm deals 3 damage to each creature with flying."
     IDS_STRING25480         "Hands of Binding\n{1U}\nSorcery\nGTC,C\nTap target creature an opponent control. That creature doesn't untap during its controller's next untap step.\rCipher"
     IDS_STRING25481         "Stolen Identity\n{4UU}\nSorcery\nGTC,R\nPut a token onto the battlefield that's a copy of target artifact or creature.\rCipher"
@@ -184,7 +184,7 @@ BEGIN
     IDS_STRING25483         "Whispering Madness\n{2UB}\nSorcery\nGTC,R\nEach player discards his or her hand, then draws cards equal to the greatest number of cards a player discarded this way."
     IDS_STRING25484         "Ogre Slumlord\n{3BB}\nCreature - Ogre Rogue\nGTC,R\nWhenever another nontoken creature dies, you may put a 1/1 black Rat creature token onto the battlefield.\rRats you control have deathtouch.\n3/3"
     IDS_STRING25485         "Glaring Spotlight\n{1}\nArtifact\nGTC,R\nCreatures your opponents control with hexproof can be the targets of spells and abilities you control as though they didn't have hexproof.\r{3}, Sacrifice Glaring Spotlight: Creatures you control gain hexproof until end of turn and are unblockable this turn."
-    IDS_STRING25486         "Slaughterhorn\n{2G}\nCreature - Beast\nGTC,C\nBloodrush - {G}, Discard Slaughterhorn: Target attacking creature gets +3/+2 until end of turn."
+    IDS_STRING25486         "Slaughterhorn\n{2G}\nCreature - Beast\nGTC,C\nBloodrush - {G}, Discard Slaughterhorn: Target attacking creature gets +3/+2 until end of turn.\n3/2"
     IDS_STRING25487         "Merciless Eviction\n{4WB}\nSorcery\nGTC,R\nChoose one - Exile all artifacts; or exile all creatures; or exile all enchantments; or exile all planeswalkers."
 END
 
@@ -233,7 +233,7 @@ BEGIN
     IDS_STRING25520         "Court Street Denizen\n{2W}\nCreature - Human Soldier\nGTC,C\nWhenever another white creature enters the battlefield under your control, tap target creature an opponent controls.\n2/2"
     IDS_STRING25521         "Crackling Perimeter\n{1R}\nEnchantment\nGTC,U\nTap an untapped Gate you control: Crackling Perimeter deals 1 damage to each opponent."
     IDS_STRING25522         "Crowned Ceratok\n{3G}\nCreature - Rhino\nGTC,U\nTrample\rEach creature you control with a +1/+1 counter on it has trample.\n4/3"
-    IDS_STRING25523         "Daring Skyjek\n{1W}\nCreature - Human Knight\nGTC,C\nBattalion - Whenever Daring Skyjek and at least two other creatures attack, Daring Skyjek gains flying until end of turn."
+    IDS_STRING25523         "Daring Skyjek\n{1W}\nCreature - Human Knight\nGTC,C\nBattalion - Whenever Daring Skyjek and at least two other creatures attack, Daring Skyjek gains flying until end of turn.\n3/1"
     IDS_STRING25524         "Master Biomancer\n{2GU}\nCreature - Elf Wizard\nGTC,MR\nEach other creature you control enters the battlefield with a number of additional +1/+1 counters on it equal to Master Biomancer's power and as a Mutant in addition to its other types.\n2/4"
     IDS_STRING25525         "Zameck Guildmage\n{GU}\nCreature - Elf Wizard\nGTC,U\n{GU}: This turn, each creature you control enters the battlefield with an additional +1/+1 counter on it.\r{GU}, Remove a +1/+1 counter from a creature you control: Draw a card.\n2/2"
     IDS_STRING25526         "Deathcult Rogue\n{1CC}\nCreature - Human Rogue\nGTC,C\nDeathcult Rogue can't be blocked except by Rogues.\n2/2"

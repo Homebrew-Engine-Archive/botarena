@@ -813,13 +813,6 @@ class CKeeningApparitionCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CKnightlyValorCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CKnightlyValorCard);
-};
-
-//____________________________________________________________________________
-//
 class CCrosstownCourierCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCrosstownCourierCard);
@@ -974,13 +967,6 @@ protected:
 class CTrainedCaracalCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CTrainedCaracalCard);
-};
-
-//____________________________________________________________________________
-//
-class CRoguesPassageCard : public CNonbasicLandCard
-{
-	DECLARE_CARD_CSTOR(CRoguesPassageCard);
 };
 
 //____________________________________________________________________________
@@ -1455,13 +1441,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CCatacombSlugCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CCatacombSlugCard);
-};
-
-//____________________________________________________________________________
-//
 class CDaggerdromeImpCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDaggerdromeImpCard);
@@ -1536,13 +1515,6 @@ class CRitesOfReapingCard : public CCard
 
 //____________________________________________________________________________
 //
-class CCobblebruteCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CCobblebruteCard);
-};
-
-//____________________________________________________________________________
-//
 class CDynachargeCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDynachargeCard);
@@ -1567,13 +1539,6 @@ class CAnnihilatingFireCard : public CTargetChgLifeSpellCard
 class CBatterhornCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBatterhornCard);
-};
-
-//____________________________________________________________________________
-//
-class CBellowsLizardCard : public CPumpCreatureCard
-{
-	DECLARE_CARD_CSTOR(CBellowsLizardCard);
 };
 
 //____________________________________________________________________________

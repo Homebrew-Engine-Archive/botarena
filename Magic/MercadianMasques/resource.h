@@ -318,6 +318,7 @@
 #define IDS_STRING11901                 11901
 #define IDS_STRING11902                 11902
 #define IDS_STRING11903                 11903
+#define IDS_STRING11904                 11904
 #define IDI_MODULE                      11950
 #define IDI_LARGE_MODULE                11951
 

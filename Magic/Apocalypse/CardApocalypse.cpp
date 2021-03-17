@@ -120,7 +120,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSqueesRevengeCard);
 		DEFINE_CARD(CStrengthOfNightCard);
 		DEFINE_CARD(CSuffocatingBlastCard);
-		DEFINE_CARD(CSylvanMessengerCard);
 		DEFINE_CARD(CSymbioticDeploymentCard);
 		DEFINE_CARD(CTahngarthsGlareCard);
 		DEFINE_CARD(CTemporalSpringCard);
@@ -1641,95 +1640,6 @@ void CKavuHowlerCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction
 			CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
 
 			if (pCreatureCard->GetCreatureType().HasType(SingleCreatureType::Kavu) || pCreatureCard->GetCardKeyword()->HasChangeling())
-				matchingCards.AddCard(pCard, CardPlacement::Top);
-			else
-				revealedCards.AddCard(pCard, CardPlacement::Top);
-		}
-		else
-			revealedCards.AddCard(pCard, CardPlacement::Top);
-	}
-
-	if (matchingCards.GetSize())
-		pHand->AddCards(matchingCards, GetController(), MoveType::Others, CardPlacement::Top);
-
-	if (revealedCards.GetSize())
-	{
-		if (revealedCards.GetSize() == 1)
-		{
-			pLibrary->AddCard(revealedCards.GetAt(0), GetController(), MoveType::Others, CardPlacement::Bottom);
-		}
-		else
-		{
-			// Order cards
-
-			if (m_pGame->IsThinking() || GetController()->IsComputer())
-			{
-				revealedCards.Sort();	// ascending
-				pLibrary->AddCards(revealedCards, GetController(), MoveType::Others, CardPlacement::Bottom);
-			}
-			else
-			{
-				OrderCardsData orderCardsData;
-				orderCardsData.bReadOnly = FALSE;
-				orderCardsData.strCaption = _T("Order Revealed Cards");
-				orderCardsData.pCardContainer = &revealedCards;
-
-				if (GetController()->GetInterface()->OrderCards(&orderCardsData))
-					pLibrary->AddCards(revealedCards, GetController(), MoveType::Others, CardPlacement::Bottom);
-			}
-		}
-	}
-}
-
-//____________________________________________________________________________
-//
-CSylvanMessengerCard::CSylvanMessengerCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Sylvan Messenger"), CardType::Creature, CREATURE_TYPE(Elf), nID,
-		_T("3") GREEN_MANA_TEXT, Power(2), Life(2))
-
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-				   &CSylvanMessengerCard::OnResolutionCompleted))
-{
-	GetCreatureKeyword()->AddTrample(FALSE);
-
-	typedef
-		TTriggeredAbility< CTriggeredRevealLibraryAbility, CWhenSelfInplay,
-						   CWhenSelfInplay::EventCallback,
-						   &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetRevealCount(4);
-	cpAbility->SetRevealCardsToOthers(TRUE);
-
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
-
-	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());		
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-void CSylvanMessengerCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	CZone* pLibrary = GetController()->GetZoneById(ZoneId::Library);
-	CZone* pHand = GetController()->GetZoneById(ZoneId::Hand);
-	CCountedCardContainer revealedCards;
-	CCountedCardContainer matchingCards;
-
-	int nRevealCount = 4;
-	if (nRevealCount > pLibrary->GetSize())
-		nRevealCount = pLibrary->GetSize();
-
-	for (int i = 0; i < nRevealCount; ++i)
-	{
-		CCard* pCard = pLibrary->GetAt(pLibrary->GetSize() - i - 1);
-
-		if ((pCard->GetCardType() & CardType::Creature).Any())
-		{
-			CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
-
-			if (pCreatureCard->GetCreatureType().HasType(SingleCreatureType::Elf) || pCreatureCard->GetCardKeyword()->HasChangeling())
 				matchingCards.AddCard(pCard, CardPlacement::Top);
 			else
 				revealedCards.AddCard(pCard, CardPlacement::Top);

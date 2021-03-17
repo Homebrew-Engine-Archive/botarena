@@ -2000,7 +2000,7 @@ CTolarianWindsCard::CTolarianWindsCard(CGame* pGame, UINT nID)
 {
 	counted_ptr<CDrawCardSpell3> cpSpell(
 		::CreateObject<CDrawCardSpell3>(this, AbilityType::Instant,
-			_T("1") BLUE_MANA_TEXT));
+			_T("1") BLUE_MANA_TEXT, 0)); //0->The number of cards discarded are drawn.  Hand size remains the same.
 
 	AddSpell(cpSpell.GetPointer());
 }

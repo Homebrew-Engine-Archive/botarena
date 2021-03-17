@@ -109,14 +109,8 @@ class CMoonsilverSpearCard : public CInPlaySpellCard
 private:
 	counted_ptr<CAbility> CreateEquipmentAbility(CCard* pCard);
 };
-//_____________________________________________________________________________
-//
-class CAngelsTombCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CAngelsTombCard);
-};
 
-//____________________________________________________________________________
+//_____________________________________________________________________________
 //
 class CArcaneMeleeCard : public CInPlaySpellCard
 {
@@ -691,16 +685,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CDreadwatersCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CDreadwatersCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction) const;
-};
-
-//____________________________________________________________________________
-//
 class CFavorableWindsCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CFavorableWindsCard);
@@ -760,14 +744,6 @@ class CMassAppealCard : public CCard
 class CMistRavenCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMistRavenCard);
-};
-
-//____________________________________________________________________________
-//
-class CScrapskinDrakeCard : public CFlyingCreatureCard
-{
-	DECLARE_CARD_CSTOR(CScrapskinDrakeCard);
-
 };
 
 //____________________________________________________________________________

@@ -244,6 +244,66 @@ BEGIN
     IDS_STRING27731         "Staff of the Wild Magus\n{3}\nArtifact\nM15,U\nWhenever you cast a green spell or a Forest enters the battlefield under your control, you gain 1 life."
     IDS_STRING27732         "Tormod's Crypt\n{0}\nArtifact\nM15,U\n{T}, Sacrifice Tormod's Crypt: Exile all cards from target player's graveyard."
     IDS_STRING27733         "Sanctified Charge\n{4W}\nInstant\nM15,C\nCreatures you control get +2/+1 until end of turn. White creatures you control also gain first strike until end of turn."
+    IDS_STRING27734         "Reclamation Sage\n{2G}\nCreature - Elf Shaman\nM15,U\nWhen Reclamation Sage enters the battlefield, you may destroy target artifact or enchantment.\n2/1"
+    IDS_STRING27735         "Shaman of Spring\n{3G}\nCreature - Elf Shaman\nM15,C\nWhen Shaman of Spring enters the battlefield, draw a card.\n2/2"
+    IDS_STRING27736         "Soul of Zendikar\n{4GG}\nCreature - Avatar\nM15,MR\nReach\r{3GG}: Put a 3/3 green Beast creature token onto the battlefield.\r{3GG}, Exile Soul of Zendikar from your graveyard: Put a 3/3 green Beast creature token onto the battlefield.\n6/6"
+    IDS_STRING27737         "Sunblade Elf\n{G}\nCreature - Elf Warrior\nM15,U\nSunblade Elf gets +1/+1 as long as you control a Plains.\r{4W}: Creatures you control get +1/+1 until end of turn.\n1/1"
+    IDS_STRING27738         "Venom Sliver\n{1G}\nCreature - Sliver\nM15,U\nSliver creatures you control have deathtouch.\n1/1"
+    IDS_STRING27739         "Vineweft\n{G}\nEnchantment - Aura\nM15,C\nEnchant creature\rEnchanted creature gets +1/+1.\r{4G}: Return Vineweft from your graveyard to your hand."
+    IDS_STRING27740         "Hunter's Ambush\n{2G}\nInstant\nM15,C\nPrevent all combat damage that would be dealt by nongreen creatures this turn."
+    IDS_STRING27741         "Carnivorous Moss-Beast\n{4GG}\nCreature - Plant Elemental Beast\nM15,C\n{5GG}: Put a +1/+1 counter on Carnivorous Moss-Beast.\n4/5"
+    IDS_STRING27742         "Hornet Nest\n{2G}\nCreature - Insect\nM15,R\nDefender\rWhenever Hornet Nest is dealt damage, you put that many 1/1 green Insect creature tokens with flying and deathtouch onto the battlefield.\n0/2"
+    IDS_STRING27743         "Invasive Species\n{2G}\nCreature - Insect\nM15,C\nWhen Invasive Species enters the battlefield, return another permanent you control to its owner's hand.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27744         "Kalonian Twingrove\n{5G}\nCreature - Treefolk Warrior\nM15,R\nKalonian Twingrove's power and toughness are each equal to the number of Forests you control.\rWhen Kalonian Twingrove enters the battlefield, put a green Treefolk Warrior creature token onto the battlefield with ""This creature's power and toughness are each equal to the number of Forests you control.""\n*/*"
+    IDS_STRING27745         "Life's Legacy\n{1G}\nSorcery\nM15,R\nAs an additional cost to cast Life's Legacy, sacrifice a creature.\rDraw cards equal to the sacrificed creature's power."
+    IDS_STRING27746         "Netcaster Spider\n{2G}\nCreature - Spider\nM15,C\nReach\rWhenever Netcaster Spider blocks a creature with flying, Netcaster Spider gets +2/+0 until end of turn.\n2/3"
+    IDS_STRING27747         "Nissa, Worldwaker\n{3GG}\nPlaneswalker - Nissa\nM15,MR\n[+1]: Target land you control becomes a 4/4 Elemental creature with trample. It's still a land.\r[+1]: Untap up to four target Forests.\r[-7]: Search your library for any number of basic land cards, put them onto the battlefield, then shuffle your library. Those lands become 4/4 Elemental creatures with trample. They're still lands.\n3"
+    IDS_STRING27748         "Paragon of Eternal Wilds\n{3G}\nCreature - Human Druid\nM15,U\nOther green creatures you control get +1/+1.\r{G}, {T}: Another target green creature you control gains trample until end of turn.\n2/2"
+    IDS_STRING27749         "Phytotitan\n{4GG}\nCreature - Plant Elemental\nM15,R\nWhen Phytotitan dies, return it to the battlefield tapped under its owner's control at the beginning of his or her next upkeep.\n7/2"
+    IDS_STRING27750         "Aggressive Mining\n{3R}\nEnchantment\nM15,R\nYou can't play lands.\rSacrifice a land: Draw two cards. Activate this ability only once each turn."
+    IDS_STRING27751         "Altac Bloodseeker\n{1R}\nCreature - Human Berserker\nM15,U\nWhenever a creature an opponent controls dies, Altac Bloodseeker gets +2/+0 and gains first strike and haste until end of turn.\n2/1"
+    IDS_STRING27752         "Belligerent Sliver\n{2R}\nCreature - Sliver\nM15,U\nSliver creatures you control have ""This creature can't be blocked except by two or more creatures.""\n2/2"
+    IDS_STRING27753         "Blastfire Bolt\n{5R}\nInstant\nM15,C\nBlastfire Bolt deals 5 damage to target creature. Destroy all Equipment attached to that creature."
+    IDS_STRING27754         "Borderland Marauder\n{1R}\nCreature - Human Warrior\nM15,C\nWhenever Borderland Marauder attacks, it gets +2/+0 until end of turn.\n1/2"
+    IDS_STRING27755         "Brood Keeper\n{3R}\nCreature - Human Shaman\nM15,U\nWhenever an Aura becomes attached to Brood Keeper, put a 2/2 red Dragon creature token with flying onto the battlefield. It has ""{R}: This creature gets +1/+0 until end of turn.""\n2/3"
+    IDS_STRING27756         "Burning Anger\n{4R}\nEnchantment - Aura\nM15,R\nEnchant creature\rEnchanted creature has """"{T}: This creature deals damage equal to its power to target creature or player."""""
+    IDS_STRING27757         "Scrapyard Mongrel\n{3R}\nCreature - Hound\nM15,C\nAs long as you control an artifact, Scrapyard Mongrel gets +2/+0 and has trample.\n3/3"
+    IDS_STRING27758         "Hammerhand\n{R}\nEnchantment - Aura\nM15,C\nEnchant creature\rWhen Hammerhand enters the battlefield, target creature can't block this turn.\rEnchanted creature gets +1/+1 and has haste."
+    IDS_STRING27759         "Inferno Fist\n{1R}\nEnchantment - Aura\nM15,C\nEnchant creature you control\rEnchanted creature gets +2/+0.\r{R}, Sacrifice Inferno Fist: Inferno Fist deals 2 damage to target creature or player. "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27760         "Kird Chieftain\n{3R}\nCreature - Ape\nM15,U\nKird Chieftain gets +1/+1 as long as you control a Forest.\r{4G}: Target creature gets +2/+2 and gains trample until end of turn.\n3/3"
+    IDS_STRING27761         "Krenko's Enforcer\n{1RR}\nCreature - Goblin Warrior\nM15,C\nIntimidate\n2/2"
+    IDS_STRING27762         "Miner's Bane\n{4RR}\nCreature - Elemental\nM15,C\n{2R}: Miner's Bane gets +1/+0 and gains trample until end of turn.\n6/3"
+    IDS_STRING27763         "Paragon of Fierce Defiance\n{3R}\nCreature - Human Warrior\nM15,U\nOther red creatures you control get +1/+1.\r{R},{T}: Another target red creature you control gains haste until end of turn.\n2/2"
+    IDS_STRING27764         "Paragon of Gathering Mists\n{3U}\nCreature - Human Wizard\nM15,U\nOther blue creatures you control get +1/+1.\r{U},{T}: Another target blue creature you control gains flying until end of turn.\n2/2"
+    IDS_STRING27765         "Paragon of New Dawns\n{3W}\nCreature - Human Soldier\nM15,U\nOther white creatures you control get +1/+1.\r{W},{T}: Another target white creature you control gains vigilance until end of turn.\n2/2"
+    IDS_STRING27766         "Paragon of Open Graves\n{3B}\nCreature - Skeleton Warrior\nM15,U\nOther black creatures you control get +1/+1.\r{2B},{T}: Another target black creature you control gains deathtouch until end of turn.\n2/2"
+    IDS_STRING27767         "Siege Dragon\n{5RR}\nCreature - Dragon\nM15,R\nFlying\rWhen Siege Dragon enters the battlefield, destroy all Walls your opponents control.\rWhenever Siege Dragon attacks, if defending player controls no Walls, it deals 2 damage to each creature without flying that player controls.\n5/5"
+    IDS_STRING27768         "Blood Host\n{3BB}\nCreature - Vampire\nM15,U\n{1B}, Sacrifice another creature: Put a +1/+1 counter on Blood Host and you gain 2 life.\n3/3"
+    IDS_STRING27769         "Carrion Crow\n{2B}\nCreature - Zombie Bird\nM15,C\nFlying\rCarrion Crow enters the battlefield tapped.\n2/2"
+    IDS_STRING27770         "Cruel Sadist\n{B}\nCreature - Human Assassin\nM15,R\n{B},{T}, Pay 1 life: Put a +1/+1 counter on Cruel Sadist.\r{2B}, {T}, Remove X +1/+1 counters from Cruel Sadist: Cruel Sadist deals X damage to target creature.\n1/1"
+    IDS_STRING27771         "First Response\n{3W}\nEnchantment\nM15,U\nAt the beginning of each upkeep, if you lost life this turn, put a 1/1 white Soldier creature token onto the battlefield."
+    IDS_STRING27772         "Feast on the Fallen\n{2B}\nEnchantment\nM15,U\nAt the beginning of each upkeep, if an opponent lost life last turn, put a +1/+1 counter on target creature you control."
+    IDS_STRING27773         "Festergloom\n{2B}\nSorcery\nM15,C\nNonblack creatures get -1/-1 until end of turn."
+    IDS_STRING27774         "Flesh to Dust\n{3BB}\nInstant\nM15,C\nDestroy target creature. It can't be regenerated."
+    IDS_STRING27775         "In Garruk's Wake\n{7BB}\nSorcery\nM15,R\nDestroy all creatures you don't control and all planeswalkers you don't control."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27776         "Indulgent Tormentor\n{3BB}\nCreature - Demon\nM15,R\nFlying\rAt the beginning of your upkeep, draw a card unless target opponent sacrifices a creature or pays 3 life.\n5/3"
+    IDS_STRING27777         "Leeching Sliver\n{1B}\nCreature - Sliver\nM15,U\nWhenever a Sliver you control attacks, defending player loses 1 life.\n1/1"
+    IDS_STRING27778         "Necromancer's Assistant\n{2B}\nCreature - Zombie\nM15,C\nWhen Necromancer's Assistant enters the battlefield, put the top three cards of your library into your graveyard.\n3/1"
+    IDS_STRING27779         "Necromancer's Stockpile\n{1B}\nEnchantment\nM15,R\n{1B}, Discard a creature card: Draw a card. If the discarded card was a Zombie card, put a 2/2 black Zombie creature token onto the battlefield tapped."
+    IDS_STRING27780         "Sandcrafter Mage\n{2W}\nCreature - Human Wizard\nM15,C\nWhen Sandcrafter Mage enters the battlefield, bolster 1.\n2/2"
+    IDS_STRING27781         "Goblin Rabblemaster\n{2R}\nCreature - Goblin Warrior\nM15,R\nOther Goblin creatures you control attack each turn if able.\rAt the beginning of combat on your turn, put a 1/1 red Goblin creature token with haste onto the battlefield.\rWhenever Goblin Rabblemaster attacks, it gets +1/+0 until end of turn for each other attacking Goblin.\n2/2"
 END
 
 #endif    // English (United States) resources

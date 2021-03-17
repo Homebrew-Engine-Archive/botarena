@@ -112,7 +112,7 @@ BEGIN
     IDS_STRING25122         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
     IDS_STRING25123         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
     IDS_STRING25124         "Swamp\n\nBasic Land - Swamp\nRTR,BL\n{T}: Add {B} to your mana pool."
-    IDS_STRING25125         "Goblin Electromancer\n{UR}\nCreature - Goblin Wizard\nRTR,C\nInstant and sorcery spells you cast cost 1 less to cast.\n2/2"
+    IDS_STRING25125         "Goblin Electromancer\n{UR}\nCreature - Goblin Wizard\nRTR,C\nInstant and sorcery spells you cast cost {1} less to cast.\n2/2"
     IDS_STRING25126         "Dreg Mangler\n{1BG}\nCreature - Plant Zombie\nRTR,U\nHaste\rScavenge {3BG}\n3/3"
     IDS_STRING25127         "Izzet Charm\n{UR}\nInstant\nRTR,U\nChoose one - Counter target noncreature spell unless its controller pays {2}; or Izzet Charm deals 2 damage to target creature; or draw two cards, then discard two cards"
     IDS_STRING25128         "Jarad, Golgari Lich Lord\n{BBGG}\nLegendary Creature - Zombie Elf\nRTR,MR\nJarad, Golgari Lich Lord gets +1/+1 for each creature card in your graveyard.\r{1BG}, Sacrifice another creature: Each opponent loses life equal to the sacrificed creature's power.\rSacrifice a Swamp and a Forest: Return Jarad from your graveyard to your hand.\n2/2"

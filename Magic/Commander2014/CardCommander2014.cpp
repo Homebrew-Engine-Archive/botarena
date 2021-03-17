@@ -16,11 +16,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
-		// Add new card class names here:
-		// For example:
-		// 	DEFINE_CARD(CDefenderEnVecCard);
-
+		DEFINE_CARD(CCreeperhulkCard);
 	} while (false);
 
 	return cpCard;
@@ -28,4 +24,43 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 
 //____________________________________________________________________________
 //
-// Add new card class definitions here
+CCreeperhulkCard::CCreeperhulkCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Creeperhulk"), CardType::Creature, CREATURE_TYPE2(Plant, Elemental), nID,
+		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(5), Life(5))
+{
+	GetCreatureKeyword()->AddTrample(FALSE);
+	
+	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+			_T("1") GREEN_MANA_TEXT,
+			Power(0), Life(0), 
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE, PreventableType::NotPreventable));
+
+	cpAbility->GetTargeting()->SetIncludeControllerCardsOnly();
+
+	CPowerModifier* pPowerModifier = new CPowerModifier;
+	pPowerModifier->SetPowerDelta(Power(5));
+	pPowerModifier->SetToBase(TRUE);
+	pPowerModifier->SetReplacement(TRUE);
+	pPowerModifier->SetOneTurnOnly(TRUE);
+
+	cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pPowerModifier);
+
+	CLifeModifier* pLifeModifier = new CLifeModifier;
+	pLifeModifier->SetLifeDelta(Life(5));
+	pLifeModifier->SetPreventable(PreventableType::NotPreventable);
+	pLifeModifier->SetToBase(TRUE);
+	pLifeModifier->SetReplacement(TRUE);
+	pLifeModifier->SetOneTurnOnly(TRUE);
+
+	cpAbility->GetTargetModifier().CCreatureModifiers::push_back(pLifeModifier);
+	
+	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::Trample);
+	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
+	
+	AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//

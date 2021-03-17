@@ -1618,3 +1618,15 @@ protected:
 
 //____________________________________________________________________________
 //
+class CMoonholdCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CMoonholdCard);
+
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//
+

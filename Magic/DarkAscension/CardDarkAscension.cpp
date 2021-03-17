@@ -23,7 +23,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CArtfulDodgeCard);
 		DEFINE_CARD(CBarTheDoorCard);
 		DEFINE_CARD(CBloodFeudCard);
-		DEFINE_CARD(CBoneToAshCard);
 		DEFINE_CARD(CBreakOfDayCard);
 		DEFINE_CARD(CBurdenOfGuiltCard);
 		DEFINE_CARD(CBurningOilCard);
@@ -112,7 +111,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSavingGraspCard);
 		DEFINE_CARD(CScorchTheFieldsCard);
 		DEFINE_CARD(CScornedVillagerCard);
-		DEFINE_CARD(CScreechingSkaabCard);
 		DEFINE_CARD(CSeanceCard);
 		DEFINE_CARD(CSecretsOfTheDeadCard);
 		DEFINE_CARD(CShatteredPerceptionCard);
@@ -134,7 +132,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CThrabenDoomsayerCard);
 		DEFINE_CARD(CThrabenHereticCard);
 		DEFINE_CARD(CTovolarsMagehunterCard);
-		DEFINE_CARD(CTowerGeistCard);
 		DEFINE_CARD(CTrackersInstinctsCard);
 		DEFINE_CARD(CTragicSlipCard);
 		DEFINE_CARD(CUndyingEvilCard);
@@ -2675,16 +2672,6 @@ CArtfulDodgeCard::CArtfulDodgeCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CBoneToAshCard::CBoneToAshCard(CGame* pGame, UINT nID)
-	: CCounterSpellCard(pGame, _T("Bone to Ash"), CardType::Instant, nID,
-		_T("2") BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Instant,
-		new AnyCreatureComparer)
-{
-	m_pCounterSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
-}
-
-//____________________________________________________________________________
-//
 CChillOfForebodingCard::CChillOfForebodingCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Chill of Foreboding"), CardType::Sorcery, nID)
 {
@@ -2857,26 +2844,6 @@ CSavingGraspCard::CSavingGraspCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CScreechingSkaabCard::CScreechingSkaabCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Screeching Skaab"), CardType::Creature, CREATURE_TYPE2(Zombie, Warrior), nID,
-		_T("1") BLUE_MANA_TEXT, Power(2), Life(1))
-{
-	typedef
-		TTriggeredAbility< CTriggeredRevealLibraryAbility, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-	ATLASSERT(cpAbility);
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetRevealCount(2);
-	cpAbility->SetReorder(true, ZoneId::Graveyard);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CShriekgeistCard::CShriekgeistCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Shriekgeist"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
 		_T("1") BLUE_MANA_TEXT, Power(1), Life(1))
@@ -2907,45 +2874,6 @@ CStormboundGeistCard::CStormboundGeistCard(CGame* pGame, UINT nID)
 	, CUndyingKeyword(this)
 {
 	GetCreatureKeyword()->AddCanOnlyBlockFlying(FALSE);	
-}
-
-//____________________________________________________________________________
-//
-CTowerGeistCard::CTowerGeistCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Tower Geist"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
-		_T("3") BLUE_MANA_TEXT, Power(2), Life(2))
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	
-	CZoneModifier* pModifier3 = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
-	pModifier3->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier3->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier3->GetSelection(0).moveType = MoveType::Others;
-	pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Hand, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	// and finally put the last ones on the bottom of the library
-	pModifier3->SetReorderInformation(
-		true, 
-		ZoneId::Graveyard,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier3);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -3461,7 +3389,7 @@ CShatteredPerceptionCard::CShatteredPerceptionCard(CGame* pGame, UINT nID)
 	{
 		counted_ptr<CDrawCardSpell3> cpSpell(
 			::CreateObject<CDrawCardSpell3>(this, AbilityType::Sorcery,
-				_T("2") RED_MANA_TEXT));
+				_T("2") RED_MANA_TEXT, 0)); //0->The number of cards discarded are drawn.  Hand size remains the same.
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -3469,7 +3397,7 @@ CShatteredPerceptionCard::CShatteredPerceptionCard(CGame* pGame, UINT nID)
 		//Flashback cost
 		counted_ptr<CDrawCardSpell3> cpSpell(
 			::CreateObject<CDrawCardSpell3>(this, AbilityType::Sorcery,
-				_T("5") RED_MANA_TEXT));
+				_T("5") RED_MANA_TEXT, 0)); //0->The number of cards discarded are drawn.  Hand size remains the same.
 		
 		cpSpell->SetAbilityName(_T("Flashback"));
 		cpSpell->SetAbilityText(_T("Flashback. Casts"));

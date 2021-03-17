@@ -253,7 +253,7 @@ BEGIN
     IDS_STRING15537         "Opaline Bracers\n{4}\nArtifact\n5DN,C\nSunburst\rEquipped creature gets +X/+X, where X is the number of charge counters on Opaline Bracers.\rEquip {2}"
     IDS_STRING15538         "Avarice Totem\n{1}\nArtifact\n5DN,U\n{5}: Exchange control of Avarice Totem and target nonland permanent."
     IDS_STRING15539         "Plunge into Darkness\n{1B}\nInstant\n5DN,R\nChoose one - Sacrifice any number of creatures, then you gain 3 life for each sacrificed creature; or pay X life, then look at the top X cards of your library, put one of those cards into your hand, and exile the rest.\rEntwine {B}"
-    IDS_STRING15540         "Ferropede\n{3}\nArtifact Creature - Insect\n5DN,U\nFerropede is unblockable.\rWhenever Ferropede deals combat damage to a player, you may remove a counter from target permanent."
+    IDS_STRING15540         "Ferropede\n{3}\nArtifact Creature - Insect\n5DN,U\nFerropede can't be blocked.\rWhenever Ferropede deals combat damage to a player, you may remove a counter from target permanent.\n1/1"
     IDS_STRING15541         "Rude Awakening\n{4G}\nSorcery\n5DN,U\nChoose one - Untap all lands you control; or until end of turn, lands you control become 2/2 creatures that are still lands.\rEntwine {2G}"
     IDS_STRING15542         "Energy Chamber\n{2}\nArtifact\n5DN,U\nAt the beginning of your upkeep, choose one - Put a +1/+1 counter on target artifact creature; or put a charge counter on target noncreature artifact."
     IDS_STRING15543         "Goblin Brawler\n{2R}\nCreature - Goblin Warrior\n5DN,C\nFirst strike\rGoblin Brawler can't be equipped.\n2/2"

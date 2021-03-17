@@ -16,7 +16,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
 		DEFINE_CARD(CAbundantGrowthCard);
 		DEFINE_CARD(CAggravateCard);
 		DEFINE_CARD(CAlchemistsApprenticeCard);
@@ -24,7 +23,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAmassTheComponentsCard);
 		DEFINE_CARD(CAngelicArmamentsCard);
 		DEFINE_CARD(CAngelOfGlorysRiseCard);
-		DEFINE_CARD(CAngelsTombCard);
 		DEFINE_CARD(CAppetiteForBrainsCard);
 		DEFINE_CARD(CArcaneMeleeCard);
 		DEFINE_CARD(CArchwingDragonCard);
@@ -64,7 +62,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDevastationTideCard);
 		DEFINE_CARD(CDevoutChaplainCard);
 		//DEFINE_CARD(CDiregrafEscortCard);
-		DEFINE_CARD(CDreadwatersCard);
 		DEFINE_CARD(CDriverOfTheDeadCard);
 		DEFINE_CARD(CDruidsFamiliarCard);
 		DEFINE_CARD(CDruidsRepositoryCard);
@@ -149,7 +146,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRotcrownGhoulCard);
 		DEFINE_CARD(CRushOfBloodCard);
 		DEFINE_CARD(CScaldingDevilCard);
-		DEFINE_CARD(CScrapskinDrakeCard);
 		DEFINE_CARD(CScrollOfAvacynCard);
 		DEFINE_CARD(CScrollOfGriselbrandCard);
 		DEFINE_CARD(CSearchlightGeistCard);
@@ -589,28 +585,6 @@ counted_ptr<CAbility> CMoonsilverSpearCard::CreateEquipmentAbility(CCard* pCard)
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
 
-}
-
-//____________________________________________________________________________
-//
-CAngelsTombCard::CAngelsTombCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Angel's Tomb"), CardType::Artifact, nID,
-		_T("3"), AbilityType::Artifact)
-{
-	typedef
-		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::_AllZones, ZoneId::Battlefield));
-
-	cpAbility->GetTrigger().SetToControllerOnly(TRUE);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
-
-	CCardIsAlsoAModifier* pModifier = new CCardIsAlsoAModifier( _T("Angel AA"), 64012, GetController());
-	cpAbility->GetTriggeredCardModifiers().push_back(new CScheduledCardModifier(
-		GetGame(), pModifier, TurnNumberDelta(-1), NodeId::EndStep, true,  CScheduledCardModifier::Operation::ApplyToNowRemoveLater));
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -2309,44 +2283,6 @@ void CCripplingChillCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 //____________________________________________________________________________
 //
-CDreadwatersCard::CDreadwatersCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Dreadwaters"), CardType::Sorcery, nID)
-{
-	counted_ptr<CTargetRevealLibraryCardSpell> cpSpell(
-		::CreateObject<CTargetRevealLibraryCardSpell>(this, AbilityType::Sorcery,
-			_T("3") BLUE_MANA_TEXT,
-			0));
-
-	cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
-	cpSpell->SetRevealCardsToOthers(TRUE);
-	cpSpell->SetReorder(true, ZoneId::Graveyard, CardPlacement::Top);	
-		
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDreadwatersCard::BeforeResolution));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-bool CDreadwatersCard::BeforeResolution(CAbilityAction* pAction) const
-{
-	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
-
-	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield);
-	CZone* pLib = pAction->GetAssociatedPlayer()->GetZoneById(ZoneId::Library);
-
-	int n = (CCardFilter::GetFilter(_T("lands"))->CountIncluded(pInplay->GetCardContainer()));
-
-	if (n > pLib->GetSize()) n = pLib->GetSize();
-
-	ContextValue Context(pAction->GetValue());
-	Context.nValue1 = n;
-
-	pTargetAction->GetTargetGroup().SetValue(pTargetAction->GetTargetGroup().GetFirstPlayerSubject(), const_cast<const ContextValue&>(Context));
-
-	return n > 0;
-}
-
-//____________________________________________________________________________
-//
 CFavorableWindsCard::CFavorableWindsCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Favorable Winds"), CardType::GlobalEnchantment, nID,
 		_T("1") BLUE_MANA_TEXT, AbilityType::Enchantment)
@@ -2518,15 +2454,6 @@ CMistRavenCard::CMistRavenCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CScrapskinDrakeCard::CScrapskinDrakeCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Scrapskin Drake"), CardType::Creature, CREATURE_TYPE2(Zombie, Drake), nID,
-		_T("2") BLUE_MANA_TEXT, Power(2), Life(3))
-{
-	GetCreatureKeyword()->AddCanOnlyBlockFlying(FALSE);	
 }
 
 //____________________________________________________________________________

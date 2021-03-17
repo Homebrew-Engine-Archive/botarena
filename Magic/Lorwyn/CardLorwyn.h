@@ -406,13 +406,6 @@ class CLaceWithMoongloveCard : public CChgPwrTghAttrSpellCard
 
 //___________________________________________________________________________
 //
-class CLeafGilderCard : public CManaProductionTCreatureCard
-{
-	DECLARE_CARD_CSTOR(CLeafGilderCard);
-};
-
-//___________________________________________________________________________
-//
 class CLowlandOafCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CLowlandOafCard);

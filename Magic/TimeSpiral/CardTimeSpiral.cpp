@@ -16,7 +16,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
 		DEFINE_CARD(CAcademyRuinsCard);
 		DEFINE_CARD(CAEtherflameWallCard);
 		DEFINE_CARD(CAEtherWebCard);
@@ -8187,7 +8186,6 @@ CTheloniteHermitCard::CTheloniteHermitCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Elf);
 	this->AddCreatureType(SingleCreatureType::Shaman);
-
 	{
 		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 			::CreateObject<CPwrTghAttrEnchantment>(this,
@@ -8199,23 +8197,23 @@ CTheloniteHermitCard::CTheloniteHermitCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CSpecialTrigger > TriggeredAbility;
+		typedef
+			TTriggeredAbility< CTriggeredCreateTokenAbility, CSpecialTrigger > TriggeredAbility;
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Saproling H"), 2923, 4);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Saproling H"), 2923, 4);
 
-	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
 
-	cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 }
 //____________________________________________________________________________
@@ -8225,25 +8223,25 @@ CFathomSeerCard::CFathomSeerCard(CGame* pGame, UINT nID)
 		_T("1") BLUE_MANA_TEXT, Power(1), Life(3), _T(""))
 {
 	this->AddCreatureType(SingleCreatureType::Illusion);
-
 	this->GetMorphAbility()->GetCost().AddReturnFromPlayCardCost(2, CCardFilter::GetFilter(_T("Islands")));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredDrawCardAbility, CSpecialTrigger > TriggeredAbility;
 
-	typedef
-		TTriggeredAbility< CTriggeredDrawCardAbility, CSpecialTrigger > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 	
-	cpAbility->SetDrawCount(2);
+		cpAbility->SetDrawCount(2);
 
-	cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 //____________________________________________________________________________
@@ -8253,7 +8251,6 @@ CBrineElementalCard::CBrineElementalCard(CGame* pGame, UINT nID)
 		_T("4") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(5), Life(4), _T("5") BLUE_MANA_TEXT BLUE_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Elemental);	
-
 	typedef
 		TTriggeredAbility< CTriggeredPlayerEffectAbility, CSpecialTrigger > TriggeredAbility;
 
@@ -8276,13 +8273,12 @@ CFledglingMawcorCard::CFledglingMawcorCard(CGame* pGame, UINT nID)
 	: CMorphCreatureCard(pGame, _T("Fledgling Mawcor"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("3") BLUE_MANA_TEXT, Power(2), Life(2), _T("") BLUE_MANA_TEXT BLUE_MANA_TEXT)
 {
-		this->AddCreatureType(SingleCreatureType::Beast);
-
-		GetCreatureKeyword()->AddFlying(FALSE);
-
+	this->AddCreatureType(SingleCreatureType::Beast);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
+	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
 			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
-				_T("") ,
+				_T(""),
 				new AnyCreatureComparer,
 				true,
 				Life(-1), PreventableType::Preventable));
@@ -8290,7 +8286,7 @@ CFledglingMawcorCard::CFledglingMawcorCard(CGame* pGame, UINT nID)
 		
 		cpAbility->AddTapCost();
 
-			counted_ptr<CPlayableIfTrait> cpTrait(
+		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(this,
@@ -8301,6 +8297,7 @@ CFledglingMawcorCard::CFledglingMawcorCard(CGame* pGame, UINT nID)
 		cpAbility->SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
 
 		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 //____________________________________________________________________________

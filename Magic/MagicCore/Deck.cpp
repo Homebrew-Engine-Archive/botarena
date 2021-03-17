@@ -27,20 +27,20 @@ void CDeck::ClearStatus()
 
 void CDeck::ClearStatistics()
 {
-	m_nLandCount = 0;
-	m_nPlaneswalkerCount = 0;
-	m_nCreatureCount = 0;
-	m_nArtifactCount = 0;
-	m_nSorceryCount = 0;
-	m_nInstantCount = 0;
-	m_nEnchantmentCount = 0;
+	m_nLandCount		   = 0;
+	m_nPlaneswalkerCount   = 0;
+	m_nCreatureCount	   = 0;
+	m_nArtifactCount	   = 0;
+	m_nSorceryCount		   = 0;
+	m_nInstantCount		   = 0;
+	m_nEnchantmentCount	   = 0;
 
 	m_nTotalReferenceScore = 0;
-	m_nReferenceScore = 0;
+	m_nReferenceScore	   = 0;
 	m_CreatureTypes.clear();
 	m_ProminentManaColorByCard = CManaPool::Color::Null;
 	m_ManaColorCountByCard.clear();
-	m_ProminentManaColor = CManaPool::Color::Null;
+	m_ProminentManaColor	   = CManaPool::Color::Null;
 	m_ManaColorCount.clear();
 	m_CardNames.clear();
 }
@@ -60,12 +60,12 @@ void CDeck::Clear()
 	m_StartBattlefield.clear();
 	m_StartEmblems.clear();
 
-	m_bNoShuffle = false;
-	m_nStartingLife = 20;
+	m_bNoShuffle	  = false;
+	m_nStartingLife	  = 20;
 	m_bPreconstructed = false;
-	m_bReadOnly = false;
-	m_bSealed = false;
-	m_bNoCardLimit = false;
+	m_bReadOnly		  = false;
+	m_bSealed		  = false;
+	m_bNoCardLimit	  = false;
 }
 
 void CDeck::UpdateCardStatistics(const CCard* pCard)
@@ -152,11 +152,11 @@ void CDeck::ImportDeck(const StringArray& lines, bool bRemoveExtraCopies)
 
 	CCountedCardContainer cards;
 
-	bool bKeepHeader = true;
-	bool bSideboard = false;
+	bool bKeepHeader	   = true;
+	bool bSideboard		   = false;
 	bool bStartBattlefield = false;
-	bool bStartEmblems = false;
-	bool bAge = false;
+	bool bStartEmblems	   = false;
+	bool bAge			   = false;
 	COleDateTime dtAge;
 
 	for (size_t i = 0; i < lines.size(); ++i)
@@ -313,16 +313,16 @@ void CDeck::ImportDeck(const StringArray& lines, bool bRemoveExtraCopies)
 			{
 				if (!_tcsicmp(strLine.Left(2), _T("//")))
 				{
-					if (strLine.Find(_T("// Creatures")) != 0 &&
+					if (strLine.Find(_T("// Creatures"))	 != 0 &&
 						strLine.Find(_T("// Non-creatures")) != 0 &&
-						strLine.Find(_T("// Spells")) != 0 &&
-						strLine.Find(_T("// Instants")) != 0 &&
-						strLine.Find(_T("// Sorceries")) != 0 &&
-						strLine.Find(_T("// Enchantments")) != 0 &&
-						strLine.Find(_T("// Artifacts")) != 0 &&
-						strLine.Find(_T("// Lands")) != 0 &&
-						strLine.Find(_T("// Total cards")) != 0 &&
-						strLine.Find(_T("// Total Cards")) != 0)
+						strLine.Find(_T("// Spells"))		 != 0 &&
+						strLine.Find(_T("// Instants"))		 != 0 &&
+						strLine.Find(_T("// Sorceries"))	 != 0 &&
+						strLine.Find(_T("// Enchantments"))  != 0 &&
+						strLine.Find(_T("// Artifacts"))	 != 0 &&
+						strLine.Find(_T("// Lands"))		 != 0 &&
+						strLine.Find(_T("// Total cards"))   != 0 &&
+						strLine.Find(_T("// Total Cards"))   != 0)
 					{
 						strLine += _T("\n");
 						m_HeaderLines.push_back(strLine);
@@ -347,7 +347,7 @@ void CDeck::ImportDeck(const StringArray& lines, bool bRemoveExtraCopies)
 		if (!_tcsicmp(strLine.Left(6), _T("#FILL ")))
 		{
 			strCardName = strLine.Mid(6);
-			bFillCard = true;
+			bFillCard   = true;
 			fillEntry.strCardName = strCardName;
 		}
 		else
@@ -696,8 +696,8 @@ void CDeck::GetCardColorSummary(const CCountedCardContainer& cards,
 {
 	summary.clear();
 	summary[CManaPool::Color::Black] = 0;
-	summary[CManaPool::Color::Blue] = 0;
-	summary[CManaPool::Color::Red] = 0;
+	summary[CManaPool::Color::Blue ] = 0;
+	summary[CManaPool::Color::Red  ] = 0;
 	summary[CManaPool::Color::Green] = 0;
 	summary[CManaPool::Color::White] = 0;
 	summary[CManaPool::Color::Colorless] = 0;
@@ -718,8 +718,8 @@ void CDeck::GetCardColorSummary(const CCountedCardContainer& cards,
 			if (bFine)
 			{
 				summary[CManaPool::Color::Black] += manaCost.GetCost(CManaCost::Color::Black);
-				summary[CManaPool::Color::Blue] += manaCost.GetCost(CManaCost::Color::Blue);
-				summary[CManaPool::Color::Red] += manaCost.GetCost(CManaCost::Color::Red);
+				summary[CManaPool::Color::Blue ] += manaCost.GetCost(CManaCost::Color::Blue);
+				summary[CManaPool::Color::Red  ] += manaCost.GetCost(CManaCost::Color::Red);
 				summary[CManaPool::Color::Green] += manaCost.GetCost(CManaCost::Color::Green);
 				summary[CManaPool::Color::White] += manaCost.GetCost(CManaCost::Color::White);
 				summary[CManaPool::Color::Colorless] += manaCost.GetCost(CManaCost::Color::Generic);
@@ -727,8 +727,8 @@ void CDeck::GetCardColorSummary(const CCountedCardContainer& cards,
 			else
 			{
 				summary[CManaPool::Color::Black] += (manaCost.GetCost(CManaCost::Color::Black) > 0 ? 1 : 0);
-				summary[CManaPool::Color::Blue] += (manaCost.GetCost(CManaCost::Color::Blue) > 0 ? 1 : 0);
-				summary[CManaPool::Color::Red] += (manaCost.GetCost(CManaCost::Color::Red) > 0 ? 1 : 0);
+				summary[CManaPool::Color::Blue ] += (manaCost.GetCost(CManaCost::Color::Blue)  > 0 ? 1 : 0);
+				summary[CManaPool::Color::Red  ] += (manaCost.GetCost(CManaCost::Color::Red)   > 0 ? 1 : 0);
 				summary[CManaPool::Color::Green] += (manaCost.GetCost(CManaCost::Color::Green) > 0 ? 1 : 0);
 				summary[CManaPool::Color::White] += (manaCost.GetCost(CManaCost::Color::White) > 0 ? 1 : 0);
 				summary[CManaPool::Color::Colorless] += (manaCost.GetCost(CManaCost::Color::Generic)  > 0 ? 1 : 0);
@@ -737,10 +737,10 @@ void CDeck::GetCardColorSummary(const CCountedCardContainer& cards,
 			if (summary[CManaPool::Color::Black] > summary[prominentColor])
 				prominentColor = CManaPool::Color::Black;
 
-			if (summary[CManaPool::Color::Blue] > summary[prominentColor])
+			if (summary[CManaPool::Color::Blue]  > summary[prominentColor])
 				prominentColor = CManaPool::Color::Blue;
 
-			if (summary[CManaPool::Color::Red] > summary[prominentColor])
+			if (summary[CManaPool::Color::Red]   > summary[prominentColor])
 				prominentColor = CManaPool::Color::Red;
 
 			if (summary[CManaPool::Color::Green] > summary[prominentColor])
@@ -824,7 +824,7 @@ void CDeck::UpdateLines()
 {
 	const DeckCards* cards[] = { &m_Deck, &m_Sideboard, &m_StartBattlefield, &m_StartEmblems };
 	const LPCTSTR sections[] = { _T("deck"), _T("sideboard"),  _T("starting battlefield"),  _T("starting emblems") };
-	StringArray*  lines[] = { &m_DeckLines, &m_SideboardLines,  &m_StartBattlefieldLines, &m_StartEmblemsLines };
+	StringArray*  lines[]    = { &m_DeckLines, &m_SideboardLines,  &m_StartBattlefieldLines, &m_StartEmblemsLines };
 
 	CString strLine;
 
@@ -1174,7 +1174,7 @@ StringArray CDeck::GetFileLines() const
 	while (fileLines.size())
 	{
 		CString strLine(fileLines[fileLines.size() - 1]);
-		strLine.Replace(_T(" "), _T(""));
+		strLine.Replace(_T(" "),  _T(""));
 		strLine.Replace(_T("\t"), _T(""));
 		if (strLine != _T("\n"))
 			break;

@@ -448,7 +448,10 @@ BOOL CCreatureKeyword::HasMonstrous() const
 	return (m_Bitflag & CreatureKeyword::Monstrous).Any();
 }
 
-
+BOOL CCreatureKeyword::HasRenowned() const
+{
+	return (m_Bitflag & CreatureKeyword::Renowned).Any();
+}
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 //
 void CCreatureKeyword::AddFirstStrike(BOOL bThisTurnOnly)
@@ -701,6 +704,10 @@ void CCreatureKeyword::AddMonstrous(BOOL bThisTurnOnly)
 	AddEntry(BitflagEntry(CreatureKeyword::Monstrous, bThisTurnOnly));
 }
 
+void CCreatureKeyword::AddRenowned(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::Renowned, bThisTurnOnly));
+}
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 //
 void CCreatureKeyword::RemoveFirstStrike(BOOL bThisTurnOnly)
@@ -953,6 +960,10 @@ void CCreatureKeyword::RemoveMonstrous(BOOL bThisTurnOnly)
 	AddEntry(BitflagEntry(CreatureKeyword::Monstrous, bThisTurnOnly, EntryType::Removal));
 }
 
+void CCreatureKeyword::RemoveRenowned(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::Renowned, bThisTurnOnly, EntryType::Removal));
+}
 //____________________________________________________________________________
 //
 CCardFlag::CCardFlag()

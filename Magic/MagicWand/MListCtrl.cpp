@@ -168,7 +168,7 @@ int CMListCtrl::CDeckCardEntry::Collate(const CMListCtrl::CDeckCardEntry& entry,
 	return strItem1.CollateNoCase(strItem2);
 }
 
-const LPCTSTR CMListCtrl::s_strFont = _T("MPlantin");
+const LPCTSTR CMListCtrl::s_strFont = _T("mplantin");
 
 CMListCtrl::CMListCtrl()
 	: m_bUseCountColumn(FALSE)
@@ -377,6 +377,23 @@ CMListCtrl::CMListCtrl()
 	Expansions.insert("ALL");
 	Expansions.insert("ICE");
 	m_Blocks.insert( std::pair<CString, std::set<CString>>("ice age", Expansions));
+	Expansions.clear();
+
+	Expansions.insert("HML");
+	Expansions.insert("FEM");
+
+	m_Blocks.insert( std::pair<CString, std::set<CString>>("homfall", Expansions));
+	
+	Expansions.clear();
+
+	Expansions.insert("UTD");
+	Expansions.insert("ARN");
+	Expansions.insert("ATQ");
+	Expansions.insert("LEG");
+	Expansions.insert("DRK");
+
+	m_Blocks.insert( std::pair<CString, std::set<CString>>("93-94", Expansions));
+	
 	Expansions.clear();
 }
 

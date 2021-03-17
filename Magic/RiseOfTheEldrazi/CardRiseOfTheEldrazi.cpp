@@ -129,7 +129,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMammothUmbraCard);
 		DEFINE_CARD(CMerfolkObserverCard);
 		DEFINE_CARD(CMerfolkSkyscoutCard);
-		DEFINE_CARD(CMightOfTheMassesCard);
 		DEFINE_CARD(CMnemonicWallCard);
 		DEFINE_CARD(CMomentousFallCard);
 		DEFINE_CARD(CMorticianBeetleCard);
@@ -166,7 +165,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CReinforcedBulwarkCard);
 		DEFINE_CARD(CRepayInKindCard);
 		DEFINE_CARD(CRepelTheDarknessCard);
-		DEFINE_CARD(CRunedServitorCard);
 		DEFINE_CARD(CSarkhantheMadCard);
 		DEFINE_CARD(CSeaGateOracleCard);
 		DEFINE_CARD(CSeeBeyondCard);
@@ -193,7 +191,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSurvivalCacheCard);
 		DEFINE_CARD(CThoughtGorgerCard);
 		DEFINE_CARD(CTimeofHeroesCard);
-		DEFINE_CARD(CTotemGuideHartebeestCard);
 		DEFINE_CARD(CTraitorousInstinctCard);
 		DEFINE_CARD(CTranscendentMasterCard);
 		DEFINE_CARD(CTuktukTheExplorerCard);
@@ -1806,25 +1803,6 @@ CStomperCubCard::CStomperCubCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CTotemGuideHartebeestCard::CTotemGuideHartebeestCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Totem-Guide Hartebeest"), CardType::Creature, CREATURE_TYPE(Antelope), nID,
-		_T("4") WHITE_MANA_TEXT, Power(2), Life(5))
-{
-	typedef
-		TTriggeredAbility< CTriggeredSearchLibraryAbility, CWhenSelfInplay,
-							CWhenSelfInplay::EventCallback, 
-							&CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
-	cpAbility->GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("aura cards")));
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CWildheartInvokerCard::CWildheartInvokerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Wildheart Invoker"), CardType::Creature, CREATURE_TYPE2(Elf, Shaman), nID,
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(3))
@@ -2191,48 +2169,6 @@ CLeafArrowCard::CLeafArrowCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CMightOfTheMassesCard::CMightOfTheMassesCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Might of the Masses"), CardType::Instant, nID)
-{
-	counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant,
-			GREEN_MANA_TEXT,
-			Power(+0), Life(+0),
-			CreatureKeyword::Null, CreatureKeyword::Null,
-			TRUE, PreventableType::NotPreventable));
-
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMightOfTheMassesCard::BeforeResolution));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-bool CMightOfTheMassesCard::BeforeResolution(CAbilityAction* pAction) const
-{
-	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield);
-
-	int nCreatureCount = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
-
-	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
-
-		ContextValue Context(pAction->GetValue());
-
-		Context.nValue1 = nCreatureCount;
-		Context.nValue2 = nCreatureCount;
-
-		for (CSubjectGroup::CardSubjectIterator it = pTargetAction->GetTargetGroup().CardSubjectBegin();
-		it != pTargetAction->GetTargetGroup().CardSubjectEnd(); ++it)
-
-		{
-			pTargetAction->GetTargetGroup().SetValue(const_cast<const CCard*>(it->GetPointer()),const_cast<const ContextValue&>(Context));
-		}
-
-		return true;
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
 CPuncturingLightCard::CPuncturingLightCard(CGame* pGame, UINT nID)
 	: CTargetMoveCardSpellCard(pGame, _T("Puncturing Light"), CardType::Instant, nID,
 		_T("1") WHITE_MANA_TEXT, AbilityType::Instant,
@@ -2474,26 +2410,6 @@ CWrapInFlamesCard::CWrapInFlamesCard(CGame* pGame, UINT nID)
 		TRUE, PreventableType::Preventable)
 {
 	m_pTargetChgPwrTghAttrSpell->GetTargeting()->SetSubjectCount(0, 3);
-}
-
-//____________________________________________________________________________
-//
-CRunedServitorCard::CRunedServitorCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Runed Servitor"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
-		_T("2"), Power(2), Life(2))
-{
-	typedef
-		TTriggeredAbility< CTriggeredDrawCardAbility, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToAllPlayers);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -6183,8 +6099,8 @@ CStaggershockCard::CStaggershockCard(CGame* pGame, UINT nID)
 	: CTargetChgLifeSpellCard(pGame, _T("Staggershock"), CardType::Instant, nID, AbilityType::Instant,
 		_T("2") RED_MANA_TEXT,
 		new AnyCreatureComparer,
-		TRUE,	// Target player?
-		Life(-2),		// Life delta
+		TRUE,							// Target player?
+		Life(-2),						// Life delta
 		PreventableType::Preventable)	// Preventable?
 		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CStaggershockCard::OnResolutionCompleted))	  		
@@ -6204,7 +6120,6 @@ CStaggershockCard::CStaggershockCard(CGame* pGame, UINT nID)
 	m_pTargetChgLifeSpell->Add(cpTrait.GetPointer());	
 	m_pTargetChgLifeSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
 	m_pTargetChgLifeSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
-
 	{		
 		counted_ptr<CTargetChgLifeSpell> cpSpell(
 			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
@@ -6220,83 +6135,88 @@ CStaggershockCard::CStaggershockCard(CGame* pGame, UINT nID)
 				this, &CStaggershockCard::CanPlay2)));
 
 		cpSpell->Add(cpTrait.GetPointer());
-
 		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
 
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CStaggershockCard::SetTriggerContext1));	
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CStaggershockCard::SetTriggerContext));	
-
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 	{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
 
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CStaggershockCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CStaggershockCard::SetTriggerContext1));	
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CStaggershockCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CStaggershockCard::SetTriggerContext2));	
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 }
-bool CStaggershockCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+
+bool CStaggershockCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CStaggershockCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CStaggershockCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CStaggershockCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CStaggershockCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CStaggershockCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile) 
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CStaggershockCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 
@@ -6316,10 +6236,10 @@ CDistortionStrikeCard::CDistortionStrikeCard(CGame* pGame, UINT nID)
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
 
 	counted_ptr<CPlayableIfTrait> cpTrait(
-			::CreateObject<CPlayableIfTrait>(
-				m_pUntapAbility,
-				CPlayableIfTrait::PlayableCallback(
-				this, &CDistortionStrikeCard::CanPlay1)));
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(
+			this, &CDistortionStrikeCard::CanPlay1)));
 
 	m_pTargetChgPwrTghAttrSpell->Add(cpTrait.GetPointer());	
 	m_pTargetChgPwrTghAttrSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
@@ -6327,94 +6247,98 @@ CDistortionStrikeCard::CDistortionStrikeCard(CGame* pGame, UINT nID)
 
 	{		
 		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Sorcery,
-			BLUE_MANA_TEXT,
-			Power(+1), Life(+0), 
-			CreatureKeyword::Unblockable, CreatureKeyword::Null,
-			TRUE, PreventableType::NotPreventable));
+			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Sorcery,
+				BLUE_MANA_TEXT,
+				Power(+1), Life(+0), 
+				CreatureKeyword::Unblockable, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
 
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CDistortionStrikeCard::CanPlay2)));
-
 		cpSpell->Add(cpTrait.GetPointer());
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDistortionStrikeCard::SetTriggerContext1));	
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDistortionStrikeCard::SetTriggerContext));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDistortionStrikeCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDistortionStrikeCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CDistortionStrikeCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
-											CNode* pToNode) const
-{
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 	
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDistortionStrikeCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDistortionStrikeCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CDistortionStrikeCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+											  CNode* pToNode) const
+{
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CDistortionStrikeCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
-											CNode* pToNode) const
+
+bool CDistortionStrikeCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											   CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CDistortionStrikeCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CDistortionStrikeCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CDistortionStrikeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile) 
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CDistortionStrikeCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 
@@ -6424,36 +6348,35 @@ CConsumingVaporsCard::CConsumingVaporsCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Consuming Vapors"), CardType::Sorcery, nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CConsumingVaporsCard::OnResolutionCompleted))	  		
-	{
+{
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-	
 	{
 		counted_ptr<CTargetSacrificePlusSpell> cpSpell(
-		::CreateObject<CTargetSacrificePlusSpell>(this, AbilityType::Sorcery,					
-			_T("3") BLACK_MANA_TEXT,
-			CCardFilter::GetFilter(_T("creatures"))));
+			::CreateObject<CTargetSacrificePlusSpell>(this, AbilityType::Sorcery,					
+				_T("3") BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("creatures"))));
 
-	cpSpell->SetGainLifeEqualToughness(TRUE);
+		cpSpell->SetGainLifeEqualToughness(TRUE);
 
-	counted_ptr<CPlayableIfTrait> cpTrait(
+		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CConsumingVaporsCard::CanPlay1)));
 
-	cpSpell->Add(cpTrait.GetPointer());	
-	cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
-	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
+		cpSpell->Add(cpTrait.GetPointer());	
+		cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
 
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
 	}
 	{		
 		counted_ptr<CTargetSacrificePlusSpell> cpSpell(
-		::CreateObject<CTargetSacrificePlusSpell>(this, AbilityType::Sorcery,					
-			_T("3") BLACK_MANA_TEXT,
-			CCardFilter::GetFilter(_T("creatures"))));
+			::CreateObject<CTargetSacrificePlusSpell>(this, AbilityType::Sorcery,					
+				_T("3") BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("creatures"))));
 
 		cpSpell->SetGainLifeEqualToughness(TRUE);
 
@@ -6467,130 +6390,137 @@ CConsumingVaporsCard::CConsumingVaporsCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CConsumingVaporsCard::SetTriggerContext));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CConsumingVaporsCard::SetTriggerContext1));	
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CConsumingVaporsCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CConsumingVaporsCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
+
+bool CConsumingVaporsCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+											  CNode* pToNode) const
 {
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CConsumingVaporsCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CConsumingVaporsCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CConsumingVaporsCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
-											CNode* pToNode) const
-{
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CConsumingVaporsCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
-											CNode* pToNode) const
+
+bool CConsumingVaporsCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											  CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CConsumingVaporsCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else
+		return false;
 }
+
 BOOL CConsumingVaporsCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CConsumingVaporsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CConsumingVaporsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
+
 //____________________________________________________________________________
 //
 CEmergeUnscathedCard::CEmergeUnscathedCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Emerge Unscathed"), CardType::Instant, nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CEmergeUnscathedCard::OnResolutionCompleted))	  		
-	{
+{
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
-	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-	
+	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());	
 	{
 		counted_ptr<CTargetGainKeywordSpell> cpSpell(
-		::CreateObject<CTargetGainKeywordSpell>(this, AbilityType::Instant,
-			 WHITE_MANA_TEXT,
-			new AnyCreatureComparer));
+			::CreateObject<CTargetGainKeywordSpell>(this, AbilityType::Instant,
+				WHITE_MANA_TEXT,
+				new AnyCreatureComparer));
 
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue, TRUE, _T("blue"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed, TRUE, _T("red"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue,  TRUE, _T("blue"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed,   TRUE, _T("red"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
 
-	cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
 
-	counted_ptr<CPlayableIfTrait> cpTrait(
+		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CEmergeUnscathedCard::CanPlay1)));
 
-	cpSpell->Add(cpTrait.GetPointer());	
-	cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
-	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
+		cpSpell->Add(cpTrait.GetPointer());	
+		cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
 
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
 	}
 	{		
 		counted_ptr<CTargetGainKeywordSpell> cpSpell(
-		::CreateObject<CTargetGainKeywordSpell>(this, AbilityType::Instant,
-			 WHITE_MANA_TEXT,
-			new AnyCreatureComparer));
+			::CreateObject<CTargetGainKeywordSpell>(this, AbilityType::Instant,
+				WHITE_MANA_TEXT,
+				new AnyCreatureComparer));
 
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue, TRUE, _T("blue"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed, TRUE, _T("red"));
-	cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromWhite, TRUE, _T("white"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlue,  TRUE, _T("blue"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromBlack, TRUE, _T("black"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromRed,	 TRUE, _T("red"));
+		cpSpell->AddCardKeywordToSelection(CardKeyword::ProtectionFromGreen, TRUE, _T("green"));
 
-	cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
 
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
@@ -6602,78 +6532,84 @@ CEmergeUnscathedCard::CEmergeUnscathedCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEmergeUnscathedCard::SetTriggerContext));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEmergeUnscathedCard::SetTriggerContext1));	
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CEmergeUnscathedCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEmergeUnscathedCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CEmergeUnscathedCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEmergeUnscathedCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CEmergeUnscathedCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+bool CEmergeUnscathedCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CEmergeUnscathedCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CEmergeUnscathedCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CEmergeUnscathedCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CEmergeUnscathedCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CEmergeUnscathedCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile) 
+		m_CardFlagModifier1.ApplyTo(this);
 }
 bool CEmergeUnscathedCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 //____________________________________________________________________________
@@ -6682,239 +6618,242 @@ CNomadsAssemblyCard::CNomadsAssemblyCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Nomads' Assembly"), CardType::Sorcery, nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CNomadsAssemblyCard::OnResolutionCompleted))	  		
-	{
+{
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-	
 	{
 		counted_ptr<CTokenProductionBySurveySpell> cpSpell(
-		::CreateObject<CTokenProductionBySurveySpell>(this, AbilityType::Sorcery,
-			_T("4") WHITE_MANA_TEXT WHITE_MANA_TEXT,
-			new AnyCreatureComparer,
-			FALSE, FALSE,
-			_T("Kor Soldier"), TOKEN_ID_BY_NAME, 1));
-
-	counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CTokenProductionBySurveySpell>(this, AbilityType::Sorcery,
+				_T("4") WHITE_MANA_TEXT WHITE_MANA_TEXT,
+				new AnyCreatureComparer,
+				FALSE, FALSE,
+				_T("Kor Soldier"), TOKEN_ID_BY_NAME, 1));
+		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CNomadsAssemblyCard::CanPlay1)));
+		cpSpell->Add(cpTrait.GetPointer());	
+		cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
 
-	cpSpell->Add(cpTrait.GetPointer());	
-	cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
-	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
-
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
 	}
 	{		
 		counted_ptr<CTokenProductionBySurveySpell> cpSpell(
-		::CreateObject<CTokenProductionBySurveySpell>(this, AbilityType::Sorcery,
-			_T("4") WHITE_MANA_TEXT WHITE_MANA_TEXT,
-			new AnyCreatureComparer,
-			FALSE, FALSE,
-			_T("Kor Soldier"), TOKEN_ID_BY_NAME, 1));
-
+			::CreateObject<CTokenProductionBySurveySpell>(this, AbilityType::Sorcery,
+				_T("4") WHITE_MANA_TEXT WHITE_MANA_TEXT,
+				new AnyCreatureComparer,
+				FALSE, FALSE,
+				_T("Kor Soldier"), TOKEN_ID_BY_NAME, 1));
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CNomadsAssemblyCard::CanPlay2)));
-
 		cpSpell->Add(cpTrait.GetPointer());
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CNomadsAssemblyCard::SetTriggerContext));	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
 
-	AddAbility(cpAbility.GetPointer());
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CNomadsAssemblyCard::SetTriggerContext1));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CNomadsAssemblyCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CNomadsAssemblyCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
+
+bool CNomadsAssemblyCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+											 CNode* pToNode) const
 {
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CNomadsAssemblyCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CNomadsAssemblyCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CNomadsAssemblyCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
-											CNode* pToNode) const
-{
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CNomadsAssemblyCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
-											CNode* pToNode) const
+
+bool CNomadsAssemblyCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CNomadsAssemblyCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CNomadsAssemblyCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CNomadsAssemblyCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CNomadsAssemblyCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 //____________________________________________________________________________
 //
 CSurvivalCacheCard::CSurvivalCacheCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Survival Cache"), CardType::Sorcery, nID)
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-				   &CSurvivalCacheCard::OnResolutionCompleted))	  
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-				   &CSurvivalCacheCard::OnResolutionCompleted1))
-	{
+				   &CSurvivalCacheCard::OnResolutionCompleted1))	  
+	, m_cpEventListener2(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				   &CSurvivalCacheCard::OnResolutionCompleted2))
+{
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
-	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-	
+	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());	
 	{
 		counted_ptr<CChgLifeSpell> cpSpell(
-		::CreateObject<CChgLifeSpell>(this, AbilityType::Sorcery,
-			_T("2") WHITE_MANA_TEXT,
-			Life(+2), PreventableType::NotPreventable));
-
-	counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CChgLifeSpell>(this, AbilityType::Sorcery,
+				_T("2") WHITE_MANA_TEXT,
+				Life(+2), PreventableType::NotPreventable));
+		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CSurvivalCacheCard::CanPlay1)));
+		cpSpell->Add(cpTrait.GetPointer());	
+		cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());	
 
-	cpSpell->Add(cpTrait.GetPointer());	
-	cpSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
-	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
-
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
 	}
 	{		
 		counted_ptr<CChgLifeSpell> cpSpell(
-		::CreateObject<CChgLifeSpell>(this, AbilityType::Sorcery,
-			_T("2") WHITE_MANA_TEXT,
-			Life(+2), PreventableType::NotPreventable));
-
+			::CreateObject<CChgLifeSpell>(this, AbilityType::Sorcery,
+				_T("2") WHITE_MANA_TEXT,
+				Life(+2), PreventableType::NotPreventable));
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CSurvivalCacheCard::CanPlay2)));
-
 		cpSpell->Add(cpTrait.GetPointer());
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());	
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener2.GetPointer());	
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurvivalCacheCard::SetTriggerContext));	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurvivalCacheCard::SetTriggerContext1));	
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CSurvivalCacheCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurvivalCacheCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CSurvivalCacheCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurvivalCacheCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CSurvivalCacheCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+bool CSurvivalCacheCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CSurvivalCacheCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CSurvivalCacheCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CSurvivalCacheCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else
+		return false;
 }
+
 BOOL CSurvivalCacheCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
-void CSurvivalCacheCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+
+void CSurvivalCacheCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 	if (pAbilityAction->GetController()->GetLife() > m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetLife())
 	{
 		CDrawCardModifier pModifier = CDrawCardModifier(m_pGame, MinimumValue(1), MaximumValue(1));
 		pModifier.ApplyTo(pAbilityAction->GetController());
 	}
 }
-void CSurvivalCacheCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
+
+void CSurvivalCacheCard::OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult)
 {	
 	if (pAbilityAction->GetController()->GetLife() > m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetLife())
 	{
@@ -6922,16 +6861,16 @@ void CSurvivalCacheCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAc
 		pModifier.ApplyTo(pAbilityAction->GetController());
 	}
 }
+
 bool CSurvivalCacheCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 //____________________________________________________________________________
@@ -7033,7 +6972,6 @@ CVirulentSwipeCard::CVirulentSwipeCard(CGame* pGame, UINT nID)
 {
 	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Deathtouch);
 	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
@@ -7047,102 +6985,104 @@ CVirulentSwipeCard::CVirulentSwipeCard(CGame* pGame, UINT nID)
 	m_pTargetChgPwrTghAttrSpell->Add(cpTrait.GetPointer());	
 	m_pTargetChgPwrTghAttrSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
 	m_pTargetChgPwrTghAttrSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
-
 	{		
 		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Sorcery,
-			BLACK_MANA_TEXT,
-			Power(+2), Life(+0), 
-			CreatureKeyword::Null, CreatureKeyword::Null,
-			TRUE, PreventableType::NotPreventable));
-
+			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Sorcery,
+				BLACK_MANA_TEXT,
+				Power(+2), Life(+0), 
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CVirulentSwipeCard::CanPlay2)));
-
 		cpSpell->Add(cpTrait.GetPointer());
-
 		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Deathtouch);
 		cpSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVirulentSwipeCard::SetTriggerContext));	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVirulentSwipeCard::SetTriggerContext1));	
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CVirulentSwipeCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVirulentSwipeCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CVirulentSwipeCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVirulentSwipeCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CVirulentSwipeCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+bool CVirulentSwipeCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CVirulentSwipeCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CVirulentSwipeCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CVirulentSwipeCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CVirulentSwipeCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CVirulentSwipeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CVirulentSwipeCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
+
 //____________________________________________________________________________
 //
 CKorSpiritdancerCard::CKorSpiritdancerCard(CGame* pGame, UINT nID)
@@ -7223,97 +7163,98 @@ CPreysVengeanceCard::CPreysVengeanceCard(CGame* pGame, UINT nID)
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-
+	
 	counted_ptr<CPlayableIfTrait> cpTrait(
-			::CreateObject<CPlayableIfTrait>(
-				m_pUntapAbility,
-				CPlayableIfTrait::PlayableCallback(
-				this, &CPreysVengeanceCard::CanPlay1)));
-
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(
+			this, &CPreysVengeanceCard::CanPlay1)));
+	
 	m_pTargetChgPwrTghAttrSpell->Add(cpTrait.GetPointer());	
 	m_pTargetChgPwrTghAttrSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
 	m_pTargetChgPwrTghAttrSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());	
-
 	{		
 		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
-		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant,
-			GREEN_MANA_TEXT,
-			Power(+2), Life(+2), 
-			CreatureKeyword::Null, CreatureKeyword::Null,
-			TRUE, PreventableType::NotPreventable));
-
+			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant,
+				GREEN_MANA_TEXT,
+				Power(+2), Life(+2), 
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CPreysVengeanceCard::CanPlay2)));
-
 		cpSpell->Add(cpTrait.GetPointer());
 
 		AddSpell(cpSpell.GetPointer());
 	}
-{
-	typedef
-		TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+	{
+		typedef
+			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPreysVengeanceCard::SetTriggerContext1));	
 
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPreysVengeanceCard::SetTriggerContext));	
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	AddAbility(cpAbility.GetPointer());
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetPlayableFrom(ZoneId::Exile);
+		cpAbility->SetSkipStack(TRUE);
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CPreysVengeanceCard::BeforeResolution));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPreysVengeanceCard::SetTriggerContext2));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
-	counted_ptr<TriggeredAbility> cpAbility(
-		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-	cpAbility->SetPlayableFrom(ZoneId::Exile);
-	cpAbility->SetSkipStack(TRUE);
-
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CPreysVengeanceCard::BeforeResolution));	
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPreysVengeanceCard::SetTriggerContext1));	
-
-	AddAbility(cpAbility.GetPointer());
-}
-}
-bool CPreysVengeanceCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+bool CPreysVengeanceCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CPreysVengeanceCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CPreysVengeanceCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CPreysVengeanceCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CPreysVengeanceCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CPreysVengeanceCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CPreysVengeanceCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
@@ -8359,7 +8300,6 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-
 	{
 		counted_ptr<CTargetSpell> cpSpell(
 			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
@@ -8367,7 +8307,6 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 				FALSE_CARD_COMPARER, TRUE));
 
 		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRecurringInsightCard::BeforeResolution1));
-
 		cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
 
 		counted_ptr<CPlayableIfTrait> cpTrait(
@@ -8389,7 +8328,6 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 				FALSE_CARD_COMPARER, TRUE));
 
 		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRecurringInsightCard::BeforeResolution1));
-
 		cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
 
 		counted_ptr<CPlayableIfTrait> cpTrait(
@@ -8397,7 +8335,6 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 				m_pUntapAbility,
 				CPlayableIfTrait::PlayableCallback(
 				this, &CRecurringInsightCard::CanPlay2)));
-
 		cpSpell->Add(cpTrait.GetPointer());
 
 		AddSpell(cpSpell.GetPointer());
@@ -8405,6 +8342,7 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 	{
 		typedef
 			TTriggeredAbility< CTriggeredFreeCastAbility, CWhenNodeChanged > TriggeredAbility;
+		
 		counted_ptr<TriggeredAbility> cpAbility(
 			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
@@ -8412,14 +8350,14 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
 		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 		cpAbility->SetPlayableFrom(ZoneId::Exile);	
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRecurringInsightCard::SetTriggerContext));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRecurringInsightCard::SetTriggerContext1));	
 
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
 		typedef
 			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
 		counted_ptr<TriggeredAbility> cpAbility(
 			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
 
@@ -8428,9 +8366,8 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 		cpAbility->SetPlayableFrom(ZoneId::Exile);
 		cpAbility->SetSkipStack(TRUE);
-
 		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CRecurringInsightCard::BeforeResolution2));	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRecurringInsightCard::SetTriggerContext1));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRecurringInsightCard::SetTriggerContext2));	
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -8439,52 +8376,54 @@ CRecurringInsightCard::CRecurringInsightCard(CGame* pGame, UINT nID)
 bool CRecurringInsightCard::BeforeResolution1(CAbilityAction* pAction) const
 {
 	int nHand = pAction->GetAssociatedPlayer()->GetZoneById(ZoneId::Hand)->GetSize();
-
 	CDrawCardModifier pModifier = CDrawCardModifier(GetGame(), MinimumValue(nHand), MaximumValue(nHand));
 	pModifier.ApplyTo(pAction->GetController());
-
 	return true;
 }
 
-bool CRecurringInsightCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+bool CRecurringInsightCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CRecurringInsightCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CRecurringInsightCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CRecurringInsightCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else
+		return false;
 }
+
 BOOL CRecurringInsightCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CRecurringInsightCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CRecurringInsightCard::BeforeResolution2(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 
@@ -8498,7 +8437,6 @@ CSurrealMemoirCard::CSurrealMemoirCard(CGame* pGame, UINT nID)
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(GetInstanceID());
-
 	{
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
@@ -8546,7 +8484,7 @@ CSurrealMemoirCard::CSurrealMemoirCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 		cpAbility->SetPlayableFrom(ZoneId::Exile);	
 
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurrealMemoirCard::SetTriggerContext));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurrealMemoirCard::SetTriggerContext1));	
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -8563,7 +8501,7 @@ CSurrealMemoirCard::CSurrealMemoirCard(CGame* pGame, UINT nID)
 		cpAbility->SetSkipStack(TRUE);
 
 		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CSurrealMemoirCard::BeforeResolution2));	
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurrealMemoirCard::SetTriggerContext1));	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSurrealMemoirCard::SetTriggerContext2));	
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -8584,45 +8522,49 @@ bool CSurrealMemoirCard::BeforeResolution1(CAbilityAction* pAction) const
 	return true;
 }
 
-bool CSurrealMemoirCard::SetTriggerContext(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
+bool CSurrealMemoirCard::SetTriggerContext1(CTriggeredFreeCastAbility::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
-	
-
 	return (this->GetZoneId() == ZoneId::Exile && GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
-bool CSurrealMemoirCard::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+
+bool CSurrealMemoirCard::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CNode* pToNode) const
 {
 	return (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData());
 }
+
 BOOL CSurrealMemoirCard::CanPlay1(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return true;
-	else return false;
+		return true;
+	else 
+		return false;
 }
+
 BOOL CSurrealMemoirCard::CanPlay2(BOOL bIncludeTricks)
 {
 	if (this->GetZoneId() == ZoneId::Hand && this->GetZone()->GetPlayer() == this->GetController())
-    return false;
+		return false;
 	else
-	return true;
+		return true;
 }
+
 void CSurrealMemoirCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (this->GetZoneId() == ZoneId::Exile) m_CardFlagModifier1.ApplyTo(this);
+	if (this->GetZoneId() == ZoneId::Exile)
+		m_CardFlagModifier1.ApplyTo(this);
 }
+
 bool CSurrealMemoirCard::BeforeResolution2(TriggeredAbility::TriggeredActionType* pAction)
 {
 	if (GetCardFlag()->GetData(CardFlag::AbilityFlag) == m_CardFlagModifier1.GetModifier().GetAdditionData())
 	{
-	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
-	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
-	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	m_CardFlagModifier2.ApplyTo(this);
+		m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
+		m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
+		m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
+		m_CardFlagModifier2.ApplyTo(this);
 	}
-
 	return false;
 }
 

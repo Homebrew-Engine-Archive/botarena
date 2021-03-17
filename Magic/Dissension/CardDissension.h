@@ -468,17 +468,6 @@ class CAzoriusPloyCard : public CChgPwrTghAttrSpellCard
 
 //____________________________________________________________________________
 //
-class CMacabreWaltzCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CMacabreWaltzCard);
-
-protected:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-};
-
-//____________________________________________________________________________
-//
 class CMomirVigSimicVisionaryCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMomirVigSimicVisionaryCard);

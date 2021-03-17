@@ -29,7 +29,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAnkleShankerCard);
 		DEFINE_CARD(CArchersParapetCard);
 		DEFINE_CARD(CArrowStormCard);
+		DEFINE_CARD(CAshcloudPhoenixCard);
 		DEFINE_CARD(CAwakenTheBearCard);
+		DEFINE_CARD(CBarrageOfBouldersCard);
 		DEFINE_CARD(CBearsCompanionCard);
 		DEFINE_CARD(CBecomeImmenseCard);
 		DEFINE_CARD(CBellowingSaddlebruteCard);
@@ -41,11 +43,15 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBloodsoakedChampionCard);
 		DEFINE_CARD(CBlossomingSandsCard);
 		DEFINE_CARD(CBraveTheSandsCard);
+		DEFINE_CARD(CBringLowCard);
+		DEFINE_CARD(CBurnAwayCard);
 		DEFINE_CARD(CButcherOfTheHordeCard);
 		DEFINE_CARD(CCanyonLurkersCard);
 		DEFINE_CARD(CChiefOfTheEdgeCard);
 		DEFINE_CARD(CChiefOfTheScaleCard);
+		DEFINE_CARD(CCratersClawsCard);
 		DEFINE_CARD(CDazzlingRampartsCard);
+		DEFINE_CARD(CDeadDropCard);
 		DEFINE_CARD(CDebilitatingInjuryCard);
 		DEFINE_CARD(CDefiantStrikeCard);
 		DEFINE_CARD(CDigThroughTimeCard);
@@ -56,6 +62,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDragonStyleTwinsCard);
 		DEFINE_CARD(CDutifulReturnCard);
 		DEFINE_CARD(CEmbodimentOfSpringCard);
+		DEFINE_CARD(CEmptyThePitsCard);
 		DEFINE_CARD(CEndHostilitiesCard);
 		DEFINE_CARD(CFeatOfResistanceCard);
 		DEFINE_CARD(CFeedTheClanCard);
@@ -63,6 +70,8 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CForceAwayCard);
 		DEFINE_CARD(CFrontierBivouacCard);
 		DEFINE_CARD(CGlacialStalkerCard);
+		DEFINE_CARD(CGoblinslideCard);
+		DEFINE_CARD(CGrimHaruspexCard);
 		DEFINE_CARD(CGurmagSwiftwingCard);
 		DEFINE_CARD(CHeraldOfAnafenzaCard);
 		DEFINE_CARD(CHighlandGameCard);
@@ -76,6 +85,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CJeskaiElderCard);
 		DEFINE_CARD(CJeskaiStudentCard);
 		DEFINE_CARD(CJeskaiWindscoutCard);
+		DEFINE_CARD(CJungleHollowCard);
+		DEFINE_CARD(CKheruBloodsuckerCard);
+		DEFINE_CARD(CKheruDreadmawCard);
 		DEFINE_CARD(CKillShotCard);
 		DEFINE_CARD(CKinTreeInvocationCard);
 		DEFINE_CARD(CKinTreeWardenCard);
@@ -101,11 +113,16 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMurderousCutCard);
 		DEFINE_CARD(CMysticMonasteryCard);
 		DEFINE_CARD(CMysticOfTheHiddenWayCard);
+		DEFINE_CARD(CNecropolisFiendCard);
 		DEFINE_CARD(CNomadOutpostCard);
 		DEFINE_CARD(COpulentPalaceCard);
 		DEFINE_CARD(CPearlLakeAncientCard);
+		DEFINE_CARD(CRaidersSpoilsCard);
 		DEFINE_CARD(CRakshasaDeathdealerCard);
+		DEFINE_CARD(CRakshasasSecretCard);
 		DEFINE_CARD(CRattleclawMysticCard);
+//		DEFINE_CARD(CRetributionOfTheAncientsCard);
+		DEFINE_CARD(CRiteOfTheSerpentCard);
 		DEFINE_CARD(CRiverwheelAerialistsCard);
 		DEFINE_CARD(CRottingMastodonCard);
 		DEFINE_CARD(CRuggedHighlandsCard);
@@ -120,10 +137,12 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSavageKnucklebladeCard);
 		DEFINE_CARD(CScaldkinCard);
 		DEFINE_CARD(CScionOfGlaciersCard);
+		DEFINE_CARD(CScouredBarrensCard);
 		DEFINE_CARD(CScoutTheBordersCard);
 		DEFINE_CARD(CSeekerOfTheWayCard);
 		DEFINE_CARD(CSetAdriftCard);
 		DEFINE_CARD(CShamblingAttendantsCard);
+		DEFINE_CARD(CSidisisPetCard);
 		DEFINE_CARD(CSiegecraftCard);
 		DEFINE_CARD(CSnowhornRiderCard);
 		DEFINE_CARD(CSultaiBannerCard);
@@ -132,12 +151,15 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSultaiSoothsayerCard);
 		DEFINE_CARD(CSummitProwlerCard);
 		DEFINE_CARD(CSuspensionFieldCard);
+		DEFINE_CARD(CSwarmOfBloodfliesCard);
 		DEFINE_CARD(CSwiftKickCard);
+		DEFINE_CARD(CSwiftwaterCliffsCard);
 		DEFINE_CARD(CTakeUpArmsCard);
 		DEFINE_CARD(CTemurAscendancyCard);
 		DEFINE_CARD(CTemurBannerCard);
 		DEFINE_CARD(CTemurChargerCard);
 		DEFINE_CARD(CTemurCharmCard);
+		DEFINE_CARD(CThornwoodFallsCard);
 		DEFINE_CARD(CThrottleCard);
 		DEFINE_CARD(CTimelyHordemateCard);
 		DEFINE_CARD(CTormentingVoiceCard);
@@ -145,6 +167,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTreasureCruiseCard);
 		DEFINE_CARD(CTuskedColossodonCard);
 		DEFINE_CARD(CTuskguardCaptainCard);
+		DEFINE_CARD(CUnyieldingKrumarCard);
 		DEFINE_CARD(CUtterEndCard);
 		DEFINE_CARD(CValleyDasherCard);
 		DEFINE_CARD(CVenerableLammasuCard);
@@ -1254,8 +1277,7 @@ CSageEyeHarrierCard::CSageEyeHarrierCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
 	this->AddCreatureType(SingleCreatureType::Warrior);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 }
 
 //____________________________________________________________________________
@@ -1319,8 +1341,7 @@ CAinokTrackerCard::CAinokTrackerCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Hound);
 	this->AddCreatureType(SingleCreatureType::Scout);
-
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::FirstStrike, true, false));
 }
 
 //____________________________________________________________________________
@@ -1504,8 +1525,8 @@ CKinTreeWardenCard::CKinTreeWardenCard(CGame* pGame, UINT nID)
 	this->AddCreatureType(SingleCreatureType::Warrior);
 	{
 		counted_ptr<CRegenerationAbility> cpAbility(
-		::CreateObject<CRegenerationAbility>(this,
-			_T("2")));
+			::CreateObject<CRegenerationAbility>(this,
+				_T("2")));
 		AddAbility(cpAbility.GetPointer());
 	}
 }
@@ -1606,9 +1627,8 @@ CSaguArcherCard::CSaguArcherCard(CGame* pGame, UINT nID)
 		_T("4") GREEN_MANA_TEXT, Power(2), Life(5), _T("4") GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Naga);
-	this->AddCreatureType(SingleCreatureType::Archer);
-
-	GetCreatureKeyword()->AddReach(FALSE);
+	this->AddCreatureType(SingleCreatureType::Archer);	
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Reach, true, false));
 }
 
 //____________________________________________________________________________
@@ -1929,9 +1949,8 @@ CMonasteryFlockCard::CMonasteryFlockCard(CGame* pGame, UINT nID)
 		_T("2") BLUE_MANA_TEXT, Power(0), Life(5), BLUE_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
-
-	GetCreatureKeyword()->AddDefender(FALSE);
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Defender, true, false));
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 }
 
 //____________________________________________________________________________
@@ -1942,8 +1961,7 @@ CMysticOfTheHiddenWayCard::CMysticOfTheHiddenWayCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Monk);
-
-	GetCreatureKeyword()->AddUnblockable(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Unblockable, true, false));
 }
 
 //____________________________________________________________________________
@@ -1954,7 +1972,7 @@ CMistfireWeaverCard::CMistfireWeaverCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Djinn);
 	this->AddCreatureType(SingleCreatureType::Wizard);
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
@@ -2024,8 +2042,9 @@ CRuthlessRipperCard::CRuthlessRipperCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Assassin);
-	GetCardKeyword()->AddDeathtouch(FALSE);
 	this->GetMorphAbility()->GetCost().AddRevealCardCost(1, CCardFilter::GetFilter(_T("black cards")));
+
+	AddCardModifier(new CCardKeywordModifier(CardKeyword::Deathtouch, true, false));
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
@@ -2162,7 +2181,7 @@ CIcefeatherAvenCard::CIcefeatherAvenCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
 	this->AddCreatureType(SingleCreatureType::Shaman);	
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CSpecialTrigger > TriggeredAbility;
@@ -2196,8 +2215,8 @@ CSaguMaulerCard::CSaguMaulerCard(CGame* pGame, UINT nID)
 		_T("4") BLUE_MANA_TEXT GREEN_MANA_TEXT, Power(6), Life(6), _T("3") BLUE_MANA_TEXT GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
-	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCardKeyword()->AddHexproof(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));
+	this->AddCardModifier(new CCardKeywordModifier(CardKeyword::Hexproof, true, false));
 }
 
 //____________________________________________________________________________
@@ -2379,7 +2398,7 @@ CAbzanGuideCard::CAbzanGuideCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Warrior);
-	GetCardKeyword()->AddLifelink(FALSE);
+	this->AddCardModifier(new CCardKeywordModifier(CardKeyword::Lifelink, true, false));
 }
 
 //____________________________________________________________________________
@@ -2647,6 +2666,7 @@ CMurderousCutCard::CMurderousCutCard(CGame* pGame, UINT nID)
 		cpSpell->GetCost().AddExileGraveyardCardCost(4+i, CCardFilter::GetFilter(_T("cards")));
 
 		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
+		cpSpell->SetMainSpell(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -2761,7 +2781,8 @@ CBecomeImmenseCard::CBecomeImmenseCard(CGame* pGame, UINT nID)
 		cpSpell->GetCost().AddExileGraveyardCardCost(5+i, CCardFilter::GetFilter(_T("cards")));
 
 		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
-
+		cpSpell->SetMainSpell(FALSE);
+		
 		AddSpell(cpSpell.GetPointer());
 	}
 }
@@ -2901,7 +2922,8 @@ CDigThroughTimeCard::CDigThroughTimeCard(CGame* pGame, UINT nID)
 		cpSpell->GetCost().AddExileGraveyardCardCost(6+i, CCardFilter::GetFilter(_T("cards")));
 
 		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
-
+		cpSpell->SetMainSpell(FALSE);
+		
 		AddSpell(cpSpell.GetPointer());
 	}
 }
@@ -3364,6 +3386,7 @@ CTreasureCruiseCard::CTreasureCruiseCard(CGame* pGame, UINT nID)
 		cpSpell->GetCost().AddExileGraveyardCardCost(7+i, CCardFilter::GetFilter(_T("cards")));
 
 		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
+		cpSpell->SetMainSpell(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -3471,7 +3494,8 @@ CSetAdriftCard::CSetAdriftCard(CGame* pGame, UINT nID)
 		cpSpell->GetCost().AddExileGraveyardCardCost(5+i, CCardFilter::GetFilter(_T("cards")));
 
 		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
-
+		cpSpell->SetMainSpell(FALSE);
+		
 		AddSpell(cpSpell.GetPointer());
 	}
 }
@@ -4266,8 +4290,7 @@ CSnowhornRiderCard::CSnowhornRiderCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Warrior);
-
-	GetCreatureKeyword()->AddTrample(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));	
 }
 
 //____________________________________________________________________________
@@ -4860,8 +4883,9 @@ CWatcherOfTheRoostCard::CWatcherOfTheRoostCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
 	this->AddCreatureType(SingleCreatureType::Soldier);
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	this->GetMorphAbility()->GetCost().AddRevealCardCost(1, CCardFilter::GetFilter(_T("white cards")));
+
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
@@ -4878,6 +4902,1144 @@ CWatcherOfTheRoostCard::CWatcherOfTheRoostCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // certain card activated by modifier
 		
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//____________________________________________________________________________
+//
+CDeadDropCard::CDeadDropCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Dead Drop"), CardType::Sorcery, nID)
+{
+	{
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("9") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [8B, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("8") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(1, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [7B, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("7") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(2, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [6B, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("6") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(3, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [5B, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("5") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(4, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [4B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("4") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(5, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}	
+	{	//delve mana cost [3B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("3") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(6, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [2B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("2") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(7, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [1B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("1") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(8, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{	//delve mana cost [B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("") BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		cpSpell->GetCost().AddExileGraveyardCardCost(9, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetMainSpell(FALSE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+		//delve mana cost [B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>], .. upto 20x<exile card>
+	/*
+		!!! NOTE messages are often too long to be displayed in Action window list and are truncated. 
+			This issue requires a fix !!!
+		
+		This code is required to correctly implement cost increase affects where colorless mana is added
+		to the casting cost of this card.  Here the player can opt to reduce the entire colorless component
+		of the casting cost.  Currently, this code allows for upto a total of 20 cards being exiled from the graveyard.
+
+		For example
+			Thorn of Amethyst is in play, now Noncreature spells cost {1} more to cast.  So the colorless cost of a 
+		noncreature delve spell increases by {1}.  Murderous Cut which normally has a casting cost of 4B now has
+		a casting cost of 5B.  The casting player can use the delve ability to reduce the colorless component of the
+		casting cost {5} to {0} by exiling 5 cards from their graveyard.
+
+		Note the Botarena code caters for colourless cost reduction affects already, so no additional code is required 
+		for this.
+	*/
+
+	// Change loop termination condition for each card.  It is dependant on the colorless component of the card's casting cost.
+	// number is calculated by (20 - colorless component of the card's casting cost) + 1
+	for (int i = 1; i < 10; ++i)
+	{
+		//Delve mana cost
+		counted_ptr<CGenericTargetPlayerSpell> cpSpell(
+			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
+				_T("") BLACK_MANA_TEXT));
+	
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeadDropCard::BeforeResolution));
+		// Change "magic number" below.  To the colorless component of the card's casting cost.
+		cpSpell->GetCost().AddExileGraveyardCardCost(9+i, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
+		
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+bool CDeadDropCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All,
+											CZoneModifier::RoleType::PrimaryPlayer,
+											CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
+	pModifier.AddSelection(MinimumValue(2), MaximumValue(2),		// select cards to reorder
+						   CZoneModifier::RoleType::PrimaryPlayer,	// select by 
+						   CZoneModifier::RoleType::PrimaryPlayer,	// reveal to
+						   CCardFilter::GetFilter(_T("creatures")), // what cards
+						   ZoneId::Graveyard,						// if selected, move cards to
+						   CZoneModifier::RoleType::PrimaryPlayer,	// select by this player
+						   CardPlacement::Top,						// put selected cards on 
+						   MoveType::Sacrifice,						// move type
+						   CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		
+		pModifier.ApplyTo(pAction->GetAssociatedPlayer());
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CEmptyThePitsCard::CEmptyThePitsCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Empty the Pits"), CardType::Instant, nID)
+{
+	{
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+				BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT));
+		
+		ATLASSERT(cpSpell);
+		
+		cpSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, TRUE);
+		cpSpell->SetExtraActionValueVector();
+		
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CEmptyThePitsCard::BeforeResolution));
+		
+		AddSpell(cpSpell.GetPointer());
+	}
+	//delve mana cost [B,B,B,B,X] .. upto 20x<exile card> where X = 0..n any mana color
+	/*
+		!!! NOTE messages are often too long to be displayed in Action window list and are truncated. 
+			This issue requires a fix !!!
+		
+		This code is required to correctly implement cost increase affects where colorless mana is added
+		to the casting cost of this card.  Here the player can opt to reduce the entire colorless component
+		of the casting cost.  Currently, this code allows for upto a total of 20 cards being exiled from the graveyard.
+
+		For example
+			Thorn of Amethyst is in play, now Noncreature spells cost {1} more to cast.  So the colorless cost of a 
+		noncreature delve spell increases by {1}.  Murderous Cut which normally has a casting cost of 4B now has
+		a casting cost of 5B.  The casting player can use the delve ability to reduce the colorless component of the
+		casting cost {5} to {0} by exiling 5 cards from their graveyard.
+
+		Note the Botarena code caters for colourless cost reduction affects already, so no additional code is required 
+		for this.
+	*/
+
+	// Change loop termination condition for each card.  It is dependant on the colorless component of the card's casting cost.
+	// number is calculated by (20 - colorless component of the card's casting cost) + 1
+	for (int i = 1; i < 21; ++i)
+	{
+		//Delve mana cost
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+				BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, TRUE);
+		cpSpell->SetExtraActionValueVector();
+		// Change "magic number" below.  To the colorless component of the card's casting cost.
+		cpSpell->GetCost().AddExileGraveyardCardCost(0+i, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CEmptyThePitsCard::BeforeResolution));
+		cpSpell->SetMainSpell(FALSE);
+		
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+bool CEmptyThePitsCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+	
+	int nTokenCount = pAction->GetCostConfigEntry().GetExtraValue();	
+	ContextValue Context(pAction->GetValue());
+	Context.nValue1 = nTokenCount;
+	int nMultiplyBy = 1;
+	int nMultiplier = 0;
+	// for Doubling Season, etc.
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nMultiplyBy <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nMultiplyBy <<= nMultiplier;
+
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		int nRand    = 0;
+		int nUID     = 55017;
+		CString name = _T("Zombie Q");
+		for (int j = 0; j < nMultiplyBy; ++j)
+		{
+			counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, name, nUID));		
+		
+			if (!m_pGame->IsThinking())
+			{ 
+				((CTokenCreature*)cpToken.GetPointer())->SetUID(nUID); 
+				((CTokenCreature*)cpToken.GetPointer())->SetTokenFullName(name); 
+			}
+			pController->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+		
+			cpToken.GetPointer()->SetIntoPlayTapped();
+			cpToken->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+		}
+	}
+	return true;
+}
+//____________________________________________________________________________
+//
+CGrimHaruspexCard::CGrimHaruspexCard(CGame* pGame, UINT nID)
+	: CMorphCreatureCard(pGame, _T("Grim Haruspex"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
+		_T("2") BLACK_MANA_TEXT, Power(3), Life(2), BLACK_MANA_TEXT)
+{
+	this->AddCreatureType(SingleCreatureType::Human);
+	this->AddCreatureType(SingleCreatureType::Wizard);
+	{
+		typedef
+			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard));
+		ATLASSERT(cpAbility);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGrimHaruspexCard::SetTriggerContext));
+		cpAbility->GetTrigger().SetFromControllerOnly(TRUE);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new CardTypeComparer(CardType::Token, false));
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new SpecificCardComparer(this));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CGrimHaruspexCard::SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+        CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
+{
+	return !this->GetOrientation()->IsMorphed();
+}
+
+//____________________________________________________________________________
+//
+CKheruBloodsuckerCard::CKheruBloodsuckerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kheru Bloodsucker"), CardType::Creature, CREATURE_TYPE(Vampire), nID,
+		_T("2") BLACK_MANA_TEXT, Power(2), Life(2))
+{
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard));
+		cpAbility->GetTrigger().SetFromControllerOnly(TRUE);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new CreatureToughnessComparer<std::greater<int>>(3)); // toughness 4 or greater
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(-2));
+		cpAbility->GetLifeModifier().SetDamageType(DamageType::NotDealingDamage); // life lost
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToOpponents);
+		
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKheruBloodsuckerCard::BeforeResolution));
+
+		cpAbility->AddAbilityTag(AbilityTag::LifeLost);
+		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		m_CardFilter.AddComparer(new AnyCreatureComparer);
+		m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
+
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("2") BLACK_MANA_TEXT));
+
+		cpAbility->GetCost().AddSacrificeCardCost(1, &m_CardFilter);
+
+		cpAbility->SetAbilityText(_T("Put a +1/+1 counter on"));
+
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(_T("+1/+1"), +1, false));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CKheruBloodsuckerCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CLifeModifier pModifier = CLifeModifier(Life(+2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);	
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+//____________________________________________________________________________
+//
+CKheruDreadmawCard::CKheruDreadmawCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kheru Dreadmaw"), CardType::Creature, CREATURE_TYPE2(Zombie, Crocodile), nID,
+		_T("4") BLACK_MANA_TEXT, Power(4), Life(4))
+{
+	GetCreatureKeyword()->AddDefender(FALSE);
+	{
+		counted_ptr<CActivatedAbility<CChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CChgLifeSpell>>(this,
+				_T("1") GREEN_MANA_TEXT,
+				Life(+0), PreventableType::NotPreventable));
+		ATLASSERT(cpAbility);
+	
+		m_CardFilter.AddComparer(new AnyCreatureComparer);
+		m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
+	
+		cpAbility->GetCost().AddSacrificeCardCost(1, &m_CardFilter);
+		cpAbility->SetExtraValueMultiplier(1);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKheruDreadmawCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CKheruDreadmawCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCreatureCard* pCreature = dynamic_cast<CCreatureCard*>(pAction->GetCostConfigEntry().GetSacrificeCards()->GetAt(0));
+	if (!pCreature) 
+		return false;
+	CLifeModifier* pModifier = new CLifeModifier(Life(pCreature->GetLastKnownToughness()), this, PreventableType::NotPreventable, DamageType::NonCombatDamage);
+	pModifier->ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CNecropolisFiendCard::CNecropolisFiendCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Necropolis Fiend"), CardType::Creature, CREATURE_TYPE(Demon), nID,
+		_T("7") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(4), Life(5))
+{
+	{//delve mana cost [6BB, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("6") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(1, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//delve mana cost [5BB, <exile card>, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("5") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(2, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//delve mana cost [4BB, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(3, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//delve mana cost [3BB, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(4, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//delve mana cost [2BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(5, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//delve mana cost [1BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(6, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	{//delve mana cost [BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->GetCost().AddExileGraveyardCardCost(7, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		AddSpell(cpSpell.GetPointer());
+	}
+	//delve mana cost [BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>], .. upto 20x<exile card>
+	/*
+		!!! NOTE messages are often too long to be displayed in Action window list and are truncated. 
+			This issue requires a fix !!!
+		
+		This code is required to correctly implement cost increase affects where colorless mana is added
+		to the casting cost of this card.  Here the player can opt to reduce the entire colorless component
+		of the casting cost.  Currently, this code allows for upto a total of 20 cards being exiled from the graveyard.
+
+		For example
+			Thorn of Amethyst is in play, now Noncreature spells cost {1} more to cast.  So the colorless cost of a 
+		noncreature delve spell increases by {1}.  Murderous Cut which normally has a casting cost of 4B now has
+		a casting cost of 5B.  The casting player can use the delve ability to reduce the colorless component of the
+		casting cost {5} to {0} by exiling 5 cards from their graveyard.
+
+		Note the Botarena code caters for colourless cost reduction affects already, so no additional code is required 
+		for this.
+	*/
+
+	// Change loop termination condition for each card.  It is dependant on the colorless component of the card's casting cost.
+	// number is calculated by (20 - colorless component of the card's casting cost) + 1
+	for (int i = 1; i < 14; ++i)
+	{
+		//Delve mana cost
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
+				_T("") BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+
+		cpSpell->SetMainSpell(FALSE);
+		// Change "magic number" below.  To the colorless component of the card's casting cost.
+		cpSpell->GetCost().AddExileGraveyardCardCost(7+i, CCardFilter::GetFilter(_T("cards")));
+
+		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	/*
+		{X},{T}, Exile X cards from your graveyard: Target creature gets -X/-X until end of turn. Where X > 0.
+		sample message: 
+			Exile from graveyard Viscera Seer(1/1), Exile from graveyard Viscera Seer2(1/1): Casts Harvest Pyre and targets Soulmender3(1/1)
+	*/
+	{
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				_T(""),
+				Power(-0), Life(-0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetCost().AddExileGraveyardCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("cards")));
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CNecropolisFiendCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}		
+}
+
+bool CNecropolisFiendCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nCount                = pAction->GetCostConfigEntry().GetExileGraveyardCards()->GetSize();
+	CCard* pTarget            = pAction->GetAssociatedCard();					// creature targeted by controller to receive -X/-X
+	CCreatureCard* pCreature  = (CCreatureCard*)pTarget;
+	CPowerModifier pModifier1 = CPowerModifier(Power(-nCount), TRUE);
+	CLifeModifier  pModifier2 = CLifeModifier(Life(-nCount), this, PreventableType::NotPreventable, DamageType::NotDealingDamage, TRUE);
+
+	pModifier1.ApplyTo(pCreature);
+	pModifier2.ApplyTo(pCreature);
+
+	return true;
+}
+//____________________________________________________________________________
+//
+CRaidersSpoilsCard::CRaidersSpoilsCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Raiders' Spoils"), CardType::GlobalEnchantment, nID,
+		_T("3") BLACK_MANA_TEXT, AbilityType::Enchantment)
+{
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new CardTypeComparer(CardType::Creature, false),
+				Power(+1), Life(+0)));
+
+		cpAbility->SetAffectControllerCardsOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenDamageDealt,
+								CWhenDamageDealt::PlayerEventCallback, 
+								&CWhenDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	// always triggers, however, the controller gets the choice whether to pay 1 life to draw a card or not
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->GetTrigger().SetCombatDamageOnly(TRUE);
+		cpAbility->GetTrigger().GetFromCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetFromCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);	
+		cpAbility->GetTrigger().GetFromCardFilterHelper().GetCustomFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Warrior), false));
+		cpAbility->SetPayLifeResolutionCost(Life(-1));
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//____________________________________________________________________________
+//
+CRakshasasSecretCard::CRakshasasSecretCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Rakshasa's Secret"), CardType::Sorcery, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				   &CRakshasasSecretCard::OnResolutionCompleted))
+{
+	counted_ptr<CTargetPlayerDiscardCardSpell> cpSpell(
+		::CreateObject<CTargetPlayerDiscardCardSpell>(this, AbilityType::Sorcery,
+			_T("2") BLACK_MANA_TEXT,
+			2, MoveType::Discard, ZoneId::Graveyard, TRUE,
+			TRUE,
+			CCardFilter::GetFilter(_T("cards"))));
+	ATLASSERT(cpSpell);
+
+	cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+void CRakshasasSecretCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) 
+		return;
+	CPlayer* pController = pAbilityAction->GetController();
+	CZone*   pLibrary	 = pController->GetZoneById(ZoneId::Library);
+	// Put the top two cards of your library into your graveyard.
+	int iCardDiscard = 2;
+	while(iCardDiscard > 0)
+	{
+		if (pLibrary->GetSize() == 0)					// if library contains no cards
+		{
+			pController->SetDrawFailed();				// can not draw a card to put into your hand, so draw has failed
+			return;										// player loses game
+		}
+		if (pLibrary->GetSize() > 0)
+		{
+			CCard* pCard = pLibrary->GetTopCard();
+
+			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Library, ZoneId::Graveyard, TRUE, MoveType::Others, pController);
+			pModifier.ApplyTo(pCard);
+		}
+		iCardDiscard = iCardDiscard - 1;
+	}
+}
+
+//____________________________________________________________________________
+//
+/*
+This card is working correctly due to AddAnyCardCounterCost() not supporting Remove X counters from among creatures you control.  
+This code only allows one counter to be removed from among the creatures you control.
+// Retribution of the Ancients\n{B}\nEnchantment\nKTK,R\n{B}, Remove X +1/+1 counters from among creatures you control: Target creature gets -X/-X until end of turn.
+CRetributionOfTheAncientsCard::CRetributionOfTheAncientsCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Retribution of the Ancients"), CardType::GlobalEnchantment, nID,
+		BLACK_MANA_TEXT, AbilityType::Enchantment)
+{
+	{
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				BLACK_MANA_TEXT,
+				Power(-0), Life(-0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
+		
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here. 
+		cpAbility->GetCost().AddAnyCardCounterCost(_T("+1/+1"), -1, SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("creatures")));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRetributionOfTheAncientsCard::BeforeResolution));
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				BLACK_MANA_TEXT,
+				Power(-0), Life(-0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
+		
+		// X = 0 case
+		// sample msg: "Remove no +1/+1 counters, X = 0. Activates Retribution of the Ancients and targets Air Elemental(4/4) 
+		cpAbility->GetCost().AddAnyCardCounterCost(_T("+1/+1"), -1, 0, CCardFilter::GetFilter(_T("creatures")));
+		cpAbility->SetAbilityText(_T("Remove no +1/+1 counters, X = 0. Activates"));
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CRetributionOfTheAncientsCard::BeforeResolution(CAbilityAction* pAction)
+{
+	int nCount                = pAction->GetCostConfigEntry().GetAnyCardCounterCostCards()->GetSize();
+	CCard* pTarget            = pAction->GetAssociatedCard();					// creature targeted by controller to receive -X/-X
+	CCreatureCard* pCreature  = (CCreatureCard*)pTarget;
+	CPowerModifier pModifier1 = CPowerModifier(Power(-nCount), TRUE);
+	CLifeModifier  pModifier2 = CLifeModifier(Life(-nCount), this, PreventableType::NotPreventable, DamageType::NotDealingDamage, TRUE);
+
+	pModifier1.ApplyTo(pCreature);
+	pModifier2.ApplyTo(pCreature);
+
+	return true;
+}
+*/
+//____________________________________________________________________________
+//
+CRiteOfTheSerpentCard::CRiteOfTheSerpentCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Rite of the Serpent"), CardType::Sorcery, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CRiteOfTheSerpentCard::OnResolutionCompleted))
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject <CTargetSpell>(this, AbilityType::Sorcery,
+			_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+			new AnyCreatureComparer,
+			false));
+
+	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+void CRiteOfTheSerpentCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) 
+		return;
+
+	CCard*   pTarget     = pAbilityAction->GetAssociatedCard();
+	int		 nCounterCnt = pTarget->GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount();
+	CMoveCardModifier pModifier1(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy, GetController());
+	pModifier1.ApplyTo(pTarget);
+
+	if (nCounterCnt > 0)					//if that (destroyed) creature had a +1/+1 counter on it
+	{
+		CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Snake I"), 55019, 1);
+		pModifier2.ApplyTo(GetController());
+	}
+}
+
+//____________________________________________________________________________
+//
+CSidisisPetCard::CSidisisPetCard(CGame* pGame, UINT nID)
+	: CMorphCreatureCard(pGame, _T("Sidisi's Pet"), CardType::Creature, CREATURE_TYPE2(Zombie, Ape), nID,
+		_T("3") BLACK_MANA_TEXT, Power(1), Life(4),
+		_T("1") BLACK_MANA_TEXT)
+{
+	this->AddCreatureType(SingleCreatureType::Zombie);
+	this->AddCreatureType(SingleCreatureType::Ape);
+	this->AddCardModifier(new CCardKeywordModifier(CardKeyword::Lifelink, true, false));
+}
+
+//____________________________________________________________________________
+//
+CSwarmOfBloodfliesCard::CSwarmOfBloodfliesCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Swarm of Bloodflies"), CardType::Creature, CREATURE_TYPE(Insect), nID,
+		_T("4") BLACK_MANA_TEXT, Power(0), Life(0))
+{
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield);
+	{
+		typedef 
+			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard));
+		ATLASSERT(cpAbility);
+
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new SpecificCardComparer(this));
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTriggeredCardModifiers().push_back(new CCardCounterModifier(_T("+1/+1"), +1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->SetAbilityText(_T("Put a +1/+1 counter on"));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//____________________________________________________________________________
+//
+CUnyieldingKrumarCard::CUnyieldingKrumarCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Unyielding Krumar"), CardType::Creature, CREATURE_TYPE2(Orc, Warrior), nID,
+		_T("3") BLACK_MANA_TEXT, Power(3), Life(3))
+{
+	counted_ptr<CPumpAbility> cpAbility(
+		::CreateObject<CPumpAbility>(this,
+			_T("1") WHITE_MANA_TEXT,
+			Power(+0), Life(+0), CreatureKeyword::FirstStrike));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CAshcloudPhoenixCard::CAshcloudPhoenixCard(CGame* pGame, UINT nID)
+	: CMorphCreatureCard(pGame, _T("Ashcloud Phoenix"), CardType::Creature, CREATURE_TYPE(Phoenix), nID,
+		_T("2") RED_MANA_TEXT RED_MANA_TEXT, Power(4), Life(1),
+		_T("4") RED_MANA_TEXT RED_MANA_TEXT)
+{
+	this->AddCreatureType(SingleCreatureType::Phoenix);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
+	{//When Ashcloud Phoenix is turned face up, it deals 2 damage to each player.	
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(-2));
+		cpAbility->GetLifeModifier().SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CAshcloudPhoenixCard::BeforeResolution));
+
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{//When Ashcloud Phoenix dies, return it to the battlefield face down under your control.
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::Graveyard));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Graveyard);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Battlefield);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Battlefield));
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardMorphModifier(TRUE));	  //Turn face down, this card on resolution.
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CAshcloudPhoenixCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+
+	CLifeModifier pmodifier = CLifeModifier(Life(-2),												  // number on which the life will be altered
+											this,													  // sourcecard of life altering
+											PreventableType::Preventable,							  // preventable or not prevantable
+											DamageType::AbilityDamage | DamageType::NonCombatDamage); // damage type
+	pmodifier.ApplyTo(GetController());
+	pmodifier.ApplyTo(m_pGame->GetNextPlayer(GetController()));
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CBarrageOfBouldersCard::CBarrageOfBouldersCard(CGame* pGame, UINT nID)
+	: CGlobalChgLifeSpellCard(pGame, _T("Barrage of Boulders"), CardType::Sorcery, nID, AbilityType::Sorcery,
+		_T("2") RED_MANA_TEXT,
+		Life(-1),
+		new AnyCreatureComparer, FALSE,											// FALSE->don't affect players
+		PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage)
+{
+	m_pGlobalChgLifeSpell->SetAffectOpponentCardsOnly();
+	m_pGlobalChgLifeSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBarrageOfBouldersCard::BeforeResolution));
+}
+
+bool CBarrageOfBouldersCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController     = GetController();
+	CZone* pBattlefield      = pController->GetZoneById(ZoneId::Battlefield);
+	CCardFilter m_CardFilter = CCardFilter(new AnyCreatureComparer);
+	m_CardFilter.AddComparer(new CreaturePowerComparer<std::greater<int>>(3)); // creature with power 4 or greater
+	if (m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)	   // ferocious caster has at least one creature with power 4 or greater
+	{
+		CPlayerEffectModifier*    pModifier1 = new CPlayerEffectModifier(PlayerEffectType::UnblockableCreatures);
+		CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(GetGame(), 
+			pModifier1, TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);
+		pModifier1->LinkPlayerModifier(pModifier2);
+		pModifier1->ApplyTo(pController);
+	}
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CBringLowCard::CBringLowCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Bring Low"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject <CTargetSpell>(this, AbilityType::Instant,
+			_T("3") RED_MANA_TEXT,
+			new AnyCreatureComparer,
+			false));
+
+	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBringLowCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CBringLowCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
+	int iDamage = 3;																	
+	if (pTarget->GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount() > 0) //if target creature has a +1/+1 counter on it, Bring Low deals 5 damage to it instead.
+		iDamage = 5;
+	CLifeModifier pModifier = CLifeModifier(Life(-iDamage), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+	pModifier.ApplyTo(pTarget);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CBurnAwayCard::CBurnAwayCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Burn Away"), CardType::Instant, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			_T("4") RED_MANA_TEXT,
+			new AnyCreatureComparer, false));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBurnAwayCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CBurnAwayCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
+	pSubjects.AddCard(pTarget, CardPlacement::Top);
+	CLifeModifier pModifier1 = CLifeModifier(Life(-6), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+	pModifier1.ApplyTo(pTarget);
+	
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("Burn Away Effect"), 61138, &pSubjects);
+	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CCratersClawsCard::CCratersClawsCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Crater's Claws"), CardType::Sorcery, nID)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+			RED_MANA_TEXT,
+			new AnyCreatureComparer, TRUE));							// TRUE ->can target players also 
+	
+	cpSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
+	cpSpell->SetExtraActionValueVector(ContextValue(-1));
+	cpSpell->AddAbilityTag(AbilityTag::DamageSource);
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCratersClawsCard::BeforeResolution));
+	
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CCratersClawsCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController		   = GetController();
+	CZone* pBattlefield			   = pController->GetZoneById(ZoneId::Battlefield);
+	CCardFilter m_CardFilter	   = CCardFilter(new AnyCreatureComparer);
+	m_CardFilter.AddComparer(new CreaturePowerComparer<std::greater<int>>(3)); // creature with power 4 or greater
+	
+	CCard*		   pTargetCreature = pAction->GetAssociatedCard();
+	CPlayer*	   pTargetPlayer   = pAction->GetAssociatedPlayer();
+	int iDamage					   = GetLastCastingExtraValue();
+	
+	if (m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)	   // ferocious caster has at least one creature with power 4 or greater
+		iDamage = iDamage + 2;
+	CLifeModifier*	pModifier = new CLifeModifier(Life(-iDamage), this, PreventableType::Preventable,  DamageType::SpellDamage | DamageType::NonCombatDamage);
+	if (pTargetCreature) 
+		pModifier->ApplyTo((CCreatureCard*)pTargetCreature);	
+	if (pTargetPlayer) 
+		pModifier->ApplyTo(pTargetPlayer);	
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CGoblinslideCard::CGoblinslideCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Goblinslide"), CardType::GlobalEnchantment, nID,
+		_T("2") RED_MANA_TEXT, AbilityType::Enchantment)
+{
+	typedef
+		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSpellCast > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new NegateCardComparer(new AnyCreatureComparer));
+	cpAbility->SetResolutionCost(_T("1"));
+	cpAbility->SetCreateTokenOption(TRUE, _T("Goblin N"), 55020, 1);
+	AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CJungleHollowCard::CJungleHollowCard(CGame* pGame, UINT nID)
+	: CNonbasicLandCard(pGame, _T("Jungle Hollow"), nID)
+{
+	SetIntoPlayTapped();
+
+	{
+	typedef
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
+							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
+	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+
+	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+	AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));
+
+		cpNonbasicLandManaAbility->AddTapCost();
+
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));
+
+		cpAbility->AddTapCost();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//____________________________________________________________________________
+//
+CScouredBarrensCard::CScouredBarrensCard(CGame* pGame, UINT nID)
+	: CNonbasicLandCard(pGame, _T("Scoured Barrens"), nID)
+{
+	SetIntoPlayTapped();
+
+	{
+	typedef
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
+							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
+	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+
+	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+	AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT));
+
+		cpNonbasicLandManaAbility->AddTapCost();
+
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT));
+
+		cpAbility->AddTapCost();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//____________________________________________________________________________
+//
+CSwiftwaterCliffsCard::CSwiftwaterCliffsCard(CGame* pGame, UINT nID)
+	: CNonbasicLandCard(pGame, _T("Swiftwater Cliffs"), nID)
+{
+	SetIntoPlayTapped();
+
+	{
+	typedef
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
+							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
+	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+
+	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+	AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));
+
+		cpNonbasicLandManaAbility->AddTapCost();
+
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT));
+
+		cpAbility->AddTapCost();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//____________________________________________________________________________
+//
+CThornwoodFallsCard::CThornwoodFallsCard(CGame* pGame, UINT nID)
+	: CNonbasicLandCard(pGame, _T("Thornwood Falls"), nID)
+{
+	SetIntoPlayTapped();
+
+	{
+	typedef
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
+							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
+	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+
+	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+	AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT));
+
+		cpNonbasicLandManaAbility->AddTapCost();
+
+		AddAbility(cpNonbasicLandManaAbility.GetPointer());
+	}
+	{
+		counted_ptr<CManaProductionAbility> cpAbility(
+			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT));
+
+		cpAbility->AddTapCost();
+
 		AddAbility(cpAbility.GetPointer());
 	}
 }

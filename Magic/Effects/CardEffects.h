@@ -1944,3 +1944,46 @@ class CTemurCharmEffectToken : public CEffectCard
 
 //____________________________________________________________________________
 //
+class CSearingBloodEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CSearingBloodEffectToken);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+						   CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CBurnAwayEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CBurnAwayEffectToken);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+						   CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool BeforeResolveSelection(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CUpkeepStepReanimateEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CUpkeepStepReanimateEffectToken);
+
+protected:
+	BOOL_ bFired;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+							   CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//

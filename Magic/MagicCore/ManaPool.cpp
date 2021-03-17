@@ -23,11 +23,11 @@ CString CManaPoolBase::Color::ToString(Color manaColor)
 {
 	switch(manaColor.Get())
 	{
-	case CManaPool::Color::White: return WHITE_MANA_FULL_TEXT;
-	case CManaPool::Color::Blue: return BLUE_MANA_FULL_TEXT;
-	case CManaPool::Color::Black: return BLACK_MANA_FULL_TEXT;
-	case CManaPool::Color::Red: return RED_MANA_FULL_TEXT;
-	case CManaPool::Color::Green: return GREEN_MANA_FULL_TEXT;
+	case CManaPool::Color::White:	  return WHITE_MANA_FULL_TEXT;
+	case CManaPool::Color::Blue:	  return BLUE_MANA_FULL_TEXT;
+	case CManaPool::Color::Black:	  return BLACK_MANA_FULL_TEXT;
+	case CManaPool::Color::Red:		  return RED_MANA_FULL_TEXT;
+	case CManaPool::Color::Green:	  return GREEN_MANA_FULL_TEXT;
 	case CManaPool::Color::Colorless: return COLORLESS_MANA_FULL_TEXT;
 	}
 
@@ -39,9 +39,9 @@ CString CManaPoolBase::Color::ToDrawString(Color manaColor)
 	switch(manaColor.Get())
 	{
 	case CManaPool::Color::White: return _T("{") WHITE_MANA_TEXT _T("}");
-	case CManaPool::Color::Blue: return _T("{") BLUE_MANA_TEXT _T("}");
+	case CManaPool::Color::Blue:  return _T("{") BLUE_MANA_TEXT	 _T("}");
 	case CManaPool::Color::Black: return _T("{") BLACK_MANA_TEXT _T("}");
-	case CManaPool::Color::Red: return _T("{") RED_MANA_TEXT _T("}");
+	case CManaPool::Color::Red:	  return _T("{") RED_MANA_TEXT	 _T("}");
 	case CManaPool::Color::Green: return _T("{") GREEN_MANA_TEXT _T("}");
 	}
 

@@ -394,7 +394,7 @@ BEGIN
     IDS_STRING14252         "Steely Resolve\n{1G}\nEnchantment\nONS,R\nAs Steely Resolve enters the battlefield, choose a creature type.\rCreatures of the chosen type have shroud."
     IDS_STRING14253         "Information Dealer\n{1U}\nCreature - Human Wizard\nONS,C\n{T}: Look at the top X cards of your library, where X is the number of Wizards on the battlefield, then put them back in any order.\n1/1"
     IDS_STRING14254         "Thunder of Hooves\n{3R}\nSorcery\nONS,U\nThunder of Hooves deals X damage to each creature without flying and each player, where X is the number of Beasts on the battlefield."
-    IDS_STRING14255         "Stag Beetle\n{3GG}\nCreature - Insect\nONS,R\nStag Beetle enters the battlefield with X +1/+1 counters on it, where X is the number of other creatures on the battlefield."
+    IDS_STRING14255         "Stag Beetle\n{3GG}\nCreature - Insect\nONS,R\nStag Beetle enters the battlefield with X +1/+1 counters on it, where X is the number of other creatures on the battlefield.\n0/0"
 END
 
 STRINGTABLE

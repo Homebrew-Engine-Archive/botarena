@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by NewExpansion.rc
+// Used by ModernMasters.rc
 //
 #define IDS_EXPANSION                   200
 #define IDS_EXPANSION_ABBREV            201

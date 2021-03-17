@@ -23,11 +23,11 @@ public:
 		{
 			switch(deckStatus.Get())
 			{
-			case DeckStatus::Empty: return _T("Empty Deck"); break;
-			case DeckStatus::Okay: return _T("Okay"); break;
-			case DeckStatus::NotEnoughCards: return _T("Not enough cards in deck"); break;
-			case DeckStatus::SealCorruption: return _T("Sealed deck is corrupted"); break;
-			case DeckStatus::ParseError: return _T("Parse error"); break;
+				case DeckStatus::Empty:			 return _T("Empty Deck");				break;
+				case DeckStatus::Okay:			 return _T("Okay");						break;
+				case DeckStatus::NotEnoughCards: return _T("Not enough cards in deck"); break;
+				case DeckStatus::SealCorruption: return _T("Sealed deck is corrupted"); break;
+				case DeckStatus::ParseError:	 return _T("Parse error");				break;
 			}
 
 			return _T("Unknown");
@@ -57,88 +57,88 @@ public:
 	// Imports and exports
 
 	void Clear();
-	void ImportDeck(LPCTSTR strDeckPath, bool bRemoveExtraCopies);
+	void ImportDeck(LPCTSTR strDeckPath,	  bool bRemoveExtraCopies);
 	void ImportDeck(const StringArray& lines, bool bRemoveExtraCopies);
 	bool ExportDeck(LPCTSTR strDeckPath) const;
 
 	// Status
 
-	DeckStatus GetStatus() const { return m_Status; }
-	const StringSet& GetUnsupportedCards() const { return m_UnsupportedCards; }
+	DeckStatus GetStatus()							  const { return m_Status;						}
+	const StringSet& GetUnsupportedCards()			  const { return m_UnsupportedCards;			}
 	const StringSet& GetCardsWithExtraCopiesRemoved() const { return m_CardsWithExtraCopiesRemoved; }
 
 	// Content
 
-	const DeckCards& GetDeck() const { return m_Deck; }
+	const DeckCards& GetDeck()						  const { return m_Deck;						}
 	void SetDeck(const DeckCards& deckCards, bool bRemoveExtraCopies);
-	const DeckCards& GetSideboard() const { return m_Sideboard; }
-	const DeckCards& GetStartWithBattlefield() const { return m_StartBattlefield; }
-	const DeckCards& GetStartWithEmblems() const { return m_StartEmblems; }
+	const DeckCards& GetSideboard()					  const { return m_Sideboard;					}
+	const DeckCards& GetStartWithBattlefield()		  const { return m_StartBattlefield;			}
+	const DeckCards& GetStartWithEmblems()			  const { return m_StartEmblems;				}
 	void SetSideboard(const DeckCards& sideboard);
-	bool IsEmpty() const { return !m_Deck.size() && !m_Sideboard.size(); }
+	bool IsEmpty()									  const { return !m_Deck.size() && !m_Sideboard.size(); }
 
-	const StringArray& GetDeckLines() const { return m_DeckLines; } 
-	const StringArray& GetSideboardLines() const { return m_SideboardLines; } 
+	const StringArray& GetDeckLines()				  const { return m_DeckLines;			  } 
+	const StringArray& GetSideboardLines()			  const { return m_SideboardLines;		  } 
 	const StringArray& GetStartWithBattlefieldLines() const { return m_StartBattlefieldLines; } 
-	const StringArray& GetStartWithEmblemsLines() const { return m_StartEmblemsLines; } 
-	const StringArray& GetHeaderLines() const { return m_HeaderLines; }
-	void SetHeaderLines(const StringArray& headerLines) { m_HeaderLines = headerLines; }
-	StringArray GetFileLines() const;
+	const StringArray& GetStartWithEmblemsLines()	  const { return m_StartEmblemsLines;	  } 
+	const StringArray& GetHeaderLines()				  const { return m_HeaderLines;			  }
+	void SetHeaderLines(const StringArray& headerLines)	    { m_HeaderLines = headerLines;	  }
+	StringArray GetFileLines()						  const;
 
 	// Deck settings
 
-	bool GetNoShuffle() const { return m_bNoShuffle; }
-	int GetStartingLife() const { return m_nStartingLife; }
-	bool GetPreconstructed() const { return m_bPreconstructed; }
-	bool GetReadOnly() const { return m_bReadOnly; }
-	bool GetNoCardLimit() const { return m_bNoCardLimit; }
+	bool GetNoShuffle()								  const { return m_bNoShuffle;				}
+	int GetStartingLife()							  const { return m_nStartingLife;		    }
+	bool GetPreconstructed()						  const { return m_bPreconstructed;			}
+	bool GetReadOnly()								  const { return m_bReadOnly;				}
+	bool GetNoCardLimit()							  const { return m_bNoCardLimit;			}
 
-	void SetNoShuffle(bool bNoShuffle) { m_bNoShuffle = bNoShuffle; }
-	void SetPreconstructed(bool bPreconstructed) { m_bPreconstructed = bPreconstructed; }
-	void SetNoCardLimit(bool bNoCardLimit) { m_bNoCardLimit = bNoCardLimit; }
+	void SetNoShuffle(bool bNoShuffle)						{ m_bNoShuffle = bNoShuffle;		}
+	void SetPreconstructed(bool bPreconstructed)			{ m_bPreconstructed = bPreconstructed; }
+	void SetNoCardLimit(bool bNoCardLimit)					{ m_bNoCardLimit = bNoCardLimit;	}
 
-	bool GetSealed() const { return m_bSealed; }
-	COleDateTime GetSealCreationDate() const { return m_SealCreationDate; }
-	COleDateTime GetSealModificationDate() const { return m_SealModificationDate; }
-	CString GetSealCreationDateString(bool bLocalTime) const;
+	bool GetSealed()								  const { return m_bSealed;					}
+	COleDateTime GetSealCreationDate()				  const { return m_SealCreationDate;		}
+	COleDateTime GetSealModificationDate()			  const { return m_SealModificationDate;	}
+	CString GetSealCreationDateString(bool bLocalTime)	   const;
 	CString GetSealModificationDateString(bool bLocalTime) const;
-	CString GetSealSeed() const { return m_strSealSeed; }
-	Guid GetSealComputerId() const { return m_SealComputerId; }
-	CString GetSealComputerName() const { return m_strSealComputerName; }
+	CString GetSealSeed()							  const { return m_strSealSeed;				}
+	Guid GetSealComputerId()						  const { return m_SealComputerId;			}
+	CString GetSealComputerName()					  const { return m_strSealComputerName;		}
 
 	void Seal(LPCTSTR strSealSeed = NULL);
-	bool IsSealOkay() const;
+	bool IsSealOkay()								  const;
 	void Unseal();
 
 	// Statistics (deck only, not for sideboard)
 
 	const CManaPool::Color& GetProminentManaColorByCard() const { return m_ProminentManaColorByCard; }
-	const CManaPool::Color& GetProminentManaColor() const { return m_ProminentManaColor; }
+	const CManaPool::Color& GetProminentManaColor()		  const { return m_ProminentManaColor;		 }
 	const std::map<CManaPool::Color, int>& GetManaColorCountByCard() const { return m_ManaColorCountByCard; }
-	const std::map<CManaPool::Color, int>& GetManaColorCount() const { return m_ManaColorCount; }
+	const std::map<CManaPool::Color, int>& GetManaColorCount()		 const { return m_ManaColorCount;		}
 
-	const std::map<CString, int>& GetCardNames()const { return m_CardNames; }
+	const std::map<CString, int>& GetCardNames()					 const { return m_CardNames;			}
 
-	int GetDeckCardCount() const { return m_Deck.size(); }
-	int GetSideboardCardCount() const { return m_Sideboard.size(); }
-	int GetLandCount() const { return m_nLandCount; }
-	double GetLandPercentage() const { return GetPercentage(m_nLandCount); }
-	int GetPlaneswalkerCount() const { return m_nPlaneswalkerCount; }
-	double GetPlaneswalkerPercentage() const { return GetPercentage(m_nPlaneswalkerCount); }
-	int GetCreatureCount() const { return m_nCreatureCount; }
-	double GetCreaturePercentage() const { return GetPercentage(m_nCreatureCount); }
-	int GetInstantCount() const { return m_nInstantCount; }
-	double GetInstantPercentage() const { return GetPercentage(m_nInstantCount); }
-	int GetSorceryCount() const { return m_nSorceryCount; }
-	double GetSorceryPercentage() const { return GetPercentage(m_nSorceryCount); }
-	int GetArtifactCount() const { return m_nArtifactCount; }
-	double GetArtifactPercentage() const { return GetPercentage(m_nArtifactCount); }
-	int GetEnchantmentCount() const { return m_nEnchantmentCount; }
-	double GetEnchantmentPercentage() const { return GetPercentage(m_nEnchantmentCount); }
+	int    GetDeckCardCount()						  const { return m_Deck.size();						  }
+	int    GetSideboardCardCount()					  const { return m_Sideboard.size();				  }
+	int    GetLandCount()							  const { return m_nLandCount;						  }
+	double GetLandPercentage()						  const { return GetPercentage(m_nLandCount);		  }
+	int    GetPlaneswalkerCount()					  const { return m_nPlaneswalkerCount;				  }
+	double GetPlaneswalkerPercentage()				  const { return GetPercentage(m_nPlaneswalkerCount); }
+	int    GetCreatureCount()						  const { return m_nCreatureCount;					  }
+	double GetCreaturePercentage()					  const { return GetPercentage(m_nCreatureCount);	  }
+	int    GetInstantCount()						  const { return m_nInstantCount;					  }
+	double GetInstantPercentage()					  const { return GetPercentage(m_nInstantCount);	  }
+	int    GetSorceryCount()						  const { return m_nSorceryCount;					  }
+	double GetSorceryPercentage()					  const { return GetPercentage(m_nSorceryCount);	  }
+	int    GetArtifactCount()						  const { return m_nArtifactCount;					  }
+	double GetArtifactPercentage()					  const { return GetPercentage(m_nArtifactCount);	  }
+	int    GetEnchantmentCount()					  const { return m_nEnchantmentCount;				  }
+	double GetEnchantmentPercentage()				  const { return GetPercentage(m_nEnchantmentCount);  }
 
-	int GetReferenceScore() const { return m_nReferenceScore; }
+	int    GetReferenceScore()						  const { return m_nReferenceScore;					  }
 
-	const std::set<SingleCreatureType>& GetCreatureTypes() const { return m_CreatureTypes; }
+	const  std::set<SingleCreatureType>& GetCreatureTypes() const { return m_CreatureTypes; }
 	
 protected:
 	static void GetCardColorSummary(const CCountedCardContainer& cards,
@@ -155,7 +155,7 @@ protected:
 
 	void UpdateLines();
 
-	Guid CalculateSealedChecksum() const;
+	Guid CalculateSealedChecksum()    const;
 	void UpdateSealModificationDate() const;
 
 	// Status

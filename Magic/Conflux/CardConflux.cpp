@@ -116,7 +116,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSedraxisAlchemistCard);
 		DEFINE_CARD(CShamblingRemainsCard);
 		DEFINE_CARD(CShardConvergenceCard);
-		DEFINE_CARD(CSigilOfTheEmptyThroneCard);
 		DEFINE_CARD(CSkywardEyeProphetsCard);
 		DEFINE_CARD(CSludgeStriderCard);
 		DEFINE_CARD(CSoulsMajestyCard);
@@ -1190,28 +1189,6 @@ CAshasFavorCard::CAshasFavorCard(CGame* pGame, UINT nID)
 		Power(+0), Life(+0),
 		CreatureKeyword::Flying | CreatureKeyword::FirstStrike | CreatureKeyword::Vigilance)
 {
-}
-
-//____________________________________________________________________________
-//
-CSigilOfTheEmptyThroneCard::CSigilOfTheEmptyThroneCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Sigil of the Empty Throne"), CardType::GlobalEnchantment, nID,
-		_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT, AbilityType::Enchantment)
-{
-	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSpellCast > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("enchantments")));
-	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetCreateTokenOption(TRUE, _T("Angel B"), 2740, 1);
-
-	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

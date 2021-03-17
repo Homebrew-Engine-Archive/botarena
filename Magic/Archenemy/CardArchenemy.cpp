@@ -716,7 +716,7 @@ bool CEvilComesToFruitionCard::BeforeResolution(CAbilityAction* pAction)
 	}
 	else
 	{
-		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Plant"), 2831, 7);
+		CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Plant A"), 2831, 7);
 		pModifier.ApplyTo(pController);
 	}
 

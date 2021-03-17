@@ -374,6 +374,46 @@ protected:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CDrawCardSpell : public CSpell			// No support for reveals to other players yet
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CDrawCardSpell(CCard* pCard, 
+				   AbilityType abilityType,
+				   LPCTSTR strManaCost,
+				   int nDrawCount);							// Draw count will increase if extra costs are paid
+	virtual ~CDrawCardSpell() {}
+
+public:
+	void SetDiscard(int nDiscardCount, BOOL bFromDrawsOnly, MoveType discardMoveType = MoveType::Discard,
+					ZoneId discardToZone = ZoneId::Graveyard, BOOL bDiscardToOwner = TRUE,
+					CardPlacement discardToPlacement = CardPlacement::Top);
+
+	OVERRIDE(CActionContainer*, GetAbilityActions)(BOOL bIncludeTricks, BOOL bSetNames);
+
+protected:
+	VIRTUAL(int, GetExtraDrawCount)(const CManaConsumptionAbilityAction* pAction) { return 0; }
+
+	OVERRIDE(BOOL, ResolveImpl)	   (const CAbilityAction* pAction);
+
+	void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	int			  m_nDrawCount;
+	int			  m_nDiscardCount;
+	BOOL		  m_bFromDrawsOnly;
+	ZoneId		  m_DiscardToZone;
+	BOOL		  m_bDiscardToOwner;
+	MoveType	  m_DiscardMoveType;
+	CardPlacement m_DiscardToPlacement;
+
+	// State managed
+	ListenerPtr<SelectionEventSource::Listener>	m_cpSelectionListener;
+	CCountedCardContainer_						m_DiscardedCards;
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CDrawCardSpellEx : public CSpell
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;
@@ -386,7 +426,7 @@ protected:
 
 public:
 	const CZoneModifier& GetZoneModifier() const { return m_ZoneModifier; }
-	CZoneModifier& GetZoneModifier() { return m_ZoneModifier; }
+		  CZoneModifier& GetZoneModifier()		 { return m_ZoneModifier; }
 
 	OVERRIDE(CActionContainer*, GetAbilityActions)(BOOL bIncludeTricks, BOOL bSetNames);
 
@@ -399,57 +439,132 @@ protected:
 
 //____________________________________________________________________________
 //
-class CORE_EXPORT CDrawCardSpell : public CSpell			// No support for reveals to other players yet
+/*
+	CDrawCardSpell2 is used for cards where a player is required to "Draw a card for each ..." 
+	Examples
+	Ref:  Collective Unconscious - Draw a card for each creature you control.
+		  Airborne Aid			 - Draw a card for each Bird on the battlefield.
+
+*/
+class CORE_EXPORT CDrawCardSpell2 : public CSpell
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;
 
 protected:
-	CDrawCardSpell(CCard* pCard, AbilityType abilityType,
-				   LPCTSTR strManaCost,
-				   int nDrawCount);		// Draw count will increase if extra costs are paid
-	virtual ~CDrawCardSpell() {}
+	CDrawCardSpell2(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
+					ZoneId uSurveyZoneId, BOOL bSurveyCastersZone, BOOL bSurveyOpponentsZone);
+	virtual ~CDrawCardSpell2() {}
 
 public:
-	void SetDiscard(int nDiscardCount, BOOL bFromDrawsOnly, MoveType discardMoveType = MoveType::Discard,
-		ZoneId discardToZone = ZoneId::Graveyard, BOOL bDiscardToOwner = TRUE,
-		CardPlacement discardToPlacement = CardPlacement::Top);
-
-	OVERRIDE(CActionContainer*, GetAbilityActions)(BOOL bIncludeTricks, BOOL bSetNames);
+		  CCardFilter& GetSurveyCardFilter()	   { return m_SurveyCardFilter; }
+	const CCardFilter& GetSurveyCardFilter() const { return m_SurveyCardFilter; }
 
 protected:
-	VIRTUAL(int, GetExtraDrawCount)(const CManaConsumptionAbilityAction* pAction) { return 0; }
-
 	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
 
-	void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
-
-	int		m_nDrawCount;
-
-	int		m_nDiscardCount;
-	BOOL	m_bFromDrawsOnly;
-	ZoneId	m_DiscardToZone;
-	BOOL	m_bDiscardToOwner;
-	MoveType	m_DiscardMoveType;
-	CardPlacement	m_DiscardToPlacement;
-
-	// State managed
-	ListenerPtr<SelectionEventSource::Listener>	m_cpSelectionListener;
-	CCountedCardContainer_			m_DiscardedCards;
+	CCardFilter	m_SurveyCardFilter;
+	ZoneId		m_uSurveyZoneId;
+	BOOL		m_bSurveyCastersZone;
+	BOOL		m_bSurveyOpponentsZone;
 };
 
 //____________________________________________________________________________
 //
-class CORE_EXPORT CDrawCardSpell3 : public CSpell			// Ref: Tolarian Winds: Discard your hand, then draw that many cards
+/*
+ CDrawCardSpell3 caters for the cases where the caster discards their hand and draws from their 
+ library a number of cards that is related to the size of the hand they have just discarded.
+ 
+ Ref: Tolarian Winds      : Discard your hand, then draw that many cards
+	  Chandra, Flamecaller: Discard all the cards in your hand, then draw that many cards plus one.
+*/
+class CORE_EXPORT CDrawCardSpell3 : public CSpell
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;
 
 protected:
-	CDrawCardSpell3(CCard* pCard, AbilityType abilityType,
-				    LPCTSTR strManaCost);
+	CDrawCardSpell3(CCard* pCard, 
+					AbilityType abilityType,
+				    LPCTSTR strManaCost, 
+					int nHandCardCntAdjustment);
 
 	virtual ~CDrawCardSpell3() {}
 
 	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
+	int		m_nHandCardCntAdjustment;					// difference between the size of the hand to be discarded
+														// and the number of replacement cards to be drawn 
+};
+
+//____________________________________________________________________________
+//
+/*
+	Currently, CDrawCardSpell4 is only used for the card, Reprocess, where a player is required to 
+	"Draw a card for each ... sacrificed" 
+	Example
+	Ref:  Collective Unconscious - Sacrifice any number of artifacts, creatures, and/or lands. 
+								   Draw a card for each permanent sacrificed this way.
+
+*/
+class CORE_EXPORT CDrawCardSpell4 : public CSpell	
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CDrawCardSpell4(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
+					int nSacrificeCount,
+					const CCardFilter* pSacrificeCardFilter);
+	virtual ~CDrawCardSpell4() {}
+
+	void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
+
+	int				   m_nSacrificeCount;
+	const CCardFilter* m_pSacrificeCardFilter;
+
+	// State managed
+
+	ListenerPtr<SelectionEventSource::Listener>	m_cpSelectionListener;
+};
+
+//____________________________________________________________________________
+//
+/*
+	Currently, CDrawCardSpell5 is only used for the card, Necrologia, where a player is required to 
+	"Draw a card for each life paid" 
+	Example
+	Ref:  Necrologia - As an additional cost to cast Necrologia, pay any amount of life.
+					   Draw cards equal to the life paid this way. 
+*/
+class CORE_EXPORT CDrawCardSpell5 : public CSpell
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CDrawCardSpell5(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost);
+	virtual ~CDrawCardSpell5() {}
+
+	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+/*
+	Currently, CDrawCardSpell6is only used for the cards, Greater Good and Life's Legacy 
+	where a player is required to "Draw cards equal to the sacrificed creature's power" 
+	Example
+	Ref:  Greater Good - Sacrifice a creature: Draw cards equal to the sacrificed creature's power. 
+*/
+class CORE_EXPORT CDrawCardSpell6 : public CDrawCardSpell
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CDrawCardSpell6(CCard* pCard, AbilityType abilityType,
+					LPCTSTR strManaCost,
+					const CCardFilter* pSacrificeCardFilter);
+	virtual ~CDrawCardSpell6() {}
+
+	OVERRIDE(int, GetExtraDrawCount)(const CManaConsumptionAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -911,84 +1026,7 @@ protected:
 
 //____________________________________________________________________________
 //
-class CORE_EXPORT CDrawCardSpell2 : public CSpell				// Ref: Collective Unconscious
-{
-	DEFINE_CREATE_TO_CPTR_ONLY;
 
-protected:
-	CDrawCardSpell2(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
-					ZoneId uSurveyZoneId, BOOL bSurveyCastersZone, BOOL bSurveyOpponentsZone);
-	virtual ~CDrawCardSpell2() {}
-
-public:
-	CCardFilter& GetSurveyCardFilter() { return m_SurveyCardFilter; }
-	const CCardFilter& GetSurveyCardFilter() const { return m_SurveyCardFilter; }
-
-protected:
-	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
-
-	CCardFilter	m_SurveyCardFilter;
-	ZoneId		m_uSurveyZoneId;
-	BOOL		m_bSurveyCastersZone;
-	BOOL		m_bSurveyOpponentsZone;
-};
-
-//____________________________________________________________________________
-//
-class CORE_EXPORT CDrawCardSpell4 : public CSpell				// Ref: Reprocess
-{
-	DEFINE_CREATE_TO_CPTR_ONLY;
-
-protected:
-	CDrawCardSpell4(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
-					int nSacrificeCount,
-					const CCardFilter* pSacrificeCardFilter);
-	virtual ~CDrawCardSpell4() {}
-
-	void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
-
-	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
-
-	int		m_nSacrificeCount;
-	const CCardFilter* m_pSacrificeCardFilter;
-
-	// State managed
-
-	ListenerPtr<SelectionEventSource::Listener>	m_cpSelectionListener;
-};
-
-//____________________________________________________________________________
-//
-class CORE_EXPORT CDrawCardSpell5 : public CSpell				// Ref: Necrologia
-{
-	DEFINE_CREATE_TO_CPTR_ONLY;
-
-protected:
-	CDrawCardSpell5(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost);
-	virtual ~CDrawCardSpell5() {}
-
-	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
-// Greater Good: Sacrifice a creature: draw cards equal to the sacrificed creature's power, then discard three cards
-//
-class CORE_EXPORT CDrawCardSpell6 : public CDrawCardSpell
-{
-	DEFINE_CREATE_TO_CPTR_ONLY;
-
-protected:
-	CDrawCardSpell6(CCard* pCard, AbilityType abilityType,
-					LPCTSTR strManaCost,
-					const CCardFilter* pSacrificeCardFilter);
-	virtual ~CDrawCardSpell6() {}
-
-	OVERRIDE(int, GetExtraDrawCount)(const CManaConsumptionAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
 class CORE_EXPORT CIsAlsoAAbility : public CSpell	// Not a spell by default, ability only applies to owner cards
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;

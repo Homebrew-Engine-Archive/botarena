@@ -633,8 +633,8 @@ BOOL CTriggeredTapCardAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTrig
 	CCard* pToCard = pAction1->GetTriggerContext().m_pCard;
 	BOOL wasTapped = pAction1->GetTriggerContext().m_pTapped;
 
-
-	if (m_TapCardOption == TapCardOption::TapSingleCard ||
+	//single card tap, untap and tap/untap
+	if (m_TapCardOption == TapCardOption::TapSingleCard	  ||
 		m_TapCardOption == TapCardOption::UntapSingleCard ||
 		m_TapCardOption == TapCardOption::TapUntapSingleCard)
 	{
@@ -645,16 +645,17 @@ BOOL CTriggeredTapCardAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTrig
 				if (pToCard->GetOrientation()->IsUntapped())
 					pToCard->GetOrientation()->Tap();
 			}
-			else
+			else if (m_TapCardOption == TapCardOption::UntapSingleCard)
 			{
-				if (pToCard->GetOrientation()->IsTapped() && !(m_TapCardOption == TapCardOption::TapUntapSingleCard))
+				if (pToCard->GetOrientation()->IsTapped()) 
 					pToCard->GetOrientation()->Untap();
 			}
-			
-			if (m_TapCardOption == TapCardOption::TapUntapSingleCard)
+			else if (m_TapCardOption == TapCardOption::TapUntapSingleCard)
 			{
-			if (pToCard->GetOrientation()->IsUntapped() && !wasTapped) pToCard->GetOrientation()->Tap();
-			if (pToCard->GetOrientation()->IsTapped() && wasTapped) pToCard->GetOrientation()->Untap();
+				if (pToCard->GetOrientation()->IsUntapped())
+					pToCard->GetOrientation()->Tap();
+				else if (pToCard->GetOrientation()->IsTapped())
+					pToCard->GetOrientation()->Untap();
 			}
 			
 		}
@@ -667,6 +668,7 @@ BOOL CTriggeredTapCardAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTrig
 		return TRUE;
 	}
 
+	// multiple card tap and untap
 	CZone* pZone = pTriggeredPlayer->GetZoneById(ZoneId::Battlefield);
 
 	for (int i = pZone->GetSize() - 1; i >= 0; --i)
@@ -680,7 +682,7 @@ BOOL CTriggeredTapCardAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTrig
 			if (pCard->GetOrientation()->IsUntapped())
 				pCard->GetOrientation()->Tap();
 		}
-		else
+		else	//TapCardOption::UntapMultipleCards
 		{
 			if (pCard->GetOrientation()->IsTapped())
 				pCard->GetOrientation()->Untap();
@@ -1448,6 +1450,71 @@ void CTriggeredDesecratorHagAbility::OnSelectionDone(const std::vector<Selection
 			CCard* pCard = (CCard*)(it->dwContext);
 			m_MoveCardModifier.ApplyTo(pCard);
 
+			break;
+		}
+}
+//____________________________________________________________________________
+//
+CTriggeredBolsterAbility::CTriggeredBolsterAbility(CCard* pCard)
+	: CTriggeredAbility(pCard)
+	, m_CardCounterModifier(_T("+1/+1"), +1, false, NULL)
+	, m_SelectionSupport(pCard->GetGame(), CSelectionSupport::SelectionCallback(this, &CTriggeredBolsterAbility::OnSelectionDone))
+{
+}
+
+BOOL CTriggeredBolsterAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTriggeredAction* pAction)
+{
+	std::vector<SelectionEntry> entries;
+
+	GetSelectionEntries(pAction, pTriggeredPlayer, entries);
+
+	if (entries.size())
+		m_SelectionSupport.AddSelectionRequest(entries, 1, 1, GetCard(), pTriggeredPlayer, (DWORD)pAction->GetController());
+
+	return true;
+}
+
+void CTriggeredBolsterAbility::GetSelectionEntries(const CTriggeredAction* pAction, CPlayer* pPlayer, std::vector<SelectionEntry>& entries)
+{
+	CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+	Life lifeMin = Life(9999);						// set initialise minimum toughness to a high ammount so any creature found
+													// will overwrite this value with a lower toughness
+	// check each creature and store the lowest toughness value
+	for (int k = 0; k < pBattlefield->GetSize(); ++k)
+	{
+		CCard* pCard = pBattlefield->GetAt(k);
+		if (pCard->GetCardType().IsCreature())
+			if (((CCreatureCard*)pCard)->GetLife() < lifeMin) 
+				lifeMin = ((CCreatureCard*)pCard)->GetLife();
+	}
+	
+	CCardFilter m_CardFilter_temp;
+	// filter all creatures with toughness equal to the (least) toughness value stored previously 
+	m_CardFilter_temp.SetComparer(new CreatureToughnessComparer<std::less_equal<int>>(GET_INTEGER(lifeMin)));
+	// list all the creatures with the least toughness for the player to select one to bolster
+	for (int k = 0; k < pBattlefield->GetSize(); ++k)
+	{
+		CCard* pCard = pBattlefield->GetAt(k);
+		if (!m_CardFilter_temp.IsCardIncluded(pCard))
+			continue;
+
+		SelectionEntry entry;
+		entry.dwContext = (DWORD)pCard;
+		entry.strText.Format(_T("selects %s"), pCard->GetCardName());
+		entry.cpAssociatedCard = pCard;
+		entries.push_back(entry);
+	}
+}
+
+void CTriggeredBolsterAbility::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{	
+	const CPlayer* pByPlayer = (const CPlayer*)dwContext1;
+
+	for (vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)(it->dwContext);
+			m_CardCounterModifier.ApplyTo(pCard);
 			break;
 		}
 }

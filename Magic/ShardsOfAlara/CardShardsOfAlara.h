@@ -263,13 +263,6 @@ class CDispellersCapsuleCard : public CInPlaySpellCard
 
 //____________________________________________________________________________
 //
-class CDragonFodderCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CDragonFodderCard);
-};
-
-//____________________________________________________________________________
-//
 class CDregReaverCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDregReaverCard);
@@ -322,13 +315,6 @@ class CExecutionersCapsuleCard : public CInPlaySpellCard
 class CFiligreeSagesCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CFiligreeSagesCard);
-};
-
-//____________________________________________________________________________
-//
-class CFleshbagMarauderCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CFleshbagMarauderCard);
 };
 
 //____________________________________________________________________________
@@ -1516,22 +1502,6 @@ class CMightyEmergenceCard : public CInPlaySpellCard
 private:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, 
 							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-};
-
-//____________________________________________________________________________
-//
-class CKnightOfTheWhiteOrchidCard : public CFirstStrikeCreatureCard
-{
-	DECLARE_CARD_CSTOR(CKnightOfTheWhiteOrchidCard);
-
-protected:
-	typedef 
-		TTriggeredAbility< CTriggeredSearchLibraryAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback,
-			&CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-	bool SetTriggerContext(CTriggeredSearchLibraryAbility::TriggerContextType& triggerContext, 
-							CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-	bool BeforeResolution(CKnightOfTheWhiteOrchidCard::TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________

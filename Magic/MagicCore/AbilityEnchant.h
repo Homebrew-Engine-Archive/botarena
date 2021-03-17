@@ -460,10 +460,6 @@ class CORE_EXPORT CCardTypeEnchantment : public CEnchantment
 {											
 	DEFINE_CREATE_TO_CPTR_ONLY;
 
-public:
-	void SetHasExcludingTypes() {m_pExcluding_Types = TRUE;}    // To support Magus of the Moon
-
-
 protected:
 	CCardTypeEnchantment(CCard* pCard,
 						 LPCTSTR strManaCost,
@@ -487,7 +483,6 @@ protected:
 
 	CardType m_AddCardType;
 	CardType m_AddCardTypeMask;
-	BOOL m_pExcluding_Types;
 };
 
 //____________________________________________________________________________
@@ -496,10 +491,6 @@ protected:
 class CORE_EXPORT CCardTypeEnchantment2 : public CEnchantment
 {											
 	DEFINE_CREATE_TO_CPTR_ONLY;
-
-public:
-	void SetHasExcludingTypes() {m_pExcluding_Types = TRUE;}   
-
 
 protected:
 	CCardTypeEnchantment2(CCard* pCard,
@@ -524,7 +515,6 @@ protected:
 
 	CardType m_AddCardType;
 	CardType m_AddCardTypeMask;
-	BOOL m_pExcluding_Types;
 };
 
 //____________________________________________________________________________

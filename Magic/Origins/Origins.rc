@@ -1,0 +1,312 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Origins.ico"
+IDI_LARGE_MODULE        ICON                    "OriginsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Origins"
+    IDS_EXPANSION_ABBREV    "ORI"
+    IDS_FIRST_CARD          "32700"
+    IDS_TOTAL_CARD          "272"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "32973"
+    IDS_MODULE_LARGE_ICON_ID "32974"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "17-07-2015"
+    IDS_MWS_FOLDER          "MWS\\ORI\\"
+    IDS_PRODUCT_LIST        """Origins Starter Box"":R-3:U-10:C-32:BL-30,""Origins Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32700         "Forest\n\nBasic Land - Forest\nORI,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32701         "Forest\n\nBasic Land - Forest\nORI,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32702         "Forest\n\nBasic Land - Forest\nORI,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING32703         "Forest\n\nBasic Land - Forest\nORI,BL\n{T}: Add {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32704         "Island\n\nBasic Land - Island\nORI,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32705         "Island\n\nBasic Land - Island\nORI,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32706         "Island\n\nBasic Land - Island\nORI,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32707         "Island\n\nBasic Land - Island\nORI,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING32708         "Mountain\n\nBasic Land - Mountain\nORI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32709         "Mountain\n\nBasic Land - Mountain\nORI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32710         "Mountain\n\nBasic Land - Mountain\nORI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32711         "Mountain\n\nBasic Land - Mountain\nORI,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING32712         "Plains\n\nBasic Land - Plains\nORI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32713         "Plains\n\nBasic Land - Plains\nORI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32714         "Plains\n\nBasic Land - Plains\nORI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32715         "Plains\n\nBasic Land - Plains\nORI,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING32716         "Swamp\n\nBasic Land - Swamp\nORI,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32717         "Swamp\n\nBasic Land - Swamp\nORI,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32718         "Swamp\n\nBasic Land - Swamp\nORI,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING32719         "Swamp\n\nBasic Land - Swamp\nORI,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32720         "Rhox Maulers\n{4G}\nCreature - Rhino Soldier\nORI,C\nTrample\rRenown 2\n4/4"
+    IDS_STRING32721         "Knight of the Pilgrim's Road\n{2W}\nCreature - Human Knight\nORI,C\nRenown 1\n3/2"
+    IDS_STRING32722         "Fiery Impulse\n{R}\nInstant\nORI,C\nFiery Impulse deals 2 damage to target creature.\rSpell Mastery - If there are two or more instant and/or sorcery cards in your graveyard, Fiery Impulse deals 3 damage to that creature instead."
+    IDS_STRING32723         "Boggart Brute\n{2R}\nCreature - Goblin Warrior\nORI,C\nMenace\n3/2"
+    IDS_STRING32724         "Anointer of Champions\n{W}\nCreature - Human Cleric\nORI,U\n{T}: Target attacking creature gets +1/+1 until end of turn.\n1/1"
+    IDS_STRING32725         "Hitchclaw Recluse\n{2G}\nCreature - Spider\nORI,C\nReach\n1/4"
+    IDS_STRING32726         "Ampryn Tactician\n{2WW}\nCreature - Human Soldier\nORI,C\nWhen Ampryn Tactician enters the battlefield, creatures you control get +1/+1 until end of turn.\n3/3"
+    IDS_STRING32727         "Maritime Guard\n{1U}\nCreature - Merfolk Soldier\nORI,C\n\n1/3"
+    IDS_STRING32728         "Demolish\n{3R}\nSorcery\nORI,C\nDestroy target artifact or land."
+    IDS_STRING32729         "Plummet\n{1G}\nInstant\nORI,C\nDestroy target creature with flying."
+    IDS_STRING32730         "Prized Unicorn\n{3G}\nCreature - Unicorn\nORI,U\nAll creatures able to block Prized Unicorn do so.\n2/2"
+    IDS_STRING32731         "Shivan Dragon\n{4RR}\nCreature - Dragon\nORI,R\nFlying\r{R}: Shivan Dragon gets +1/+0 until end of turn.\n5/5"
+    IDS_STRING32732         "Fiery Hellhound\n{1RR}\nCreature - Elemental Hound\nORI,C\n{R}: Fiery Hellhound gets +1/+0 until end of turn.\n2/2"
+    IDS_STRING32733         "Sengir Vampire\n{3BB}\nCreature - Vampire\nORI,U\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
+    IDS_STRING32734         "Nightmare\n{5B}\nCreature - Nightmare Horse\nORI,R\nFlying\rNightmare's power and toughness are each equal to the number of Swamps you control.\n*/*"
+    IDS_STRING32735         "Mind Rot\n{2B}\nSorcery\nORI,C\nTarget player discards two cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32736         "Flesh to Dust\n{3BB}\nInstant\nORI,C\nDestroy target creature. It can't be regenerated."
+    IDS_STRING32737         "Mahamoti Djinn\n{4UU}\nCreature - Djinn\nORI,R\nFlying\n5/6"
+    IDS_STRING32738         "Into the Void\n{3U}\nSorcery\nORI,U\nReturn up to two target creatures to their owners’ hands."
+    IDS_STRING32739         "Serra Angel\n{3WW}\nCreature - Angel\nORI,U\nFlying\rVigilance\n4/4"
+    IDS_STRING32740         "Divine Verdict\n{3W}\nInstant\nORI,C\nDestroy target attacking or blocking creature."
+    IDS_STRING32741         "Evolving Wilds\n\nLand\nORI,C\n{T}, Sacrifice Evolving Wilds: Search your library for a basic land card and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING32742         "Caves of Koilos\n\nLand\nORI,R\n{T}: Add {1} to your mana pool.\r{T}: Add {W} or {B} to your mana pool. Caves of Koilos deals 1 damage to you."
+    IDS_STRING32743         "Shivan Reef\n\nLand\nORI,R\n{T}: Add {1} to your mana pool.\r{T}: Add {U} or {R} to your mana pool. Shivan Reef deals 1 damage to you."
+    IDS_STRING32744         "Llanowar Wastes\n\nLand\nORI,R\n{T}: Add {1} to your mana pool.\r{T}: Add {B} or {G} to your mana pool. Llanowar Wastes deals 1 damage to you."
+    IDS_STRING32745         "Battlefield Forge\n\nLand\nORI,R\n{T}: Add {1} to your mana pool.\r{T}: Add {R} or {W} to your mana pool. Battlefield Forge deals 1 damage to you."
+    IDS_STRING32746         "Yavimaya Coast\n\nLand\nORI,R\n{T}: Add {1} to your mana pool.\r{T}: Add {G} or {U} to your mana pool. Yavimaya Coast deals 1 damage to you."
+    IDS_STRING32747         "Foundry of the Consuls\n\nLand\nORI,U\n{T}: Add {1} to your mana pool.\r{5}, {T}, Sacrifice Foundry of the Consuls: Put two 1/1 colorless Thopter artifact creature tokens with flying onto the battlefield."
+    IDS_STRING32748         "Mage-Ring Network\n\nLand\nORI,U\n{T}: Add {1} to your mana pool.\r{1}, {T}: Put a storage counter on Mage-Ring Network.\r{T}, Remove X storage counters from Mage-Ring Network: Add {X} to your mana pool."
+    IDS_STRING32749         "Veteran's Sidearm\n{2}\nArtifact - Equipment\nORI,C\nEquipped creature gets +1/+1.\rEquip {1}"
+    IDS_STRING32750         "Guardian Automaton\n{4}\nArtifact Creature - Construct\nORI,C\nWhen Guardian Automaton dies, you gain 3 life.\n3/3"
+    IDS_STRING32751         "Alchemist's Vial\n{2}\nArtifact\nORI,C\nWhen Alchemist's Vial enters the battlefield, draw a card.\r{1}, {T}, sacrifice Alchemist's Vial: Target creature can't attack or block this turn."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32752         "War Horn\n{3}\nArtifact\nORI,U\nAttacking creatures you control get +1/+0."
+    IDS_STRING32753         "Ramroller\n{3}\nArtifact Creature - Juggernaut\nORI,U\nRamroller attacks each turn if able.\rRamroller gets +2/+0 as long as you control another artifact.\n2/3"
+    IDS_STRING32754         "Blightcaster\n{3B}\nCreature - Human Wizard\nORI,U\nWhenever you cast an enchantment spell, you may have target creature get -2/-2 until end of turn.\n2/3"
+    IDS_STRING32755         "Prism Ring\n{1}\nArtifact\nORI,U\nAs Prism Ring enters the battlefield, choose a color.\rWhenever you cast a spell of the chosen color, you gain 1 life."
+    IDS_STRING32756         "Jayemdae Tome\n{4}\nArtifact\nORI,U\n{4}, {T}: Draw a card."
+    IDS_STRING32757         "Chief of the Foundry\n{3}\nArtifact Creature - Construct\nORI,U\nOther artifact creatures you control get +1/+1.\n2/3"
+    IDS_STRING32758         "Brawler's Plate\n{3}\nArtifact - Equipment\nORI,U\nEquipped creature gets +2/+2 and has trample.\rEquip {4}"
+    IDS_STRING32759         "Sword of the Animist\n{2}\nLegendary Artifact - Equipment\nORI,R\nEquipped creature gets +1/+1.\rWhenever equipped creature attacks, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library.\rEquip {2}"
+    IDS_STRING32760         "Mage-Ring Responder\n{7}\nArtifact Creature - Golem\nORI,R\nMage-Ring Responder doesn't untap during your untap step.\r{7}: Untap Mage-Ring Responder.\rWhenever Mage-Ring Responder attacks, it deals 7 damage to target creature defending player controls.\n7/7"
+    IDS_STRING32761         "Helm of the Gods\n{1}\nArtifact - Equipment\nORI,R\nEquipped creature gets +1/+1 for each enchantment you control.\rEquip {1}"
+    IDS_STRING32762         "Terra Stomper\n{3GGG}\nCreature - Beast\nORI,R\nTerra Stomper can't be countered.\rTrample\n8/8"
+    IDS_STRING32763         "Iroas's Champion\n{1RW}\nCreature - Human Soldier\nORI,U\nDouble strike\n2/2"
+    IDS_STRING32764         "Possessed Skaab\n{3UB}\nCreature - Zombie\nORI,U\nWhen Possessed Skaab enters the battlefield, return target instant, sorcery, or creature card from your graveyard to your hand.\rIf Possessed Skaab would die, exile it instead.\n3/2"
+    IDS_STRING32765         "Thunderclap Wyvern\n{2WU}\nCreature - Drake\nORI,U\nFlash\rFlying\rOther creatures you control with flying get +1/+1.\n2/3"
+    IDS_STRING32766         "Blood-Cursed Knight\n{1WB}\nCreature - Vampire Knight\nORI,U\nAs long as you control an enchantment, Blood-Cursed Knight gets +1/+1 and has lifelink.\n3/2"
+    IDS_STRING32767         "Bounding Krasis\n{1GU}\nCreature - Fish Lizard\nORI,U\nFlash\rWhen Bounding Krasis enters the battlefield, you may tap or untap target creature.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32768         "Citadel Castellan\n{1GW}\nCreature - Human Knight\nORI,U\nVigilance\rRenown 2\n2/3"
+    IDS_STRING32769         "Reclusive Artificer\n{2UR}\nCreature - Human Artificer\nORI,U\nHaste\rWhen Reclusive Artificer enters the battlefield, you may have it deal damage to target creature equal to the number of artifacts you control.\n2/3"
+    IDS_STRING32770         "Blazing Hellhound\n{2BR}\nCreature - Elemental Hound\nORI,U\n{1}, Sacrifice another creature: Blazing Hellhound deals 1 damage to target creature or player.\n4/3"
+    IDS_STRING32771         "Zendikar Incarnate\n{2RG}\nCreature - Elemental\nORI,U\nZendikar Incarnate's power is equal to the number of lands your control.\n*/4"
+    IDS_STRING32772         "Shaman of the Pack\n{1BG}\nCreature - Elf Shaman\nORI,U\nWhen Shaman of the Pack enters the battlefield, target opponent loses life equal to the number of Elves you control.\n3/2"
+    IDS_STRING32773         "Yeva's Forcemage\n{2G}\nCreature - Elf Shaman\nORI,C\nWhen Yeva's Forcemage enters the battlefield, target creature gets +2/+2 until end of turn.\n2/2"
+    IDS_STRING32774         "Watercourser\n{2U}\nCreature - Elemental\nORI,C\n{U}: Watercourser gets +1/-1 until end of turn.\n2/3"
+    IDS_STRING32775         "Wild Instincts\n{3G}\nSorcery\nORI,C\nTarget creature you control gets +2/+2 until end of turn. It fights target creature an opponent controls."
+    IDS_STRING32776         "Unholy Hunger\n{3BB}\nInstant\nORI,C\nDestroy target creature.\rSpell Mastery - If there are two or more instant and/or sorcery cards in your graveyard, you gain 2 life."
+    IDS_STRING32777         "Akroan Jailer\n{W}\nCreature - Human Soldier\nORI,C\n{2W}, {T}: Tap target creature.\n1/1"
+    IDS_STRING32778         "Auramancer\n{2W}\nCreature - Human Wizard\nORI,C\nWhen Auramancer enters the battlefield, you may return target enchantment card from your graveyard to your hand.\n2/2"
+    IDS_STRING32779         "Aven Battle Priest\n{5W}\nCreature - Bird Cleric\nORI,C\nFlying\rWhen Aven Battle Priest enters the battlefield, you gain 3 life.\n3/3"
+    IDS_STRING32780         "Blessed Spirits\n{2W}\nCreature - Spirit\nORI,U\nFlying\rWhenever you cast an enchantment spell, put a +1/+1 counter on Blessed Spirits.\n2/2"
+    IDS_STRING32781         "Celestial Flare\n{WW}\nInstant\nORI,C\nTarget player sacrifices an attacking or blocking creature."
+    IDS_STRING32782         "Charging Griffin\n{3W}\nCreature - Griffin\nORI,C\nFlying\rWhenever Charging Griffin attacks, it gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING32783         "Cleric of the Forward Order\n{1W}\nCreature - Human Cleric\nORI,C\nWhen Cleric of the Forward Order enters the battlefield, you gain 2 life for each creature you control named Cleric of the Forward Order.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32784         "Enlightened Ascetic\n{1W}\nCreature - Cat Monk\nORI,C\nWhen Enlightened Ascetic enters the battlefield, you may destroy target enchantment.\n1/1"
+    IDS_STRING32785         "Consul's Lieutenant\n{WW}\nCreature - Human Soldier\nORI,U\nFirst strike\rRenown 1\rWhenever Consul's Lieutenant attacks, if it's renowned, other attacking creatures you control get +1/+1 until end of turn.\n2/1"
+    IDS_STRING32786         "Enshrouding Mist\n{W}\nInstant\nORI,C\nTarget creature gets +1/+1 until end of turn. Prevent all damage that would be dealt to it this turn. If it's renowned, untap it."
+    IDS_STRING32787         "Gideon's Phalanx\n{5WW}\nInstant\nORI,R\nPut four 2/2 white Knight creature tokens with vigilance onto the battlefield.\rSpell Mastery - If there are two or more instant and/or sorcery cards in your graveyard, creatures you control gain indestructible until end of turn."
+    IDS_STRING32788         "Grasp of the Hieromancer\n{1W}\nEnchantment - Aura\nORI,C\nEnchant creature\rEnchanted creature gets +1/+1 and has ""Whenever this creature attacks, tap target creature defending player controls."""
+    IDS_STRING32789         "Healing Hands\n{2W}\nSorcery\nORI,C\nTarget player gains 4 life.\rDraw a card."
+    IDS_STRING32790         "Heavy Infantry\n{4W}\nCreature - Human Soldier\nORI,C\nWhen Heavy Infantry enters the battlefield, tap target creature an opponent controls.\n3/4"
+    IDS_STRING32791         "Kytheon's Irregulars\n{2WW}\nCreature - Human Soldier\nORI,R\nRenown 1\r{WW}: Tap target creature.\n4/3"
+    IDS_STRING32792         "Kytheon's Tactics\n{1WW}\nSorcery\nORI,C\nCreatures you control get +2/+1 until end of turn.\rSpell mastery - If there are two or more instant and/or sorcery cards in your graveyard, those creatures also gain vigilance until end of turn."
+    IDS_STRING32793         "Mighty Leap\n{1W}\nInstant\nORI,C\nTarget creature gets +2/+2 and gains flying until end of turn."
+    IDS_STRING32794         "Patron of the Valiant\n{3WW}\nCreature - Angel\nORI,U\nFlying\rWhen Patron of the Valiant enters the battlefield, put a +1/+1 counter on each creature you control with a +1/+1 counter on it.\n4/4"
+    IDS_STRING32795         "Relic Seeker\n{1W}\nCreature - Human Soldier\nORI,R\nRenown 1\rWhen Relic Seeker becomes renowned, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle your library.\n2/2"
+    IDS_STRING32796         "Sentinel of the Eternal Watch\n{5W}\nCreature - Giant Soldier\nORI,U\nVigilance\rAt the beginning of combat on each opponent's turn, tap target creature that player controls.\n4/6"
+    IDS_STRING32797         "Stalwart Aven\n{2W}\nCreature - Bird Soldier\nORI,C\nFlying\rRenown 1\n1/3"
+    IDS_STRING32798         "Swift Reckoning\n{1W}\nSorcery\nORI,U\nSpell mastery - If there are two or more instant and/or sorcery cards in your graveyard, you may cast Swift Reckoning as though it had flash.\rDestroy target tapped creature."
+    IDS_STRING32799         "Topan Freeblade\n{1W}\nCreature - Human Soldier\nORI,C\nVigilance\rRenown 1\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32800         "Valor in Akros\n{3W}\nEnchantment\nORI,U\nWhenever a creature enters the battlefield under your control, creatures you control get +1/+1 until end of turn."
+    IDS_STRING32801         "Vryn Wingmare\n{2W}\nCreature - Pegasus\nORI,R\nFlying\rNoncreature spells cost {1} more to cast.\n2/1"
+    IDS_STRING32802         "War Oracle\n{2WW}\nCreature - Human Cleric\nORI,U\nLifelink\rRenown 1\n3/3"
+    IDS_STRING32803         "Anchor to the Aether\n{2U}\nSorcery\nORI,U\nPut target creature on top of its owner's library. Scry 1."
+    IDS_STRING32804         "Weave Fate\n{3U}\nInstant\nORI,C\nDraw two cards."
+    IDS_STRING32805         "Eagle of the Watch\n{2W}\nCreature - Bird\nORI,C\nFlying, vigilance\n2/1"
+    IDS_STRING32806         "Acolyte of the Inferno\n{2R}\nCreature - Human Monk\nORI,U\nRenown 1\rWhenever Acolyte of the Inferno becomes blocked by a creature, it deals 2 damage to that creature.\n3/1"
+    IDS_STRING32807         "Act of Treason\n{2R}\nSorcery\nORI,C\nGain control of target creature until end of turn. Untap that creature. It gains haste until end of turn."
+    IDS_STRING32808         "Akroan Sergeant\n{2R}\nCreature - Human Soldier\nORI,C\nFirst strike\rRenown 1\n2/2"
+    IDS_STRING32809         "Avaricious Dragon\n{2RR}\nCreature - Dragon\nORI,MR\nFlying\rAt the beginning of your draw step, draw an additional card.\rAt the beginning of your end step, discard your hand.\n4/4"
+    IDS_STRING32810         "Call of the Full Moon\n{1R}\nEnchantment - Aura\nORI,U\nEnchant creature\rEnchanted creature gets +3/+2 and has trample.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, sacrifice Call of the Full Moon."
+    IDS_STRING32811         "Chandra's Fury\n{4R}\nSorcery\nORI,C\nChandra’s Fury deals 4 damage to target player and 1 damage to each creature that player controls."
+    IDS_STRING32812         "Bellows Lizard\n{R}\nCreature - Lizard\nORI,C\n{1R}: Bellows Lizard gets +1/+0 until end of turn.\n1/1"
+    IDS_STRING32813         "Consecrated by Blood\n{2BB}\nEnchantment - Aura\nORI,U\nEnchant creature\rEnchanted creature gets +2/+2 and has flying and ""Sacrifice two other creatures: Regenerate this creature."""
+    IDS_STRING32814         "Dark Dabbling\n{2B}\nInstant\nORI,C\nRegenerate target creature. Draw a card.\rSpell Mastery - If there are two or more instant and/or sorcery cards in your graveyard, also regenerate each other creature you control."
+    IDS_STRING32815         "Dark Petition\n{3BB}\nSorcery\nORI,R\nSearch your library for a card and put that card into your hand. Then shuffle your library.\rSpell Mastery - Spell mastery — If there are two or more instant and/or sorcery cards in your graveyard, add {BBB} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32816         "Deadbridge Shaman\n{2B}\nCreature - Elf Shaman\nORI,C\nWhen Deadbridge Shaman dies, target opponent discards a card.\n3/1"
+    IDS_STRING32817         "Despoiler of Souls\n{BB}\nCreature - Horror\nORI,R\nDespoiler of Souls can't block.\r{BB}, Exile two other creature cards from your graveyard: Return Despoiler of Souls from your graveyard to the battlefield.\n3/1"
+    IDS_STRING32818         "Eyeblight Assassin\n{2B}\nCreature - Elf Assassin\nORI,C\nWhen Eyeblight Assassin enters the battlefield, target creature an opponent controls gets -1/-1 until end of turn.\n2/2"
+    IDS_STRING32819         "Eyeblight Massacre\n{2BB}\nSorcery\nORI,U\nNon-Elf creatures get -2/-2 until end of turn."
+    IDS_STRING32820         "Fetid Imp\n{1B}\nCreature - Imp\nORI,C\nFlying\r{B}: Fetid Imp gains deathtouch until end of turn.\n1/2"
+    IDS_STRING32821         "Languish\n{2BB}\nSorcery\nORI,R\nAll creatures get -4/-4 until end of turn."
+    IDS_STRING32822         "Graveblade Marauder\n{2B}\nCreature - Human Warrior\nORI,R\nDeathtouch\rWhenever Graveblade Marauder deals combat damage to a player, that player loses life equal to the number of creature cards in your graveyard.\n1/4"
+    IDS_STRING32823         "Rogue's Passage\n\nLand\nORI,U\n{T}: Add {1} to your mana p[ool.\r{4}, {T}: Target creature is unblockable this turn."
+    IDS_STRING32824         "Dragon Fodder\n{1R}\nSorcery\nORI,C\nPut two 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING32825         "Angel's Tomb\n{3}\nArtifact\nORI,U\nWhenever a creature enters the battlefield under your control, you may have Angel's Tomb become a 3/3 white Angel artifact creature with flying until end of turn."
+    IDS_STRING32826         "Bone to Ash\n{2UU}\nInstant\nORI,C\nCounter target creature spell.\rDraw a card."
+    IDS_STRING32827         "Catacomb Slug\n{4B}\nCreature - Slug\nORI,C\n\n2/6"
+    IDS_STRING32828         "Claustrophobia\n{1UU}\nEnchantment - Aura\nORI,C\nEnchant creature\rWhen Claustrophobia enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING32829         "Cobblebrute\n{3R}\nCreature - Elemental\nORI,C\n\n5/2"
+    IDS_STRING32830         "Cruel Revival\n{4B}\nInstant\nORI,C\nDestroy target non-Zombie creature. It can't be regenerated. Return up to one target Zombie card from your graveyard to your hand."
+    IDS_STRING32831         "Disperse\n{1U}\nInstant\nORI,C\nReturn target nonland permanent to its owner's hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32832         "Dreadwaters\n{3U}\nSorcery\nORI,C\nTarget player puts the top X cards of his or her library into his or her graveyard, where X is the number of lands you control."
+    IDS_STRING32833         "Elvish Visionary\n{1G}\nCreature - Elf Shaman\nORI,C\nWhen Elvish Visionary enters the battlefield, draw a card.\n1/1"
+    IDS_STRING32834         "Fiery Conclusion\n{1R}\nInstant\nORI,C\nAs an additional cost to cast Fiery Conclusion, sacrifice a creature.\rFiery Conclusion deals 5 damage to target creature."
+    IDS_STRING32835         "Fleshbag Marauder\n{2B}\nCreature - Zombie Warrior\nORI,U\nWhen Fleshbag Marauder enters the battlefield, each player sacrifices a creature.\n3/1"
+    IDS_STRING32836         "Gaea's Revenge\n{5GG}\nCreature - Elemental\nORI,R\nGaea's Revenge can't be countered.\rHaste\rGaea's Revenge can't be the target of nongreen spells or abilities from nongreen sources.\n8/5"
+    IDS_STRING32837         "Goblin Piledriver\n{1R}\nCreature - Goblin Warrior\nORI,R\nProtection from blue\rWhenever Goblin Piledriver attacks, it gets +2/+0 until end of turn for each other attacking Goblin.\n1/2"
+    IDS_STRING32838         "Gold-Forged Sentinel\n{6}\nArtifact Creature - Chimera\nORI,U\nFlying\n4/4"
+    IDS_STRING32839         "Guardians of Meletis\n{3}\nArtifact Creature - Golem\nORI,C\nDefender\n0/6"
+    IDS_STRING32840         "Knight of the White Orchid\n{WW}\nCreature - Human Knight\nORI,R\nFirst strike\rWhen Knight of the White Orchid enters the battlefield, if an opponent controls more lands than you, you may search your library for a Plains card, put it onto the battlefield, then shuffle your library.\n2/2"
+    IDS_STRING32841         "Knightly Valor\n{4W}\nEnchantment - Aura\nORI,C\nEnchant creature\rWhen Knightly Valor enters the battlefield, put a 2/2 white Knight creature token with vigilance onto the battlefield.\rEnchanted creature gets +2/+2 and has vigilance."
+    IDS_STRING32842         "Leaf Gilder\n{1G}\nCreature - Elf Druid\nORI,C\n{T}: Add {G} to your mana pool.\n2/1"
+    IDS_STRING32843         "Llanowar Empath\n{3G}\nCreature - Elf Shaman\nORI,C\nWhen Llanowar Empath enters the battlefield, scry 2, then reveal the top card of your library. If it's a creature card, put it into your hand.\n2/2"
+    IDS_STRING32844         "Macabre Waltz\n{1B}\nSorcery\nORI,C\nReturn up to two target creature cards from your graveyard to your hand, then discard a card."
+    IDS_STRING32845         "Might of the Masses\n{G}\nInstant\nORI,C\nTarget creature gets +1/+1 until end of turn for each creature you control."
+    IDS_STRING32846         "Murder Investigation\n{1W}\nEnchantment - Aura\nORI,U\nEnchant creature you control\rWhen enchanted creature dies, put X 1/1 white Soldier creature tokens onto the battlefield, where X is its power."
+    IDS_STRING32847         "Nantuko Husk\n{2B}\nCreature - Zombie Insect\nORI,U\nSacrifice a creature: Nantuko Husk gets +2/+2 until end of turn.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32848         "Negate\n{1U}\nInstant\nORI,C\nCounter target noncreature spell."
+    IDS_STRING32849         "Orchard Spirit\n{2G}\nCreature - Spirit\nORI,C\nOrchard Spirit can't be blocked except by creatures with flying or reach.\n2/2"
+    IDS_STRING32850         "Read the Bones\n{2B}\nSorcery\nORI,C\nScry 2, then draw two cards. You lose 2 life."
+    IDS_STRING32851         "Reclaim\n{G}\nInstant\nORI,C\nPut target card from your graveyard on top of your library."
+    IDS_STRING32852         "Returned Centaur\n{3B}\nCreature - Zombie Centaur\nORI,C\nWhen Returned Centaur enters the battlefield, target player puts the top four cards of his or her library into his or her graveyard.\n2/4"
+    IDS_STRING32853         "Revenant\n{4B}\nCreature - Spirit\nORI,R\nFlying\rRevenant's power and toughness are each equal to the number of creature cards in your graveyard.\n*/*"
+    IDS_STRING32854         "Runed Servitor\n{2}\nArtifact Creature - Construct\nORI,C\nWhen Runed Servitor dies, each player draws a card.\n2/2"
+    IDS_STRING32855         "Scrapskin Drake\n{2U}\nCreature - Zombie Drake\nORI,C\nFlying\rScrapskin Drake can block only creatures with flying.\n2/3"
+    IDS_STRING32856         "Screeching Skaab\n{1U}\nCreature - Zombie\nORI,C\nWhen Screeching Skaab enters the battlefield, put the top two cards of your library into your graveyard.\n1/2"
+    IDS_STRING32857         "Sigil of the Empty Throne\n{3WW}\nEnchantment\nORI,R\nWhenever you cast an enchantment spell, put a 4/4 white Angel creature token with flying onto the battlefield."
+    IDS_STRING32858         "Sigiled Starfish\n{1U}\nCreature - Starfish\nORI,C\n{T}: Scry 1.\n0/3"
+    IDS_STRING32859         "Skaab Goliath\n{5U}\nCreature - Zombie Giant\nORI,U\nAs an additional cost to cast Skaab Goliath, exile two creature cards from your graveyard.\rTrample\n6/9"
+    IDS_STRING32860         "Smash to Smithereens\n{1R}\nInstant\nORI,C\nDestroy target artifact. Smash to Smithereens deals 3 damage to that artifact's controller."
+    IDS_STRING32861         "Stratus Walk\n{1U}\nEnchantment - Aura\nORI,C\nEnchant creature\rWhen Stratus Walk enters the battlefield, draw a card.\rEnchanted creature has flying.\rEnchanted creature can block only creatures with flying."
+    IDS_STRING32862         "Sylvan Messenger\n{3G}\nCreature - Elf\nORI,U\nTrample\rWhen Sylvan Messenger enters the battlefield, reveal the top four cards of your library. Put all Elf cards revealed this way into your hand and the rest on the bottom of your library in any order.\n2/2"
+    IDS_STRING32863         "Timberpack Wolf\n{1G}\nCreature - Wolf\nORI,C\nReach\rTimberpack Wolf gets +1/+1 for each other creature you control named Timberpack Wolf.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING32864         "Titanic Growth\n{1G}\nInstant\nORI,C\nTarget creature gets +4/+4 until end of turn."
+    IDS_STRING32865         "Titan's Strength\n{R}\nInstant\nORI,C\nTarget creature gets +3/+1 until end of turn. Scry 1."
+    IDS_STRING32866         "Totem-Guide Hartebeest\n{4W}\nCreature - Antelope\nORI,C\nWhen Totem-Guide Hartebeest enters the battlefield, you may search your library for an Aura card, reveal it, put it into your hand, then shuffle your library.\n2/5"
+    IDS_STRING32867         "Tower Geist\n{3U}\nCreature - Spirit\nORI,U\nFlying\rWhen Tower Geist enters the battlefield, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.\n2/2"
+    IDS_STRING32868         "Weight of the Underworld\n{3B}\nEnchantment - Aura\nORI,C\nEnchant creature\rEnchanted creature gets -3/-2."
+    IDS_STRING32869         "Yoked Ox\n{W}\nCreature - Ox\nORI,C\n\n0/4"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

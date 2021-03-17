@@ -7,4 +7,10 @@ counted_ptr<CCard> _cdecl CreateCard(CGame* pGame, LPCTSTR strCardName, StringAr
 
 //____________________________________________________________________________
 //
-// Add new card class declaractions here
+class CCreeperhulkCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CCreeperhulkCard);
+};
+
+//____________________________________________________________________________
+//

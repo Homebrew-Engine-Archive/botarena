@@ -3220,7 +3220,7 @@ CFieldOfDreamsCard::CFieldOfDreamsCard(CGame* pGame, UINT nID)
 
 void CFieldOfDreamsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
 {
-	if (pToZone->GetZoneId() == ZoneId::_Effects && GetController()->GetZoneById(ZoneId::Library)->GetSize() > 0 && !m_pGame->IsThinking())
+	if (pToZone->GetZoneId() == ZoneId::_Effects && GetController()->GetZoneById(ZoneId::Library)->GetSize() >0 && !m_pGame->IsThinking())
 	{
 		CString strMessage;
 		strMessage.Format(_T("%s reveals %s in %s's %s"), 
@@ -3249,6 +3249,8 @@ void CFieldOfDreamsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 		for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)
 			GetGame()->GetPlayer(j)->MemorizeCard(m_pGame->GetNextPlayer(GetController())->GetZoneById(ZoneId::Library)->GetTopCard());
 	}
+
+	return;
 }
 
 //____________________________________________________________________________

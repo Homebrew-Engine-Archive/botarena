@@ -16,7 +16,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
 		DEFINE_CARD(CArcBladeCard);
 		DEFINE_CARD(CAugurIlVecCard);
 		DEFINE_CARD(CAugurOfSkullsCard);
@@ -79,7 +78,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLeadenFistsCard);
 		DEFINE_CARD(CLinessaZephyrMageCard);
 		DEFINE_CARD(CLlanowarAugurCard);
-		DEFINE_CARD(CLlanowarEmpathCard);
 		DEFINE_CARD(CLlanowarMentorCard);
 		DEFINE_CARD(CLlanowarRebornCard);
 		DEFINE_CARD(CLostAuramancersCard);
@@ -1066,8 +1064,6 @@ CMagusOfTheMoonCard::CMagusOfTheMoonCard(CGame* pGame, UINT nID)
 			CardType::Mountain | CardType::PseudoBasicLand, CardType::_LandTypeChangeMask));
 
 	cpAbility->GetEnchantmentCardFilter().AddNegateComparer(new CardTypeComparer(CardType::BasicLand, false));
-
-	cpAbility->SetHasExcludingTypes();
 	AddAbility(cpAbility.GetPointer());
 }
 
@@ -2341,73 +2337,6 @@ void CMysticSpeculationCard::Move(CZone* pToZone, const CPlayer* pByPlayer, Move
 	}
 
 	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
-}
-
-//____________________________________________________________________________
-//
-CLlanowarEmpathCard::CLlanowarEmpathCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Llanowar Empath"), CardType::Creature, CREATURE_TYPE2(Elf, Shaman), nID,
-		_T("3") GREEN_MANA_TEXT, Power(2), Life(2))
-{
-	typedef
-		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	
-	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLlanowarEmpathCard::BeforeResolution));
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-bool CLlanowarEmpathCard::BeforeResolution(CAbilityAction* pAction)
-{
-	//Scry 2 start----------------------
-	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
-		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-		pModifier->GetSelection(0).moveType = MoveType::Others;
-		pModifier->AddSelection(MinimumValue(0), MaximumValue(2), // select cards to bottom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL,									// any cards
-			ZoneId::Library,						// if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom,					// put selected cards on top
-			MoveType::Others,						// move type
-			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
-
-		// and finally put the last ones on top of the library
-		pModifier->SetReorderInformation(
-			true, 
-			ZoneId::Library,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-//Scry 2 end--------------------------
-	pModifier->ApplyTo(pAction->GetController());
-
-	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
-	pScryModifier.ApplyTo(this);
-
-	CZone* lib = pAction->GetController()->GetZoneById(ZoneId::Library);
-	if (lib->GetSize()>0)
-	{
-		CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
-			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
-
-		pModifier1.ApplyTo(pAction->GetController());
-
-		CCard* pNextDraw = pAction->GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
-	
-		if (pNextDraw->GetCardType().IsCreature())
-		{
-			CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Library, ZoneId::Hand, TRUE, MoveType::Others, pAction->GetController());
-			pModifier2.ApplyTo(pNextDraw);
-		}
-	}
-
-	return true;
 }
 
 //____________________________________________________________________________
@@ -5024,9 +4953,7 @@ void CRealityStrobeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 COrissSamiteGuardianCard::COrissSamiteGuardianCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Oriss, Samite Guardian"), CardType::_LegendaryCreature, CREATURE_TYPE2(Human, Cleric), nID,
 		_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(1), Life(3))
-
 	, m_CardFilter(_T("a card named Oriss, Samite Guardian"), _T("cards named Oriss, Samite Guardian"), new CardNameComparer(_T("Oriss, Samite Guardian")))
-	, m_CardFilter1(FALSE_CARD_COMPARER)
 {
 	{
 		counted_ptr<CActivatedAbility<CTargetDamagePreventionSpell>> cpAbility(
@@ -5046,16 +4973,22 @@ COrissSamiteGuardianCard::COrissSamiteGuardianCard(CGame* pGame, UINT nID)
 			_T(""),
 			FALSE_CARD_COMPARER, TRUE));
 		
-		cpAbility->GetCost().AddDiscardCardCost(1, &m_CardFilter);
-
+		cpAbility->GetCost().AddDiscardCardCost(1, &m_CardFilter);			// Discard another card named Oriss, Samite Guardian	
 		cpAbility->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
-
-		cpAbility->GetTargetModifier().CPlayerModifiers::push_back(new CPlayerEffectModifier(PlayerEffectType::CantPlaySpells, (int)CCardFilter::GetFilter(_T("cards"))));
-		cpAbility->GetTargetModifier().CPlayerModifiers::push_back(new COpponentModifier(GetGame(), new CCanAttackWithModifier(GetGame(), &m_CardFilter1)));
-
-
+		//Target player can't cast spells this turn
+		CPlayerEffectModifier*    pModifier1 = new CPlayerEffectModifier(PlayerEffectType::CantPlaySpells, (int)CCardFilter::GetFilter(_T("cards")));	
+		CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
+			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);
+		pModifier1->LinkPlayerModifier(pModifier2);
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier1);		
+		//Creatures target player controls can't attack this turn
+		CPlayerEffectModifier*    pModifier3 = new CPlayerEffectModifier(PlayerEffectType::CantAttackWithCreatures, (int)CCardFilter::GetFilter(_T("creatures")));	
+		CScheduledPlayerModifier* pModifier4 = new CScheduledPlayerModifier(
+			GetGame(), pModifier3 , TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);	
+		pModifier3->LinkPlayerModifier(pModifier4);
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier3);	
 		cpAbility->SetAbilityText(_T("Target player can't cast spells this turn, and creatures that player controls can't attack this turn."));
-
+		
 		AddAbility(cpAbility.GetPointer());
 	}
 }
@@ -5625,8 +5558,7 @@ CWhipSpineDrakeCard::CWhipSpineDrakeCard(CGame* pGame, UINT nID)
 		_T("3") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(3), Life(3), _T("2") WHITE_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Drake);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 }
 
 //____________________________________________________________________________

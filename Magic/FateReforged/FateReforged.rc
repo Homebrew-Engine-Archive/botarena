@@ -77,6 +77,84 @@ BEGIN
     IDS_PRODUCT_LIST        """Fate Reforged Starter Box"":R-3:U-10:C-32:BL-30,""Fate Reforged Booster Pack"":R-1:U-3:C-11"
 END
 
+STRINGTABLE
+BEGIN
+    IDS_STRING29500         "Arashin Cleric\n{1W}\nCreature - Human Cleric\nFRF,C\nWhen Arashin Cleric enters the battlefield, you gain 3 life.\n1/3"
+    IDS_STRING29501         "Aven Skirmisher\n{W}\nCreature - Bird Warrior\nFRF,C\nFlying\n1/1"
+    IDS_STRING29502         "Great-Horn Krushok\n{4W}\nCreature - Beast\nFRF,C\n\n3/5"
+    IDS_STRING29503         "Jeskai Barricade\n{1W}\nCreature - Wall\nFRF,U\nFlash\rDefender\rWhen Jeskai Barricade enters the battlefield, you may return another target creature you control to its owner's hand.\n0/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29504         "Pressure Point\n{1W}\nInstant\nFRF,C\nTap target creature.\rDraw a card."
+    IDS_STRING29505         "Refocus\n{1U}\nInstant\nFRF,C\nUntap target creature.\rDraw a card."
+    IDS_STRING29506         "Sandblast\n{2W}\nInstant\nFRF,C\nSandblast deals 5 damage to target attacking or blocking creature."
+    IDS_STRING29507         "Dragon Bell Monk\n{2W}\nCreature - Human Monk\nFRF,C\nVigilance\rProwess\n2/2"
+    IDS_STRING29508         "Lotus Path Djinn\n{3U}\nCreature - Djinn Monk\nFRF,C\nFlying\rProwess\n2/3"
+    IDS_STRING29509         "Lotus Eye Mystics\n{3W}\nCreature - Human Monk\nFRF,U\nProwess\rWhen Lotus-Eye Mystics enters the battlefield, return target enchantment card from your graveyard to your hand.\n1/4"
+    IDS_STRING29510         "Pilgrim of the Fires\n{7}\nArtifact Creature - Golem\nFRF,U\nFirst strike, trample\n6/4"
+    IDS_STRING29511         "Hewed Stone Retainers\n{3}\nArtifact Creature - Golem\nFRF,U\nCast Hewed Stone Retainers only if you've cast another spell this turn.\n4/4"
+    IDS_STRING29512         "Douse in Gloom\n{2B}\nInstant\nFRF,C\nDouse in Gloom deals 2 damage to target creature and you gain 2 life."
+    IDS_STRING29513         "Bloodfell Caves\n\nLand\nFRF,C\nBloodfell Caves enters the battlefield tapped.\rWhen Bloodfell Caves enters the battlefield, you gain 1 life.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING29514         "Blossoming Sands\n\nLand\nFRF,C\nBlossoming Sands enters the battlefield tapped.\rWhen Blossoming Sands enters the battlefield, you gain 1 life.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING29515         "Dismal Backwater\n\nLand\nFRF,C\nDismal Backwater enters the battlefield tapped.\rWhen Dismal Backwater enters the battlefield, you gain 1 life.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING29516         "Jungle Hollow\n\nLand\nFRF,C\nJungle Hollow enters the battlefield tapped.\rWhen Jungle Hollow enters the battlefield, you gain 1 life.\r{T}: Add {B} or {G} to your mana pool."
+    IDS_STRING29517         "Rugged Highlands\n\nLand\nFRF,C\nRugged Highlands enters the battlefield tapped.\rWhen Rugged Highlands enters the battlefield, you gain 1 life.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING29518         "Scoured Barrens\n\nLand\nFRF,C\nScoured Barrens enters the battlefield tapped.\rWhen Scoured Barrens enters the battlefield, you gain 1 life.\r{T}: Add {W} or {B} to your mana pool."
+    IDS_STRING29519         "Swiftwater Cliffs\n\nLand\nFRF,C\nSwiftwater Cliffs enters the battlefield tapped.\rWhen Swiftwater Cliffs enters the battlefield, you gain 1 life.\r{T}: Add {U} or {R} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29520         "Thornwood Falls\n\nLand\nFRF,C\nThornwood Falls enters the battlefield tapped.\rWhen Thornwood Falls enters the battlefield, you gain 1 life.\r{T}: Add {G} or {U} to your mana pool."
+    IDS_STRING29521         "Tranquil Cove\n\nLand\nFRF,C\nTranquil Cove enters the battlefield tapped.\rWhen Tranquil Cove enters the battlefield, you gain 1 life.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING29522         "Wind-Scarred Crag\n\nLand\nFRF,C\nWind-Scarred Crag enters the battlefield tapped.\rWhen Wind-Scarred Crag enters the battlefield, you gain 1 life.\r{T}: Add {R} or {W} to your mana pool."
+    IDS_STRING29523         "Hunt the Weak\n{3G}\nSorcery\nFRF,C\nPut a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control."
+    IDS_STRING29524         "Pyrotechnics\n{4R}\nSorcery\nFRF,C\nPyrotechnics deals 4 damage divided as you choose among any number of target creatures and/or players."
+    IDS_STRING29525         "Typhoid Rats\n{B}\nCreature - Rat\nFRF,C\nDeathtouch\n1/1"
+    IDS_STRING29526         "Forest\n\nBasic Land - Forest\nFRF,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING29527         "Forest\n\nBasic Land - Forest\nFRF,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING29528         "Island\n\nBasic Land - Island\nFRF,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING29529         "Island\n\nBasic Land - Island\nFRF,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING29530         "Mountain\n\nBasic Land - Mountain\nFRF,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING29531         "Mountain\n\nBasic Land - Mountain\nFRF,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING29532         "Plains\n\nBasic Land - Plains\nFRF,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING29533         "Plains\n\nBasic Land - Plains\nFRF,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING29534         "Swamp\n\nBasic Land - Swamp\nFRF,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING29535         "Swamp\n\nBasic Land - Swamp\nFRF,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29536         "Alesha's Vanguard\n{3B}\nCreature - Orc Warrior\nFRF,C\nDash {2B}\n3/3"
+    IDS_STRING29537         "Mardu Shadowspear\n{B}\nCreature - Human Warrior\nFRF,U\nWhenever Mardu Shadowspear attacks, each opponent loses 1 life.\rDash {1B}\n1/1"
+    IDS_STRING29538         "Mardu Strike Leader\n{2B}\nCreature - Human Warrior\nFRF,R\nWhenever Mardu Strike Leader attacks, put a 2/1 black Warrior creature token onto the battlefield.\rDash {3B}\n3/2"
+    IDS_STRING29539         "Goblin Heelcutter\n{3R}\nCreature - Goblin Berserker\nFRF,C\nWhenever Goblin Heelcutter attacks, target creature can't block this turn.\rDash {2R}\n3/2"
+    IDS_STRING29540         "Kolaghan, the Storm's Fury\n{3BR}\nLegendary Creature - Dragon\nFRF,R\nFlying\rWhenever a Dragon you control attacks, creatures you control get +1/+0 until end of turn.\rDash {3BR}\n4/5"
+    IDS_STRING29541         "Mardu Scout\n{RR}\nCreature - Goblin Scout\nFRF,C\nDash {1R}\n3/1"
+    IDS_STRING29542         "Vaultbreaker\n{3R}\nCreature - Orc Rogue\nFRF,U\nWhenever Vaultbreaker attacks, you may discard a card. If you do, draw a card.\rDash {2R}\n4/2"
+    IDS_STRING29543         "Gurmag Angler\n{6B}\nCreature - Zombie Fish\nFRF,C\nDelve\n5/5"
+    IDS_STRING29544         "Tasigur's Cruelty\n{5B}\nSorcery\nFRF,C\nDelve\rEach opponent discards two cards."
+    IDS_STRING29545         "Rite of Undoing\n{4U}\nInstant\nFRF,U\nDelve\rReturn target nonland permanent you control and target nonland permanent you don't control to their owners' hands."
+    IDS_STRING29546         "Sibsig Muckdraggers\n{8B}\nCreature - Zombie\nFRF,U\nDelve\rWhen Sibsig Muckdraggers enters the battlefield, return target creature card from your graveyard to your hand.\n3/6"
+    IDS_STRING29547         "Temporal Trespass\n{8UUU}\nSorcery\nFRF,MR\nDelve\rTake an extra turn after this one. Exile Temporal Trespass."
+    IDS_STRING29548         "Archers of Qarsi\n{3G}\nCreature - Naga Archer\nFRF,C\nDefender\rReach\n5/2"
+    IDS_STRING29549         "Bathe in Dragonfire\n{2R}\nSorcery\nFRF,C\nBathe in Dragonfire deals 4 damage to target creature."
+    IDS_STRING29550         "Collateral Damage\n{R}\nInstant\nFRF,C\nAs an additional cost to cast Collateral Damage, sacrifice a creature.\rCollateral Damage deals 3 damage to target creature or player."
+    IDS_STRING29551         "Merciless Executioner\n{2B}\nCreature - Orc Warrior\nFRF,U\nWhen Merciless Executioner enters the battlefield, each player sacrifices a creature.\n3/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING29552         "Noxious Dragon\n{4BB}\nCreature - Dragon\nFRF,U\nFlying\rWhen Noxious Dragon dies, you may destroy target creature with converted mana cost 3 or less.\n4/4"
+    IDS_STRING29553         "Ancestral Vengeance\n{BB}\nEnchantment - Aura\nFRF,C\nEnchant creature\rWhen Ancestral Vengeance enters the battlefield, put a +1/+1 counter on target creature you control.\rEnchanted creature gets -1/-1."
+    IDS_STRING29554         "Battle Brawler\n{1B}\nCreature - Orc Warrior\nFRF,U\nAs long as you control a red or white permanent, Battle Brawler gets +1/+0 and has first strike.\n2/2"
+    IDS_STRING29555         "Crux of Fate\n{3BB}\nSorcery\nFRF,R\nChoose one - Destroy all Dragon creatures; or Destroy all non-Dragon creatures."
+    IDS_STRING29556         "Dark Deal\n{2B}\nSorcery\nFRF,U\nEach player discards all the cards in his or her hand, then draws that many cards minus one."
+    IDS_STRING29557         "Diplomacy of the Wastes\n{2B}\nSorcery\nFRF,U\nTarget opponent reveals his or her hand. You choose a nonland card from it. That player discards that card. If you control a Warrior, that player loses 2 life."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -97,7 +97,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CCentaurCToken);		
 		DEFINE_TOKEN(CCitizenAToken);
 		DEFINE_TOKEN(CCitizenBToken);
-		DEFINE_TOKEN(CClericToken);
+		DEFINE_TOKEN(CClericAToken);
 		DEFINE_TOKEN(CCloudSpriteToken);
 		DEFINE_TOKEN(CDemonAToken);
 		DEFINE_TOKEN(CDemonBToken);
@@ -216,7 +216,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CPentaviteToken);
 		DEFINE_TOKEN(CPestToken);
 		DEFINE_TOKEN(CPincherToken);
-		DEFINE_TOKEN(CPlantToken);
+		DEFINE_TOKEN(CPlantAToken);
 		DEFINE_TOKEN(CPrismToken);
 		DEFINE_TOKEN(CRatAToken);
 		DEFINE_TOKEN(CRatBToken);
@@ -1977,7 +1977,7 @@ CPincherToken::CPincherToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CPlantToken::CPlantToken(CGame* pGame, UINT nID)
+CPlantAToken::CPlantAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Plant"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Plant), nID,
 		_T(""),
@@ -3394,12 +3394,12 @@ CElementalHToken::CElementalHToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CClericToken::CClericToken(CGame* pGame, UINT nID)
+CClericAToken::CClericAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Cleric"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Cleric), nID,
 		_T(""),
 		Power(1), Life(1))
-	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClericToken::OnCardSelected))
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClericAToken::OnCardSelected))
 {
 	AddCardType(CardType::White | CardType::Black, CardType::_ColorMask);
 
@@ -3411,7 +3411,7 @@ CClericToken::CClericToken(CGame* pGame, UINT nID)
 		cpAbility->AddTapCost();
 		cpAbility->AddSacrificeCost();
 
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CClericToken::BeforeResolution));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CClericAToken::BeforeResolution));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -3419,7 +3419,7 @@ CClericToken::CClericToken(CGame* pGame, UINT nID)
 // Used by Deathpact Angel
 }
 
-bool CClericToken::BeforeResolution(CAbilityAction* pAction)
+bool CClericAToken::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CZone* pGraveyard = pController->GetZoneById(ZoneId::Graveyard);
@@ -3452,7 +3452,7 @@ bool CClericToken::BeforeResolution(CAbilityAction* pAction)
 	return true;
 }
 
-void CClericToken::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+void CClericAToken::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
 

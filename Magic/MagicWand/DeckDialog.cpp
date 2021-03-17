@@ -652,6 +652,8 @@ BOOL CDeckDialog::OnInitDialog()
 	m_acBlocks->Add(_T("Tempest"));
 	m_acBlocks->Add(_T("Mirage"));
 	m_acBlocks->Add(_T("Ice Age"));
+	m_acBlocks->Add(_T("Homfall"));
+	m_acBlocks->Add(_T("93-94"));
 	m_acBlocks->QueryInterface(IID_PPV_ARGS(&punkSource));
 
 	HWND hwnd = ::GetDlgItem(m_hWnd, IDC_SEARCH);

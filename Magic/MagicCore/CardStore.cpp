@@ -193,7 +193,7 @@ CCardStore::CCardStore()
 {
 	m_SmallCardSize.Height = DefaultSmallCardHeight;
 	m_SmallCardSize.Width = static_cast<int>((float)m_SmallCardSize.Height * (float)LargeCardWidth / (float)LargeCardHeight);
-	m_SmallFont.reset(new Gdiplus::Font(_T("MPlantin"), Gdiplus::REAL(s_nSmallFontSize), Gdiplus::FontStyleRegular, Gdiplus::UnitPixel));
+	m_SmallFont.reset(new Gdiplus::Font(_T("mplantin"), Gdiplus::REAL(s_nSmallFontSize), Gdiplus::FontStyleRegular, Gdiplus::UnitPixel));
 }
 
 #pragma pop_macro("new")

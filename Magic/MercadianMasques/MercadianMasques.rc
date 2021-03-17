@@ -457,6 +457,11 @@ BEGIN
     IDS_STRING11903         "Spiritual Focus\n{1W}\nEnchantment\nMMQ,R\nWhenever a spell or ability an opponent controls causes you to discard a card, you gain 2 life and you may draw a card."
 END
 
+STRINGTABLE
+BEGIN
+    IDS_STRING11904         "Territorial Dispute\n{4RR}\nEnchantment\nMMQ,R\nAt the beginning of your upkeep, sacrifice Territorial Dispute unless you sacrifice a land.\rPlayers can't play lands."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

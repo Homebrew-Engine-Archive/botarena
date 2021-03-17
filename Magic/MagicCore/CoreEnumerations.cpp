@@ -11,12 +11,14 @@ CString CreatureKeyword::ToString(CreatureKeyword creatureKeyword)
 	if ((creatureKeyword & Monstrous).Any())
 		strText += _T("monstrous, ");
 
+	if ((creatureKeyword & Renowned).Any())
+		strText += _T("renowned, ");
+
 	if ((creatureKeyword & CreatureKeyword::FirstStrike).Any())
 		strText += _T("first strike, ");
 
 	if ((creatureKeyword & CreatureKeyword::DoubleStrike).Any())
 		strText += _T("double strike, ");
-
 
 	if ((creatureKeyword & CreatureKeyword::Flying).Any())
 		strText += _T("flying, ");
@@ -469,6 +471,7 @@ const LPCTSTR SingleCreatureType::s_Text[SingleCreatureType::_SingleTypeCount] =
 	_T("Plant"),
 	_T("Praetor"),
 	_T("Prism"),
+	_T("Processor"),
 	_T("Rabbit"),
 	_T("Rat"),
 	_T("Rebel"),
@@ -483,6 +486,7 @@ const LPCTSTR SingleCreatureType::s_Text[SingleCreatureType::_SingleTypeCount] =
 	_T("Saproling"),
 	_T("Satyr"),
 	_T("Scarecrow"),
+	_T("Scion"),
 	_T("Scorpion"),
 	_T("Scout"),
 	_T("Serf"),

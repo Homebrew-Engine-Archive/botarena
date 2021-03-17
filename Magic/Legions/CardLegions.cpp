@@ -16,7 +16,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	counted_ptr<CCard> cpCard;
 	do
 	{
-
 		DEFINE_CARD(CAkromaAngelOfWrathCard);
 		DEFINE_CARD(CAkromasDevotedCard);
 		DEFINE_CARD(CAphettoExterminatorCard);
@@ -2698,26 +2697,25 @@ CAphettoExterminatorCard::CAphettoExterminatorCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Wizard);
-
 	{
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
+		typedef
+			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(-3));
-	cpAbility->GetPowerModifier().SetPowerDelta(Power(-3));
-	cpAbility->GetLifeModifier().SetDamageType(DamageType::NotDealingDamage);
-	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(-3));
+		cpAbility->GetPowerModifier().SetPowerDelta(Power(-3));
+		cpAbility->GetLifeModifier().SetDamageType(DamageType::NotDealingDamage);
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
 
-	cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
 	}
 }
 //____________________________________________________________________________
@@ -2727,8 +2725,7 @@ CBranchsnapLorianCard::CBranchsnapLorianCard(CGame* pGame, UINT nID)
 		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(1), _T("1") GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
-
-	GetCreatureKeyword()->AddTrample(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Trample, true, false));
 }
 
 //____________________________________________________________________________
@@ -2769,27 +2766,28 @@ CBloodstokeHowlerCard::CBloodstokeHowlerCard(CGame* pGame, UINT nID)
 	, m_CardFilter(_T("a Beast"), _T("Beasts"), new CreatureTypeComparer(CREATURE_TYPE(Beast), false))
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
 
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetCardFilterHelper().SetPredefinedFilter(&m_CardFilter);
 
-	cpAbility->GetCardFilterHelper().SetPredefinedFilter(&m_CardFilter);
+		cpAbility->SetModifyCreatureOption(TriggeredAbility::ModifyCreatureOption::ModifyTriggeredPlayersCreatures);
+		cpAbility->GetPowerModifier().SetPowerDelta(Power(+3));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	cpAbility->SetModifyCreatureOption(TriggeredAbility::ModifyCreatureOption::ModifyTriggeredPlayersCreatures);
-	cpAbility->GetPowerModifier().SetPowerDelta(Power(+3));
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-	cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 //____________________________________________________________________________
@@ -2832,8 +2830,7 @@ CRockshardElementalCard::CRockshardElementalCard(CGame* pGame, UINT nID)
 		_T("5") RED_MANA_TEXT RED_MANA_TEXT, Power(4), Life(3), _T("4") RED_MANA_TEXT RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Elemental);
-
-	GetCreatureKeyword()->AddDoubleStrike(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::DoubleStrike, true, false));
 }
 
 //____________________________________________________________________________
@@ -2843,8 +2840,7 @@ CSootfeatherFlockCard::CSootfeatherFlockCard(CGame* pGame, UINT nID)
 		_T("4") BLACK_MANA_TEXT, Power(3), Life(2), _T("3") BLACK_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Bird);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 }
 
 //____________________________________________________________________________
@@ -2855,7 +2851,6 @@ CChromeshellCrabCard::CChromeshellCrabCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Crab);
 	this->AddCreatureType(SingleCreatureType::Beast);
-
 	{
 		typedef
 			TTriggeredDoubleTargetAbility< CTriggeredExchangeControlAbility, CSpecialTrigger > TriggeredAbility;
@@ -2875,7 +2870,6 @@ CChromeshellCrabCard::CChromeshellCrabCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
 		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
-
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2905,7 +2899,6 @@ CDaruSanctifierCard::CDaruSanctifierCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
 		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
-
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2940,7 +2933,6 @@ CEchoTracerCard::CEchoTracerCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-
 		AddAbility(cpAbility.GetPointer());
 	}
 }
@@ -2952,8 +2944,7 @@ CImperialHellkiteCard::CImperialHellkiteCard(CGame* pGame, UINT nID)
 		_T("5") RED_MANA_TEXT RED_MANA_TEXT, Power(6), Life(6), _T("6") RED_MANA_TEXT RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Dragon);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
 		typedef
 			TTriggeredAbility< CTriggeredSearchLibraryAbility, CSpecialTrigger > TriggeredAbility;
@@ -2971,7 +2962,6 @@ CImperialHellkiteCard::CImperialHellkiteCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-
 		AddAbility(cpAbility.GetPointer());
 	}
 }
@@ -2984,9 +2974,7 @@ CLiegeOfTheAxeCard::CLiegeOfTheAxeCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Soldier);
-
-	GetCreatureKeyword()->AddVigilance(FALSE);
-
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Vigilance, true, false));
 	{
 		typedef
 			TTriggeredAbility< CTriggeredTapCardAbility, CSpecialTrigger > TriggeredAbility;
@@ -3019,7 +3007,6 @@ CNantukoVigilanteCard::CNantukoVigilanteCard(CGame* pGame, UINT nID)
 	this->AddCreatureType(SingleCreatureType::Insect);
 	this->AddCreatureType(SingleCreatureType::Druid);
 	this->AddCreatureType(SingleCreatureType::Mutant);
-
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CSpecialTrigger > TriggeredAbility;
@@ -3049,7 +3036,6 @@ CPatronOfTheWildCard::CPatronOfTheWildCard(CGame* pGame, UINT nID)
 		_T("") GREEN_MANA_TEXT, Power(1), Life(1), _T("2") GREEN_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Elf);
-
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
@@ -3081,7 +3067,6 @@ CShaleskinPlowerCard::CShaleskinPlowerCard(CGame* pGame, UINT nID)
 		_T("3") RED_MANA_TEXT, Power(3), Life(2), _T("4") RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Beast);
-
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CSpecialTrigger > TriggeredAbility;
@@ -3110,7 +3095,6 @@ CSkinthinnerCard::CSkinthinnerCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT, Power(2), Life(1), _T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Zombie);
-
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredMoveCardAbility, CSpecialTrigger > TriggeredAbility;
@@ -3120,8 +3104,7 @@ CSkinthinnerCard::CSkinthinnerCard(CGame* pGame, UINT nID)
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
 		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-		cpAbility->GetTargeting().GetSubjectCardFilter().AddNegateComparer(
-			new CardTypeComparer(CardType::Black, false));
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddNegateComparer(new CardTypeComparer(CardType::Black, false));
 		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Destroy);
 
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
@@ -3141,7 +3124,6 @@ CSkirkMarauderCard::CSkirkMarauderCard(CGame* pGame, UINT nID)
 		_T("1") RED_MANA_TEXT, Power(2), Life(1), _T("2") RED_MANA_TEXT)
 {
 	this->AddCreatureType(SingleCreatureType::Goblin);
-
 	{	
 		typedef
 			TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CSpecialTrigger > TriggeredAbility;
@@ -3172,7 +3154,6 @@ CUnstableHulkCard::CUnstableHulkCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Goblin);
 	this->AddCreatureType(SingleCreatureType::Mutant);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredAbility<>, CSpecialTrigger > TriggeredAbility;
@@ -3203,7 +3184,6 @@ CVoidmageApprenticeCard::CVoidmageApprenticeCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Wizard);
-
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
@@ -3219,7 +3199,6 @@ CVoidmageApprenticeCard::CVoidmageApprenticeCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
 		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-
 		AddAbility(cpAbility.GetPointer());
 	}
 }
@@ -3233,9 +3212,7 @@ CWingbeatWarriorCard::CWingbeatWarriorCard(CGame* pGame, UINT nID)
 	this->AddCreatureType(SingleCreatureType::Bird);
 	this->AddCreatureType(SingleCreatureType::Soldier);
 	this->AddCreatureType(SingleCreatureType::Warrior);
-
-	GetCreatureKeyword()->AddFlying(FALSE);
-
+	this->AddCreatureModifier(new CCreatureKeywordModifier(CreatureKeyword::Flying, true, false));
 	{
 		typedef
 			TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;

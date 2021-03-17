@@ -30,6 +30,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPriceOfKnowledgeCard);
 		DEFINE_CARD(CPrimalVigorCard);
 		DEFINE_CARD(CRestoreCard);
+		DEFINE_CARD(CRoonoftheHiddenRealmCard);
 		DEFINE_CARD(CShattergangBrothersCard);
 		DEFINE_CARD(CSpawningGroundsCard);
 		DEFINE_CARD(CSuddenDemiseCard);

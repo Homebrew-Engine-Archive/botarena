@@ -245,23 +245,75 @@ CString CCard::AppendToCardName(LPCTSTR strSuffix)
 	m_strCardName += strSuffix;
 	return m_strCardName;
 }
+/*
+	202.3. The converted mana cost of an object is a number equal to the total amount of mana in its mana
+		   cost, regardless of color.
+	Example:
+		A mana cost of {3}{U}{U} translates to a converted mana cost of 5.
+	202.3a The converted mana cost of an object with no mana cost is 0.
+	202.3b When calculating the converted mana cost of an object with an {X} in its mana cost, X is
+		   treated as 0 while the object is not on the stack, and X is treated as the number chosen for it
+		   while the object is on the stack.
+	117.8d Additional costs don’t change a spell’s mana cost, only what its controller has to pay to cast it. 
+		   Spells and abilities that ask for that spell’s mana cost still see the original value.
+	117.9c An alternative cost doesn’t change a spell’s mana cost, only what its controller has to pay to cast it. 
+	       Spells and abilities that ask for that spell’s mana cost still see the original value.
+
+	These rules expressed colloquially, "The converted mana cost of a card is its mana cost, i.e. what's printed in the upper corner, 
+	converted to a number. That's it. The only thing that can make it vary is the value of X while the spell is on the stack, 
+	X being treated as 0 for CMC everywhere else."
+
+	Scenario Ingot Chewer, Mental Misstep
+	-------------------------------------
+	Ingot Chewer 4R 
+	Creature - Elemental
+	When Ingot Chewer enters the battlefield, destroy target artifact. Evoke {R} 3/3
+	
+	Mental Misstep {U Phyrexian}
+	Instant
+	Counter target spell with converted mana cost 1.
+	
+	Cast Ingot Chewer using Evoke cost {R} and while Ingot Chewer is on the stack try to counter with Mental Misstep.
+	Should not be able to counter because converted mana cost is 5 (calculated from printed cost not the Evoke cost).
+
+	Scenario Devil's Play, Spell Snare
+	----------------------------------
+	Devil's Play XR
+	Sorcery
+	Devil's Play deals X damage to target creature or player. Flashback {XRRR}
+
+	Spell Snare U
+	Instant
+	Counter target spell with converted mana cost 2.
+
+	Start with Devil's Play in the graveyard, cast from graveyard using Flashback cost {XRRR} and X=1 and while Devil's Play in on
+	the stack counter with Spell Snare. Should be able to counter because converted mana cost is 2 (calculated from printed cost with
+	X=1 taken into consideration not the Flashback cost).
+*/
 
 DWORD CCard::GetConvertedManaCost() const
 {
 	const CPtrContainer_<CSpell>& spells(GetSpells());
-	
-	if (GetZoneId() == ZoneId::Stack)
-		return this->GetLastCastingManaCost().GetTotal();
-	else
-	for (int i = 0; i < spells.GetSize(); ++i)
+	if (GetZoneId() == ZoneId::Stack)		// spell is on the stack, when calculating the converted mana cost of an object with an {X} 
+											// in its mana cost, X is treated as the number chosen for it while the object is on the stack.
+	{
+		// The code had an issue with spells (on the stack) with alternate costs incorrectly using the cost paid when casting to calculate the converted mana cost.
+		// Converted mana cost is always "what is printed in the upper corner, converted to a number and in the case of the spell being on the stack
+		// X is treated as the number chosen for it while the object is on the stack.
+		// So return "the printed in upper corner cost" + "X value"
+		return (this->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal() + this->GetLastCastingExtraValue());
+	}
+	else									// spell is not currently on the stack, when calculating the converted mana cost of an object with an {X} 
+	{										// in its mana cost, X is treated as 0 while the object is not on the stack
+		for (int i = 0; i < spells.GetSize(); ++i)
 		{
 			CSpell* pSpell = spells.GetAt(i);
-			if (!pSpell->IsMainSpell())
+			if (!pSpell->IsMainSpell())		// when spell is not on the stack can determine if an alternative cost was paid by checking IsMainSpell() 
 				continue;
 						
-			return pSpell->GetCost().GetOriginalManaCost().GetTotal();
-					
+			return pSpell->GetCost().GetOriginalManaCost().GetTotal();				
 		}
+	}
 	return 0;
 }
 
@@ -304,15 +356,15 @@ void CCard::OnCardTypeChanged(CardType fromCardType)
 	// Special consideration for change of land types
 	// TODO: implement real "IS A" function for cards, may need to consider double feature cards also
 
-	bool bFromBasicLand = (fromCardType & (CardType::BasicLand | CardType::PseudoBasicLand)).Any();
-	bool bToBasicLand = (m_CardType & (CardType::BasicLand | CardType::PseudoBasicLand)).Any();
+	bool bFromBasicLand	   = (fromCardType & (CardType::BasicLand | CardType::PseudoBasicLand)).Any();
+	bool bToBasicLand	   = (m_CardType   & (CardType::BasicLand | CardType::PseudoBasicLand)).Any();
 	bool bFromNonbasicLand = (fromCardType & CardType::NonbasicLand).Any();
-	bool bToNonbasicLand = (m_CardType & CardType::NonbasicLand).Any();
-	bool TypeAdded = (((fromCardType & CardType::Plains).Any() && (m_CardType & CardType::Plains).Any()) ||
-							((fromCardType & CardType::Forest).Any() && (m_CardType & CardType::Forest).Any()) ||
-							((fromCardType & CardType::Mountain).Any() && (m_CardType & CardType::Mountain).Any()) ||
-							((fromCardType & CardType::Swamp).Any() && (m_CardType & CardType::Swamp).Any()) ||
-							((fromCardType & CardType::Island).Any() && (m_CardType & CardType::Island).Any()));
+	bool bToNonbasicLand   = (m_CardType   & CardType::NonbasicLand).Any();
+	bool TypeAdded = (((fromCardType & CardType::Plains).Any()	 && (m_CardType & CardType::Plains).Any())	 ||
+					  ((fromCardType & CardType::Forest).Any()	 && (m_CardType & CardType::Forest).Any())	 ||
+					  ((fromCardType & CardType::Mountain).Any() && (m_CardType & CardType::Mountain).Any()) ||
+					  ((fromCardType & CardType::Swamp).Any()	 && (m_CardType & CardType::Swamp).Any())	 ||
+					  ((fromCardType & CardType::Island).Any()	 && (m_CardType & CardType::Island).Any()));
 	
 	
 	if (bFromBasicLand && bToBasicLand &&
@@ -321,21 +373,21 @@ void CCard::OnCardTypeChanged(CardType fromCardType)
 		CManaPool::Color fromManaColor = CManaPool::Color::Colorless;
 		switch ((fromCardType & (CardType::Swamp | CardType::Island | CardType::Forest | CardType::Mountain | CardType::Plains)).Get())
 		{
-		case CardType::Swamp:		fromManaColor = CManaPool::Color::Black; break;
-		case CardType::Island:		fromManaColor = CManaPool::Color::Blue; break;
-		case CardType::Forest:		fromManaColor = CManaPool::Color::Green; break;
-		case CardType::Mountain:	fromManaColor = CManaPool::Color::Red; break;
-		case CardType::Plains:		fromManaColor = CManaPool::Color::White; break;
+			case CardType::Swamp:	 fromManaColor = CManaPool::Color::Black; break;
+			case CardType::Island:	 fromManaColor = CManaPool::Color::Blue;  break;
+			case CardType::Forest:	 fromManaColor = CManaPool::Color::Green; break;
+			case CardType::Mountain: fromManaColor = CManaPool::Color::Red;	  break;
+			case CardType::Plains:	 fromManaColor = CManaPool::Color::White; break;
 		}
 
 		CManaPool::Color toManaColor = CManaPool::Color::Colorless;
 		switch ((m_CardType & (CardType::Swamp | CardType::Island | CardType::Forest | CardType::Mountain | CardType::Plains)).Get())
 		{
-		case CardType::Swamp:		toManaColor = CManaPool::Color::Black; break;
-		case CardType::Island:		toManaColor = CManaPool::Color::Blue; break;
-		case CardType::Forest:		toManaColor = CManaPool::Color::Green; break;
-		case CardType::Mountain:	toManaColor = CManaPool::Color::Red; break;
-		case CardType::Plains:		toManaColor = CManaPool::Color::White; break;
+			case CardType::Swamp:	 toManaColor = CManaPool::Color::Black; break;
+			case CardType::Island:	 toManaColor = CManaPool::Color::Blue;  break;
+			case CardType::Forest:	 toManaColor = CManaPool::Color::Green; break;
+			case CardType::Mountain: toManaColor = CManaPool::Color::Red;   break;
+			case CardType::Plains:	 toManaColor = CManaPool::Color::White; break;
 		}
 		
 		CBasicLandCard* pBasicLandCard = (CBasicLandCard*)this;
@@ -388,99 +440,94 @@ void CCard::OnCardTypeChanged(CardType fromCardType)
 		CManaPool::Color fromManaColor = CManaPool::Color::Colorless;
 		switch ((fromCardType & (CardType::Swamp | CardType::Island | CardType::Forest | CardType::Mountain | CardType::Plains)).Get())
 		{
-		case CardType::Swamp:		fromManaColor = CManaPool::Color::Black; break;
-		case CardType::Island:		fromManaColor = CManaPool::Color::Blue; break;
-		case CardType::Forest:		fromManaColor = CManaPool::Color::Green; break;
-		case CardType::Mountain:	fromManaColor = CManaPool::Color::Red; break;
-		case CardType::Plains:		fromManaColor = CManaPool::Color::White; break;
+			case CardType::Swamp:		fromManaColor = CManaPool::Color::Black; break;
+			case CardType::Island:		fromManaColor = CManaPool::Color::Blue; break;
+			case CardType::Forest:		fromManaColor = CManaPool::Color::Green; break;
+			case CardType::Mountain:	fromManaColor = CManaPool::Color::Red; break;
+			case CardType::Plains:		fromManaColor = CManaPool::Color::White; break;
 		}
-
-
 
 		if (this->GetPrintedCardName() != _T("Dryad Arbor"))
 		{
-		CBasicLandCard* pBasicLandCard = (CBasicLandCard*)this;
-		CManaProductionAbility* pBasicLandManaAbility = pBasicLandCard->GetBasicLandManaAbility();
-		CLandAbility* pLandAbility = pBasicLandCard->GetLandAbility();
+			CBasicLandCard* pBasicLandCard = (CBasicLandCard*)this;
+			CManaProductionAbility* pBasicLandManaAbility = pBasicLandCard->GetBasicLandManaAbility();
+			CLandAbility* pLandAbility = pBasicLandCard->GetLandAbility();
 		
-		if (pBasicLandManaAbility->GetManaPool().RemoveMana(fromManaColor, 1, true))
-		{
-			pBasicLandManaAbility->SetEnabled(FALSE);
-			for (int i = 0; i < pBasicLandCard->GetAbilityCount(); ++i)
+			if (pBasicLandManaAbility->GetManaPool().RemoveMana(fromManaColor, 1, true))
 			{
-				CAbility* pAbility = pBasicLandCard->GetAbility(i);
-				if (pAbility != pBasicLandManaAbility && pAbility != pLandAbility)
-					pAbility->SetEnabled(TRUE);
+				pBasicLandManaAbility->SetEnabled(FALSE);
+				for (int i = 0; i < pBasicLandCard->GetAbilityCount(); ++i)
+				{
+					CAbility* pAbility = pBasicLandCard->GetAbility(i);
+					if (pAbility != pBasicLandManaAbility && pAbility != pLandAbility)
+						pAbility->SetEnabled(TRUE);
 				
-				CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
-				if (!pEnchantmentAbility) //|| !pSpecialProtectionAbility->GetEnabled())
-					continue;
-				pEnchantmentAbility->StartEnchantment();
+					CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
+					if (!pEnchantmentAbility) //|| !pSpecialProtectionAbility->GetEnabled())
+						continue;
+					pEnchantmentAbility->StartEnchantment();
+				}
 			}
-		}
-		}
-		else
-		{
-		CManaProductionAbility* pBasicLandManaAbility = (CManaProductionAbility*)this->GetAbility(_T("Basic Mana"));
-		CLandAbility* pLandAbility = (CLandAbility*)this->GetAbility(_T("Land Ability"));
-		if (pBasicLandManaAbility->GetManaPool().RemoveMana(fromManaColor, 1, true))
-			pBasicLandManaAbility->SetEnabled(FALSE);
-		((CLandAbility*)this->GetAbility(_T("NonBasic Mana")))->SetEnabled(TRUE);
-		}
-
-		UpdateManaProductionHint();
-	}
-	else
-	if (bFromNonbasicLand && bToBasicLand)
-	{
-		CManaPool::Color toManaColor = CManaPool::Color::Colorless;
-		switch ((m_CardType & (CardType::Swamp | CardType::Island | CardType::Forest | CardType::Mountain | CardType::Plains)).Get())
-		{
-		case CardType::Swamp:		toManaColor = CManaPool::Color::Black; break;
-		case CardType::Island:		toManaColor = CManaPool::Color::Blue; break;
-		case CardType::Forest:		toManaColor = CManaPool::Color::Green; break;
-		case CardType::Mountain:	toManaColor = CManaPool::Color::Red; break;
-		case CardType::Plains:		toManaColor = CManaPool::Color::White; break;
-		}
-
-		if (this->GetPrintedCardName() != _T("Dryad Arbor"))
-		{
-		CNonbasicLandCard* pNonbasicLandCard = (CNonbasicLandCard*)this;
-		CManaProductionAbility* pBasicLandManaAbility = pNonbasicLandCard->GetBasicLandManaAbility();
-		CLandAbility* pLandAbility = pNonbasicLandCard->GetLandAbility();
-		CUntapAbility* pUntapAbility = pNonbasicLandCard->GetUntapAbility();
-
-		pBasicLandManaAbility->GetManaPool().AddMana(toManaColor, 1);
-		pBasicLandManaAbility->SetEnabled(TRUE);
-		for (int i = 0; i < pNonbasicLandCard->GetAbilityCount(); ++i)
-		{
-			CAbility* pAbility = pNonbasicLandCard->GetAbility(i);
-			if (pAbility != pBasicLandManaAbility && pAbility != pLandAbility && pAbility != pUntapAbility)
-				pAbility->SetEnabled(FALSE);
-
-
-			CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
-			if (!pEnchantmentAbility) //|| !pSpecialProtectionAbility->GetEnabled())
-				continue;
-			pEnchantmentAbility->EndEnchantment();
-		}
 		}
 		else
 		{
 			CManaProductionAbility* pBasicLandManaAbility = (CManaProductionAbility*)this->GetAbility(_T("Basic Mana"));
 			CLandAbility* pLandAbility = (CLandAbility*)this->GetAbility(_T("Land Ability"));
-			CUntapAbility* pUntapAbility = this->GetUntapAbility();
-			pBasicLandManaAbility->GetManaPool().AddMana(toManaColor, 1);
-			pBasicLandManaAbility->SetEnabled(TRUE);	
-			((CLandAbility*)this->GetAbility(_T("NonBasic Mana")))->SetEnabled(FALSE);
-		
+			if (pBasicLandManaAbility->GetManaPool().RemoveMana(fromManaColor, 1, true))
+				pBasicLandManaAbility->SetEnabled(FALSE);
+			((CLandAbility*)this->GetAbility(_T("NonBasic Mana")))->SetEnabled(TRUE);
 		}
-
 		UpdateManaProductionHint();
 	}
+	else
+	{
+		if (bFromNonbasicLand && bToBasicLand)
+		{
+			CManaPool::Color toManaColor = CManaPool::Color::Colorless;
+			switch ((m_CardType & (CardType::Swamp | CardType::Island | CardType::Forest | CardType::Mountain | CardType::Plains)).Get())
+			{
+				case CardType::Swamp:		toManaColor = CManaPool::Color::Black; break;
+				case CardType::Island:		toManaColor = CManaPool::Color::Blue; break;
+				case CardType::Forest:		toManaColor = CManaPool::Color::Green; break;
+				case CardType::Mountain:	toManaColor = CManaPool::Color::Red; break;
+				case CardType::Plains:		toManaColor = CManaPool::Color::White; break;
+			}
 
-	m_cpCardTypeEventSource->FireEvent(this, fromCardType, m_CardType);	
-	
+			if (this->GetPrintedCardName() != _T("Dryad Arbor"))
+			{
+				CNonbasicLandCard* pNonbasicLandCard = (CNonbasicLandCard*)this;
+				CManaProductionAbility* pBasicLandManaAbility = pNonbasicLandCard->GetBasicLandManaAbility();
+				CLandAbility* pLandAbility = pNonbasicLandCard->GetLandAbility();
+				CUntapAbility* pUntapAbility = pNonbasicLandCard->GetUntapAbility();
+
+				pBasicLandManaAbility->GetManaPool().AddMana(toManaColor, 1);
+				pBasicLandManaAbility->SetEnabled(TRUE);
+				for (int i = 0; i < pNonbasicLandCard->GetAbilityCount(); ++i)
+				{
+					CAbility* pAbility = pNonbasicLandCard->GetAbility(i);
+					if (pAbility != pBasicLandManaAbility && pAbility != pLandAbility && pAbility != pUntapAbility)
+						pAbility->SetEnabled(FALSE);
+
+					CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
+					if (!pEnchantmentAbility) //|| !pSpecialProtectionAbility->GetEnabled())
+						continue;
+					pEnchantmentAbility->EndEnchantment();
+				}
+			}
+			else
+			{
+				CManaProductionAbility* pBasicLandManaAbility = (CManaProductionAbility*)this->GetAbility(_T("Basic Mana"));
+				CLandAbility* pLandAbility = (CLandAbility*)this->GetAbility(_T("Land Ability"));
+				CUntapAbility* pUntapAbility = this->GetUntapAbility();
+				pBasicLandManaAbility->GetManaPool().AddMana(toManaColor, 1);
+				pBasicLandManaAbility->SetEnabled(TRUE);	
+				((CLandAbility*)this->GetAbility(_T("NonBasic Mana")))->SetEnabled(FALSE);
+		
+			}
+			UpdateManaProductionHint();
+		}
+	}
+	m_cpCardTypeEventSource->FireEvent(this, fromCardType, m_CardType);		
 	if (m_pZone)
 		m_pZone->OnCardTypeChanged(this, fromCardType, m_CardType);
 }
@@ -493,14 +540,12 @@ CardType CCard::GetCardType() const
 		!m_pGame->IsCardVisible(this))
 		return CardType::Null;	// 10/19/06 - added to keep invisible cards' types unknown
 	*/
-
 	return m_CardType; 
 }
 
 int CCard::AddCardType(CardType cardType, CardType mask, CardTypeEntry::Enum persistence)
 {
 	CardType previousCardType = m_CardType;
-
 	int nUniqueId = m_CardType.AddCardType(cardType, mask, persistence);
 
 	if (m_bInitialized && previousCardType != m_CardType)
@@ -512,7 +557,6 @@ int CCard::AddCardType(CardType cardType, CardType mask, CardTypeEntry::Enum per
 void CCard::RemoveCardType(int nUniqueId)
 {
 	CardType previousCardType = m_CardType;
-
 	m_CardType.RemoveCardType(nUniqueId);
 
 	if (previousCardType != m_CardType)
@@ -522,7 +566,6 @@ void CCard::RemoveCardType(int nUniqueId)
 void CCard::ResetTurnCardTypes()
 {
 	CardType previousCardType = m_CardType;
-
 	m_CardType.ResetTurnCardTypes();
 
 	if (previousCardType != m_CardType)
@@ -686,7 +729,6 @@ int CCard::SetIsAlsoA(LPCTSTR strToken, UINT uID, CPlayer* pByPlayer)
 
 		pModifierh.ApplyTo((CCreatureCard*)cpToken.GetPointer());
 	}
-
 	return entry.nUniqueId;
 }
 
@@ -710,7 +752,6 @@ void CCard::RemoveIsAlsoA(int nUniqueId, CPlayer* pByPlayer)
 				m_IsAlsoAStack.RemoveAt(i);
 				return;
 			}
-
 
 		ATLASSERT(false);
 		return;
@@ -737,24 +778,24 @@ void CCard::RemoveIsAlsoA(int nUniqueId, CPlayer* pByPlayer)
 	if (AuraFilter.CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer())>0)	
 	{
 		CCountedCardContainer Auras;
-
 		if (AuraFilter.GetIncluded(*GetController()->GetZoneById(ZoneId::Battlefield), Auras))			
-		
-		for (int i = 0; i < Auras.GetSize(); ++i)
 		{
-			CEnchant* pEnchantAbility = NULL;
-			for (int j = 0; j <  Auras.GetAt(i)->GetAbilityCount(); ++j)
+			for (int i = 0; i < Auras.GetSize(); ++i)
 			{
-				pEnchantAbility = dynamic_cast<CEnchant*>(Auras.GetAt(i)->GetAbility(j));		
-
-				if (pEnchantAbility)
+				CEnchant* pEnchantAbility = NULL;
+				for (int j = 0; j <  Auras.GetAt(i)->GetAbilityCount(); ++j)
 				{
-					if (pEnchantAbility->HasEnchantTarget())
+					pEnchantAbility = dynamic_cast<CEnchant*>(Auras.GetAt(i)->GetAbility(j));		
+
+					if (pEnchantAbility)
 					{
-						if (pEnchantAbility->GetEnchantedOnCard() == pCurrentIsAlsoA) 
+						if (pEnchantAbility->HasEnchantTarget())
 						{
-							CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE);
-							pModifier.ApplyTo(Auras.GetAt(i));
+							if (pEnchantAbility->GetEnchantedOnCard() == pCurrentIsAlsoA) 
+							{
+								CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE);
+								pModifier.ApplyTo(Auras.GetAt(i));
+							}
 						}
 					}
 				}
@@ -768,9 +809,7 @@ void CCard::RemoveIsAlsoA(int nUniqueId, CPlayer* pByPlayer)
 	if (!m_IsAlsoAStack.GetSize())
 	{
 		RemoveModification();
-
 		SetIsAlsoA(NULL);
-
 		return;
 	}
 
@@ -835,6 +874,7 @@ CCard* CCard::GetEnchantedOn() const
 
 	return NULL;
 }
+
 CCard* CCard::GetEquippedOn() const
 {
 	CEquipAbility* pEnchantAbility = NULL;
@@ -853,7 +893,6 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 	//m_nModificationCount = 0;						// No need to reset this here because who ever increased the value should be decreasing this in a listener
 
 	// Aura card check
-
 	if ((pToZone->GetZoneId() == ZoneId::Battlefield) && (m_CardType & CardType::_Aura).Any() && moveType != MoveType::Phasing)
 	{
 		CEnchant* pEnchantAbility = NULL;
@@ -869,7 +908,6 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 			if (!pEnchantAbility->HasEnchantTarget())
 			{
 				// If card is currently in stack, move card to owner's graveyard. Otherwise, stay in current zone
-
 				if (GetZone()->GetZoneId() != ZoneId::Stack)
 					return;
 
@@ -889,9 +927,7 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 	CZone* pPreviousZone = GetZone();
 	
 	if (GetReplacementKeyword()->HasFlashback() && pPreviousZone->GetZoneId() == ZoneId::Stack)
-	{
 		m_pGoingToZone = pToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
-	}
 
 	if ((moveType == MoveType::Sacrifice) && pByPlayer && (pByPlayer != GetController()))
 		return;
@@ -900,11 +936,11 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		pToZone->GetZoneId() == ZoneId::Battlefield && (pPreviousZone->GetZoneId() == ZoneId::Library || pPreviousZone->GetZoneId() == ZoneId::Graveyard))
 			return;
 
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//                                                             Going to graveyard replacements should be here (similar to Dredge choices)
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                             Going to graveyard replacements should be here (similar to Dredge choices)
+//___________________________________________________________________________________________________________________________________________________________________
+//
 	
 	if (m_pGoingToZone->GetZoneId() == ZoneId::Graveyard)
 	{
@@ -912,10 +948,9 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		//{
 		//	return;
 		//}
-		if ((GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ExileInsteadGraveyard) && !GetCardType().IsToken()) ||
+		if ((GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ExileInsteadGraveyard) && !GetCardType().IsToken())	 ||
 			(GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::ISExileInsteadGraveyard) && (GetCardType().IsInstant() || GetCardType().IsSorcery())) ||
-			(GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::TokensExileInsteadGraveyard) && GetCardType().IsToken())
-			)
+			(GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::TokensExileInsteadGraveyard) && GetCardType().IsToken()))
 			m_pGoingToZone = m_pGoingToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
 
 		if (pPreviousZone->GetZoneId() == ZoneId::Battlefield && (GetReplacementKeyword()->HasGraveyardToExile() ||
@@ -927,8 +962,7 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		}
 	}
 	
-	if (GetReplacementKeyword()->HasCommanderFlag() && (m_pGoingToZone->GetZoneId() == ZoneId::Graveyard || m_pGoingToZone->GetZoneId() == ZoneId::Exile))   // Should be moved to other parts 
-																																						     // for faster work
+	if (GetReplacementKeyword()->HasCommanderFlag() && (m_pGoingToZone->GetZoneId() == ZoneId::Graveyard || m_pGoingToZone->GetZoneId() == ZoneId::Exile))   // Should be moved to other parts 																																					     // for faster work
 	{
 		std::vector<SelectionEntry> entries;	
 
@@ -949,34 +983,27 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		}
 
 		SelectionEntry selectionEntry;
-			selectionEntry.dwContext = 0; 
-			selectionEntry.strText.Format(_T("%s decides to put %s to command zone"), GetOwner()->GetPlayerName(), GetCardName());
-			entries.push_back(selectionEntry);
+		selectionEntry.dwContext = 0; 
+		selectionEntry.strText.Format(_T("%s decides to put %s to command zone"), GetOwner()->GetPlayerName(), GetCardName());
+		entries.push_back(selectionEntry);
 
 		int placement = 0;
-
-		if (cardPlacement == CardPlacement::Top) placement = 1;
-
+		if (cardPlacement == CardPlacement::Top) 
+			placement = 1;
+		
 		int movetype = 0;
-
 		if (moveType == MoveType::Destroy)
-		movetype = 1;
-		else
-		if (moveType == MoveType::NormalDiscard)
-		movetype = 2;
-		else
-		if (moveType == MoveType::Discard)
-		movetype = 3;
-		else
-		if (moveType == MoveType::DestroyWithoutRegeneration)
-		movetype = 4;
-		else
-		if (moveType == MoveType::Sacrifice)
-		movetype = 5;
-		else
-		if (moveType == MoveType::Suspend)
-		movetype = 6;
-
+			movetype = 1;
+		else if (moveType == MoveType::NormalDiscard)
+			movetype = 2;
+		else if (moveType == MoveType::Discard)
+			movetype = 3;
+		else if (moveType == MoveType::DestroyWithoutRegeneration)
+			movetype = 4;
+		else if (moveType == MoveType::Sacrifice)
+			movetype = 5;
+		else if (moveType == MoveType::Suspend)
+			movetype = 6;
 		
 		int legend = AddCardType(CardType::Null, CardType::Legendary);
 
@@ -988,16 +1015,16 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		return;
 	}
 
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//                                                             Going to graveyard replacements should be here (similar to Dredge choices)
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//							                                                           Discard replacements
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                             Going to graveyard replacements should be here (similar to Dredge choices)
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//							                                                           Discard replacements
+//___________________________________________________________________________________________________________________________________________________________________
+//
 	if (moveType == MoveType::Discard && GetCardKeyword()->HasMadness() && can_dredge)
 	{
 		std::vector<SelectionEntry> entries;		
@@ -1027,382 +1054,388 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 		m_ToDiscard.AddSelectionRequest(
 			entries, 1, 1, NULL, GetController());
 	}
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//							                                                           Discard replacements
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//							                                                           Discard replacements
+//___________________________________________________________________________________________________________________________________________________________________
+//
 	else
 	{
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//                                                             Going to graveyard replacements should be here (similar to Dredge choices)
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-
-	if (moveType == MoveType::Destroy || moveType == MoveType::DestroyWithoutRegeneration)
-	{
-		if (GetCardKeyword()->HasIndestructible() && !GetCardType().IsCreature())
-			return;
-		if (GetCardKeyword()->HasIndestructible() && GetCardType().IsCreature())
-			if (((CCreatureCard*)this)->GetToughness() > Life(0))
-			return;
-		if (GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructiblePermanents))
-			return;
-		if ((GetCardType().IsArtifact()) && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructibleArtifacts))
-			return;
-		if ((GetCardType().IsLand()) && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructibleLands))
-			return;
-		if ((GetCardType().IsEnchantment()) && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructibleEnchantments))
-			return;
-	}
-
-
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	//                                                             Draw replacement effects 
-	//___________________________________________________________________________________________________________________________________________________________________
-	//
-	/*
-		Ref: Maralen of the Mornsong 1BB
-		Legendary Creature - Elf Wizard
-        Players can't draw cards.
-		At the beginning of each player's draw step, that player loses 3 life, 
-		searches his or her library for a card, puts it into his or her hand, then shuffles his or her library. 2/3
-		
-		Example
-		... PlayerEffectType::CantDrawCards)
-
-		Issue 9/3/2014
-		PlayerEffectType::CantDrawCards is working correctly, however has an issue with messaging.
-		Player cant draw cards when this effect is active but the botarena Message Window reports 
-		erroneously that the player did draw a card with the card name of the card that is still on the top
-		of the library.
-
-		To fix the inccorrect messages indicating a card was drawn need to be turned off so they
-		do not appear
-	*/
-
-	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
-		 pPreviousZone->GetZoneId() == ZoneId::Library                   && 
-		 GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantDrawCards))
-		return;
-	/*
-		Ref: Spirit of the Labyrinth 1W
-		Enchantment Creature - Spirit
-		Each player can't draw more than one card each turn. 3/1
-		
-		Examples
-		... PlayerEffectType::DrawCardLimit, 1) // Each player can't draw more than one card each turn
-		... PlayerEffectType::DrawCardLimit, 0) // Each player can't draw any cards each turn (could replace PlayerEffectType::CantDrawCards)
-
-		Issue 9/3/2014
-		PlayerEffectType::DrawCardLimit is working correctly, however has an issue with messaging.
-		Player cant draw cards when this effect is active but the botarena Message Window reports 
-		erroneously that the player did draw a card with the card name of the card that is still on the top
-		of the library.
-
-		To fix the inccorrect messages indicating a card was drawn need to be turned off so they
-		do not appear
-	*/
-	int nMaxParam = 0; // not used
-	int nMinParam = 0; // limit value - i.e. Each player can't draw more than nMinParam cards each turn
-
-	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
-		 pPreviousZone->GetZoneId() == ZoneId::Library                   && 
-		 (GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::DrawCardLimit, nMaxParam, nMinParam)))
-	{
-		
-		if (GetController()->GetTurnDrawCount() >= nMinParam)
-			return;
-	}
-
-	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && pPreviousZone->GetZoneId() == ZoneId::Library && GetController()->DredgeCards().GetSize()>0 && can_dredge == TRUE)
-	{
-		CCountedCardContainer dredge = GetController()->DredgeCards();
-		int library_size =  GetController()->GetZoneById(ZoneId::Library)->GetSize();
-
-		std::vector<SelectionEntry> entries;		
-
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                             Going to graveyard replacements should be here (similar to Dredge choices)
+//___________________________________________________________________________________________________________________________________________________________________
+//
+		if (moveType == MoveType::Destroy || moveType == MoveType::DestroyWithoutRegeneration)
 		{
-			// Choose player
-			SelectionEntry selectionEntry;
-			selectionEntry.dwContext = 0; // player
-			selectionEntry.strText.Format(_T("%s decides to draw a card"), GetController()->GetPlayerName());
-			entries.push_back(selectionEntry);
+			if (GetCardKeyword()->HasIndestructible() && !GetCardType().IsCreature())
+				return;
+			if (GetCardKeyword()->HasIndestructible() && GetCardType().IsCreature())
+				if (((CCreatureCard*)this)->GetToughness() > Life(0))
+					return;
+			if (GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructiblePermanents))
+				return;
+			if ((GetCardType().IsArtifact()) && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructibleArtifacts))
+				return;
+			if ((GetCardType().IsLand()) && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructibleLands))
+				return;
+			if ((GetCardType().IsEnchantment()) && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::IndestructibleEnchantments))
+				return;
+		}
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                             Draw replacement effects 
+//___________________________________________________________________________________________________________________________________________________________________
+//
+		/*
+			Ref: Maralen of the Mornsong 1BB
+			Legendary Creature - Elf Wizard
+			Players can't draw cards.
+			At the beginning of each player's draw step, that player loses 3 life, 
+			searches his or her library for a card, puts it into his or her hand, then shuffles his or her library. 2/3
+		
+			Example
+				... PlayerEffectType::CantDrawCards)
+
+			Issue 9/3/2014
+			PlayerEffectType::CantDrawCards is working correctly, however has an issue with messaging.
+			Player cant draw cards when this effect is active but the botarena Message Window reports 
+			erroneously that the player did draw a card with the card name of the card that is still on the top
+			of the library.
+
+			To fix the inccorrect messages indicating a card was drawn need to be turned off so they
+			do not appear
+		*/
+
+		if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
+			 pPreviousZone->GetZoneId() == ZoneId::Library                   && 
+			 GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantDrawCards))
+		{
+			return;
+		}
+		/*
+			Ref: Spirit of the Labyrinth 1W
+			Enchantment Creature - Spirit
+			Each player can't draw more than one card each turn. 3/1
+		
+			Examples
+			... PlayerEffectType::DrawCardLimit, 1) // Each player can't draw more than one card each turn
+			... PlayerEffectType::DrawCardLimit, 0) // Each player can't draw any cards each turn (could replace PlayerEffectType::CantDrawCards)
+
+			Issue 9/3/2014
+			PlayerEffectType::DrawCardLimit is working correctly, however has an issue with messaging.
+			Player cant draw cards when this effect is active but the botarena Message Window reports 
+			erroneously that the player did draw a card with the card name of the card that is still on the top
+			of the library.
+
+			To fix the inccorrect messages indicating a card was drawn need to be turned off so they
+			do not appear
+		*/
+		int nMaxParam = 0; // not used
+		int nMinParam = 0; // limit value - i.e. Each player can't draw more than nMinParam cards each turn
+
+		if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
+			pPreviousZone->GetZoneId() == ZoneId::Library                    && 
+			(GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::DrawCardLimit, nMaxParam, nMinParam)))
+		{
+			if (GetController()->GetTurnDrawCount() >= nMinParam)
+				return;
 		}
 
-		for (int i = 0; i <  dredge.GetSize(); ++i)
+		if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
+			 pPreviousZone->GetZoneId() == ZoneId::Library					 && 
+			 GetController()->DredgeCards().GetSize() > 0					 && 
+			 can_dredge == TRUE)
 		{
-			const CCard* pCard =  dredge.GetAt(i);
-			if (pCard->GetDredgeNumber() > library_size)
-				continue;
+			CCountedCardContainer dredge = GetController()->DredgeCards();
+			int library_size =  GetController()->GetZoneById(ZoneId::Library)->GetSize();
 
-			SelectionEntry selectionEntry;
+			std::vector<SelectionEntry> entries;		
 
-			selectionEntry.dwContext = (DWORD)pCard;
-			selectionEntry.strText.Format(_T("put %d cards from the top of your library into your graveyard to dredge %s"), pCard->GetDredgeNumber(), pCard->GetCardName());
-
-			entries.push_back(selectionEntry);
-		}
-
-		m_DredgeSelection.AddSelectionRequest(
-			entries, 1, 1, NULL, GetController());
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-		//                                                                  Draw replacement effects 
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-	}
-	else
-	{	
-		if ((GetReplacementKeyword()->HasUnearth() || GetReplacementKeyword()->HasPseudoUnearth()) && (m_pGoingToZone->GetZoneId() == ZoneId::Hand || m_pGoingToZone->GetZoneId() == ZoneId::Library))
-		{
-			m_pGoingToZone = m_pGoingToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
-		}
-
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-		//                                                                  Entering battlefield replacement effects 
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-
-		// Extra +1/+1 counters check
-		if (m_pGoingToZone->GetZoneId() == ZoneId::Battlefield && this->GetCardType().IsCreature())
-		{
-			int nExtraCount = 0;
-			CZone* pBattlefield = this->GetController()->GetZoneById(ZoneId::Battlefield);
-			CZone* pGraveyard = this->GetController()->GetZoneById(ZoneId::Graveyard);
-			CZone* pEffects = this->GetController()->GetZoneById(ZoneId::_Effects);
-			
-			for (int i = 0; i < pBattlefield->GetSize(); ++i)
 			{
-				CCard* pCard = pBattlefield->GetAt(i);
+				// Choose player
+				SelectionEntry selectionEntry;
+				selectionEntry.dwContext = 0; // player
+				selectionEntry.strText.Format(_T("%s decides to draw a card"), GetController()->GetPlayerName());
+				entries.push_back(selectionEntry);
+			}
 
-				if (pCard != this)
-					if (pCard->GetPrintedCardName() == _T("Bramblewood Paragon") &&
-						(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Warrior)))
-						nExtraCount += 1;
-					else if (pCard->GetPrintedCardName() == _T("Master Biomancer"))
-					{
-						int nPower = GET_INTEGER(((CCreatureCard*)pCard)->GetLastKnownPower());
-						if (nPower > 0)
-							nExtraCount += nPower;
+			for (int i = 0; i < dredge.GetSize(); ++i)
+			{
+				const CCard* pCard =  dredge.GetAt(i);
+				if (pCard->GetDredgeNumber() > library_size)
+					continue;
 
-						CCreatureTypeModifier* pModifier = new CCreatureTypeModifier(SingleCreatureType::Mutant, true);
-						pModifier->ApplyTo((CCreatureCard*)this);
+				SelectionEntry selectionEntry;
+
+				selectionEntry.dwContext = (DWORD)pCard;
+				selectionEntry.strText.Format(_T("put %d cards from the top of your library into your graveyard to dredge %s"), pCard->GetDredgeNumber(), pCard->GetCardName());
+
+				entries.push_back(selectionEntry);
+			}
+
+			m_DredgeSelection.AddSelectionRequest(entries, 1, 1, NULL, GetController());
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                                  Draw replacement effects 
+//___________________________________________________________________________________________________________________________________________________________________
+//
+		}
+		else
+		{	
+			if ((GetReplacementKeyword()->HasUnearth() || GetReplacementKeyword()->HasPseudoUnearth()) && (m_pGoingToZone->GetZoneId() == ZoneId::Hand || m_pGoingToZone->GetZoneId() == ZoneId::Library))
+			{
+				m_pGoingToZone = m_pGoingToZone->GetPlayer()->GetZoneById(ZoneId::Exile);
+			}
+
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                                  Entering battlefield replacement effects 
+//___________________________________________________________________________________________________________________________________________________________________
+//
+
+			if (m_pGoingToZone->GetZoneId() == ZoneId::Battlefield && this->GetCardType().IsCreature())
+			{//Extra +1/+1 counters checks
+				int nExtraCount = 0;
+				CZone* pBattlefield = this->GetController()->GetZoneById(ZoneId::Battlefield);
+				CZone* pGraveyard	= this->GetController()->GetZoneById(ZoneId::Graveyard);
+				CZone* pEffects		= this->GetController()->GetZoneById(ZoneId::_Effects);
+			
+				for (int i = 0; i < pBattlefield->GetSize(); ++i)
+				{
+					CCard* pCard = pBattlefield->GetAt(i);
+					if (pCard != this)
+					{//Each other <single creature type> creature you control enters the battlefield with an additional +1/+1 counter on it
+						if (pCard->GetPrintedCardName() == _T("Bramblewood Paragon") &&
+							(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Warrior)))
+							nExtraCount += 1;
+						else if (pCard->GetPrintedCardName() == _T("Master Biomancer"))
+						{
+							int nPower = GET_INTEGER(((CCreatureCard*)pCard)->GetLastKnownPower());
+							if (nPower > 0)
+								nExtraCount += nPower;
+
+							CCreatureTypeModifier* pModifier = new CCreatureTypeModifier(SingleCreatureType::Mutant, true);
+							pModifier->ApplyTo((CCreatureCard*)this);
+						}
+						else if (pCard->GetPrintedCardName() == _T("Oona's Blackguard") &&
+							(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Rogue)))
+							nExtraCount += 1;
+						else if (pCard->GetPrintedCardName() == _T("Sage of Fables") &&
+							(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Wizard)))
+							nExtraCount += 1;
 					}
-					else if (pCard->GetPrintedCardName() == _T("Oona's Blackguard") &&
-						(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Rogue)))
+				}
+				for (int i = 0; i < pGraveyard->GetSize(); ++i)
+				{
+					if (pGraveyard->GetAt(i)->GetPrintedCardName() == _T("Dearly Departed") &&
+						(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Human)))
+						//As long as Dearly Departed is in your graveyard, each Human creature you control 
+						//enters the battlefield with an additional +1/+1 counter on it.
 						nExtraCount += 1;
-					else if (pCard->GetPrintedCardName() == _T("Sage of Fables") &&
-						(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Wizard)))
-						nExtraCount += 1;
-			}
-
-			for (int i = 0; i < pGraveyard->GetSize(); ++i)
-			{
-				if (pGraveyard->GetAt(i)->GetPrintedCardName() == _T("Dearly Departed") &&
-					(this->GetCardKeyword()->HasChangeling() || ((CCreatureCard*)this)->GetCreatureType().HasType(SingleCreatureType::Human)))
-					nExtraCount += 1;
-			}
+				}
 			
-			CCard* pMentionedCard;
-			for (int i = 0; i < pEffects->GetSize(); ++i)
-			{
-				if (pEffects->GetAt(i)->GetPrintedCardName() == _T("Savage Summoning Second Effect"))
-				{
-					pMentionedCard = ((CContainerEffectCard*)pEffects->GetAt(i))->GetCard();
-					if (pMentionedCard == this)
-						nExtraCount += 1;
-				}
-			}
-
-			bool bBloodthirst = false;
-			for (int ip = 0; ip < m_pGame->GetPlayerCount(); ++ip)
-				if ((m_pGame->GetPlayer(ip) != GetController()) && (m_pGame->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
-				{
-					bBloodthirst = true;
-					break;
-				}
-
-			if (bBloodthirst)
-			{
-				CCard* pBloodlordCard;
+				CCard* pMentionedCard;
 				for (int i = 0; i < pEffects->GetSize(); ++i)
 				{
-					if (pEffects->GetAt(i)->GetPrintedCardName() == _T("Bloodlord of Vaasgoth Effect"))
-					{
-						pBloodlordCard = ((CContainerEffectCard*)pEffects->GetAt(i))->GetCard();
-						if (pBloodlordCard == this)
-							nExtraCount += 3;
+					if (pEffects->GetAt(i)->GetPrintedCardName() == _T("Savage Summoning Second Effect"))
+					{//A token with "The subject will enter the battlefield with an additional +1/+1 counter on it."
+						pMentionedCard = ((CContainerEffectCard*)pEffects->GetAt(i))->GetCard();
+						if (pMentionedCard == this)
+							nExtraCount += 1;
 					}
 				}
-			}
-
-			int nZameck = 0;
-
-			if (this->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Extrap11Counter, nZameck, FALSE))
-				nExtraCount += nZameck;
-
-			if (nExtraCount > 0)
-			{
-				int nExtraMultiplier = 0;
-				if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nExtraMultiplier, FALSE))
-					nExtraCount <<= nExtraMultiplier;
-				if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nExtraMultiplier, FALSE))
-					nExtraCount <<= nExtraMultiplier;
-				// for Primal Vigor
-				if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nExtraMultiplier, FALSE))
-					nExtraCount <<= nExtraMultiplier;
-
-				CCardCounterModifier* pModifier = new CCardCounterModifier(_T("+1/+1"), +nExtraCount);
-				pModifier->ApplyTo(this);
-			}
-		}
-		
-		if (m_pGoingToZone->GetZoneId() == ZoneId::Battlefield && GetCardKeyword()->HasMovementReplacement() && can_dredge == TRUE)
-		{
-			std::vector<SelectionEntry> entries;	
-
-			for (int i = 0; i < GetAbilityCount(); ++i)
-			{
-				CMovementReplacementAbility* pMovementReplacementAbility = dynamic_cast<CMovementReplacementAbility*>(GetAbility(i));
-				if (!pMovementReplacementAbility)
-				continue;
-
-				if (this->GetCardType().IsCreature())
-				{
-					if (((CCreatureCard*)this)->GetCreatureKeyword()->Devour())
+				/*
+					Bloodthirst N (If an opponent was dealt damage this turn, this permanent enters 
+					the battlefield with N +1/+1 counters on it.)
+				*/
+				bool bBloodthirst = false;
+				for (int ip = 0; ip < m_pGame->GetPlayerCount(); ++ip)
+					if ((m_pGame->GetPlayer(ip) != GetController()) && (m_pGame->GetPlayer(ip)->GetDamageTakenThisTurn() > 0))
 					{
-						int pDevour = pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
+						bBloodthirst = true;
+						break;
+					}
 
-						if (GetPrintedCardName() == _T("Shimatsu the Bloodcloaked") || GetPrintedCardName() == _T("Wood Elemental"))
+				if (bBloodthirst)
+				{
+					CCard* pBloodlordCard;
+					for (int i = 0; i < pEffects->GetSize(); ++i)
+					{
+						if (pEffects->GetAt(i)->GetPrintedCardName() == _T("Bloodlord of Vaasgoth Effect"))
 						{
-							SelectionEntry selectionEntry;
-							selectionEntry.dwContext = 0; // no sacrifice
-							selectionEntry.strText.Format(_T("sacrifice nothing to %s"), GetCardName());
-							entries.push_back(selectionEntry);
-
-							if (pDevour > 0)
-							{
-								int p = 0;
-
-								SelectionEntry selectionEntry;
-								selectionEntry.dwContext = 1;
-								selectionEntry.strText.Format(_T("sacrifice %s to %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
-								entries.push_back(selectionEntry);
-
-								for (int i = 1; i < pDevour; i++)
-								{
-									p = i + 1;
-
-									SelectionEntry selectionEntry;
-									selectionEntry.dwContext = p;
-									selectionEntry.strText.Format(_T("sacrifice %s%d %s to %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
-									entries.push_back(selectionEntry);
-								}
-							}
-
-							m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
-						}
-						else
-						{
-							SelectionEntry selectionEntry;
-							selectionEntry.dwContext = 0; // no sacrifice
-							selectionEntry.strText.Format(_T("sacrifice nothing to devour ability of %s"), GetCardName());
-							entries.push_back(selectionEntry);
-
-							if (pDevour > 0)
-							{
-								int p = 0;
-
-								SelectionEntry selectionEntry;
-								selectionEntry.dwContext = 1;
-								selectionEntry.strText.Format(_T("sacrifice %s to devour ability of %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
-								entries.push_back(selectionEntry);
-
-								for (int i = 1; i < pDevour; i++)
-								{
-									p = i + 1;
-
-									SelectionEntry selectionEntry;
-									selectionEntry.dwContext = p;
-									selectionEntry.strText.Format(_T("sacrifice %s%d %s to devour ability of %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
-									entries.push_back(selectionEntry);
-								}
-							}
-
-							m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
+							pBloodlordCard = ((CContainerEffectCard*)pEffects->GetAt(i))->GetCard();
+							if (pBloodlordCard == this)
+								nExtraCount += 3;
 						}
 					}
-					else
-					{
-						if (((CCreatureCard*)this)->GetCreatureKeyword()->Amplify())
-						{
-							int pAmplify = pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Hand)->GetCardContainer());
+				}
+				//end bloodthirst
+				int nZameck = 0;
 
-							if (GetPrintedCardName() == _T("Arsenal Thresher"))
-							{
+				if (this->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Extrap11Counter, nZameck, FALSE))
+					nExtraCount += nZameck;
+
+				if (nExtraCount > 0)
+				{
+					int nExtraMultiplier = 0;
+					if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nExtraMultiplier, FALSE))
+						nExtraCount <<= nExtraMultiplier;
+					if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nExtraMultiplier, FALSE))
+						nExtraCount <<= nExtraMultiplier;
+					// for Primal Vigor
+					if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nExtraMultiplier, FALSE))
+						nExtraCount <<= nExtraMultiplier;
+
+					CCardCounterModifier* pModifier = new CCardCounterModifier(_T("+1/+1"), +nExtraCount);
+					pModifier->ApplyTo(this);
+				}
+			}
+		
+			if (m_pGoingToZone->GetZoneId() == ZoneId::Battlefield && GetCardKeyword()->HasMovementReplacement() && can_dredge == TRUE)
+			{
+				std::vector<SelectionEntry> entries;	
+
+				for (int i = 0; i < GetAbilityCount(); ++i)
+				{
+					CMovementReplacementAbility* pMovementReplacementAbility = dynamic_cast<CMovementReplacementAbility*>(GetAbility(i));
+					if (!pMovementReplacementAbility)
+						continue;
+
+					if (this->GetCardType().IsCreature())
+					{
+						if (((CCreatureCard*)this)->GetCreatureKeyword()->Devour())
+						{
+							int pDevour = pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
+				
+							if (GetPrintedCardName() == _T("Shimatsu the Bloodcloaked") || GetPrintedCardName() == _T("Wood Elemental"))
+							{//As Shimatsu the Bloodcloaked enters the battlefield, sacrifice any number of permanents.  
+							 //Shimatsu enters the battlefield with that many +1/+1 counters on it.
 								SelectionEntry selectionEntry;
-								selectionEntry.dwContext = 0; // no reveal
-								selectionEntry.strText.Format(_T("reveal nothing for %s"), GetCardName());
+								selectionEntry.dwContext = 0; // no sacrifice
+								selectionEntry.strText.Format(_T("sacrifice nothing to %s"), GetCardName());
 								entries.push_back(selectionEntry);
 
-								if (pAmplify > 0)
+								if (pDevour > 0)
 								{
 									int p = 0;
 
 									SelectionEntry selectionEntry;
 									selectionEntry.dwContext = 1;
-									selectionEntry.strText.Format(_T("reveal %s for %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
+									selectionEntry.strText.Format(_T("sacrifice %s to %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
 									entries.push_back(selectionEntry);
 
-									for (int i = 1; i < pAmplify; i++)
+									for (int i = 1; i < pDevour; i++)
 									{
 										p = i + 1;
 
 										SelectionEntry selectionEntry;
 										selectionEntry.dwContext = p;
-										selectionEntry.strText.Format(_T("reveal %s%d %s for %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
+										selectionEntry.strText.Format(_T("sacrifice %s%d %s to %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
 										entries.push_back(selectionEntry);
 									}
 								}
-
 								m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
 							}
 							else
 							{
 								SelectionEntry selectionEntry;
-								selectionEntry.dwContext = 0; // no reveal
-								selectionEntry.strText.Format(_T("reveal nothing for amplify ability of %s"), GetCardName());
+								selectionEntry.dwContext = 0; // no sacrifice
+								selectionEntry.strText.Format(_T("sacrifice nothing to devour ability of %s"), GetCardName());
 								entries.push_back(selectionEntry);
 
-								if (pAmplify > 0)
+								if (pDevour > 0)
 								{
 									int p = 0;
-
 									SelectionEntry selectionEntry;
 									selectionEntry.dwContext = 1;
-									selectionEntry.strText.Format(_T("reveal %s for amplify ability of %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
+									selectionEntry.strText.Format(_T("sacrifice %s to devour ability of %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
 									entries.push_back(selectionEntry);
 
-									for (int i = 1; i < pAmplify; i++)
+									for (int i = 1; i < pDevour; i++)
 									{
 										p = i + 1;
 
 										SelectionEntry selectionEntry;
 										selectionEntry.dwContext = p;
-										selectionEntry.strText.Format(_T("reveal %s%d %s for amplify ability of %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
+										selectionEntry.strText.Format(_T("sacrifice %s%d %s to devour ability of %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
 										entries.push_back(selectionEntry);
 									}
 								}
-
 								m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
 							}
 						}
 						else
-							if (((CCreatureCard*)this)->GetCreatureKeyword()->Unleash())
+						{
+							if (((CCreatureCard*)this)->GetCreatureKeyword()->Amplify())
+							{
+								/*
+									Amplify N (As this object enters the battlefield, reveal any number of cards from your hand that 
+									share a creature type with it. This permanent comes into play with N +1/+1 counters on it for
+									each card revealed this way.
+								*/
+								int pAmplify = pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Hand)->GetCardContainer());
+								if (GetPrintedCardName() == _T("Arsenal Thresher"))
+								{//As Arsenal Thresher enters the battlefield, you may reveal any number of other artifact cards from 
+								 //your hand. Arsenal Thresher enters the battlefield with a +1/+1 counter on it for each card 
+								 //revealed this way.
+									SelectionEntry selectionEntry;
+									selectionEntry.dwContext = 0; // no reveal
+									selectionEntry.strText.Format(_T("reveal nothing for %s"), GetCardName());
+									entries.push_back(selectionEntry);
+
+									if (pAmplify > 0)
+									{
+										int p = 0;
+
+										SelectionEntry selectionEntry;
+										selectionEntry.dwContext = 1;
+										selectionEntry.strText.Format(_T("reveal %s for %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
+										entries.push_back(selectionEntry);
+
+										for (int i = 1; i < pAmplify; i++)
+										{
+											p = i + 1;
+
+											SelectionEntry selectionEntry;
+											selectionEntry.dwContext = p;
+											selectionEntry.strText.Format(_T("reveal %s%d %s for %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
+											entries.push_back(selectionEntry);
+										}
+									}
+
+									m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
+								}
+								else
+								{
+									SelectionEntry selectionEntry;
+									selectionEntry.dwContext = 0; // no reveal
+									selectionEntry.strText.Format(_T("reveal nothing for amplify ability of %s"), GetCardName());
+									entries.push_back(selectionEntry);
+
+									if (pAmplify > 0)
+									{
+										int p = 0;
+
+										SelectionEntry selectionEntry;
+										selectionEntry.dwContext = 1;
+										selectionEntry.strText.Format(_T("reveal %s for amplify ability of %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
+										entries.push_back(selectionEntry);
+
+										for (int i = 1; i < pAmplify; i++)
+										{
+											p = i + 1;
+
+											SelectionEntry selectionEntry;
+											selectionEntry.dwContext = p;
+											selectionEntry.strText.Format(_T("reveal %s%d %s for amplify ability of %s"), p < p ? _T("up to ") : _T(""), p, pMovementReplacementAbility->GetCardFilter()->GetFilterNamePlural(), GetCardName());
+											entries.push_back(selectionEntry);
+										}
+									}
+									m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
+								}
+							}
+							else if (((CCreatureCard*)this)->GetCreatureKeyword()->Unleash())
 							{
 								SelectionEntry selectionEntry;
 								selectionEntry.dwContext = 0; // don't give counter
@@ -1416,19 +1449,18 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 									selectionEntry.strText.Format(_T("add a +1/+1 counter"));
 									entries.push_back(selectionEntry);
 								}
-
 								m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue(), (DWORD)pMovementReplacementAbility->GetCardFilter());
+							}
 						}
-					}
 					}
 					else
 					{
-						if (GetPrintedCardName() == _T("Blood Crypt") || GetPrintedCardName() == _T("Breeding Pool") ||
-							GetPrintedCardName() == _T("Godless Shrine") || GetPrintedCardName() == _T("Hallowed Fountain") ||
-							GetPrintedCardName() == _T("Overgrown Tomb") || GetPrintedCardName() == _T("Sacred Foundry") ||
-							GetPrintedCardName() == _T("Steam Vents") || GetPrintedCardName() == _T("Stomping Ground") ||
+						if (GetPrintedCardName() == _T("Blood Crypt")	|| GetPrintedCardName() == _T("Breeding Pool")		||
+							GetPrintedCardName() == _T("Godless Shrine")|| GetPrintedCardName() == _T("Hallowed Fountain")	||
+							GetPrintedCardName() == _T("Overgrown Tomb")|| GetPrintedCardName() == _T("Sacred Foundry")		||
+							GetPrintedCardName() == _T("Steam Vents")	|| GetPrintedCardName() == _T("Stomping Ground")	||
 							GetPrintedCardName() == _T("Temple Garden") || GetPrintedCardName() == _T("Watery Grave"))
-						{
+						{//As Blood Crypt enters the battlefield, you may pay 2 life. If you don't, Blood Crypt enters the battlefield tapped.
 							SelectionEntry selectionEntry;
 							selectionEntry.dwContext = 2; // don't pay life
 							selectionEntry.strText.Format(_T("put %s onto the battlefield tapped"), GetCardName());
@@ -1441,16 +1473,17 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 								selectionEntry.strText.Format(_T("pay 2 life for %s"), GetCardName());
 								entries.push_back(selectionEntry);
 							}
-
 							m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController());
 						}
 						else
 						{
-							if (GetPrintedCardName() == _T("Ancient Amphitheater") || GetPrintedCardName() == _T("Auntie's Hovel") ||
-								GetPrintedCardName() == _T("Gilt-Leaf Palace") || GetPrintedCardName() == _T("Murmuring Bosk") ||
-								GetPrintedCardName() == _T("Rustic Clachan") || GetPrintedCardName() == _T("Secluded Glen") ||
-								GetPrintedCardName() == _T("Wanderwine Hub"))
-							{
+							if (GetPrintedCardName() == _T("Ancient Amphitheater")	|| GetPrintedCardName() == _T("Auntie's Hovel")	  ||
+								GetPrintedCardName() == _T("Choked Estuary")		|| GetPrintedCardName() == _T("Foreboding Ruins") ||
+								GetPrintedCardName() == _T("Fortified Village")		|| GetPrintedCardName() == _T("Game Trail")		  ||
+								GetPrintedCardName() == _T("Gilt-Leaf Palace")		|| GetPrintedCardName() == _T("Murmuring Bosk")	  ||
+								GetPrintedCardName() == _T("Port Town")				|| GetPrintedCardName() == _T("Rustic Clachan")	  || 
+								GetPrintedCardName() == _T("Secluded Glen")			|| GetPrintedCardName() == _T("Wanderwine Hub"))
+							{//As Choked Estuary enters the battlefield, you may reveal an Island or a Swamp card from your hand. If you don't, Choked Estuary enters the battlefield tapped.
 								SelectionEntry selectionEntry;
 								selectionEntry.dwContext = 2; // don't reveal a card
 								selectionEntry.strText.Format(_T("put %s onto the battlefield tapped"), GetCardName());
@@ -1463,19 +1496,19 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 									selectionEntry.strText.Format(_T("reveal %s for %s"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
 									entries.push_back(selectionEntry);
 								}
-
 								m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue());
 							}
 							else
 							{
 								if (pMovementReplacementAbility->GetToZone() == ZoneId::Battlefield && GetPrintedCardName() == _T("Mox Diamond")) 
-								{
+								{//If Mox Diamond would enter the battlefield, you may discard a land card instead. If you do, put Mox Diamond onto the battlefield.
+								 //If you don't, put it into its owner's graveyard.
 									if (pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Hand)->GetCardContainer()) > 0)
 									{
-									SelectionEntry selectionEntry;
-									selectionEntry.dwContext = (DWORD)pMovementReplacementAbility->GetCardFilter(); // to graveyard
-									selectionEntry.strText.Format(_T("discard %s to put %s onto the battlefield"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
-									entries.push_back(selectionEntry);
+										SelectionEntry selectionEntry;
+										selectionEntry.dwContext = (DWORD)pMovementReplacementAbility->GetCardFilter(); // to graveyard
+										selectionEntry.strText.Format(_T("discard %s to put %s onto the battlefield"), pMovementReplacementAbility->GetCardFilter()->GetFilterName(), GetCardName());
+										entries.push_back(selectionEntry);
 									}
 									SelectionEntry selectionEntry;
 									selectionEntry.dwContext = 0; // to graveyard
@@ -1493,169 +1526,161 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 									
 									m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue());
 								}
-								else if(GetPrintedCardName() == _T("Sheltered Valley") && pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) == 0)
-								//If a Sheltered Valley is not already in play, this code will trigger (no sacrifices will be made). 
-								{
+								else if(GetPrintedCardName() == _T("Sheltered Valley") && pMovementReplacementAbility->GetCardFilter()->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) == 0)	
+								{//If a Sheltered Valley is not already in play, this code will trigger (no sacrifices will be made). 
 									Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Cast, CardPlacement::NotApplicable, FALSE);
 								}
 								else if(GetPrintedCardName() != _T("Sheltered Valley")) //User should never get a choice to put this card in the GY
 								{
 									SelectionEntry selectionEntry;
-									selectionEntry.dwContext = 0; // to graveyard
+									selectionEntry.dwContext = 0;						// to graveyard
 									selectionEntry.strText.Format(_T("put %s into the graveyard"), GetCardName());
 									entries.push_back(selectionEntry);
 
 									m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue());
 								}
-								else m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue());
+								else 
+									m_ToBattlefield.AddSelectionRequest(entries, 1, 1, NULL, GetController(), pMovementReplacementAbility->GetValue());
 							}
 						}
 					}
-				}
-			
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-		//                                                                  Entering battlefield replacement effects 
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-		}
-		else
-		{
-		//___________________________________________________________________________________________________________________________________________________________________
-		//
-		//                                                                  Entering battlefield replacement effects 
-		//___________________________________________________________________________________________________________________________________________________________________
-		//		
+				}	
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                                  Entering battlefield replacement effects 
+//___________________________________________________________________________________________________________________________________________________________________
+//
+			}
+			else
+			{
+//___________________________________________________________________________________________________________________________________________________________________
+//
+//                                                                  Entering battlefield replacement effects 
+//___________________________________________________________________________________________________________________________________________________________________
+//		
+				BOOL bResult = m_pGoingToZone->AddCard(this, pByPlayer, moveType, cardPlacement, (m_pGoingToZone->GetZoneId() == ZoneId::Battlefield ? m_bIntoPlayTapped : FALSE));
 
-		BOOL bResult = m_pGoingToZone->AddCard(this, pByPlayer, moveType, cardPlacement, (m_pGoingToZone->GetZoneId() == ZoneId::Battlefield ? m_bIntoPlayTapped : FALSE));
+				if (m_pGoingToZone &&
+					m_pGoingToZone != pOriginalGoingToZone)
+					Move(m_pGoingToZone, NULL, moveType, CardPlacement::Top);
+				else
+					m_pGoingToZone = NULL;
 
-		if (m_pGoingToZone &&
-			m_pGoingToZone != pOriginalGoingToZone)
-			Move(m_pGoingToZone, NULL, moveType, CardPlacement::Top);
-		else
-			m_pGoingToZone = NULL;
+				ZoneId currentZoneId = GetZoneId();
 
-		ZoneId currentZoneId = GetZoneId();
+				if (pPreviousZone && GetController()->GetZoneById(ZoneId::Library)->GetSize() >= 1			 && 
+					GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::TopCardRevealed)	 && 
+					pPreviousZone == GetController()->GetZoneById(ZoneId::Library) && !m_pGame->IsThinking() && 
+					GetController()->GetZoneById(ZoneId::Library)->GetTopCard())		
+				{
 
-		if (pPreviousZone && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::TopCardRevealed) && pPreviousZone == GetController()->GetZoneById(ZoneId::Library) && !m_pGame->IsThinking() 
-			&& GetController()->GetZoneById(ZoneId::Library)->GetTopCard())
-		{
-			CString strMessage;
-			strMessage.Format(_T("Top Card: %s reveals %s in %s's %s"), 
-							GetController()->GetPlayerName(), GetController()->GetZoneById(ZoneId::Library)->GetTopCard()->GetCardName(),
-							GetController()->GetPlayerName(),
-							GetController()->GetZoneById(ZoneId::Library)->GetZoneName());
-				m_pGame->Message(
-					strMessage, 
-					GetController()->IsComputer() ? m_pGame->GetComputerImage() :m_pGame->GetHumanImage(),
-					MessageImportance::High
-					);	
+					CString strMessage;
+					strMessage.Format(_T("Top Card: %s reveals %s in %s's %s"), 
+									  GetController()->GetPlayerName(), GetController()->GetZoneById(ZoneId::Library)->GetTopCard()->GetCardName(),
+									  GetController()->GetPlayerName(),
+									  GetController()->GetZoneById(ZoneId::Library)->GetZoneName());
+					m_pGame->Message(strMessage, 
+									 GetController()->IsComputer() ? m_pGame->GetComputerImage() :m_pGame->GetHumanImage(),
+									 MessageImportance::High);	
 
-				for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)
-					{		
+					for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)	
 						m_pGame->GetPlayer(j)->MemorizeCard(GetController()->GetZoneById(ZoneId::Library)->GetTopCard());
-					}
-		}
+				}
 
-		if (moveType != MoveType::Phasing)
-		{
-		if ((!pPreviousZone || pPreviousZone->GetZoneId() != ZoneId::Battlefield) &&
-			currentZoneId == ZoneId::Battlefield)
-			m_nInplayGameTurnNumber = m_pGame->GetGameTurnNumber();
-		else
-			if (currentZoneId != ZoneId::Battlefield)
-				m_nInplayGameTurnNumber = -1;
 
-		if (currentZoneId == ZoneId::Battlefield)
-			m_nControllerTurnChanged = GetController()->GetPlayerTurnNumber();
-		else
-			m_nControllerTurnChanged = -1;
-		}
+				if (moveType != MoveType::Phasing)
+				{
+					if ((!pPreviousZone || pPreviousZone->GetZoneId() != ZoneId::Battlefield) &&
+						 currentZoneId == ZoneId::Battlefield)
+						m_nInplayGameTurnNumber = m_pGame->GetGameTurnNumber();
+					else if (currentZoneId != ZoneId::Battlefield)
+						m_nInplayGameTurnNumber = -1;
 
-		// Increase draw counts
+					if (currentZoneId == ZoneId::Battlefield)
+						m_nControllerTurnChanged = GetController()->GetPlayerTurnNumber();
+					else
+						m_nControllerTurnChanged = -1;
+				}
+				// Increase draw counts
+				if (currentZoneId == ZoneId::Hand && pPreviousZone && pPreviousZone->GetZoneId() == ZoneId::Library &&
+					pPreviousZone->GetPlayer() == GetController() && (moveType == MoveType::Draw || moveType == MoveType::NormalDraw))
+				{
+					GetController()->IncreaseTurnDrawCount();
+					GetController()->AddToCardsDrawnThisTurn(this);
+				}
 
-		if (currentZoneId == ZoneId::Hand && pPreviousZone && pPreviousZone->GetZoneId() == ZoneId::Library &&
-			pPreviousZone->GetPlayer() == GetController() && (moveType == MoveType::Draw || moveType == MoveType::NormalDraw))
-		{
-			GetController()->IncreaseTurnDrawCount();
-			GetController()->AddToCardsDrawnThisTurn(this);
-		}
+				if (GetCardType().IsCreature() && currentZoneId == ZoneId::Battlefield && pPreviousZone && (pPreviousZone->GetZoneId() != ZoneId::Battlefield) && (moveType != MoveType::Phasing))
+				{
+					((CCreatureCard*)this)->ZeroCounts(false);
+				}
 
-		if (GetCardType().IsCreature() && currentZoneId == ZoneId::Battlefield && pPreviousZone && (pPreviousZone->GetZoneId() != ZoneId::Battlefield) && (moveType != MoveType::Phasing))
-		{
-			((CCreatureCard*)this)->ZeroCounts(false);
-		}
+				if ((currentZoneId == ZoneId::Graveyard || currentZoneId == ZoneId::Exile) && pPreviousZone && pPreviousZone->GetZoneId() == ZoneId::Hand &&
+					 pPreviousZone->GetPlayer() == GetController() && moveType == MoveType::Discard)
+				{
+					GetController()->IncreaseTurnDiscardCount();
+				}
 
-		if ((currentZoneId == ZoneId::Graveyard || currentZoneId == ZoneId::Exile) && pPreviousZone && pPreviousZone->GetZoneId() == ZoneId::Hand &&
-			pPreviousZone->GetPlayer() == GetController() && moveType == MoveType::Discard)
-		{
-			GetController()->IncreaseTurnDiscardCount();
-		}
+				if (pPreviousZone && pPreviousZone->GetZoneId() == ZoneId::Hand)
+					GetController()->RemoveFromCardsDrawnThisTurn(this);
 
-		if (pPreviousZone && pPreviousZone->GetZoneId() == ZoneId::Hand)
-			GetController()->RemoveFromCardsDrawnThisTurn(this);
+				// Check for Legendary and World cards
+				if (IsInplay())
+				{
+					if ((GetCardType() & CardType::Legendary).Any())
+						m_pGame->AddStatebasedHint(CGame::StatebasedHint::LegendaryCards);
 
-		// Check for Legendary and World cards
-		if (IsInplay())
-		{
-			if ((GetCardType() & CardType::Legendary).Any())
-				m_pGame->AddStatebasedHint(CGame::StatebasedHint::LegendaryCards);
-
-			if ((GetCardType() & CardType::World).Any())
-				m_pGame->AddStatebasedHint(CGame::StatebasedHint::WorldCards);
-		}
+					if ((GetCardType() & CardType::World).Any())
+						m_pGame->AddStatebasedHint(CGame::StatebasedHint::WorldCards);
+				}
 #if 0
-		if (!IsInplay() && (GetCardType() & CardType::Token).Any())
+				if (!IsInplay() && (GetCardType() & CardType::Token).Any())
 				{				
 					m_pGame->AddStatebasedHint(CGame::StatebasedHint::TokenDestruction);
 				}
 #endif
+			}
 		}
 	}
-	}
 }
+
 void CCard::OnDredgeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+	{
 		if (it->bSelected)
 		{
 			if (!it->dwContext)
 			{
 				// Player
-
 				CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
-
 				pNextDraw->Move(GetController()->GetZoneById(ZoneId::Hand), GetController(), MoveType::Draw, CardPlacement::Top, FALSE);
 				//Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
-
 				return;
-			}			
-			
+			}		
 
 			CCard* pCard = (CCard*)(it->dwContext);
 			int n = pCard->GetDredgeNumber();
 
 			if (pCard->GetZone()->GetZoneId() == ZoneId::Graveyard)
 			{
-			CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-			pModifier.AddSelection(MinimumValue(0), MaximumValue(0), // select cards to bottom
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::AllPlayers, // reveal to
-					NULL, // any cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on top
-					MoveType::Others, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-			pModifier.SetReorderInformation(
-			true, 
-			ZoneId::Graveyard,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-			pModifier.ApplyTo(pCard->GetController());
+				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
+				pModifier.AddSelection(MinimumValue(0), MaximumValue(0),				// select cards to bottom
+									   CZoneModifier::RoleType::PrimaryPlayer,			// select by 
+									   CZoneModifier::RoleType::AllPlayers,				// reveal to
+									   NULL,											// any cards
+									   ZoneId::Graveyard,								// if selected, move cards to
+									   CZoneModifier::RoleType::PrimaryPlayer,			// select by this player
+									   CardPlacement::Top,								// put selected cards on top
+									   MoveType::Others,								// move type
+									   CZoneModifier::RoleType::PrimaryPlayer);			// order selected cards by this player
+				pModifier.SetReorderInformation(true, 
+												ZoneId::Graveyard,	
+												CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+												CardPlacement::Top);
+				pModifier.ApplyTo(pCard->GetController());
 			
-			pCard->Move(GetController()->GetZoneById(ZoneId::Hand), GetController(), MoveType::Others);
+				pCard->Move(GetController()->GetZoneById(ZoneId::Hand), GetController(), MoveType::Others);
 			}
 			else
 			{
@@ -1665,7 +1690,9 @@ void CCard::OnDredgeSelected(const std::vector<SelectionEntry>& selection, int n
 			}
 			return;
 		}
+	}
 }
+
 void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
@@ -1694,15 +1721,15 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						int nPrevGoblins = m_GoblinFilter.CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
-							CZoneModifier::RoleType::PrimaryPlayer, // select by 
-							CZoneModifier::RoleType::AllPlayers, // reveal to
-							pCardFilter , // any cards
-							ZoneId::Graveyard, // if selected, move cards to
-							CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-							CardPlacement::Top, // put selected cards on top
-							MoveType::Sacrifice, // move type
-							CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+						pModifier.AddSelection(MinimumValue(value), MaximumValue(value),// select cards to bottom
+							CZoneModifier::RoleType::PrimaryPlayer,						// select by 
+							CZoneModifier::RoleType::AllPlayers,						// reveal to
+							pCardFilter,												// any cards
+							ZoneId::Graveyard,											// if selected, move cards to
+							CZoneModifier::RoleType::PrimaryPlayer,						// select by this player
+							CardPlacement::Top,											// put selected cards on top
+							MoveType::Sacrifice,										// move type
+							CZoneModifier::RoleType::PrimaryPlayer);					// order selected cards by this player
 
 						pModifier.ApplyTo(GetController());
 
@@ -1714,15 +1741,15 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 					else
 					{
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
-							CZoneModifier::RoleType::PrimaryPlayer, // select by 
-							CZoneModifier::RoleType::AllPlayers, // reveal to
-							pCardFilter , // any cards
-							ZoneId::Graveyard, // if selected, move cards to
-							CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-							CardPlacement::Top, // put selected cards on top
-							MoveType::Sacrifice, // move type
-							CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+						pModifier.AddSelection(MinimumValue(value), MaximumValue(value),// select cards to bottom
+							CZoneModifier::RoleType::PrimaryPlayer,						// select by 
+							CZoneModifier::RoleType::AllPlayers,						// reveal to
+							pCardFilter,												// any cards
+							ZoneId::Graveyard,											// if selected, move cards to
+							CZoneModifier::RoleType::PrimaryPlayer,						// select by this player
+							CardPlacement::Top,											// put selected cards on top
+							MoveType::Sacrifice,										// move type
+							CZoneModifier::RoleType::PrimaryPlayer);					// order selected cards by this player
 
 						pModifier.ApplyTo(GetController());
 					}
@@ -1745,15 +1772,15 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						int value = it->dwContext;
 
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
-							CZoneModifier::RoleType::PrimaryPlayer, // select by 
-							CZoneModifier::RoleType::AllPlayers, // reveal to
-							pCardFilter , // any cards
-							ZoneId::Hand, // if selected, move cards to
-							CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-							CardPlacement::Top, // put selected cards on top
-							MoveType::Others, // move type
-							CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+						pModifier.AddSelection(MinimumValue(value), MaximumValue(value),// select cards to bottom
+							CZoneModifier::RoleType::PrimaryPlayer,						// select by 
+							CZoneModifier::RoleType::AllPlayers,						// reveal to
+							pCardFilter,												// any cards
+							ZoneId::Hand,												// if selected, move cards to
+							CZoneModifier::RoleType::PrimaryPlayer,						// select by this player
+							CardPlacement::Top,											// put selected cards on top
+							MoveType::Others,											// move type
+							CZoneModifier::RoleType::PrimaryPlayer);					// order selected cards by this player
 
 						pModifier.ApplyTo(GetController());
 
@@ -1762,120 +1789,122 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
 						return;
 					}
-					else
-						if (((CCreatureCard*)this)->GetCreatureKeyword()->Unleash())
+					else if (((CCreatureCard*)this)->GetCreatureKeyword()->Unleash())
+					{
+						if (!it->dwContext)
 						{
-							if (!it->dwContext)
-							{
-								Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
-								((CDevourCreatureCard*)this)->SetDevouredCount(0);
-								return;
-							}
-
-							int value = it->dwContext;
-
-							((CDevourCreatureCard*)this)->SetDevouredCount(value);
-
 							Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
+							((CDevourCreatureCard*)this)->SetDevouredCount(0);
 							return;
 						}
 
+						int value = it->dwContext;
+
+						((CDevourCreatureCard*)this)->SetDevouredCount(value);
+
+						Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
+						return;
+					}
+
 				}
+			}
+			else
+			{
+				if (!it->dwContext)
+				{
+					Move(GetController()->GetZoneById(ZoneId::Graveyard), GetController(), MoveType::Others, CardPlacement::Top, FALSE);
+					return;
+				}
+				if ((int)it->dwContext == 2)
+				{
+					GetOrientation()->Tap();
+					Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
+					return;
+				}
+				if ((int)it->dwContext == 3)
+				{
+					CLifeModifier pModifier = CLifeModifier(Life(-2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+					pModifier.ApplyTo((CPlayer*)GetController());
+					Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
+					return;
+				}
+					
+				CCardFilter* pCardFilter = (CCardFilter*)(it->dwContext);
+				int value = dwContext1;
+
+				if (GetPrintedCardName() == _T("Ancient Amphitheater")	|| GetPrintedCardName() == _T("Auntie's Hovel")	  ||
+					GetPrintedCardName() == _T("Choked Estuary")		|| GetPrintedCardName() == _T("Foreboding Ruins") ||
+					GetPrintedCardName() == _T("Fortified Village")		|| GetPrintedCardName() == _T("Game Trail")		  ||
+					GetPrintedCardName() == _T("Gilt-Leaf Palace")		|| GetPrintedCardName() == _T("Murmuring Bosk")	  ||
+					GetPrintedCardName() == _T("Port Town")				|| GetPrintedCardName() == _T("Rustic Clachan")	  || 
+					GetPrintedCardName() == _T("Secluded Glen")			|| GetPrintedCardName() == _T("Wanderwine Hub"))
+				{
+					CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
+					pModifier.AddSelection(MinimumValue(1), MaximumValue(1),			// select cards to bottom
+										   CZoneModifier::RoleType::PrimaryPlayer,		// select by 
+										   CZoneModifier::RoleType::AllPlayers,			// reveal to
+										   pCardFilter,									// any cards
+										   ZoneId::Hand,								// if selected, move cards to
+										   CZoneModifier::RoleType::PrimaryPlayer,		// select by this player
+										   CardPlacement::Top,							// put selected cards on top
+										   MoveType::Others,							// move type
+										   CZoneModifier::RoleType::PrimaryPlayer);		// order selected cards by this player
+
+					pModifier.ApplyTo(GetController());						
+					Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
+					return;
 				}
 				else
 				{
-					if (!it->dwContext)
-					{
-						Move(GetController()->GetZoneById(ZoneId::Graveyard), GetController(), MoveType::Others, CardPlacement::Top, FALSE);
-						return;
-					}
-					if ((int)it->dwContext == 2)
-					{
-						GetOrientation()->Tap();
-						Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
-						return;
-					}
-					if ((int)it->dwContext == 3)
-					{
-						CLifeModifier pModifier = CLifeModifier(Life(-2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-						pModifier.ApplyTo((CPlayer*)GetController());
-						Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
-						return;
-					}
-					
-					CCardFilter* pCardFilter = (CCardFilter*)(it->dwContext);
-					int value = dwContext1;
-
-					if (GetPrintedCardName() == _T("Ancient Amphitheater") || GetPrintedCardName() == _T("Auntie's Hovel") ||
-						GetPrintedCardName() == _T("Gilt-Leaf Palace") || GetPrintedCardName() == _T("Murmuring Bosk") ||
-						GetPrintedCardName() == _T("Rustic Clachan") || GetPrintedCardName() == _T("Secluded Glen") ||
-						GetPrintedCardName() == _T("Wanderwine Hub"))
-					{
+					if (GetPrintedCardName() == _T("Mox Diamond") &&  pCardFilter->CountIncluded(GetController()->GetZoneById(ZoneId::Hand)->GetCardContainer()) > 0)
+					{			
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
-								CZoneModifier::RoleType::PrimaryPlayer, // select by 
-								CZoneModifier::RoleType::AllPlayers, // reveal to
-								pCardFilter , // any cards
-								ZoneId::Hand, // if selected, move cards to
-								CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-								CardPlacement::Top, // put selected cards on top
-								MoveType::Others, // move type
-								CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-						pModifier.ApplyTo(GetController());						
-						Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::NotApplicable, FALSE);
-						return;
-					}
-					else
-					{
-						if (GetPrintedCardName() == _T("Mox Diamond") &&  pCardFilter->CountIncluded(GetController()->GetZoneById(ZoneId::Hand)->GetCardContainer()) > 0)
-						{			
-							CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
-								CZoneModifier::RoleType::PrimaryPlayer, // select by 
-								CZoneModifier::RoleType::AllPlayers, // reveal to
-								pCardFilter , // any cards
-								ZoneId::Graveyard, // if selected, move cards to
-								CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-								CardPlacement::Top, // put selected cards on top
-								MoveType::Discard, // move type
-								CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+							pModifier.AddSelection(MinimumValue(1), MaximumValue(1),// select cards to bottom
+							CZoneModifier::RoleType::PrimaryPlayer,				// select by 
+							CZoneModifier::RoleType::AllPlayers,				// reveal to
+							pCardFilter,										// any cards
+							ZoneId::Graveyard,									// if selected, move cards to
+							CZoneModifier::RoleType::PrimaryPlayer,				// select by this player
+							CardPlacement::Top,									// put selected cards on top
+							MoveType::Discard,									// move type
+							CZoneModifier::RoleType::PrimaryPlayer);			// order selected cards by this player
 						
 						pModifier.ApplyTo(GetController());						
 						Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::Top, FALSE);	
 						return;
-						}
-						else
+					}
+					else
+					{
+						if (pCardFilter->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) >= value)
 						{
-							if (pCardFilter->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) >= value)
-							{
-									CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-							pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
-								CZoneModifier::RoleType::PrimaryPlayer, // select by 
-								CZoneModifier::RoleType::AllPlayers, // reveal to
-								pCardFilter , // any cards
-								ZoneId::Graveyard, // if selected, move cards to
-								CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-								CardPlacement::Top, // put selected cards on top
-								MoveType::Sacrifice, // move type
-								CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+							CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
+							pModifier.AddSelection(MinimumValue(value), MaximumValue(value),// select cards to bottom
+								CZoneModifier::RoleType::PrimaryPlayer,						// select by 
+								CZoneModifier::RoleType::AllPlayers,						// reveal to
+								pCardFilter,												// any cards
+								ZoneId::Graveyard,											// if selected, move cards to
+								CZoneModifier::RoleType::PrimaryPlayer,						// select by this player
+								CardPlacement::Top,											// put selected cards on top
+								MoveType::Sacrifice,										// move type
+								CZoneModifier::RoleType::PrimaryPlayer);					// order selected cards by this player
 						
 							pModifier.ApplyTo(GetController());
 
 							Move(GetController()->GetZoneById(ZoneId::Battlefield), GetController(), MoveType::Others, CardPlacement::Top, FALSE);	
 							return;
-							}
-							else
-							{
-								Move(GetController()->GetZoneById(ZoneId::Graveyard), GetController(), MoveType::Others, CardPlacement::Top, FALSE);				
-								return;
-							}
+						}
+						else
+						{
+							Move(GetController()->GetZoneById(ZoneId::Graveyard), GetController(), MoveType::Others, CardPlacement::Top, FALSE);				
+							return;
 						}
 					}
 				}
+			}
 			return;
 		}
 }
+
 void CCard::OnToDiscardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	
@@ -1883,31 +1912,20 @@ void CCard::OnToDiscardSelected(const std::vector<SelectionEntry>& selection, in
 		if (it->bSelected)
 		{
 			if (!it->dwContext)
-			{
-				// Madness				
-
+			{// Madness			
 				Move(GetController()->GetZoneById(ZoneId::Exile), GetController(), MoveType::Discard, CardPlacement::Top, FALSE);
 				CSpecialEffectModifier pModifier = CSpecialEffectModifier((CCard*)this, 666);
 				pModifier.ApplyTo(this);
-
 				return;
 			}	
-
 			if (it->dwContext == 1)
-			{
-				// Exile
-
+			{// Exile
 				Move(GetController()->GetZoneById(ZoneId::Exile), GetController(), MoveType::Discard, CardPlacement::Top, FALSE);
-
 				return;
 			}
-
 			if (it->dwContext == 2)
-			{
-				// Graveyard
-
+			{// Graveyard
 				Move(GetController()->GetZoneById(ZoneId::Graveyard), GetController(), MoveType::Discard, CardPlacement::Top, FALSE);
-
 				return;
 			}
 			return;
@@ -1919,22 +1937,22 @@ void CCard::OnCommanderSelected(const std::vector<SelectionEntry>& selection, in
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
-
 			CPlayer* pByPlayer = (CPlayer*)dwContext1;
 			CardPlacement placement = CardPlacement::Bottom;
-			if (dwContext3) placement = CardPlacement::Top;
+			if (dwContext3) 
+				placement = CardPlacement::Top;
 
 			MoveType movetype;
 
 			switch(dwContext2)
 			{
-			case 0: movetype = MoveType::Others;
-			case 1: movetype = MoveType::Destroy;
-			case 2: movetype = MoveType::NormalDiscard;
-			case 3: movetype = MoveType::Discard;
-			case 4: movetype = MoveType::DestroyWithoutRegeneration;
-			case 5: movetype = MoveType::Sacrifice;
-			case 6: movetype = MoveType::Suspend;
+				case 0: movetype = MoveType::Others;
+				case 1: movetype = MoveType::Destroy;
+				case 2: movetype = MoveType::NormalDiscard;
+				case 3: movetype = MoveType::Discard;
+				case 4: movetype = MoveType::DestroyWithoutRegeneration;
+				case 5: movetype = MoveType::Sacrifice;
+				case 6: movetype = MoveType::Suspend;
 			}
 
 			CZone* pToZone;
@@ -1943,8 +1961,7 @@ void CCard::OnCommanderSelected(const std::vector<SelectionEntry>& selection, in
 			{
 				pToZone =  pSelectionPlayer->GetZoneById(ZoneId::_Effects);
 			}			
-			else
-			if (it->dwContext == 1)
+			else if (it->dwContext == 1)
 			{
 				pToZone =  pSelectionPlayer->GetZoneById(ZoneId::Graveyard);
 			}	
@@ -1970,9 +1987,8 @@ void CCard::OnCommanderSelected(const std::vector<SelectionEntry>& selection, in
 			if ((!pPreviousZone || pPreviousZone->GetZoneId() != ZoneId::Battlefield) &&
 				currentZoneId == ZoneId::Battlefield)
 				m_nInplayGameTurnNumber = m_pGame->GetGameTurnNumber();
-			else
-				if (currentZoneId != ZoneId::Battlefield)
-					m_nInplayGameTurnNumber = -1;
+			else if (currentZoneId != ZoneId::Battlefield)
+				m_nInplayGameTurnNumber = -1;
 
 			if (currentZoneId == ZoneId::Battlefield)
 				m_nControllerTurnChanged = GetController()->GetPlayerTurnNumber();
@@ -1998,13 +2014,9 @@ void CCard::OnCommanderSelected(const std::vector<SelectionEntry>& selection, in
 void CCard::Destroy(const CPlayer* pByPlayer, MoveType moveType)			// Destroy tokens/dynamic cards
 {
 	m_nZoneMoveNumber = -1;
-
 	// For trigger abilities sensitive to card zone changes
-
 	Move(GetOwner()->GetZoneById(ZoneId::_Tokens), pByPlayer, moveType);
-
 	// Now remove it completely
-
 	if (GetZoneId() == ZoneId::_Tokens)
 	{
 		GetZone()->RemoveCard(this); 
@@ -2102,13 +2114,11 @@ int CCard::GetDredgeNumber() const
 		const int number(pDredgeAbility->GetDredgeCount());
 
 		if (number>0)
-		{ 
 			bFound = number;
-		}
 	}
-
 	return bFound;
 }
+
 BOOL CCard::GetToZoneIdReplacement(ZoneId pToZone) const
 {
 	BOOL bFound = FALSE;
@@ -2118,10 +2128,9 @@ BOOL CCard::GetToZoneIdReplacement(ZoneId pToZone) const
 		if (!pDredgeAbility)
 			continue;
 
-	    if (pDredgeAbility->GetToZone() == pToZone) return TRUE;
-
+	    if (pDredgeAbility->GetToZone() == pToZone) 
+			return TRUE;
 	}
-
 	return bFound;
 }
 BOOL CCard::HasProtectionFrom(const CCard* pCard, BOOL pSpell) const
@@ -2151,7 +2160,7 @@ BOOL CCard::HasProtectionFrom(const CCard* pCard, BOOL pSpell) const
 	if ((protection & CardKeyword::ProtectionFromRed).Any())
 		cardType |= CardType::Red;
 
-	//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 	BOOL bFound = FALSE;
 	if ((protection & CardKeyword::ProtectionSpecial).Any())
 	for (int i = 0; i < GetAbilityCount() && !bFound; ++i)
@@ -2252,12 +2261,12 @@ BOOL CCard::IsColor(CManaPool::Color color) const
 #if 1 // Changed to rely on m_CardType
 	switch(color.Get())
 	{
-	case CManaPool::Color::Blue:		return (m_CardType & CardType::Blue).Any();
-	case CManaPool::Color::Black:		return (m_CardType & CardType::Black).Any();
-	case CManaPool::Color::Red:			return (m_CardType & CardType::Red).Any();
-	case CManaPool::Color::Green:		return (m_CardType & CardType::Green).Any();
-	case CManaPool::Color::White:		return (m_CardType & CardType::White).Any();
-	case CManaPool::Color::Colorless:	return (m_CardType & CardType::Artifact).Any();
+		case CManaPool::Color::Blue:		return (m_CardType & CardType::Blue).Any();
+		case CManaPool::Color::Black:		return (m_CardType & CardType::Black).Any();
+		case CManaPool::Color::Red:			return (m_CardType & CardType::Red).Any();
+		case CManaPool::Color::Green:		return (m_CardType & CardType::Green).Any();
+		case CManaPool::Color::White:		return (m_CardType & CardType::White).Any();
+		case CManaPool::Color::Colorless:	return (m_CardType & CardType::Artifact).Any();
 	}
 
 	ATLASSERT(false);
@@ -2347,6 +2356,7 @@ void CCard::OnDealDamage(CPlayer* pToPlayer, CCreatureCard* pToCreature, CPlanes
 	if (pController)
 		pController->GetDamageDealEventSource()->FireEvent(this, pToPlayer, pToCreature, pToPlaneswalker, damage);
 }
+
 void CCard::BeforeDealDamage(CPlayer* pToPlayer, CCreatureCard* pToCreature, CPlaneswalkerCard* pToPlaneswalker, Damage damage, int effect_index)
 {
 	m_cpBeforeDamageDealtEventSource->FireEvent(this, pToPlayer, pToCreature, pToPlaneswalker, damage, effect_index);
@@ -2355,6 +2365,7 @@ void CCard::BeforeDealDamage(CPlayer* pToPlayer, CCreatureCard* pToCreature, CPl
 	if (pController)
 		pController->GetBeforeDamageDealtEventSource()->FireEvent(this, pToPlayer, pToCreature, pToPlaneswalker, damage, effect_index);
 }
+
 void CCard::CounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
 {
 	m_cpCounterMovedEventSource->FireEvent(this, name, old, n_value);
@@ -2363,6 +2374,7 @@ void CCard::CounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
 	if (pController)
 		pController->GetCounterMovedEventSource()->FireEvent(this, name, old, n_value);
 }
+
 void CCard::SpecialTrigger(CCard* pCard, int n_value)
 {
 	m_cpSpecialTriggerEventSource->FireEvent(this, n_value);
@@ -2371,6 +2383,7 @@ void CCard::SpecialTrigger(CCard* pCard, int n_value)
 	if (pController)
 		pController->GetSpecialTriggerEventSource()->FireEvent(this, n_value);
 }
+
 void CCard::CardCycled(CCard* pFromCard, CPlayer* byPlayer)
 {
 	m_cpCardCycledEventSource->FireEvent(this, byPlayer);
@@ -2379,6 +2392,7 @@ void CCard::CardCycled(CCard* pFromCard, CPlayer* byPlayer)
 	if (pController)
 		pController->GetCardCycledEventSource()->FireEvent(this, byPlayer);
 }
+
 void CCard::OnISAAZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
 {
 	if (!pFromZone || !pToZone ||
@@ -2399,13 +2413,11 @@ void CCard::OnISAAZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CP
 		if (pCard == this)
 		{
 			// Move the Is-also-a token
-
 			m_cpIsAlsoA->GetPointer()->Move(pToZone, pByPlayer, MoveType::Morph);
 		}
 		else
 		{
 			// Move this card also
-
 			Move(pToZone, pByPlayer, MoveType::Others);
 		}
 
@@ -2458,11 +2470,9 @@ void CCard::OnISAAOrientationChanged(COrientation* pOrientation, Orientation fro
 	if ((fromOrientation & Orientation::Untap).Any() && (toOrientation & Orientation::Tap).Any())
 	{
 		// Became tapped
-
 		if (pCard == this)
 		{
 			// Tap the is-also-a token also
-
 			ATLASSERT(m_cpIsAlsoA->GetPointer()->GetOrientation()->IsUntapped());
 
 			m_cpIsAlsoA->GetPointer()->GetOrientation()->Tap();
@@ -2470,17 +2480,14 @@ void CCard::OnISAAOrientationChanged(COrientation* pOrientation, Orientation fro
 		else
 		{
 			// Tap this card too
-
 			ATLASSERT(GetOrientation()->IsUntapped());
 
 			GetOrientation()->Tap();
 		}
 	}
-	else
-		if ((fromOrientation & Orientation::Tap).Any() && (toOrientation & Orientation::Untap).Any())
+	else if ((fromOrientation & Orientation::Tap).Any() && (toOrientation & Orientation::Untap).Any())
 	{
 		// Became untapped
-
 		if (pCard == this)
 		{
 			// Tap the is-also-a token also
@@ -2505,6 +2512,7 @@ void CCard::OnISAAOrientationChanged(COrientation* pOrientation, Orientation fro
 		m_cpIsAlsoA->GetPointer()->GetOrientation()->AddListener(m_cpISAAOrientationListener.GetPointer());
 	}
 }
+
 void CCard::OnISAADamageDealt(CCard* pFromCard, CPlayer* pToPlayer, CCreatureCard* pToCreature, CPlaneswalkerCard* pToPlaneswalker, Damage damage)
 {
 	CCard* pIsAlsoA = m_cpIsAlsoA->GetPointer();
@@ -2521,7 +2529,8 @@ void CCard::OnISAADamageDealt(CCard* pFromCard, CPlayer* pToPlayer, CCreatureCar
 		{
 			CCreatureCard* pCreature = (CCreatureCard*)pIsAlsoA;
 			if (!pCreature->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllDamageToPWalkers) ||
-												pCreature->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage) || damage.m_Preventable != PreventableType::Preventable)			
+				pCreature->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage)			 || 
+				damage.m_Preventable != PreventableType::Preventable)			
 			{
 
 				if (damage.m_pSourceCard->GetCardKeyword()->HasLifelink())
@@ -2541,12 +2550,12 @@ void CCard::OnISAADamageDealt(CCard* pFromCard, CPlayer* pToPlayer, CCreatureCar
 
 				Counter* pCounter = pWalker->GetLoyaltyCounter();
 				pCounter->DecreaseCount(-GET_INTEGER(damage.m_nLifeDelta));			
-
 				m_pGame->AddStatebasedHint(CGame::StatebasedHint::PlaneswalkerCards);
 			}
 		}
 	}
 }
+
 void CCard::OnSelfCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
 {
 	if (m_cpIsAlsoA->GetPointer() && pFromCard == this &&  m_cpIsAlsoA->GetPointer()->GetCounterContainer()->GetCounter(name)->GetCount() != GetCounterContainer()->GetCounter(name)->GetCount())
@@ -2556,6 +2565,7 @@ void CCard::OnSelfCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_va
 		pModifier.ApplyTo(m_cpIsAlsoA->GetPointer());
 	}
 }
+
 void CCard::OnAlsoCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
 {
 	if (pFromCard == m_cpIsAlsoA->GetPointer() && m_cpIsAlsoA->GetPointer()->GetCounterContainer()->GetCounter(name)->GetCount() != GetCounterContainer()->GetCounter(name)->GetCount())
