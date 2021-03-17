@@ -3526,7 +3526,7 @@ CBrighthearthBanneretCard::CBrighthearthBanneretCard(CGame* pGame, UINT nID)
 		//Reinforce ability
 		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
-				_T("1") WHITE_MANA_TEXT,
+				_T("1") RED_MANA_TEXT,
 				Power(+0), Life(+0),
 				CreatureKeyword::Null, CreatureKeyword::Null,
 				TRUE, PreventableType::NotPreventable));
@@ -3803,16 +3803,96 @@ BOOL CLatchkeyFaerieCard::CanPlay(BOOL bIncludeTricks)
 //
 CWarrenWeirdingCard::CWarrenWeirdingCard(CGame* pGame, UINT nID)
 	: CTribalCard(pGame, _T("Warren Weirding"), CardType::Sorcery, nID, CREATURE_TYPE(Goblin))
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CWarrenWeirdingCard::OnCardSelected))
 {
-		counted_ptr<CTargetSacrificePlusSpell> cpSpell(
-		::CreateObject<CTargetSacrificePlusSpell>(this, AbilityType::Sorcery,					
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,					
 			_T("1") BLACK_MANA_TEXT,
-			CCardFilter::GetFilter(_T("creatures"))));
+			FALSE_CARD_COMPARER, true));
 
-	cpSpell->SetCreateGoblins(TRUE);
-
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CWarrenWeirdingCard::BeforeResolution));
+	
 	AddSpell(cpSpell.GetPointer());
 }
+
+bool CWarrenWeirdingCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pTarget = pAction->GetAssociatedPlayer();
+	CZone* pBattlefield = pTarget->GetZoneById(ZoneId::Battlefield);
+	
+	CCardFilter m_CardFilter;
+	m_CardFilter.SetComparer(new AnyCreatureComparer);
+
+	if (m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+
+			if (pCard->GetCardType().IsCreature())
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Sacrifice %s"),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pTarget);
+	}
+	return true;
+}
+
+void CWarrenWeirdingCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCreatureCard* pCard = (CCreatureCard*)it->dwContext;
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s sacrifices %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+
+			bool bGoblin = false;
+
+			if (pCard->GetCardKeyword()->HasChangeling() | pCard->GetCreatureType().HasType(SingleCreatureType::Goblin)) bGoblin = true;
+
+			CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pSelectionPlayer);
+			pModifier1.ApplyTo(pCard);
+
+			if (bGoblin && !pCard->IsInplay())
+			{
+				CCountedCardContainer pTokens;
+
+				CTokenCreationModifier pModifier2 = CTokenCreationModifier(GetGame(), _T("Goblin Rogue"), 2757, 2, FALSE, ZoneId::Battlefield, &pTokens);
+				pModifier2.ApplyTo(pSelectionPlayer);
+
+				CCreatureKeywordModifier pModifier3 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE);
+
+				for (int i = 0; i < pTokens.GetSize(); ++i)
+					pModifier3.ApplyTo((CCreatureCard*)pTokens.GetAt(i));
+			}
+		
+			return;
+		}
+}
+
+
 //____________________________________________________________________________
 //
 CSageOfFablesCard::CSageOfFablesCard(CGame* pGame, UINT nID)

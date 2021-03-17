@@ -4664,6 +4664,8 @@ counted_ptr<CAbility> CHolyArmorCard::CreateAdditionalAbility(CCard* pCard)
 //
 CParalyzeCard::CParalyzeCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Paralyze"), CardType::EnchantCreature, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CParalyzeCard::OnResolutionCompleted))
 {
 	{
 		counted_ptr<CCardKeywordEnchant> cpSpell(
@@ -4671,24 +4673,13 @@ CParalyzeCard::CParalyzeCard(CGame* pGame, UINT nID)
 				BLACK_MANA_TEXT,
 				new CardTypeComparer(CardType::Creature, false),
 				CardKeyword::NoUntapInUntapPhase));
+
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 		
 		m_pEnchantSpell = cpSpell.GetPointer();
 		AddSpell(m_pEnchantSpell);
 	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredTapCardAbility, CWhenSelfInplay,
-								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback> TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CParalyzeCard::SetTriggerContext2));
-
-		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	
 	{
 		typedef
 			TTriggeredAbility< CTriggeredTapCardAbility, CWhenNodeChanged > TriggeredAbility;
@@ -4707,12 +4698,11 @@ CParalyzeCard::CParalyzeCard(CGame* pGame, UINT nID)
 	}
 }
 
-bool CParalyzeCard::SetTriggerContext2(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-										CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	if (!m_pEnchantSpell->GetEnchantedOnCard()) return false;
-	triggerContext.m_pCard = m_pEnchantSpell->GetEnchantedOnCard();
-	return true;
+void CParalyzeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{	
+	CCard* target = pAbilityAction->GetAssociatedCard();
+	CCardOrientationModifier pModifier = CCardOrientationModifier(true);
+	if (bResult) pModifier.ApplyTo(target);
 }
 
 bool CParalyzeCard::SetTriggerContext3(CTriggeredTapCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const

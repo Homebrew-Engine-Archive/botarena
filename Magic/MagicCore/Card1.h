@@ -408,6 +408,34 @@ public:
 
 //____________________________________________________________________________
 //
+class CNumberEffectCard : public CEffectCard
+{
+protected:
+	 CNumberEffectCard(CGame* pGame, LPCTSTR strCardName, CardType cardType, UINT uID)
+		: CEffectCard(pGame, strCardName, cardType, uID)
+		, nNumber(0)
+	{
+	}
+
+	virtual ~CNumberEffectCard() {}
+
+	int_ nNumber;
+
+public:
+	void ReadData(int Passed)
+	{
+		nNumber = Passed;
+	}
+
+	int WriteData()
+	{
+		return nNumber;
+	}
+
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CPlaneCard : public CCard
 {
 protected:

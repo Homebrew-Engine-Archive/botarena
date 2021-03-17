@@ -4603,7 +4603,7 @@ void CTargetPlayerSacrificeSpell::ResolvePlayer(const CTargetSpellAction* pActio
 	GetSelectionEntries(pAction, pPlayer, value, entries);
 
 	if (entries.size())
-		m_SelectionSupport.AddSelectionRequest(entries, 1, 1, GetCard(), pPlayer, (DWORD)pAction->GetController());
+		m_SelectionSupport.AddSelectionRequest(entries, 1, 1, GetCard(), pPlayer);
 }
 
 void CTargetPlayerSacrificeSpell::GetSelectionEntries(const CTargetSpellAction* pAction, CPlayer* pPlayer, const ContextValue& value, std::vector<SelectionEntry>& entries)
@@ -4627,13 +4627,11 @@ void CTargetPlayerSacrificeSpell::GetSelectionEntries(const CTargetSpellAction* 
 
 void CTargetPlayerSacrificeSpell::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
-	const CPlayer* pByPlayer = (const CPlayer*)dwContext1;
-
 	for (vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
 			CCard* pCard = (CCard*)(it->dwContext);
-			pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), pByPlayer, MoveType::Sacrifice);
+			pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), pSelectionPlayer, MoveType::Sacrifice);
 
 			break;
 		}
@@ -7109,7 +7107,7 @@ void CTargetSacrificePlusSpell::OnSelectionDone(const std::vector<SelectionEntry
 			{
 				CCard* pCard = (CCard*)(it->dwContext);
 				CLifeModifier pModifier = CLifeModifier(Life(((CCreatureCard*)pCard)->GetToughness()), m_pCard);
-				pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), pByPlayer, MoveType::Sacrifice);
+				pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Graveyard), pSelectionPlayer, MoveType::Sacrifice);
 				pModifier.ApplyTo(const_cast<CPlayer*>(pByPlayer));
 				break;
 			}

@@ -451,6 +451,7 @@ BEGIN
     IDS_STRING13497         "Gravestorm\n{BBB}\nEnchantment\nODY,R\nAt the beginning of your upkeep, target opponent may exile a card from his or her graveyard. If that player doesn't, you may draw a card."
     IDS_STRING13498         "Testament of Faith\n{W}\nEnchantment\nODY,U\n{X}: Testament of Faith becomes an X/X Wall creature with defender until end of turn. It's still an enchantment."
     IDS_STRING13499         "Shifty Doppelganger\n{2U}\nEnchantment\nODY,R\n{3U}, Exile Shifty Doppelganger: You may put a creature card from your hand onto the battlefield. If you do, that creature gains haste until end of turn. At the beginning of the next end step, sacrifice that creature. If you do, return Shifty Doppelganger to the battlefield.\n1/1"
+    IDS_STRING13500         "Balshan Beguiler\n{2U}\nCreature - Human Wizard\nODY,U\nWhenever Balshan Beguiler deals combat damage to a player, that player reveals the top two cards of his or her library. You choose one of those cards and put it into his or her graveyard.\n1/1"
 END
 
 #endif    // English (United States) resources

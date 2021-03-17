@@ -462,8 +462,8 @@ class CDesecrationDemonCard : public CFlyingCreatureCard
 protected:
 	CSelectionSupport m_PunisherSelection;
 	bool BeforeResolution(CAbilityAction* pAction);
-	void PunisherFunction(int PlayerID);
-	void Advance(int PlayerID);
+	void PunisherFunction(int PlayerID, CPlayer* pController);
+	void Advance(int PlayerID, CPlayer* pController);
 	void OnPunisherSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	int_ bSomeonePaid;
 };

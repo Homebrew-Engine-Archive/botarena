@@ -59,6 +59,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CJolraelsFavorCard);
 		DEFINE_CARD(CJolraelEmpressOfBeastsCard);
 		DEFINE_CARD(CKeldonArsonistCard);
+		DEFINE_CARD(CKeldonBattlewagonCard);
 		DEFINE_CARD(CKeldonBerserkerCard);
 		DEFINE_CARD(CLatullaKeldonOverseerCard);
 		DEFINE_CARD(CLatullasOrdersCard);
@@ -2826,6 +2827,71 @@ bool CFickleEfreetCard::BeforeResolution(CAbilityAction* pAction)
 
 	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Fickle Efreet Effect"), 61109, &pSubjects);
 	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CKeldonBattlewagonCard::CKeldonBattlewagonCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Keldon Battlewagon"), CardType::_ArtifactCreature, CREATURE_TYPE(Juggernaut), nID,
+		_T("5"), Power(0), Life(3))
+{
+	GetCreatureKeyword()->AddTrample(FALSE);
+	GetCreatureKeyword()->AddCantBlock(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
+									CWhenSelfAttackedBlocked::AttackEventCallback,
+									&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKeldonBattlewagonCard::BeforeResolution1));
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("")));
+
+		cpAbility->GetCost().AddTapCardCost(1, CCardFilter::GetFilter(_T("creatures")));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKeldonBattlewagonCard::BeforeResolution2));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CKeldonBattlewagonCard::BeforeResolution1(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Sacrifice Effect"), 61106, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+bool CKeldonBattlewagonCard::BeforeResolution2(CAbilityAction* pAction)
+{
+	if (!IsInplay()) return false;
+
+	CCreatureCard* pTapped = (CCreatureCard*)pAction->GetCostConfigEntry().GetTapCards()->GetAt(0);
+	Power nPower = Power(0);
+
+	if (pTapped->IsInplay()) nPower = pTapped->GetPower();
+	else nPower = pTapped->GetLastKnownPower();
+
+	CPowerModifier pModifier = CPowerModifier(nPower);
+	pModifier.ApplyTo(this);
 
 	return true;
 }

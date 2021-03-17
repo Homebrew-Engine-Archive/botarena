@@ -347,3 +347,10 @@ class CTwinToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CElementalRToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalRToken);
+};
+
+//____________________________________________________________________________
+//

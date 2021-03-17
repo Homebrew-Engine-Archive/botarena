@@ -1287,8 +1287,8 @@ class CThirstCard : public CChgPwrTghAttrEnchantCard
 	DECLARE_CARD_CSTOR(CThirstCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-									CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 };
 
 //____________________________________________________________________________
@@ -1335,7 +1335,7 @@ class CWallOfCorpsesCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
- class CAsmiraHolyAvengerCard : public CFlyingCreatureCard 
+class CAsmiraHolyAvengerCard : public CFlyingCreatureCard 
 {
 	DECLARE_CARD_CSTOR(CAsmiraHolyAvengerCard);
 
@@ -1345,7 +1345,7 @@ protected:
  
 //____________________________________________________________________________
 //
- class CVentifactBottleCard : public CInPlaySpellCard
+class CVentifactBottleCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CVentifactBottleCard);
 
@@ -1357,7 +1357,7 @@ protected:
 
 //____________________________________________________________________________
 //
- class CMerfolkRaidersCard : public CLandwalkCreatureCard 
+class CMerfolkRaidersCard : public CLandwalkCreatureCard 
 {
 	DECLARE_CARD_CSTOR(CMerfolkRaidersCard);
 

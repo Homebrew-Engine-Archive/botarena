@@ -57,6 +57,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGaeasBalanceCard);
 		DEFINE_CARD(CGaeasSkyfolkCard);
 		DEFINE_CARD(CGerrardCapashenCard);
+		DEFINE_CARD(CGerrardsVerdictCard);
 		DEFINE_CARD(CGladeGnarrCard);
 		DEFINE_CARD(CGoblinLegionnaireCard);
 		DEFINE_CARD(CGoblinRingleaderCard);
@@ -135,7 +136,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CWildResearchCard);
 		DEFINE_CARD(CVodalianMysticCard);
 		DEFINE_CARD(CYavimayasEmbraceCard);
-		DEFINE_CARD(CZombieBoaCard);
+		//DEFINE_CARD(CZombieBoaCard);
 
 	} while (false);
 
@@ -4973,6 +4974,7 @@ bool CDeadRingersCard::BeforeResolution(CAbilityAction* pAction) const
 
 //____________________________________________________________________________
 //
+/*
 CZombieBoaCard::CZombieBoaCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Zombie Boa"), CardType::Creature, CREATURE_TYPE2(Zombie, Snake), nID,
 		_T("4") BLACK_MANA_TEXT, Power(3), Life(3))
@@ -5165,6 +5167,53 @@ void CZombieBoaCard::OnColorSelected(const std::vector<SelectionEntry>& selectio
 				return;
 			}
 		}
+}
+*/
+//____________________________________________________________________________
+//
+CGerrardsVerdictCard::CGerrardsVerdictCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Gerrard's Verdict"), CardType::Sorcery, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CGerrardsVerdictCard::OnResolutionCompleted))
+	, nLands(0)
+{
+	counted_ptr<CTargetPlayerDiscardCardSpell> cpSpell(
+		::CreateObject<CTargetPlayerDiscardCardSpell>(this, AbilityType::Sorcery,
+			WHITE_MANA_TEXT BLACK_MANA_TEXT,
+			2, MoveType::Discard, ZoneId::Graveyard, TRUE,
+			TRUE,
+			CCardFilter::GetFilter(_T("cards"))));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGerrardsVerdictCard::BeforeResolution));
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CGerrardsVerdictCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCardFilter m_CardFilter;
+	m_CardFilter.SetComparer(new CardTypeComparer(CardType::_Land, false));
+
+	nLands = m_CardFilter.CountIncluded(pAction->GetAssociatedPlayer()->GetZoneById(ZoneId::Hand)->GetCardContainer());
+	
+	return true;
+}
+
+void CGerrardsVerdictCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.SetComparer(new CardTypeComparer(CardType::_Land, false));
+
+	int nNewLands = m_CardFilter.CountIncluded(pAbilityAction->GetAssociatedPlayer()->GetZoneById(ZoneId::Hand)->GetCardContainer());
+
+	if (nLands > nNewLands)
+	{
+		CLifeModifier pModifier = CLifeModifier(Life(3*(nLands - nNewLands)), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+		pModifier.ApplyTo(pAbilityAction->GetController());
+	}
 }
 
 //____________________________________________________________________________

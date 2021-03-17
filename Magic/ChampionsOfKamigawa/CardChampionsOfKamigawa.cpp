@@ -3881,7 +3881,7 @@ CHikariTwilightGuardianCard::CHikariTwilightGuardianCard(CGame* pGame, UINT nID)
 			&CHikariTwilightGuardianCard::OnResolutionCompleted1))
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSpellCast > TriggeredAbility;
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSpellCast > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 	
@@ -3893,11 +3893,6 @@ CHikariTwilightGuardianCard::CHikariTwilightGuardianCard(CGame* pGame, UINT nID)
 
 	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
-	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
-
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
 
 	AddAbility(cpAbility.GetPointer());
@@ -3905,12 +3900,17 @@ CHikariTwilightGuardianCard::CHikariTwilightGuardianCard(CGame* pGame, UINT nID)
 
 void CHikariTwilightGuardianCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
+	if (!IsInplay()) return;
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAbilityAction->GetController());
+	pModifier1.ApplyTo(this);
+
 	CCountedCardContainer pSubjects;
 	if (GetZoneId() == ZoneId::Exile)
 		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
-	pModifier.ApplyTo(pAbilityAction->GetController());
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier2.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -5950,33 +5950,20 @@ CMysticRestraintsCard::CMysticRestraintsCard(CGame* pGame, UINT nID)
 	: CChgPwrTghAttrEnchantCard(pGame, _T("Mystic Restraints"), nID,
 		_T("2") BLUE_MANA_TEXT BLUE_MANA_TEXT,
 		Power(+0), Life(+0))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CMysticRestraintsCard::OnResolutionCompleted))
 {
 	GetCardKeyword()->AddFlash(FALSE);
 	m_pChgPwrTghAttrEnchant->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::NoUntapInUntapPhase);
 
-	typedef
-		TTriggeredAbility< CTriggeredTapCardAbility, CWhenSelfInplay,
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback> TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMysticRestraintsCard::SetTriggerContext));
-
-	AddAbility(cpAbility.GetPointer());
+	m_pChgPwrTghAttrEnchant->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 }
 
-bool CMysticRestraintsCard::SetTriggerContext(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	CCard* pCard = m_pChgPwrTghAttrEnchant->GetEnchantedOnCard();
-	if (!pCard) return false;
-
-	triggerContext.m_pCard = pCard;
-
-	return true;
+void CMysticRestraintsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{	
+	CCard* target = pAbilityAction->GetAssociatedCard();
+	CCardOrientationModifier pModifier = CCardOrientationModifier(true);
+	if (bResult) pModifier.ApplyTo(target);
 }
 
 //____________________________________________________________________________

@@ -2094,3 +2094,22 @@ protected:
 
 //____________________________________________________________________________
 //
+class CBalshanBeguilerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBalshanBeguilerCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::PlayerEventCallback,
+							&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										CPlayer* pPlayer, Damage d_damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//

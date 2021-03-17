@@ -195,6 +195,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRootgrappleCard);
 		DEFINE_CARD(CRunedStalactiteCard);
 		DEFINE_CARD(CScarredVinebreederCard);
+		DEFINE_CARD(CScatteringStrokeCard);
 		DEFINE_CARD(CScionOfOonaCard);
 		DEFINE_CARD(CSecludedGlenCard);
 		DEFINE_CARD(CSentryOakCard);
@@ -11111,6 +11112,51 @@ bool CElvishBranchbenderCard::BeforeResolution(CAbilityAction* pAction) const
 
 	pCreature->SetPrintedPower(nElves);
 	pCreature->SetPrintedToughness(nElves);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CScatteringStrokeCard::CScatteringStrokeCard(CGame* pGame, UINT nID)
+	: CCounterSpellCard(pGame, _T("Scattering Stroke"), CardType::Instant, nID,
+		_T("2") BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Instant, 
+		new TrueCardComparer)
+{
+	m_pCounterSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CScatteringStrokeCard::BeforeResolution));
+}
+
+bool CScatteringStrokeCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	DWORD nCMC = pAction->GetAssociatedCard()->GetConvertedManaCost();
+
+	{
+		CPlayer* controller=pAction->GetController();
+		CPlayer* opponent=m_pGame->GetNextPlayer(GetController());
+		CCard* pNextDraw_con = controller->GetZoneById(ZoneId::Library)->GetTopCard();
+		CCard* pNextDraw_opp = opponent->GetZoneById(ZoneId::Library)->GetTopCard();
+		int opp_score = 0;
+		int con_score = 0;
+		CZoneModifier pmodifier = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+		pmodifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to reorder
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::AllPlayers, // reveal to
+			NULL, // what cards
+			ZoneId::Library, // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom, // put selected cards on 
+			MoveType::Others, // move type
+			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		CNumberEffectModifier cmodifier = CNumberEffectModifier(GetGame(), _T("Scattering Stroke Effect"), 61122, nCMC);
+
+		if (!pNextDraw_con->GetCardType().IsLand()) con_score=pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+		if (!pNextDraw_opp->GetCardType().IsLand()) opp_score=pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+
+		pmodifier.ApplyTo(controller);
+		pmodifier.ApplyTo(opponent);
+		if (con_score>opp_score) cmodifier.ApplyTo(controller);
+	}
 
 	return true;
 }

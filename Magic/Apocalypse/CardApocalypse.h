@@ -1167,6 +1167,7 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
 class CZombieBoaCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CZombieBoaCard);
@@ -1175,6 +1176,20 @@ protected:
 	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	CSelectionSupport m_ColorSelection;
 	bool BeforeResolution(CAbilityAction* pAction);
+};
+*/
+//____________________________________________________________________________
+//
+class CGerrardsVerdictCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CGerrardsVerdictCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+
+	int_ nLands;
 };
 
 //____________________________________________________________________________

@@ -1865,11 +1865,6 @@ class CLivingEndCard : public CSuspendCard
 protected:
 	BOOL CanPlay(BOOL bIncludeTricks);
 	bool BeforeResolution(CAbilityAction* pAction) const;
-
-private:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

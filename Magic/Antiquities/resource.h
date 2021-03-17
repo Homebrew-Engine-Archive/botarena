@@ -86,6 +86,7 @@
 #define IDS_STRING5168                  5168
 #define IDS_STRING5169                  5169
 #define IDS_STRING5170                  5170
+#define IDS_STRING5171                  5171
 #define IDI_MODULE                      5200
 #define IDI_LARGE_MODULE                5201
 

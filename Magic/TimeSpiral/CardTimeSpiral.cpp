@@ -3620,7 +3620,7 @@ CWordOfSeizingCard::CWordOfSeizingCard(CGame* pGame, UINT nID)
 				new TrueCardComparer, 
 				ZoneId::Battlefield, ZoneId::Battlefield, FALSE, MoveType::Others));
 
-		cpSpell->SetReturnToPreviousControllerAtNext(NodeId::CleanupStep1); 
+		cpSpell->SetReturnToPreviousControllerAtNext(NodeId::CleanupStep2); 
 
 		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 		AddSpell(cpSpell.GetPointer());
@@ -3629,24 +3629,24 @@ CWordOfSeizingCard::CWordOfSeizingCard(CGame* pGame, UINT nID)
 
 void CWordOfSeizingCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target=pAbilityAction->GetAssociatedCard();
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
 
-	CCreatureKeywordModifier pModifier;
-	pModifier.GetModifier().SetToAdd(CreatureKeyword::Haste);
-	pModifier.GetModifier().SetOneTurnOnly(TRUE);
+	if (pTarget->GetCardType().IsCreature())
+	{
+		CCreatureKeywordModifier pModifier1 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE);
+		pModifier1.ApplyTo((CCreatureCard*)pTarget);
+	}
+	else
+	{
+		CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::CardHaste, TRUE);
+		pModifier2.ApplyTo(pTarget);
+	}
 
-	if (target->GetCardType().IsCreature()) pModifier.ApplyTo((CCreatureCard*)target);
+	CCardOrientationModifier pModifier3 = CCardOrientationModifier(FALSE);
 
-	CCardKeywordModifier pModifier1;
-	pModifier1.GetModifier().SetToAdd(CardKeyword::CardHaste);
-	pModifier1.GetModifier().SetOneTurnOnly(TRUE);
-
-	pModifier1.ApplyTo(target);
-
-	CCardOrientationModifier pModifier3 = CCardOrientationModifier(0);
-
-	pModifier3.ApplyTo(target);
+	pModifier3.ApplyTo(pTarget);
 }
+
 //____________________________________________________________________________
 //
 CMwonvuliAcidMossCard::CMwonvuliAcidMossCard(CGame* pGame, UINT nID)
@@ -4512,18 +4512,13 @@ CNorinTheWaryCard::CNorinTheWaryCard(CGame* pGame, UINT nID)
 {
 	{
 		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSpellCast > TriggeredAbility;
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSpellCast > TriggeredAbility;
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
 
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
 
@@ -4531,7 +4526,7 @@ CNorinTheWaryCard::CNorinTheWaryCard(CGame* pGame, UINT nID)
 	}
 	{
 		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenAttackedBlocked,
+			TTriggeredAbility< CTriggeredAbility<>, CWhenAttackedBlocked,
 								CWhenAttackedBlocked::PlayerEventCallback, &CWhenAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -4539,11 +4534,6 @@ CNorinTheWaryCard::CNorinTheWaryCard(CGame* pGame, UINT nID)
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-		cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
 
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
 
@@ -4553,12 +4543,17 @@ CNorinTheWaryCard::CNorinTheWaryCard(CGame* pGame, UINT nID)
 
 void CNorinTheWaryCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
+	if (!IsInplay()) return;
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAbilityAction->GetController());
+	pModifier1.ApplyTo(this);
+
 	CCountedCardContainer pSubjects;
 	if (GetZoneId() == ZoneId::Exile)
 		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
-	pModifier.ApplyTo(pAbilityAction->GetController());
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier2.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -7335,16 +7330,11 @@ CKeldonHalberdierCard::CKeldonHalberdierCard(CGame* pGame, UINT nID)
 //
 CLivingEndCard::CLivingEndCard(CGame* pGame, UINT nID)
 	: CSuspendCard(pGame, _T("Living End"), CardType::Sorcery, nID, _T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, 3)
-
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-					&CLivingEndCard::OnResolutionCompleted))
 {
 	{
-		counted_ptr<CGlobalMoveCardSpell> cpSpell(
-			::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Sorcery,
-				_T(""),
-				new AnyCreatureComparer, ZoneId::Graveyard, TRUE,
-				MoveType::Sacrifice));
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("")));
 
 		counted_ptr<CPlayableIfTrait> cpTrait(
 			::CreateObject<CPlayableIfTrait>(
@@ -7356,8 +7346,6 @@ CLivingEndCard::CLivingEndCard(CGame* pGame, UINT nID)
 
 		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLivingEndCard::BeforeResolution));
 
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-
 		AddSpell(cpSpell.GetPointer());
 	}
 
@@ -7366,22 +7354,35 @@ CLivingEndCard::CLivingEndCard(CGame* pGame, UINT nID)
 
 bool CLivingEndCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Graveyard, CCardFilter::GetFilter(_T("creatures")),
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Graveyard, ZoneId::_Effects, TRUE, MoveType::Others)));
+	CCountedCardContainer pExiled;
 
-	pModifier->ApplyTo(GetController());
-	pModifier->ApplyTo(m_pGame->GetNextPlayer(GetController()));
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		CZone* pGraveyard = pPlayer->GetZoneById(ZoneId::Graveyard);
+
+		for (int i = 0; i < pGraveyard->GetSize(); ++i)
+			if (pGraveyard->GetAt(i)->GetCardType().IsCreature())
+				pExiled.AddCard(pGraveyard->GetAt(i), CardPlacement::Top);
+	}
+
+	for (int i = 0; i < pExiled.GetSize(); ++i)
+		pExiled.GetAt(i)->Move(pExiled.GetAt(i)->GetOwner()->GetZoneById(ZoneId::Exile), pExiled.GetAt(i)->GetOwner(), MoveType::Others);
+	
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		
+		CZoneCardModifier pModifier2 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+			std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pPlayer)));
+
+		pModifier2.ApplyTo(pPlayer);
+	}
+
+	for (int i = 0; i < pExiled.GetSize(); ++i)
+		pExiled.GetAt(i)->Move(pExiled.GetAt(i)->GetOwner()->GetZoneById(ZoneId::Battlefield), pExiled.GetAt(i)->GetOwner(), MoveType::Others);
 
 	return true;
-}
-
-void CLivingEndCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::_Effects, CCardFilter::GetFilter(_T("creatures")),
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::_Effects, ZoneId::Battlefield, TRUE, MoveType::Others)));
-
-	pModifier->ApplyTo(GetController());
-	pModifier->ApplyTo(m_pGame->GetNextPlayer(GetController()));
 }
 
 BOOL CLivingEndCard::CanPlay(BOOL bIncludeTricks)
@@ -8746,7 +8747,7 @@ CWeatherseedTotemCard::CWeatherseedTotemCard(CGame* pGame, UINT nID)
 		counted_ptr<CIsAlsoAAbility> cpAbility(
 			::CreateObject<CIsAlsoAAbility>(this,
 				_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT,
-				_T("Treefolk B"), 2972));
+				_T("Treefolk AC"), 64077));
 
 		AddAbility(cpAbility.GetPointer());
 	}

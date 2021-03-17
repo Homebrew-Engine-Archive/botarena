@@ -1541,6 +1541,7 @@ struct CORE_EXPORT PlaneswalkerType
 		Koth,
 		Liliana,
 		Nissa,
+		Ral,
 		Sarkhan,
 		Sheila,
 		Sorin,

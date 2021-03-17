@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -79,7 +78,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING25400         "Borborygmos Enraged\n{4RRGG}\nLegendary Creature - Cyclops\nGTC,MR\nTrample\rWhenever Borborygmos Enraged deals combat damage to a player, reveal the top three cards of your library. Put all land cards revealed this way into your hand and the rest into your graveyard.\rDiscard a land card: Borborygmos Enraged deals 3 damage to target creature or player.\n7/6"
-    IDS_STRING25401         "Boros Elite\n{W}\nCreature - Human Soldier\nGTC,U\nBatallion - Whenever Boros Elite and at least two other creatures attack, Boros Elite gets +2/+2 until end of turn.\n1/1"
+    IDS_STRING25401         "Boros Elite\n{W}\nCreature - Human Soldier\nGTC,U\nBattalion - Whenever Boros Elite and at least two other creatures attack, Boros Elite gets +2/+2 until end of turn.\n1/1"
     IDS_STRING25402         "Boros Guildgate\n\nLand - Gate\nGTC,C\nBoros Guildgate enters the battlefield tapped.\r{T}: Add {R} or {W} to your mana pool."
     IDS_STRING25403         "Dimir Guildgate\n\nLand - Gate\nGTC,C\nDimir Guildgate enters the battlefield tapped.\r{T}: Add {U} or {B} to your mana pool."
     IDS_STRING25404         "Gruul Guildgate\n\nLand - Gate\nGTC,C\nGruul Guildgate enters the battlefield tapped.\r{T}: Add {R} or {G} to your mana pool."
@@ -100,7 +99,7 @@ BEGIN
     IDS_STRING25415         "Domri Rade\n{1RG}\nPlaneswalker - Domri\nGTC,MR\n[+1]: Look at the top card of your library. If it's a creature card, you may reveal it and put it into your hand.\r[-2]: Target creature you control fights another target creature.\r[-7]:You get an emblem with ""Creatures you control have double strike, trample, hexproof, and haste.""\n3"
     IDS_STRING25416         "Drakewing Krasis\n{1GU}\nCreature - Lizard Drake\nGTC,C\nFlying, trample\n3/1"
     IDS_STRING25417         "Experiment One\n{G}\nCreature - Human Ooze\nGTC,U\nEvolve\rRemove two +1/+1 counters from Experiment One: Regenerate Experiment One.\n1/1"
-    IDS_STRING25418         "Firemane Avenger\n{2RW}\nCreature - Angel\nGTC,R\nFlying\rBatallion - Whenever Firemane Avenger and at least two other creatures attack, Firemane Avenger deals 3 damage to target creature or player and you gain 3 life.\n3/3"
+    IDS_STRING25418         "Firemane Avenger\n{2RW}\nCreature - Angel\nGTC,R\nFlying\rBattalion - Whenever Firemane Avenger and at least two other creatures attack, Firemane Avenger deals 3 damage to target creature or player and you gain 3 life.\n3/3"
     IDS_STRING25419         "Enter the Infinite\n{8UUUU}\nSorcery\nGTC,MR\nDraw cards equal to the number of cards in your library, then put a card from your hand on top of your library. You have no maximum hand size until your next turn."
     IDS_STRING25420         "Gateway Shade\n{2B}\nCreature - Shade\nGTC,U\n{B}: Gateway Shade gets +1/+1 until end of turn.\rTap an untapped Gate you control: Gateway Shade gets +2/+2 until end of turn.\n1/1"
     IDS_STRING25421         "Gridlock\n{XU}\nInstant\nGTC,U\nTap X target nonland permanents."
@@ -150,7 +149,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING25456         "Frontline Medic\n{2W}\nCreature - Human Cleric\nGTC,R\nBatallion - Whenever Frontline Medic and at least two other creatures attack, creatures you control are indestructible this turn.\rSacrifice Frontline Medic: Counter target spell with {X} in its mana cost unless its controller pays {3}.\n3/3"
+    IDS_STRING25456         "Frontline Medic\n{2W}\nCreature - Human Cleric\nGTC,R\nBattalion - Whenever Frontline Medic and at least two other creatures attack, creatures you control are indestructible this turn.\rSacrifice Frontline Medic: Counter target spell with {X} in its mana cost unless its controller pays {3}.\n3/3"
     IDS_STRING25457         "Ground Assault\n{RG}\nSorcery\nGTC,U\nGround Assault deals damage to target creature equal to the number of lands you control."
     IDS_STRING25458         "Shambleshark\n{GU}\nCreature - Fish Crab\nGTC,C\nFlash\rEvolve\n2/1"
     IDS_STRING25459         "Simic Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {G} or {U} to your mana pool.\r{GU}: Simic Keyrune becomes a 2/3 green and blue Crab artifact creature with hexproof until end of turn."
@@ -173,7 +172,7 @@ BEGIN
     IDS_STRING25472         "Treasury Thrull\n{4WB}\nCreature - Thrull\nGTC,R\nExtort\rWhenever Treasury Thrull attacks, you may return target artifact, creature, or enchantment card from your graveyard to your hand.\n4/4"
     IDS_STRING25473         "Vizkopa Confessor\n{3WB}\nCreature - Human Cleric\nGTC,U\nExtort\rWhen Vizkopa Confessor enters the battlefield, pay any amount of life. Target opponent reveals that many cards from his or her hand. You choose one of them and exile it.\n1/3"
     IDS_STRING25474         "Undercity Informer\n{2B}\nCreature - Human Rogue\nGTC,U\n{1}, Sacrifice a creature: Target player reveals cards from the top of his or her library until he or she reveals a land card, then puts those cards into his or her graveyard.\n2/3"
-    IDS_STRING25475         "Legion Loyalist\n{R}\nCreature - Goblin Soldier\nGTC,R\nHaste\rBatallion - Whenever Legion Loyalist and at least two other creatures attack, creatures you control gain first strike and trample until end of turn and can't be blocked by creature tokens this turn.\n1/1"
+    IDS_STRING25475         "Legion Loyalist\n{R}\nCreature - Goblin Soldier\nGTC,R\nHaste\rBattalion - Whenever Legion Loyalist and at least two other creatures attack, creatures you control gain first strike and trample until end of turn and can't be blocked by creature tokens this turn.\n1/1"
     IDS_STRING25476         "Simic Charm\n{GU}\nInstant\nGTC,U\nChoose one - Target creature gets +3/+3 until end of turn; or permanents you control gain hexproof until end of turn; or return target creature to its owner's hand."
     IDS_STRING25477         "Orzhov Keyrune\n{3}\nArtifact\nGTC,U\n{T}: Add {W} or {B} to your mana pool.\r{WB}: Orzhov Keyrune becomes a 1/4 white and black Thrull artifact creature with lifelink until end of turn."
     IDS_STRING25478         "Call of the Nightwing\n{2UB}\nSorcery\nGTC,U\nPut a 1/1/ blue and black Horror creature token with flying onto the battlefield.\rCipher"
@@ -191,7 +190,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING25488         "AEtherize\n{3U}\nInstant\nGTC,U\nReturn all attacking creatures to their owner's hand."
-    IDS_STRING25489         "Firefist Striker\n{1R}\nCreature - Human Soldier\nGTC,U\nBatallion - Whenever Firefist Striker and at least two other creatures attack, target creature can't block this turn.\n2/1"
+    IDS_STRING25489         "Firefist Striker\n{1R}\nCreature - Human Soldier\nGTC,U\nBattalion - Whenever Firefist Striker and at least two other creatures attack, target creature can't block this turn.\n2/1"
     IDS_STRING25490         "Gruul Ragebeast\n{5RG}\nCreature - Beast\nGTC,R\nWhenever Gruul Ragebeast or another creature enters the battlefield under your control, that creature fights target creature an opponent controls.\n6/6"
     IDS_STRING25491         "Orzhov Charm\n{WB}\nInstant\nGTC,U\nChoose one - Return target creature you control and all Auras you control attached to it to their owner's hand; or destroy target creature and you lose life equal to its toughness; or return target creature card with converted mana cost 1 or less from your graveyard to the battlefield."
     IDS_STRING25492         "Duskmantle Seer\n{2UB}\nCreature - Vampire Wizard\nGTC,MR\nFlying\rAt the beginning of your upkeep, each player reveals the top card of his or her library, loses life equal to that card's converted mana cost, then puts it into his or her hand.\n4/4"
@@ -218,7 +217,7 @@ BEGIN
     IDS_STRING25509         "Basilica Screecher\n{1B}\nCreature - Bat\nGTC,C\nFlying\rExtort\n1/2"
     IDS_STRING25510         "Beckon Apparition\n{H}\nInstant\nGTC,C\nExile target card from a graveyard. Put a 1/1 white and black Spirit creature token with flying onto the battlefield."
     IDS_STRING25511         "Bioshift\n{L}\nInstant\nGTC,C\nMove any number of +1/+1 counters from target creature onto another target creature with the same controller."
-    IDS_STRING25512         "Bomber Corps\n{1R}\nCreature - Human Soldier\nGTC,C\nBatallion - Whenever Bomber Corps and at least two other creatures attack, Bomber Corps deals 1 damage to target creature or player.\n1/2"
+    IDS_STRING25512         "Bomber Corps\n{1R}\nCreature - Human Soldier\nGTC,C\nBattalion - Whenever Bomber Corps and at least two other creatures attack, Bomber Corps deals 1 damage to target creature or player.\n1/2"
     IDS_STRING25513         "Boros Reckoner\n{KKK}\nCreature - Minotaur Wizard\nGTC,R\nWhenever Boros Reckoner is dealt damage, it deals that much damage to target creature or player.\r{K}: Boros Reckoner gains first strike until end of turn.\n3/3"
     IDS_STRING25514         "Burst of Strength\n{G}\nInstant\nGTC,C\nPut a +1/+1 counter on target creature and untap it."
     IDS_STRING25515         "Cartel Aristocrat\n{WB}\nCreature - Human Advisor\nGTC,U\nSacrifice another creature: Cartel Aristocrat gains protection from the color of your choice until end of turn.\n2/2"
@@ -233,7 +232,7 @@ BEGIN
     IDS_STRING25520         "Court Street Denizen\n{2W}\nCreature - Human Soldier\nGTC,C\nWhenever another white creature enters the battlefield under your control, tap target creature an opponent controls.\n2/2"
     IDS_STRING25521         "Crackling Perimeter\n{1R}\nEnchantment\nGTC,U\nTap an untapped Gate you control: Crackling Perimeter deals 1 damage to each opponent."
     IDS_STRING25522         "Crowned Ceratok\n{3G}\nCreature - Rhino\nGTC,U\nTrample\rEach creature you control with a +1/+1 counter on it has trample.\n4/3"
-    IDS_STRING25523         "Daring Skyjek\n{1W}\nCreature - Human Knight\nGTC,C\nBatallion - Whenever Daring Skyjek and at least two other creatures attack, Daring Skyjek gains flying until end of turn."
+    IDS_STRING25523         "Daring Skyjek\n{1W}\nCreature - Human Knight\nGTC,C\nBattalion - Whenever Daring Skyjek and at least two other creatures attack, Daring Skyjek gains flying until end of turn."
     IDS_STRING25524         "Master Biomancer\n{2GU}\nCreature - Elf Wizard\nGTC,MR\nEach other creature you control enters the battlefield with a number of additional +1/+1 counters on it equal to Master Biomancer's power and as a Mutant in addition to its other types.\n2/4"
     IDS_STRING25525         "Zameck Guildmage\n{GU}\nCreature - Elf Wizard\nGTC,U\n{GU}: This turn, each creature you control enters the battlefield with an additional +1/+1 counter on it.\r{GU}, Remove a +1/+1 counter from a creature you control: Draw a card.\n2/2"
     IDS_STRING25526         "Deathcult Rogue\n{1CC}\nCreature - Human Rogue\nGTC,C\nDeathcult Rogue can't be blocked except by Rogues.\n2/2"
@@ -293,10 +292,10 @@ BEGIN
     IDS_STRING25568         "Mortus Strider\n{1UB}\nCreature - Skeleton\nGTC,C\nWhen Mortus Strider dies, return it to its owner's hand.\n1/1"
     IDS_STRING25569         "Mugging\n{R}\nSorcery\nGTC,C\nMugging deals 2 damage to target creature. That creature can't block this turn."
     IDS_STRING25570         "Naturalize\n{1G}\nInstant\nGTC,C\nDestroy target artifact or enchantment."
-    IDS_STRING25571         "Nav Squad Commandos\n{4W}\nCreature - Human Soldier\nGTC,C\nBatallion - Whenever Nav Squad Commandos and at least two other creatures attack, Nav Squad Commandos gets +1/+1 until end of turn. Untap it.\n3/5"
+    IDS_STRING25571         "Nav Squad Commandos\n{4W}\nCreature - Human Soldier\nGTC,C\nBattalion - Whenever Nav Squad Commandos and at least two other creatures attack, Nav Squad Commandos gets +1/+1 until end of turn. Untap it.\n3/5"
     IDS_STRING25572         "Nimbus Swimmer\n{XGU}\nCreature - Leviathan\nGTC,U\nFlying\rNimbus Swimmer enters the battlefield with X +1/+1 counters on it.\n0/0"
     IDS_STRING25573         "One Thousand Lashes\n{2WB}\nEnchantment - Aura\nGTC,U\nEnchant creature\rEnchanted creature can't attack or block and its activated abilities can't be activated.\rAt the beginning of the upkeep of enchanted creature's controller, that player loses 1 life."
-    IDS_STRING25574         "Ordruun Veteran\n{2RW}\nCreature - Minotaur Soldier\nGTC,U\nBatallion - Whenever Ordruun Veteran and at least two other creatures attack, Ordruun Veteran gains double strike until end of turn.\n3/1"
+    IDS_STRING25574         "Ordruun Veteran\n{2RW}\nCreature - Minotaur Soldier\nGTC,U\nBattalion - Whenever Ordruun Veteran and at least two other creatures attack, Ordruun Veteran gains double strike until end of turn.\n3/1"
     IDS_STRING25575         "Paranoid Delusions\n{UB}\nSocery\nGTC,C\nTarget player puts the top three cards of his or her library into his or her graveyard.\rCipher"
     IDS_STRING25576         "Predator's Rapport\n{2G}\nInstant\nGTC,C\nChoose target creature you control. You gain life equal to that creature's power plus its toughness."
     IDS_STRING25577         "Primal Visitation\n{3RG}\nEnchantment - Aura\nGTC,C\nEnchant creature\rEnchanted creature gets +3/+3 and has haste."
@@ -355,11 +354,11 @@ BEGIN
     IDS_STRING25618         "Urbis Protector\n{4WW}\nCreature - Human Cleric\nGTC,U\nWhen Urbis Protector enters the battlefield, put a 4/4 white Angel creature token with flying onto the battlefield.\n1/1"
     IDS_STRING25619         "Verdant Haven\n{2G}\nEnchantment - Aura\nGTC,C\nEnchant land\rWhen Verdant Haven enters the battlefield, you gain 2 life.\rWhenever enchanted land is tapped for mana, its controller adds one mana of any color to his or her mana pool."
     IDS_STRING25620         "Voidwalk\n{3U}\nSorcery\nGTC,U\nExile target creature. Return it to the battlefield under its owner's control at the beginning of the next end step.\rCipher"
-    IDS_STRING25621         "Warmind Infantry\n{2R}\nCreature - Elemental Soldier\nGTC,C\nBatallion - Whenever Warmind Infantry and at least two other creatures attack, Warmind Infantry gets +2/+0 until end of turn.\n2/3"
+    IDS_STRING25621         "Warmind Infantry\n{2R}\nCreature - Elemental Soldier\nGTC,C\nBattalion - Whenever Warmind Infantry and at least two other creatures attack, Warmind Infantry gets +2/+0 until end of turn.\n2/3"
     IDS_STRING25622         "Wasteland Viper\n{G}\nCreature - Snake\nGTC,U\nDeathtouch\rBloodrush - {G}, Discard Wasteland Viper: Target attacking creature gets +1/+2 and gains deathtouch until end of turn.\n1/2"
     IDS_STRING25623         "Wight of Precinct Six\n{1B}\nCreature - Zombie\nGTC,U\nWight of Precinct Six gets +1/+1 for each creature card in your opponents' graveyards.\n1/1"
     IDS_STRING25624         "Wildwood Rebirth\n{1G}\nInstant\nGTC,C\nReturn target creature card from your graveyard to your hand."
-    IDS_STRING25625         "Wojek Halberdiers\n{RW}\nCreature - Human Soldier\nGTC,C\nBatallion - Whenever Wojek Halberdiers and at least two other creatures attack, Wojek Halberdiers gains first strike until end of turn.\n3/2"
+    IDS_STRING25625         "Wojek Halberdiers\n{RW}\nCreature - Human Soldier\nGTC,C\nBattalion - Whenever Wojek Halberdiers and at least two other creatures attack, Wojek Halberdiers gains first strike until end of turn.\n3/2"
     IDS_STRING25626         "Wrecking Ogre\n{4R}\nCreature - Ogre Warrior\nGTC,R\nDouble strike\rBloodrush - {3RR}, Discard Wrecking Ogre: Target attacking creature gets +3/+3 and gains double strike until end of turn.\n3/3"
     IDS_STRING25627         "Zarichi Tiger\n{3W}\nCreature - Car\nGTC,C\n{1W}, {T}: You gain 2 life.\n2/3"
     IDS_STRING25628         "Unexpected Results\n{2UG}\nSorcery\nGTC,R\nShuffle your library, then reveal the top card. If it's a nonland card, you may cast it without paying its mana cost. If it's a land card, you may put it onto the battlefield and return Unexpected Results to its owner's hand."
@@ -378,7 +377,6 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-/////////////////////////////////////////////////////////////////////////////
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

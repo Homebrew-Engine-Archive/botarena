@@ -244,6 +244,7 @@ BEGIN
     IDS_STRING9930          "Flux\n{2U}\nSorcery\nWTH,C\nEach player discards any number of cards, then draws that many cards.\rDraw a card."
     IDS_STRING9931          "Thran Tome\n{4}\nArtifact\nWTH,R\n{5}, {T}: Reveal the top three cards of your library. Target opponent chooses one of those cards. Put that card into your graveyard, then draw two cards."
     IDS_STRING9932          "Urborg Justice\n{BB}\nInstant\nWTH,R\nTarget opponent sacrifices a creature for each creature put into your graveyard from the battlefield this turn."
+    IDS_STRING9933          "Sawtooth Ogre\n{2RR}\nCreature - Ogre\nWTH,C\nWhenever Sawtooth Ogre blocks or becomes blocked by a creature, Sawtooth Ogre deals 1 damage to that creature at end of combat.\n3/3"
 END
 
 #endif    // English (United States) resources

@@ -405,3 +405,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CBansheeCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBansheeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+ 
+//____________________________________________________________________________
+//

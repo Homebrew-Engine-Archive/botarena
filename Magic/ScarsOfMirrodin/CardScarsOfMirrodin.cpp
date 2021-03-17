@@ -2556,11 +2556,9 @@ CArgentSphinxCard::CArgentSphinxCard(CGame* pGame, UINT nID)
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&CArgentSphinxCard::OnResolutionCompleted1))
 {
-	counted_ptr<CActivatedAbility<CGlobalMoveCardSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGlobalMoveCardSpell>>(this,
-			_T("") BLUE_MANA_TEXT,
-			new SpecificCardComparer(this),
-			ZoneId::Exile, TRUE, MoveType::Others));
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			BLUE_MANA_TEXT));
 
 	counted_ptr<CPlayableIfTrait> cpTrait(
 		::CreateObject<CPlayableIfTrait>(
@@ -2579,12 +2577,17 @@ CArgentSphinxCard::CArgentSphinxCard(CGame* pGame, UINT nID)
 
 void CArgentSphinxCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
+	if (!IsInplay()) return;
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAbilityAction->GetController());
+	pModifier1.ApplyTo(this);
+
 	CCountedCardContainer pSubjects;
 	if (GetZoneId() == ZoneId::Exile)
 		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
-	pModifier.ApplyTo(pAbilityAction->GetController());
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier2.ApplyTo(pAbilityAction->GetController());
 }
 
 BOOL CArgentSphinxCard::CanPlay(BOOL bIncludeTricks)

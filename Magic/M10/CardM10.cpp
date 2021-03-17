@@ -2025,6 +2025,7 @@ CChandraNalaarCard::CChandraNalaarCard(CGame* pGame, UINT nID)
 				new AnyCreatureComparer, FALSE,
 				Life(0), PreventableType::Preventable));
 
+		cpAbility->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
 		cpAbility->GetCost().AddCounterCost(GetLoyaltyCounter(), SpecialNumber::AnyNegative);
 		cpAbility->SetExtraActionValueVector(ContextValue(1));
 		

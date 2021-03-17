@@ -59,6 +59,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCrazedSkirgeCard);
 		DEFINE_CARD(CCrosswindsCard);
 		DEFINE_CARD(CCrystalChimesCard);
+		DEFINE_CARD(CCurfewCard);
 		DEFINE_CARD(CDarkHatchlingCard);
 		DEFINE_CARD(CDespondencyCard);
 		DEFINE_CARD(CDestructiveUrgeCard);
@@ -7947,6 +7948,122 @@ bool CLifelineCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAct
 	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CCurfewCard::CCurfewCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Curfew"), CardType::Instant, nID)
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CCurfewCard::OnCardSelected))
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Instant,
+			BLUE_MANA_TEXT));	
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCurfewCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CCurfewCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+	int pActivePlayerID;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (pActivePlayer == GetGame()->GetPlayer(ip))
+		{
+			pActivePlayerID = ip;
+			break;
+		}
+
+	pReturned.RemoveAll();
+	ReturnFunction(pActivePlayerID);
+
+	return true;
+}
+
+void CCurfewCard::ReturnFunction(int PlayerID)
+{
+	CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
+	
+	CCardFilter m_CardFilter;
+
+	m_CardFilter.SetComparer(new AnyCreatureComparer);
+
+	CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+	if (m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+
+			if (pCard->GetCardType().IsCreature())
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Return %s to your hand"),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID);
+	}
+	else
+		Advance(PlayerID);
+}
+
+void CCurfewCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)it->dwContext;
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s returns %s to his hand"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+			pReturned.AddCard(pCard, CardPlacement::Top);
+
+			Advance(dwContext1);
+				
+			return;
+		}
+}
+
+void CCurfewCard::Advance(int PlayerID)
+{
+	int NextPlayer = PlayerID + 1;
+	int PlayerCount = GetGame()->GetPlayerCount();
+	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+
+	if (NextPlayer >= PlayerCount)
+		NextPlayer -= PlayerCount;
+	if (GetGame()->GetPlayer(NextPlayer) != pActivePlayer)
+		ReturnFunction(NextPlayer);
+	else
+	{
+		for (int i = 0; i < pReturned.GetSize(); ++i)
+		{
+			CCard* pCard = pReturned.GetAt(i);
+
+			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others, pCard->GetController());
+			pModifier.ApplyTo(pCard);
+		}
+	}
 }
 
 //____________________________________________________________________________

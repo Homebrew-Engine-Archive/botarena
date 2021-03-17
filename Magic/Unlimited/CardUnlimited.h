@@ -1770,10 +1770,14 @@ class CParalyzeCard : public CCard
 	DECLARE_CARD_CSTOR(CParalyzeCard);
 
 protected:
-	bool SetTriggerContext2(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-							CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
 	bool SetTriggerContext3(CTriggeredTapCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
 	CEnchant* m_pEnchantSpell;
+
+	
+	
 };
 
 //____________________________________________________________________________

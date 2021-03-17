@@ -6353,7 +6353,7 @@ bool CAgonyWarpCard::BeforeResolution(CAbilityAction* pAction) const
 	if (pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject()->GetCardType().IsCreature())
 			pModifier1->ApplyTo((CCreatureCard*)(pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject()));
 
-	CLifeModifier* pModifier2 = new CLifeModifier(Life(-3), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+	CLifeModifier* pModifier2 = new CLifeModifier(Life(-3), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	if (pDoubleTargetAction->GetTargetGroup2().GetFirstCardSubject()->GetCardType().IsCreature())
 			pModifier2->ApplyTo((CCreatureCard*)(pDoubleTargetAction->GetTargetGroup2().GetFirstCardSubject()));
 

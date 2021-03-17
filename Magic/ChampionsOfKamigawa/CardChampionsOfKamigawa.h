@@ -1596,8 +1596,8 @@ class CMysticRestraintsCard : public CChgPwrTghAttrEnchantCard
 	DECLARE_CARD_CSTOR(CMysticRestraintsCard);
 
 protected:
-	bool SetTriggerContext(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-									CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 };
 
 //____________________________________________________________________________

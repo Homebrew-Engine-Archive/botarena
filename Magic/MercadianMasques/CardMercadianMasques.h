@@ -653,6 +653,9 @@ class CSaprazzanHeirCard : public CCreatureCard
 class CSaprazzanOutriggerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSaprazzanOutriggerCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -674,6 +677,9 @@ class CSeismicMageCard : public CCreatureCard
 class CSilentAssassinCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSilentAssassinCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________

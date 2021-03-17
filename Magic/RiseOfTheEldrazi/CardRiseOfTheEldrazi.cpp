@@ -2706,7 +2706,6 @@ CSeeBeyondCard::CSeeBeyondCard(CGame* pGame, UINT nID)
 CConqueringManticoreCard::CConqueringManticoreCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Conquering Manticore"), CardType::Creature, CREATURE_TYPE(Manticore), nID,
 		_T("4") RED_MANA_TEXT RED_MANA_TEXT, Power(5), Life(5))
-
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			   &CConqueringManticoreCard::OnResolutionCompleted))
 {
@@ -2718,9 +2717,8 @@ CConqueringManticoreCard::CConqueringManticoreCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
 	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetTargeting().GetSubjectCardFilter().SetNotThisPlayersCardsOnly();
+	cpAbility->GetTargeting().SetIncludeNonControllerCardsOnly();
 
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Battlefield));
 
@@ -2728,10 +2726,8 @@ CConqueringManticoreCard::CConqueringManticoreCard(CGame* pGame, UINT nID)
 
 	CGainControlModifier* pModifier1_return = new CGainControlModifier(GetGame(), (CCard*)this, true);
 	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(
-		pGame, pModifier1_return, TurnNumberDelta(-1), NodeId::EndStep, true, CScheduledCardModifier::Operation::ApplyToLater);
-	CCardOrientationModifier* pModifier3 = new CCardOrientationModifier(0);
+		pGame, pModifier1_return, TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCardModifier::Operation::ApplyToLater);
 
-	pModifier2->LinkCardModifier(pModifier3);
 	pModifier1->LinkCardModifier(pModifier2);
 
 	cpAbility->GetMoveCardModifier().LinkCardModifier(pModifier1);
@@ -2747,17 +2743,17 @@ CConqueringManticoreCard::CConqueringManticoreCard(CGame* pGame, UINT nID)
 
 void CConqueringManticoreCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target=pAbilityAction->GetAssociatedCard();
+	CCreatureCard* pTarget = (CCreatureCard*)pAbilityAction->GetAssociatedCard();
 
-	CCreatureKeywordModifier pModifier;
-	pModifier.GetModifier().SetToAdd(CreatureKeyword::Haste);
-	pModifier.GetModifier().SetOneTurnOnly(TRUE);
+	CCreatureKeywordModifier pModifier1;
+	pModifier1.GetModifier().SetToAdd(CreatureKeyword::Haste);
+	pModifier1.GetModifier().SetOneTurnOnly(TRUE);
 
-	if (target->GetCardType().IsCreature()) pModifier.ApplyTo((CCreatureCard*)target);
+	pModifier1.ApplyTo(pTarget);
 
-	CCardOrientationModifier pModifier3 = CCardOrientationModifier(0);
+	CCardOrientationModifier pModifier2 = CCardOrientationModifier(FALSE);
 
-	pModifier3.ApplyTo(target);
+	pModifier2.ApplyTo(pTarget);
 }
 
 //____________________________________________________________________________

@@ -767,3 +767,14 @@ protected:
 
 //____________________________________________________________________________
 //
+class CKeldonBattlewagonCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKeldonBattlewagonCard);
+
+protected:
+	bool BeforeResolution1(CAbilityAction* pAction);
+	bool BeforeResolution2(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

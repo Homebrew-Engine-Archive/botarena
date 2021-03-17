@@ -27,6 +27,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAvenArcherCard);
 		DEFINE_CARD(CAvenShrineCard);
 		DEFINE_CARD(CAvenSmokeweaverCard);
+		DEFINE_CARD(CBalshanBeguilerCard);
 		DEFINE_CARD(CBalshanGriffinCard);
 		DEFINE_CARD(CBarbarianLunaticCard);
 		DEFINE_CARD(CBarbarianRingCard);
@@ -6509,7 +6510,7 @@ CDwarvenShrineCard::CDwarvenShrineCard(CGame* pGame, UINT nID)
 	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDwarvenShrineCard::BeforeResolution));		
 	cpAbility->SetContextFunction(TriggeredAbility1::ContextFunction(this, &CDwarvenShrineCard::SetTriggerContext));		
 
-	cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -9025,6 +9026,114 @@ void CShiftyDoppelgangerCard::OnCardSelected(const std::vector<SelectionEntry>& 
 				
 				return;
 			}
+		}
+}
+
+//____________________________________________________________________________
+//
+CBalshanBeguilerCard::CBalshanBeguilerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Balshan Beguiler"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
+		_T("2") BLUE_MANA_TEXT, Power(1), Life(1))
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CBalshanBeguilerCard::OnCardSelected))
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->GetTrigger().SetCombatDamageOnly();
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBalshanBeguilerCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CBalshanBeguilerCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CBalshanBeguilerCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+										CPlayer* pPlayer, Damage d_damage) const
+{
+	triggerContext.nValue1 = (int)pPlayer;
+	return true;
+}
+
+bool CBalshanBeguilerCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CPlayer* pPlayer = (CPlayer*)pAction->GetTriggerContext().nValue1;
+	CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
+
+	int nLibrarySize = pLibrary->GetSize();
+
+	if (nLibrarySize == 0) return true;
+
+	if (nLibrarySize == 1)
+	{
+		CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+		pModifier1.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+				CZoneModifier::RoleType::PrimaryPlayer, // select by 
+				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+				NULL, // any cards
+				ZoneId::Graveyard, // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+				CardPlacement::Top, // put selected cards on top
+				MoveType::Others, // move type
+				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+
+		pModifier1.ApplyTo(pPlayer);
+
+		return true;
+	}
+
+	CZoneModifier pModifier2 = CZoneModifier(GetGame(), ZoneId::Library, 2, CZoneModifier::RoleType::PrimaryPlayer,
+		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+	
+	pModifier2.ApplyTo(pPlayer);
+
+	std::vector<SelectionEntry> entries;
+	for (int i = 1; i <= 2; ++i)
+	{
+		CCard* pCard = pLibrary->GetAt(nLibrarySize - i);
+
+		SelectionEntry entry;
+
+		entry.dwContext = (DWORD)pCard;
+		entry.cpAssociatedCard = pCard;
+									
+		entry.strText.Format(_T("Put %s into %s's graveyard"),
+			pCard->GetCardName(TRUE), pPlayer->GetPlayerName());
+
+		entries.push_back(entry);
+	}
+	m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+
+	return false;
+}
+
+void CBalshanBeguilerCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)it->dwContext;
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s puts %s into %s's graveyard"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE), pCard->GetOwner()->GetPlayerName());
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Library, ZoneId::Graveyard, TRUE, MoveType::Others, pSelectionPlayer);
+			pModifier.ApplyTo(pCard);
+
+			return;
 		}
 }
 

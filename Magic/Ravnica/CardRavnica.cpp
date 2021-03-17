@@ -235,6 +235,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CWoodwraithCorrupterCard);
 		DEFINE_CARD(CWoodwraithStranglerCard);
 		DEFINE_CARD(CZephyrSpiritCard);
+		DEFINE_CARD(CSpectralSearchlightCard);
 
 	} while (false);
 
@@ -7725,6 +7726,123 @@ void CTerraformerCard::OnLandTypeSelected(const std::vector<SelectionEntry>& sel
 			}
 		}
 	
+}
+
+//____________________________________________________________________________
+//
+CSpectralSearchlightCard::CSpectralSearchlightCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Spectral Searchlight"), CardType::Artifact, nID,
+	_T("3"), AbilityType::Artifact)
+	, m_PlayerSelection(pGame,CSelectionSupport::SelectionCallback(this, &CSpectralSearchlightCard::OnPlayerSelected))
+	, m_ColorSelection(pGame,CSelectionSupport::SelectionCallback(this, &CSpectralSearchlightCard::OnColorSelected))
+{
+	counted_ptr<CManaProductionAbility> cpAbility(
+		::CreateObject<CManaProductionAbility>(this,
+		_T(""), AbilityType::Activated, _T("")));
+
+	cpAbility->AddTapCost();
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSpectralSearchlightCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::Mana);
+
+	//Not sure of that, sounds painful when the computer says it.
+	cpAbility->SetAbilityText(_T("Choose a player. Activates"));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CSpectralSearchlightCard::BeforeResolution(CAbilityAction* pAction)
+{
+	std::vector<SelectionEntry> entries;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		SelectionEntry entry;
+		entry.dwContext = ip;
+		entry.strText.Format(_T("choose %s"), GetGame()->GetPlayer(ip)->GetPlayerName());
+		entries.push_back(entry);
+	}
+	m_PlayerSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	return true;
+}
+
+void CSpectralSearchlightCard::OnPlayerSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	CPlayer* chosenPlayer;
+	ATLASSERT(nSelectedCount == 1);
+
+	//So we just choose a player
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			chosenPlayer = GetGame()->GetPlayer(it->dwContext);
+		}
+	//Just in case
+	if(!chosenPlayer) return;
+
+	//Create color selection prompt
+	static const CManaPool::Color::Enum cardColors[] =
+	{
+		CManaPool::Color::White,
+		CManaPool::Color::Blue,
+		CManaPool::Color::Black,
+		CManaPool::Color::Red,
+		CManaPool::Color::Green
+	};
+	std::vector<SelectionEntry> entries;
+
+	for (int i = 0; i < ARRAY_SIZE(cardColors); ++i)
+	{
+		SelectionEntry entry;
+		entry.dwContext = i;
+		entry.strText.Format(_T("Choose %s for %s"), CManaPool::Color::ToDrawString(cardColors[i]), GetCardName());
+		entries.push_back(entry);
+	}
+
+		//Show the mana color prompt to the selected player
+	m_ColorSelection.AddSelectionRequest(entries, 1, 1, NULL, chosenPlayer);
+}
+
+void CSpectralSearchlightCard::OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	//Add the selected mana color to the selected player
+	LPCTSTR manaColor;
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			switch (it->dwContext)
+			{
+			case 0:
+				manaColor = WHITE_MANA_TEXT;
+				break;
+			case 1:
+				manaColor = BLUE_MANA_TEXT;
+				break;
+			case 2:
+				manaColor = BLACK_MANA_TEXT;
+				break;
+			case 3:
+				manaColor = RED_MANA_TEXT;
+				break;
+			case 4:
+				manaColor = GREEN_MANA_TEXT;
+				break;
+			default:
+				return;
+			}
+		}
+	//Just in case
+	if(!manaColor) return;
+
+	CManaPoolModifier pModifier =  CManaPoolModifier(
+		CManaPoolModifier::Operation::Add, CManaPool::CManaPool(manaColor)
+	);
+	//Add the Mana to the chosen player
+	pModifier.ApplyTo(pSelectionPlayer);
 }
 
 //____________________________________________________________________________

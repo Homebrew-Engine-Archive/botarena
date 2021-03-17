@@ -214,7 +214,21 @@ BEGIN
 	IDS_STRING61109          "Fickle Efreet Effect\n\nEffect\nToken\nAt end of combat, flip a coin. If you lose the flip, an opponent gains control of Fickle Efreet."
 	IDS_STRING61110          "Frostweb Spider Effect\n\nEffect\nToken\nAt end of combat, put a +1/+1 counter on Frostweb Spider."
 	IDS_STRING61111          "End of Combat Exile Effect\n\nEffect\nToken\nAt end of combat, exile the subjects."
+END
+
+STRINGTABLE
+BEGIN
 	IDS_STRING61112          "Glyph of Life Effect\n\nEffect\nToken\nWhenever an attacking creature deals damage to the subject this turn, you gain that much life."
+	IDS_STRING61113          "End of Combat Top of Library Effect\n\nEffect\nToken\nAt end of combat, put the subjects on top of their owner's library."
+	IDS_STRING61114          "Sawtooth Ogre Effect\n\nEffect\nToken\nAt end of combat, Sawtooth Ogre deals 1 damage to the subject."
+	IDS_STRING61115          "Coffin Queen Effect\n\nEffect\nToken\nWhen Coffin Queen becomes untapped or you lose control of Coffin Queen, exile the subject."
+	IDS_STRING61116          "Beck Effect\n\nEffect\nToken\nWhenever a creature enters the battlefield this turn, you may draw a card."
+	IDS_STRING61117          "Vanish into Memory Effect\n\nEffect\nToken\nAt the beginning of your next upkeep, return the subject to the battlefield under its owner's control. If you do, discard cards equal to that creature's toughness."
+	IDS_STRING61118          "Legion's Initiative Effect\n\nEffect\nToken\nAt the beginning of the next combat, return the subjects to the battlefield under their owner's control and those creatures gain haste until end of turn."
+	IDS_STRING61119          "Awe for the Guilds Effect\n\nEffect\nToken\nMonocolored creatures can't block this turn."
+	IDS_STRING61120          "Mana Drain Effect\n\nEffect\nToken\nAt the beginning of your next main phase, add {X} to your mana pool."
+	IDS_STRING61121          "Plasm Capture Effect\n\nEffect\nToken\nAt the beginning of your next precombat main phase, add X mana in any combination of colors to your mana pool."
+	IDS_STRING61122          "Scattering Stroke Effect\n\nEffect\nToken\nAt the beginning of your next main phase, you may add {X} to your mana pool."
 //	IDS_STRING61040          "Chancellor of the Annex Effect\n\nEffect\nToken\nWhen each opponent casts his or her first spell of the game, counter that spell unless that player pays {1}."
 END
 #endif    // English (United States) resources

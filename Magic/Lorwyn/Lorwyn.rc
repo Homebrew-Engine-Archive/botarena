@@ -421,6 +421,7 @@ BEGIN
     IDS_STRING18171         "Inner-Flame Igniter\n{2R}\nCreature - Elemental Warrior\nLRW,U\n{2R}: Creatures you control get +1/+0 until end of turn. If this is the third time this ability has resolved this turn, creatures you control gain first strike until end of turn.\n2/2"
     IDS_STRING18172         "Colfenor's Urn\n{3}\nArtifact\nLRW,R\nWhenever a creature with toughness 4 or greater is put into your graveyard from the battlefield, you may exile it.\rAt the beginning of the end step, if three or more cards have been exiled with Colfenor's Urn, sacrifice it. If you do, return those cards to the battlefield under their owner's control."
     IDS_STRING18173         "Elvish Branchbender\n{2G}\nCreature - Elf Druid\nLRW,C\n{T}: Until end of turn, target Forest becomes an X/X Treefolk creature in addition to its other types, where X is the number of Elves you control.\n2/2"
+    IDS_STRING18174         "Scattering Stroke\n{2UU}\nInstant\nLRW,U\nCounter target spell. Clash with an opponent. If you win, at the beginning of your next main phase, you may add {X} to your mana pool, where X is that spell's converted mana cost."
 END
 
 #endif    // English (United States) resources

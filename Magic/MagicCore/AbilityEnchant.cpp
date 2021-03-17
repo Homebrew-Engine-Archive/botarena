@@ -923,6 +923,1026 @@ bool CEnchantment::EvaluateCondition()
 
 //____________________________________________________________________________
 //
+CDblConditionEnchantment::CDblConditionEnchantment(CCard* pCard, LPCTSTR strManaCost,
+						   CardComparer* pComparer)			// EnchantmentInternalType::PrimaryEnchantment
+	: CSpell(pCard, AbilityType::Enchantment, strManaCost, TRUE)
+	, m_bAffectControllerOnly(FALSE)
+	, m_bAffectOpponentsOnly(FALSE)
+	, m_bAffectPlayers(FALSE)
+	, m_bDisableWhenTapped(FALSE)
+	, m_bDisableWhenUntapped(FALSE)
+	, m_bInEffect(FALSE)
+	, m_Type(EnchantmentInternalType::PrimaryEnchantment)
+	, m_pAffectThisPlayerOnly(NULL)
+	, m_AffectCardsInTheseZones(ZoneId::Battlefield)
+	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnZoneChanged))
+	, m_cpCListener(VAR_NAME(m_cpCListener), CounterMovedEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnSelfCounterMoved))
+	, m_cpNListener(VAR_NAME(m_cpNListener), ChangeNodeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnNodeChanged))
+	, m_cpOListener(VAR_NAME(m_cpOListener), COrientation::Listener::EventCallback(this, &CDblConditionEnchantment::OnOrientationChanged))
+	, m_cpCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardZoneChanged))
+	, m_cpCardOrientationListener(VAR_NAME(m_cpCardOrientationListener), COrientation::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardOrientationChanged))
+	, m_cpCardTypeListener(VAR_NAME(m_cpCardTypeListener), CardTypeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardTypeChanged))
+	, m_cpCounterMovedListener(VAR_NAME(m_cpCounterMovedListener), CounterMovedEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCounterMoved))
+	, m_cpCardIsAlsoAListener(VAR_NAME(m_cpCardIsAlsoAListener), CardIsAlsoAEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardIsAlsoAChanged))
+	, m_cpActiveCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardZoneChangedActive))
+	, m_cpActiveCardIsAlsoAListener(VAR_NAME(m_cpActiveCardIsAlsoAListener), CardIsAlsoAEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardIsAlsoAChangedActive))
+	, m_cpChangeLifeListener(VAR_NAME(m_cpChangeLifeListener), ChangeLifeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnLifeChanged))
+	, m_bAffectByOrientation(FALSE)
+	, m_bNotifyWhenControlSwitched(TRUE)
+	, m_thisActivationCardFilter(new TrueCardComparer)	
+	, m_SelfCounterTracking(FALSE)
+	, m_Condition1Work(FALSE)
+	, m_Condition1Filter(new TrueCardComparer)
+	, m_Condition1Value(1)
+	, m_Condition1CheckZone(ZoneId::Battlefield)
+	, m_Condition1CheckPlayer(ConditionCheckPlayerType::CheckControllerOnly)
+	, m_Condition1IsMaximum(FALSE)
+	, m_Condition1CheckLife(FALSE)
+	, m_Condition1Active(FALSE)
+	, m_Condition2Work(FALSE)
+	, m_Condition2Filter(new TrueCardComparer)
+	, m_Condition2Value(1)
+	, m_Condition2CheckZone(ZoneId::Battlefield)
+	, m_Condition2CheckPlayer(ConditionCheckPlayerType::CheckControllerOnly)
+	, m_Condition2IsMaximum(FALSE)
+	, m_Condition2CheckLife(FALSE)
+	, m_Condition2Active(FALSE)
+	, m_ActiveIn(ZoneId::Battlefield)
+	, m_ConditionLogic(0)
+{
+	m_EnchantmentCardFilter.AddComparer(pComparer);
+
+	pCard->GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
+}
+
+CDblConditionEnchantment::CDblConditionEnchantment(CCard* pCard, AbilityType abilityType,	// EnchantmentInternalType::UntilEOTSpell
+						   LPCTSTR strManaCost,
+						   CardComparer* pComparer)
+	: CSpell(pCard, abilityType, strManaCost, FALSE)
+	, m_bAffectControllerOnly(FALSE)
+	, m_bAffectOpponentsOnly(FALSE)
+	, m_bAffectPlayers(FALSE)
+	, m_bDisableWhenTapped(FALSE)
+	, m_bDisableWhenUntapped(FALSE)
+	, m_bInEffect(FALSE)
+	, m_Type(EnchantmentInternalType::UntilEOTSpell)
+	, m_pAffectThisPlayerOnly(NULL)
+	, m_AffectCardsInTheseZones(ZoneId::Battlefield)
+	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnZoneChanged))
+	, m_cpCListener(VAR_NAME(m_cpCListener), CounterMovedEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnSelfCounterMoved))
+	, m_cpNListener(VAR_NAME(m_cpNListener), ChangeNodeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnNodeChanged))
+	, m_cpOListener(VAR_NAME(m_cpOListener), COrientation::Listener::EventCallback(this, &CDblConditionEnchantment::OnOrientationChanged))
+	, m_cpCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardZoneChanged))
+	, m_cpCardOrientationListener(VAR_NAME(m_cpCardOrientationListener), COrientation::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardOrientationChanged))
+	, m_cpCardTypeListener(VAR_NAME(m_cpCardTypeListener), CardTypeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardTypeChanged))
+	, m_cpCounterMovedListener(VAR_NAME(m_cpCounterMovedListener), CounterMovedEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCounterMoved))
+	, m_cpCardIsAlsoAListener(VAR_NAME(m_cpCardIsAlsoAListener), CardIsAlsoAEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardIsAlsoAChanged))
+	, m_cpActiveCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardZoneChangedActive))
+	, m_cpActiveCardIsAlsoAListener(VAR_NAME(m_cpActiveCardIsAlsoAListener), CardIsAlsoAEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardIsAlsoAChangedActive))
+	, m_cpChangeLifeListener(VAR_NAME(m_cpChangeLifeListener), ChangeLifeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnLifeChanged))
+	, m_bAffectByOrientation(FALSE)
+	, m_bNotifyWhenControlSwitched(TRUE)
+	, m_thisActivationCardFilter(new TrueCardComparer)	
+	, m_SelfCounterTracking(FALSE)
+	, m_Condition1Work(FALSE)
+	, m_Condition1Filter(new TrueCardComparer)
+	, m_Condition1Value(1)
+	, m_Condition1CheckZone(ZoneId::Battlefield)
+	, m_Condition1CheckPlayer(ConditionCheckPlayerType::CheckControllerOnly)
+	, m_Condition1IsMaximum(FALSE)
+	, m_Condition1CheckLife(FALSE)
+	, m_Condition1Active(FALSE)
+	, m_Condition2Work(FALSE)
+	, m_Condition2Filter(new TrueCardComparer)
+	, m_Condition2Value(1)
+	, m_Condition2CheckZone(ZoneId::Battlefield)
+	, m_Condition2CheckPlayer(ConditionCheckPlayerType::CheckControllerOnly)
+	, m_Condition2IsMaximum(FALSE)
+	, m_Condition2CheckLife(FALSE)
+	, m_Condition2Active(FALSE)
+	, m_ActiveIn(ZoneId::Battlefield)
+	, m_ConditionLogic(0)
+{
+	m_EnchantmentCardFilter.AddComparer(pComparer);
+}
+
+CDblConditionEnchantment::CDblConditionEnchantment(CCard* pCard,	// EnchantmentInternalType::SecondaryEnchantment
+						   CardComparer* pComparer)
+	: CSpell(pCard, AbilityType::Triggered, _T(""), FALSE)
+	, m_bAffectControllerOnly(FALSE)
+	, m_bAffectOpponentsOnly(FALSE)
+	, m_bAffectPlayers(FALSE)
+	, m_bDisableWhenTapped(FALSE)
+	, m_bDisableWhenUntapped(FALSE)
+	, m_bInEffect(FALSE)
+	, m_Type(EnchantmentInternalType::SecondaryEnchantment)
+	, m_pAffectThisPlayerOnly(NULL)
+	, m_AffectCardsInTheseZones(ZoneId::Battlefield)
+	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnZoneChanged))
+	, m_cpCListener(VAR_NAME(m_cpCListener), CounterMovedEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnSelfCounterMoved))
+	, m_cpNListener(VAR_NAME(m_cpNListener), ChangeNodeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnNodeChanged))
+	, m_cpOListener(VAR_NAME(m_cpOListener), COrientation::Listener::EventCallback(this, &CDblConditionEnchantment::OnOrientationChanged))
+	, m_cpCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardZoneChanged))
+	, m_cpCardOrientationListener(VAR_NAME(m_cpCardOrientationListener), COrientation::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardOrientationChanged))
+	, m_cpCardTypeListener(VAR_NAME(m_cpCardTypeListener), CardTypeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardTypeChanged))
+	, m_cpCounterMovedListener(VAR_NAME(m_cpCounterMovedListener), CounterMovedEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCounterMoved))
+	, m_cpCardIsAlsoAListener(VAR_NAME(m_cpCardIsAlsoAListener), CardIsAlsoAEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardIsAlsoAChanged))
+	, m_cpActiveCardZoneListener(VAR_NAME(m_cpCardZoneListener), CardMovementEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardZoneChangedActive))
+	, m_cpActiveCardIsAlsoAListener(VAR_NAME(m_cpActiveCardIsAlsoAListener), CardIsAlsoAEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnCardIsAlsoAChangedActive))
+	, m_cpChangeLifeListener(VAR_NAME(m_cpChangeLifeListener), ChangeLifeEventSource::Listener::EventCallback(this, &CDblConditionEnchantment::OnLifeChanged))
+	, m_bAffectByOrientation(FALSE)
+	, m_bNotifyWhenControlSwitched(TRUE)
+	, m_thisActivationCardFilter(new TrueCardComparer)	
+	, m_SelfCounterTracking(FALSE)
+	, m_Condition1Work(FALSE)
+	, m_Condition1Filter(new TrueCardComparer)
+	, m_Condition1Value(1)
+	, m_Condition1CheckZone(ZoneId::Battlefield)
+	, m_Condition1CheckPlayer(ConditionCheckPlayerType::CheckControllerOnly)
+	, m_Condition1IsMaximum(FALSE)
+	, m_Condition1CheckLife(FALSE)
+	, m_Condition1Active(FALSE)
+	, m_Condition2Work(FALSE)
+	, m_Condition2Filter(new TrueCardComparer)
+	, m_Condition2Value(1)
+	, m_Condition2CheckZone(ZoneId::Battlefield)
+	, m_Condition2CheckPlayer(ConditionCheckPlayerType::CheckControllerOnly)
+	, m_Condition2IsMaximum(FALSE)
+	, m_Condition2CheckLife(FALSE)
+	, m_Condition2Active(FALSE)
+	, m_ActiveIn(ZoneId::Battlefield)
+	, m_ConditionLogic(0)
+{
+	m_EnchantmentCardFilter.AddComparer(pComparer);
+
+	pCard->GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
+}
+
+CDblConditionEnchantment::~CDblConditionEnchantment()
+{
+	if (m_pGame && m_pGame->IsRestoring())
+		return;	// 5/15/06, not tested
+
+	OnEnchantmentEndedImpl(TRUE);
+}
+
+void CDblConditionEnchantment::SetToActivatedAbility()
+{
+	__super::SetToActivatedAbility();
+
+	ATLASSERT(m_Type == EnchantmentInternalType::UntilEOTSpell);
+
+	m_Type = EnchantmentInternalType::UntilEOTActivatedAbility;
+}
+
+void CDblConditionEnchantment::SetDisableWhenTapped()
+{
+	ATLASSERT((m_Type == EnchantmentInternalType::PrimaryEnchantment) || (m_Type == EnchantmentInternalType::SecondaryEnchantment));	// Not applicable to non-in-play spells
+	
+	m_bDisableWhenTapped = TRUE;
+}
+
+void CDblConditionEnchantment::SetDisableWhenUntapped()
+{
+	ATLASSERT((m_Type == EnchantmentInternalType::PrimaryEnchantment) || (m_Type == EnchantmentInternalType::SecondaryEnchantment));	// Not applicable to non-in-play spells
+	
+	m_bDisableWhenUntapped = TRUE;
+}
+
+void CDblConditionEnchantment::SetAffectControllerCardsOnly()
+{
+	m_EnchantmentCardFilter.SetThisCardsControllerOnly(m_pCard);
+}
+
+void CDblConditionEnchantment::SetAffectOpponentCardsOnly()
+{
+	m_EnchantmentCardFilter.SetNotThisCardsControllerOnly(m_pCard);
+}
+
+void CDblConditionEnchantment::SetExceptParent()
+{
+	m_EnchantmentCardFilter.AddNegateComparer(new SpecificCardComparer(m_pCard));
+}
+
+void CDblConditionEnchantment::SetAffectTappedOnly()
+{
+	m_EnchantmentCardFilter.AddComparer(new TappedComparer());
+
+	m_bAffectByOrientation = TRUE;
+}
+
+void CDblConditionEnchantment::SetAffectUntappedOnly()
+{
+	m_EnchantmentCardFilter.AddComparer(new UntappedComparer());
+
+	m_bAffectByOrientation = TRUE;
+}
+
+void CDblConditionEnchantment::SetAffectCardsInTheseZones(ZoneId zones)
+{
+	m_AffectCardsInTheseZones = zones;
+}
+
+void CDblConditionEnchantment::SetEnchantmentActiveIn(ZoneId zones)
+{
+	m_ActiveIn = zones;
+}
+
+void CDblConditionEnchantment::SetCondition1CheckZone(ZoneId zones)
+{
+	m_Condition1CheckZone = zones;
+}
+
+void CDblConditionEnchantment::SetCondition1CheckPlayer(ConditionCheckPlayerType::Enum players)
+{
+	m_Condition1CheckPlayer = players;
+}
+
+void CDblConditionEnchantment::SetCondition2CheckZone(ZoneId zones)
+{
+	m_Condition2CheckZone = zones;
+}
+
+void CDblConditionEnchantment::SetCondition2CheckPlayer(ConditionCheckPlayerType::Enum players)
+{
+	m_Condition2CheckPlayer = players;
+}
+
+BOOL CDblConditionEnchantment::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) const
+{
+	if (m_Type == EnchantmentInternalType::SecondaryEnchantment)
+		return FALSE;
+
+	if (!CSpell::IsPlayable(bIncludeTricks, bAssumeSufficientMana))
+		return FALSE;
+
+	if (bIncludeTricks || (m_Type == EnchantmentInternalType::PrimaryEnchantment) || (m_Type == EnchantmentInternalType::SecondaryEnchantment) || m_bAffectPlayers)
+		return TRUE;
+
+	Characteristic characteristic = GetEnchantmentCharacteristic();
+	CPlayer* pController = GetController();
+
+	// Find any constructive usage
+	for (int i = 0; i < m_pGame->GetPlayerCount(); ++i)
+	{
+		CPlayer* pPlayer = m_pGame->GetPlayer(i);
+
+		if (((characteristic < Characteristic::Neutral) && (pPlayer == pController)) ||
+			((characteristic > Characteristic::Neutral) && (pPlayer != pController)))
+			continue;
+
+		if (!m_EnchantmentCardFilter.IsPlayersCardsIncluded(pPlayer))
+			continue;
+
+		for (int j = 0; j < pPlayer->GetZoneCount(); ++j)
+		{
+			CZone* pZone = pPlayer->GetZone(j);
+
+			if (!(pZone->GetZoneId() & m_AffectCardsInTheseZones).Any())
+					continue;
+
+			for (int k = pZone->GetSize() - 1; k >= 0 ; --k)
+			{
+				CCard* pCard = pZone->GetAt(k);
+
+				if (IsCardAffected(pCard))
+					return TRUE;
+			}
+		}
+	}
+
+	return FALSE;
+}
+
+CActionContainer* CDblConditionEnchantment::GetAbilityActions(BOOL bIncludeTricks, BOOL bSetNames)
+{
+	if (m_Type == EnchantmentInternalType::SecondaryEnchantment)
+		return NULL;
+
+	return CSpell::GetAbilityActions(bIncludeTricks, bSetNames);
+}
+
+BOOL CDblConditionEnchantment::ResolveImpl(const CAbilityAction* pAction)
+{
+	if (!CSpell::ResolveImpl(pAction))
+		return FALSE;
+
+	ATLASSERT(!m_bInEffect);
+	ATLASSERT(m_Type != EnchantmentInternalType::SecondaryEnchantment);
+
+	if (m_bDisableWhenTapped || m_bDisableWhenUntapped)
+		m_pCard->GetOrientation()->AddListener(m_cpOListener.GetPointer());
+
+	if (m_SelfCounterTracking)
+		m_pCard->GetCounterMovedEventSource()->AddListener(m_cpCListener.GetPointer());
+
+	if ((m_Type == EnchantmentInternalType::UntilEOTSpell) || (m_Type == EnchantmentInternalType::UntilEOTActivatedAbility))
+	{
+		// Spell or activated ability
+
+		// Must use the active player's graph (e.g. cast Warrior's Resolve during an opponent's turn)
+		m_pGame->GetActivePlayer()->GetGraph()->GetNodeById(NodeId::CleanupStep2)->GetChangeNodeEventSource()->AddListener(m_cpNListener.GetPointer());
+	}
+
+	if (!OnEnchantmentStartedImpl(TRUE))
+	{
+		LogIllegalResolution(__FUNCTION__, __FILE__, __LINE__);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+void CDblConditionEnchantment::StartEnchantment()
+{
+	if (m_bInEffect)
+		return;
+
+	if ((m_Condition1Work && m_Condition1CheckLife) || (m_Condition2Work && m_Condition2CheckLife))
+	{
+		for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)
+		{
+			CPlayer* pPlayer = m_pGame->GetPlayer(j);
+
+			pPlayer->GetChangeLifeEventSource()->AddListener(m_cpChangeLifeListener.GetPointer());
+		}
+	}
+	if ((m_Condition1Work && !m_Condition1CheckLife) || (m_Condition2Work && !m_Condition2CheckLife))
+	{
+		ListenToCardEventSources(m_pCard);
+		for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)
+		{
+			CPlayer* pPlayer = m_pGame->GetPlayer(j);
+
+			if (!m_EnchantmentCardFilter.IsPlayersCardsIncluded(pPlayer))
+				continue;
+
+			for (int i = 0; i < pPlayer->GetZoneCount(); ++i)
+			{
+				CZone* pZone = pPlayer->GetZone(i);
+
+				if (!(pZone->GetZoneId() & m_AffectCardsInTheseZones).Any() && !(pZone->GetZoneId() & m_Condition1CheckZone).Any() && !(pZone->GetZoneId() & m_Condition2CheckZone).Any())
+				continue;
+
+				pZone->GetCardMovedEventSource()->AddListener(m_cpActiveCardZoneListener.GetPointer());
+				pZone->GetIsAlsoAEventSource()->AddListener(m_cpActiveCardIsAlsoAListener.GetPointer());
+			}
+		}
+	}
+
+	if (m_bDisableWhenTapped || m_bDisableWhenUntapped)
+		m_pCard->GetOrientation()->AddListener(m_cpOListener.GetPointer());
+
+	if (m_SelfCounterTracking)
+		m_pCard->GetCounterMovedEventSource()->AddListener(m_cpCListener.GetPointer());
+
+	OnEnchantmentStartedImpl(TRUE);
+}
+
+void CDblConditionEnchantment::EndEnchantment()
+{
+	if (m_bDisableWhenTapped || m_bDisableWhenUntapped)
+		m_cpOListener->RemoveAllEventSources();
+
+	if (m_SelfCounterTracking)
+		m_cpCListener.GetPointer()->RemoveAllEventSources();
+
+	if (m_Condition1Work || m_Condition2Work)
+	RemoveListenToCardEventSources(m_pCard);
+
+	OnEnchantmentEndedImpl(TRUE);
+}
+
+void CDblConditionEnchantment::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pFromZone || !pToZone)
+		return;
+
+	ATLASSERT((m_Type == EnchantmentInternalType::PrimaryEnchantment) || (m_Type == EnchantmentInternalType::SecondaryEnchantment));
+
+	if (m_Type == EnchantmentInternalType::PrimaryEnchantment || m_Type == EnchantmentInternalType::SecondaryEnchantment)
+	{
+		// Secondary enchantment (may or may not be in-play at this moment)
+		if ((pFromZone->GetZoneId() != m_ActiveIn) && (pToZone->GetZoneId() == m_ActiveIn))
+		{
+			// Just moved into in-play
+
+			StartEnchantment();
+		}
+		else if ((pFromZone->GetZoneId() == m_ActiveIn) && (pToZone->GetZoneId() != m_ActiveIn))
+		{
+			// Just left from in-play
+
+			EndEnchantment();				
+				
+			if (m_Condition1Work || m_Condition2Work)
+			{
+				m_cpActiveCardZoneListener->RemoveAllEventSources();			
+				m_cpActiveCardIsAlsoAListener->RemoveAllEventSources();
+				m_cpChangeLifeListener->RemoveAllEventSources();
+			}
+		}
+		else if ((pFromZone->GetZoneId() == ZoneId::Battlefield) && 
+				(pToZone->GetZoneId() == ZoneId::Battlefield) && m_ActiveIn == ZoneId::Battlefield)	// 7/31/2002, triggered by control spells
+		{
+			// Controlled
+
+			ATLASSERT(pFromZone != pToZone);
+
+			OnEnchantmentEndedImpl(m_bNotifyWhenControlSwitched);
+			OnEnchantmentStartedImpl(m_bNotifyWhenControlSwitched);
+		}
+	}
+}
+
+void CDblConditionEnchantment::OnNodeChanged(CNode* pToNode)
+{
+	ATLASSERT((m_Type == EnchantmentInternalType::UntilEOTSpell) || (m_Type == EnchantmentInternalType::UntilEOTActivatedAbility));
+	ATLASSERT(pToNode->GetNodeId() == NodeId::CleanupStep2);
+
+	// Until end of turn effect ends
+
+	m_cpNListener->RemoveAllEventSources();
+	OnEnchantmentEndedImpl(TRUE);
+}
+
+void CDblConditionEnchantment::OnSelfCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
+{
+	ATLASSERT(m_SelfCounterTracking);
+	ATLASSERT((m_Type == EnchantmentInternalType::PrimaryEnchantment) || (m_Type == EnchantmentInternalType::SecondaryEnchantment));
+
+	if (m_pCard->GetZoneId() != ZoneId::Battlefield)
+		return;	// Let OnZoneChanged() to handle
+
+	if (m_bInEffect && !m_thisActivationCardFilter.IsCardIncluded(m_pCard))
+	{
+		// Became tapped, end enchantment effect
+
+		m_cpAListener->RemoveAllEventSources();
+		OnEnchantmentEndedImpl(TRUE);
+	}
+	else
+		if (!m_bInEffect && m_thisActivationCardFilter.IsCardIncluded(m_pCard))
+		{
+			// Became untapped, start enchantment effect
+
+			ATLASSERT(!m_bInEffect);
+
+			m_pCard->GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
+			OnEnchantmentStartedImpl(TRUE);		
+		}
+}
+
+void CDblConditionEnchantment::OnOrientationChanged(COrientation* pOrientation, Orientation fromOrientation, Orientation toOrientation)
+{
+	ATLASSERT(m_bDisableWhenTapped || m_bDisableWhenUntapped);
+	ATLASSERT((m_Type == EnchantmentInternalType::PrimaryEnchantment) || (m_Type == EnchantmentInternalType::SecondaryEnchantment));
+
+	if (m_pCard->GetZoneId() != ZoneId::Battlefield)
+		return;	// Let OnZoneChanged() to handle
+
+	if ((fromOrientation & Orientation::Untap).Any() && (toOrientation & Orientation::Tap).Any())
+	{
+		// Became tapped, end enchantment effect
+
+		m_cpAListener->RemoveAllEventSources();
+		OnEnchantmentEndedImpl(TRUE);
+	}
+	else
+		if ((fromOrientation & Orientation::Tap).Any() && (toOrientation & Orientation::Untap).Any())
+		{
+			// Became untapped, start enchantment effect
+
+			ATLASSERT(!m_bInEffect);
+
+			m_pCard->GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
+			OnEnchantmentStartedImpl(TRUE);
+		}
+}
+
+void CDblConditionEnchantment::OnCardZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) 
+{
+	if (pToZone && !(pToZone->GetZoneId() & m_AffectCardsInTheseZones).Any())
+	{
+		// Card moved out of zone
+
+		RemoveListenToCardEventSources(pCard);
+	}
+	else
+	if (pFromZone && !(pFromZone->GetZoneId() & m_AffectCardsInTheseZones).Any())
+	{
+		// Card moved into zone
+
+		ListenToCardEventSources(pCard);
+	}
+	
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else // && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+
+	CheckCard(pCard); 
+}
+
+void CDblConditionEnchantment::OnCardZoneChangedActive(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) 
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+}
+
+void CDblConditionEnchantment::OnCardTypeChanged(CCard* pCard, CardType fromCardType, CardType toCardType) 
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+
+	CheckCard(pCard);
+}
+
+void CDblConditionEnchantment::OnCardOrientationChanged(COrientation* pOrientation, Orientation fromOrientation, Orientation toOrientation)
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+
+	CheckCard(pOrientation->GetCard());
+}
+
+void CDblConditionEnchantment::OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+
+	CheckCard(pFromCard);
+}
+
+void CDblConditionEnchantment::OnCardIsAlsoAChanged(CCard* pCard, CCard* pPreviousIsAlsoA, CCard* pIsAlsoA)
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+
+	if (pIsAlsoA)
+			CheckCard(pIsAlsoA); 
+}
+
+void CDblConditionEnchantment::OnCardIsAlsoAChangedActive(CCard* pCard, CCard* pPreviousIsAlsoA, CCard* pIsAlsoA)
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+}
+
+void CDblConditionEnchantment::OnLifeChanged(CPlayer* pPlayer, Life nFromLife, Life nToLife)
+{
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())// && !m_ConditionActive)
+			OnEnchantmentStartedImpl(TRUE);
+		else// && m_ConditionActive)
+			OnEnchantmentEndedImpl(TRUE);
+	}
+}
+
+BOOL CDblConditionEnchantment::IsCardAffected(const CCard* pCard) const
+{
+	if (!(pCard->GetZoneId() & m_AffectCardsInTheseZones).Any())
+		return FALSE;
+
+	if (!m_EnchantmentCardFilter.IsCardIncluded(pCard))
+		return FALSE;
+	
+	return TRUE;
+}
+
+BOOL CDblConditionEnchantment::IsPlayerAffected(const CPlayer* pPlayer) const
+{
+	if (!m_bAffectPlayers)
+		return FALSE;
+
+	if (m_pAffectThisPlayerOnly)
+	{
+		return pPlayer == m_pAffectThisPlayerOnly;
+	}
+
+	if ((m_bAffectControllerOnly && (pPlayer != GetController())) ||
+		(m_bAffectOpponentsOnly && (pPlayer == GetController())))
+		return FALSE;
+
+	return TRUE;
+}
+
+void CDblConditionEnchantment::ListenToCardEventSources(CCard* pCard)
+{
+	if (m_bAffectByOrientation)
+		pCard->GetOrientation()->AddListener(m_cpCardOrientationListener.GetPointer());
+	
+	pCard->GetCardTypeEventSource()->AddListener(m_cpCardTypeListener.GetPointer());
+	pCard->GetCounterMovedEventSource()->AddListener(m_cpCounterMovedListener.GetPointer());
+}
+
+void CDblConditionEnchantment::RemoveListenToCardEventSources(CCard* pCard)
+{
+	pCard->GetCardTypeEventSource()->RemoveListener(m_cpCardTypeListener.GetPointer());
+	pCard->GetCounterMovedEventSource()->RemoveListener(m_cpCounterMovedListener.GetPointer());
+
+	if (m_bAffectByOrientation)
+		pCard->GetOrientation()->RemoveListener(m_cpCardOrientationListener.GetPointer());
+}
+
+void CDblConditionEnchantment::OnEnchantmentEndedImpl(BOOL bNotify)
+{
+	if (!m_bInEffect)
+		return;
+
+	m_bInEffect = FALSE;
+
+	OnEnchantmentEnded(bNotify);
+}
+
+void CDblConditionEnchantment::OnEnchantmentEnded(BOOL bNotify)
+{
+	m_cpCardZoneListener->RemoveAllEventSources();
+	m_cpCardOrientationListener->RemoveAllEventSources();
+	m_cpCardTypeListener->RemoveAllEventSources();
+	m_cpCounterMovedListener->RemoveAllEventSources();
+	m_cpCardIsAlsoAListener->RemoveAllEventSources();
+
+	CPtrContainer<CCard> affectedCards(m_AffectedCards);
+	m_AffectedCards.RemoveAll();
+
+	CContextValueContainer affectedCardContexts(m_AffectedCardContexts);
+	m_AffectedCardContexts.RemoveAll();
+
+	CPtrContainer<CPlayer> affectedPlayers(m_AffectedPlayers);
+	m_AffectedPlayers.RemoveAll();
+
+	CContextValueContainer affectedPlayerContexts(m_AffectedPlayerContexts);
+	m_AffectedPlayerContexts.RemoveAll();
+
+	if (bNotify)
+	{
+		for (int j = 0; j < affectedCards.GetSize(); ++j)
+			OnDisenchantCard(affectedCards[j], affectedCardContexts[j]);
+
+		for (int j = 0; j < affectedPlayers.GetSize(); ++j)
+			OnDisenchantPlayer(affectedPlayers[j], affectedPlayerContexts[j]);
+	}
+}
+
+void CDblConditionEnchantment::CheckCard(CCard* pCard)
+{
+	if (m_Type == EnchantmentInternalType::UntilEOTActivatedAbility ||
+		m_Type == EnchantmentInternalType::UntilEOTSpell)
+		return; // These types only affect cards at the time of casting
+
+	if (!m_bInEffect && (m_Condition1Work || m_Condition2Work)) return;
+
+	for (int j = 0; j < m_AffectedCards.GetSize(); ++j)
+	{
+		CCard* pCard1 = m_AffectedCards.GetAt(j);
+		if (pCard == pCard1)
+		{
+			if (!IsCardAffected(pCard))
+			{
+				m_AffectedCards.Remove(pCard);
+				ContextValue contextValue = m_AffectedCardContexts[j];
+				m_AffectedCardContexts.RemoveAt(j);
+
+				OnDisenchantCard(pCard, contextValue);
+			}
+			return;
+		}
+	}
+
+	if (!IsCardAffected(pCard))
+		return;
+
+	m_AffectedCards.Add(pCard);
+	m_AffectedCardContexts.Add(ContextValue());
+
+	ContextValue contextValue;
+	OnEnchantCard(pCard, contextValue);
+
+	// Search for the card again since the card may not be affected anymore after calling OnEnchantCard
+
+	for (int j = 0; j < m_AffectedCards.GetSize(); ++j)
+	{
+		CCard* pCard1 = m_AffectedCards.GetAt(j);
+		if (pCard == pCard1)
+		{
+			m_AffectedCardContexts.SetAt(j, contextValue);
+			break;
+		}
+	}
+}
+
+BOOL CDblConditionEnchantment::OnEnchantmentStartedImpl(BOOL bNotify)
+{
+	ATLASSERT(!m_bInEffect);	
+
+	if (m_bInEffect)
+	{
+		if (m_Condition1Work || m_Condition2Work)
+		{
+			if (EvaluateCondition())
+			{
+				//m_ConditionActive = TRUE;				
+				return TRUE;
+			}
+			else
+			{
+				//m_ConditionActive = FALSE;
+				m_bInEffect = FALSE;
+				OnEnchantmentEndedImpl(FALSE);
+			}
+		}
+		else
+			return TRUE;
+	}
+	
+	if (m_Condition1Work || m_Condition2Work)
+	{
+		if (EvaluateCondition())
+		{
+			//m_ConditionActive = TRUE;
+			m_bInEffect = TRUE;
+		}
+		else
+		{
+			//m_ConditionActive = FALSE;
+			m_bInEffect = FALSE;							
+		}
+	}
+	else
+		m_bInEffect = TRUE;
+
+	if (m_bInEffect)
+		return OnEnchantmentStarted(bNotify);
+
+	return TRUE;
+}
+
+BOOL CDblConditionEnchantment::OnEnchantmentStarted(BOOL bNotify)
+{
+	if (m_bDisableWhenTapped && m_pCard->GetOrientation()->IsTapped())
+		return TRUE;
+
+	if (m_bDisableWhenUntapped && m_pCard->GetOrientation()->IsUntapped())
+		return TRUE;
+
+	if (m_SelfCounterTracking && !m_thisActivationCardFilter.IsCardIncluded(m_pCard))
+	{		
+		return TRUE;
+	}
+	if (m_bAffectPlayers)
+		for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)
+		{
+			CPlayer* pPlayer = m_pGame->GetPlayer(j);
+
+			if (!IsPlayerAffected(pPlayer))
+				continue;
+
+			m_AffectedPlayers.Add(pPlayer);
+			m_AffectedPlayerContexts.Add(ContextValue());
+
+			ContextValue contextValue;
+			if (bNotify)
+				OnEnchantPlayer(pPlayer, contextValue);
+
+			if (!m_bInEffect)
+				return FALSE;
+
+			// Search for the player just in case the player is no longer in the list
+
+			int nIndex = m_AffectedPlayers.FindIndex(pPlayer);
+			if (nIndex != -1)
+				m_AffectedPlayerContexts.SetAt(nIndex, contextValue);
+		}
+	
+	for (int j = 0; j < m_pGame->GetPlayerCount(); ++j)
+	{
+		CPlayer* pPlayer = m_pGame->GetPlayer(j);
+
+		if (!m_EnchantmentCardFilter.IsPlayersCardsIncluded(pPlayer))
+			continue;
+
+		for (int i = 0; i < pPlayer->GetZoneCount(); ++i)
+		{
+            CZone* pZone = pPlayer->GetZone(i);
+
+			if (!(pZone->GetZoneId() & m_AffectCardsInTheseZones).Any())
+				continue;
+
+			pZone->GetCardMovedEventSource()->AddListener(m_cpCardZoneListener.GetPointer());
+			pZone->GetIsAlsoAEventSource()->AddListener(m_cpCardIsAlsoAListener.GetPointer());
+
+			// This loop is added to take care of any new cards added to the zone after all OnEnchantCard()
+
+			std::set<CCard*> processed;
+			do
+			{
+				std::set<CCard*> cards;
+
+				for (int k = 0; k < pZone->GetSize(); ++k)
+				{
+					CCard* pCard = pZone->GetAt(k);
+					if (!processed.count(pCard))
+						cards.insert(pCard);
+				}
+
+				if (!cards.size())
+					break;
+
+				for (std::set<CCard*>::const_iterator k = cards.begin(); k != cards.end(); ++k)
+				{
+					CCard* pCard = *k;
+
+					ListenToCardEventSources(pCard);
+
+					processed.insert(pCard);
+
+					if (IsCardAffected(pCard))
+					{
+						m_AffectedCards.Add(pCard);	
+						m_AffectedCardContexts.Add(ContextValue());
+
+						ContextValue contextValue;
+						if (bNotify)
+							OnEnchantCard(pCard, contextValue);				// Enchant existing cards
+
+						if (!m_bInEffect)
+							return FALSE;
+
+						int nIndex = m_AffectedCards.FindIndex(pCard);
+						if (nIndex != -1)
+							m_AffectedCardContexts.SetAt(nIndex, contextValue);
+					}
+				}
+
+			} while (true);
+		}
+	}	
+
+	return TRUE;
+}
+
+bool CDblConditionEnchantment::EvaluateCondition()
+{
+	int nCount = 0;
+
+	bool bResult1 = false;
+	bool bResult2 = false;
+
+	if (m_Condition1Work)
+	{
+		if (m_Condition1CheckLife)
+		{
+			for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			{
+				if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckControllerOnly && GetGame()->GetPlayer(ip) != m_pCard->GetController()) continue;
+				if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckOpponentsOnly && GetGame()->GetPlayer(ip) == m_pCard->GetController()) continue;
+				if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckEachPlayer)
+				{
+					if (m_Condition1IsMaximum)
+					{
+						if (GET_INTEGER(GetGame()->GetPlayer(ip)->GetLife()) <= m_Condition1Value)
+						bResult1 = true;
+					}
+					else
+					{
+						if (GET_INTEGER(GetGame()->GetPlayer(ip)->GetLife()) >= m_Condition1Value)
+						bResult1 = true;
+					}
+					continue;
+				}
+				nCount += GET_INTEGER(GetGame()->GetPlayer(ip)->GetLife());
+			}
+		}
+		else
+		{
+			for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			{
+				if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckControllerOnly && GetGame()->GetPlayer(ip) != m_pCard->GetController()) continue;
+				if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckOpponentsOnly && GetGame()->GetPlayer(ip) == m_pCard->GetController()) continue;
+				if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckEachPlayer)
+				{
+					if (m_Condition1IsMaximum)
+					{
+						if (m_Condition1Filter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(m_Condition1CheckZone)->GetCardContainer()) <= m_Condition1Value)
+						bResult1 = true;
+					}
+					else
+					{
+						if (m_Condition1Filter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(m_Condition1CheckZone)->GetCardContainer()) >= m_Condition1Value)
+						bResult1 = true;
+					}
+					continue;
+				}
+				nCount += m_Condition1Filter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(m_Condition1CheckZone)->GetCardContainer());
+			}
+		}
+
+		if (m_Condition1CheckPlayer == ConditionCheckPlayerType::CheckEachPlayer) return false;
+		if (m_Condition1IsMaximum)
+		bResult1 = (nCount <= m_Condition1Value);
+		else
+		bResult1 = (nCount >= m_Condition1Value);
+	}
+
+	if (m_Condition2Work)
+	{
+		if (m_Condition2CheckLife)
+		{
+			for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			{
+				if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckControllerOnly && GetGame()->GetPlayer(ip) != m_pCard->GetController()) continue;
+				if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckOpponentsOnly && GetGame()->GetPlayer(ip) == m_pCard->GetController()) continue;
+				if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckEachPlayer)
+				{
+					if (m_Condition2IsMaximum)
+					{
+						if (GET_INTEGER(GetGame()->GetPlayer(ip)->GetLife()) <= m_Condition2Value)
+						bResult2 = true;
+					}
+					else
+					{
+						if (GET_INTEGER(GetGame()->GetPlayer(ip)->GetLife()) >= m_Condition2Value)
+						bResult2 = true;
+					}
+					continue;
+				}
+				nCount += GET_INTEGER(GetGame()->GetPlayer(ip)->GetLife());
+			}
+		}
+		else
+		{
+			for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+			{
+				if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckControllerOnly && GetGame()->GetPlayer(ip) != m_pCard->GetController()) continue;
+				if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckOpponentsOnly && GetGame()->GetPlayer(ip) == m_pCard->GetController()) continue;
+				if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckEachPlayer)
+				{
+					if (m_Condition2IsMaximum)
+					{
+						if (m_Condition2Filter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(m_Condition2CheckZone)->GetCardContainer()) <= m_Condition2Value)
+						bResult2 = true;
+					}
+					else
+					{
+						if (m_Condition2Filter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(m_Condition2CheckZone)->GetCardContainer()) >= m_Condition2Value)
+						bResult2 = true;
+					}
+					continue;
+				}
+				nCount += m_Condition2Filter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(m_Condition2CheckZone)->GetCardContainer());
+			}
+		}
+
+		if (m_Condition2CheckPlayer == ConditionCheckPlayerType::CheckEachPlayer) return false;
+		if (m_Condition2IsMaximum)
+		bResult2 = (nCount <= m_Condition2Value);
+		else
+		bResult2 = (nCount >= m_Condition2Value);
+	}
+
+	if (m_ConditionLogic == 0)
+		return bResult1 && bResult2;
+	else
+		return bResult1 || bResult2;
+}
+
+//____________________________________________________________________________
+//
 CCardTypeEnchantment::CCardTypeEnchantment(CCard* pCard, LPCTSTR strManaCost,
 										   CardComparer* pComparer,
 										   CardType addCardType, CardType addCardTypeMask)
@@ -1298,6 +2318,138 @@ void CCreatureEnchantment::SetToAttackingBlockingOnly()
 	m_bAffectBlocking = TRUE;
 }
 
+//____________________________________________________________________________
+//
+/*
+CDblConditionCreatureEnchantment::CDblConditionCreatureEnchantment(CCard* pCard, LPCTSTR strManaCost,
+										   CardComparer* pComparer)
+	: CDblConditionEnchantment(pCard, strManaCost, pComparer)
+	, m_bAffectBlocking(FALSE)
+	, m_bAffectAttacking(FALSE)
+	, m_bListenToKeywords(FALSE)
+	, m_cpAListener(VAR_NAME(m_cpAListener), AttackedPlayerEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnAttacked))
+	, m_cpBListener(VAR_NAME(m_cpBListener), BlockedCreatureEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnBlocking))
+	, m_cpCListener(VAR_NAME(m_cpCListener), CreatureTypeEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnCreatureTypeChanged))
+	, m_cpCreatureKeywordListener(VAR_NAME(m_cpCreatureKeywordListener), CCreatureKeyword::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnCreatureKeywordChanged))
+{
+}
+
+CDblConditionCreatureEnchantment::CDblConditionCreatureEnchantment(CCard* pCard, AbilityType abilityType, LPCTSTR strManaCost,
+										   CardComparer* pComparer)
+	: CDblConditionEnchantment(pCard, abilityType, strManaCost, pComparer)
+	, m_bAffectBlocking(FALSE)
+	, m_bAffectAttacking(FALSE)
+	, m_bListenToKeywords(FALSE)
+	, m_cpAListener(VAR_NAME(m_cpAListener), AttackedPlayerEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnAttacked))
+	, m_cpBListener(VAR_NAME(m_cpBListener), BlockedCreatureEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnBlocking))
+	, m_cpCListener(VAR_NAME(m_cpCListener), CreatureTypeEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnCreatureTypeChanged))
+	, m_cpCreatureKeywordListener(VAR_NAME(m_cpCreatureKeywordListener), CCreatureKeyword::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnCreatureKeywordChanged))
+{
+}
+
+CDblConditionCreatureEnchantment::CDblConditionCreatureEnchantment(CCard* pCard,
+										   CardComparer* pComparer)
+	: CDblConditionEnchantment(pCard, pComparer)
+	, m_bAffectBlocking(FALSE)
+	, m_bAffectAttacking(FALSE)
+	, m_bListenToKeywords(FALSE)
+	, m_cpAListener(VAR_NAME(m_cpAListener), AttackedPlayerEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnAttacked))
+	, m_cpBListener(VAR_NAME(m_cpBListener), BlockedCreatureEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnBlocking))
+	, m_cpCListener(VAR_NAME(m_cpCListener), CreatureTypeEventSource::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnCreatureTypeChanged))
+	, m_cpCreatureKeywordListener(VAR_NAME(m_cpCreatureKeywordListener), CCreatureKeyword::Listener::EventCallback(this, &CDblConditionCreatureEnchantment::OnCreatureKeywordChanged))
+{
+}
+
+void CDblConditionCreatureEnchantment::ListenToCardEventSources(CCard* pCard)
+{
+	__super::ListenToCardEventSources(pCard);
+
+	if (!pCard->GetCardType().IsCreature())
+		return;
+
+	if (m_bAffectBlocking)
+		((CCreatureCard*)pCard)->GetBlockedCreatureEventSource()->AddListener(m_cpBListener.GetPointer());
+
+	if (m_bAffectAttacking)
+		((CCreatureCard*)pCard)->GetAttackedPlayerEventSource()->AddListener(m_cpAListener.GetPointer());
+
+	if (m_bListenToKeywords)
+		((CCreatureCard*)pCard)->GetCreatureKeyword()->AddListener(m_cpCreatureKeywordListener.GetPointer());
+
+	((CCreatureCard*)pCard)->GetCreatureTypeEventSource()->AddListener(m_cpCListener.GetPointer());
+}
+
+void CDblConditionCreatureEnchantment::RemoveListenToCardEventSources(CCard* pCard)
+{
+	__super::RemoveListenToCardEventSources(pCard);
+
+	if (!pCard->GetCardType().IsCreature())
+		return;
+
+	if (m_bAffectBlocking)
+		((CCreatureCard*)pCard)->GetBlockedCreatureEventSource()->RemoveListener(m_cpBListener.GetPointer());
+
+	if (m_bAffectAttacking)
+		((CCreatureCard*)pCard)->GetAttackedPlayerEventSource()->RemoveListener(m_cpAListener.GetPointer());
+
+	if (m_bListenToKeywords)
+		((CCreatureCard*)pCard)->GetCreatureKeyword()->RemoveListener(m_cpCreatureKeywordListener.GetPointer());
+
+	((CCreatureCard*)pCard)->GetCreatureTypeEventSource()->RemoveListener(m_cpCListener.GetPointer());
+}
+
+void CDblConditionCreatureEnchantment::OnEnchantmentEnded(BOOL bNotify)
+{
+	__super::OnEnchantmentEnded(bNotify);
+
+	m_cpCListener->RemoveAllEventSources();
+	m_cpBListener->RemoveAllEventSources();
+	m_cpAListener->RemoveAllEventSources();
+	m_cpCreatureKeywordListener->RemoveAllEventSources();
+}
+
+void CDblConditionCreatureEnchantment::OnAttacked(AttackSubject attacked, CCreatureCard* pCreatureCard) 
+{ 
+	CheckCard(pCreatureCard); 
+}
+
+void CDblConditionCreatureEnchantment::OnBlocking(CCreatureCard* pCreature, CCreatureCard* pBlockedCreature, int nNewBlockingCount, int nBlockingIndex) 
+{ 
+	CheckCard(pCreature); 
+}
+
+void CDblConditionCreatureEnchantment::OnCreatureTypeChanged(CCard* pCard) 
+{ 
+	CheckCard(pCard); 
+}
+
+void CDblConditionCreatureEnchantment::OnCreatureKeywordChanged(CCreatureKeyword* pCreatureKeyword, CreatureKeyword fromCreatureKeyword, CreatureKeyword toCreatureKeyword)
+{ 
+	CheckCard(pCreatureKeyword->GetCreatureCard()); 
+}
+
+void CDblConditionCreatureEnchantment::SetToAttackingOnly()
+{
+	m_EnchantmentCardFilter.AddComparer(new AttackingCreatureComparer());
+
+	m_bAffectAttacking= TRUE;
+}
+
+void CDblConditionCreatureEnchantment::SetToBlockingOnly()
+{
+	m_EnchantmentCardFilter.AddComparer(new BlockingCreatureComparer());
+
+	m_bAffectBlocking= TRUE;
+}
+
+void CDblConditionCreatureEnchantment::SetToAttackingBlockingOnly()
+{
+	m_EnchantmentCardFilter.AddComparer(new AttackingBlockingCreatureComparer());
+
+	m_bAffectAttacking = TRUE;
+	m_bAffectBlocking = TRUE;
+}
+*/
 //____________________________________________________________________________
 //
 CProdExtraManaEnchantment::CProdExtraManaEnchantment(CCard* pCard, LPCTSTR strManaCost,

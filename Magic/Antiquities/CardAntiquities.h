@@ -126,3 +126,14 @@ protected:
 
 //____________________________________________________________________________
 //
+class CUrzasMiterCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CUrzasMiterCard);
+ 
+protected:
+	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+		CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+};
+
+//____________________________________________________________________________
+//

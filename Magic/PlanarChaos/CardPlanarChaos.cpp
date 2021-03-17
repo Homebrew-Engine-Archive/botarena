@@ -4684,38 +4684,24 @@ CMelancholyCard::CMelancholyCard(CGame* pGame, UINT nID)
 	: CChgPwrTghAttrEnchantCard(pGame, _T("Melancholy"), nID,
 		_T("2") BLACK_MANA_TEXT,
 		Power(+0), Life(+0))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CMelancholyCard::OnResolutionCompleted))
 {
 	m_pChgPwrTghAttrEnchant->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::NoUntapInUntapPhase);
+
+	m_pChgPwrTghAttrEnchant->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	{
 		counted_ptr<CUpkeepAbility> cpAbility(::CreateObject<CUpkeepAbility>(this, BLACK_MANA_TEXT));
 		AddAbility(cpAbility.GetPointer());
 	}
-	{
-		typedef
-			TTriggeredAbility< CTriggeredTapCardAbility, CWhenSelfInplay,
-								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback> TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMelancholyCard::SetTriggerContext));
-
-		AddAbility(cpAbility.GetPointer());
-	}
 }
 
-bool CMelancholyCard::SetTriggerContext(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	CCard* pCard = m_pChgPwrTghAttrEnchant->GetEnchantedOnCard();
-	if (!pCard) return false;
-
-	triggerContext.m_pCard = pCard;
-
-	return true;
+void CMelancholyCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{	
+	CCard* target = pAbilityAction->GetAssociatedCard();
+	CCardOrientationModifier pModifier = CCardOrientationModifier(true);
+	if (bResult) pModifier.ApplyTo(target);
 }
 
 //____________________________________________________________________________

@@ -1153,6 +1153,67 @@ void CWhenOrientationChanged::OnOrientationChanged(CCard* pCard, Orientation fro
 
 //____________________________________________________________________________
 //
+CWhenOrientationChangedAny::CWhenOrientationChangedAny(CCard* pCard)
+	: m_bMonitorControllerOnly(FALSE)
+	, m_bMonitorOpponentsOnly(FALSE)
+	, m_ZoneId(ZoneId::Battlefield)
+	, m_bThisIsUntappedOnly(FALSE)
+	, m_FromOrientation(Orientation::_All)
+	, m_ToOrientation(Orientation::_All)
+	, m_cpOListener(VAR_NAME(m_cpOListener), 
+					CardOrientationEventSource::Listener::EventCallback(this, &CWhenOrientationChangedAny::OnOrientationChanged))
+	, m_pCard(pCard)
+	, m_WhenInplay(pCard)
+{
+	//m_WhenInplay.SetEnterEventCallback(CWhenSelfInplay::EventCallback(this, &CWhenOrientationChangedAny::OnEnterInplay));
+	//m_WhenInplay.SetLeaveEventCallback(CWhenSelfInplay::EventCallback(this, &CWhenOrientationChangedAny::OnLeaveInplay));
+
+	CGame* pGame = m_pCard->GetGame();
+	if (pGame) // && pCard->IsInplay())
+		OnEnterInplay(NULL, NULL, NULL, MoveType::Others);
+}
+
+CString CWhenOrientationChangedAny::GetTriggeredHint(CCard* pCard, Orientation, Orientation) const
+{
+	return pCard->GetCardName();
+}
+
+void CWhenOrientationChangedAny::OnEnterInplay(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	CGame* pGame = m_pCard->GetGame();
+	for (int i = 0; i < pGame->GetPlayerCount(); ++i)
+	{
+		pGame->GetPlayer(i)->GetZoneById(m_ZoneId)->GetCardOrientationEventSource()->AddListener(m_cpOListener.GetPointer());
+	}
+}
+
+void CWhenOrientationChangedAny::OnLeaveInplay(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	m_cpOListener->RemoveAllEventSources();
+}
+
+void CWhenOrientationChangedAny::OnOrientationChanged(CCard* pCard, Orientation fromOrientation, Orientation toOrientation)
+{
+	if (m_Callback.empty())
+		return;
+
+	if (m_bThisIsUntappedOnly && m_pCard->GetOrientation()->IsTapped())
+		return;
+
+	if (m_bMonitorControllerOnly && (pCard->GetController() != m_pCard->GetController()))
+		return;
+
+	if (m_bMonitorOpponentsOnly && (pCard->GetController() == m_pCard->GetController()))
+		return;
+
+	if ((m_FromOrientation & fromOrientation).Any() &&
+		(m_ToOrientation & toOrientation).Any() &&
+		m_CardFilterHelper.IsCardIncluded(pCard))
+		m_Callback(pCard, fromOrientation, toOrientation);
+}
+
+//____________________________________________________________________________
+//
 CWhenTappedForMana::CWhenTappedForMana(CCard* pCard)
 	: m_bMonitorControllerOnly(FALSE)
 	, m_bMonitorOpponentsOnly(FALSE)

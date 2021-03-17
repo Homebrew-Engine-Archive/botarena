@@ -2149,6 +2149,8 @@ CDesecrationDemonCard::CDesecrationDemonCard(CGame* pGame, UINT nID)
 bool CDesecrationDemonCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+	bSomeonePaid = 0;
+
 	int pActivePlayerID;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		if (pActivePlayer == GetGame()->GetPlayer(ip))
@@ -2157,19 +2159,19 @@ bool CDesecrationDemonCard::BeforeResolution(CAbilityAction* pAction)
 			break;
 		}
 
-	PunisherFunction(pActivePlayerID);
+	PunisherFunction(pActivePlayerID, pAction->GetController());
 
 	return true;
 }
 
-void CDesecrationDemonCard::PunisherFunction(int PlayerID)
+void CDesecrationDemonCard::PunisherFunction(int PlayerID, CPlayer* pController)
 {
 	CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
 	CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
 	CCardFilter m_CardFilter;
 	m_CardFilter.SetComparer(new AnyCreatureComparer);
 
-	if (pPlayer != GetController() && m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)
+	if (pPlayer != pController && m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)
 	{
 		std::vector<SelectionEntry> entries;
 		{
@@ -2195,13 +2197,13 @@ void CDesecrationDemonCard::PunisherFunction(int PlayerID)
 			}
 					
 		}
-		m_PunisherSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID);
+		m_PunisherSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID, (DWORD)pController);
 	}
 	else
-		Advance(PlayerID);
+		Advance(PlayerID, pController);
 }
 
-void CDesecrationDemonCard::Advance(int PlayerID)
+void CDesecrationDemonCard::Advance(int PlayerID, CPlayer* pController)
 {
 	int NextPlayer = PlayerID + 1;
 	int PlayerCount = GetGame()->GetPlayerCount();
@@ -2210,7 +2212,7 @@ void CDesecrationDemonCard::Advance(int PlayerID)
 	if (NextPlayer >= PlayerCount)
 		NextPlayer -= PlayerCount;
 	if (GetGame()->GetPlayer(NextPlayer) != pActivePlayer)
-		PunisherFunction(NextPlayer);
+		PunisherFunction(NextPlayer, pController);
 	else if ((bSomeonePaid > 0) && IsInplay())
 	{
 		CCardOrientationModifier pModifier1 = CCardOrientationModifier(TRUE);
@@ -2240,7 +2242,7 @@ void CDesecrationDemonCard::OnPunisherSelected(const std::vector<SelectionEntry>
 						MessageImportance::High
 						);
 				}
-				Advance(dwContext1);
+				Advance(dwContext1, (CPlayer*)dwContext2);
 				
 				return;
 			}
@@ -2262,7 +2264,7 @@ void CDesecrationDemonCard::OnPunisherSelected(const std::vector<SelectionEntry>
 				pModifier1.ApplyTo(pCard);
 
 				bSomeonePaid = 1;
-				Advance(dwContext1);
+				Advance(dwContext1, (CPlayer*)dwContext2);
 
 				return;
 			}
@@ -4608,7 +4610,7 @@ CDruidsDeliveranceCard::CDruidsDeliveranceCard(CGame* pGame, UINT nID)
 	CPlayerEffectModifier* pmodifier1 = new CPlayerEffectModifier(PlayerEffectType::PreventAllPlayerDamage);	
 
 	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pmodifier1, TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);
+		GetGame(), pmodifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
 
 	pmodifier1->LinkPlayerModifier(pModifier2);
 	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(pmodifier1);		

@@ -279,7 +279,7 @@ class CGlimpseofNatureEffectToken : public CEffectCard
 {
 	DECLARE_CARD_CSTOR(CGlimpseofNatureEffectToken);
 
-	protected:
+protected:
 	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
 							CCard* pCard) const;
 };
@@ -1627,6 +1627,166 @@ protected:
 										  CCard* pCard, CCreatureCard* pToCreature, Damage pDamage);
 	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CEndOfCombatTopOfLibraryEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CEndOfCombatTopOfLibraryEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CSawtoothOgreEffectToken : public CDoubleContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CSawtoothOgreEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//
+class CCoffinQueenEffectToken : public CDoubleContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CCoffinQueenEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, Orientation pFromOrientation, Orientation pToOrientation);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CBeckEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CBeckEffectToken);
+
+protected:
+	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+};
+
+//____________________________________________________________________________
+//
+class CVanishIntoMemoryEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CVanishIntoMemoryEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CLegionsInitiativeEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CLegionsInitiativeEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CAweForTheGuildsEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CAweForTheGuildsEffectToken);
+};
+
+//____________________________________________________________________________
+//
+class CManaDrainEffectToken : public CNumberEffectCard
+{
+	DECLARE_CARD_CSTOR(CManaDrainEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CPlasmCaptureEffectToken : public CNumberEffectCard
+{
+	DECLARE_CARD_CSTOR(CPlasmCaptureEffectToken);
+
+protected:
+	BOOL_ bFired;
+	int Remaining;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	bool SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+
+	void OnNumberSelectedW(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void OnNumberSelectedU(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void OnNumberSelectedB(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	void OnNumberSelectedR(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_NumberSelectionW;
+	CSelectionSupport m_NumberSelectionU;
+	CSelectionSupport m_NumberSelectionB;
+	CSelectionSupport m_NumberSelectionR;
+};
+
+//____________________________________________________________________________
+//
+class CScatteringStrokeEffectToken : public CNumberEffectCard
+{
+	DECLARE_CARD_CSTOR(CScatteringStrokeEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	bool SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+
+	void OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_Selection;
 };
 
 //____________________________________________________________________________

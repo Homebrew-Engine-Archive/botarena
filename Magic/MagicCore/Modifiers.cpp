@@ -3129,23 +3129,18 @@ void CContainerEffectModifier::ApplyTo(CPlayer* pPlayer) const
 
 	CPlayer* target = pPlayer;
 
-	int nTokenCount = 1;
+	counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
 
-	for (int i = 0; i < nTokenCount; ++i)
+	if (!m_pGame->IsThinking())
 	{
-		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
-
-		if (!m_pGame->IsThinking())
-		{
-			((CContainerEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
-			((CContainerEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
-			((CContainerEffectCard*)cpToken.GetPointer())->ReadData(m_pPassed);
-		}
-
-			target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
-			cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
-			if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
+		((CContainerEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
+		((CContainerEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
+		((CContainerEffectCard*)cpToken.GetPointer())->ReadData(m_pPassed);
 	}
+
+	target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+	cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
+	if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
 }
 
 //____________________________________________________________________________
@@ -3156,23 +3151,40 @@ void CDoubleContainerEffectModifier::ApplyTo(CPlayer* pPlayer) const
 
 	CPlayer* target = pPlayer;
 
-	int nTokenCount = 1;
+	counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
 
-	for (int i = 0; i < nTokenCount; ++i)
+	if (!m_pGame->IsThinking())
 	{
-		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
-
-		if (!m_pGame->IsThinking())
-		{
-			((CDoubleContainerEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
-			((CDoubleContainerEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
-			((CDoubleContainerEffectCard*)cpToken.GetPointer())->ReadData(m_pPassed1, m_pPassed2);
-		}
-
-			target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
-			cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
-			if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
+		((CDoubleContainerEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
+		((CDoubleContainerEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
+		((CDoubleContainerEffectCard*)cpToken.GetPointer())->ReadData(m_pPassed1, m_pPassed2);
 	}
+
+	target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+	cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
+	if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
+}
+
+//____________________________________________________________________________
+//
+void CNumberEffectModifier::ApplyTo(CPlayer* pPlayer) const
+{
+	__super::ApplyTo(pPlayer);	
+
+	CPlayer* target = pPlayer;
+
+	counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));		
+
+	if (!m_pGame->IsThinking())
+	{
+		((CNumberEffectCard*)cpToken.GetPointer())->SetUID(m_uID);
+		((CNumberEffectCard*)cpToken.GetPointer())->SetTokenFullName(m_strTokenName);
+		((CNumberEffectCard*)cpToken.GetPointer())->ReadData(nPassed);
+	}
+
+	target->GetZoneById(ZoneId::_Tokens)->AddCard(cpToken.GetPointer());
+	cpToken->Move(target->GetZoneById(ZoneId::_Effects), target, MoveType::Others);
+	if (m_pCreatedCards) m_pCreatedCards->AddCard(cpToken.GetPointer(), CardPlacement::Top);
 }
 
 //____________________________________________________________________________
@@ -3436,7 +3448,7 @@ void CCounterMultiplyModifier ::ApplyTo(CCard* pCard) const
 		{
 			LPCTSTR name=c->GetName();
 			int number=c->GetCount();
-			CCardCounterModifier pModifier = CCardCounterModifier(name, number*m_nIndex, true);
+			CCardCounterModifier pModifier = CCardCounterModifier(name, number*(m_nIndex - 1), false);
 			pModifier.ApplyTo(pCard);
 		}
 		const int m_nIndex;

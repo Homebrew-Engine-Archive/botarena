@@ -40,6 +40,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCinderMarshCard);
 		DEFINE_CARD(CClergyEnVecCard);
 		DEFINE_CARD(CClotSliverCard);
+		DEFINE_CARD(CCoffinQueenCard);
 		DEFINE_CARD(CCoiledTinviperCard);
 		DEFINE_CARD(CColdStorageCard);
 		DEFINE_CARD(CCommanderGrevenIlVecCard);
@@ -2759,41 +2760,47 @@ CVhatiIlDalCard::CVhatiIlDalCard(CGame* pGame, UINT nID)
 //
 CLivingDeathCard::CLivingDeathCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Living Death"), CardType::Sorcery, nID)
-
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-					&CLivingDeathCard::OnResolutionCompleted))
 {
-	counted_ptr<CGlobalMoveCardSpell> cpSpell(
-		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Sorcery,
-			_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
-			new AnyCreatureComparer, ZoneId::Graveyard, TRUE,
-			MoveType::Sacrifice));
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT));
 
 	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLivingDeathCard::BeforeResolution));
-
-	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	AddSpell(cpSpell.GetPointer());
 }
 
 bool CLivingDeathCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::Graveyard, CCardFilter::GetFilter(_T("creatures")),
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Graveyard, ZoneId::_Effects, TRUE, MoveType::Others)));
+	CCountedCardContainer pExiled;
 
-	pModifier->ApplyTo(GetController());
-	pModifier->ApplyTo(m_pGame->GetNextPlayer(GetController()));
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		CZone* pGraveyard = pPlayer->GetZoneById(ZoneId::Graveyard);
+
+		for (int i = 0; i < pGraveyard->GetSize(); ++i)
+			if (pGraveyard->GetAt(i)->GetCardType().IsCreature())
+				pExiled.AddCard(pGraveyard->GetAt(i), CardPlacement::Top);
+	}
+
+	for (int i = 0; i < pExiled.GetSize(); ++i)
+		pExiled.GetAt(i)->Move(pExiled.GetAt(i)->GetOwner()->GetZoneById(ZoneId::Exile), pExiled.GetAt(i)->GetOwner(), MoveType::Others);
+	
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		
+		CZoneCardModifier pModifier2 = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
+			std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pPlayer)));
+
+		pModifier2.ApplyTo(pPlayer);
+	}
+
+	for (int i = 0; i < pExiled.GetSize(); ++i)
+		pExiled.GetAt(i)->Move(pExiled.GetAt(i)->GetOwner()->GetZoneById(ZoneId::Battlefield), pExiled.GetAt(i)->GetOwner(), MoveType::Others);
 
 	return true;
-}
-
-void CLivingDeathCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	CZoneCardModifier* pModifier = new CZoneCardModifier(ZoneId::_Effects, CCardFilter::GetFilter(_T("creatures")),
-		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::_Effects, ZoneId::Battlefield, TRUE, MoveType::Others)));
-
-	pModifier->ApplyTo(GetController());
-	pModifier->ApplyTo(m_pGame->GetNextPlayer(GetController()));
 }
 
 //____________________________________________________________________________
@@ -6464,6 +6471,66 @@ void CMagmasaurCard::OnSelected(const std::vector<SelectionEntry>& selection, in
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+
+CCoffinQueenCard::CCoffinQueenCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Coffin Queen"), CardType::Creature, CREATURE_TYPE2(Zombie, Wizard), nID,
+		_T("2") BLACK_MANA_TEXT, Power(1), Life(1))
+{
+	GetCardKeyword()->AddCanChooseNotUntap(FALSE);
+	{
+		counted_ptr<CSelfUntapNonstackAbility> cpAbility(
+		::CreateObject<CSelfUntapNonstackAbility>(this,
+			_T("")));
+		ATLASSERT(cpAbility);
+
+		cpAbility->SetMaxTurnUsageCount(1);
+		cpAbility->SetAbilityType(AbilityType::Untap);
+		cpAbility->SetUseInSpecificNode(NodeId::UntapStep, FALSE, TRUE);	
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
+				::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+					_T("2") BLACK_MANA_TEXT,
+					new AnyCreatureComparer, FALSE));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetTargeting()->SetSubjectZoneId(ZoneId::Graveyard);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCoffinQueenCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CCoffinQueenCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CCard* pTarget = pAction->GetAssociatedCard();
+
+	if (!pTarget->IsInGraveyard()) return false;
+
+	pTarget->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+
+	if (this->IsInplay())
+	{
+		CCountedCardContainer pSubjects1;
+		CCountedCardContainer pSubjects2;
+
+		if (pTarget->IsInplay())
+			pSubjects1.AddCard(pTarget, CardPlacement::Top);
+
+		pSubjects2.AddCard(this, CardPlacement::Top);
+
+		CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Coffin Queen Effect"), 61115, &pSubjects1, &pSubjects2);
+		pModifier.ApplyTo(pController);
+	}
+
+	return true;
 }
 
 //____________________________________________________________________________

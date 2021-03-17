@@ -2137,9 +2137,41 @@ protected:
 	LPCTSTR m_strTokenName;
 
 	UINT		m_uID;
-	int m_TokenCount;
 	CCountedCardContainer* m_pPassed1;
 	CCountedCardContainer* m_pPassed2;
+	CCountedCardContainer* m_pCreatedCards;
+};
+
+//____________________________________________________________________________
+//
+class CORE_EXPORT CNumberEffectModifier 
+	: public CPlayerModifier
+{
+public:
+	CNumberEffectModifier(CGame* pGame, LPCTSTR strTokenName,
+						  UINT uID, int Passed = 0, CCountedCardContainer* pCreatedCards = NULL)
+	    : m_pGame(pGame)
+		, m_strTokenName(strTokenName)
+		, m_uID(uID)
+		, nPassed(Passed)
+		, m_pCreatedCards(pCreatedCards)
+	{}
+
+	virtual void ApplyTo(CPlayer* pPlayer) const;	
+
+	virtual CPlayerModifier* ClonePlayerModifier() const
+	{
+		CNumberEffectModifier * pModifier = new CNumberEffectModifier (m_pGame, m_strTokenName, m_uID, nPassed, m_pCreatedCards);
+		*pModifier = *this;
+		return pModifier;
+	}
+
+protected:
+	CGame* m_pGame;
+	LPCTSTR m_strTokenName;
+
+	UINT		m_uID;
+	int_ nPassed;
 	CCountedCardContainer* m_pCreatedCards;
 };
 

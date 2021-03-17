@@ -170,6 +170,7 @@ BEGIN
     IDS_STRING5168          "Xenic Poltergeist\n{1BB}\nCreature - Spirit\nATQ,U\n{T}: Until your next upkeep, target noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost.\n1/1"
     IDS_STRING5169          "Tetravus\n{6}\nArtifact Creature - Construct\nATQ,R\nFlying\rTetravus enters the battlefield with three +1/+1 counters on it.\rAt the beginning of your upkeep, you may remove any number of +1/+1 counters from Tetravus. If you do, put that many 1/1 colorless Tetravite artifact creature tokens onto the battlefield. They each have flying and ""This creature can't be enchanted.""\rAt the beginning of your upkeep, you may exile any number of tokens put onto the battlefield with Tetravus. If you do, put that many +1/+1 counters on Tetravus.\n1/1"
     IDS_STRING5170          "Clockwork Avian\n{5}\nArtifact Creature - Bird\nATQ,R\nFlying\rClockwork Avian enters the battlefield with four +1/+0 counters on it.\rAt end of combat, if Clockwork Avian attacked or blocked this combat, remove a +1/+0 counter from it.\r{X}, {T}: Put up to X +1/+0 counters on Clockwork Avian. This ability can't cause the total number of +1/+0 counters on Clockwork Avian to be greater than four. Activate this ability only during your upkeep.\n0/4"
+	IDS_STRING5171          "Urza's Miter\n{3}\nArtifact\nATQ,R\nWhenever an artifact you control is put into a graveyard from the battlefield, if it wasn't sacrificed, you may pay {3}. If you do, draw a card."
 END
 
 #endif    // English (United States) resources

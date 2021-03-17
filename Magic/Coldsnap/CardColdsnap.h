@@ -1074,3 +1074,14 @@ protected:
 
 //______________________________________________________________________________
 //
+class CVanishIntoMemoryCard : public CTargetMoveCardSpellCard
+{
+	DECLARE_CARD_CSTOR(CVanishIntoMemoryCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//

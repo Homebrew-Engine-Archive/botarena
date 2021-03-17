@@ -2177,23 +2177,31 @@ CSaprazzanOutriggerCard::CSaprazzanOutriggerCard(CGame* pGame, UINT nID)
 		_T("3") BLUE_MANA_TEXT, Power(5), Life(5))
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
 							CWhenSelfAttackedBlocked::EventCallback, 
 							&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
 
-	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Library);
-	cpAbility->GetMoveCardModifier().SetToTop(TRUE);
-	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Library));
-
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSaprazzanOutriggerCard::BeforeResolution));
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CSaprazzanOutriggerCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Top of Library Effect"), 61113, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -2244,33 +2252,27 @@ CSilentAssassinCard::CSilentAssassinCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Silent Assassin"), CardType::Creature, CREATURE_TYPE3(Human, Mercenary, Assassin), nID,
 		BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(2), Life(1))
 {
-	//A tricky way to destroy the target "at end of combat".
-	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
 			_T("3") BLACK_MANA_TEXT,
-			Power(+0), Life(+0),
-			CreatureKeyword::Null, CreatureKeyword::Null,
-			TRUE, PreventableType::NotPreventable, new BlockingCreatureComparer));
+			new BlockingCreatureComparer, false));
 
-	cpAbility->GetTargetModifier().CCardModifiers::push_back(
-		new CScheduledCardModifier(pGame, new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy),
-							TurnNumberDelta(-1),
-							NodeId::EndOfCombatStep, 
-							true, // in-play only
-							CScheduledCardModifier::Operation::ApplyToLater));
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSilentAssassinCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
+}
 
-	//This I've not used because "at end of combat." isn't supported by an activated ability:
-	//counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
-	//	::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
-	//		_T("3") BLACK_MANA_TEXT,
-	//		new BlockingCreatureComparer,
-	//		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy));
-	//
-	//cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
+bool CSilentAssassinCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAction->GetAssociatedCard();
+	if (pTarget->IsInplay())
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
 
-	//AddAbility(cpAbility.GetPointer());
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Destroy Effect"), 61041, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

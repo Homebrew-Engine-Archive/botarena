@@ -1067,31 +1067,94 @@ bool CGorillaBerserkersCard::BeforeResolution(TriggeredAbility::TriggeredActionT
 CKjeldoranHomeGuardCard::CKjeldoranHomeGuardCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Kjeldoran Home Guard"), CardType::Creature, CREATURE_TYPE2(Human, Soldier), nID,
 		_T("3") WHITE_MANA_TEXT, Power(1), Life(6))
+	, bAttackedOrBlocked(FALSE)
 {
-	typedef
-		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSelfAttackedBlocked, 
-									CWhenSelfAttackedBlocked::EventCallback, 
-									&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::EndOfCombatStep));
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->SetCreateTokenOption(TRUE, _T("Deserter"), TOKEN_ID_BY_NAME, 1);
-	cpAbility->SetCreationNode(NodeId::EndOfCombatStep);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKjeldoranHomeGuardCard::SetTriggerContext));
+		cpAbility->GetCardModifiers().push_back(new CCardCounterModifier(_T("-0/-1"), +1));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Deserter"), 2844, 1));
 
-	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+										CWhenSelfAttackedBlocked::EventCallback, 
+										&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
 
-	CCardCounterModifier* pModifier = new CCardCounterModifier(_T("-0/-1"), +1);
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(
-		GetGame(), pModifier, TurnNumberDelta(+0), NodeId::EndOfCombatStep, true, CScheduledCardModifier::Operation::ApplyToLater, CScheduledCardModifier::DeltaOption::ActivePlayerTurn);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKjeldoranHomeGuardCard::SetTriggerContextAux1));
+		cpAbility->SetSkipStack(TRUE);
 
-	cpAbility->GetResolutionModifier().CCardModifiers::push_back(pModifier2);
+		cpAbility->AddAbilityTag(AbilityTag::CardChange);
+		
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::BeginningOfCombatStep));
 
-	AddAbility(cpAbility.GetPointer());
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKjeldoranHomeGuardCard::SetTriggerContextAux2));
+		cpAbility->SetSkipStack(TRUE);
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKjeldoranHomeGuardCard::SetTriggerContextAux3));
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CKjeldoranHomeGuardCard::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext, CCreatureCard* pCreatureCard)
+{
+	bAttackedOrBlocked = TRUE;
+
+	return false;
+}
+
+bool CKjeldoranHomeGuardCard::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CKjeldoranHomeGuardCard::SetTriggerContextAux3(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											 CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	bAttackedOrBlocked = FALSE;
+
+	return false;
+}
+
+bool CKjeldoranHomeGuardCard::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return bAttackedOrBlocked == TRUE;
 }
 
 //____________________________________________________________________________

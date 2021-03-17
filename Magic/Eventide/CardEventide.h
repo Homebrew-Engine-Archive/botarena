@@ -1024,18 +1024,6 @@ private:
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 
-/*//____________________________________________________________________________
-//
-class CPyrrhicRevivalCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CPyrrhicRevivalCard);
-};*/
-/*private:
-	void OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult);
-
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener1;
-};*/
-
 //____________________________________________________________________________
 //
 class CUnnervingAssaultCard : public  CCard
@@ -1604,6 +1592,16 @@ protected:
 	bool BeforeResolution3(CAbilityAction* pAction) const;
 	bool BeforeResolution4(CAbilityAction* pAction) const;
 	bool BeforeResolution5(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CPyrrhicRevivalCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CPyrrhicRevivalCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________

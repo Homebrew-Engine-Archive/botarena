@@ -1780,33 +1780,20 @@ CRootsCard::CRootsCard(CGame* pGame, UINT nID)
 	: CChgPwrTghAttrEnchantCard(pGame, _T("Roots"), nID,
 		_T("3") GREEN_MANA_TEXT,
 		Power(+0), Life(+0))
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+		&CRootsCard::OnResolutionCompleted))
 {
 	m_pChgPwrTghAttrEnchant->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CreatureKeywordComparer(CreatureKeyword::Flying, false));
 	m_pChgPwrTghAttrEnchant->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::NoUntapInUntapPhase);
 
-	typedef
-		TTriggeredAbility< CTriggeredTapCardAbility, CWhenSelfInplay,
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback> TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRootsCard::SetTriggerContext));
-
-	AddAbility(cpAbility.GetPointer());
+	m_pChgPwrTghAttrEnchant->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 }
 
-bool CRootsCard::SetTriggerContext(CTriggeredTapCardAbility::TriggerContextType& triggerContext,
-												CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
-{
-	CCard* pCard = m_pChgPwrTghAttrEnchant->GetEnchantedOnCard();
-	if (!pCard) return false;
-
-	triggerContext.m_pCard = pCard;
-
-	return true;
+void CRootsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{	
+	CCard* target = pAbilityAction->GetAssociatedCard();
+	CCardOrientationModifier pModifier = CCardOrientationModifier(true);
+	if (bResult) pModifier.ApplyTo(target);
 }
 
 //____________________________________________________________________________

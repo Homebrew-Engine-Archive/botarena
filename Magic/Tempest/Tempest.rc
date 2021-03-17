@@ -455,6 +455,7 @@ BEGIN
     IDS_STRING10301         "Scroll Rack\n{2}\nArtifact\nTMP,R\n{1}, {T}: Exile any number of cards from your hand face down. Put that many cards from the top of your library into your hand. Then look at the exiled cards and put them on top of your library in any order."
 	IDS_STRING10302         "Maddening Imp\n{2B}\nCreature - Imp\nTMP,R\nFlying\r{T}: Non-Wall creatures the active player controls attack this turn if able. At the beginning of the next end step, destroy each of those creatures that didn't attack this turn. Activate this ability only during an opponent's turn and only before combat.\n1/1"
 	IDS_STRING10303         "Magmasaur\n{3RR}\nCreature - Elemental Lizard\nTMP,R\nMagmasaur enters the battlefield with five +1/+1 counters on it.\rAt the beginning of your upkeep, you may remove a +1/+1 counter from Magmasaur. If you don't, sacrifice Magmasaur and it deals damage equal to the number of +1/+1 counters on it to each creature without flying and each player.\n0/0"
+	IDS_STRING10304         "Coffin Queen\n{2B}\nCreature - Zombie Wizard\nTMP,R\nYou may choose not to untap Coffin Queen during your untap step.\r{2B}, {T}: Put target creature card from a graveyard onto the battlefield under your control. When Coffin Queen becomes untapped or you lose control of Coffin Queen, exile that creature.\n1/1"
 END
 
 #endif    // English (United States) resources

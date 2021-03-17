@@ -208,6 +208,7 @@ BEGIN
     IDS_STRING7102          "Blizzard Specter\n{2UB}\nSnow Creature - Specter\nCSP,U\nFlying\rWhenever Blizzard Specter deals combat damage to a player, choose one - That player returns a permanent he or she controls to its owner's hand; or that player discards a card.\n2/3"
     IDS_STRING7103          "Brooding Saurian\n{2GG}\nCreature - Lizard\nCSP,R\nAt the beginning of each end step, each player gains control of all nontoken permanents he or she owns.\n4/4"
     IDS_STRING7104          "Adarkar Valkyrie\n{4WW}\nSnow Creature - Angel\nCSP,R\nFlying, vigilance\r{T}: When target creature other than Adarkar Valkyrie dies this turn, return that card to the battlefield under your control.\n4/5"
+    IDS_STRING7105          "Vanish into Memory\n{2WU}\nInstant\nCSP,U\nExile target creature. You draw cards equal to that creature's power. At the beginning of your next upkeep, return that card to the battlefield under its owner's control. If you do, discard cards equal to that creature's toughness."
 END
 
 #endif    // English (United States) resources

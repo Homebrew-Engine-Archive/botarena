@@ -106,6 +106,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CThermalFluxCard);
 		DEFINE_CARD(CTresserhornSinksCard);
 		DEFINE_CARD(CUrsineFylgjaCard);
+		DEFINE_CARD(CVanishIntoMemoryCard);
 		DEFINE_CARD(CVexingSphinxCard);
 		DEFINE_CARD(CWallOfShardsCard);
 		DEFINE_CARD(CWhiteShieldCrusaderCard);
@@ -4954,6 +4955,40 @@ bool CAdarkarValkyrieCard::BeforeResolution(CAbilityAction* pAction) const
 	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CVanishIntoMemoryCard::CVanishIntoMemoryCard(CGame* pGame, UINT nID)
+	: CTargetMoveCardSpellCard(pGame, _T("Vanish into Memory"), CardType::Instant, nID,
+		_T("2") WHITE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Instant,
+		new AnyCreatureComparer,
+		ZoneId::Battlefield, ZoneId::Exile, true, MoveType::Others)
+    , m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CVanishIntoMemoryCard::OnResolutionCompleted))
+{
+	m_pTargetMoveCardSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Neutral);
+	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+}
+
+void CVanishIntoMemoryCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CPlayer* pController = pAbilityAction->GetController();
+
+	CCountedCardContainer pSubjects;
+	CCreatureCard* pTarget = (CCreatureCard*)pAbilityAction->GetAssociatedCard();
+	if (pTarget->GetZoneId() == ZoneId::Exile)
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	int nCards = (int)pTarget->GetLastKnownPower();
+
+	CDrawCardModifier pModifier1 = CDrawCardModifier(GetGame(), MinimumValue(nCards), MaximumValue(nCards));
+	pModifier1.ApplyTo(pController);
+
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("Vanish into Memory Effect"), 61117, &pSubjects);
+	pModifier2.ApplyTo(pController);
 }
 
 //____________________________________________________________________________

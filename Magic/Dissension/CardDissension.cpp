@@ -140,6 +140,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTrygonPredatorCard);
 		DEFINE_CARD(CTwinstrikeCard);
 		DEFINE_CARD(CUnlivingPsychopathCard);
+		DEFINE_CARD(CUtopiaSprawlCard);
 		DEFINE_CARD(CUtvaraScalperCard);
 		DEFINE_CARD(CVerdantEidolonCard);
 		DEFINE_CARD(CVesperGhoulCard);
@@ -1320,23 +1321,32 @@ CStoicEphemeraCard::CStoicEphemeraCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddDefender(FALSE);
 
-	{
-		typedef
-			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfAttackedBlocked, 
-								CWhenSelfAttackedBlocked::BlockEventCallback, 
-								&CWhenSelfAttackedBlocked::SetBlockingEventCallback > TriggeredAbility;
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+							CWhenSelfAttackedBlocked::BlockEventCallback, 
+							&CWhenSelfAttackedBlocked::SetBlockingEventCallback > TriggeredAbility;
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Sacrifice);
-		cpAbility->SetScheduledNode(NodeId::EndOfCombatStep);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CStoicEphemeraCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CStoicEphemeraCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCountedCardContainer pSubjects;
+
+	if (IsInplay())
+		pSubjects.AddCard(this, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End of Combat Sacrifice Effect"), 61106, &pSubjects);
+	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -6695,5 +6705,117 @@ bool CIgnorantBlissCard::BeforeResolution(CAbilityAction* pAction)
 	return true;
 }
 
+//____________________________________________________________________________
+//
+CUtopiaSprawlCard::CUtopiaSprawlCard(CGame* pGame, UINT nID)
+       : CCard(pGame, _T("Utopia Sprawl"), CardType::EnchantLand, nID)
+       , m_Selection(pGame,CSelectionSupport::SelectionCallback(this, &CUtopiaSprawlCard::OnSelectionDone))
+	   , nColor(0)
+{
+
+       counted_ptr<CAbilityEnchant> cpSpell(
+               ::CreateObject<CAbilityEnchant>(this,
+               GREEN_MANA_TEXT,
+               new CardTypeComparer(CardType::Forest, false),
+               CAbilityEnchant::CreateAbilityCallback(this, &CUtopiaSprawlCard::CreateEnchantAbility),
+               CAbilityEnchant::AdditionType::ToEnchantCard));
+
+       cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Positive);
+
+       AddSpell(cpSpell.GetPointer());
+}
+
+counted_ptr<CAbility> CUtopiaSprawlCard::CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue)
+{
+
+       counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(pEnchantCard, pEnchantedCard));
+
+       cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+       cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+
+       cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CUtopiaSprawlCard::SetTriggerContext));
+
+       cpAbility->SetSkipStack(TRUE);
+
+       m_pTriggeredAbility = cpAbility.GetPointer();
+
+       return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+void CUtopiaSprawlCard::Move(CZone* pToZone,
+       const CPlayer* pByPlayer,
+       MoveType moveType,
+       CardPlacement cardPlacement, BOOL can_dredge)
+{     
+       bool bBattlefield = (GetZoneId() == ZoneId::Battlefield) || (GetZoneId() == ZoneId::_PhasedOut);
+
+       if      (!bBattlefield && (pToZone->GetZoneId() == ZoneId::Battlefield))
+       {
+               static const CManaPool::Color::Enum cardColors[] =
+               {
+                       CManaPool::Color::White,
+                       CManaPool::Color::Blue,
+                       CManaPool::Color::Black,
+                       CManaPool::Color::Red,
+                       CManaPool::Color::Green
+               };
+               std::vector<SelectionEntry> entries;
+
+               for (int i = 0; i < ARRAY_SIZE(cardColors); ++i)
+               {
+                       SelectionEntry entry;
+                       entry.dwContext = i;
+                       entry.strText.Format(_T("Choose %s for %s"), CManaPool::Color::ToDrawString(cardColors[i]), GetCardName());
+                       entries.push_back(entry);
+               }
+
+               m_Selection.AddSelectionRequest(entries, 1, 1, NULL, GetController()); 
+       }
+       __super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
+}
+
+void CUtopiaSprawlCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{     
+       ATLASSERT(nSelectedCount == 1);
+
+       for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+               if (it->bSelected)
+               {
+                       nColor = it->dwContext + 1;
+               }
+}
+
+bool CUtopiaSprawlCard::SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,
+       const CManaProductionAbilityAction* pManaAction) const
+{
+       //Just in case
+       m_pTriggeredAbility->SetProduceWhite(FALSE);
+       m_pTriggeredAbility->SetProduceBlue(FALSE);
+       m_pTriggeredAbility->SetProduceBlack(FALSE);
+       m_pTriggeredAbility->SetProduceRed(FALSE);
+       m_pTriggeredAbility->SetProduceGreen(FALSE);
+
+       switch (nColor)
+       {
+       case 1:
+               m_pTriggeredAbility->SetProduceWhite(TRUE);
+               break;
+       case 2:
+               m_pTriggeredAbility->SetProduceBlue(TRUE);
+               break;
+       case 3:
+               m_pTriggeredAbility->SetProduceBlack(TRUE);
+               break;
+       case 4:
+               m_pTriggeredAbility->SetProduceRed(TRUE);
+               break;
+       case 5:
+               m_pTriggeredAbility->SetProduceGreen(TRUE);
+               break;
+       default:
+               return false;
+       }
+       return true;
+}
 //____________________________________________________________________________
 //

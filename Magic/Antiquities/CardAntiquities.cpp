@@ -32,6 +32,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSuChiCard);
 		DEFINE_CARD(CTabletOfEpityrCard);
 		DEFINE_CARD(CUrzasChaliceCard);
+		DEFINE_CARD(CUrzasMiterCard);
 		DEFINE_CARD(CWeakstoneCard);
 
 	} while (false);
@@ -392,6 +393,37 @@ void CRakaliteCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, 
 
 	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Bounce Effect"), 61059, &pSubjects);
 	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CUrzasMiterCard::CUrzasMiterCard(CGame* pGame, UINT nID)
+        : CInPlaySpellCard(pGame, _T("Urza's Miter"), CardType::Artifact, nID,
+        _T("3"), AbilityType::Artifact)
+{
+	typedef
+		TTriggeredAbility< CTriggeredDrawCardAbility, CWhenCardMoved > TriggeredAbility;
+ 
+	counted_ptr<TriggeredAbility> cpAbility(
+		::CreateObject<TriggeredAbility>(this, ZoneId::Battlefield, ZoneId::Graveyard));
+ 
+	cpAbility->GetTrigger().SetFromControllerOnly(TRUE);
+	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("artifact cards")));
+ 
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CUrzasMiterCard::SetTriggerContext));
+ 
+	cpAbility->SetResolutionCost(_T("3"));
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CUrzasMiterCard::SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+        CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
+{
+	if(moveType == MoveType::Sacrifice)
+		return false;
+	return true;
 }
 
 //____________________________________________________________________________

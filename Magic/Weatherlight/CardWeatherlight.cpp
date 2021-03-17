@@ -86,6 +86,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPsychicVortexCard);
 		DEFINE_CARD(CRocHatchlingCard);
 		DEFINE_CARD(CRogueElephantCard);
+		DEFINE_CARD(CSawtoothOgreCard);
 		DEFINE_CARD(CScorchedRuinsCard);
 		DEFINE_CARD(CSerratedBiskelionCard);
 		DEFINE_CARD(CShadowRiderCard);
@@ -3579,6 +3580,48 @@ bool CUrborgJusticeCard::BeforeResolution(CAbilityAction* pAction) const
 		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
 
 	pModifier.ApplyTo(pAction->GetAssociatedPlayer());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CSawtoothOgreCard::CSawtoothOgreCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Sawtooth Ogre"), CardType::Creature, CREATURE_TYPE(Ogre), nID,
+		_T("2") RED_MANA_TEXT RED_MANA_TEXT, Power(3), Life(3))
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+
+	cpAbility->GetTrigger().GetBlockFilter().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSawtoothOgreCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CSawtoothOgreCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CSawtoothOgreCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+												CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+{
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return true;
+}
+
+bool CSawtoothOgreCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCountedCardContainer pSubjects1;
+	CCountedCardContainer pSubjects2;
+	CCard* pSubject = (CCard*)pAction->GetTriggerContext().nValue1;
+	if (pSubject->IsInplay())
+		pSubjects1.AddCard(pSubject, CardPlacement::Top);
+	pSubjects2.AddCard(this, CardPlacement::Top);
+
+	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Sawtooth Ogre Effect"), 61114, &pSubjects1, &pSubjects2);
+	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
 }

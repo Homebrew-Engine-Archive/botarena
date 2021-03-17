@@ -18,6 +18,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	{
 
 		DEFINE_CARD(CAmnesiaCard);
+		DEFINE_CARD(CBansheeCard);
 		DEFINE_CARD(CBoneFluteCard);
 		DEFINE_CARD(CBookOfRassCard);
 		DEFINE_CARD(CCityOfShadowsCard);
@@ -1673,6 +1674,65 @@ void CRuneswordCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction,
 
 	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Runesword Effect"), 61107, &pSubjects1, &pSubjects2);
 	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CBansheeCard::CBansheeCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Banshee"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
+		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(0), Life(1))
+{
+	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+		_T(""),
+		new AnyCreatureComparer, TRUE));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddTapCost();
+	cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
+
+	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBansheeCard::BeforeResolution));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CBansheeCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCard* targetCard = pAction->GetAssociatedCard();
+	CPlayer* targetPlayer = pAction->GetAssociatedPlayer();
+	int pCeiledDamages = 1 + ((pAction->GetCostConfigEntry().GetExtraValue() - 1) / 2); //Fast int ceil http://stackoverflow.com/questions/2745074/fast-ceiling-of-an-integer-division-in-c-c
+
+	//Target damage
+	CLifeModifier pTargetModifier = CLifeModifier(
+		Life(-pAction->GetCostConfigEntry().GetExtraValue() / 2 ),
+			this,
+			PreventableType::Preventable,
+			DamageType::AbilityDamage | DamageType::NonCombatDamage,
+			TRUE, FALSE
+			);
+
+	//Controller damage
+	CLifeModifier pOwnLifeModifier = CLifeModifier(
+	Life(-pCeiledDamages),
+		this,
+		PreventableType::Preventable,
+		DamageType::AbilityDamage | DamageType::NonCombatDamage
+	);
+ 
+	//Let's apply damage
+	if (targetCard)
+	{
+		CCreatureCard* pTargetCreature = (CCreatureCard*)targetCard;
+		pTargetModifier.ApplyTo(pTargetCreature);
+	}
+	else
+		pTargetModifier.ApplyTo(targetPlayer);
+
+	pOwnLifeModifier.ApplyTo(pAction->GetController());
+
+	return true;
 }
 
 //____________________________________________________________________________

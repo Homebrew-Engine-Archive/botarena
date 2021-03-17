@@ -124,7 +124,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPatrolSignalerCard);
 		DEFINE_CARD(CPrimalcruxCard);
 		DEFINE_CARD(CPunctureBlastCard);
-//		DEFINE_CARD(CPyrrhicRevivalCard);
+		DEFINE_CARD(CPyrrhicRevivalCard);
 		DEFINE_CARD(CQuillspikeCard);
 		DEFINE_CARD(CRavensCrimeCard);
 		DEFINE_CARD(CRazorfinAbolisherCard);
@@ -6225,7 +6225,11 @@ void CSanityGrindingCard::OnResolutionCompleted1(const CAbilityAction* pAbilityA
 		if (pCard->GetPrintedCardName() == _T("Reaper King")) p = p + 1;
 		if (pCard->GetPrintedCardName() == _T("Stand // Deliver")) p = p + 1;
 		if (pCard->GetPrintedCardName() == _T("Supply // Demand")) p = p + 1;
+		if (pCard->GetPrintedCardName() == _T("Bound // Determined")) p = p + 1;
 		if (pCard->GetPrintedCardName() == _T("Research // Development")) p = p + 1;
+		if (pCard->GetPrintedCardName() == _T("Trial // Error")) p = p + 1;
+		if (pCard->GetPrintedCardName() == _T("Beck // Call")) p = p + 1;
+		if (pCard->GetPrintedCardName() == _T("Protect // Serve")) p = p + 1;
 		if (pCard->GetPrintedCardName() == _T("Who/What/When/Where/Why")) p = p + 1;
 		}  
 	}
@@ -6332,98 +6336,6 @@ void CHallowedBurialCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 	}
 }
 
-//____________________________________________________________________________
-//
-/*CPyrrhicRevivalCard::CPyrrhicRevivalCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Pyrrhic Revival"), CardType::Sorcery, nID)
-
-	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-			&CPyrrhicRevivalCard::OnResolutionCompleted1))
-{
-	{
-		counted_ptr<CGlobalMoveCardSpell> cpSpell(
-			::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Sorcery,
-				_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT,
-				new AnyCreatureComparer,
-				ZoneId::Battlefield, TRUE, MoveType::Others, ZoneId::Graveyard ));
-
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-		CCardCounterModifier* pmodifier2 = new CCardCounterModifier(_T("-1/-1"),+1);
-		cpSpell->GetSubjectModifier().CCardModifiers::push_back(pmodifier2);
-
-		AddSpell(cpSpell.GetPointer());
-	}
-/*	{
-		counted_ptr<CGenericSpell> cpSpell(
-			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
-				_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT WHITE_MANA_TEXT));
-
-		cpSpell->SetAbilityName(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		cpSpell->SetAbilityText(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CGenericSpell> cpSpell(
-			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
-				_T("3") BLACK_MANA_TEXT WHITE_MANA_TEXT WHITE_MANA_TEXT));
-
-		cpSpell->SetAbilityName(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		cpSpell->SetAbilityText(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CGenericSpell> cpSpell(
-			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
-				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT WHITE_MANA_TEXT));
-
-		cpSpell->SetAbilityName(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		cpSpell->SetAbilityText(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-		AddSpell(cpSpell.GetPointer());
-	}
-	{
-		counted_ptr<CGenericSpell> cpSpell(
-			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
-				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT));
-
-		cpSpell->SetAbilityName(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		cpSpell->SetAbilityText(_T("Each player returns each creature card in his or her graveyard to the battlefield with an additional -1/-1 counter on it. Casts"));
-		
-		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
-
-		AddSpell(cpSpell.GetPointer());
-	}
-}
-
-void CPyrrhicRevivalCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	/*CZone* pConInplay = GetController()->GetZoneById(ZoneId::Graveyard);
-	CZone* pOppInplay = m_pGame->GetNextPlayer(GetController())->GetZoneById(ZoneId::Graveyard);
-	CMoveCardModifier pmodifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others);
-	CCardCounterModifier pmodifier2 = CCardCounterModifier(_T("-1/-1"),+1);
-
-	for (int i = 0; i < pOppInplay->GetSize(); ++i)
-	{
-		CCard* pCard = pOppInplay->GetAt(i);
-		if (pCard->GetCardType().IsCreature())
-		{ pmodifier1.ApplyTo(pCard); pmodifier2.ApplyTo(pCard); }
-	}
-
-	for (int i = 0; i < pConInplay->GetSize(); ++i)
-	{
-		CCard* pCard = pConInplay->GetAt(i);
-		if (pCard->GetCardType().IsCreature())
-		{ pmodifier1.ApplyTo(pCard); pmodifier2.ApplyTo(pCard); }
-	}
-*/
 //____________________________________________________________________________
 //
 CUnnervingAssaultCard::CUnnervingAssaultCard(CGame* pGame, UINT nID)
@@ -8760,6 +8672,7 @@ void CDominusofFealtyCard::OnResolutionCompleted(const CAbilityAction* pAbilityA
 	pModifier3.ApplyTo(target);
 
 }
+
 //____________________________________________________________________________
 //
 CShrewdHatchlingCard::CShrewdHatchlingCard(CGame* pGame, UINT nID)
@@ -9265,6 +9178,87 @@ bool CSpringjackPastureCard::BeforeResolution5(CAbilityAction* pAction) const
 
 	CLifeModifier pModifier = CLifeModifier(Life(+nValue), this, PreventableType::Preventable, DamageType::NotDealingDamage);
 	pModifier.ApplyTo(pController);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CPyrrhicRevivalCard::CPyrrhicRevivalCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Pyrrhic Revival"), CardType::Sorcery, nID)
+{
+	{
+		//hybrid mana cost
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT WHITE_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPyrrhicRevivalCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//hybrid mana cost
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPyrrhicRevivalCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//hybrid mana cost
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("3") WHITE_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPyrrhicRevivalCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//hybrid mana cost
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT));
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPyrrhicRevivalCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+bool CPyrrhicRevivalCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCountedCardContainer Creatures;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+		CZone* pGraveyard = pPlayer->GetZoneById(ZoneId::Graveyard);
+
+		for (int i = 0; i < pGraveyard->GetSize(); ++i)
+			if (pGraveyard->GetAt(i)->GetCardType().IsCreature())
+				Creatures.AddCard(pGraveyard->GetAt(i), CardPlacement::Top);
+	}
+
+	for (int i = 0; i < Creatures.GetSize(); ++i)
+	{
+		CCard* pCard = Creatures.GetAt(i);
+		
+		int nCounters = 1;
+
+		int nMultiplier = 0;
+		if (pCard->GetOwner()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
+			nCounters <<= nMultiplier;
+
+		CCardCounterModifier pModifier1(_T("-1/-1"), nCounters, true);
+		CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Others, pCard->GetOwner());
+
+		pModifier1.ApplyTo(pCard);
+		pModifier2.ApplyTo(pCard);
+	}
 
 	return true;
 }

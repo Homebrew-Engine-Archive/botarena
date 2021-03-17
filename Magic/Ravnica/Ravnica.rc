@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+#include "afxres.h"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -389,7 +388,7 @@ BEGIN
     IDS_STRING16647         "Followed Footsteps\n{3UU}\nEnchantment - Aura\nRAV,R\nEnchant creature\rAt the beginning of your upkeep, put a token that's a copy of enchanted creature onto the battlefield."
     IDS_STRING16648         "Flickerform\n{1W}\nEnchantment - Aura\nRAV,R\nEnchant creature\r{2WW}: Exile enchanted creature and all Auras attached to it. At the beginning of the next end step, return that card to the battlefield under its owner's control. If you do, return those Auras to the battlefield under their owners' control attached to that creature."
     IDS_STRING16649         "Terraformer\n{2U}\nCreature - Human Wizard\nRAV,C\n{1}: Choose a basic land type. Each land you control becomes that type until end of turn."
-    //IDS_STRING16627         "Crown of Convergence\n{2}\nArtifact\nRAV,R\nPlay with the top card of your library revealed.\rAs long as the top card of your library is a creature card, creatures you control that share a color with that card get +1/+1.\r{GW}: Put the top card of your library on the bottom of your library."
+    IDS_STRING16650         "Spectral Searchlight\n{3}\nArtifact\nRAV,U\n{T}: Choose a player. That player adds one mana of any color he or she chooses to his or her mana pool."
 END
 
 #endif    // English (United States) resources
@@ -402,8 +401,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-
+#include "..\MagicCore\MagicCore.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

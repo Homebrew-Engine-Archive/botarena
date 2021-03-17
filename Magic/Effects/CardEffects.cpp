@@ -33,8 +33,10 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CArchangelOfStrifeWarEffectToken);
 		DEFINE_TOKEN(CArchangelOfStrifePeaceEffectToken);
 		DEFINE_TOKEN(CApproachMyMoltenRealmEffectToken);
+		DEFINE_TOKEN(CAweForTheGuildsEffectToken);
 		DEFINE_TOKEN(CBasaltGolemEffectToken);
 		DEFINE_TOKEN(CBattleCryEffectToken);
+		DEFINE_TOKEN(CBeckEffectToken);
 		DEFINE_TOKEN(CBerserkEffectToken);
 		DEFINE_TOKEN(CBloodlordOfVaasgothEffectToken);
 		DEFINE_TOKEN(CBroodOfCockroachesEffectToken);
@@ -46,6 +48,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 //		DEFINE_TOKEN(CChancellorOfTheTangleEffectToken);
 		DEFINE_TOKEN(CChandraTheFirebrandEffectToken);
 		DEFINE_TOKEN(CChannelEffectToken);
+		DEFINE_TOKEN(CCoffinQueenEffectToken);
 		DEFINE_TOKEN(CContemptEffectToken);
 		DEFINE_TOKEN(CDuskmantleGuildmageEffectToken);
 		DEFINE_TOKEN(CDwarvenSeaClanEffectToken);
@@ -54,6 +57,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CEndOfCombatExileEffectToken);
 		DEFINE_TOKEN(CEndOfCombatRemovePlusCounterEffectToken);
 		DEFINE_TOKEN(CEndOfCombatSacrificeEffectToken);
+		DEFINE_TOKEN(CEndOfCombatTopOfLibraryEffectToken);
 		DEFINE_TOKEN(CEndStepBounceEffectToken);
 		DEFINE_TOKEN(CEndStepDestroyEffectToken);
 		DEFINE_TOKEN(CEndStepDestroyPacifistsEffectToken);
@@ -90,9 +94,11 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CKjeldoranEliteGuardEffectToken);
 		DEFINE_TOKEN(CKjeldoranGuardEffectToken);
 		DEFINE_TOKEN(CLatNamsLegacyEffectToken);
+		DEFINE_TOKEN(CLegionsInitiativeEffectToken);
 		DEFINE_TOKEN(CLoyalCatharEffectToken);
 		DEFINE_TOKEN(CMaddeningImpEffectToken);
 		DEFINE_TOKEN(CMagusOfTheJarEffectToken);
+		DEFINE_TOKEN(CManaDrainEffectToken);
 		DEFINE_TOKEN(CMemoryJarEffectToken);
 		DEFINE_TOKEN(CMoonmistEffectToken);
 		DEFINE_TOKEN(CMystifyingMazeEffectToken);
@@ -101,6 +107,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CPactofNegationEffectToken);
 		DEFINE_TOKEN(CPactOfTheTitanEffectToken);
 		DEFINE_TOKEN(CPhantasmalMountEffectToken);
+		DEFINE_TOKEN(CPlasmCaptureEffectToken);
 		DEFINE_TOKEN(CPraetorsCounselEffectToken);
 		DEFINE_TOKEN(CProteanHydraEffectToken);
 		DEFINE_TOKEN(CPureIntentionsEffectToken);
@@ -113,8 +120,10 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSaffiEriksdotterEffectToken);
 		DEFINE_TOKEN(CSandalsOfAbdallahEffectToken);
 		DEFINE_TOKEN(CSandGolemEffectToken);
+		DEFINE_TOKEN(CSawtoothOgreEffectToken);
 		DEFINE_TOKEN(CSeraphFirstEffectToken);
 		DEFINE_TOKEN(CSeraphSecondEffectToken);
+		DEFINE_TOKEN(CScatteringStrokeEffectToken);
 		DEFINE_TOKEN(CScoutsWarningEffectToken);
 		DEFINE_TOKEN(CShichifukujinDragonEffectToken);
 		DEFINE_TOKEN(CShiftyDoppelgangerEffectToken);
@@ -128,6 +137,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CTatsumasaTheDragonsFangEffectToken);
 		DEFINE_TOKEN(CThePiecesAreComingTogetherEffectToken);
 		DEFINE_TOKEN(CTransluminantEffectToken);
+		DEFINE_TOKEN(CVanishIntoMemoryEffectToken);
 		DEFINE_TOKEN(CVirulentWoundEffectToken);
 		DEFINE_TOKEN(CVizkopaGuildmageEffectToken);
 		DEFINE_TOKEN(CWarBargeEffectToken);
@@ -2359,8 +2369,8 @@ CEndOfCombatDestroyEffectToken::CEndOfCombatDestroyEffectToken(CGame* pGame, UIN
     }
 
 	// Generic effect used by: Abomination, Arrogant Bloodlord, Ceremonial Guard, Cinder Wall, Cockatrice, Deathgazer, Dread Specter,
-	// Gorgon Recluse, Infernal Medusa, Lowland Basilisk, Ohran Viper, Rock Basilisk, Serpentine Basilisk, Sosuke, Son of Seshiro;
-	// Stone-Tongue Basilisk, Tangle Asp, Thicket Basilisk, Venomous Dragonfly
+	// Goblin Sappers, Gorgon Recluse, Infernal Medusa, Lowland Basilisk, Ohran Viper, Rock Basilisk, Serpentine Basilisk,
+	// Silent Assassin, Sosuke, Son of Seshiro; Stone-Tongue Basilisk, Tangle Asp, Thicket Basilisk, Venomous Dragonfly
 	// Future use: Battering Ram, Simic Basilisk
 }
 
@@ -3658,7 +3668,7 @@ CEndStepReturnFromExileEffectToken::CEndStepReturnFromExileEffectToken(CGame* pG
 		AddAbility(cpAbility.GetPointer());
     }
 
-	// Generic effect used by: Anurid Brushhopper, Argent Sphinx, Astral Slide, Flickerform, Flickerwisp, Frenetic Sliver,
+	// Generic effect used by: AEtherling, Anurid Brushhopper, Argent Sphinx, Astral Slide, Flickerform, Flickerwisp, Frenetic Sliver,
 	// Galepowder Mage, Ghost Council of Orzhova, Ghostway, Glimmerpoint Stag, Hikari, Twilight Guardian; Liberate, Mistmeadow Witch,
 	// Norin the Wary, Planar Guide, Saltskitter, Sudden Disappearance, Turn to Mist, Venser, the Sojourner; Voidwalk, Voyager Staff
 }
@@ -7193,15 +7203,16 @@ bool CSeraphSecondEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerCon
 		{
 			pCards2.RemoveCard(pCard);
 
-			bFired = TRUE;
+			if (pCard->GetController() == GetController())
+			{
+				bFired = TRUE;
 
-			return true;
+				return true;
+			}
 		}
 	}
 	else if ((pFromZone->GetPlayer() == GetController()) && (pToZone->GetPlayer() != GetController()) && pCards2.HasCard(pCard))
 	{
-		pCards2.RemoveCard(pCard);
-
 		bFired = TRUE;
 
 		return true;
@@ -8357,7 +8368,7 @@ CEndOfCombatSacrificeEffectToken::CEndOfCombatSacrificeEffectToken(CGame* pGame,
 		AddAbility(cpAbility.GetPointer());
     }
 
-	// Generic effect used by: Crumbling Colossus, Fog Elemental, Gemini Engine
+	// Generic effect used by: Crumbling Colossus, Fog Elemental, Gemini Engine, Keldon Battlewagon, Stoic Ephemera
 }
 
 bool CEndOfCombatSacrificeEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
@@ -9062,6 +9073,992 @@ bool CGlyphOfLifeEffectToken::SetTriggerContext2(CTriggeredAbility<>::TriggerCon
 	
 	pCards.RemoveCard(pCard);
 	return false;
+}
+
+//____________________________________________________________________________
+//
+CEndOfCombatTopOfLibraryEffectToken::CEndOfCombatTopOfLibraryEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("End of Combat Top of Library Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndOfCombatStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEndOfCombatTopOfLibraryEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CEndOfCombatTopOfLibraryEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CEndOfCombatTopOfLibraryEffectToken::SetTriggerContextAux));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+
+	// Generic effect used by: Saprazzan Outrigger
+}
+
+bool CEndOfCombatTopOfLibraryEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CEndOfCombatTopOfLibraryEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Library, true, MoveType::Others, pAction->GetController());
+
+	for (int i = pCards.GetSize() - 1; i >= 0; --i)
+		pModifier.ApplyTo(pCards.GetAt(i));
+
+	return true;
+}
+
+bool CEndOfCombatTopOfLibraryEffectToken::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pCards.HasCard(pCard)) return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	pCards.RemoveCard(pCard);
+	return false;
+}
+
+//____________________________________________________________________________
+//
+CSawtoothOgreEffectToken::CSawtoothOgreEffectToken(CGame* pGame, UINT nID)
+	: CDoubleContainerEffectCard(pGame, _T("Sawtooth Ogre Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndOfCombatStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSawtoothOgreEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSawtoothOgreEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSawtoothOgreEffectToken::SetTriggerContextAux));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CSawtoothOgreEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CSawtoothOgreEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	if (pCards2.GetSize() > 0)
+	{
+		CLifeModifier pModifier = CLifeModifier(Life(-1), pCards2.GetAt(0), PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+
+		for (int i = pCards1.GetSize() - 1; i >= 0; --i)
+			if (pCards1.GetAt(i)->GetCardType().IsCreature())
+				pModifier.ApplyTo((CCreatureCard*)pCards1.GetAt(i));
+	}
+
+	return true;
+}
+
+bool CSawtoothOgreEffectToken::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pCards1.HasCard(pCard)) return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	pCards1.RemoveCard(pCard);
+	return false;
+}
+
+//____________________________________________________________________________
+//
+CCoffinQueenEffectToken::CCoffinQueenEffectToken(CGame* pGame, UINT nID)
+	: CDoubleContainerEffectCard(pGame, _T("Coffin Queen Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetReportInPlayChanges(TRUE);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CCoffinQueenEffectToken::SetTriggerContext1));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCoffinQueenEffectToken::BeforeResolution));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenOrientationChangedAny > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->GetTrigger().SetFromOrientation(Orientation::Tap);
+		cpAbility->GetTrigger().SetToOrientation(Orientation::Untap);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CCoffinQueenEffectToken::SetTriggerContext2));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCoffinQueenEffectToken::BeforeResolution));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CCoffinQueenEffectToken::SetTriggerContextAux));
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CCoffinQueenEffectToken::SetTriggerContext1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (bFired) return FALSE;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	if (pToZone->GetZoneId() != ZoneId::Battlefield)
+	{
+		if (pCards1.HasCard(pCard));
+			pCards1.RemoveCard(pCard);
+
+		if (pCards2.HasCard(pCard));
+		{
+			pCards2.RemoveCard(pCard);
+
+			if (pCard->GetController() == GetController())
+			{
+				bFired = TRUE;
+
+				return true;
+			}
+		}
+	}
+	else if ((pFromZone->GetPlayer() == GetController()) && (pToZone->GetPlayer() != GetController()) && pCards2.HasCard(pCard))
+	{
+		bFired = TRUE;
+
+		return true;
+	}
+
+	return false;
+}
+
+bool CCoffinQueenEffectToken::SetTriggerContext2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, Orientation pFromOrientation, Orientation pToOrientation)
+{
+	if (bFired) return false;
+	if (!pCards2.HasCard(pCard)) return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+
+	bFired = TRUE;
+	return true;
+}
+
+bool CCoffinQueenEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, true, MoveType::Others, pAction->GetController());
+
+	for (int i = pCards1.GetSize() - 1; i >= 0; --i)
+		pModifier.ApplyTo(pCards1.GetAt(i));
+
+	return true;
+}
+
+bool CCoffinQueenEffectToken::SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+//____________________________________________________________________________
+//
+CBeckEffectToken::CBeckEffectToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Beck Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+	
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+	{
+		typedef
+			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::_AllZones, ZoneId::Battlefield, FALSE, TRUE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
+
+		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBeckEffectToken::SetTriggerContext));				
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CBeckEffectToken::SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
+{
+	return (this->GetZone()->GetZoneId() == ZoneId::_Effects);
+}
+
+//____________________________________________________________________________
+//
+CVanishIntoMemoryEffectToken::CVanishIntoMemoryEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("Vanish into Memory Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+		
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVanishIntoMemoryEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CVanishIntoMemoryEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Exile, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVanishIntoMemoryEffectToken::SetTriggerContextAux1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVanishIntoMemoryEffectToken::SetTriggerContextAux2));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CVanishIntoMemoryEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CVanishIntoMemoryEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+	
+	if (pCards.GetSize() == 0) return true;
+
+	CCreatureCard* pCard = (CCreatureCard*)pCards.GetAt(0);
+	
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, true, MoveType::Others, pController);
+	pModifier.ApplyTo(pCard);
+
+	if (pCard->IsInplay())
+	{
+		int nCards = (int)pCard->GetLife();
+		int nHandSize = pController->GetZoneById(ZoneId::Hand)->GetSize();
+
+		if (nCards > nHandSize) nCards = nHandSize;
+
+		if (nCards > 0)
+		{
+			CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
+				CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
+			pModifier.AddSelection(MinimumValue(nCards), MaximumValue(nCards), // select cards to 
+				CZoneModifier::RoleType::PrimaryPlayer, // select by 
+				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+				NULL, // any cards
+				ZoneId::Graveyard, // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+				CardPlacement::Top, // put selected cards on top
+				MoveType::Discard, // move type
+				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		
+			pModifier.ApplyTo(pController);
+		}
+	}
+
+	return true;
+}
+
+bool CVanishIntoMemoryEffectToken::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pCards.HasCard(pCard)) return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	pCards.RemoveCard(pCard);
+	return false;
+}
+
+bool CVanishIntoMemoryEffectToken::SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CLegionsInitiativeEffectToken::CLegionsInitiativeEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("Legion's Initiative Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::BeginningOfCombatStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLegionsInitiativeEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLegionsInitiativeEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Exile, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLegionsInitiativeEffectToken::SetTriggerContextAux1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CLegionsInitiativeEffectToken::SetTriggerContextAux2));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CLegionsInitiativeEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CLegionsInitiativeEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, true, MoveType::Others, pAction->GetController());
+	CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::Haste, TRUE);
+	CCardKeywordModifier pModifier3 = CCardKeywordModifier(CardKeyword::CardHaste, TRUE);
+
+	for (int i = pCards.GetSize() - 1; i >= 0; --i)
+	{
+		CCard* pCard = pCards.GetAt(i);
+		pModifier1.ApplyTo(pCard);
+
+		if (pCard->GetCardType().IsCreature())
+			pModifier2.ApplyTo((CCreatureCard*)pCard);
+		else
+			pModifier3.ApplyTo(pCard);
+	}
+
+	return true;
+}
+
+bool CLegionsInitiativeEffectToken::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pCards.HasCard(pCard)) return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	pCards.RemoveCard(pCard);
+	return false;
+}
+
+bool CLegionsInitiativeEffectToken::SetTriggerContextAux2(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CAweForTheGuildsEffectToken::CAweForTheGuildsEffectToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Awe for the Guilds Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0), CreatureKeyword::CantBlock));
+
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardMulticoloredComparer(CardMulticoloredComparer::MonocoloredCards));
+
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+//____________________________________________________________________________
+//
+CManaDrainEffectToken::CManaDrainEffectToken(CGame* pGame, UINT nID)
+	: CNumberEffectCard(pGame, _T("Mana Drain Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::MainPhaseStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CManaDrainEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CManaDrainEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CManaDrainEffectToken::SetTriggerContextAux));
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CManaDrainEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CManaDrainEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	CManaPoolModifier pModifier =  CManaPoolModifier(CManaPoolModifier::Operation::Add, CManaPool::CManaPool(_T("1")));
+	for (int i = 0; i < nNumber; ++i) pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+bool CManaDrainEffectToken::SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CPlasmCaptureEffectToken::CPlasmCaptureEffectToken(CGame* pGame, UINT nID)
+	: CNumberEffectCard(pGame, _T("Plasm Capture Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+	, m_NumberSelectionW(pGame,CSelectionSupport::SelectionCallback(this, &CPlasmCaptureEffectToken::OnNumberSelectedW))
+	, m_NumberSelectionU(pGame,CSelectionSupport::SelectionCallback(this, &CPlasmCaptureEffectToken::OnNumberSelectedU))
+	, m_NumberSelectionB(pGame,CSelectionSupport::SelectionCallback(this, &CPlasmCaptureEffectToken::OnNumberSelectedB))
+	, m_NumberSelectionR(pGame,CSelectionSupport::SelectionCallback(this, &CPlasmCaptureEffectToken::OnNumberSelectedR))
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::MainPhaseStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPlasmCaptureEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPlasmCaptureEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CPlasmCaptureEffectToken::SetTriggerContextAux));
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CPlasmCaptureEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	if (!GetGame()->IsFirstMainPhase()) return false;
+	
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CPlasmCaptureEffectToken::BeforeResolution(CAbilityAction* pAction)
+{
+	Remaining = nNumber;
+	
+	if (Remaining > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < Remaining + 1; i++)
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = i + 1;
+			selectionEntry.strText.Format(_T("%d white mana"), i);
+
+			entries.push_back(selectionEntry);
+		}
+		m_NumberSelectionW.AddSelectionRequest(entries, 1, 1, NULL, GetController());
+	}
+
+	return true;
+}
+
+void CPlasmCaptureEffectToken::OnNumberSelectedW(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext - 1;
+			CManaPoolModifier pModifier =  CManaPoolModifier(
+				CManaPoolModifier::Operation::Add, CManaPool::CManaPool(WHITE_MANA_TEXT));
+
+			if (n!=0) for (int i=0; i<n; i++) pModifier.ApplyTo(pSelectionPlayer);
+
+			Remaining = Remaining - n;
+
+			if (Remaining > 0)
+			{
+				std::vector<SelectionEntry> entries;
+				for (int i = 0; i < Remaining + 1; i++)
+				{
+					SelectionEntry selectionEntry;
+
+					selectionEntry.dwContext = i + 1;
+					selectionEntry.strText.Format(_T("%d blue mana"), i);
+
+					entries.push_back(selectionEntry);
+				}
+				m_NumberSelectionU.AddSelectionRequest(entries, 1, 1, NULL, pSelectionPlayer);
+			}
+
+		}
+}
+
+void CPlasmCaptureEffectToken::OnNumberSelectedU(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext - 1;
+			CManaPoolModifier pModifier =  CManaPoolModifier(
+				CManaPoolModifier::Operation::Add, CManaPool::CManaPool(BLUE_MANA_TEXT));
+
+			if (n!=0) for (int i=0; i<n; i++) pModifier.ApplyTo(pSelectionPlayer);
+
+			Remaining = Remaining - n;
+
+			if (Remaining > 0)
+			{
+				std::vector<SelectionEntry> entries;
+				for (int i = 0; i < Remaining + 1; i++)
+				{
+					SelectionEntry selectionEntry;
+
+					selectionEntry.dwContext = i + 1;
+					selectionEntry.strText.Format(_T("%d black mana"), i);
+
+					entries.push_back(selectionEntry);
+				}
+				m_NumberSelectionB.AddSelectionRequest(entries, 1, 1, NULL, pSelectionPlayer);
+			}
+
+		}
+}
+
+void CPlasmCaptureEffectToken::OnNumberSelectedB(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext - 1;
+			CManaPoolModifier pModifier =  CManaPoolModifier(
+				CManaPoolModifier::Operation::Add, CManaPool::CManaPool(BLACK_MANA_TEXT));
+
+			if (n!=0) for (int i=0; i<n; i++) pModifier.ApplyTo(pSelectionPlayer);
+
+			Remaining = Remaining - n;
+
+			if (Remaining > 0)
+			{
+				std::vector<SelectionEntry> entries;
+				for (int i = 0; i < Remaining + 1; i++)
+				{
+					SelectionEntry selectionEntry;
+
+					selectionEntry.dwContext = i + 1;
+					selectionEntry.strText.Format(_T("%d red mana"), i);
+
+					entries.push_back(selectionEntry);
+				}
+				m_NumberSelectionR.AddSelectionRequest(entries, 1, 1, NULL, pSelectionPlayer);
+			}
+
+		}
+}
+
+void CPlasmCaptureEffectToken::OnNumberSelectedR(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext - 1;
+			CManaPoolModifier pModifier1 =  CManaPoolModifier(
+				CManaPoolModifier::Operation::Add, CManaPool::CManaPool(RED_MANA_TEXT));
+
+			if (n!=0) for (int i=0; i<n; i++) pModifier1.ApplyTo(pSelectionPlayer);
+
+			n = Remaining - n;
+
+			CManaPoolModifier pModifier2 =  CManaPoolModifier(
+				CManaPoolModifier::Operation::Add, CManaPool::CManaPool(GREEN_MANA_TEXT));
+
+			if (n!=0) for (int i=0; i<n; i++) pModifier2.ApplyTo(pSelectionPlayer);
+		}
+}
+
+bool CPlasmCaptureEffectToken::SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CScatteringStrokeEffectToken::CScatteringStrokeEffectToken(CGame* pGame, UINT nID)
+	: CNumberEffectCard(pGame, _T("Scattering Stroke Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+	, m_Selection(pGame,CSelectionSupport::SelectionCallback(this, &CScatteringStrokeEffectToken::OnSelected))
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::MainPhaseStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CScatteringStrokeEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CScatteringStrokeEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CScatteringStrokeEffectToken::SetTriggerContextAux));
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CScatteringStrokeEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CScatteringStrokeEffectToken::BeforeResolution(CAbilityAction* pAction)
+{
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Don't add mana"));
+
+		entries.push_back(selectionEntry);
+	}
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 1;
+		selectionEntry.strText.Format(_T("Add %d colorless mana to your mana pool"), GET_INTEGER(nNumber));
+
+		entries.push_back(selectionEntry);
+	}
+	m_Selection.AddSelectionRequest(entries, 1, 1, NULL, GetController());
+
+	return true;
+}
+
+void CScatteringStrokeEffectToken::OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if (it->dwContext == 0)
+			{
+				return;
+			}
+			if (it->dwContext == 1)
+			{
+				CManaPoolModifier pModifier =  CManaPoolModifier(CManaPoolModifier::Operation::Add, CManaPool::CManaPool(_T("1")));
+				for (int i = 0; i < nNumber; ++i) pModifier.ApplyTo(pSelectionPlayer);
+			}
+		}
+}
+
+bool CScatteringStrokeEffectToken::SetTriggerContextAux(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
 }
 
 //____________________________________________________________________________

@@ -1333,14 +1333,14 @@ void CCardFilter::AddPredefinedFilters()
 		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a nonbasic land"), _T("nonbasic lands"), new CardTypeComparer(CardType::NonbasicLand, false))));
 
 		// nonbasic land types
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Desert"), _T("Deserts"), new NegateCardComparer(new CardTypeComparer(CardType::Desert, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Gate"), _T("Gates"), new NegateCardComparer(new CardTypeComparer(CardType::Gate, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Lair"), _T("Lairs"), new NegateCardComparer(new CardTypeComparer(CardType::Lair, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Locus"), _T("Loci"), new NegateCardComparer(new CardTypeComparer(CardType::Locus, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Mine"), _T("Mines"), new NegateCardComparer(new CardTypeComparer(CardType::Mine, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Power-Plant"), _T("Power-Plants"), new NegateCardComparer(new CardTypeComparer(CardType::PowerPlant, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Tower"), _T("Towers"), new NegateCardComparer(new CardTypeComparer(CardType::Tower, false)))));
-		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("an Urza's land"), _T("Urza's lands"), new NegateCardComparer(new CardTypeComparer(CardType::Urzas, false)))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Desert"), _T("Deserts"), new CardTypeComparer(CardType::Desert, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Gate"), _T("Gates"), new CardTypeComparer(CardType::Gate, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Lair"), _T("Lairs"), new CardTypeComparer(CardType::Lair, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Locus"), _T("Loci"), new CardTypeComparer(CardType::Locus, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Mine"), _T("Mines"), new CardTypeComparer(CardType::Mine, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Power-Plant"), _T("Power-Plants"), new CardTypeComparer(CardType::PowerPlant, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a Tower"), _T("Towers"), new CardTypeComparer(CardType::Tower, false))));
+		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("an Urza's land"), _T("Urza's lands"), new CardTypeComparer(CardType::Urzas, false))));
 
 		// non-creatures
 		AddFilter(std::auto_ptr<CCardFilter>(new CCardFilter(_T("a non-creature"), _T("non-creatures"), new NegateCardComparer(new AnyCreatureComparer))));

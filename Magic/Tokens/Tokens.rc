@@ -136,6 +136,11 @@ BEGIN
 	IDS_STRING62047         "Twin\n{1}\nArtifact Creature - Construct\nToken\n\n*/*"
 END
 
+STRINGTABLE
+BEGIN
+	IDS_STRING62048         "Elemental (R)\n{GW}\nCreature - Elemental\nToken\nThis creature's power and toughness are each equal to the number of creatures you control.\n*/*"
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

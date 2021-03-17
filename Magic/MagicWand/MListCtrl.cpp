@@ -833,6 +833,12 @@ BOOL CMListCtrl::IsCardFiltered(CCardEntry* pCardEntry, FILTERS exceptFromFilter
 	if (pCardEntry->GetExpansionName() == _T("Tokens"))
 		return TRUE;
 
+	if (pCardEntry->GetExpansionName() == _T("ATokens"))
+		return TRUE;
+
+	if (pCardEntry->GetExpansionName() == _T("Token"))
+		return TRUE;
+
 	for (int filter = FT_WHITE; filter <= FT_BLOCK; ++filter)
 		if ((exceptFromFilter == -1 || filter < exceptFromFilter || filter > exceptToFilter) && 
 			IsCardFilteredBy((FILTERS)filter, pCardEntry))

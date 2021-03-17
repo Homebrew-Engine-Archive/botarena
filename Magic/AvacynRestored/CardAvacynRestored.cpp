@@ -3946,7 +3946,6 @@ CZealousConscriptsCard::CZealousConscriptsCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
 	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
 	
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Battlefield));
@@ -3956,9 +3955,7 @@ CZealousConscriptsCard::CZealousConscriptsCard(CGame* pGame, UINT nID)
 	CGainControlModifier* pModifier1_return = new CGainControlModifier(GetGame(), (CCard*)this, true);
 	CScheduledCardModifier* pModifier2 = new CScheduledCardModifier(
 		pGame, pModifier1_return, TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCardModifier::Operation::ApplyToLater);
-	CCardOrientationModifier* pModifier3 = new CCardOrientationModifier(0);
 
-	pModifier2->LinkCardModifier(pModifier3);
 	pModifier1->LinkCardModifier(pModifier2);
 
 	cpAbility->GetMoveCardModifier().LinkCardModifier(pModifier1);
@@ -3975,25 +3972,30 @@ CZealousConscriptsCard::CZealousConscriptsCard(CGame* pGame, UINT nID)
 
 void CZealousConscriptsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* target=pAbilityAction->GetAssociatedCard();
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
 
-	CCreatureKeywordModifier pModifier;
-	pModifier.GetModifier().SetToAdd(CreatureKeyword::Haste);
-	pModifier.GetModifier().SetOneTurnOnly(TRUE);
+	if (pTarget->GetCardType().IsCreature())
+	{
+		CCreatureKeywordModifier pModifier1;
+		pModifier1.GetModifier().SetToAdd(CreatureKeyword::Haste);
+		pModifier1.GetModifier().SetOneTurnOnly(TRUE);
 
-	if (target->GetCardType().IsCreature()) pModifier.ApplyTo((CCreatureCard*)target);
+		pModifier1.ApplyTo((CCreatureCard*)pTarget);
+	}
+	else
+	{
+		CCardKeywordModifier pModifier2;
+		pModifier2.GetModifier().SetToAdd(CardKeyword::CardHaste);
+		pModifier2.GetModifier().SetOneTurnOnly(TRUE);
 
-	CCardKeywordModifier pModifier1;
-	pModifier1.GetModifier().SetToAdd(CardKeyword::CardHaste);
-	pModifier1.GetModifier().SetOneTurnOnly(TRUE);
+		pModifier2.ApplyTo(pTarget);
+	}
 
-	pModifier1.ApplyTo(target);
+	CCardOrientationModifier pModifier3 = CCardOrientationModifier(FALSE);
 
-	CCardOrientationModifier pModifier3 = CCardOrientationModifier(0);
-
-	pModifier3.ApplyTo(target);
-
+	pModifier3.ApplyTo(pTarget);
 }
+
 //____________________________________________________________________________
 //
 CDualCastingCard::CDualCastingCard(CGame* pGame, UINT nID)
@@ -4053,12 +4055,14 @@ void CShelteringWordCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 	CLifeModifier modifier = CLifeModifier(Life(GET_INTEGER(pCreature->GetLife())), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	modifier.ApplyTo(pAbilityAction->GetController());
 }
+
 //____________________________________________________________________________
 //
 CVexingDevilCard::CVexingDevilCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Vexing Devil"), CardType::Creature, CREATURE_TYPE(Devil), nID,
 		RED_MANA_TEXT, Power(4), Life(3))
 	, m_PunisherSelection(pGame, CSelectionSupport::SelectionCallback(this, &CVexingDevilCard::OnPunisherSelected))
+	, bSomeonePaid(FALSE)
 {
 	typedef
 		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
@@ -4084,12 +4088,13 @@ bool CVexingDevilCard::BeforeResolution(CAbilityAction* pAction)
 			break;
 		}
 
-	PunisherFunction(pActivePlayerID);
+	bSomeonePaid = FALSE;
+	PunisherFunction(pActivePlayerID, pAction->GetController());
 
 	return true;
 }
 
-void CVexingDevilCard::PunisherFunction(int PlayerID)
+void CVexingDevilCard::PunisherFunction(int PlayerID, CPlayer* pController)
 {
 	CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
 
@@ -4112,13 +4117,13 @@ void CVexingDevilCard::PunisherFunction(int PlayerID)
 
 			entries.push_back(selectionEntry);
 		}
-		m_PunisherSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID);
+		m_PunisherSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID, (DWORD)pController);
 	}
 	else
-		Advance(PlayerID);
+		Advance(PlayerID, pController);
 }
 
-void CVexingDevilCard::Advance(int PlayerID)
+void CVexingDevilCard::Advance(int PlayerID, CPlayer* pController)
 {
 	int NextPlayer = PlayerID + 1;
 	int PlayerCount = GetGame()->GetPlayerCount();
@@ -4127,7 +4132,12 @@ void CVexingDevilCard::Advance(int PlayerID)
 	if (NextPlayer >= PlayerCount)
 		NextPlayer -= PlayerCount;
 	if (GetGame()->GetPlayer(NextPlayer) != pActivePlayer)
-		PunisherFunction(NextPlayer);
+		PunisherFunction(NextPlayer, pController);
+	else if (bSomeonePaid)
+	{
+		CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pController);
+		pModifier.ApplyTo(this);
+	}
 }
 
 void CVexingDevilCard::OnPunisherSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
@@ -4149,7 +4159,7 @@ void CVexingDevilCard::OnPunisherSelected(const std::vector<SelectionEntry>& sel
 						MessageImportance::High
 						);
 				}
-				Advance(dwContext1);
+				Advance(dwContext1, (CPlayer*)dwContext2);
 				
 				return;
 			}
@@ -4165,16 +4175,18 @@ void CVexingDevilCard::OnPunisherSelected(const std::vector<SelectionEntry>& sel
 						MessageImportance::High
 						);
 				}
-				CLifeModifier pModifier1 = CLifeModifier(Life(-4), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
-				CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pSelectionPlayer);
-
-				pModifier1.ApplyTo(pSelectionPlayer);
-				pModifier2.ApplyTo(this);
+				CLifeModifier pModifier = CLifeModifier(Life(-4), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+				pModifier.ApplyTo(pSelectionPlayer);
 				
+				bSomeonePaid = FALSE;
+
+				Advance(dwContext1, (CPlayer*)dwContext2);
+
 				return;
 			}
 		}
 }
+
 //____________________________________________________________________________
 //
 CPrimalSurgeCard::CPrimalSurgeCard(CGame* pGame, UINT nID)
@@ -7923,7 +7935,63 @@ counted_ptr<CAbility> CAbundantGrowthCard::CreateAdditionalAbility4(CCard* pCard
 //
 CGhostlyFlickerCard::CGhostlyFlickerCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Ghostly Flicker"), CardType::Instant, nID)
+
 {
+	{
+		counted_ptr<CTargetMoveCardSpell> cpSpell(
+			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant, 
+				_T("2") BLUE_MANA_TEXT,
+				new CardTypeComparer(CardType::Artifact | CardType::Creature | CardType::_Land, false),
+				ZoneId::Battlefield, ZoneId::_Effects, TRUE, MoveType::Others));
+
+		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+
+		cpSpell->GetTargeting()->SetSubjectCount(2, 2);
+
+		cpSpell->SetToZoneIfSuccess(ZoneId::_Effects, TRUE);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+												ZoneId::Stack, ZoneId::_Effects));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::_Effects, ZoneId::Graveyard));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetMoveCardOption(CTriggeredMoveCardAbility::MoveCardOption::MoveMultipleCards);
+
+		cpAbility->GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetCardFilterHelper().GetCustomFilter().AddComparer(new CardTypeComparer(CardType::Artifact | CardType::Creature | CardType::_Land, false));
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Battlefield);
+		cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+//Old Code
+/*{
 	counted_ptr<CTargetSpell> cpSpell(
 		::CreateObject <CTargetSpell>(this, AbilityType::Instant,
 			_T("2") BLUE_MANA_TEXT,
@@ -7937,9 +8005,11 @@ CGhostlyFlickerCard::CGhostlyFlickerCard(CGame* pGame, UINT nID)
 
 	m_pTargetSpell = cpSpell.GetPointer();
 	AddSpell(cpSpell.GetPointer());
-}
+}*/
 
-bool CGhostlyFlickerCard::BeforeResolution(CAbilityAction* pAction)
+
+
+/*bool CGhostlyFlickerCard::BeforeResolution(CAbilityAction* pAction)
 {
 		CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
 	ContextValue Context(pAction->GetValue());
@@ -7969,7 +8039,7 @@ bool CGhostlyFlickerCard::BeforeResolution(CAbilityAction* pAction)
 
 	return pCards.GetSize()>0;
 	
-}
+}*/
 
 //____________________________________________________________________________
 //

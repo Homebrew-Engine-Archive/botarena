@@ -1946,3 +1946,19 @@ protected:
 
 //____________________________________________________________________________
 //
+class CSpectralSearchlightCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CSpectralSearchlightCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	void OnPlayerSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_PlayerSelection;
+
+	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_ColorSelection;
+};
+
+//____________________________________________________________________________
+//

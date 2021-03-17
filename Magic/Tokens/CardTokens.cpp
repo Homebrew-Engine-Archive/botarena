@@ -32,6 +32,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CDragonSpiritToken);
 		DEFINE_TOKEN(CEldraziToken);
 		DEFINE_TOKEN(CElementalQToken);
+		DEFINE_TOKEN(CElementalRToken);
 		DEFINE_TOKEN(CGoblinGToken);
 		DEFINE_TOKEN(CGoblinHToken);
 		DEFINE_TOKEN(CGoblinIToken);
@@ -746,6 +747,26 @@ CTwinToken::CTwinToken(CGame* pGame, UINT nID)
 		Power(0), Life(0))
 {
 // Used by Gemini Engine
+}
+
+//____________________________________________________________________________
+//
+CElementalRToken::CElementalRToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(0), Life(0))
+{
+	AddCardType(CardType::Green | CardType::White, CardType::_ColorMask);
+
+	counted_ptr<CTriggeredChgPwrTghWhenCardPlayedAbility> cpAbility(
+		::CreateObject<CTriggeredChgPwrTghWhenCardPlayedAbility>(this,
+			ZoneId::Battlefield,
+			new AnyCreatureComparer));
+
+	AddAbility(cpAbility.GetPointer());
+
+// Used by Voice of Resurgence
 }
 
 //____________________________________________________________________________

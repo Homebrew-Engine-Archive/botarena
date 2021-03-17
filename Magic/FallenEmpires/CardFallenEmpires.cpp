@@ -52,6 +52,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRainbowValeCard);
 		DEFINE_CARD(CRingOfRenewalCard);
 		DEFINE_CARD(CRiverMerfolkCard);
+		DEFINE_CARD(CSoulExchangeCard);
 		DEFINE_CARD(CSporeFlowerCard);
 		DEFINE_CARD(CSvyelunitePriestCard);
 		DEFINE_CARD(CThallidCard);
@@ -1709,6 +1710,63 @@ void CGoblinKitesCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 
 	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Goblin Kites Effect"), 61068, &pSubjects);
 	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+
+//____________________________________________________________________________
+//
+CSoulExchangeCard::CSoulExchangeCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Soul Exchange"), CardType::Sorcery, nID)
+	, m_CardFilter1(_T("non-Thrull creature"), _T("non-Thrull creatures"), new AnyCreatureComparer)
+	, m_CardFilter2(_T("Thrull creature"), _T("Thrull creatures"), new AnyCreatureComparer)
+{
+	m_CardFilter1.AddNegateComparer(new CreatureTypeComparer(CREATURE_TYPE(Thrull), false));
+	m_CardFilter2.AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Thrull), false));
+
+	{
+		//Non-Thrull
+		counted_ptr<CTargetMoveCardSpell> cpSpell(
+			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Sorcery,
+				BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				new AnyCreatureComparer,
+				ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others));
+
+		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+
+		cpSpell->GetCost().AddExileCardCost(1, &m_CardFilter1);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//Thrull
+		counted_ptr<CTargetSpell> cpSpell(
+			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+				BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				new AnyCreatureComparer, false));
+
+		cpSpell->GetTargeting()->SetIncludeControllerCardsOnly();
+		cpSpell->GetTargeting()->SetSubjectZoneId(ZoneId::Graveyard);
+
+		cpSpell->GetCost().AddExileCardCost(1, &m_CardFilter2);
+
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSoulExchangeCard::BeforeResolution));
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+bool CSoulExchangeCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCard* pTarget = pAction->GetAssociatedCard();
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, TRUE, MoveType::Others, pAction->GetController());
+	pModifier1.ApplyTo(pTarget);
+
+	if (pTarget->IsInplay())
+	{
+		CCardCounterModifier pModifier2 = CCardCounterModifier(_T("+2/+2"), +1);
+		pModifier2.ApplyTo(pTarget);
+	}
+
+	return true;
 }
 
 //____________________________________________________________________________

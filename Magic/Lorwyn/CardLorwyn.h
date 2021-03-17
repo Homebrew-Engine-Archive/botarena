@@ -2552,3 +2552,13 @@ protected:
 
 //______________________________________________________________________________
 //
+class CScatteringStrokeCard : public CCounterSpellCard
+{
+	DECLARE_CARD_CSTOR(CScatteringStrokeCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//

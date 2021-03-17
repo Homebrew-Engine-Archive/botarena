@@ -96,6 +96,7 @@
 #define IDS_STRING5779                  5779
 #define IDS_STRING5780                  5780
 #define IDS_STRING5781                  5781
+#define IDS_STRING5782                  5782
 #define IDI_MODULE                      5819
 #define IDI_LARGE_MODULE                5820
 

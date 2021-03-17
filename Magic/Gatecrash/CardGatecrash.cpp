@@ -362,7 +362,7 @@ CBorosEliteCard::CBorosEliteCard(CGame* pGame, UINT nID)
 	cpAbility->GetLifeModifier().SetLifeDelta(Life(+2));
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -858,7 +858,7 @@ CFiremaneAvengerCard::CFiremaneAvengerCard(CGame* pGame, UINT nID)
 	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(+3), this, PreventableType::NotPreventable));
 	
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -2395,7 +2395,7 @@ CFrontlineMedicCard::CFrontlineMedicCard(CGame* pGame, UINT nID)
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-		cpAbility->SetAbilityName(_T("Batallion ability"));
+		cpAbility->SetAbilityName(_T("Battalion ability"));
 
 		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CFrontlineMedicCard::BeforeResolution));
 
@@ -3546,7 +3546,7 @@ CLegionLoyalistCard::CLegionLoyalistCard(CGame* pGame, UINT nID)
 	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLegionLoyalistCard::BeforeResolution));
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -4763,7 +4763,7 @@ CFirefistStrikerCard::CFirefistStrikerCard(CGame* pGame, UINT nID)
 	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -6100,7 +6100,7 @@ CBioshiftCard::CBioshiftCard(CGame* pGame, UINT nID)
 				GREEN_MANA_TEXT,
 				new AnyCreatureComparer, false,
 				new AnyCreatureComparer, false,
-				_T("")));
+				_T(""), TRUE));
 		ATLASSERT(cpSpell);
 
 		cpSpell->GetTargeting1()->SetIncludeNonControllerCardsOnly();
@@ -6117,7 +6117,7 @@ CBioshiftCard::CBioshiftCard(CGame* pGame, UINT nID)
 				BLUE_MANA_TEXT,
 				new AnyCreatureComparer, false,
 				new AnyCreatureComparer, false,
-				_T("")));
+				_T(""), TRUE));
 		ATLASSERT(cpSpell);
 
 		cpSpell->GetTargeting1()->SetIncludeControllerCardsOnly();
@@ -6134,7 +6134,7 @@ CBioshiftCard::CBioshiftCard(CGame* pGame, UINT nID)
 				BLUE_MANA_TEXT,
 				new AnyCreatureComparer, false,
 				new AnyCreatureComparer, false,
-				_T("")));
+				_T(""), TRUE));
 		ATLASSERT(cpSpell);
 
 		cpSpell->GetTargeting1()->SetIncludeNonControllerCardsOnly();
@@ -6265,7 +6265,7 @@ CBomberCorpsCard::CBomberCorpsCard(CGame* pGame, UINT nID)
 
 	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
 
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -6755,7 +6755,7 @@ CDaringSkyjekCard::CDaringSkyjekCard(CGame* pGame, UINT nID)
  	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -7880,7 +7880,7 @@ bool CMartialGloryCard::BeforeResolution(CAbilityAction* pAction) const
 	if (pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject()->GetCardType().IsCreature())
 			pModifier1->ApplyTo((CCreatureCard*)(pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject()));
 
-	CLifeModifier* pModifier2 = new CLifeModifier(Life(+3), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage);
+	CLifeModifier* pModifier2 = new CLifeModifier(Life(+3), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	if (pDoubleTargetAction->GetTargetGroup2().GetFirstCardSubject()->GetCardType().IsCreature())
 			pModifier2->ApplyTo((CCreatureCard*)(pDoubleTargetAction->GetTargetGroup2().GetFirstCardSubject()));
 
@@ -8397,7 +8397,7 @@ CNavSquadCommandosCard::CNavSquadCommandosCard(CGame* pGame, UINT nID)
 	cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardOrientationModifier(FALSE));
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -8506,7 +8506,7 @@ COrdruunVeteranCard::COrdruunVeteranCard(CGame* pGame, UINT nID)
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -10291,7 +10291,7 @@ CWarmindInfantryCard::CWarmindInfantryCard(CGame* pGame, UINT nID)
 	cpAbility->GetPowerModifier().SetPowerDelta(Power(+2));
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -10419,7 +10419,7 @@ CWojekHalberdiersCard::CWojekHalberdiersCard(CGame* pGame, UINT nID)
  	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-	cpAbility->SetAbilityName(_T("Batallion ability"));
+	cpAbility->SetAbilityName(_T("Battalion ability"));
 
 	AddAbility(cpAbility.GetPointer());
 }

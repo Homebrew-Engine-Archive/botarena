@@ -1829,11 +1829,11 @@ CBestialMenaceCard::CBestialMenaceCard(CGame* pGame, UINT nID)
 	counted_ptr<CTokenProductionSpell> cpSpell(
 		::CreateObject<CTokenProductionSpell>(this, AbilityType::Sorcery,
 			_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT,
-			_T("Snake C"), 2703,
+			_T("Elephant A"), 2771,
 			1));
 		
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Snake C"), 2703, 1));
 	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Wolf F"), 2952, 1));
-	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Elephant A"), 2771, 1));
 
 	AddSpell(cpSpell.GetPointer());
 }

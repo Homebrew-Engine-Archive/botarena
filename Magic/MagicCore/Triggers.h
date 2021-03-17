@@ -736,6 +736,58 @@ private:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CWhenOrientationChangedAny
+{
+public:
+	typedef FastDelegate< void ( CCard*, Orientation, Orientation ) > EventCallback;
+
+	CWhenOrientationChangedAny(CCard* pCard);
+	virtual ~CWhenOrientationChangedAny() {}
+
+	void SetEventCallback(EventCallback callback)
+	{
+		m_Callback = callback;
+	}
+
+	void SetZoneId(ZoneId zoneId)							{ m_ZoneId = zoneId; }	// Default: In-play
+	void SetFromOrientation(Orientation fromOrientation)	{ m_FromOrientation = fromOrientation; }	// Default: all
+	void SetToOrientation(Orientation toOrientation)		{ m_ToOrientation = toOrientation; }		// Default: all
+
+	void SetThisIsUntappedOnly(BOOL bUntappedOnly)			{ m_bThisIsUntappedOnly = bUntappedOnly; }
+	void SetMonitorControllerOnly(BOOL bControllerOnly)		{ m_bMonitorControllerOnly = bControllerOnly; }
+	void SetMonitorOpponentsOnly(BOOL bOpponentsOnly)		{ m_bMonitorOpponentsOnly = bOpponentsOnly; }
+
+	CCardFilterHelper& GetCardFilterHelper()				{ return m_CardFilterHelper; }
+	const CCardFilterHelper& GetCardFilterHelper() const	{ return m_CardFilterHelper; }
+
+	CString GetTriggeredHint(CCard* pCard, Orientation, Orientation) const;
+
+private:
+	void OnOrientationChanged(CCard* pCard, Orientation fromOrientation, Orientation toOrientation);
+
+	void OnEnterInplay(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	void OnLeaveInplay(CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+
+	CWhenSelfInplay m_WhenInplay;
+
+	CCardFilterHelper m_CardFilterHelper;
+
+	EventCallback m_Callback;
+
+	ListenerPtr<CardOrientationEventSource::Listener>	m_cpOListener;	// Listen to orientation changes
+
+	ZoneId	m_ZoneId;
+	Orientation	m_FromOrientation;
+	Orientation	m_ToOrientation;
+	BOOL	m_bMonitorControllerOnly;
+	BOOL	m_bMonitorOpponentsOnly;
+	BOOL	m_bThisIsUntappedOnly;
+
+	CCard*	m_pCard;
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CWhenTappedForMana
 {
 public:

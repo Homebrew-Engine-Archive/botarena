@@ -2633,7 +2633,7 @@ CSaltskitterCard::CSaltskitterCard(CGame* pGame, UINT nID)
 			&CSaltskitterCard::OnResolutionCompleted1))
 {
 	typedef
-		TTriggeredAbility< CTriggeredMoveCardAbility, CWhenCardMoved > TriggeredAbility;
+		TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(
 		::CreateObject<TriggeredAbility>(this, ZoneId::_AllZones, ZoneId::Battlefield));
@@ -2646,24 +2646,25 @@ CSaltskitterCard::CSaltskitterCard(CGame* pGame, UINT nID)
 
 	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 
-	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
-	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Battlefield);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
-	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
-
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Exile));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Exile, ZoneId::Battlefield));
 
 	AddAbility(cpAbility.GetPointer());
 }
 
 void CSaltskitterCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
+	if (!IsInplay()) return;
+
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAbilityAction->GetController());
+	pModifier1.ApplyTo(this);
+
 	CCountedCardContainer pSubjects;
 	if (GetZoneId() == ZoneId::Exile)
 		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
-	pModifier.ApplyTo(pAbilityAction->GetController());
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier2.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -6013,8 +6014,13 @@ void CPhosphorescentFeastCard::Finale(CPlayer* pController)
 				if (pCard->GetPrintedCardName() == _T("Reaper King")) p = p + 1;
 				if (pCard->GetPrintedCardName() == _T("Assault // Battery")) p = p + 1;
 				if (pCard->GetPrintedCardName() == _T("Illusion // Reality")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Pure // Simple")) p = p + 1;
 				if (pCard->GetPrintedCardName() == _T("Bound // Determined")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Crime // Punishment")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Hit // Run")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Pure // Simple")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Armed // Dangerous")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Down // Dirty")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Flesh // Blood")) p = p + 1;
 				if (pCard->GetPrintedCardName() == _T("Who/What/When/Where/Why")) p = p + 1;
 			}
 		}

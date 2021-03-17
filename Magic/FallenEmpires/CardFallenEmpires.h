@@ -424,3 +424,15 @@ protected:
 
 //____________________________________________________________________________
 //
+class CSoulExchangeCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSoulExchangeCard);
+
+protected:
+	CCardFilter m_CardFilter1;
+	CCardFilter m_CardFilter2;
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

@@ -217,6 +217,245 @@ protected:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CDblConditionEnchantment : public CSpell
+{
+protected:
+	CDblConditionEnchantment(CCard* pCard, LPCTSTR strManaCost,
+				 CardComparer* pComparer);	// Primary enchantment
+
+	CDblConditionEnchantment(CCard* pCard, AbilityType abilityType,	// Until EOT spell (call SetToActivatedAbility() to use as Until EOT ability)
+				 LPCTSTR strManaCost,
+				 CardComparer* pComparer);
+
+	CDblConditionEnchantment(CCard* pCard,
+				 CardComparer* pComparer);	// Secondary enchantment
+
+	virtual ~CDblConditionEnchantment();
+
+public:
+	// General settings
+
+	const CCardFilter& GetEnchantmentCardFilter() const	{ return m_EnchantmentCardFilter; }
+	CCardFilter& GetEnchantmentCardFilter()				{ return m_EnchantmentCardFilter; }
+
+	OVERRIDE(void, SetToActivatedAbility)();		// Change Until EOT spell to Until EOT activated ability
+	void SetDisableWhenTapped();					// Set to artifact style (use only with the first cstr type (in-play))
+	void SetDisableWhenUntapped();					// Needed for Centaur Omenreader
+
+	void SetCertainCountersActivation()							{ m_SelfCounterTracking = TRUE; }
+	const CCardFilter& GetActivationCardFilter() const	{ return m_thisActivationCardFilter; }
+	CCardFilter& GetActivationCardFilter()				{ return m_thisActivationCardFilter; }
+
+	void SetNotifyWhenControlSwitched(BOOL bNotify)	{ m_bNotifyWhenControlSwitched = bNotify; } // Default: TRUE
+
+	// Player settings
+
+	void SetAffectPlayers()							{ m_bAffectPlayers = TRUE; }
+	void SetAffectControllerOnly()					{ m_bAffectPlayers = TRUE; m_bAffectControllerOnly = TRUE; m_bAffectOpponentsOnly = FALSE; m_pAffectThisPlayerOnly = NULL; }
+	void SetAffectOpponentsOnly()					{ m_bAffectPlayers = TRUE; m_bAffectOpponentsOnly = TRUE; m_bAffectControllerOnly = FALSE; m_pAffectThisPlayerOnly = NULL; }
+	void SetAffectThisPlayerOnly(CPlayer* pPlayer)	{ m_bAffectPlayers = TRUE; m_bAffectOpponentsOnly = FALSE; m_bAffectControllerOnly = FALSE; m_pAffectThisPlayerOnly = pPlayer; }
+
+	// Card settings
+
+	void SetAffectControllerCardsOnly();
+	void SetAffectOpponentCardsOnly();
+	void SetExceptParent();						// Added: 4/22/2001
+
+	VIRTUAL(void, SetAffectTappedOnly)();
+	VIRTUAL(void, SetAffectUntappedOnly)();
+
+	void SetAffectCardsInTheseZones(ZoneId zones);
+	void SetEnchantmentActiveIn(ZoneId zones);
+
+	// Condition filters work
+	struct ConditionCheckPlayerType
+	{
+		enum Enum
+		{
+			CheckControllerOnly = 1,
+			CheckOpponentsOnly,
+			CheckAllPlayers,
+			CheckEachPlayer
+		};
+
+		DEFINE_DISTINCT_ENUM_OPS( ConditionCheckPlayerType );
+	};
+	
+	void SetCondition1Work()	{m_Condition1Work=TRUE;}
+	CCardFilter& GetCondition1Filter()				{ return m_Condition1Filter; }
+	void SetCondition1Value(int threshold) {m_Condition1Value = threshold;}
+	void SetCondition1CheckZone(ZoneId zones);
+	void SetCondition1CheckPlayer(ConditionCheckPlayerType::Enum players);
+	void SetCondition1IsMaximum() {m_Condition1IsMaximum=TRUE;}
+	void SetConditio1nCheckLife() {m_Condition1CheckLife=TRUE;}
+
+	void SetCondition2Work()	{m_Condition2Work=TRUE;}
+	CCardFilter& GetCondition2Filter()				{ return m_Condition2Filter; }
+	void SetCondition2Value(int threshold) {m_Condition2Value = threshold;}
+	void SetCondition2CheckZone(ZoneId zones);
+	void SetCondition2CheckPlayer(ConditionCheckPlayerType::Enum players);
+	void SetCondition2IsMaximum() {m_Condition2IsMaximum=TRUE;}
+	void SetCondition2CheckLife() {m_Condition2CheckLife=TRUE;}
+
+	void SetAndCondition() {m_ConditionLogic = 0;}
+	void SetOrCondition() {m_ConditionLogic = 1;}
+
+	bool EvaluateCondition();
+
+	// Others
+
+	OVERRIDE(BOOL, IsPlayable)(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) const;	// 5/6/2001
+	OVERRIDE(CActionContainer*, GetAbilityActions)(BOOL bIncludeTricks, BOOL bSetNames);
+
+	VIRTUAL(Characteristic, GetEnchantmentCharacteristic)() const { return Characteristic::Neutral; }
+
+	void StartEnchantment();		// To support CAbilityEnchant
+	void EndEnchantment();			// To support Brass Herald
+
+protected:
+	struct EnchantmentInternalType
+	{
+		enum Enum
+		{
+			PrimaryEnchantment = 1,
+			SecondaryEnchantment,
+			UntilEOTSpell,
+			UntilEOTActivatedAbility
+		};
+
+		DEFINE_DISTINCT_ENUM_OPS( EnchantmentInternalType );
+	};
+
+	struct EventSourceType
+	{
+		enum Enum
+		{
+			CardMovement = 1,
+		};
+
+		DEFINE_DISTINCT_ENUM_OPS(EventSourceType);
+	};
+
+	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
+
+	VIRTUAL(BOOL, IsCardAffected)(const CCard* pCard) const;
+	VIRTUAL(BOOL, IsPlayerAffected)(const CPlayer* pPlayer) const;
+
+	VIRTUAL(void, OnEnchantPlayer)(CPlayer* pPlayer, ContextValue& contextValue) {};		// Override
+	VIRTUAL(void, OnEnchantCard)(CCard* pCard, ContextValue& contextValue) {};			//	"
+	VIRTUAL(void, OnDisenchantPlayer)(CPlayer* pPlayer, const ContextValue& contextValue) {};	//	"
+	VIRTUAL(void, OnDisenchantCard)(CCard* pCard, const ContextValue& contextValue) {};		//	"
+
+	VIRTUAL(void, ListenToCardEventSources)(CCard* pCard);						//	"
+	VIRTUAL(void, RemoveListenToCardEventSources)(CCard* pCard);						//	"
+
+	VIRTUAL(BOOL, OnEnchantmentStarted)(BOOL bNotify);							//  " (ref: Engineered Plague)
+	VIRTUAL(void, OnEnchantmentEnded)(BOOL bNotify);								// Override (not common)
+
+	VIRTUAL(void, OnZoneChanged) (CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	void OnNodeChanged(CNode* pToNode);
+	void OnOrientationChanged(COrientation* pOrientation, Orientation fromOrientation, Orientation toOrientation);
+	void OnSelfCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);
+
+	void OnCardZoneChangedActive(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	void OnCardIsAlsoAChangedActive(CCard* pCard, CCard* pPreviousIsAlsoA, CCard* pIsAlsoA) ;
+
+	void OnCardZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	void OnCardOrientationChanged(COrientation* pOrientation, Orientation fromOrientation, Orientation toOrientation); // { CheckCard(pOrientation->GetCard()); }
+	void OnCardTypeChanged(CCard* pCard, CardType fromCardType, CardType toCardType); // { CheckCard(pCard); } // to support Crusade	
+	void OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value);// { CheckCard(pFromCard); } // to support Bramblwood Paragon	
+	void OnCardIsAlsoAChanged(CCard* pCard, CCard* pPreviousIsAlsoA, CCard* pIsAlsoA) ;
+	void OnLifeChanged(CPlayer* pPlayer, Life nFromLife, Life nToLife) ;
+	/*{
+		if (pIsAlsoA)
+			CheckCard(pIsAlsoA); 
+	}*/
+
+	BOOL OnEnchantmentStartedImpl(BOOL bNotify);
+	void OnEnchantmentEndedImpl(BOOL bNotify);
+
+	VIRTUAL(void,CheckCard)(CCard* pCard);
+
+	void SetTappedOnly()
+	{
+		ATLASSERT(false);	// Use SetAffectTappedOnly()
+		m_EnchantmentCardFilter.AddComparer(new TappedComparer());
+	}
+
+	void SetUntappedOnly()
+	{
+		ATLASSERT(false);	// Use SetAffectUntappedOnly()
+		m_EnchantmentCardFilter.AddComparer(new UntappedComparer());
+	}
+
+	EnchantmentInternalType m_Type;
+
+	CCardFilter		m_EnchantmentCardFilter;
+
+	BOOL			m_bDisableWhenTapped;
+	BOOL			m_bDisableWhenUntapped;
+	StringArray		m_ListenToEventSources;
+	BOOL			m_bAffectPlayers;
+	BOOL			m_bAffectControllerOnly;
+	BOOL			m_bAffectOpponentsOnly;
+	ZoneId			m_AffectCardsInTheseZones;
+	CPlayer*		m_pAffectThisPlayerOnly;
+	BOOL			m_bAffectByOrientation;
+	BOOL			m_bNotifyWhenControlSwitched;	
+	BOOL            m_SelfCounterTracking;
+	CCardFilter		m_thisActivationCardFilter;
+
+	// Condition work
+	BOOL            m_Condition1Work;
+	CCardFilter     m_Condition1Filter;
+	int_            m_Condition1Value;
+	ZoneId          m_Condition1CheckZone;
+	BOOL			m_Condition1IsMaximum;
+	BOOL			m_Condition1CheckLife;
+	BOOL            m_Condition1Active;
+	ConditionCheckPlayerType m_Condition1CheckPlayer;
+
+	BOOL            m_Condition2Work;
+	CCardFilter     m_Condition2Filter;
+	int_            m_Condition2Value;
+	ZoneId          m_Condition2CheckZone;
+	BOOL			m_Condition2IsMaximum;
+	BOOL			m_Condition2CheckLife;
+	BOOL            m_Condition2Active;
+	ConditionCheckPlayerType m_Condition2CheckPlayer;
+
+	int_			m_ConditionLogic;
+
+	ZoneId          m_ActiveIn;
+	
+	// State managed
+
+	CPtrContainer_<CCard>	m_AffectedCards;
+	CPtrContainer_<CPlayer>	m_AffectedPlayers;
+
+	CContextValueContainer_	m_AffectedCardContexts;
+	CContextValueContainer_	m_AffectedPlayerContexts;
+
+	BOOL_											m_bInEffect;
+
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpAListener;	// Listen to this card's zone changes
+	ListenerPtr<ChangeNodeEventSource::Listener>	m_cpNListener;	// Listen to node changes; for bAsTurnGlobalSpell only
+	ListenerPtr<COrientation::Listener>				m_cpOListener;	// Listen to this card's orientation changes
+	ListenerPtr<CounterMovedEventSource::Listener>  m_cpCListener;  // Listen to this card's counter changes
+
+	ListenerPtr<CardTypeEventSource::Listener>		m_cpCardTypeListener;	// Listen to cards' card type changed (to support Crusade)
+	ListenerPtr<CounterMovedEventSource::Listener>	m_cpCounterMovedListener;	// Listen to cards' counters amout changed (to support Bramblewood Paragon)
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpCardZoneListener;	// Listen to all card's zone changes
+	ListenerPtr<CardIsAlsoAEventSource::Listener>	m_cpCardIsAlsoAListener; // Listen to is-also-a card changes
+	ListenerPtr<COrientation::Listener>				m_cpCardOrientationListener;
+
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpActiveCardZoneListener;	// Listen to all card's zone changes
+	ListenerPtr<CardIsAlsoAEventSource::Listener>	m_cpActiveCardIsAlsoAListener; // Listen to is-also-a card changes
+	ListenerPtr<ChangeLifeEventSource::Listener>	m_cpChangeLifeListener; // Listen to life changes
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CCardTypeEnchantment : public CEnchantment
 {											
 	DEFINE_CREATE_TO_CPTR_ONLY;
@@ -397,6 +636,50 @@ protected:
 	BOOL m_bListenToKeywords;
 };
 
+//____________________________________________________________________________
+//
+/*class CORE_EXPORT CDblConditionCreatureEnchantment : public CDblConditionEnchantment	// Ref: Castle
+{				
+protected:
+	CDblConditionCreatureEnchantment(CCard* pCard,
+						 LPCTSTR strManaCost,
+						 CardComparer* pComparer);
+
+	CDblConditionCreatureEnchantment(CCard* pCard, AbilityType abilityType,		// Special bAsTurnGlobalCreatureSpell version
+						 LPCTSTR strManaCost,
+						 CardComparer* pComparer);
+
+	CDblConditionCreatureEnchantment(CCard* pCard,							// As continuous ability, use it on another in-play card
+						 CardComparer* pComparer);
+
+	virtual ~CDblConditionCreatureEnchantment() {}
+
+public:
+	VIRTUAL(void, SetToAttackingOnly)();
+	VIRTUAL(void, SetToBlockingOnly)();
+	VIRTUAL(void, SetToAttackingBlockingOnly)();
+	void SetListenToKeyword() { m_bListenToKeywords = TRUE;};
+
+protected:
+	OVERRIDE(void, ListenToCardEventSources)(CCard* pCard);
+	OVERRIDE(void, RemoveListenToCardEventSources)(CCard* pCard);
+	OVERRIDE(void, OnEnchantmentEnded)(BOOL bNotify);
+
+	void OnAttacked(AttackSubject attacked, CCreatureCard* pCreatureCard);
+	void OnBlocking(CCreatureCard* pCreature, CCreatureCard* pBlockedCreature, int nNewBlockingCount, int nBlockingIndex);
+	void OnCreatureTypeChanged(CCard* pCard);
+	void OnCreatureKeywordChanged(CCreatureKeyword* pCreatureKeyword, CreatureKeyword fromCreatureKeyword, CreatureKeyword toCreatureKeyword);
+
+	ListenerPtr<AttackedPlayerEventSource::Listener>	m_cpAListener;
+	ListenerPtr<BlockedCreatureEventSource::Listener>	m_cpBListener;
+	ListenerPtr<CreatureTypeEventSource::Listener>		m_cpCListener;
+	ListenerPtr<CCreatureKeyword::Listener>			    m_cpCreatureKeywordListener;
+
+	BOOL m_bAffectAttacking;
+	BOOL m_bAffectBlocking;
+	BOOL m_bListenToKeywords;
+};
+*/
 //____________________________________________________________________________
 //
 class CORE_EXPORT CProdExtraManaEnchantment : public CEnchantment	// Ref: Vernal Bloom (Note: This is not implemented as Triggered ability because the all the mana check routines need to know the amount of mana each ability can produce in advance)
@@ -840,6 +1123,62 @@ protected:
 	CCardModifiers m_OtherCardModifiers;
 };
 
+//____________________________________________________________________________
+//
+/*class CORE_EXPORT CDblConditionPwrTghAttrEnchantment : public CDblConditionCreatureEnchantment
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CDblConditionPwrTghAttrEnchantment(CCard* pCard,
+						   LPCTSTR strManaCost,
+						   CardComparer* pComparer,
+						   Power nPowerDelta, Life nLifeDelta,
+						   CreatureKeyword creatureKeywordToAdd = CreatureKeyword::Null);
+
+	CDblConditionPwrTghAttrEnchantment(CCard* pCard, AbilityType abilityType,	// Special bAsTurnGlobalCreatureSpell version
+						   LPCTSTR strManaCost,
+						   CardComparer* pComparer,
+						   Power nPowerDelta, Life nLifeDelta,
+						   CreatureKeyword creatureKeywordToAdd = CreatureKeyword::Null);
+
+	CDblConditionPwrTghAttrEnchantment(CCard* pCard,						// As continuous ability, use it on another in-play card
+						   CardComparer* pComparer,
+						   Power nPowerDelta, Life nLifeDelta,
+						   CreatureKeyword creatureKeywordToAdd = CreatureKeyword::Null);
+
+	virtual ~CDblConditionPwrTghAttrEnchantment() {}
+
+public:
+	CLifeModifier& GetLifeModifier() { return m_LifeModifier; }
+	CPowerModifier& GetPowerModifier() { return m_PowerModifier; }
+
+	const CLifeModifier& GetLifeModifier() const { return m_LifeModifier; }
+	const CPowerModifier& GetPowerModifier() const { return m_PowerModifier; }
+
+	const CCreatureKeywordModifier& GetCreatureKeywordMod() const { return m_CreatureKeywordModifier; }
+	const CCardKeywordModifier& GetCardKeywordMod() const { return m_CardKeywordModifier; }
+
+	CCreatureKeywordModifier& GetCreatureKeywordMod() { return m_CreatureKeywordModifier; }
+	CCardKeywordModifier& GetCardKeywordMod() { return m_CardKeywordModifier; }
+
+	CCardModifiers& GetOtherCardModifiers() { return m_OtherCardModifiers; }
+	const CCardModifiers& GetOtherCardModifiers() const { return m_OtherCardModifiers; }
+
+protected:
+	OVERRIDE(Characteristic, GetEnchantmentCharacteristic)() const;
+
+	OVERRIDE(void, OnEnchantCard)(CCard* pCard, ContextValue& contextValue);
+	OVERRIDE(void, OnDisenchantCard)(CCard* pCard, const ContextValue& contextValue);
+
+	CLifeModifier	m_LifeModifier;
+	CPowerModifier	m_PowerModifier;
+	CCreatureKeywordModifier m_CreatureKeywordModifier;
+	CCardKeywordModifier m_CardKeywordModifier;
+
+	CCardModifiers m_OtherCardModifiers;
+};
+*/
 //____________________________________________________________________________
 //
 class CORE_EXPORT CPwrTghAttrEnchantmentCount : public CCreatureEnchantment

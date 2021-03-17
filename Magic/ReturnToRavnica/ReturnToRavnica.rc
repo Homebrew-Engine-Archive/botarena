@@ -211,7 +211,7 @@ BEGIN
     IDS_STRING25201         "Psychic Spiral\n{4U}\nInstant\nRTR,U\nShuffle all cards from your graveyard into your library. Target player puts that many cards from the top of his or her library into his or her graveyard."
     IDS_STRING25202         "Ultimate Price\n{1B}\nInstant\nRTR,U\nDestroy target monocolored creature."
     IDS_STRING25203         "Golgari Decoy\n{3G}\nCreature - Elf Rogue\nRTR,U\nAll creatures able to block Golgari Decoy do so.\rScavenge {3GG}\n2/2"
-    IDS_STRING25204         "Blistercoil Weird\n{I}\nCreature - Weird\nRTR,U\nWhenever you cast an instant or sorcery spell, Blistercoil Weird gets +2/+2 until end of turn. Untap it.\n1/1"
+    IDS_STRING25204         "Blistercoil Weird\n{I}\nCreature - Weird\nRTR,U\nWhenever you cast an instant or sorcery spell, Blistercoil Weird gets +1/+1 until end of turn. Untap it.\n1/1"
     IDS_STRING25205         "Rakdos Charm\n{BR}\nInstant\nRTR,U\nChoose one - Exile all cards from target player's graveyard; or destroy target artifact; or each creature deals 1 damage to its controller."
     IDS_STRING25206         "Arrest\n{2W}\nEnchantment - Aura\nRTR,U\nEnchant creature\rEnchanted creature can't attack or block, and its activated abilities can't be activated."
     IDS_STRING25207         "Cancel\n{1UU}\nInstant\nRTR,C\nCounter target spell."

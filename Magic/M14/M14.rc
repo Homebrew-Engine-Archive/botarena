@@ -1,0 +1,131 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "M14.ico"
+IDI_LARGE_MODULE        ICON                    "M14Large.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Magic 2014"
+    IDS_EXPANSION_ABBREV    "M14"
+    IDS_FIRST_CARD          "25900"
+    IDS_TOTAL_CARD          "249"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "25898"
+    IDS_MODULE_LARGE_ICON_ID "25899"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "29-07-2013"
+    IDS_MWS_FOLDER          "MWS\\M14\\"
+    IDS_PRODUCT_LIST        """Magic 2014 Starter Box"":R-3:U-10:C-32:BL-30,""Magic 2014 Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25900         "Forest\n\nBasic Land - Forest\nM14,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25901         "Forest\n\nBasic Land - Forest\nM14,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25902         "Forest\n\nBasic Land - Forest\nM14,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING25903         "Forest\n\nBasic Land - Forest\nM14,BL\n{T}: Add {G} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING25904         "Island\n\nBasic Land - Island\nM14,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25905         "Island\n\nBasic Land - Island\nM14,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25906         "Island\n\nBasic Land - Island\nM14,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25907         "Island\n\nBasic Land - Island\nM14,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING25908         "Mountain\n\nBasic Land - Mountain\nM14,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25909         "Mountain\n\nBasic Land - Mountain\nM14,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25910         "Mountain\n\nBasic Land - Mountain\nM14,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25911         "Mountain\n\nBasic Land - Mountain\nM14,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING25912         "Plains\n\nBasic Land - Plains\nM14,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25913         "Plains\n\nBasic Land - Plains\nM14,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25914         "Plains\n\nBasic Land - Plains\nM14,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25915         "Plains\n\nBasic Land - Plains\nM14,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING25916         "Swamp\n\nBasic Land - Swamp\nM14,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25917         "Swamp\n\nBasic Land - Swamp\nM14,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25918         "Swamp\n\nBasic Land - Swamp\nM14,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING25919         "Swamp\n\nBasic Land - Swamp\nM14,BL\n{T}: Add {B} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+	IDS_STRING25920         "Kalonian Tusker\n{GG}\nCreature - Beast\nM14,U\n\n3/3"
+	IDS_STRING25921         "Shadowborn Demon\n{3BB}\nCreature - Demon\nM14,MR\nFlying\rWhen Shadowborn Demon enters the battlefield, destroy target non-Demon creature.\rAt the beginning of your upkeep, if there are fewer than six creature cards in your graveyard, sacrifice a creature.\n5/6"
+	IDS_STRING25922         "Shadowborn Apostle\n{B}\nCreature - Human Cleric\nM14,C\nA deck can have any number of cards named Shadowborn Apostle.\r{B}, Sacrifice six creatures named Shadowborn Apostle: Search your library for a Demon creature card and put it onto the battlefield. Then shuffle your library.\n1/1"
+	IDS_STRING25923         "Staff of the Wild Magus\n{3}\nArtifact\nM14,U\nWhenever you cast a green spell or a Forest enters the battlefield under your control, you gain 1 life."
+	IDS_STRING25924         "Regathan Firecat\n{2R}\nCreature - Elemental Cat\nM14,C\n\n4/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

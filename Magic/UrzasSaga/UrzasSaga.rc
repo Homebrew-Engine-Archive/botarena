@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+#include "afxres.h"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -454,7 +453,7 @@ BEGIN
     IDS_STRING11100         "Chimeric Staff\n{4}\nArtifact\nUSG,R\n{X}: Chimeric Staff becomes an X/X Construct artifact creature until end of turn."
     IDS_STRING11101         "Electryte\n{3RR}\nCreature - Beast\nUSG,R\nWhenever Electryte deals combat damage to defending player, it deals damage equal to its power to each blocking creature.\n3/3"
     IDS_STRING11102         "Lifeline\n{5}\nArtifact\nUSG,R\nWhenever a creature dies, if another creature is on the battlefield, return the first card to the battlefield under its owner's control at the beginning of the next end step."
-    //IDS_STRING11095         "Lilting Refrain\n{1U}\nEnchantment\nUSG,U\nAt the beginning of your upkeep, you may put a verse counter on Lilting Refrain.\rSacrifice Lilting Refrain: Counter target spell unless its controller pays {X}, where X is the number of verse counters on Lilting Refrain."
+    IDS_STRING11103         "Curfew\n{U}\nInstant\nUSG,C\nEach player returns a creature he or she controls to its owner's hand."
 END
 
 #endif    // English (United States) resources
@@ -467,8 +466,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-
+#include "..\MagicCore\MagicCore.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

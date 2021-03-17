@@ -2635,11 +2635,9 @@ CGhostCouncilOfOrzhovaCard::CGhostCouncilOfOrzhovaCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 	{
-		counted_ptr<CActivatedAbility<CGlobalMoveCardSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CGlobalMoveCardSpell>>(this,
-				_T("1"),
-				new SpecificCardComparer(this),
-				ZoneId::Exile, TRUE, MoveType::Others));
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("1")));
 		ATLASSERT(cpAbility);
 
 		cpAbility->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("creatures")));
@@ -2652,13 +2650,17 @@ CGhostCouncilOfOrzhovaCard::CGhostCouncilOfOrzhovaCard(CGame* pGame, UINT nID)
 
 void CGhostCouncilOfOrzhovaCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCountedCardContainer pSubjects;
+	if (!IsInplay()) return;
 
+	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAbilityAction->GetController());
+	pModifier1.ApplyTo(this);
+
+	CCountedCardContainer pSubjects;
 	if (GetZoneId() == ZoneId::Exile)
 		pSubjects.AddCard(this, CardPlacement::Top);
 
-	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
-	pModifier.ApplyTo(pAbilityAction->GetController());
+	CContainerEffectModifier pModifier2 = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier2.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________

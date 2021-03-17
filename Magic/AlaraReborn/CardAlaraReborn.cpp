@@ -4806,10 +4806,13 @@ void CSpellboundDragonCard::OnCardSelected(const std::vector<SelectionEntry>& se
 			}
 			CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Hand, ZoneId::Graveyard, TRUE, MoveType::Discard, pSelectionPlayer);
 			int nCMC = pCard->GetConvertedManaCost();
-			CPowerModifier pModifier2 = CPowerModifier(Power(nCMC));
-
 			pModifier1.ApplyTo(pCard);
-			pModifier2.ApplyTo(this);
+
+			if (nCMC > 0)
+			{
+				CPowerModifier pModifier2 = CPowerModifier(Power(nCMC));
+				pModifier2.ApplyTo(this);
+			}
 				
 			return;
 		}

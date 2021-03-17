@@ -2896,14 +2896,8 @@ bool CManaDrainCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	DWORD nCMC = pAction->GetAssociatedCard()->GetConvertedManaCost();
 
-	CScheduledPlayerModifier* pModifier = new CScheduledPlayerModifier(GetGame(),
-		new CManaPoolModifier(CManaPoolModifier::Operation::Add, CManaPool::CManaPool(CManaPoolBase::Color::Colorless, nCMC)),
-		TurnNumberDelta(-1), NodeId::MainPhaseStep, 
-		CScheduledPlayerModifier::Operation::ApplyToLater,
-		CScheduledPlayerModifier::DeltaOption::CustomPlayerTurn,
-		pAction->GetController());
-
-	pModifier->ApplyTo(pAction->GetController());
+	CNumberEffectModifier pModifier = CNumberEffectModifier(GetGame(), _T("Mana Drain Effect"), 61120, nCMC);
+	pModifier.ApplyTo(pAction->GetController());
 	
 	return true;
 }

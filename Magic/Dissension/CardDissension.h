@@ -287,6 +287,9 @@ class CSoulswornJuryCard : public CCreatureCard
 class CStoicEphemeraCard : public CFlyingCreatureCard 
 {
 	DECLARE_CARD_CSTOR(CStoicEphemeraCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1391,5 +1394,27 @@ protected:
 	bool BeforeResolution(CAbilityAction* pAction);
 };
 
+//____________________________________________________________________________
+//
+class CUtopiaSprawlCard : public CCard
+{
+       DECLARE_CARD_CSTOR(CUtopiaSprawlCard);
+
+private:
+       typedef
+               TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenSelfTappedForMana > TriggeredAbility;
+       bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,
+               const CManaProductionAbilityAction* pManaAction) const;
+       TriggeredAbility* m_pTriggeredAbility;
+
+       OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType,
+               CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
+       VIRTUAL(void, OnSelectionDone)(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+       CSelectionSupport m_Selection;
+
+       counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
+
+       int_ nColor;
+};
 //____________________________________________________________________________
 //

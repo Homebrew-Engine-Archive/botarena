@@ -887,6 +887,11 @@ protected:
 class CWarrenWeirdingCard : public CTribalCard
 {
 	DECLARE_CARD_CSTOR(CWarrenWeirdingCard);
+
+protected:
+	CSelectionSupport m_CardSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

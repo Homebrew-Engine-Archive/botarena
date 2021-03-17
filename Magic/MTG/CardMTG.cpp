@@ -3229,7 +3229,7 @@ CKnightDToken::CKnightDToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddVigilance(FALSE);
 
-// Used by Knightly Valor, Security Blockade, Selesnya Charm, Knight Watch
+// Used by Knightly Valor, Security Blockade, Selesnya Charm, Knight Watch, Sunspire Gatekeepers, Trostani's Summoner
 }
 
 //____________________________________________________________________________
@@ -3257,7 +3257,7 @@ CWurmFToken::CWurmFToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddTrample(FALSE);
 
-// Used by Armada Wurm, Worldspine Wurm
+// Used by Armada Wurm, Worldspine Wurm, Advent of the Wurm
 }
 
 //____________________________________________________________________________
@@ -3272,7 +3272,7 @@ CRhinoToken::CRhinoToken(CGame* pGame, UINT nID)
 
 	GetCreatureKeyword()->AddTrample(FALSE);
 
-// Used by Master of the Wild Hunt Avatar, Horncaller's Chant
+// Used by Master of the Wild Hunt Avatar, Horncaller's Chant, Trostani's Summoner
 }
 
 //____________________________________________________________________________
@@ -3547,7 +3547,7 @@ CBirdGToken::CBirdGToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::White, CardType::_ColorMask);
 
 	GetCreatureKeyword()->AddFlying(FALSE);
-// RTR version; used by Eyes in the Skies and Seller of Songbirds
+// RTR version; used by Eyes in the Skies, Seller of Songbirds, Beck//Call, Scion of Vitu-Ghazi
 }
 
 //____________________________________________________________________________
@@ -3704,7 +3704,7 @@ CCentaurAToken::CCentaurAToken(CGame* pGame, UINT nID)
 {
 	AddCardType(CardType::Green, CardType::_ColorMask);
 
-// RTR version; used by Call of the Conclave, Centaur's Herald, Coursers' Accord and Vitu-Ghazi Guildmage
+// RTR version; used by Call of the Conclave, Centaur's Herald, Coursers' Accord, Vitu-Ghazi Guildmage, Alive//Well, Trostani's Summoner
 }
 
 //____________________________________________________________________________

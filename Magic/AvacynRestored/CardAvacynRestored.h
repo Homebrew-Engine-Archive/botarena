@@ -1293,9 +1293,11 @@ class CVexingDevilCard : public CCreatureCard
 protected:
 	CSelectionSupport m_PunisherSelection;
 	bool BeforeResolution(CAbilityAction* pAction);
-	void PunisherFunction(int PlayerID);
-	void Advance(int PlayerID);
+	void PunisherFunction(int PlayerID, CPlayer* pController);
+	void Advance(int PlayerID, CPlayer* pController);
 	void OnPunisherSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+
+	BOOL_ bSomeonePaid;
 };
 
 //______________________________________________________________________________
@@ -1945,9 +1947,10 @@ class CGhostlyFlickerCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CGhostlyFlickerCard);
 
-protected:	
+//Old Code
+/*protected:	
 	counted_ptr<CTargetSpell> m_pTargetSpell;
-	bool BeforeResolution(CAbilityAction* pAction);
+	bool BeforeResolution(CAbilityAction* pAction);*/
 };
 
 //____________________________________________________________________________
