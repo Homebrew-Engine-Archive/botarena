@@ -3129,9 +3129,8 @@ CSpikeCannibalCard::CSpikeCannibalCard(CGame* pGame, UINT nID)
 
 bool CSpikeCannibalCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
-
-	if (!IsInplay() || GetCardKeyword()->HasCantGetCounters()) return false;
+	if (!IsInplay() || GetCardKeyword()->HasCantGetCounters()) 
+		return false;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{

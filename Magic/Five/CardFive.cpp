@@ -4283,16 +4283,17 @@ bool CGameOfChaosCard::BeforeResolution (CAbilityAction* pAction)
 	return true;
 }
 
-void CGameOfChaosCard::FlipFunction (CPlayer* pController, CPlayer* pTarget)
+void CGameOfChaosCard::FlipFunction(CPlayer* pController, CPlayer* pTarget)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -4400,7 +4401,6 @@ void CGameOfChaosCard::FlipFunction (CPlayer* pController, CPlayer* pTarget)
 void CGameOfChaosCard::OnFlipSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -4494,7 +4494,6 @@ void CGameOfChaosCard::OnFlipSelected(const std::vector<SelectionEntry>& selecti
 void CGameOfChaosCard::OnContinueSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -4555,18 +4554,19 @@ COrcishCaptainCard::COrcishCaptainCard(CGame* pGame, UINT nID)
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool COrcishCaptainCard::BeforeResolution (CAbilityAction* pAction)
+bool COrcishCaptainCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5066,9 +5066,12 @@ bool CBrokenVisageCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Spirit N"), 2717));		
@@ -5216,7 +5219,7 @@ bool CClockworkSteedCard::BeforeResolution(CAbilityAction* pAction)
 	
 	int nCount = 1;
 	int nMultiplier = 0;
-	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
 		nCount <<= nMultiplier;
 	bool bMaxReached = false;
 

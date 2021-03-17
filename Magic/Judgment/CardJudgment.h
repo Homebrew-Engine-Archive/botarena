@@ -595,6 +595,8 @@ class CFuneralPyreCard : public CCard
 class CCabalTherapyCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CCabalTherapyCard);
+protected:
+	CCardFilter m_CardFilter;
 };
 
 //_____________________________________________________________________________
@@ -814,7 +816,7 @@ class CMirarisWakeCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CMirarisWakeCard);
 
-private:
+protected:
 	typedef
 		TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenTappedForMana > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,

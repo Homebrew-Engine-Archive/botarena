@@ -520,7 +520,7 @@ class CDeathCloudCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDeathCloudCard);
 
-private:
+protected:
 	typedef
 			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility3;
 	bool SetTriggerContext1(CTriggeredDiscardCardAbility::TriggerContextType& triggerContext,
@@ -564,13 +564,6 @@ class CSlobadGoblinTinkererCard : public CCreatureCard
 class CDarksteelGargoyleCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDarksteelGargoyleCard);
-};
-
-//____________________________________________________________________________
-//
-class CDarksteelCitadelCard : public CNonbasicLandCard
-{
-	DECLARE_CARD_CSTOR(CDarksteelCitadelCard);
 };
 
 //____________________________________________________________________________

@@ -1029,7 +1029,7 @@ protected:
 
 //____________________________________________________________________________
 //
-class CViciousBetrayalCard : public CChgPwrTghAttrSpellCard
+class CViciousBetrayalCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CViciousBetrayalCard);
 

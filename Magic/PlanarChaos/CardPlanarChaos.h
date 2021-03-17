@@ -936,16 +936,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CUrborgTombOfYawgmothCard : public CNonbasicLandCard
-{
-	DECLARE_CARD_CSTOR(CUrborgTombOfYawgmothCard);
-
-protected:
-	counted_ptr<CAbility> CreateAbility(CCard* pCard);
-};
-
-//____________________________________________________________________________
-//
 class CDormantSliverCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDormantSliverCard);
@@ -1246,7 +1236,7 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 };
 
@@ -1323,13 +1313,13 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 	class CTimecraftingTargeting2 : public CTargeting
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 };
 */

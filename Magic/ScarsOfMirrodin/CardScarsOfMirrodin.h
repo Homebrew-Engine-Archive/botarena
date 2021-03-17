@@ -794,13 +794,6 @@ class CNecrogenCenserCard : public CInPlaySpellCard
 };
 //_____________________________________________________________________________
 //
-class CNecrogenScudderCard : public CFlyingCreatureCard
-{
-	DECLARE_CARD_CSTOR(CNecrogenScudderCard);
-};
-
-//____________________________________________________________________________
-//
 class CRelicPutrescenceCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CRelicPutrescenceCard);
@@ -1104,16 +1097,6 @@ protected:
 };
 //____________________________________________________________________________
 //
-class CGrindclockCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CGrindclockCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction);
-};
-
-//____________________________________________________________________________
-//
 class CGenesisWaveCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CGenesisWaveCard);
@@ -1141,6 +1124,8 @@ class CRevokeExistenceCard : public CTargetMoveCardSpellCard
 class CMemoricideCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMemoricideCard);
+protected:
+	CCardFilter m_CardFilter;
 };
 
 //_____________________________________________________________________________

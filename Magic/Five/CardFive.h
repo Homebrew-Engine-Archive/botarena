@@ -1001,7 +1001,7 @@ class CPoxCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CPoxCard);
 
-private:
+protected:
 	typedef
 			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility3;
 	bool SetTriggerContext1(CTriggeredDiscardCardAbility::TriggerContextType& triggerContext,

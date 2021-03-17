@@ -615,7 +615,7 @@ protected:
 		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool CArtificersHexCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________

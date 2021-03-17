@@ -149,7 +149,7 @@ BEGIN
 	IDS_STRING25755         "Legion's Initiative\n{RW}\nEnchantment\nDGM,MR\nRed creatures you control get +1/+0.\rWhite creatures you control get +0/+1.\r{RW}, Exile Legion's Initiative: Exile all creatures you control. At the beginning of the next combat, return those cards to the battlefield under their owner's control and those creatures gain haste until end of turn."
 	IDS_STRING25756         "Savageborn Hydra\n{XRG}\nCreature - Hydra\nDGM,MR\nDouble strike\rSavageborn Hydra enters the battlefield with X +1/+1 counters on it.\r{1E}: Put a +1/+1 counter on Savageborn Hydra. Activate this ability only any time you could cast a sorcery.\n0/0"
 	IDS_STRING25757         "AliveWell\n{3G} // {W}\nSorcery // Sorcery\nDGM,U\nALIVE: Put a 3/3 green Centaur creature token onto the battlefield.\rWELL: You gain 2 life for each creature you control.\rFuse"
-	IDS_STRING25758         "Deadbridge Chant\n{4BG}\nEnchantment\nDGM,MR\nWhen Deadbridge Chant enters the battlefield, put the top ten cards of your library into your graveyard.\rAt the beginnign of your upkeep, choose a card at random in your graveyard. If it's a creature card, put it onto the battlefield. Otherwise, put it into your hand."
+	IDS_STRING25758         "Deadbridge Chant\n{4BG}\nEnchantment\nDGM,MR\nWhen Deadbridge Chant enters the battlefield, put the top ten cards of your library into your graveyard.\rAt the beginning of your upkeep, choose a card at random in your graveyard. If it's a creature card, put it onto the battlefield. Otherwise, put it into your hand."
 	IDS_STRING25759         "Nivix Cyclops\n{1UR}\nCreature - Cyclops\nDGM,C\nDefender\rWhenever you cast an instant or sorcery spell, Nivix Cyclops gets +3/+0 until end of turn and can attack this turn as though it didn't have defender.\n1/4"
 	IDS_STRING25760         "Warped Physique\n{UB}\nInstant\nDGM,U\nTarget creature gets +X/-X until end of turn, where X is the number of cards in your hand."
 	IDS_STRING25761         "CatchRelease\n{1UR} // {4RW}\nSorcery // Sorcery\nDGM,R\nCATCH: Gain control of target permanent until end of turn. Untap it. It gains haste until end of turn.\rRELEASE: Each player sacrifices an artifact, a creature, an enchantment, a land, and a planeswalker\rFuse"
@@ -246,6 +246,7 @@ BEGIN
     IDS_STRING25832         "Tithe Drinker\n{WB}\nCreature - Vampire\nDGM,C\nLifelink\rExtort\n2/1"
     IDS_STRING25833         "Woodlot Crawler\n{UB}\nCreature - Insect\nDGM,U\nForestwalk, protection from green\n2/1"
 	IDS_STRING25834         "Zhur-Taa Druid\n{RG}\nCreature - Human Druid\nDGM,C\n{T}: Add {G} to your mana pool.\rWhenever you tap Zhur-Taa Druid for mana, it deals 1 damage to each opponent.\n1/1"
+	IDS_STRING25835         "Blaze Commando\n{3RW}\nCreature - Minotaur Soldier\nDRM,U\nWhenever an instant or sorcery spell you control deals damage, put two red and white Soldier creature tokens with haste onto the battlefield.\n5/3"
 END
 
 #endif    // English (United States) resources

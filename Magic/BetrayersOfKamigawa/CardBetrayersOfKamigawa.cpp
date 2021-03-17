@@ -2485,7 +2485,7 @@ CStreamOfConsciousnessCard::CStreamOfConsciousnessCard(CGame* pGame, UINT nID)
 		::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
 			_T("1") BLUE_MANA_TEXT));
 
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpSpell);
 
 		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
@@ -4525,7 +4525,7 @@ void CChiseiHeartOfOceansCard::OnCardSelected(const std::vector<SelectionEntry>&
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s sacrifices"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
+					strMessage.Format(_T("%s sacrifices"), pSelectionPlayer->GetPlayerName());
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),

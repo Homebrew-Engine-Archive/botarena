@@ -1202,6 +1202,8 @@ class CHanabiBlastCard : public CTargetChgLifeSpellCard
 class CCranialExtractionCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CCranialExtractionCard);
+protected:
+	CCardFilter m_CardFilter;
 };
 
 //_____________________________________________________________________________
@@ -1546,7 +1548,7 @@ class CHeartbeatOfSpringCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CHeartbeatOfSpringCard);
 
-private:
+protected:
 	typedef
 		TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenTappedForMana > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,
@@ -1732,7 +1734,7 @@ protected:
 
 //____________________________________________________________________________
 //
-class CDevouringGreedCard : public CTargetChgLifeSpellCard
+class CDevouringGreedCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDevouringGreedCard);
 
@@ -1743,7 +1745,7 @@ protected:
 
 //____________________________________________________________________________
 //
-class CDevouringRageCard : public CChgPwrTghAttrSpellCard
+class CDevouringRageCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDevouringRageCard);
 
@@ -1896,7 +1898,7 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 
 	bool BeforeResolution(CAbilityAction* pAction);

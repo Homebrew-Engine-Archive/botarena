@@ -342,7 +342,7 @@ BEGIN
     IDS_STRING10208         "Sarcomancy\n{B}\nEnchantment\nTMP,R\nWhen Sarcomancy enters the battlefield, put a 2/2 black Zombie creature token onto the battlefield.\rAt the beginning of your upkeep, if there are no Zombies on the battlefield, Sarcomancy deals 1 damage to you."
     IDS_STRING10209         "Precognition\n{4U}\nEnchantment\nTMP,R\nAt the beginning of your upkeep, you may look at the top card of target opponent's library. If you do, you may put that card on the bottom of that player's library."
     IDS_STRING10210         "Repentance\n{2W}\nSorcery\nTMP,U\nTarget creature deals damage to itself equal to its power."
-    IDS_STRING10211         "Broken Fall\n{2G}\nEnchantment\nTMP\nReturn Broken Fall to its owner's hand: Regenerate target creature."
+    IDS_STRING10211         "Broken Fall\n{2G}\nEnchantment\nTMP,C\nReturn Broken Fall to its owner's hand: Regenerate target creature."
     IDS_STRING10212         "Apocalypse\n{2RRR}\nSorcery\nTMP,R\nExile all permanents. You discard your hand."
     IDS_STRING10213         "Armor Sliver\n{2W}\nCreature - Sliver\nTMP,U\nAll Sliver creatures have ""{2}: This creature gets +0/+1 until end of turn.""\n2/2"
     IDS_STRING10214         "Barbed Sliver\n{2R}\nCreature - Sliver\nTMP,U\nAll Sliver creatures have ""{2}: This creature gets +1/+0 until end of turn.""\n2/2"

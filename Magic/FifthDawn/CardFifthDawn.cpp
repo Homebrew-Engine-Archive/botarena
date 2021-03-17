@@ -3973,14 +3973,45 @@ bool CSkullcageCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAc
 //____________________________________________________________________________
 //
 CViciousBetrayalCard::CViciousBetrayalCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrSpellCard(pGame, _T("Vicious Betrayal"), CardType::Sorcery, nID, AbilityType::Sorcery,
-		_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
-		Power(+0), Life(+0),
-		CreatureKeyword::Null, CreatureKeyword::Null,
-		true, PreventableType::NotPreventable)
+	: CCard(pGame, _T("Vicious Betrayal"), CardType::Sorcery, nID)
 {
-	m_pTargetChgPwrTghAttrSpell->GetCost().AddSacrificeCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("creatures")));
-	m_pTargetChgPwrTghAttrSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CViciousBetrayalCard::BeforeResolution));
+	{
+		/*
+			sacrifice X creatures, where X > 0.
+			sample message: 
+				Sacrifice Drudge Skeletons4(1/1), Casts Vicious Betrayal and targets Drudge Skeletons3(1/1)
+			Code functions correctly, however, Message does not mention target creature gains +2/+2 until end of turn.
+		*/
+		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
+		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Sorcery, 
+			_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+			Power(+0), Life(+0),
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE,                                            // bThisTurnOnly->TRUE this turn only
+			PreventableType::NotPreventable));
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("creatures")));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CViciousBetrayalCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		
+		/*
+			sacrifice no creatures, X = 0. 
+			sample message: 
+				Sacrifice no creatures. Casts Vicious Betrayal and targets Drudge Skeletons4(1/1)
+		*/
+		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
+		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Sorcery, 
+			_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+			Power(+0), Life(+0),
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE,                                            // bThisTurnOnly->TRUE this turn only
+			PreventableType::NotPreventable));
+		cpSpell->SetAbilityText(_T("Sacrifice no creatures. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CViciousBetrayalCard::BeforeResolution(CAbilityAction* pAction) const
@@ -4599,7 +4630,6 @@ CFerropedeCard::CFerropedeCard(CGame* pGame, UINT nID)
 
 bool CFerropedeCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCard* pTarget = pAction->GetAssociatedCard();
 	
 	if (!pTarget->GetCounterContainer()->HasAnyCounters())
@@ -4943,8 +4973,8 @@ bool CChimericCoilsCard::BeforeResolution(CAbilityAction* pAction)
 
 	CCreatureCard* pCreature = (CCreatureCard*)GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nValue);
-	pCreature->SetPrintedToughness(nValue);
+	pCreature->SetPrintedPower(Power(nValue));
+	pCreature->SetPrintedToughness(Life(nValue));
 
 	CCountedCardContainer pSubjects;
 

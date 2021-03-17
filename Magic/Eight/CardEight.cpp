@@ -3089,9 +3089,6 @@ CVexingArcanixCard::CVexingArcanixCard(CGame* pGame, UINT nID)
 
 bool CVexingArcanixCard::BeforeResolution(CAbilityAction* pAction)
 {
-	int nCards = pAction->GetCostConfigEntry().GetExtraValue();
-	
-	CPlayer* pController = pAction->GetController();
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 	int nZoneCount = pTarget->GetZoneCount();
 

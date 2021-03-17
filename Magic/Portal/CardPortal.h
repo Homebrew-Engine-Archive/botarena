@@ -595,13 +595,6 @@ class CChargingPaladinCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CChargingRhinoCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CChargingRhinoCard);
-};
-
-//____________________________________________________________________________
-//
 class CCloudSpiritCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCloudSpiritCard);

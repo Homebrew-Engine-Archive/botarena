@@ -303,9 +303,9 @@ BEGIN
     IDS_STRING23498         "Cellar Door\n{2}\nArtifact\nISD,U\n{3}, {T}: Target player puts the bottom card of his or her library into his or her graveyard. If it's a creature card, you put a 2/2 black Zombie creature token onto the battlefield."
     IDS_STRING23499         "Graveyard Shovel\n{2}\nArtifact\nISD,U\n{2}, {T}: Target player exiles a card from his or her graveyard. If it's a creature card, you gain 2 life."
     IDS_STRING23500         "Galvanic Juggernaut\n{4}\nArtifact Creature - Juggernaut\nISD,U\nGalvanic Juggernaut attacks each turn if able.\rGalvanic Juggernaut doesn't untap during your untap step.\rWhenever another creature dies, untap Galvanic Juggernaut.\n5/5"
-    IDS_STRING23501         "Traveler's Amulet\n{1}\nArtifact\nISD\n{1}, Sacrifice Traveler's Amulet: Search your library for a basic land card, reveal it, and put it into your hand. Then shuffle your library."
+    IDS_STRING23501         "Traveler's Amulet\n{1}\nArtifact\nISD,C\n{1}, Sacrifice Traveler's Amulet: Search your library for a basic land card, reveal it, and put it into your hand. Then shuffle your library."
     IDS_STRING23502         "Runechanter's Pike\n{2}\nArtifact - Equipment\nISD,R\nEquipped creature has first strike and gets +X/+0, where X is the number of instant and sorcery cards in your graveyard,\rEquip {2}"
-    IDS_STRING23503         "One-Eyed Scarecrow\n{3}\nArtifact Creature - Scarecrow\nISD\nDefender\rCreatures with flying your opponents control get -1/-0.\n2/3"
+    IDS_STRING23503         "One-Eyed Scarecrow\n{3}\nArtifact Creature - Scarecrow\nISD,C\nDefender\rCreatures with flying your opponents control get -1/-0.\n2/3"
 END
 
 STRINGTABLE
@@ -338,13 +338,13 @@ BEGIN
     IDS_STRING23525         "Ulvenwald Mystics\n{2GG}\nCreature - Human Shaman Werewolf\nISD,U\nAt the beginning of each upkeep, if no spells were cast last turn, transform Ulvenwald Mystics.\n3/3"
     IDS_STRING23526         "Ulvenwald Primordials\n{}\nCreature - Werewolf\nISD,U\n{G}: Regenerate Ulvenwald Primordials.\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Ulvenwald Primordials.\n5/5"
     IDS_STRING23527         "Falkenrath Noble\n{3B}\nCreature - Vampire\nISD,U\nFlying\rWhenever Falkenrath Noble or another creature dies, target player loses 1 life and you gain 1 life.\n2/2"
-    IDS_STRING23528         "Frightful Delusion\n{2U}\nInstant\nISD\nCounter target spell unless its controller pays {1}. That player discards a card."
-    IDS_STRING23529         "Grizzled Outcasts\n{4G}\nCreature - Human Werewolf\nISD\nAt the beginning of each upkeep, if no spells were cast last turn, transform Grizzled Outcasts.\n4/4"
-    IDS_STRING23530         "Krallenhorde Wantons\n{}\nCreature - Werewolf\nISD\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Krallenhorde Wantons.\n7/7"
-    IDS_STRING23531         "Village Ironsmith\n{1R}\nCreature - Human Werewolf\nISD\nFirst strike\rAt the beginning of each upkeep, if no spells were cast last turn, transform Village Ironsmith.\n1/1"
-    IDS_STRING23532         "Ironfang\n{}\nCreature - Werewolf\nISD\nFirst strike\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Ironfang.\n3/1"
-    IDS_STRING23533         "Snapcaster Mage\n{1U}\nCreature - Human Wizard\nISD, R\nFlash\rWhen Snapcaster Mage enters the battlefield, target instant or sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. (You may cast that card from your graveyard for its flashback cost. Then exile it.)\n2/1"
-    IDS_STRING23534         "Tribute to Hunger\n{2B}\nInstant\nISD, U\nTarget opponent sacrifices a creature. You gain life equal to that creature's toughness."
+    IDS_STRING23528         "Frightful Delusion\n{2U}\nInstant\nISD,C\nCounter target spell unless its controller pays {1}. That player discards a card."
+    IDS_STRING23529         "Grizzled Outcasts\n{4G}\nCreature - Human Werewolf\nISD,C\nAt the beginning of each upkeep, if no spells were cast last turn, transform Grizzled Outcasts.\n4/4"
+    IDS_STRING23530         "Krallenhorde Wantons\n{}\nCreature - Werewolf\nISD,C\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Krallenhorde Wantons.\n7/7"
+    IDS_STRING23531         "Village Ironsmith\n{1R}\nCreature - Human Werewolf\nISD,C\nFirst strike\rAt the beginning of each upkeep, if no spells were cast last turn, transform Village Ironsmith.\n1/1"
+    IDS_STRING23532         "Ironfang\n{}\nCreature - Werewolf\nISD,C\nFirst strike\rAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Ironfang.\n3/1"
+    IDS_STRING23533         "Snapcaster Mage\n{1U}\nCreature - Human Wizard\nISD,R\nFlash\rWhen Snapcaster Mage enters the battlefield, target instant or sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. (You may cast that card from your graveyard for its flashback cost. Then exile it.)\n2/1"
+    IDS_STRING23534         "Tribute to Hunger\n{2B}\nInstant\nISD,U\nTarget opponent sacrifices a creature. You gain life equal to that creature's toughness."
     IDS_STRING23535         "Moorland Haunt\n{}\nLand\nISD,R\n{T}: Add {1} to your mana pool.\r{WU}, {T}, Exile a creature card from your graveyard: Put a 1/1 white Spirit creature token with flying onto the battlefield."
 END
 

@@ -92,7 +92,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGolemsHeartCard);
 		DEFINE_CARD(CGraftedExoskeletonCard);
 		DEFINE_CARD(CGraspOfDarknessCard);
-		DEFINE_CARD(CGrindclockCard);
 		DEFINE_CARD(CHaltOrderCard);
 		DEFINE_CARD(CHandofthePraetorsCard);
 		DEFINE_CARD(CHeavyArbalestCard);
@@ -129,7 +128,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMyrPropagatorCard);
 		DEFINE_CARD(CMyrsmithCard);
 		DEFINE_CARD(CNecrogenCenserCard);
-		DEFINE_CARD(CNecrogenScudderCard);
 		DEFINE_CARD(CNecropedeCard);
 		DEFINE_CARD(CNeurokInvisimancerCard);
 		DEFINE_CARD(CNeurokReplicaCard);
@@ -1785,7 +1783,6 @@ bool CShapeAnewCard::BeforeResolution(CAbilityAction* pAction)
 
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 				
 	CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
 
@@ -1797,10 +1794,7 @@ bool CShapeAnewCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->GetCardType().IsArtifact())
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 		}
 	}
 
@@ -1810,14 +1804,14 @@ bool CShapeAnewCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier2 = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier2.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			&m_CardFilter, // any cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,			  // select by 
+			CZoneModifier::RoleType::AllPlayers,			  // reveal to
+			&m_CardFilter,									  // any cards
+			ZoneId::Battlefield,							  // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,			  // select by this player
+			CardPlacement::Top,								  // put selected cards on top
+			MoveType::Others,								  // move type
+			CZoneModifier::RoleType::PrimaryPlayer);		  // order selected cards by this player
 		
 	pModifier2.ApplyTo(pPlayer);
 	pLibrary->Shuffle();
@@ -3304,28 +3298,6 @@ CNecrogenCenserCard::CNecrogenCenserCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CNecrogenScudderCard::CNecrogenScudderCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Necrogen Scudder"), CardType::Creature, CREATURE_TYPE(Horror), nID,
-		_T("2") BLACK_MANA_TEXT, Power(3), Life(3))
-{
-	typedef
-		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetLifeModifier().SetDamageType(DamageType::NotDealingDamage); // life lost
-	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(-3));
-
-	cpAbility->AddAbilityTag(AbilityTag::LifeLost);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CRelicPutrescenceCard::CRelicPutrescenceCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Relic Putrescence"), CardType::EnchantArtifact, nID)
 {
@@ -4521,53 +4493,6 @@ bool CMimicVatCard::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType
 
 //_______________________________________________________________________________________
 //
-CGrindclockCard::CGrindclockCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Grindclock"), CardType::Artifact, nID,
-		_T("2"), AbilityType::Artifact)
-{
-	{
-		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
-			 _T("")));
-		ATLASSERT(cpAbility);
-
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(CHARGE_COUNTER, +1));
-		cpAbility->AddTapCost();
-
-		AddAbility(cpAbility.GetPointer());
-	}
-
-	{
-		counted_ptr<CActivatedAbility<CTargetRevealLibraryCardSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CTargetRevealLibraryCardSpell>>(this,
-				_T(""), 0));
-		ATLASSERT(cpAbility);
-
-		cpAbility->AddTapCost();
-
-		cpAbility->SetRevealCardsToOthers(true);
-		cpAbility->SetReorder(true, ZoneId::Graveyard);
-
-		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGrindclockCard::BeforeResolution));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CGrindclockCard::BeforeResolution(CAbilityAction* pAction)
-{
-	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
-
-	ContextValue Context(pAction->GetValue());
-	Context.nValue1 = GetCounterContainer()->GetCounter(CHARGE_COUNTER)->GetCount();
-
-	pTargetAction->GetTargetGroup().SetValue(pTargetAction->GetTargetGroup().GetFirstPlayerSubject(), const_cast<const ContextValue&>(Context));
-
-	return true;
-}
-
-//____________________________________________________________________________
-//
 CGenesisWaveCard::CGenesisWaveCard(CGame* pGame, UINT nID)
     : CCard(pGame, _T("Genesis Wave"), CardType::Sorcery, nID)
 	, m_CardFilter(new CardTypeComparer(CardType::Artifact | CardType::_Enchantment | CardType::Creature | CardType::_Land | CardType::Planeswalker, false))
@@ -4607,11 +4532,14 @@ CRevokeExistenceCard::CRevokeExistenceCard(CGame* pGame, UINT nID)
 //
 CMemoricideCard::CMemoricideCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Memoricide"), CardType::Sorcery, nID)
+	, m_CardFilter(new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)))
 {
 	counted_ptr<CTargetPlayerDiscardCardNameSpell> cpSpell(
 		::CreateObject<CTargetPlayerDiscardCardNameSpell>(this, AbilityType::Sorcery,
 			_T("3") BLACK_MANA_TEXT,
-			ZoneId::Exile, TRUE, TRUE));
+			ZoneId::Exile, TRUE, 
+			&m_CardFilter,
+			TRUE)); 
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -5989,13 +5917,13 @@ CExsanguinateCard::CExsanguinateCard(CGame* pGame, UINT nID)
 bool CExsanguinateCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	int n = GetLastCastingExtraValue();
-	int LifeGain = 0;
-	int PrevLife = 0;
-	int NewLife = 0;
 	CPlayer* pController = pAction->GetController();
 
 	if (n > 0)
 	{
+		int LifeGain = 0;
+		int PrevLife = 0;
+		int NewLife  = 0;
 		CLifeModifier pModifier1 = CLifeModifier(Life(-n), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
@@ -6196,7 +6124,6 @@ CCerebralEruptionCard::CCerebralEruptionCard(CGame* pGame, UINT nID)
 
 bool CCerebralEruptionCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 
 	if (pTarget->GetZoneById(ZoneId::Library)->GetSize() > 0)

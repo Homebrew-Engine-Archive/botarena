@@ -2,6 +2,13 @@
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Simic Initiate Green (1)
+	Creature — Human Mutant (0/0)
+	Graft 1 (This creature enters the battlefield with a +1/+1 counter on it. 
+	Whenever another creature enters the battlefield, you may move a +1/+1 counter from this creature onto it.)	
+*/
 class CORE_EXPORT CGraftKeyword
 {
 public:
@@ -18,6 +25,13 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Waning Wurm 3B
+	Creature — Zombie Wurm (7/6)
+	Vanishing 2 (This permanent enters the battlefield with two time counters on it. At the beginning 
+	of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)
+*/
 class CORE_EXPORT CVanishingKeyword
 {
 public:
@@ -31,6 +45,14 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Godless Shrine
+	Land — Plains Swamp:
+	(Tap: Add White or Black to your mana pool.)
+	As Godless Shrine enters the battlefield, you may pay 2 life. If you don't, 
+	Godless Shrine enters the battlefield tapped.
+*/
 class CORE_EXPORT CMovementReplacementAbility : public CTriggeredAbility<>
 {
 	DEFINE_CREATE_TO_CPTR_ONLY;
@@ -57,6 +79,14 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Safehold Elite {1}{G/W}
+	Creature — Elf Scout (2/2)
+	Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the 
+	battlefield under its owner's control with a -1/-1 counter on it.)
+*/
+
 struct _CPersistAbility_TriggerContextType
 {
 	_CPersistAbility_TriggerContextType()
@@ -92,6 +122,13 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+Ref: 
+	Butcher Ghoul 1B
+	Creature — Zombie (1/1)
+	Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the 
+	battlefield under its owner's control with a +1/+1 counter on it.)
+*/
 struct _CUndyingAbility_TriggerContextType
 {
 	_CUndyingAbility_TriggerContextType()

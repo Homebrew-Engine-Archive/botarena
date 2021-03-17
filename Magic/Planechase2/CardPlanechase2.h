@@ -84,16 +84,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CIllusoryAngelCard : public CFlyingCreatureCard
-{
-	DECLARE_CARD_CSTOR(CIllusoryAngelCard);
-
-protected:
-    BOOL CanPlay(BOOL bIncludeTricks);
-};
-
-//____________________________________________________________________________
-//
 class CIndrikUmbraCard : public CChgPwrTghAttrEnchantCard
 {
 	DECLARE_CARD_CSTOR(CIndrikUmbraCard);

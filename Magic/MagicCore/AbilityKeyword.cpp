@@ -92,7 +92,6 @@ bool CVanishingKeyword::SetTriggerContext2(CTriggeredMoveCardAbility::TriggerCon
 										CCard* pFromCard, LPCTSTR name, int old, int n_value) const
 {
 	return (triggerContext.m_pCard == pFromCard) && (old =! 0) && (n_value == 0) && ((CString)name == TIME_COUNTER);
-	return true;
 }
 
 //____________________________________________________________________________
@@ -197,7 +196,10 @@ BOOL CTriggeredUndyingAbility::ResolveSelection(CPlayer* pTriggeredPlayer, CTrig
 		nCounters <<= nMultiplier;
 	if (triggerContext.m_pCard->GetOwner()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE))
 		nCounters <<= nMultiplier;
-
+	// for Primal Vigor
+	if (triggerContext.m_pCard->GetOwner()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE))
+		nCounters <<= nMultiplier;
+	
 	CCardCounterModifier modifier1(_T("+1/+1"), +nCounters, true);
 	CMoveCardModifier modifier2(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Others);
 

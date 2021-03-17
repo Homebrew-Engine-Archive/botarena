@@ -198,7 +198,7 @@ BEGIN
     IDS_STRING21192         "Negate\n{1U}\nInstant\nM11,C\nCounter target noncreature spell."
     IDS_STRING21193         "Tome Scour\n{U}\nSorcery\nM11,C\nTarget player puts the top five cards of his or her library into his or her graveyard."
     IDS_STRING21194         "Wall of Frost\n{1UU}\nCreature - Wall\nM11,U\nDefender\rWhenever Wall of Frost blocks a creature, that creature doesn't untap during its controller's next untap step.\n0/7"
-    IDS_STRING21195         "Child of Night\n{1B}\nCreature - Vampire\nM11\nLifelink\n2/1"
+    IDS_STRING21195         "Child of Night\n{1B}\nCreature - Vampire\nM11,C\nLifelink\n2/1"
     IDS_STRING21196         "Corrupt\n{5B}\nSorcery\nM11,U\nCorrupt deals damage equal to the number of Swamps you control to target creature or player. You gain life equal to the damage dealt this way."
     IDS_STRING21197         "Diabolic Tutor\n{2BB}\nSorcery\nM11,U\nSearch your library for a card and put that card into your hand. Then shuffle your library."
     IDS_STRING21198         "Doom Blade\n{1B}\nInstant\nM11,C\nDestroy target nonblack creature."

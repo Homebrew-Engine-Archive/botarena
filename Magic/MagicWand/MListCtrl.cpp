@@ -186,15 +186,41 @@ CMListCtrl::CMListCtrl()
 
 	// Initialization of Block and Expansions map
 	std::set<CString> Expansions;
-
+	Expansions.insert("M15");
+	Expansions.insert("JOU");
+	Expansions.insert("BNG");
+	Expansions.insert("THS");
+	Expansions.insert("M14");
+	Expansions.insert("DGM");
+	Expansions.insert("GTC");
+	Expansions.insert("RTR");
+	m_Blocks.insert( std::pair<CString, std::set<CString>>("standard", Expansions));
+	Expansions.insert("THS");
+	Expansions.insert("M14");
+	Expansions.insert("DGM");
 	Expansions.insert("GTC");
 	Expansions.insert("RTR");
 	Expansions.insert("M13");
 	Expansions.insert("AVR");
 	Expansions.insert("DKA");
 	Expansions.insert("ISD");
-	m_Blocks.insert( std::pair<CString, std::set<CString>>("standard", Expansions));
-
+	Expansions.insert("M12");
+	Expansions.insert("NPH");
+	Expansions.insert("MBS");
+	Expansions.insert("SOM");
+	m_Blocks.insert( std::pair<CString, std::set<CString>>("extended", Expansions));
+	Expansions.insert("M15");
+	Expansions.insert("JOU");
+	Expansions.insert("BNG");
+	Expansions.insert("THS");
+	Expansions.insert("M14");
+	Expansions.insert("DGM");
+	Expansions.insert("GTC");
+	Expansions.insert("RTR");
+	Expansions.insert("M13");
+	Expansions.insert("AVR");
+	Expansions.insert("DKA");
+	Expansions.insert("ISD");
 	Expansions.insert("M12");
 	Expansions.insert("NPH");
 	Expansions.insert("MBS");
@@ -202,13 +228,10 @@ CMListCtrl::CMListCtrl()
 	Expansions.insert("ROE");
 	Expansions.insert("WWK");
 	Expansions.insert("ZEN");
-	Expansions.insert("M11");
-	m_Blocks.insert( std::pair<CString, std::set<CString>>("extended", Expansions));
-
+	Expansions.insert("M10");
 	Expansions.insert("ARB");
 	Expansions.insert("CON");
 	Expansions.insert("ALA");
-	Expansions.insert("M10");
 	Expansions.insert("EVE");
 	Expansions.insert("SHM");
 	Expansions.insert("MOR");
@@ -231,6 +254,13 @@ CMListCtrl::CMListCtrl()
 	m_Blocks.insert( std::pair<CString, std::set<CString>>("modern", Expansions));
 	Expansions.clear();
 
+	Expansions.insert("JOU");
+	Expansions.insert("BNG");
+	Expansions.insert("THS");
+	m_Blocks.insert( std::pair<CString, std::set<CString>>("theros", Expansions));
+	Expansions.clear();
+
+	Expansions.insert("DGM");
 	Expansions.insert("GTC");
 	Expansions.insert("RTR");
 	m_Blocks.insert( std::pair<CString, std::set<CString>>("return to ravnica", Expansions));

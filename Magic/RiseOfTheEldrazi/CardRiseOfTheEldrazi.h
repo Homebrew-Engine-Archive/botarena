@@ -572,13 +572,6 @@ class CWildheartInvokerCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CZofShadeCard : public CPumpCreatureCard
-{
-	DECLARE_CARD_CSTOR(CZofShadeCard);
-};
-
-//____________________________________________________________________________
-//
 class CEnatuGolemCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CEnatuGolemCard);
@@ -866,16 +859,16 @@ protected:
 
 //____________________________________________________________________________
 //
-//class CLivingDestinyCard : public CCard
-//{
-//	DECLARE_CARD_CSTOR(CLivingDestinyCard);
+class CLivingDestinyCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CLivingDestinyCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
 //
-//protected:
-//	bool BeforeResolution(CAbilityAction* pAction) const;
-//};
-//
-////____________________________________________________________________________
-////
 class CVengevineCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVengevineCard);
@@ -1866,7 +1859,7 @@ protected:
 		TTriggeredAbility< CTriggeredAbility<>, CWhenOrientationChanged > TriggeredAbility;
 
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CCard* pCard, Orientation fromOrientation, Orientation toOrientation) const;
-	bool CContaminatedGroundCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________

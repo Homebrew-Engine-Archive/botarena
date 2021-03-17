@@ -382,13 +382,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CForgeDevilCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CForgeDevilCard);
-};
-
-//____________________________________________________________________________
-//
 class CIncreasingDevotionCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CIncreasingDevotionCard);
@@ -552,13 +545,6 @@ class CElgaudInquisitorCard : public CCreatureCard
 
 //______________________________________________________________________________
 //
-class CMidnightGuardCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CMidnightGuardCard);
-};
-
-//_____________________________________________________________________________
-//
 class CNiblisOfTheMistCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CNiblisOfTheMistCard);
@@ -695,13 +681,6 @@ class CStormboundGeistCard : public CFlyingCreatureCard, public CUndyingKeyword
 class CTowerGeistCard : public CFlyingCreatureCard
 {
     DECLARE_CARD_CSTOR(CTowerGeistCard);
-};
-
-//____________________________________________________________________________
-//
-class CBlackCatCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CBlackCatCard);
 };
 
 //____________________________________________________________________________

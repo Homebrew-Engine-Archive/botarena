@@ -1937,3 +1937,10 @@ protected:
 
 //____________________________________________________________________________
 //
+class CTemurCharmEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CTemurCharmEffectToken);
+};
+
+//____________________________________________________________________________
+//

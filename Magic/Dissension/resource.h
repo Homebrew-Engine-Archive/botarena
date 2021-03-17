@@ -158,6 +158,7 @@
 #define IDS_STRING23939                 23939
 #define IDS_STRING23940                 23940
 #define IDS_STRING23941                 23941
+#define IDS_STRING23942                 23942
 
 // Next default values for new objects
 // 

@@ -14,8 +14,6 @@
 #define IDS_RELEASE_DATE                209
 #define IDS_MWS_FOLDER                  210
 #define IDS_PRODUCT_LIST                211
-#define IDI_MODULE                      20300
-#define IDI_LARGE_MODULE                20301
 #define IDS_STRING27000                 27000
 #define IDS_STRING27001                 27001
 #define IDS_STRING27002                 27002
@@ -324,14 +322,23 @@
 #define IDS_STRING27305                 27305
 #define IDS_STRING27306                 27306
 #define IDS_STRING27307                 27307
+#define IDS_STRING27308                 27308
+#define IDS_STRING27309                 27309
+#define IDS_STRING27310                 27310
+#define IDS_STRING27311                 27311
+#define IDS_STRING27312                 27312
+#define IDS_STRING27313                 27313
+#define IDS_STRING27314                 27314
+#define IDI_MODULE                      27348
+#define IDI_LARGE_MODULE                27349
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        20000
-#define _APS_NEXT_COMMAND_VALUE         20000
-#define _APS_NEXT_CONTROL_VALUE         20000
-#define _APS_NEXT_SYMED_VALUE           20000
+#define _APS_NEXT_RESOURCE_VALUE        27000
+#define _APS_NEXT_COMMAND_VALUE         27000
+#define _APS_NEXT_CONTROL_VALUE         27000
+#define _APS_NEXT_SYMED_VALUE           27000
 #endif
 #endif

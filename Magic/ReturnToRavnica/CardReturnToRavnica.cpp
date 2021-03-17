@@ -199,7 +199,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSpawnOfRixMaadiCard);
 		DEFINE_CARD(CSphinxsRevelationCard);
 		DEFINE_CARD(CSplatterThugCard);
-		DEFINE_CARD(CStabWoundCard);
 		DEFINE_CARD(CStealerOfSecretsCard);
 		DEFINE_CARD(CStonefareCrocodileCard);
 		DEFINE_CARD(CStreetSpasmCard);
@@ -1995,13 +1994,16 @@ CLotlethTrollCard::CLotlethTrollCard(CGame* pGame, UINT nID)
 //
 CSlaughterGamesCard::CSlaughterGamesCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Slaughter Games"), CardType::Sorcery, nID)
+	, m_CardFilter(new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)))
 {
 	GetCardKeyword()->AddCantBeCountered(FALSE);
 
 	counted_ptr<CTargetPlayerDiscardCardNameSpell> cpSpell(
 		::CreateObject<CTargetPlayerDiscardCardNameSpell>(this, AbilityType::Sorcery,
 			_T("2") BLACK_MANA_TEXT RED_MANA_TEXT,
-			ZoneId::Exile, TRUE, TRUE));
+			ZoneId::Exile, TRUE, 
+			&m_CardFilter,
+			TRUE)); 
 
 	cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
 	AddSpell(cpSpell.GetPointer());
@@ -4207,12 +4209,12 @@ CTavernSwindlerCard::CTavernSwindlerCard(CGame* pGame, UINT nID)
 bool CTavernSwindlerCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
 		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
@@ -5393,13 +5395,13 @@ bool CIzzetStaticasterCard::BeforeResolution(CAbilityAction* pAction)
 
 void CIzzetStaticasterCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -5525,7 +5527,6 @@ bool CDestroyTheEvidenceCard::BeforeResolution(CAbilityAction* pAction)
 
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 				
 	CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
 
@@ -5537,10 +5538,7 @@ bool CDestroyTheEvidenceCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->GetCardType().IsLand())
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 		}
 	}
 
@@ -6741,7 +6739,6 @@ void CDeathriteShamanCard::OnResolutionCompleted1(const CAbilityAction* pAbility
 void CDeathriteShamanCard::OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -7129,12 +7126,12 @@ CVolatileRigCard::CVolatileRigCard(CGame* pGame, UINT nID)
 bool CVolatileRigCard::BeforeResolution1(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
 		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
@@ -7244,14 +7241,15 @@ void CVolatileRigCard::OnFlipSelected1(const std::vector<SelectionEntry>& select
 bool CVolatileRigCard::BeforeResolution2(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -7269,13 +7267,10 @@ bool CVolatileRigCard::BeforeResolution2(CAbilityAction* pAction)
 			std::auto_ptr<CCreatureModifier>(pModifier1));
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		{
 			pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
-		}
+
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		{
 			pModifier1->ApplyTo(GetGame()->GetPlayer(ip));
-		}
 
 		CSpecialEffectModifier pModifierCoin = CSpecialEffectModifier(this, COIN_FLIP_LOSE_ID);       
 		pModifierCoin.ApplyTo(this);
@@ -7837,21 +7832,20 @@ void CJaceArchitectOfThoughtCard::OnResolutionCompleted(const CAbilityAction* pA
 
 	if (bResult)
 	{
-		int size = 5;
+		int iCardsToRevealCnt = 3;
 		CPlayer* target =  pAbilityAction->GetController();
 		CPlayer* opponent =  m_pGame->GetNextPlayer(target);
 		CZone* pLibrary = target->GetZoneById(ZoneId::Library);	
 
-		if (pLibrary->GetSize()<3) 
-			size=pLibrary->GetSize();
+		//If you have fewer than three cards in your library, reveal your entire library and opponent separates it
+		if (pLibrary->GetSize() < 3) 
+			iCardsToRevealCnt = pLibrary->GetSize();
 
 		CCountedCardContainer SelectFrom;
 		//CCardFilter::GetFilter(_T("cards"))->GetIncluded(*Battle, SelectFrom);
 
-		for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) < 4; --i)
-		{
+		for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) <= iCardsToRevealCnt; --i)
 			SelectFrom.AddCard(pLibrary->GetAt(i), CardPlacement::Top);
-		}
 
 		if(SelectFrom.GetSize())
 
@@ -8119,8 +8113,6 @@ void CTabletOfTheGuildsCard::OnSelectionDone(const std::vector<SelectionEntry>& 
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -8130,70 +8122,60 @@ void CTabletOfTheGuildsCard::OnSelectionDone(const std::vector<SelectionEntry>& 
 			{
 				cWhite = true;
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cWhite = true;
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlue = true;
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cBlue = true;
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cBlack = true;
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 6)
 			{
 				cBlack = true;
 				cGreen = true;
-
 				return;
 			}
 			if (nSelectedIndex == 7)
 			{
 				cRed = true;
 				cGreen = true;
-
 				return;
 			}
 			if (nSelectedIndex == 8)
 			{
 				cRed = true;
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 9)
 			{
 				cGreen = true;
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 10)
 			{
 				cGreen = true;
 				cBlue = true;
-
 				return;
 			}
 		}
@@ -8809,9 +8791,13 @@ bool CSlimeMoldingCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Ooze D"), 2863));		
@@ -8841,39 +8827,6 @@ CAvengingArrowCard::CAvengingArrowCard(CGame* pGame, UINT nID)
 		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
 {
 	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddComparer(new CardFlagComparer(CardFlag::_DealtDamage, false));
-}
-
-//____________________________________________________________________________
-//
-CStabWoundCard::CStabWoundCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Stab Wound"), nID,
-		_T("2") BLACK_MANA_TEXT,
-		Power(-2), Life(-2))
-{
-	m_pEnchantSpell = m_pChgPwrTghAttrEnchant;
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CStabWoundCard::SetTriggerContext));
-
-		cpAbility->GetLifeModifier().SetLifeDelta(Life(-2));
-		cpAbility->GetLifeModifier().SetDamageType(DamageType::NotDealingDamage);
-		cpAbility->AddAbilityTag(AbilityTag::LifeLost);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CStabWoundCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CNode* pToNode) const
-{
-	if (!m_pEnchantSpell->GetEnchantedOnCard()) return false;
-	return pToNode->GetGraph()->GetPlayer() == m_pEnchantSpell->GetEnchantedOnCard()->GetController();
 }
 
 //____________________________________________________________________________

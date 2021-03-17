@@ -144,7 +144,7 @@ BEGIN
     IDS_STRING17750         "Thornweald Archer\n{1G}\nCreature - Elf Archer\nFUT,C\nReach\rDeathtouch\n2/1"
     IDS_STRING17751         "Tolaria West\n\nLand\nFUT,U\nTolaria West enters the battlefield tapped.\r{T}: Add {U} to your mana pool.\rTransmute {1UU}"
     IDS_STRING17752         "Char-Rumbler\n{2RR}\nCreature - Elemental\nFUT,U\nDouble strike\r{R}: Char-Rumbler gets +1/+0 until end of turn.\n-1/3"
-    IDS_STRING17753         "Marshaling Cry\n{1WW}\nInstant\nFUT\nCreatures you control get +1/+1 and gain vigilance until end of turn.\rCycling {2}\rFlashback {3W}"
+    IDS_STRING17753         "Marshaling Cry\n{1WW}\nInstant\nFUT,C\nCreatures you control get +1/+1 and gain vigilance until end of turn.\rCycling {2}\rFlashback {3W}"
     IDS_STRING17754         "Pyromancer's Swath\n{2R}\nEnchantment\nFUT,R\nIf an instant or sorcery source you control would deal damage to a creature or player, it deals that much damage plus 2 to that creature or player instead.\rAt the beginning of each end step, discard your hand."
     IDS_STRING17755         "Grinning Ignus\n{2R}\nCreature - Elemental\nFUT,C\n{R}, Return Grinning Ignus to its owner's hand: Add {2R} to your mana pool. Activate this ability only any time you could cast a sorcery.\n2/2"
     IDS_STRING17756         "Henchfiend of Ukor\n{3R}\nCreature - Ogre\nFUT,C\nHaste\rEcho {1B}\r{D}: Henchfiend of Ukor gets +1/+0 until end of turn.\n3/2"
@@ -189,7 +189,7 @@ BEGIN
     IDS_STRING17787         "Wrap in Vigor\n{1G}\nInstant\nFUT,C\nRegenerate each creature you control."
     IDS_STRING17788         "Venser, Shaper Savant\n{2UU}\nLegendary Creature - Human Wizard\nFUT,R\nFlash\rWhen Venser, Shaper Savant enters the battlefield, return target spell or permanent to its owner's hand.\n2/2"
     IDS_STRING17789         "Slaughter Pact\n{0}\nInstant\nFUT,R\nDestroy target nonblack creature.\rAt the beginning of your next upkeep, pay {2B}. If you don't, you lose the game."
-    IDS_STRING17790         "Pact of Negation\n{0}\nInstant\nFUT,R\nCounter target spell.\rAt the beginning of your next upkeep, pay {3UU}. If you don't, you lose the game.\n"
+    IDS_STRING17790         "Pact of Negation\n{0}\nInstant\nFUT,R\nCounter target spell.\rAt the beginning of your next upkeep, pay {3UU}. If you don't, you lose the game."
     IDS_STRING17791         "Intervention Pact\n{0}\nInstant\nFUT,R\nThe next time a source of your choice would deal damage to you this turn, prevent that damage. You gain life equal to the damage prevented this way.\rAt the beginning of your next upkeep, pay {1WW}. If you don't, you lose the game."
 END
 
@@ -240,7 +240,7 @@ BEGIN
     IDS_STRING17826         "Homing Sliver\n{2R}\nCreature - Sliver\nFUT,C\nEach Sliver card in each player's hand has slivercycling {3}.\rSlivercycling {3}\n2/2"
     IDS_STRING17827         "Boldwyr Intimidator\n{5RR}\nCreature - Giant Warrior\nFUT,U\nCowards can't block Warriors.\r{R}: Target creature becomes a Coward until end of turn.\r{2R}: Target creature becomes a Warrior until end of turn.\n5/5"
     IDS_STRING17828         "Daybreak Coronet\n{WW}\nEnchantment - Aura\nFUT,R\nEnchant creature with another Aura attached to it\rEnchanted creature gets +3/+3 and has first strike, vigilance, and lifelink."
-    IDS_STRING17829         "Whip-Spine Drake\n{3UU}\nCreature - Drake\nFUT\nFlying\rMorph {2W}\n3/3"
+    IDS_STRING17829         "Whip-Spine Drake\n{3UU}\nCreature - Drake\nFUT,C\nFlying\rMorph {2W}\n3/3"
     IDS_STRING17830         "Second Wind\n{2U}\nEnchantment - Aura\nFUT,U\n{T}: Tap enchanted creature.\r{T}: Untap enchanted creature."
     IDS_STRING17831         "Grave Scrabbler\n{3B}\nCreature - Zombie\nFUT,C\nMadness {1B}\rWhen Grave Scrabbler enters the battlefield, if its madness cost was paid, you may return target creature card from a graveyard to its owner's hand.\n2/2"
     IDS_STRING17832         "Shimian Specter\n{2BB}\nCreature - Specter\nFUT,R\nFlying\rWhenever Shimian Specter deals combat damage to a player, that player reveals his or her hand. You choose a nonland card from it. Search that player's graveyard, hand, and library for all cards with the same name as that card and exile them. Then that player shuffles his or her library.\n2/2"

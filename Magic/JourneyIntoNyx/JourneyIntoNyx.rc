@@ -1,0 +1,240 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "JourneyIntoNyx.ico"
+IDI_LARGE_MODULE        ICON                    "JourneyIntoNyxLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Journey into Nyx"
+    IDS_EXPANSION_ABBREV    "JOU"
+    IDS_FIRST_CARD          "27900"
+    IDS_TOTAL_CARD          "166"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "28066"
+    IDS_MODULE_LARGE_ICON_ID "28067"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "26-04-2014"
+    IDS_MWS_FOLDER          "MWS\\JOU\\"
+    IDS_PRODUCT_LIST        """Journey into Nyx Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27900         "Temple of Epiphany\n\nLand\nJOU,R\nTemple of Epiphany enters the battlefield tapped.\rWhen Temple of Epiphany enters the battlefield, scry 1.\r{T}: Add {U} or {R} to your mana pool."
+    IDS_STRING27901         "Temple of Malady\n\nLand\nJOU,R\nTemple of Malady enters the battlefield tapped.\rWhen Temple of Malady enters the battlefield, scry 1.\r{T}: Add {B} or {G} to your mana pool."
+    IDS_STRING27902         "Gold-Forged Sentinel\n{6}\nArtifact Creature - Chimera\nJOU,U\nFlying\n4/4"
+    IDS_STRING27903         "Akroan Mastiff\n{3W}\nCreature - Hound\nJOU,C\n{W}, {T}: Tap target creature.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27904         "Eagle of the Watch\n{2W}\nCreature - Bird\nJOU,C\nFlying, vigilance\n2/1"
+    IDS_STRING27905         "Aegis of the Gods\n{1W}\nEnchantment Creature - Human Soldier\nJOU,R\nYou have hexproof.\n2/1"
+    IDS_STRING27906         "Font of Vigor\n{1W}\nEnchantment\nJOU,C\n{2W}, Sacrifice Font of Vigor: You gain 7 life."
+    IDS_STRING27907         "Dictate of Heliod\n{3WW}\nEnchantment\nJOU,R\nFlash\rCreatures you control get +2/+2."
+    IDS_STRING27908         "Eidolon of Rhetoric\n{2W}\nEnchantment Creature - Spirit\nJOU,U\nEach player can't cast more than one spell each turn.\n1/4"
+    IDS_STRING27909         "Mana Confluence\n\nLand\nJOU,R\n{T}, Pay 1 life: Add one mana of any color to your mana pool."
+    IDS_STRING27910         "Chariot of Victory\n{3}\nArtifact - Equipment\nJOU,U\nEquipped creature has first strike, trample and haste.\rEquip {1}"
+    IDS_STRING27911         "Nyx-Fleece Ram\n{1W}\nEnchantment Creature - Sheep\nJOU,U\nAt the beginning of your upkeep, you gain 1 life.\n0/5"
+    IDS_STRING27912         "Oreskos Swiftclaw\n{1W}\nCreature - Cat Warrior\nJOU,C\n\n3/1"
+    IDS_STRING27913         "Reprisal\n{1W}\nInstant\nJOU,U\nDestroy target creature with power 4 or greater. It can't be regenerated."
+    IDS_STRING27914         "Skyspear Cavalry\n{3WW}\nCreature - Human Soldier\nJOU,U\nFlying\rDouble strike\n2/2"
+    IDS_STRING27915         "Supply-Line Cranes\n{3WW}\nCreature - Bird\nJOU,C\nFlying\rWhen Supply-Line Cranes enters the battlefield, put a +1/+1 counter on target creature.\n2/4"
+    IDS_STRING27916         "Bassara Tower Archer\n{GG}\nCreature - Human Archer\nJOU,U\nHexproof, reach\n2/1"
+    IDS_STRING27917         "Desecration Plague\n{3G}\nSorcery\nJOU,C\nDestroy target enchantment, or land."
+    IDS_STRING27918         "Godhunter Octopus\n{5U}\nCreature - Octopus\nJOU,C\nGodhunter Octopus can't attack unless defending player controls an enchantment or an enchanted permanent.\n5/5"
+    IDS_STRING27919         "Cyclops of Eternal Fury\n{4RR}\nEnchantment Creature - Cyclops\nJOU,U\nCreatures you control have haste.\n5/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27920         "Dictate of Karametra\n{3GG}\nEnchantment\nJOU,R\nFlash\rWhenever a player taps a land for mana, that player adds one mana to his or her mana pool of any type that land produced."
+    IDS_STRING27921         "Dictate of Kruphix\n{1UU}\nEnchantment\nJOU,R\nFlash\rAt the beginning of each player's draw step, that player draws an additional card."
+    IDS_STRING27922         "Cloaked Siren\n{3U}\nCreature - Siren\nJOU,C\nFlash\rFlying\n3/2"
+    IDS_STRING27923         "Font of Fortunes\n{1U}\nEnchantment\nJOU,C\n{1U}, Sacrifice Font of Fortunes: Draw two cards."
+    IDS_STRING27924         "Hubris\n{1U}\nInstant\nJOU,C\nReturn target creature and all Auras attached to it to their owners' hands."
+    IDS_STRING27925         "Pin to the Earth\n{1U}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature gets -6/-0."
+    IDS_STRING27926         "Riptide Chimera\n{2U}\nEnchantment Creature - Chimera\nJOU,U\nFlying\rAt the beginning of your upkeep, return an enchantment you control to its owner's hand.\n3/4"
+    IDS_STRING27927         "Rise of Eagles\n{4UU}\nSorcery\nJOU,C\nPut two 2/2 blue Bird enchantment creature tokens with flying onto the battlefield. Scry 1."
+    IDS_STRING27928         "Sigiled Starfish\n{1U}\nCreature - Starfish\nJOU,C\n{T}: Scry 1.\n0/3"
+    IDS_STRING27929         "Thassa's Ire\n{U}\nEnchantment\nJOU,U\n{3U}: You may tap or untap target creature."
+    IDS_STRING27930         "Triton Shorestalker\n{U}\nCreature - Merfolk Rogue\nJOU,C\nTriton Shorestalker can't be blocked.\n1/1"
+    IDS_STRING27931         "Aspect of Gorgon\n{2B}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature gets +1/+3 and has deathtouch."
+    IDS_STRING27932         "Brain Maggot\n{1B}\nEnchantment Creature - Insect\nJOU,U\nWhen Brain Maggot enters the battlefield, target opponent reveals his or her hand and you choose a nonland card from it. Exile that card until Brain Maggot leaves the battlefield.\n1/1"
+    IDS_STRING27933         "Cast into Darkness\n{1B}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature gets -2/-0 and can't block."
+    IDS_STRING27934         "Dictate of Erebos\n{3BB}\nEnchantment\nJOU,R\nFlash\rWhenever a creature you control dies, each opponent sacrifices a creature."
+    IDS_STRING27935         "Felhide Petrifier\n{2B}\nCreature - Minotaur Warrior\nJOU,U\nDeathtouch\rOther Minotaur creatures you control have deathtouch.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27936         "Master of the Feast\n{1BB}\nEnchantment Creature - Demon\nJOU,R\nFlying\rAt the beginning of your upkeep, each opponent draws a card.\n5/5"
+    IDS_STRING27937         "Nightmarish End\n{2B}\nInstant\nJOU,U\nTarget creature gets -X/-X until end of turn, where X is the number of cards in your hand."
+    IDS_STRING27938         "Nyx Infusion\n{2B}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature gets +2/+2 as long as it's an enchantment. Otherwise, it gets -2/-2."
+    IDS_STRING27939         "Pharika's Chosen\n{B}\nCreature - Snake\nJOU,C\nDeathtouch\n1/1"
+    IDS_STRING27940         "Returned Reveler\n{1B}\nCreature - Zombie Satyr\nJOU,C\nWhen Returned Reveler dies, each player puts the top three cards of his or her library into his or her graveyard.\n1/3"
+    IDS_STRING27941         "Rotted Hulk\n{3B}\nCreature - Elemental\nJOU,C\n\n2/5"
+    IDS_STRING27942         "Spiteful Blow\n{4BB}\nSorcery\nJOU,U\nDestroy target creature and target land."
+    IDS_STRING27943         "Armament of Nyx\n{2W}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature has double strike as long as it's an enchantment. Otherwise, prevent all damage that would be dealt by enchanted creature."
+    IDS_STRING27944         "Eidolon of Blossoms\n{2GG}\nEnchantment Creature - Spirit\nJOU,R\nConstellation - Whenever Eidolon of Blossoms or another enchantment enters the battlefield under your control, draw a card.\n2/2"
+    IDS_STRING27945         "Agent of Erebos\n{3B}\nEnchantment Creature - Zombie\nJOU,U\nConstellation - Whenever Agent of Erebos or another enchantment enters the battlefield under your control, exile all cards from target player's graveyard.\n2/2"
+    IDS_STRING27946         "Doomwake Giant\n{4B}\nEnchantment Creature - Giant\nJOU,R\nConstellation - Whenever Doomwake Giant or another enchantment enters the battlefield under your control, creatures your opponents control get -1/-1 until end of turn.\n4/6"
+    IDS_STRING27947         "Dreadbringer Lampads\n{4B}\nEnchantment Creature - Nymph\nJOU,C\nConstellation - Whenever Dreadbringer Lampads or another enchantment enters the battlefield under your control, target creature gains intimidate until end of turn.\n4/2"
+    IDS_STRING27948         "Forgeborn Oreads\n{2RR}\nEnchantment Creature - Nymph\nJOU,U\nConstellation - Whenever Forgeborn Oreads or another enchantment enters the battlefield under your control, Forgeborn Oreads deals 1 damage to target creature or player.\n4/2"
+    IDS_STRING27949         "Grim Guardian\n{2B}\nEnchantment Creature - Zombie\nJOU,C\nConstellation - Whenever Grim Guardian or another enchantment enters the battlefield under your control, each opponent loses 1 life.\n1/4"
+    IDS_STRING27950         "Humbler of Mortals\n{4GG}\nEnchantment Creature - Elemental\nJOU,C\nConstellation - Whenever Humbler of Mortals or another enchantment enters the battlefield under your control, creatures you control gain trample until end of turn.\n5/5"
+    IDS_STRING27951         "Oakheart Dryads\n{2G}\nEnchantment Creature - Nymph Dryad\nJOU,C\nConstellation - Whenever Oakheart Dryads or another enchantment enters the battlefield under your control, target creature gets +1/+1 until end of turn.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27952         "Skybind\n{3WW}\nEnchantment\nJOU,R\nConstellation - Whenever Skybind or another enchantment enters the battlefield under your control, exile target nonenchantment permanent. Return that card to the battlefield under its owner's control at the beginning of the next end step."
+    IDS_STRING27953         "Strength from the Fallen\n{1G}\nEnchantment\nJOU,U\nConstellation - Whenever Strength from the Fallen or another enchantment enters the battlefield under your control, target creature gets +X/+X until end of turn, where X is the number of creature cards in your graveyard."
+    IDS_STRING27954         "Thassa's Devourer\n{4U}\nEnchantment Creature - Elemental\nJOU,C\nConstellation - Whenever Thassa's Devourer or another enchantment enters the battlefield under your control, target player puts the top two cards of his or her library into his or her graveyard.\n2/6"
+    IDS_STRING27955         "Thoughtrender Lamia\n{4BB}\nEnchantment Creature - Lamia\nJOU,U\nConstellation - Whenever Thoughtrender Lamia or another enchantment enters the battlefield under your control, each opponent discards a card.\n5/3"
+    IDS_STRING27956         "Squelching Leeches\n{2BB}\nCreature - Leech\nJOU,U\nSquelching Leeches's power and toughness are each equal to the number of Swamps you control.\n*/*"
+    IDS_STRING27957         "Underworld Coinsmith\n{WB}\nEnchantment Creature - Human Cleric\nJOU,U\nConstellation - Whenever Underworld Coinsmith or another enchantment enters the battlefield under your control, you gain 1 life.\r{WB}, Pay 1 life: Each opponent loses 1 life.\n2/2"
+    IDS_STRING27958         "Whitewater Naiads\n{3UU}\nEnchantment Creature - Nymph\nJOU,U\nConstellation - Whenever Whitewater Naiads or another enchantment enters the battlefield under your control, target creature can't be blocked this turn.\n4/4"
+    IDS_STRING27959         "Akroan Line Breaker\n{2R}\nCreature - Human Warrior\nJOU,U\nHeroic — Whenever you cast a spell that targets Akroan Line Breaker, Akroan Line Breaker gets +2/+0 and gains intimidate until end of turn.\n2/2"
+    IDS_STRING27960         "Extinguish All Hope\n{4BB}\nSorcery\nJOU,R\nDestroy all nonenchantment creatures."
+    IDS_STRING27961         "Feast of Dreams\n{1B}\nInstant\nJOU,C\nDestroy target enchanted creature or enchantment creature."
+    IDS_STRING27962         "Bladetusk Boar\n{3R}\nCreature - Boar\nJOU,C\nIntimidate\n3/2"
+    IDS_STRING27963         "Eidolon of the Great Revel\n{RR}\nEnchantment\nJOU,R\nWhenever a player casts a spell with converted mana cost 3 or less, Eidolon of the Great Revel deals 2 damage to that player."
+    IDS_STRING27964         "Flurry of Horns\n{4R}\nSorcery\nJOU,C\nPut two 2/3 red Minotaur creature tokens with haste onto the battlefield."
+    IDS_STRING27965         "Font of Ire\n{1R}\nEnchantment\nJOU,C\n{3R}, Sacrifice Font of Ire: Font of Ire deals 5 damage to target player."
+    IDS_STRING27966         "Fleetfeather Cockatrice\n{3GU}\nCreature - Cockatrice\nJOU,U\nFlash\rFlying, deathtouch\r{5GU}: Monstrosity 3.\n3/3"
+    IDS_STRING27967         "Gluttonous Cyclops\n{5R}\nCreature - Cyclops\nJOU,C\n{5RR}: Monstrosity 3.\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27968         "Ravenous Leucrocota\n{3G}\nCreature - Beast\nJOU,C\nVigilance\r{6G}: Monstrosity 3.\n2/4"
+    IDS_STRING27969         "Wildfire Cerberus\n{4R}\nCreature - Hound\nJOU,U\n{5RR}: Monstrosity 1.\rWhen Wildfire Cerberus becomes monstrous, it deals 2 damage to each opponent and each creature your opponents control.\n4/3"
+    IDS_STRING27970         "Hydra Broodmaster\n{4GG}\nCreature - Hydra\nJOU,R\n{XXG}: Monstrosity X.\rWhen Hydra Broodmaster becomes monstrous, put X X/X green Hydra creature tokens onto the battlefield.\n7/7"
+    IDS_STRING27971         "Lightning Diadem\n{5R}\nEnchantment - Aura\nJOU,C\nEnchant creature\rWhen Lightning Diadem enters the battlefield, it deals 2 damage to target creature or player.\rEnchanted creature gets +2/+2."
+    IDS_STRING27972         "Magma Spray\n{R}\nInstant\nJOU,C\nMagma Spray deals 2 damage to target creature. If that creature would die this turn, exile it instead."
+    IDS_STRING27973         "Pensive Minotaur\n{2R}\nCreature - Minotaur Warrior\nJOU,C\n\n2/3"
+    IDS_STRING27974         "Riddle of Lightning\n{3RR}\nInstant\nJOU,U\nChoose target creature or player. Scry 3, then reveal the top card of your library. Riddle of Lightning deals damage equal to that card's converted mana cost to that creature or player."
+    IDS_STRING27975         "Rollick of Abandon\n{3RR}\nSorcery\nJOU,U\nAll creatures get +2/-2 until end of turn."
+    IDS_STRING27976         "Satyr Hoplite\n{R}\nCreature - Satyr Soldier\nJOU,C\nHeroic - Whenever you cast a spell that targets Satyr Hoplite, put a +1/+1 counter on Satyr Hoplite.\n1/1"
+    IDS_STRING27977         "Sigiled Skink\n{1R}\nCreature - Lizard\nJOU,C\nWhenever Sigiled Skink attacks, scry 1.\n2/1"
+    IDS_STRING27978         "Spawn of Thraxes\n{5RR}\nCreature - Dragon\nJOU,R\nFlying\rWhen Spawn of Thraxes enters the battlefield, it deals damage to target creature or player equal to the number of Mountains you control.\n5/5"
+    IDS_STRING27979         "Spite of Mogis\n{R}\nSorcery\nJOU,U\nSpite of Mogis deals damage to target creature equal to the number of instant and sorcery cards in your graveyard. Scry 1."
+    IDS_STRING27980         "Starfall\n{4R}\nInstant\nJOU,C\nStarfall deals 3 damage to target creature. If that creature is an enchantment, Starfall deals 3 damage to that creature's controller."
+    IDS_STRING27981         "Font of Fertility\n{G}\nEnchantment\nJOU,C\n{1G}, Sacrifice Font of Fertility: Search your library for a land card with a basic land type and put it onto the battlefield tapped. Then shuffle your library."
+    IDS_STRING27982         "Golden Hind\n{1G}\nCreature - Elk\nJOU,C\n{T}: Add {G} to your mana pool.\n2/1"
+    IDS_STRING27983         "Heroes' Bane\n{3GG}\nCreature - Hydra\nJOU,R\nHeroes' Bane enters the battlefield with four +1/+1 counters on it.\r{2GG}: Put X +1/+1 counters on Heroes' Bane, where X is its power.\n0/0"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27984         "Revel of the Fallen God\n{3RRGG}\nSorcery\nJOU,R\nPut four 2/2 red and green Satyr creature tokens with haste onto the battlefield."
+    IDS_STRING27985         "Nessian Game Warden\n{3GG}\nCreature - Beast\nJOU,U\nWhen Nessian Game Warden enters the battlefield, look at the top X cards of your library, where X is the number of Forests you control. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\n4/5"
+    IDS_STRING27986         "Pheres-Band Thunderhoof\n{4G}\nCreature - Centaur Warrior\nJOU,C\nHeroic - Whenever you cast a spell that targets Pheres-Band Thunderhoof, put two +1/+1 counters on Pheres-Band Thunderhoof.\n3/4"
+    IDS_STRING27987         "Pheres-Band Warchief\n{3G}\nCreature - Centaur Warrior\nJOU,R\nVigilance, trample\rOther Centaur creatures you control get +1/+1 and have vigilance and trample.\n3/3"
+    IDS_STRING27988         "Renowned Weaver\n{G}\nCreature - Human Shaman\nJOU,C\n{1G}, Sacrifice Renowned Weaver: Put a 1/3 green Spider enchantment creature token with reach onto the battlefield.\n1/1"
+    IDS_STRING27989         "Reviving Melody\n{2G}\nSorcery\nJOU,U\nChoose one or both - Return target creature card from your graveyard to your hand; and/or return target enchantment card from your graveyard to your hand."
+    IDS_STRING27990         "Satyr Grovedancer\n{1G}\nCreature - Satyr Shaman\nJOU,C\nWhen Satyr Grovedancer enters the battlefield, put a +1/+1 counter on target creature.\n1/1"
+    IDS_STRING27991         "Armory of Iroas\n{2}\nArtifact - Equipment\nJOU,U\nWhenever equipped creature attacks, put a +1/+1 counter on it.\rEquip {2}"
+    IDS_STRING27992         "Banishing Light\n{2W}\nEnchantment\nJOU,U\nWhen Banishing Light enters the battlefield, exile target nonland permanent an opponent controls until Banishing Light leaves the battlefield."
+    IDS_STRING27993         "Dawnbringer Charioteers\n{2WW}\nCreature - Human Soldier\nJOU,R\nFlying, lifelink\rHeroic - Whenever you cast a spell that targets Dawnbringer Charioteers, put a +1/+1 counter on Dawnbringer Charioteers.\n2/4"
+    IDS_STRING27994         "Lagonna-Band Trailblazer\n{W}\nCreature - Centaur Scout\nJOU,C\nHeroic -  Whenever you cast a spell that targets Lagonna-Band Trailblazer, put a +1/+1 counter on Lagonna-Band Trailblazer.\n0/4"
+    IDS_STRING27995         "Leonin Iconoclast\n{3W}\nCreature - Cat Monk\nJOU,U\nHeroic - Whenever you cast a spell that targets Leonin Iconoclast, destroy target enchantment creature an opponent controls.\n3/2"
+    IDS_STRING27996         "Mortal Obstinacy\n{W}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature gets +1/+1.\rWhenever enchanted creature deals combat damage to a player, you may sacrifice Mortal Obstinacy. If you do, destroy target enchantment."
+    IDS_STRING27997         "Flamespeaker's Will\n{R}\nEnchantment - Aura\nJOU,C\nEnchant creature\rEnchanted creature gets +1/+1.\rWhenever enchanted creature deals combat damage to a player, you may sacrifice Flamespeaker's Will. If you do, destroy target artifact."
+    IDS_STRING27998         "Tethmos High Priest\n{2W}\nCreature - Cat Cleric\nJOU,U\nHeroic - Whenever you cast a spell that targets Tethmos High Priest, return target creature card with converted mana cost 2 or less from your graveyard to the battlefield.\n2/3"
+    IDS_STRING27999         "Countermand\n{2UU}\nInstant\nJOU,C\nCounter target spell. Its controller puts the top four cards of his or her library into his or her graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28000         "Consign to Dust\n{2G}\nInstant\nJOU,U\nStrive - Consign to Dust costs {2G} more to cast for each target beyond the first.\rDestroy any number of target artifacts and/or enchantments."
+    IDS_STRING28001         "Nature's Panoply\n{G}\nInstant\nJOU,C\nStrive - Nature's Panoply costs {2G} more to cast for each target beyond the first.\rChoose any number of target creatures. Put a +1/+1 counter on each of them."
+    IDS_STRING28002         "Solidarity of Heroes\n{1G}\nInstant\nJOU,U\nStrive - Solidarity of Heroes costs {1G} more to cast for each target beyond the first.\rChoose any number of target creatures. Double the number of +1/+1 counters on each of them."
+    IDS_STRING28003         "Aerial Formation\n{U}\nInstant\nJOU,C\nStrive - Aerial Formation costs {2U} more to cast for each target beyond the first.\rAny number of target creatures each get +1/+1 and gain flying until end of turn."
+    IDS_STRING28004         "Ajani's Presence\n{W}\nInstant\nJOU,C\nStrive - Ajani's Presence costs {2W} more to cast for each target beyond the first.\rAny number of target creatures each get +1/+1 and gain indestructible until end of turn."
+    IDS_STRING28005         "Phalanx Formation\n{2W}\nInstant\nJOU,U\nStrive - Phalanx Formation costs {1W} more to cast for each target beyond the first.\rAny number of target creatures each gain double strike until end of turn. "
+    IDS_STRING28006         "Hall of Triumph\n{3}\nLegendary Artifact\nJOU,R\nAs Hall of Triumph enters the battlefield, choose a color.\rCreatures you control of the chosen color get +1/+1."
+    IDS_STRING28007         "Nyx Weaver\n{1BG}\nEnchantment Creature - Spider\nJOU,U\nReach\rAt the beginning of your upkeep, put the top two cards of your library into your graveyard.\r{1BG}, Exile Nyx Weaver: Return target card from your graveyard to your hand.\n2/3"
+    IDS_STRING28008         "Colossal Heroics\n{2G}\nInstant\nJOU,U\nStrive - Colossal Heroics costs {1G} more to cast for each target beyond the first.\rAny number of target creatures each get +2/+2 until end of turn. Untap those creatures."
+    IDS_STRING28009         "Cruel Feeding\n{B}\nInstant\nJOU,C\nStrive - Cruel Feeding costs {2B} more to cast for each target beyond the first.\rAny number of target creatures each get +2/+2 until end of turn. Any number of target creatures each get +1/+0 and gain lifelink until end of turn."
+    IDS_STRING28010         "Disciple of Deceit\n{UB}\nCreature - Human Rogue\nJOU,U\nInspired - Whenever Disciple of Deceit becomes untapped, you may discard a nonland card. If you do, search your library for a card with the same converted mana cost as that card, reveal it, put it into your hand, then shuffle your library.\n1/3"
+    IDS_STRING28011         "Harness by Force\n{1RR}\nSorcery\nJOU,R\nStrive -  Harness by Force costs {2R} more to cast for each target beyond the first.\rGain control of any number of target creatures until end of turn. Untap those creatures. They gain haste until end of turn."
+    IDS_STRING28012         "Hour of Need\n{2U}\nInstant\nJOU,U\nStrive - Hour of Need costs {1U} more to cast for each target beyond the first.\rExile any number of target creatures. For each creature exiled this way, its controller puts a 4/4 blue Sphinx creature token with flying onto the battlefield."
+    IDS_STRING28013         "Kruphix's Insight\n{2G}\nSorcery\nJOU,C\nReveal the top six cards of your library. Put up to three enchantment cards from among them into your hand and the rest of the revealed cards into your graveyard."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

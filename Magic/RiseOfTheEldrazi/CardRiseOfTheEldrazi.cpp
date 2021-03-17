@@ -119,7 +119,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLeafArrowCard);
 		DEFINE_CARD(CLighthouseChronologistCard);
 		DEFINE_CARD(CLinvalaKeeperOfSilenceCard);
-		//DEFINE_CARD(CLivingDestinyCard);
+		DEFINE_CARD(CLivingDestinyCard);
 		DEFINE_CARD(CLoneMissionaryCard);
 		DEFINE_CARD(CLordOfShatterskullPassCard);
 		DEFINE_CARD(CLuminousWakeCard);
@@ -209,7 +209,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CWarmongersChariotCard);
 		DEFINE_CARD(CWildheartInvokerCard);
 		DEFINE_CARD(CWrapInFlamesCard);
-		DEFINE_CARD(CZofShadeCard);
 		DEFINE_CARD(CZulaportEnforcerCard);
 
 	} while (false);
@@ -1842,15 +1841,6 @@ CWildheartInvokerCard::CWildheartInvokerCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CZofShadeCard::CZofShadeCard(CGame* pGame, UINT nID)
-	: CPumpCreatureCard(pGame, _T("Zof Shade"), CardType::Creature, CREATURE_TYPE(Shade), nID,
-		_T("3") BLACK_MANA_TEXT, Power(2), Life(2),
-		_T("2") BLACK_MANA_TEXT, Power(+2), Life(+2))
-{
-}
-
-//____________________________________________________________________________
-//
 CEnatuGolemCard::CEnatuGolemCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Enatu Golem"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
 		_T("6"), Power(3), Life(5))
@@ -2881,41 +2871,39 @@ bool CMomentousFallCard::BeforeResolution(CAbilityAction* pAction) const
 
 //____________________________________________________________________________
 //
-//"Living Destiny\n{3G}\nInstant\nROE,C\nAs an additional cost to cast Living Destiny, reveal a creature card from your hand.\rYou gain life equal to the revealed card's converted mana cost."
-//You don't get life.
-//CLivingDestinyCard::CLivingDestinyCard(CGame* pGame, UINT nID)
-//	: CCard(pGame, _T("Living Destiny"), CardType::Instant, nID)
-//{
-//	counted_ptr<CChgLifeSpell> cpSpell(
-//		::CreateObject<CChgLifeSpell>(this, AbilityType::Instant,
-//			_T("3") GREEN_MANA_TEXT,
-//			Life(+0), PreventableType::NotPreventable));
+CLivingDestinyCard::CLivingDestinyCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Living Destiny"), CardType::Instant, nID)
+{
+	counted_ptr<CChgLifeSpell> cpSpell(
+		::CreateObject<CChgLifeSpell>(this, AbilityType::Instant,
+			_T("3") GREEN_MANA_TEXT,
+			Life(+0), PreventableType::NotPreventable));
+
+	cpSpell->GetCost().AddRevealCardCost(1, CCardFilter::GetFilter(_T("creatures")));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLivingDestinyCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CLivingDestinyCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCard* pCard = pAction->GetRevealCards()->GetAt(0);
+	if (!pCard->GetCardType().IsCreature())
+		return false;
+
+	CCreatureCard* pCreature = (CCreatureCard*)pCard;
+	int converted = pCreature->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+
+	CLifeModifier pModifier = CLifeModifier(Life(+converted), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+
+	pModifier.ApplyTo(GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
 //
-//	cpSpell->GetCost().AddRevealCardCost(1, CCardFilter::GetFilter(_T("creatures")));
-//
-//	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLivingDestinyCard::BeforeResolution));
-//
-//	AddSpell(cpSpell.GetPointer());
-//}
-//
-//bool CLivingDestinyCard::BeforeResolution(CAbilityAction* pAction) const
-//{
-//	CCard* pCard = pAction->GetRevealCards()->GetAt(0);
-//	if (!pCard->GetCardType().IsCreature())
-//	return false;
-//
-//	CCreatureCard* pCreature = (CCreatureCard*)pCard;
-//	int converted = pCreature->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-//
-//	CLifeModifier pModifier = CLifeModifier(Life(+converted), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-//
-//	pModifier.ApplyTo(GetController());
-//
-//	return true;
-//}
-//
-////____________________________________________________________________________
-////
 CVengevineCard::CVengevineCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Vengevine"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(3))	
@@ -6951,14 +6939,34 @@ bool CSurvivalCacheCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 CDevastatingSummonsCard::CDevastatingSummonsCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Devastating Summons"), CardType::Sorcery, nID)
 {
-	counted_ptr<CGenericSpell> cpSpell(
-	::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+	{
+		/*
+			sacrifice X lands, where X > 0.
+			sample message: 
+				Tap Cruel Deceiver3(2/1), Tap Sacrifice Cruel Deceiver4(2/1): Casts Devastating Summons and targets Computer
+				Sacrifice Mountain3, Sacrifice Mountain7: Casts Devastating Summons
+		*/
+		counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
 		RED_MANA_TEXT));
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("lands")));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDevastatingSummonsCard::BeforeResolution));
 
-	cpSpell->GetCost().AddSacrificeCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("lands")));
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDevastatingSummonsCard::BeforeResolution));
-
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			sacrifice no creatures, X = 0.
+			sample message: 
+				Sacrifice no lands. Casts Devastating Summons
+		*/
+		counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+		RED_MANA_TEXT));
+		cpSpell->SetAbilityText(_T("Sacrifice no lands. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CDevastatingSummonsCard::BeforeResolution(CAbilityAction* pAction) const
@@ -6969,7 +6977,11 @@ bool CDevastatingSummonsCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 2;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)
@@ -7670,7 +7682,7 @@ CMulDayaChannelersCard::CMulDayaChannelersCard(CGame* pGame, UINT nID)
 		cpAbility->GetEnchantment()->GetEnchantmentCardFilter().AddComparer(new SpecificCardComparer(this));
 		cpAbility->GetEnchantment()->GetEnchantmentCardFilter().AddComparer(new AnyCreatureComparer());
 		cpAbility->GetEnchantment()->GetPowerModifier().SetPowerDelta(Power(+3));
-		cpAbility->GetEnchantment()->GetLifeModifier().SetLifeDelta(Power(+3));
+		cpAbility->GetEnchantment()->GetLifeModifier().SetLifeDelta(Life(+3));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -8220,8 +8232,6 @@ void CCurseOfWizardryCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -8230,31 +8240,26 @@ void CCurseOfWizardryCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -8263,10 +8268,10 @@ void CCurseOfWizardryCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 bool CCurseOfWizardryCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CCard* pCard) const
 {
 	return (cWhite && pCard->IsColor(CManaPoolBase::Color::White)) ||
-		(cBlue && pCard->IsColor(CManaPoolBase::Color::Blue)) ||
-		(cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) ||
-		(cRed && pCard->IsColor(CManaPoolBase::Color::Red)) ||
-		(cGreen && pCard->IsColor(CManaPoolBase::Color::Green));
+		   (cBlue  && pCard->IsColor(CManaPoolBase::Color::Blue))  ||
+		   (cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) ||
+		   (cRed   && pCard->IsColor(CManaPoolBase::Color::Red))   ||
+		   (cGreen && pCard->IsColor(CManaPoolBase::Color::Green));
 }
 
 //____________________________________________________________________________
@@ -8878,9 +8883,13 @@ bool CGelatinousGenesisCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = n;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Ooze F"), 62017));		

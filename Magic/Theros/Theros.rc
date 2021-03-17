@@ -113,7 +113,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING26724         "Fanatic of Mogis\n{3R}\nCreature - Minotaur Shaman\nTHS,U\nWhen Fanatic of Mogis enters the battlefield, it deals damage to each opponent equal to your devotion to red.\n4/2"
     IDS_STRING26725         "Karametra's Acolyte\n{3G}\nCreature - Human Druid\nTHS,U\n{T}: Add an amount of {G} to your mana pool equal to your devotion to green.\n1/4"
-    IDS_STRING26726         "Reverent Hunter\n{2G}\nCreature - Human Archer\nTHS,R\nWhen Reverent Hunter enters the battle field, put a number of +1/+1 counters on it equal to your devotion to green.\n1/1"
+    IDS_STRING26726         "Reverent Hunter\n{2G}\nCreature - Human Archer\nTHS,R\nWhen Reverent Hunter enters the battlefield, put a number of +1/+1 counters on it equal to your devotion to green.\n1/1"
     IDS_STRING26727         "Vanquish the Foul\n{5W}\nSorcery\nTHS,U\nDestroy target creature with power 4 or greater. Scry 1."
     IDS_STRING26728         "Wingsteed Rider\n{1WW}\nCreature - Human Knight\nTHS,C\nFlying\rHeroic - Whenever you cast a spell that targets Wingsteed Rider, put a +1/+1 counter on Wingsteed Rider.\n2/2"
     IDS_STRING26729         "Ill-Tempered Cyclops\n{3R}\nCreature - Cyclops\nTHS,C\nTrample\r{5R}: Monstrosity 3.\n3/3"
@@ -249,11 +249,11 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING26834    	    "Temple of Silence\n\nLand\nTHS,R\nTemple of Silence enters the battlefield tapped.\nWhen Temple of Silence enters the battlefield, scry 1.\n{T}: Add {W} or {B} to your mana pool."
-    IDS_STRING26835         "Temple of Abandon\n\nLand\nTHS,R\nTemple of Abandon enters the battlefield tapped.\nWhen Temple of Abandon enters the battlefield, scry 1.\n{T}: Add {R} or {G} to your mana pool."
-    IDS_STRING26836         "Temple of Deceit\n\nLand\nTHS,R\nTemple of Deceit enters the battlefield tapped.\nWhen Temple of Deceit enters the battlefield, scry 1.\n{T}: Add {U} or {B} to your mana pool."
-    IDS_STRING26837         "Temple of Mystery\n\nLand\nTHS,R\nTemple of Mystery enters the battlefield tapped.\nWhen Temple of Mystery enters the battlefield, scry 1.\n{T}: Add {G} or {U} to your mana pool."
-    IDS_STRING26838         "Temple of Triumph\n\nLand\nTHS,R\nTemple of Triumph enters the battlefield tapped.\nWhen Temple of Triumph enters the battlefield, scry 1.\n{T}: Add {R} or {W} to your mana pool."   
+    IDS_STRING26834         "Temple of Silence\n\nLand\nTHS,R\nTemple of Silence enters the battlefield tapped.\rWhen Temple of Silence enters the battlefield, scry 1.\r{T}: Add {W} or {B} to your mana pool."
+    IDS_STRING26835         "Temple of Abandon\n\nLand\nTHS,R\nTemple of Abandon enters the battlefield tapped.\rWhen Temple of Abandon enters the battlefield, scry 1.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING26836         "Temple of Deceit\n\nLand\nTHS,R\nTemple of Deceit enters the battlefield tapped.\rWhen Temple of Deceit enters the battlefield, scry 1.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING26837         "Temple of Mystery\n\nLand\nTHS,R\nTemple of Mystery enters the battlefield tapped.\rWhen Temple of Mystery enters the battlefield, scry 1.\r{T}: Add {G} or {U} to your mana pool."
+    IDS_STRING26838         "Temple of Triumph\n\nLand\nTHS,R\nTemple of Triumph enters the battlefield tapped.\rWhen Temple of Triumph enters the battlefield, scry 1.\r{T}: Add {R} or {W} to your mana pool."
     IDS_STRING26839         "Unknown Shores\n\nLand\nTHS,C\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add one mana of any color to your mana pool."
     IDS_STRING26840         "Messenger's Speed\n{R}\nEnchantment - Aura\nTHS,C\nEnchant creature\rEnchanted creature has trample and haste."
     IDS_STRING26841         "Minotaur Skullcleaver\n{2R}\nCreature - Minotaur Berserker\nTHS,C\nHaste\rWhen Minotaur Skullcleaver enters the battlefield, it gets +2/+0 until end of turn.\n2/2"

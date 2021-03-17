@@ -844,7 +844,7 @@ protected:
 
     CCardFilter m_CardFilter;
 
-	bool CFurnaceScampCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
 		CPlayer* pPlayer, Damage damage) const;
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
@@ -862,7 +862,7 @@ class CVorinclexVoiceofHungerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVorinclexVoiceofHungerCard);
 
-private:
+protected:
 	typedef
 		TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenTappedForMana > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,
@@ -1342,7 +1342,7 @@ protected:
 		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool CParasiticImplantCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________

@@ -2540,17 +2540,33 @@ CMartyrOfSandsCard::CMartyrOfSandsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Martyr of Sands"), CardType::Creature, CREATURE_TYPE2(Human, Cleric), nID,
 		WHITE_MANA_TEXT, Power(1), Life(1))
 {
-    counted_ptr<CActivatedAbility<CChgLifeSpell>> cpAbility(
-        ::CreateObject<CActivatedAbility<CChgLifeSpell>>(this,
-            _T("1"),
-            Life(+0), PreventableType::NotPreventable));
+	{
+		// reveal X white cards from your hand, where X > 0 
+		counted_ptr<CActivatedAbility<CChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CChgLifeSpell>>(this,
+				_T("1"),
+				Life(+0), PreventableType::NotPreventable));
 
-    cpAbility->AddSacrificeCost();
-	cpAbility->GetCost().AddRevealCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("white cards")));
+		cpAbility->AddSacrificeCost();
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpAbility->GetCost().AddRevealCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("white cards")));
 
-	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMartyrOfSandsCard::BeforeResolution));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMartyrOfSandsCard::BeforeResolution));
  
-    AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		// reveal no white cards from your hand, where X = 0 
+		counted_ptr<CActivatedAbility<CChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CChgLifeSpell>>(this,
+				_T("1"),
+				Life(+0), PreventableType::NotPreventable));
+
+		cpAbility->AddSacrificeCost();
+		cpAbility->SetAbilityText(_T("Reveal no cards. Activates"));
+ 
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 bool CMartyrOfSandsCard::BeforeResolution(CAbilityAction* pAction) const
@@ -2570,21 +2586,39 @@ CMartyrOfAshesCard::CMartyrOfAshesCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Martyr of Ashes"), CardType::Creature, CREATURE_TYPE2(Human, Shaman), nID,
 		RED_MANA_TEXT, Power(1), Life(1))
 {
-	counted_ptr<CActivatedAbility<CGlobalChgLifeSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGlobalChgLifeSpell>>(this,
-			_T("2"),
-			Life(-0),
-			new AnyCreatureComparer,
-			false, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage));
+	{
+		// reveal X red cards from your hand, where X > 0 
+		counted_ptr<CActivatedAbility<CGlobalChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGlobalChgLifeSpell>>(this,
+				_T("2"),
+				Life(-0),
+				new AnyCreatureComparer,
+				false, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage));
 
-	cpAbility->GetGlobalCardFilter().AddNegateComparer(new CreatureKeywordComparer(CreatureKeyword::Flying, false));
+		cpAbility->GetGlobalCardFilter().AddNegateComparer(new CreatureKeywordComparer(CreatureKeyword::Flying, false));
 
-    cpAbility->AddSacrificeCost();
-	cpAbility->GetCost().AddRevealCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("red cards")));
+		cpAbility->AddSacrificeCost();
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpAbility->GetCost().AddRevealCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("red cards")));
 
-	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMartyrOfAshesCard::BeforeResolution));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMartyrOfAshesCard::BeforeResolution));
  
-    AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		// reveal no red cards from your hand, where X = 0
+		counted_ptr<CActivatedAbility<CGlobalChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGlobalChgLifeSpell>>(this,
+				_T("2"),
+				Life(-0),
+				new AnyCreatureComparer,
+				false, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage));
+
+		cpAbility->AddSacrificeCost();
+		cpAbility->SetAbilityText(_T("Reveal no cards. Activates"));
+ 
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 bool CMartyrOfAshesCard::BeforeResolution(CAbilityAction* pAction) const
@@ -2604,30 +2638,47 @@ CMartyrOfSporesCard::CMartyrOfSporesCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Martyr of Spores"), CardType::Creature, CREATURE_TYPE2(Human, Shaman), nID,
 		GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
-			_T("1"),
-			Power(+0), Life(+0),
-			CreatureKeyword::Null, CreatureKeyword::Null,
-			true, PreventableType::NotPreventable));
+	{
+		// reveal X green cards from your hand, where X > 0 
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				_T("1"),
+				Power(+0), Life(+0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				true, PreventableType::NotPreventable));
 
-    cpAbility->AddSacrificeCost();
-	cpAbility->GetCost().AddRevealCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("green cards")));
-
-	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMartyrOfSporesCard::BeforeResolution));
+		cpAbility->AddSacrificeCost();
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpAbility->GetCost().AddRevealCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("green cards")));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMartyrOfSporesCard::BeforeResolution));
  
-    AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		// reveal no green cards from your hand, where X = 0 
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				_T("1"),
+				Power(+0), Life(+0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				true, PreventableType::NotPreventable));
+
+		cpAbility->AddSacrificeCost();
+		cpAbility->SetAbilityText(_T("Reveal no cards. Activates"));
+ 
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 bool CMartyrOfSporesCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	int nCount = pAction->GetCostConfigEntry().GetRevealCards()->GetSize();
-
-	ContextValue Context(pAction->GetValue());
-	Context.nValue1 = nCount;
-	Context.nValue2 = nCount;
-	pAction->SetValue(Context);
-
+	
+	CPowerModifier pPowerModifier = CPowerModifier(Power(+nCount));
+	pPowerModifier.ApplyTo((CCreatureCard*)pAction->GetAssociatedCard());
+	
+	CLifeModifier pLifeModifier = CLifeModifier(Life(+nCount));
+	pLifeModifier.ApplyTo((CCreatureCard*)pAction->GetAssociatedCard());
 	return true;
 }
 
@@ -2800,7 +2851,7 @@ void CBraidOfFireCard::OnCUSelected(const std::vector<SelectionEntry>& selection
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s adds %d red mana to his mana pool"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+					strMessage.Format(_T("%s adds %d red mana to his mana pool"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -2943,9 +2994,9 @@ void CHeraldOfLeshracCard::OnCUSelected(const std::vector<SelectionEntry>& selec
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s gains control of %d land he doesn't control"), pSelectionPlayer->GetPlayerName(), dwContext1);
+						strMessage.Format(_T("%s gains control of %d land he doesn't control"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s gains control of %d lands he doesn't control"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s gains control of %d lands he doesn't control"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3081,7 +3132,6 @@ bool CJotunGruntCard::BeforeResolution(CAbilityAction* pAction)
 
 		int nCounters = GetCounterContainer()->GetCounter(AGE_COUNTER)->GetCount();
 		int nGravePairs = 0;
-		CPlayer* pController = pAction->GetController();
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		{
@@ -3124,7 +3174,7 @@ void CJotunGruntCard::OnCUSelected(const std::vector<SelectionEntry>& selection,
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s puts %d cards from graveyards to bottom of libraries"), pSelectionPlayer->GetPlayerName(), 2*dwContext1, GetCardName());
+					strMessage.Format(_T("%s puts %d cards from graveyards to bottom of libraries"), pSelectionPlayer->GetPlayerName(), 2*dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3337,9 +3387,9 @@ void CKarplusanMinotaurCard::OnCUSelected(const std::vector<SelectionEntry>& sel
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s flips %d coin"), pSelectionPlayer->GetPlayerName(), dwContext1);
+						strMessage.Format(_T("%s flips %d coin"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s flips %d coins"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s flips %d coins"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3374,14 +3424,15 @@ void CKarplusanMinotaurCard::OnCUSelected(const std::vector<SelectionEntry>& sel
 
 void CKarplusanMinotaurCard::FlipSelection(CPlayer* pPlayer, DWORD CurrentFlip, DWORD TotalFlips)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pPlayer->GetRand() % Exponent;
 	}
 
@@ -3758,9 +3809,9 @@ void CShelteringAncientCard::OnCUSelected(const std::vector<SelectionEntry>& sel
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s puts %d +1/+1 counter on a creature opponent controls"), pSelectionPlayer->GetPlayerName(), dwContext1);
+						strMessage.Format(_T("%s puts %d +1/+1 counter on a creature opponent controls"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s puts %d +1/+1 counters on creatures opponents control"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s puts %d +1/+1 counters on creatures opponents control"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3928,9 +3979,9 @@ void CWallOfShardsCard::OnCUSelected(const std::vector<SelectionEntry>& selectio
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s has an opponent gain %d life"), pSelectionPlayer->GetPlayerName(), dwContext1);
+						strMessage.Format(_T("%s has an opponent gain %d life"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s distributes %d life among opponents"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s distributes %d life among opponents"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -4148,8 +4199,6 @@ void CColdsteelHeartCard::Move(CZone* pToZone,
 void CColdsteelHeartCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {	
 	ATLASSERT(nSelectedCount == 1);
-
-	CCard* pCard = (CCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -4452,9 +4501,9 @@ void CVexingSphinxCard::OnCUSelected(const std::vector<SelectionEntry>& selectio
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s discards %d card"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s discards %d card"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s discards %d cards"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s discards %d cards"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -4465,16 +4514,18 @@ void CVexingSphinxCard::OnCUSelected(const std::vector<SelectionEntry>& selectio
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 				pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-					CCardFilter::GetFilter(_T("cards")), // any cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on top
-					MoveType::Discard, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+					CZoneModifier::RoleType::PrimaryPlayer,				 // reveal to
+					CCardFilter::GetFilter(_T("cards")),				 // any cards
+					ZoneId::Graveyard,									 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+					CardPlacement::Top,									 // put selected cards on top
+					MoveType::Discard,									 // move type
+					CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 		
-				if (dwContext1 != 0) for (int i = 1; i <= (int)dwContext1; i++) pModifier.ApplyTo(pSelectionPlayer);
+				if (dwContext1 != 0) 
+					for (int i = 1; i <= (int)dwContext1; i++) 
+						pModifier.ApplyTo(pSelectionPlayer);
 								
 				return;
 			}

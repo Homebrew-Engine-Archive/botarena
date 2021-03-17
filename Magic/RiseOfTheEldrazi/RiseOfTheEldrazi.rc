@@ -243,8 +243,8 @@ BEGIN
     IDS_STRING20931         "Deathless Angel\n{4WW}\nCreature - Angel\nROE,R\nFlying\r{WW}: Target creature gains indestructible until end of turn.\n5/7"
     IDS_STRING20932         "Ulamog, the Infinite Gyre\n{11}\nLegendary Creature - Eldrazi\nROE,MR\nWhen you cast Ulamog, the Infinite Gyre, destroy target permanent.\rAnnihilator 4\rUlamog is indestructible.\rWhen Ulamog is put into a graveyard from anywhere, its owner shuffles his or her graveyard into his or her library.\n10/10"
     IDS_STRING20933         "Rapacious One\n{5R}\nCreature - Eldrazi Drone\nROE,U\nTrample\rWhenever Rapacious One deals combat damage to a player, put that many 0/1 colorless Eldrazi Spawn creature tokens onto the battlefield. They have ""Sacrifice this creature: Add {1} to your mana pool.\n5/4"
-    IDS_STRING20934         "Deprive\n{UU}\nInstant\nROE\nAs an additional cost to cast Deprive, return a land you control to its owner's hand.\rCounter target spell."
-    IDS_STRING20935         "See Beyond\n{1U}\nSorcery\nROE\nDraw two cards, then shuffle a card from your hand into your library."
+    IDS_STRING20934         "Deprive\n{UU}\nInstant\nROE,C\nAs an additional cost to cast Deprive, return a land you control to its owner's hand.\rCounter target spell."
+    IDS_STRING20935         "See Beyond\n{1U}\nSorcery\nROE,C\nDraw two cards, then shuffle a card from your hand into your library."
     IDS_STRING20936         "Conquering Manticore\n{4RR}\nCreature - Manticore\nROE,R\nFlying\rWhen Conquering Manticore enters the battlefield, gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.\n5/5"
     IDS_STRING20937         "Emrakul, the Aeons Torn\n{15}\nLegendary Creature - Eldrazi\nROE,MR\nEmrakul, the Aeons Torn can't be countered.\rWhen you cast Emrakul, take an extra turn after this one.\rFlying, protection from colored spells, annihilator 6\rWhen Emrakul is put into a graveyard from anywhere, its owner shuffles his or her graveyard into his or her library.\n15/15"
     IDS_STRING20938         "Momentous Fall\n{2GG}\nInstant\nROE,R\nAs an additional cost to cast Momentous Fall, sacrifice a creature.\rYou draw cards equal to the sacrificed creature's power, then you gain life equal to its toughness."
@@ -312,7 +312,7 @@ BEGIN
     IDS_STRING20988         "Nomads' Assembly\n{4WW}\nSorcery\nROE,R\nPut a 1/1 white Kor Soldier creature token onto the battlefield for each creature you control.\rRebound"
     IDS_STRING20989         "Survival Cache\n{2W}\nSorcery\nROE,U\nYou gain 2 life. Then if you have more life than an opponent, draw a card.\rRebound"
     IDS_STRING20990         "Devastating Summons\n{R}\nSorcery\nROE,R\nAs an additional cost to cast Devastating Summons, sacrifice X lands.\rPut two X/X red Elemental creature tokens onto the battlefield."
-    IDS_STRING20991         "Time of Heroes\n{1W}\nEnchantment\nROE,U\nEach creature you control with a level counter on it gets +2/+2.\n"
+    IDS_STRING20991         "Time of Heroes\n{1W}\nEnchantment\nROE,U\nEach creature you control with a level counter on it gets +2/+2."
 END
 
 STRINGTABLE
@@ -361,6 +361,7 @@ BEGIN
     IDS_STRING21025         "Contaminated Ground\n{1B}\nEnchantment - Aura\nROE,C\nEnchant land\rEnchanted land is a Swamp.\rWhenever enchanted land becomes tapped, its controller loses 2 life."
     IDS_STRING21026         "Gelatinous Genesis\n{XXG}\nSorcery\nROE,R\nPut X X/X green Ooze creature tokens onto the battlefield."
     IDS_STRING21027         "Echo Mage\n{1UU}\nCreature - Human Wizard\nROE,R\nLevel up {1U}\rLEVEL 2-3\r2/4\r{UU}, {T}: Copy target instant or sorcery spell. You may choose new targets for the copy.\rLEVEL 4+\r2/5\r{UU}, {T}: Copy target instant or sorcery spell twice. You may choose new targets for the copies.\n2/3"
+    IDS_STRING21028         "Living Destiny\n{3G}\nInstant\nROE,C\nAs an additional cost to cast Living Destiny, reveal a creature card from your hand.\rYou gain life equal to the revealed card's converted mana cost."
 END
 
 #endif    // English (United States) resources

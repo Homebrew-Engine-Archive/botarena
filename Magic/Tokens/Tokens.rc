@@ -163,7 +163,20 @@ BEGIN
     IDS_STRING62066         "Snake (G)\n{B}\nCreature - Snake\nToken\nDeathtouch\n1/1"
     IDS_STRING62067         "Elemental (V)\n{R}\nCreature - Elemental\nToken\nHaste\n1/1"
     IDS_STRING62068         "Beast (N)\n{G}\nCreature - Beast\nToken\nTrample\n5/5"
+    IDS_STRING62069         "Cat Soldier (A)\n{W}\nCreature - Cat Soldier\nToken\nVigilance\n1/1"
+    IDS_STRING62070         "Soldier (Q)\n{W}\nEnchantment Creature - Soldier\nToken\n\n1/1"
+    IDS_STRING62071         "Bird (J)\n{U}\nEnchantment Creature - Bird\nToken\nFlying\n2/2"
+    IDS_STRING62072         "Zombie (N)\n{B}\nEnchantment Creature - Zombie\nToken\n\n2/2"
+    IDS_STRING62073         "Elemental (W)\n{R}\nEnchantment Creature - Elemental\nToken\nHaste\n3/1"
+    IDS_STRING62074         "Centaur (D)\n{G}\nEnchantment Creature - Centaur\nToken\n\n3/3"
+    IDS_STRING62075         "Wolf (J)\n{G}\nCreature - Wolf\nToken\n\n2/2"
+    IDS_STRING62076         "Kraken (A)\n{U}\nCreature - Kraken\nToken\n\n9/9"
+    IDS_STRING62077         "Bird (K)\n{W}\nCreature - Bird\nToken\nFlying\n1/1"
+    IDS_STRING62078         "Zombie (O)\n{B}\nCreature - Zombie\nToken\n\n*/*"
+    IDS_STRING62079         "Minotaur (A)\n{R}\nCreature - Minotaur\nToken\nHaste\n2/3"
 END
+//Due to tokens with an ID above 62079 not being recognised by Botarena, it was decided to create 
+//all new tokens in CardTokens2 using IDs in a different range (55000+) therefore avoiding the issue.
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////

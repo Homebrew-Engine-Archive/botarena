@@ -5409,9 +5409,6 @@ void CMomentaryBlinkCard::OnResolutionCompleted1(const CAbilityAction* pAbilityA
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
 	m_CardFlagModifier1.ApplyTo(target);
 
 	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
@@ -5603,9 +5600,6 @@ void CFlickeringSpiritCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
 	m_CardFlagModifier1.ApplyTo(target);
 
 	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
@@ -7856,22 +7850,21 @@ bool CHypergenesisCard::BeforeResolution(CAbilityAction* pAction) const
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
 			CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 			pModifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to reorder
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			&m_CardFilter, // what cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on 
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,					 // select by 
+			CZoneModifier::RoleType::PrimaryPlayer,					 // reveal to
+			&m_CardFilter,											 // what cards
+			ZoneId::Battlefield,									 // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,					 // select by this player
+			CardPlacement::Top,										 // put selected cards on 
+			MoveType::Others,										 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);				 // order selected cards by this player
 
 	int cont_hand = cont->GetZoneById(ZoneId::Hand)->GetSize();
 	int opp_hand = opp->GetZoneById(ZoneId::Hand)->GetSize();
-	int cont_new_hand = 0;
-	int opp_new_hand = 0;
 
 	int loop = cont_hand;
-	if (opp_hand > cont_hand) loop = opp_hand;
+	if (opp_hand > cont_hand) 
+		loop = opp_hand;
 
 	for (int i = 0; i < loop; ++i)
 	{
@@ -7881,10 +7874,11 @@ bool CHypergenesisCard::BeforeResolution(CAbilityAction* pAction) const
 		pModifier.ApplyTo(cont);
 		pModifier.ApplyTo(opp);
 
-		cont_new_hand = cont->GetZoneById(ZoneId::Hand)->GetSize();
-		opp_new_hand = opp->GetZoneById(ZoneId::Hand)->GetSize();
+		int cont_new_hand = cont->GetZoneById(ZoneId::Hand)->GetSize();
+		int opp_new_hand = opp->GetZoneById(ZoneId::Hand)->GetSize();
 
-		if (cont_hand == cont_new_hand && opp_hand == opp_new_hand) break;
+		if (cont_hand == cont_new_hand && opp_hand == opp_new_hand) 
+			break;
 	}
 
 	return true;
@@ -8155,13 +8149,9 @@ CMolderCard::CMolderCard(CGame* pGame, UINT nID)
 void CMolderCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	int n = GetLastCastingExtraValue();
-	CPlayer* target = pAbilityAction->GetAssociatedPlayer();
 	CLifeModifier* life = new CLifeModifier(Life(+n), this, PreventableType::NotPreventable);
-
 	if (bResult)
-	{
 		life->ApplyTo(GetController());
-	}
 }
 
 //____________________________________________________________________________
@@ -8936,8 +8926,6 @@ void CParadisePlumeCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -8946,31 +8934,26 @@ void CParadisePlumeCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -8979,10 +8962,10 @@ void CParadisePlumeCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 bool CParadisePlumeCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CCard* pCard) const
 {
 	return (cWhite && pCard->IsColor(CManaPoolBase::Color::White)) ||
-		(cBlue && pCard->IsColor(CManaPoolBase::Color::Blue)) ||
-		(cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) ||
-		(cRed && pCard->IsColor(CManaPoolBase::Color::Red)) ||
-		(cGreen && pCard->IsColor(CManaPoolBase::Color::Green));
+		   (cBlue  && pCard->IsColor(CManaPoolBase::Color::Blue))  ||
+		   (cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) ||
+		   (cRed   && pCard->IsColor(CManaPoolBase::Color::Red))   ||
+		   (cGreen && pCard->IsColor(CManaPoolBase::Color::Green));
 }
 
 BOOL CParadisePlumeCard::CanPlayW(BOOL bIncludeTricks)
@@ -9151,9 +9134,9 @@ void CPentarchPaladinCard::Move(CZone* pToZone,
 	if	(!bBattlefield && (pToZone->GetZoneId() == ZoneId::Battlefield))
 	{
 		cWhite = false;
-		cBlue = false;
+		cBlue  = false;
 		cBlack = false;
-		cRed = false;
+		cRed   = false;
 		cGreen = false;
 
 		std::vector<SelectionEntry> entries;
@@ -9197,8 +9180,6 @@ void CPentarchPaladinCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -9207,31 +9188,26 @@ void CPentarchPaladinCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -9241,7 +9217,6 @@ bool CPentarchPaladinCard::SetTriggerContext(CTriggeredModifyCreatureAbility::Tr
 		CCreatureCard* pCreature, CCreatureCard* pCreature2, int nCount, int nIndex) const
 {
 	triggerContext.m_pCreature = pCreature2;
-
 	return true;
 }
 
@@ -9384,9 +9359,9 @@ void CSarpadianEmpiresVolVIICard::Move(CZone* pToZone,
 	if	(!bBattlefield && (pToZone->GetZoneId() == ZoneId::Battlefield))
 	{
 		cWhite = false;
-		cBlue = false;
+		cBlue  = false;
 		cBlack = false;
-		cRed = false;
+		cRed   = false;
 		cGreen = false;
 
 		std::vector<SelectionEntry> entries;
@@ -9430,8 +9405,6 @@ void CSarpadianEmpiresVolVIICard::OnSelectionDone(const std::vector<SelectionEnt
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -9440,31 +9413,26 @@ void CSarpadianEmpiresVolVIICard::OnSelectionDone(const std::vector<SelectionEnt
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -11173,9 +11141,13 @@ bool CWurmcallingCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Wurm C"), 2845));		

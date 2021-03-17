@@ -277,6 +277,7 @@
 #define IDS_STRING15060                 15060
 #define IDS_STRING15061                 15061
 #define IDS_STRING15062                 15062
+#define IDS_STRING15063                 15063
 #define IDI_MODULE                      15106
 #define IDI_LARGE_MODULE                15107
 

@@ -977,8 +977,6 @@ void CGlobalSearchLibrarySpell::ResolvePlayer(const CAbilityAction* pAction, CPl
 {
 	__super::ResolvePlayer(pAction, pPlayer, value);
 
-	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
-
 	if (!CSearchCardCommon::ResolveSearchCards(
 		pPlayer, MinimumValue(value.nValue2), MaximumValue(value.nValue1), pPlayer, ZoneId::Library,
 											  m_pSearchCardFilter,

@@ -48,7 +48,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCallOfTheHerdCard);
 		DEFINE_CARD(CCantivoreCard);
 		DEFINE_CARD(CCarefulStudyCard);
-		DEFINE_CARD(CCausticTarCard);
 		DEFINE_CARD(CCeaseFireCard);
 		DEFINE_CARD(CCentaurGardenCard);
 		DEFINE_CARD(CCephalidBrokerCard);
@@ -4963,40 +4962,6 @@ CBearscapeCard::CBearscapeCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CCausticTarCard::CCausticTarCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Caustic Tar"), CardType::EnchantLand, nID)
-{
-	counted_ptr<CAbilityEnchant> cpSpell(
-		::CreateObject<CAbilityEnchant>(this,
-			_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT,
-			new CardTypeComparer(CardType::_Land, false),
-			CAbilityEnchant::CreateAbilityCallback(this,
-				&CCausticTarCard::CreateEnchantAbility),
-				CAbilityEnchant::AdditionType::ToEnchantCard));
-
-	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Positive);
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-counted_ptr<CAbility> CCausticTarCard::CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue)
-{
-	counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpEnchantAbility(
-		::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(pEnchantedCard,
-			_T(""),
-			FALSE_CARD_COMPARER, TRUE,
-			Life(-3), PreventableType::NotPreventable));
-	ATLASSERT(cpEnchantAbility);
-
-	cpEnchantAbility->AddTapCost();
-
-	cpEnchantAbility->SetDamageType(DamageType::NotDealingDamage);
-
-	return counted_ptr<CAbility>(cpEnchantAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CChamberOfManipulationCard::CChamberOfManipulationCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Chamber of Manipulation"), CardType::EnchantLand, nID)
 {
@@ -7252,12 +7217,11 @@ bool CDemoralizeCard::BeforeResolution(CAbilityAction* pAction) const
 		CCountedCardContainer cards;
 		CCardFilter m_CardFilter;
 		m_CardFilter.SetComparer(new AnyCreatureComparer);
-		CZone* pFromZone;
 		CCreatureKeywordModifier* cmodifier = new CCreatureKeywordModifier(CreatureKeyword::CantBeBlockedBy1, true);
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		{
-			pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+			CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 			m_CardFilter.GetIncluded(*pFromZone, cards);
 		}
 		
@@ -8902,8 +8866,8 @@ bool CTestamentOfFaithCard::BeforeResolution(CAbilityAction* pAction)
 
 	CCreatureCard* pCreature = (CCreatureCard*)GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nValue);
-	pCreature->SetPrintedToughness(nValue);
+	pCreature->SetPrintedPower(Power(nValue));
+	pCreature->SetPrintedToughness(Life(nValue));
 
 	return true;
 }

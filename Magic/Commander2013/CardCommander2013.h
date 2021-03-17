@@ -174,7 +174,7 @@ protected:
 	bool BeforeResolution(CAbilityAction* pAction);
 	void OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	int_ nLife; // must use a CStateSupportValueType<int> int_ for correct behavior 
-	void CSuddenDemiseCard::DealDamageToCreatures(CManaPoolBase::Color CreatureColor);
+	void DealDamageToCreatures(CManaPoolBase::Color CreatureColor);
 };
 
 //____________________________________________________________________________
@@ -233,3 +233,87 @@ private:
 
 //____________________________________________________________________________
 //
+class CSydriGalvanicGeniusCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CSydriGalvanicGeniusCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+
+//____________________________________________________________________________
+//
+class CNekusartheMindrazerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNekusartheMindrazerCard);
+
+};
+
+//____________________________________________________________________________
+//
+class COloroAgelessAsceticCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(COloroAgelessAsceticCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
+
+private:
+	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext, 
+							const CPlayer* pPlayer, Life nFromLife, Life nToLife) const;
+};
+
+//____________________________________________________________________________
+//
+class CDereviEmpyrialTacticianCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CDereviEmpyrialTacticianCard);
+
+protected:
+	void OnTargetZoneSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport		m_TargetZoneSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	void OnTapSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport		m_TapSelection;
+	
+private:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenDamageDealt, 
+							CWhenDamageDealt::PlayerEventCallback, 
+							&CWhenDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+
+};
+
+//____________________________________________________________________________
+//
+class CGahijiHonoredOneCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CGahijiHonoredOneCard);
+
+private:
+	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
+										 CCreatureCard* pCreature,
+										 AttackSubject attacked) const;
+
+};
+//____________________________________________________________________________
+//
+class CRoonoftheHiddenRealmCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CRoonoftheHiddenRealmCard);
+
+private:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+
+};
+//____________________________________________________________________________
+//
+class CShattergangBrothersCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CShattergangBrothersCard);
+
+};

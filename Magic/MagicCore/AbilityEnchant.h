@@ -1651,6 +1651,16 @@ protected:
 };
 //____________________________________________________________________________
 //
+/*
+	Ref: Edge of the Divinity W/B
+		 Enchantment - Aura
+		 Enchant Creature
+		 As long as enchanted creature is white, it gets +1/+2.
+		 As long as enchanted creature is black, it gets +2/+1.
+	
+	Use CDoubleChgPwrTghAttrEnchant for enchant creature cards that have 
+	two parts that are be both applied if the enchanted creature card ever meets both conditions.
+*/
 class CORE_EXPORT CDoubleChgPwrTghAttrEnchant
 	: public CEnchant
 {
@@ -1658,49 +1668,51 @@ class CORE_EXPORT CDoubleChgPwrTghAttrEnchant
 
 protected:
 	CDoubleChgPwrTghAttrEnchant(CCard* pCard,
-						  LPCTSTR strManaCost,
-						  Power nPowerDelta, Life nLifeDelta,
-						  CreatureKeyword creatureKeywordToAdd, CardType n_Var1CardFilter,
-						  Power nPowerDelta1, Life nLifeDelta1,
-						  CreatureKeyword creatureKeywordToAdd1, CardType n_Var2CardFilter
-						  );
+								LPCTSTR strManaCost,
+								Power nPowerDelta1, 
+								Life nLifeDelta1,
+								CreatureKeyword creatureKeywordToAdd1, 
+								CardType n_Var1CardFilter,
+								Power nPowerDelta2, 
+								Life nLifeDelta2,
+								CreatureKeyword creatureKeywordToAdd2, 
+								CardType n_Var2CardFilter);
 	virtual ~CDoubleChgPwrTghAttrEnchant() {}
 
 public:
 	OVERRIDE(CActionContainer*, GetAbilityActions)(BOOL bIncludeTricks, BOOL bSetNames);
 
-	const CCreatureKeywordModifier& GetCreatureKeywordMod() const { return m_CreatureKeywordModifier; }
-	const CCardKeywordModifier& GetCardKeywordMod() const { return m_CardKeywordModifier; }
+	const CCreatureKeywordModifier& GetCreatureKeywordMod1()	 const { return m_CreatureKeywordModifier1; }
+	const CCardKeywordModifier& GetCardKeywordMod1()			 const { return m_CardKeywordModifier1;	    }
 
-	CCreatureKeywordModifier& GetCreatureKeywordMod() { return m_CreatureKeywordModifier; }
-	CCardKeywordModifier& GetCardKeywordMod() { return m_CardKeywordModifier; }
+	CCreatureKeywordModifier& GetCreatureKeywordMod1()				   { return m_CreatureKeywordModifier1; }
+	CCardKeywordModifier& GetCardKeywordMod1()						   { return m_CardKeywordModifier1;	    }
 
-	const CCreatureKeywordModifier& GetCreatureKeywordMod1() const { return m_CreatureKeywordModifier1; }
-	const CCardKeywordModifier& GetCardKeywordMod1() const { return m_CardKeywordModifier1; }
+	const CCreatureKeywordModifier& GetCreatureKeywordMod2()	 const { return m_CreatureKeywordModifier2; }
+	const CCardKeywordModifier& GetCardKeywordMod2()			 const { return m_CardKeywordModifier2;	    }
 
-	CCreatureKeywordModifier& GetCreatureKeywordMod1() { return m_CreatureKeywordModifier1; }
-	CCardKeywordModifier& GetCardKeywordMod1() { return m_CardKeywordModifier1; }
+	CCreatureKeywordModifier& GetCreatureKeywordMod2()				   { return m_CreatureKeywordModifier2; }
+	CCardKeywordModifier& GetCardKeywordMod2()						   { return m_CardKeywordModifier2;	    }
 
 protected:
-	OVERRIDE(BOOL, OnEnchant)(CCard* pCard, ContextValue_& contextValue);
+	OVERRIDE(BOOL, OnEnchant)   (CCard* pCard, ContextValue_& contextValue);
 	OVERRIDE(void, OnDisenchant)(CCard* pCard, const ContextValue& contextValue);
 
-
 	void CheckCard(CCard* pCard, CardType fromCardType, CardType toCardType);
-
 	void OnCardTypeChanged(CCard* pCard, CardType fromCardType, CardType toCardType) { CheckCard(pCard, fromCardType, toCardType); } // to support Crusade	
 
-	CLifeModifier				m_LifeModifier;
-	CPowerModifier				m_PowerModifier;
-	CCreatureKeywordModifier	m_CreatureKeywordModifier;
 	CLifeModifier				m_LifeModifier1;
 	CPowerModifier				m_PowerModifier1;
 	CCreatureKeywordModifier	m_CreatureKeywordModifier1;
-	CCardKeywordModifier		m_CardKeywordModifier;
 	CCardKeywordModifier		m_CardKeywordModifier1;
 
-	CardType		m_Var1CardFilter;
-	CardType		m_Var2CardFilter;	
+	CLifeModifier				m_LifeModifier2;
+	CPowerModifier				m_PowerModifier2;
+	CCreatureKeywordModifier	m_CreatureKeywordModifier2;
+	CCardKeywordModifier		m_CardKeywordModifier2;
+
+	CardType					m_Var1CardFilter;
+	CardType					m_Var2CardFilter;	
 
 	ListenerPtr<CardTypeEventSource::Listener>		m_cpCardTypeListener;	// Listen to cards' card type changed (to support Crusade)
 
@@ -1717,10 +1729,102 @@ private:
 				!GetAbility()->GetActionValue().nValue1 && !GetAbility()->GetActionValue().nValue2 && GetAbility()->GetExtraActionValueVector().Any() ? 
 					(GetAbility()->GetExtraActionValueVector().Sum() < 0 ? Characteristic::Negative : Characteristic::Positive) 
 					: Characteristic::Neutral,
-				pAbility->m_CardKeywordModifier.GetModifier().GetToAdd(),
-				pAbility->m_CardKeywordModifier.GetModifier().GetToRemove(),
-				pAbility->m_CreatureKeywordModifier.GetModifier().GetToAdd(),
-				pAbility->m_CreatureKeywordModifier.GetModifier().GetToRemove());
+				pAbility->m_CardKeywordModifier1.GetModifier().GetToAdd(),
+				pAbility->m_CardKeywordModifier1.GetModifier().GetToRemove(),
+				pAbility->m_CreatureKeywordModifier1.GetModifier().GetToAdd(),
+				pAbility->m_CreatureKeywordModifier1.GetModifier().GetToRemove());
+		}
+	};
+};
+
+
+//____________________________________________________________________________
+//
+/*
+	Ref: Serra's Boon 2W
+		 Enchantment - Aura
+		 Enchant Creature
+		 Enchanted creature gets +1/+2 as long as it's white. 
+		 Otherwise, it gets -2/-1.
+	Use CDoubleChgPwrTghAttrExclusiveEnchant for enchant creature cards that have 
+	two mutually exclusive parts.
+
+	CDoubleChgPwrTghAttrExclusiveEnchant cards have two options and only one is ever 
+	active depending on which condition is currently met.
+*/
+class CORE_EXPORT CDoubleChgPwrTghAttrExclusiveEnchant
+	: public CEnchant
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CDoubleChgPwrTghAttrExclusiveEnchant(CCard* pCard,
+										 LPCTSTR strManaCost,
+										 Power nPowerDelta1, 
+										 Life nLifeDelta1,
+										 CreatureKeyword creatureKeywordToAdd1, 
+										 CardType n_Var1CardFilter,
+										 Power nPowerDelta2, 
+										 Life nLifeDelta2,
+										 CreatureKeyword creatureKeywordToAdd2, 
+										 CardType n_Var2CardFilter);
+	virtual ~CDoubleChgPwrTghAttrExclusiveEnchant() {}
+
+public:
+	OVERRIDE(CActionContainer*, GetAbilityActions)(BOOL bIncludeTricks, BOOL bSetNames);
+
+	const CCreatureKeywordModifier& GetCreatureKeywordMod1()	 const { return m_CreatureKeywordModifier1; }
+	const CCardKeywordModifier& GetCardKeywordMod1()			 const { return m_CardKeywordModifier1;	    }
+
+	CCreatureKeywordModifier& GetCreatureKeywordMod1()				   { return m_CreatureKeywordModifier1; }
+	CCardKeywordModifier& GetCardKeywordMod1()						   { return m_CardKeywordModifier1;	    }
+
+	const CCreatureKeywordModifier& GetCreatureKeywordMod2()	 const { return m_CreatureKeywordModifier2; }
+	const CCardKeywordModifier& GetCardKeywordMod2()			 const { return m_CardKeywordModifier2;	    }
+
+	CCreatureKeywordModifier& GetCreatureKeywordMod2()				   { return m_CreatureKeywordModifier2; }
+	CCardKeywordModifier& GetCardKeywordMod2()						   { return m_CardKeywordModifier2;	    }
+
+protected:
+	OVERRIDE(BOOL, OnEnchant)   (CCard* pCard, ContextValue_& contextValue);
+	OVERRIDE(void, OnDisenchant)(CCard* pCard, const ContextValue& contextValue);
+
+	void CheckCard(CCard* pCard, CardType fromCardType, CardType toCardType);
+	void OnCardTypeChanged(CCard* pCard, CardType fromCardType, CardType toCardType) { CheckCard(pCard, fromCardType, toCardType); } // to support Crusade	
+
+	CLifeModifier				m_LifeModifier1;
+	CPowerModifier				m_PowerModifier1;
+	CCreatureKeywordModifier	m_CreatureKeywordModifier1;
+	CCardKeywordModifier		m_CardKeywordModifier1;
+
+	CLifeModifier				m_LifeModifier2;
+	CPowerModifier				m_PowerModifier2;
+	CCreatureKeywordModifier	m_CreatureKeywordModifier2;
+	CCardKeywordModifier		m_CardKeywordModifier2;
+
+	CardType					m_Var1CardFilter;
+	CardType					m_Var2CardFilter;	
+	bool						m_Option1Active; 
+
+	ListenerPtr<CardTypeEventSource::Listener>		m_cpCardTypeListener;	// Listen to cards' card type changed (to support Crusade)
+
+private:
+	class CORE_EXPORT CMyTargeting : public CTargeting
+	{
+	public:
+		OVERRIDE(Characteristic, GetCharacteristic)() const			
+		{ 
+			CDoubleChgPwrTghAttrExclusiveEnchant* pAbility = (CDoubleChgPwrTghAttrExclusiveEnchant*)GetAbility();
+
+			return GetPwrTghAttrCharacteristic(
+				Life(GetAbility()->GetActionValue().nValue1), Power(GetAbility()->GetActionValue().nValue2),
+				!GetAbility()->GetActionValue().nValue1 && !GetAbility()->GetActionValue().nValue2 && GetAbility()->GetExtraActionValueVector().Any() ? 
+					(GetAbility()->GetExtraActionValueVector().Sum() < 0 ? Characteristic::Negative : Characteristic::Positive) 
+					: Characteristic::Neutral,
+				pAbility->m_CardKeywordModifier1.GetModifier().GetToAdd(),
+				pAbility->m_CardKeywordModifier1.GetModifier().GetToRemove(),
+				pAbility->m_CreatureKeywordModifier1.GetModifier().GetToAdd(),
+				pAbility->m_CreatureKeywordModifier1.GetModifier().GetToRemove());
 		}
 	};
 };

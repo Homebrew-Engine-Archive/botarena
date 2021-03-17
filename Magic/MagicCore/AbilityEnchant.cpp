@@ -4161,8 +4161,6 @@ CActionContainer* CChgPwrTghAttrEnchant::GetAbilityActions(BOOL bIncludeTricks, 
 
 	if (bSetNames)
 	{
-		CPlayer* pController = GetController();
-
 		for (int l = 0; l < pActionContainer->GetSize(); ++l)
 		{
 			CTargetSpellAction* pAction = (CTargetSpellAction*)pActionContainer->GetAt(l).GetPointer();
@@ -4271,8 +4269,6 @@ CActionContainer* CCardKeywordEnchant::GetAbilityActions(BOOL bIncludeTricks, BO
 
 	if (bSetNames)
 	{
-		CPlayer* pController = GetController();
-
 		for (int l = 0; l < pActionContainer->GetSize(); ++l)
 		{
 			CTargetSpellAction* pAction = (CTargetSpellAction*)pActionContainer->GetAt(l).GetPointer();
@@ -4281,8 +4277,6 @@ CActionContainer* CCardKeywordEnchant::GetAbilityActions(BOOL bIncludeTricks, BO
 			// 8/25/2001: Enchant cards should have single targetGroup		
 
 			ATLASSERT(targetGroup.GetCardSubjectCount() == 1);
-
-			const CCard* pCard = targetGroup.GetFirstCardSubject();
 
 			CString strActionName;
 
@@ -4491,8 +4485,6 @@ CActionContainer* CControlEnchant::GetAbilityActions(BOOL bIncludeTricks, BOOL b
 
 	if (bSetNames)
 	{
-		CPlayer* pController = GetController();
-
 		for (int l = 0; l < pActionContainer->GetSize(); ++l)
 		{
 			CTargetSpellAction* pAction = (CTargetSpellAction*)pActionContainer->GetAt(l).GetPointer();
@@ -4821,35 +4813,55 @@ void CIsAlsoAEnchant::OnDisenchant(CCard* pCard, const ContextValue& contextValu
 
 	__super::OnDisenchant(pCard, contextValue);
 }
+
 //____________________________________________________________________________
 //
+/*
+	Ref: Edge of the Divinity W/B
+		 Enchantment - Aura
+		 Enchant Creature
+		 As long as enchanted creature is white, it gets +1/+2.
+		 As long as enchanted creature is black, it gets +2/+1.
+	
+	Use CDoubleChgPwrTghAttrEnchant for enchant creature cards that have 
+	two parts that are be both applied if the enchanted creature card ever meets both conditions.
+
+	For Edge of the Divinity
+		Condition 1 is "As long as enchanted creature is white, it gets +1/+2."
+		Condition 2 is "As long as enchanted creature is black, it gets +2/+1."
+
+	The enchanted creature is currently white so Condition 1 is active or it is
+	black so Condition 2 is active or it is both black and white so Conditions 1 and 2 are
+	active or it is not black and not white so Conditions 1 and 2 are not applied.
+*/
 CDoubleChgPwrTghAttrEnchant::CDoubleChgPwrTghAttrEnchant(CCard* pCard,
-														LPCTSTR strManaCost,
-														Power nPowerDelta, Life nLifeDelta,
-														CreatureKeyword creatureKeywordToAdd, CardType n_Var1CardFilter,
-														Power nPowerDelta1, Life nLifeDelta1,
-														CreatureKeyword creatureKeywordToAdd1, CardType n_Var2CardFilter
-														)
+														 LPCTSTR strManaCost,
+														 Power nPowerDelta1, 
+														 Life nLifeDelta1,
+														 CreatureKeyword creatureKeywordToAdd1, 
+														 CardType n_Var1CardFilter,
+														 Power nPowerDelta2, 
+														 Life nLifeDelta2,
+														 CreatureKeyword creatureKeywordToAdd2, 
+														 CardType n_Var2CardFilter)
 	: CEnchant(pCard, strManaCost, new AnyCreatureComparer, new CMyTargeting)
-	, m_LifeModifier(nLifeDelta, pCard, PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE)
-	, m_PowerModifier(nPowerDelta, FALSE)
-	, m_LifeModifier1(nLifeDelta1, pCard, PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE)
+	, m_LifeModifier1 (nLifeDelta1, pCard, PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE)
 	, m_PowerModifier1(nPowerDelta1, FALSE)
+	, m_LifeModifier2 (nLifeDelta2, pCard, PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE)
+	, m_PowerModifier2(nPowerDelta2, FALSE)
 	, m_Var1CardFilter(n_Var1CardFilter)
 	, m_Var2CardFilter(n_Var2CardFilter)
 	, m_cpCardTypeListener(VAR_NAME(m_cpCardTypeListener), CardTypeEventSource::Listener::EventCallback(this, &CDoubleChgPwrTghAttrEnchant::OnCardTypeChanged))
 {
-	SetActionValue(ContextValue(GET_INTEGER(nLifeDelta), GET_INTEGER(nPowerDelta)));
-
-	m_CreatureKeywordModifier.GetModifier().SetToAdd(creatureKeywordToAdd);
-	m_CreatureKeywordModifier.GetModifier().SetOneTurnOnly(FALSE);
-
-	m_CardKeywordModifier.GetModifier().SetOneTurnOnly(FALSE);
+	SetActionValue(ContextValue(GET_INTEGER(nLifeDelta1), GET_INTEGER(nPowerDelta1)));
 
 	m_CreatureKeywordModifier1.GetModifier().SetToAdd(creatureKeywordToAdd1);
 	m_CreatureKeywordModifier1.GetModifier().SetOneTurnOnly(FALSE);
-
 	m_CardKeywordModifier1.GetModifier().SetOneTurnOnly(FALSE);
+
+	m_CreatureKeywordModifier2.GetModifier().SetToAdd(creatureKeywordToAdd2);
+	m_CreatureKeywordModifier2.GetModifier().SetOneTurnOnly(FALSE);
+	m_CardKeywordModifier2.GetModifier().SetOneTurnOnly(FALSE);
 
 	AddAbilityTag(AbilityTag::CreatureChange);
 }
@@ -4861,11 +4873,19 @@ CActionContainer* CDoubleChgPwrTghAttrEnchant::GetAbilityActions(BOOL bIncludeTr
 		return NULL;
 
 	ATLASSERT(!GetCost().GetExtraManaCost());
-
+	/*
+		Had an issue where the incorrect Action Message was being displayed and decided it
+		is better to just use default message.  
+		Not appending any specific message here, eliminates having to check each creature card target 
+		in order to append the correct message pertaining to the valid Option.
+		 
+		Sample message "B: Casts Edge of Divinity and targets Cloaked Siren(3/2)"
+	*/
+	/*
+		Commented out due to incorrect Action Message was being displayed better to just use default message. 
+		(see comment above)
 	if (bSetNames)
 	{
-		CPlayer* pController = GetController();
-
 		for (int l = 0; l < pActionContainer->GetSize(); ++l)
 		{
 			CTargetSpellAction* pAction = (CTargetSpellAction*)pActionContainer->GetAt(l).GetPointer();
@@ -4880,11 +4900,11 @@ CActionContainer* CDoubleChgPwrTghAttrEnchant::GetAbilityActions(BOOL bIncludeTr
 			Life nLifeDelta(targetGroup.GetValue(pCard).nValue1);
 			Power nPowerDelta(targetGroup.GetValue(pCard).nValue2);
 
-			m_LifeModifier.SetLifeDelta(nLifeDelta);
-			m_PowerModifier.SetPowerDelta(nPowerDelta);
+			m_LifeModifier1.SetLifeDelta(nLifeDelta);
+			m_PowerModifier1.SetPowerDelta(nPowerDelta);
 
 			CString strActionName1(
-				GetCreatureGainString(pCard, &m_PowerModifier, &m_LifeModifier, &m_CreatureKeywordModifier, &m_CardKeywordModifier));
+				GetCreatureGainString(pCard, &m_PowerModifier1, &m_LifeModifier1, &m_CreatureKeywordModifier1, &m_CardKeywordModifier1));
 
 			if (!strActionName1.IsEmpty())
 			{
@@ -4893,84 +4913,48 @@ CActionContainer* CDoubleChgPwrTghAttrEnchant::GetAbilityActions(BOOL bIncludeTr
 				pAction->AppendToActionName(strActionName);
 			}
 		}
-	}
-
+	}*/
 	return pActionContainer;
 }
-
+/*
+	This function is called when the enchant creature card (aura) enchants the creature.
+	This function checks what Conditions are applicable to the creature based on its type 
+	and applies the relevant modifiers to the creature card enchanted by the enchant creature card.
+*/
 BOOL CDoubleChgPwrTghAttrEnchant::OnEnchant(CCard* pCard, ContextValue_& contextValue)
 {
 	CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
 
-	/*if (Power(contextValue.nValue2) != Power(0))
-	{
-		CPowerModifier modifier(m_PowerModifier);
-		modifier.SetPowerDelta(Power(contextValue.nValue2));
-		modifier.ApplyTo(pCreatureCard);
-	}
-
-	if (Life(contextValue.nValue1) != Life(0))
-	{
-		CLifeModifier modifier(m_LifeModifier);
-		modifier.SetLifeDelta(Life(contextValue.nValue1));
-		modifier.ApplyTo(pCreatureCard);
-	}
-
-	m_CreatureKeywordModifier.ApplyTo(pCreatureCard);
-	m_CardKeywordModifier.ApplyTo(pCreatureCard);*/
-
 	pCard->GetCardTypeEventSource()->AddListener(m_cpCardTypeListener.GetPointer());
-
+	// Check enchanted creature's card type and determine whether Condition 1 is active.
 	if ((pCreatureCard->GetCardType() & m_Var1CardFilter).Any())
-	{
-		m_LifeModifier.ApplyTo(pCreatureCard);
-		m_PowerModifier.ApplyTo(pCreatureCard);
-		m_CreatureKeywordModifier.ApplyTo(pCreatureCard);
-		m_CardKeywordModifier.ApplyTo(pCreatureCard);
-	}
-
-	if ((pCreatureCard->GetCardType() & m_Var2CardFilter).Any())
 	{
 		m_LifeModifier1.ApplyTo(pCreatureCard);
 		m_PowerModifier1.ApplyTo(pCreatureCard);
 		m_CreatureKeywordModifier1.ApplyTo(pCreatureCard);
 		m_CardKeywordModifier1.ApplyTo(pCreatureCard);
 	}
-
+	// Check enchanted creature's card type and determine whether Condition 2 is active.
+	if ((pCreatureCard->GetCardType() & m_Var2CardFilter).Any())
+	{
+		m_LifeModifier2.ApplyTo(pCreatureCard);
+		m_PowerModifier2.ApplyTo(pCreatureCard);
+		m_CreatureKeywordModifier2.ApplyTo(pCreatureCard);
+		m_CardKeywordModifier2.ApplyTo(pCreatureCard);
+	}
 
 	return __super::OnEnchant(pCard, contextValue);
 }
-
+/*
+	This function is called when the enchant creature card (aura) is removed from the creature (disenchant)
+	This function removes the modifiers from the creature card that were applied to the creature card 
+	by the enchant creature card.
+*/
 void CDoubleChgPwrTghAttrEnchant::OnDisenchant(CCard* pCard, const ContextValue& contextValue)
 {
 	CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
 
-/*	if (Power(contextValue.nValue2) != Power(0))
-	{
-		CPowerModifier modifier(m_PowerModifier);
-		modifier.SetPowerDelta(Power(contextValue.nValue2));
-		modifier.RemoveFrom(pCreatureCard);
-	}
-
-	if (Life(contextValue.nValue1) != Life(0))
-	{
-		CLifeModifier modifier(m_LifeModifier);
-		modifier.SetLifeDelta(Life(contextValue.nValue1));
-		modifier.RemoveFrom(pCreatureCard);
-	}
-
-	m_CreatureKeywordModifier.RemoveFrom(pCreatureCard);
-	m_CardKeywordModifier.RemoveFrom(pCreatureCard);*/
-
 	if ((pCreatureCard->GetCardType() & m_Var1CardFilter).Any())
-	{
-		m_LifeModifier.RemoveFrom(pCreatureCard);
-		m_PowerModifier.RemoveFrom(pCreatureCard);
-		m_CreatureKeywordModifier.RemoveFrom(pCreatureCard);
-		m_CardKeywordModifier.RemoveFrom(pCreatureCard);
-	}
-
-	if ((pCreatureCard->GetCardType() & m_Var2CardFilter).Any())
 	{
 		m_LifeModifier1.RemoveFrom(pCreatureCard);
 		m_PowerModifier1.RemoveFrom(pCreatureCard);
@@ -4978,45 +4962,279 @@ void CDoubleChgPwrTghAttrEnchant::OnDisenchant(CCard* pCard, const ContextValue&
 		m_CardKeywordModifier1.RemoveFrom(pCreatureCard);
 	}
 
+	if ((pCreatureCard->GetCardType() & m_Var2CardFilter).Any())
+	{
+		m_LifeModifier2.RemoveFrom(pCreatureCard);
+		m_PowerModifier2.RemoveFrom(pCreatureCard);
+		m_CreatureKeywordModifier2.RemoveFrom(pCreatureCard);
+		m_CardKeywordModifier2.RemoveFrom(pCreatureCard);
+	}
+
 	pCard->GetCardTypeEventSource()->RemoveListener(m_cpCardTypeListener.GetPointer());
 
 	__super::OnDisenchant(pCard, contextValue);
 }
+
+/*
+	This function checks the creature card enchanted by the enchant creature card (aura) when its type changes.
+	When the creature card's type changes, if required, this function removes the old modifiers from the creature card 
+	that were applied to the creature card by the enchant creature card and replaces them when the new modifiers.
+*/
 void CDoubleChgPwrTghAttrEnchant::CheckCard(CCard* pCard, CardType fromCardType, CardType toCardType)
 {
 	if (pCard->GetCardType().IsCreature())
 	{
 		CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;		
-
+		// From Condition 1 not active to Condition 1 active.
 		if ( !(fromCardType & m_Var1CardFilter).Any() &&  (toCardType & m_Var1CardFilter).Any())
-		{
-			m_LifeModifier.ApplyTo(pCreatureCard);
-			m_PowerModifier.ApplyTo(pCreatureCard);
-			m_CreatureKeywordModifier.ApplyTo(pCreatureCard);
-			m_CardKeywordModifier.ApplyTo(pCreatureCard);
-		}
-		
-		if ( (fromCardType & m_Var1CardFilter).Any() &&  !(toCardType & m_Var1CardFilter).Any())
-		{
-			m_LifeModifier.RemoveFrom(pCreatureCard);
-			m_PowerModifier.RemoveFrom(pCreatureCard);
-			m_CreatureKeywordModifier.RemoveFrom(pCreatureCard);
-			m_CardKeywordModifier.RemoveFrom(pCreatureCard);
-		}
-
-		if ( !(fromCardType & m_Var2CardFilter).Any() &&  (toCardType & m_Var2CardFilter).Any())
 		{
 			m_LifeModifier1.ApplyTo(pCreatureCard);
 			m_PowerModifier1.ApplyTo(pCreatureCard);
 			m_CreatureKeywordModifier1.ApplyTo(pCreatureCard);
 			m_CardKeywordModifier1.ApplyTo(pCreatureCard);
 		}
-		if ( (fromCardType & m_Var2CardFilter).Any() &&  !(toCardType & m_Var2CardFilter).Any())
+		// From Condition 1 active to Condition 1 not active.
+		if ( (fromCardType & m_Var1CardFilter).Any() &&  !(toCardType & m_Var1CardFilter).Any())
 		{
 			m_LifeModifier1.RemoveFrom(pCreatureCard);
 			m_PowerModifier1.RemoveFrom(pCreatureCard);
 			m_CreatureKeywordModifier1.RemoveFrom(pCreatureCard);
 			m_CardKeywordModifier1.RemoveFrom(pCreatureCard);
+		}
+		// From Condition 2 not active to Condition 2 active.
+		if ( !(fromCardType & m_Var2CardFilter).Any() &&  (toCardType & m_Var2CardFilter).Any())
+		{
+			m_LifeModifier2.ApplyTo(pCreatureCard);
+			m_PowerModifier2.ApplyTo(pCreatureCard);
+			m_CreatureKeywordModifier2.ApplyTo(pCreatureCard);
+			m_CardKeywordModifier2.ApplyTo(pCreatureCard);
+		}
+		// From Condition 2 active to Condition 2 not active.
+		if ( (fromCardType & m_Var2CardFilter).Any() &&  !(toCardType & m_Var2CardFilter).Any())
+		{
+			m_LifeModifier2.RemoveFrom(pCreatureCard);
+			m_PowerModifier2.RemoveFrom(pCreatureCard);
+			m_CreatureKeywordModifier2.RemoveFrom(pCreatureCard);
+			m_CardKeywordModifier2.RemoveFrom(pCreatureCard);
+		}
+	}
+}
+
+//____________________________________________________________________________
+//
+/*
+	Ref: Serra's Boon 2W
+		 Enchantment - Aura
+		 Enchant Creature
+		 Enchanted creature gets +1/+2 as long as it's white. 
+		 Otherwise, it gets -2/-1.
+	
+	CDoubleChgPwrTghAttrExclusiveEnchant is based on CDoubleChgPwrTghAttrEnchant code.
+	
+	Use CDoubleChgPwrTghAttrExclusiveEnchant for enchant creature cards that have 
+	two mutually exclusive parts.
+
+	CDoubleChgPwrTghAttrExclusiveEnchant aura cards have two options and only one is ever 
+	active depending on which condition is currently met.
+
+	For Serra's Boon
+		Option 1 is "Enchanted creature gets +1/+2 as long as it's white."
+		Option 2 is "it gets -2/-1."
+
+	The enchanted creature is either currently white and Option 1 is active or else it is
+	not white and Option 2 is active.  It can never be both white and not white so 
+	Options 1 and 2 are never active at the same time, they are mutually exclusive.
+	Hence the word Exclusive in the class name.
+
+	NOTE: For Option 1 always choose the option that requires the simplest filter.
+	White is simpler than not white (everything excluding white)
+	so White should be coded as option one.
+*/
+CDoubleChgPwrTghAttrExclusiveEnchant::CDoubleChgPwrTghAttrExclusiveEnchant(CCard* pCard,
+																		   LPCTSTR strManaCost,
+																		   Power nPowerDelta1, 
+																		   Life nLifeDelta1,
+																		   CreatureKeyword creatureKeywordToAdd1, 
+																		   CardType n_Var1CardFilter,
+																		   Power nPowerDelta2, 
+																		   Life nLifeDelta2,
+																		   CreatureKeyword creatureKeywordToAdd2, 
+																		   CardType n_Var2CardFilter)
+	: CEnchant(pCard, strManaCost, new AnyCreatureComparer, new CMyTargeting)
+	, m_LifeModifier1 (nLifeDelta1, pCard, PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE)
+	, m_PowerModifier1(nPowerDelta1, FALSE)
+	, m_LifeModifier2 (nLifeDelta2, pCard, PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE)
+	, m_PowerModifier2(nPowerDelta2, FALSE)
+	, m_Var1CardFilter(n_Var1CardFilter)
+	, m_Var2CardFilter(n_Var2CardFilter)
+	, m_cpCardTypeListener(VAR_NAME(m_cpCardTypeListener), CardTypeEventSource::Listener::EventCallback(this, &CDoubleChgPwrTghAttrExclusiveEnchant::OnCardTypeChanged))
+{
+	m_Option1Active = false;	// initialising, value will be overwritten.
+								// true->Option 1 is currently active, false->Option 2 is currently active
+	SetActionValue(ContextValue(GET_INTEGER(nLifeDelta1), GET_INTEGER(nPowerDelta1)));
+	
+	m_CreatureKeywordModifier1.GetModifier().SetToAdd(creatureKeywordToAdd1);
+	m_CreatureKeywordModifier1.GetModifier().SetOneTurnOnly(FALSE);
+	m_CardKeywordModifier1.GetModifier().SetOneTurnOnly(FALSE);
+
+	m_CreatureKeywordModifier2.GetModifier().SetToAdd(creatureKeywordToAdd2);
+	m_CreatureKeywordModifier2.GetModifier().SetOneTurnOnly(FALSE);
+	m_CardKeywordModifier2.GetModifier().SetOneTurnOnly(FALSE);
+
+	AddAbilityTag(AbilityTag::CreatureChange);
+}
+
+CActionContainer* CDoubleChgPwrTghAttrExclusiveEnchant::GetAbilityActions(BOOL bIncludeTricks, BOOL bSetNames)
+{
+	CActionContainer* pActionContainer = CEnchant::GetAbilityActions(bIncludeTricks, bSetNames);
+	if (!pActionContainer)
+		return NULL;
+
+	ATLASSERT(!GetCost().GetExtraManaCost());
+	/*
+		Had an issue where the incorrect Action Message was being displayed and decided it
+		is better to just use default message.  
+		Not appending any specific message here, eliminates having to check each creature card target 
+		in order to append the correct message pertaining to the valid Option.
+		 
+		Sample message "WBB: Casts Serra's Boon and targets Cloaked Siren(3/2)"
+	*/
+	/*
+		Commented out due to incorrect Action Message was being displayed better to just use default message. 
+		(see comment above)
+	if (bSetNames)
+	{
+		for (int l = 0; l < pActionContainer->GetSize(); ++l)
+		{
+			CTargetSpellAction* pAction = (CTargetSpellAction*)pActionContainer->GetAt(l).GetPointer();
+			CSubjectGroup& targetGroup = pAction->GetTargetGroup();
+
+			// 8/25/2001: Enchant cards should have single targetGroup		
+
+			ATLASSERT(targetGroup.GetCardSubjectCount() == 1);
+
+			const CCreatureCard* pCard = (const CCreatureCard*)targetGroup.GetFirstCardSubject();
+
+			Life nLifeDelta(targetGroup.GetValue(pCard).nValue1);
+			Power nPowerDelta(targetGroup.GetValue(pCard).nValue2);
+
+			m_LifeModifier1.SetLifeDelta(nLifeDelta);
+			m_PowerModifier1.SetPowerDelta(nPowerDelta);
+
+			CString strActionName1(
+				GetCreatureGainString(pCard, &m_PowerModifier1, &m_LifeModifier1, &m_CreatureKeywordModifier1, &m_CardKeywordModifier1));
+
+			if (!strActionName1.IsEmpty())
+			{
+				CString strActionName;
+				strActionName.AppendFormat(_T(" (%s)"), strActionName1);
+				pAction->AppendToActionName(strActionName);
+			}
+		}
+	}*/
+	return pActionContainer;
+}
+/*
+	This function is called when the enchant creature card (aura) enchants the creature.
+	This function checks whether Option 1 or Option 2 is applicable to the creature based on its type 
+	and applies either Option 1 or Option 2 modifiers to the creature card enchanted by the enchant creature card.
+*/
+BOOL CDoubleChgPwrTghAttrExclusiveEnchant::OnEnchant(CCard* pCard, ContextValue_& contextValue)
+{
+	CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
+
+	pCard->GetCardTypeEventSource()->AddListener(m_cpCardTypeListener.GetPointer());
+	/*
+		Check enchanted creature's card type and determine whether Option 1 or Option 2 is active.
+		true->Option 1 is currently active, false->Option 2 is currently active
+	*/
+	if ((pCreatureCard->GetCardType() & m_Var1CardFilter).Any()) 										
+		m_Option1Active = true;
+
+	if (m_Option1Active == true)								 // Option 1 is active
+	{
+		m_LifeModifier1.ApplyTo(pCreatureCard);
+		m_PowerModifier1.ApplyTo(pCreatureCard);
+		m_CreatureKeywordModifier1.ApplyTo(pCreatureCard);
+		m_CardKeywordModifier1.ApplyTo(pCreatureCard);
+	}
+	else														 // Option 2 is active
+	{
+		m_LifeModifier2.ApplyTo(pCreatureCard);
+		m_PowerModifier2.ApplyTo(pCreatureCard);
+		m_CreatureKeywordModifier2.ApplyTo(pCreatureCard);
+		m_CardKeywordModifier2.ApplyTo(pCreatureCard);
+	}
+
+	return __super::OnEnchant(pCard, contextValue);
+}
+/*
+	This function is called when the enchant creature card (aura) is removed from the creature (disenchant)
+	This function removes the modifiers from the creature card that were applied to the creature card 
+	by the enchant creature card.
+*/
+void CDoubleChgPwrTghAttrExclusiveEnchant::OnDisenchant(CCard* pCard, const ContextValue& contextValue)
+{
+	CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
+	if (m_Option1Active == true)								 // Option 1 was active
+	{
+
+		m_LifeModifier1.RemoveFrom(pCreatureCard);
+		m_PowerModifier1.RemoveFrom(pCreatureCard);
+		m_CreatureKeywordModifier1.RemoveFrom(pCreatureCard);
+		m_CardKeywordModifier1.RemoveFrom(pCreatureCard);
+	}
+	else														 // Option 2 was active
+	{
+		m_LifeModifier2.RemoveFrom(pCreatureCard);
+		m_PowerModifier2.RemoveFrom(pCreatureCard);
+		m_CreatureKeywordModifier2.RemoveFrom(pCreatureCard);
+		m_CardKeywordModifier2.RemoveFrom(pCreatureCard);
+	}
+
+	pCard->GetCardTypeEventSource()->RemoveListener(m_cpCardTypeListener.GetPointer());
+
+	__super::OnDisenchant(pCard, contextValue);
+}
+
+/*
+	This function checks the creature card enchanted by the enchant creature card (aura) when its type changes.
+	When the creature card's type changes, if required, this function removes the old modifiers from the creature card 
+	that were applied to the creature card by the enchant creature card and replaces them when the new modifiers.
+*/
+void CDoubleChgPwrTghAttrExclusiveEnchant::CheckCard(CCard* pCard, CardType fromCardType, CardType toCardType)
+{
+	if (pCard->GetCardType().IsCreature())
+	{
+		CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
+		// From Option 1 not active to Option 1 active so therefore
+		// from Option 2 active to Option 2 not active.
+		if (!(fromCardType & m_Var1CardFilter).Any() && (toCardType & m_Var1CardFilter).Any())
+		{
+			m_Option1Active = true;
+			m_LifeModifier1.ApplyTo(pCreatureCard);
+			m_PowerModifier1.ApplyTo(pCreatureCard);
+			m_CreatureKeywordModifier1.ApplyTo(pCreatureCard);
+			m_CardKeywordModifier1.ApplyTo(pCreatureCard);
+
+			m_LifeModifier2.RemoveFrom(pCreatureCard);
+			m_PowerModifier2.RemoveFrom(pCreatureCard);
+			m_CreatureKeywordModifier2.RemoveFrom(pCreatureCard);
+			m_CardKeywordModifier2.RemoveFrom(pCreatureCard);
+		}
+		else
+		{	// From Option 1 active to Option 1 not active so therefore
+			// from Option 2 not active to Option 2 active.
+			m_Option1Active = false;
+			m_LifeModifier1.RemoveFrom(pCreatureCard);
+			m_PowerModifier1.RemoveFrom(pCreatureCard);
+			m_CreatureKeywordModifier1.RemoveFrom(pCreatureCard);
+			m_CardKeywordModifier1.RemoveFrom(pCreatureCard);
+
+			m_LifeModifier2.ApplyTo(pCreatureCard);
+			m_PowerModifier2.ApplyTo(pCreatureCard);
+			m_CreatureKeywordModifier2.ApplyTo(pCreatureCard);
+			m_CardKeywordModifier2.ApplyTo(pCreatureCard);
 		}
 	}
 }

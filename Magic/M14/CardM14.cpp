@@ -1162,14 +1162,14 @@ bool CIntoTheWildsCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer);
 	pModifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bootom
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-				CCardFilter::GetFilter(_T("lands")), // land cards
-				ZoneId::Battlefield, // if selected, move cards to
-				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-				CardPlacement::NotApplicable, // put selected cards on top
-				MoveType::Others, // move type
-				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+				CZoneModifier::RoleType::PrimaryPlayer,		 // select by 
+				CZoneModifier::RoleType::PrimaryPlayer,		 // reveal to
+				CCardFilter::GetFilter(_T("lands")),		 // land cards
+				ZoneId::Battlefield,						 // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer,		 // select by this player
+				CardPlacement::NotApplicable,				 // put selected cards on top
+				MoveType::Others,							 // move type
+				CZoneModifier::RoleType::PrimaryPlayer);	 // order selected cards by this player
 	pModifier.ApplyTo(pAction->GetController());
 
 	return true;
@@ -1208,9 +1208,12 @@ void CLilianasReaverCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 	int nMultiplyBy = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nMultiplyBy <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nMultiplyBy <<= nMultiplier;
 	for (int j = 0; j < nTokenCount * nMultiplyBy; ++j)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Zombie M"), 2917));		
@@ -1295,14 +1298,15 @@ bool CMoltenBirthCard::BeforeResolution(CAbilityAction* pAction)
 	CTokenCreationModifier pModifier = CTokenCreationModifier(GetGame(), _T("Elemental T"), 62056, 2);
 	pModifier.ApplyTo(pController);
 
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -1360,7 +1364,6 @@ bool CMoltenBirthCard::BeforeResolution(CAbilityAction* pAction)
 void CMoltenBirthCard::OnFlipSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -1564,12 +1567,11 @@ CRiseOfTheDarkRealmsCard::CRiseOfTheDarkRealmsCard(CGame* pGame, UINT nID)
 bool CRiseOfTheDarkRealmsCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	CCountedCardContainer creatures;
-	CZone* pZone;
 	CPlayer* pController = pAction->GetController();
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 
@@ -2726,6 +2728,7 @@ CLifebaneZombieCard::CLifebaneZombieCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(3), Life(1))
 		, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CLifebaneZombieCard::OnCardSelected))
 {
+	GetCreatureKeyword()->AddIntimidate(FALSE);
 	typedef
 		TTriggeredTargetAbility< CTriggeredAbility<>, CWhenSelfInplay, 
 									CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
@@ -3733,9 +3736,13 @@ bool CXathridNecromancerCard::BeforeResolution(CAbilityAction* pAction) const
 	int nMultiplyBy = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nMultiplyBy <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nMultiplyBy <<= nMultiplier;
+	
 	for (int j = 0; j < nTokenCount * nMultiplyBy; ++j)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Zombie M"), 2917));		

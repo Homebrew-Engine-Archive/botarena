@@ -5067,9 +5067,11 @@ CScavengingGhoulCard::CScavengingGhoulCard(CGame* pGame, UINT nID)
 bool CScavengingGhoulCard::BeforeResolution(CAbilityAction* pAction)
 {
 	int nCreatures = GetGame()->GetCertainTypeDiedCount(CardType::Creature);
-	if (nCreatures == 0) return false;
+	if (nCreatures == 0) 
+		return false;
 
 	CCardCounterModifier* pModifier = new CCardCounterModifier(CORPSE_COUNTER, nCreatures);
+	pModifier->ApplyTo(this);
 	return true;
 }
 
@@ -5443,7 +5445,7 @@ bool CClockworkBeastCard::BeforeResolution(CAbilityAction* pAction)
 	
 	int nCount = 1;
 	int nMultiplier = 0;
-	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
 		nCount <<= nMultiplier;
 	bool bMaxReached = false;
 

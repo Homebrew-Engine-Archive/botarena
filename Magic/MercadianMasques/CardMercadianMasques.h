@@ -1801,7 +1801,7 @@ class CTectonicBreakCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CTectonicBreakCard);
 
-private:
+protected:
 	typedef
 			TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
 	

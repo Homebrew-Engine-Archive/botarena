@@ -86,6 +86,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CInertiaBubbleCard);
 		DEFINE_CARD(CIronMyrCard);
 		DEFINE_CARD(CIrradiateCard);
+		DEFINE_CARD(CJinxedChokerCard);
 		DEFINE_CARD(CJourneyOfDiscoveryCard);
 		DEFINE_CARD(CKrarkClanGruntCard);
 		DEFINE_CARD(CKrarkClanShamanCard);
@@ -147,7 +148,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CProteusStaffCard);
 		DEFINE_CARD(CPsychicMembraneCard);
 		DEFINE_CARD(CPyriteSpellbombCard);
-		DEFINE_CARD(CRaiseTheAlarmCard);
 		DEFINE_CARD(CRazorBarrierCard);
 		DEFINE_CARD(CRegressCard);
 		DEFINE_CARD(CReiverDemonCard);
@@ -161,7 +161,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSeatOfTheSynodCard);
 		DEFINE_CARD(CSecondSunriseCard);
 		DEFINE_CARD(CSerumTankCard);
-		DEFINE_CARD(CShrapnelBlastCard);
 		DEFINE_CARD(CSilverMyrCard);
 		DEFINE_CARD(CSkeletonShardCard);
 		DEFINE_CARD(CSkyhunterCubCard);
@@ -539,20 +538,6 @@ CTowerOfMurmursCard::CTowerOfMurmursCard(CGame* pGame, UINT nID)
 	cpAbility->SetReorder(TRUE, ZoneId::Graveyard);
 
 	AddAbility(cpAbility.GetPointer());	
-}
-
-//____________________________________________________________________________
-//
-CRaiseTheAlarmCard::CRaiseTheAlarmCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Raise the Alarm"), CardType::Instant, nID)
-{
-	counted_ptr<CTokenProductionSpell> cpSpell(
-		::CreateObject<CTokenProductionSpell>(this, AbilityType::Instant,
-			_T("1") WHITE_MANA_TEXT,
-			_T("Soldier F"), 2916,
-			2));
-
-	AddSpell(cpSpell.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -2860,21 +2845,6 @@ CRegressCard::CRegressCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CShrapnelBlastCard::CShrapnelBlastCard(CGame* pGame, UINT nID)
-	: CTargetChgLifeSpellCard(pGame, _T("Shrapnel Blast"), CardType::Instant, nID, AbilityType::Instant,
-		_T("1") RED_MANA_TEXT,
-		new AnyCreatureComparer,
-		TRUE,	// Target player?
-		Life(-5),		// Life delta
-		PreventableType::Preventable)	// Preventable?
-{
-	m_pTargetChgLifeSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
-
-	m_pTargetChgLifeSpell->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("artifact cards"))); // sacrifice a artifact in addition to cast
-}
-
-//____________________________________________________________________________
-//
 CTrashForTreasureCard::CTrashForTreasureCard(CGame* pGame, UINT nID)
 	: CTargetMoveCardSpellCard(pGame, _T("Trash for Treasure"), CardType::Sorcery, nID,
 		_T("2") RED_MANA_TEXT, AbilityType::Sorcery,
@@ -4514,16 +4484,10 @@ bool CNeurokFamiliarCard::BeforeResolution(CNeurokFamiliarCard::TriggeredAbility
 	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	int nCost = 0;
-
 	if (pNextDraw->GetCardType().IsArtifact())
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Hand);
-	}
 	else
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Graveyard);
-	}
 
 	return true;
 }
@@ -4936,9 +4900,13 @@ void CPromiseOfPowerCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 		int nTokenCount = 1;
 
 		int nMultiplier = 0;
+		// for Doubling Season, etc.
 		if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 				nTokenCount <<= nMultiplier;
-
+		// for Primal Vigor
+		if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+				nTokenCount <<= nMultiplier;
+		
 		for (int i = 0; i < nTokenCount; ++i)
 		{
 			counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Demon B"), 2904));		
@@ -4967,9 +4935,13 @@ bool CPromiseOfPowerCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Demon B"), 2904));		
@@ -5760,10 +5732,7 @@ void COblivionStoneCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 		std::auto_ptr<CCardModifier>(new CCardCounterModifier(FATE_COUNTER, 0, true)));
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-	{
-		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-	}
 }
 //____________________________________________________________________________
 //
@@ -5807,16 +5776,17 @@ bool CFieryGambitCard::BeforeResolution (CAbilityAction* pAction)
 	return true;
 }
 
-void CFieryGambitCard::FlipFunction (CPlayer* pController, CCreatureCard* pTarget)
+void CFieryGambitCard::FlipFunction(CPlayer* pController, CCreatureCard* pTarget)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5894,7 +5864,6 @@ void CFieryGambitCard::FlipFunction (CPlayer* pController, CCreatureCard* pTarge
 void CFieryGambitCard::OnFlipSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -5959,7 +5928,6 @@ void CFieryGambitCard::OnFlipSelected(const std::vector<SelectionEntry>& selecti
 void CFieryGambitCard::OnContinueSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -6393,7 +6361,6 @@ bool CProteusStaffCard::BeforeResolution(CAbilityAction* pAction)
 	
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 				
 	CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
 
@@ -6405,10 +6372,7 @@ bool CProteusStaffCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->GetCardType().IsCreature())
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 		}
 	}
 
@@ -6418,14 +6382,14 @@ bool CProteusStaffCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier2 = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier2.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			&m_CardFilter, // any cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,			  // select by 
+			CZoneModifier::RoleType::AllPlayers,			  // reveal to
+			&m_CardFilter,									  // any cards
+			ZoneId::Battlefield,							  // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,			  // select by this player
+			CardPlacement::Top,								  // put selected cards on top
+			MoveType::Others,								  // move type
+			CZoneModifier::RoleType::PrimaryPlayer);		  // order selected cards by this player
 	pModifier2.SetReorderInformation(true, ZoneId::Library, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Bottom);
 		
 	pModifier2.ApplyTo(pPlayer);
@@ -6887,11 +6851,10 @@ void CLiarsPendulumCard::OnRevealSelected(const std::vector<SelectionEntry>& sel
 			}
 			if (it->dwContext == 1)
 			{
-				CPlayer* pController = (CPlayer*)dwContext1;
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s doesn't reveal his hand"), pSelectionPlayer->GetPlayerName(), pController->GetPlayerName());
+					strMessage.Format(_T("%s doesn't reveal his hand"), pSelectionPlayer->GetPlayerName());
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -7052,7 +7015,6 @@ void CWrenchMindCard::OnSelected(const std::vector<SelectionEntry>& selection, i
 		{
 			if ((int)it->dwContext == 0)
 			{
-				CCard* pCard = (CCard*)dwContext1;
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
@@ -7066,14 +7028,14 @@ void CWrenchMindCard::OnSelected(const std::vector<SelectionEntry>& selection, i
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All , CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 				pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-					CCardFilter::GetFilter(_T("artifact cards")), // what cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on 
-					MoveType::Discard, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+					CZoneModifier::RoleType::PrimaryPlayer,				 // reveal to
+					CCardFilter::GetFilter(_T("artifact cards")),		 // what cards
+					ZoneId::Graveyard,									 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+					CardPlacement::Top,								     // put selected cards on 
+					MoveType::Discard,									 // move type
+					CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 
 				pModifier.ApplyTo(pSelectionPlayer);
 
@@ -7081,7 +7043,6 @@ void CWrenchMindCard::OnSelected(const std::vector<SelectionEntry>& selection, i
 			}
 			if ((int)it->dwContext == 1)
 			{
-				CCard* pCard = (CCard*)dwContext1;
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
@@ -7095,14 +7056,14 @@ void CWrenchMindCard::OnSelected(const std::vector<SelectionEntry>& selection, i
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All , CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 				pModifier.AddSelection(MinimumValue(2), MaximumValue(2), // select cards to reorder
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-					CCardFilter::GetFilter(_T("cards")), // what cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on 
-					MoveType::Discard, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer, 			 // select by 
+					CZoneModifier::RoleType::PrimaryPlayer, 			 // reveal to
+					CCardFilter::GetFilter(_T("cards")), 				 // what cards
+					ZoneId::Graveyard, 									 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer, 			 // select by this player
+					CardPlacement::Top, 								 // put selected cards on 
+					MoveType::Discard, 									 // move type
+					CZoneModifier::RoleType::PrimaryPlayer); 			 // order selected cards by this player
 
 				pModifier.ApplyTo(pSelectionPlayer);
 
@@ -7172,5 +7133,100 @@ bool CBlindingBeamCard::BeforeResolution(CAbilityAction* pAction)
 	return true;
 }
 
+//____________________________________________________________________________
+//
+CJinxedChokerCard::CJinxedChokerCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Jinxed Choker"), CardType::Artifact, nID,
+		_T("3"), AbilityType::Artifact)
+{
+	// initialize CHARGE_COUNTER 
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, false, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	{
+		/*
+			At the beginning of your upkeep, Jinxed Choker deals damage to you equal 
+			to the number of charge counters on it.
+		*/
+		typedef
+			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetLifeModifier().SetDamageType(DamageType::NotDealingDamage);
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CJinxedChokerCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CJinxedChokerCard::BeforeResolution));
+
+		cpAbility->AddAbilityTag(AbilityTag::LifeLost);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		/*
+			At the beginning of your end step, target opponent gains control of Jinxed Choker 
+			and puts a charge counter on it.
+		*/
+		typedef
+			 TTriggeredTargetAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+	    counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(true);
+
+		cpAbility->GetTargeting().SetIncludeOpponentPlayersOnly();
+
+		cpAbility->GetTriggeredPlayerModifiers().Add(new CTransferControlModifier(GetGame(), (CCard*)this, (CCard*)this));
+
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Battlefield));
+		cpAbility->SetAbilityName(_T("gain control ability"));
+
+		cpAbility->SetAbilityText(_T("Put a charge counter on"));
+        cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(CHARGE_COUNTER, +1, false));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		//Put a charge counter on Jinxed Choker
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("3")));
+
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(CHARGE_COUNTER, +1));
+		cpAbility->SetAbilityText(_T("Put a charge counter on"));
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		//Remove a charge counter from Jinxed Choker
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("3")));
+
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(CHARGE_COUNTER, -1));
+		cpAbility->SetAbilityText(_T("Remove a charge counter"));
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool  CJinxedChokerCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
+												CNode* pToNode) const
+{		
+	int nCounterCount = GetCounterContainer()->GetCounter(CHARGE_COUNTER)->GetCount();
+	return (nCounterCount>0);
+}
+
+bool CJinxedChokerCard::BeforeResolution(CJinxedChokerCard::TriggeredAbility::TriggeredActionType* pAction) const
+{
+	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
+
+	int nCounterCount = GetCounterContainer()->GetCounter(CHARGE_COUNTER)->GetCount();	
+
+	triggerContext.m_LifeModifier.SetLifeDelta(Life(-nCounterCount));
+
+	pAction->SetTriggerContext(triggerContext);
+
+	return nCounterCount >= 1;
+}
 //____________________________________________________________________________
 //

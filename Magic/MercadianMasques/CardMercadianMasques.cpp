@@ -4736,7 +4736,6 @@ CNetherSpiritCard::CNetherSpiritCard(CGame* pGame, UINT nID)
 
 bool CNetherSpiritCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const
 {
-	CPlayer* pController = GetController();
 	CZone* pOppInplay = GetController()->GetZoneById(ZoneId::Graveyard);	
 	int nOppCount = 0;
 	for (int i = 0; i < pOppInplay->GetSize(); ++i)
@@ -4751,7 +4750,6 @@ bool CNetherSpiritCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerCont
 
 bool CNetherSpiritCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
-	CPlayer* pController = GetController();
 	CZone* pOppInplay = GetController()->GetZoneById(ZoneId::Graveyard);	
 	int nOppCount = 0;
 	for (int i = 0; i < pOppInplay->GetSize(); ++i)
@@ -6288,18 +6286,20 @@ CPuppetsVerdictCard::CPuppetsVerdictCard(CGame* pGame, UINT nID)
 	AddSpell(cpSpell.GetPointer());
 }
 
-bool CPuppetsVerdictCard::BeforeResolution (CAbilityAction* pAction)
+bool CPuppetsVerdictCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
-	int Thumb = 0;
-	int Exponent = 2;
+
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -6321,10 +6321,7 @@ bool CPuppetsVerdictCard::BeforeResolution (CAbilityAction* pAction)
 
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		{
-			CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 			pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-		}
 
 		CSpecialEffectModifier pModifierCoin = CSpecialEffectModifier(this, COIN_FLIP_LOSE_ID);       
 		pModifierCoin.ApplyTo(this);
@@ -6348,10 +6345,7 @@ bool CPuppetsVerdictCard::BeforeResolution (CAbilityAction* pAction)
 
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		{
-			CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 			pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-		}
 
 		CSpecialEffectModifier pModifierCoin = CSpecialEffectModifier(this, COIN_FLIP_WIN_ID);       
 		pModifierCoin.ApplyTo(this);
@@ -6384,7 +6378,6 @@ bool CPuppetsVerdictCard::BeforeResolution (CAbilityAction* pAction)
 void CPuppetsVerdictCard::OnFlipSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -6410,10 +6403,7 @@ void CPuppetsVerdictCard::OnFlipSelected(const std::vector<SelectionEntry>& sele
 
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				CSpecialEffectModifier pModifierCoin = CSpecialEffectModifier(this, COIN_FLIP_WIN_ID);       
 				pModifierCoin.ApplyTo(this);
@@ -6441,10 +6431,7 @@ void CPuppetsVerdictCard::OnFlipSelected(const std::vector<SelectionEntry>& sele
 
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				CSpecialEffectModifier pModifierCoin = CSpecialEffectModifier(this, COIN_FLIP_LOSE_ID);       
 				pModifierCoin.ApplyTo(this);
@@ -6555,7 +6542,6 @@ bool CBloodOathCard::BeforeResolution(CAbilityAction* pAction)
 void CBloodOathCard::OnTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -7000,8 +6986,6 @@ void CJeweledTorqueCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -7010,31 +6994,26 @@ void CJeweledTorqueCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -7043,10 +7022,10 @@ void CJeweledTorqueCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 bool CJeweledTorqueCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CCard* pCard) const
 {
 	return (cWhite && pCard->IsColor(CManaPoolBase::Color::White)) ||
-		(cBlue && pCard->IsColor(CManaPoolBase::Color::Blue)) ||
-		(cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) ||
-		(cRed && pCard->IsColor(CManaPoolBase::Color::Red)) ||
-		(cGreen && pCard->IsColor(CManaPoolBase::Color::Green));
+		   (cBlue  && pCard->IsColor(CManaPoolBase::Color::Blue))  ||
+		   (cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) ||
+		   (cRed   && pCard->IsColor(CManaPoolBase::Color::Red))   ||
+		   (cGreen && pCard->IsColor(CManaPoolBase::Color::Green));
 }
 
 //____________________________________________________________________________
@@ -7740,8 +7719,8 @@ bool CKarnsTouchCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nCMC);
-	pCreature->SetPrintedToughness(nCMC);
+	pCreature->SetPrintedPower(Power(nCMC));
+	pCreature->SetPrintedToughness(Life(nCMC));
 
 	return true;
 }
@@ -7780,8 +7759,8 @@ bool CToymakerCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nCMC);
-	pCreature->SetPrintedToughness(nCMC);
+	pCreature->SetPrintedPower(Power(nCMC)); 
+	pCreature->SetPrintedToughness(Life(nCMC));
 
 	return true;
 }

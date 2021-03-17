@@ -3704,8 +3704,6 @@ bool CRushOfKnowledgeCard::BeforeResolution(CAbilityAction* pAction) const
 		if (nCost > nMaxCost) nMaxCost = nCost;
 	}
 
-	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
-
 	ContextValue Context(pAction->GetValue());
 
 	Context.nValue1 = nMaxCost;
@@ -3913,14 +3911,42 @@ CTitanicBulvoxCard::CTitanicBulvoxCard(CGame* pGame, UINT nID)
 //____________________________________________________________________________
 //
 CChillHauntingCard::CChillHauntingCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrSpellCard(pGame, _T("Chill Haunting"), CardType::Instant, nID, AbilityType::Instant,
-		_T("1") BLACK_MANA_TEXT,
-		Power(-0), Life(-0),
-		CreatureKeyword::Null, CreatureKeyword::Null,
-		true, PreventableType::NotPreventable)
+	: CCard(pGame, _T("Chill Haunting"), CardType::Instant, nID)
 {
-	m_pTargetChgPwrTghAttrSpell->GetCost().AddExileGraveyardCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("creatures")));
-	m_pTargetChgPwrTghAttrSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CChillHauntingCard::BeforeResolution));
+	{
+		/*
+			Exile X creature cards from your graceyard, where X > 0.
+			sample message: 
+				Exile from graveyard Viscera Seer(1/1), Exile from graveyard Viscera Seer2(1/1): Casts Chill Haunting and targets Soulmender3(1/1)
+		*/ 
+		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
+			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant, 
+				_T("1") BLACK_MANA_TEXT,
+				Power(+0), Life(+0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));  // bThisTurnOnly->TRUE this turn only
+		
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddExileGraveyardCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("creatures")));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CChillHauntingCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			Exile no creature cards from graveyard, X = 0.
+			sample message: 
+				Exile no creature cards from graveyard. Casts Chill Haunting and targets Soulmender3(1/1)
+		*/
+		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
+			::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant, 
+				_T("1") BLACK_MANA_TEXT,
+				Power(+0), Life(+0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));    // bThisTurnOnly->TRUE this turn only
+		cpSpell->SetAbilityText(_T("Exile no creature cards from graveyard. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CChillHauntingCard::BeforeResolution(CAbilityAction* pAction) const
@@ -4226,11 +4252,10 @@ CDecreeOfPainCard::CDecreeOfPainCard(CGame* pGame, UINT nID)
 
 bool CDecreeOfPainCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay;
 	m_nCards = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards += CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -4239,12 +4264,12 @@ bool CDecreeOfPainCard::BeforeResolution(CAbilityAction* pAction)
 
 void CDecreeOfPainCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards -= CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
 	}
 

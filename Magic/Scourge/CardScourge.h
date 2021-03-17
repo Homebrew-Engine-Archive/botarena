@@ -895,7 +895,7 @@ class CTitanicBulvoxCard : public CMorphCreatureCard
 
 //____________________________________________________________________________
 //
-class CChillHauntingCard : public CChgPwrTghAttrSpellCard
+class CChillHauntingCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CChillHauntingCard);
 

@@ -400,13 +400,6 @@ class CFlameKinZealotCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CFrenziedGoblinCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CFrenziedGoblinCard);
-};
-
-//____________________________________________________________________________
-//
 class CGateHoundCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGateHoundCard);
@@ -1375,7 +1368,7 @@ class CVigorMortisCard : public CCard
 	DECLARE_CARD_CSTOR(CVigorMortisCard);
 
 protected:
-	bool CVigorMortisCard::BeforeResolution(CAbilityAction* pAction);
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1427,16 +1420,6 @@ protected:
 
 	TriggeredAbility* m_pTriggeredAbility;
 
-};
-
-//____________________________________________________________________________
-//
-class CPeelFromRealityCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CPeelFromRealityCard);
-
-protected:
-	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -1918,7 +1901,7 @@ protected:
 		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
 
 	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool CFollowedFootstepsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________

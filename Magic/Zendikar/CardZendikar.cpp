@@ -187,7 +187,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSurrakarMarauderCard);
 		DEFINE_CARD(CTajuruArcherCard);
 		DEFINE_CARD(CTanglesapCard);
-		DEFINE_CARD(CTerraStomperCard);
 		DEFINE_CARD(CTeeteringPeaksCard);
 		DEFINE_CARD(CTempestOwlCard);
 		DEFINE_CARD(CTerritorialBalothCard);
@@ -1244,16 +1243,6 @@ CLotusCobraCard::CLotusCobraCard(CGame* pGame, UINT nID)
 	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("lands")));
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CTerraStomperCard::CTerraStomperCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Terra Stomper"), CardType::Creature, CREATURE_TYPE(Beast), nID,
-		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(8), Life(8))
-{
-	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCardKeyword()->AddCantBeCountered(FALSE);
 }
 
 //____________________________________________________________________________
@@ -2598,16 +2587,15 @@ CBloodTributeCard::CBloodTributeCard(CGame* pGame, UINT nID)
 bool CBloodTributeCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
-	int LifeGain = 0;
 	int PrevLife = (int)pTarget->GetLife();
-	int NewLife = 0;
 	CPlayer* pController = pAction->GetController();
 
 	int LifeToLose = (PrevLife + 1)/2;
 	if (LifeToLose > 0)
 	{
+		int LifeGain = 0;
+		int NewLife  = 0;
 		CLifeModifier pModifier1 = CLifeModifier(Life(-LifeToLose), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-
 		pModifier1.ApplyTo(pTarget);
 		NewLife = (int)pTarget->GetLife();
 		if (NewLife < PrevLife)
@@ -3064,8 +3052,6 @@ CGuulDrazVampireCard::CGuulDrazVampireCard(CGame* pGame, UINT nID)
 	
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::Haste);
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
-
-	CCreatureKeywordModifier* pmodifierUp1 = new CCreatureKeywordModifier;
 		
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::Intimidate);
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
@@ -3565,9 +3551,12 @@ bool CKalitasBloodchiefOfGhetCard::BeforeResolution(CAbilityAction* pAction) con
 		int nTokenCount = 1;
 
 		int nMultiplier = 0;
+		// for Doubling Season, etc.
 		if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 				nTokenCount <<= nMultiplier;
-
+		// for Primal Vigor
+		if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+				nTokenCount <<= nMultiplier;
 		for (int i = 0; i < nTokenCount; ++i)
 		{
 			counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Vampire B"), 2778));		
@@ -3980,7 +3969,6 @@ bool CBalaGedThiefCard::SetTriggerContext2(CTriggeredMoveCardAbility::TriggerCon
 
 	for (int i = 0; i < pToZone->GetSize(); ++i)
 	{
-		CCard* pCard = pToZone->GetAt(i);
 		if ((GetCardType() & CardType::Token).Any())
 			continue;
 		++nCount;
@@ -4548,9 +4536,6 @@ CMalakirBloodwitchCard::CMalakirBloodwitchCard(CGame* pGame, UINT nID)
 
 bool CMalakirBloodwitchCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	int LifeGain = 0;
-	int PrevLife = 0;
-	int NewLife = 0;
 	CPlayer* pController = pAction->GetController();
 	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
 
@@ -4561,6 +4546,9 @@ bool CMalakirBloodwitchCard::BeforeResolution(CAbilityAction* pAction) const
 	
 	if (n > 0)
 	{
+		int LifeGain = 0;
+		int PrevLife = 0;
+		int NewLife  = 0;
 		CLifeModifier pModifier1 = CLifeModifier(Life(-n), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
@@ -5974,7 +5962,7 @@ CArchiveTrapCard::CArchiveTrapCard(CGame* pGame, UINT nID)
 				_T("3") BLUE_MANA_TEXT BLUE_MANA_TEXT,
 				13));
 
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpSpell);
 		cpSpell->SetReorder(TRUE, ZoneId::Graveyard);
 		cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
 
@@ -5986,7 +5974,7 @@ CArchiveTrapCard::CArchiveTrapCard(CGame* pGame, UINT nID)
 				_T(""),
 				13));
 
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpSpell);
 		cpSpell->SetReorder(TRUE, ZoneId::Graveyard);
 		cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
 

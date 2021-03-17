@@ -187,13 +187,13 @@ BEGIN
     IDS_STRING14485         "Windborn Muse\n{3W}\nCreature - Spirit\nLGN,R\nFlying\rCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you.\n2/3"
     IDS_STRING14486         "Branchsnap Lorian\n{1GG}\nCreature - Beast\nLGN,U\nTrample\rMorph {G}\n4/1"
     IDS_STRING14487         "Riptide Mangler\n{1U}\nCreature - Beast\nLGN,R\n{1U}: Change Riptide Mangler's power to target creature's power.\n0/3"
-    IDS_STRING14488         "Bloodstoke Howler\n{5R}\nCreature - Beast\nLGN\nMorph {6R}\rWhen Bloodstoke Howler is turned face up, Beast creatures you control get +3/+0 until end of turn.\n3/4"
+    IDS_STRING14488         "Bloodstoke Howler\n{5R}\nCreature - Beast\nLGN,C\nMorph {6R}\rWhen Bloodstoke Howler is turned face up, Beast creatures you control get +3/+0 until end of turn.\n3/4"
     IDS_STRING14489         "Defender of the Order\n{3W}\nCreature - Human Cleric\nLGN,R\nMorph {WW}\rWhen Defender of the Order is turned face up, creatures you control get +0/+2 until end of turn.\n2/4"
     IDS_STRING14490         "Rockshard Elemental\n{5RR}\nCreature - Elemental\nLGN,R\nDouble strike\rMorph {4RR}\n4/3"
-    IDS_STRING14491         "Sootfeather Flock\n{4B}\nCreature - Bird\nLGN\nFlying\rMorph {3B}\n3/2"
+    IDS_STRING14491         "Sootfeather Flock\n{4B}\nCreature - Bird\nLGN,C\nFlying\rMorph {3B}\n3/2"
     IDS_STRING14492         "Chromeshell Crab\n{4U}\nCreature - Crab Beast\nLGN,R\nMorph {4U}\rWhen Chromeshell Crab is turned face up, you may exchange control of target creature you control and target creature an opponent controls.\n3/3"
-    IDS_STRING14493         "Daru Sanctifier\n{3W}\nCreature - Human Cleric\nLGN\nMorph {1W}\rWhen Daru Sanctifier is turned face up, destroy target enchantment.\n1/4"
-    IDS_STRING14494         "Echo Tracer\n{2U}\nCreature - Human Wizard\nLGN\nMorph {2U}\rWhen Echo Tracer is turned face up, return target creature to its owner's hand.\n2/2"
+    IDS_STRING14493         "Daru Sanctifier\n{3W}\nCreature - Human Cleric\nLGN,C\nMorph {1W}\rWhen Daru Sanctifier is turned face up, destroy target enchantment.\n1/4"
+    IDS_STRING14494         "Echo Tracer\n{2U}\nCreature - Human Wizard\nLGN,C\nMorph {2U}\rWhen Echo Tracer is turned face up, return target creature to its owner's hand.\n2/2"
     IDS_STRING14495         "Imperial Hellkite\n{5RR}\nCreature - Dragon\nLGN,R\nFlying\rMorph {6RR}\rWhen Imperial Hellkite is turned face up, you may search your library for a Dragon card, reveal it, and put it into your hand. If you do, shuffle your library.\n6/6"
 END
 

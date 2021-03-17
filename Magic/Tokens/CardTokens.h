@@ -494,3 +494,80 @@ class CBeastNToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CCatSoldierAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CCatSoldierAToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierQToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierQToken);
+};
+
+//____________________________________________________________________________
+//
+class CBirdJToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CBirdJToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieNToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieNToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalWToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalWToken);
+};
+
+//____________________________________________________________________________
+//
+class CCentaurDToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CCentaurDToken);
+};
+
+//____________________________________________________________________________
+//
+class CWolfJToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWolfJToken);
+};
+
+//____________________________________________________________________________
+//
+class CKrakenAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CKrakenAToken);
+};
+
+//____________________________________________________________________________
+//
+class CBirdKToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CBirdKToken);
+};
+
+//____________________________________________________________________________
+//
+class CZombieOToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CZombieOToken);
+};
+
+//____________________________________________________________________________
+//
+class CMinotaurAToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CMinotaurAToken);
+};
+
+//____________________________________________________________________________
+//

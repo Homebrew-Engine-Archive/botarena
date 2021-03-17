@@ -1401,7 +1401,7 @@ CGaeasBlessingCard::CGaeasBlessingCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
 				_T("1") GREEN_MANA_TEXT));
 
-			ATLASSERT(cpAbility);
+			ATLASSERT(cpSpell);
 
 			cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 			cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
@@ -2342,33 +2342,51 @@ void CApathyCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BO
 //____________________________________________________________________________
 //
 CHauntingMiseryCard::CHauntingMiseryCard(CGame* pGame, UINT nID)
-	: CTargetChgLifeSpellCard(pGame, _T("Haunting Misery"), CardType::Sorcery, nID, AbilityType::Sorcery,
-		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT,
-		FALSE_CARD_COMPARER,
-		true,
-		Life(-0),
-		PreventableType::Preventable)
+	: CCard(pGame, _T("Haunting Misery"), CardType::Sorcery, nID)
 {
-	m_pTargetChgLifeSpell->GetCost().AddExileGraveyardCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("creatures")));
-	m_pTargetChgLifeSpell->SetExtraActionValueVector(ContextValue(-1));
-	m_pTargetChgLifeSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
-	m_pTargetChgLifeSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHauntingMiseryCard::BeforeResolution));
+	{
+		/*
+			exile X creature cards from graveyard, where X > 0.
+			sample message: 
+				Exile from Graveyard Cruel Deceiver3(2/1), Exile from Graveyard Cruel Deceiver4(2/1): Casts Haunting Misery and targets computer
+		*/
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+				_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				FALSE_CARD_COMPARER, TRUE,     // FALSE_CARD_COMPARER->no comparer=no creatures can be targeted, TRUE->target players
+				Life(-0),					   
+				PreventableType::Preventable));  
+		cpSpell->SetExtraActionValueVector(ContextValue(-1));
+		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddExileGraveyardCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("creatures")));	
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHauntingMiseryCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			exile no creature cards from graveyard, X = 0.
+			sample message: 
+				Exile no creatures from graveyard. Casts Haunting Misery and targets Computer
+		*/
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+				::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+				_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				FALSE_CARD_COMPARER, TRUE,
+				Life(-0), PreventableType::Preventable)); 
+		cpSpell->SetAbilityText(_T("Exile no creatures from graveyard. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CHauntingMiseryCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	int nCards = pAction->GetCostConfigEntry().GetExileGraveyardCards()->GetSize();
 	if (nCards == 0) return false;
-
-    CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
-
-	ContextValue Context(pAction->GetValue());
-	Context.nValue1 = -nCards;
-
-	for (CSubjectGroup::CardSubjectIterator it = pTargetAction->GetTargetGroup().CardSubjectBegin();
-		it != pTargetAction->GetTargetGroup().CardSubjectEnd(); ++it)
-	pTargetAction->GetTargetGroup().SetValue(const_cast<const CCard*>(it->GetPointer()),const_cast<const ContextValue&>(Context));
-
+	CPlayer* pTarget = pAction->GetAssociatedPlayer();
+	CLifeModifier pModifier1 = CLifeModifier(Life(-nCards), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+	pModifier1.ApplyTo(pTarget);
 	return true;
 }
 
@@ -2735,16 +2753,16 @@ void CMistmoonGriffinCard::OnResolutionCompleted(const CAbilityAction* pAbilityA
 
 	CZoneModifier pmodifier2 = CZoneModifier(GetGame(), ZoneId::Graveyard, reveal, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::None);
-		pmodifier2.AddSelection(1,// Min Cards
-		1, // Max Cards: select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		CCardFilter::GetFilter(_T("creatures")), // what cards
-		ZoneId::Battlefield, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::NotApplicable, // put selected cards on 
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		pmodifier2.AddSelection(MinimumValue(1),						// Min Cards
+								MaximumValue(1),						// Max Cards: select cards to reorder
+								CZoneModifier::RoleType::PrimaryPlayer, // select by 
+								CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+								CCardFilter::GetFilter(_T("creatures")),// what cards
+								ZoneId::Battlefield,					// if selected, move cards to
+								CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+								CardPlacement::NotApplicable,			// put selected cards on 
+								MoveType::Others,						// move type
+								CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
 
 	pmodifier2.ApplyTo(GetController());
 }
@@ -2788,14 +2806,16 @@ CGoblinBombCard::CGoblinBombCard(CGame* pGame, UINT nID)
 bool CGoblinBombCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
+
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -2964,7 +2984,6 @@ bool CAborothCard::BeforeResolution(CAbilityAction* pAction)
 void CAborothCard::OnCUSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int i= 1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -2975,9 +2994,9 @@ void CAborothCard::OnCUSelected(const std::vector<SelectionEntry>& selection, in
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s puts %d -1/-1 counter on %s"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s puts %d -1/-1 counter on %s"), pSelectionPlayer->GetPlayerName(), (int)dwContext1, GetCardName());
 					else
-						strMessage.Format(_T("%s puts %d -1/-1 counters on %s"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s puts %d -1/-1 counters on %s"),pSelectionPlayer->GetPlayerName(), (int)dwContext1, GetCardName());
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3056,14 +3075,14 @@ CAncestralKnowledgeCard::CAncestralKnowledgeCard(CGame* pGame, UINT nID)
 		pModifier3->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
 		pModifier3->GetSelection(0).moveType = MoveType::Others;
 		pModifier3->AddSelection(MinimumValue(0), MaximumValue(SpecialNumber::All), // select cards to exile
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // any cards
-			ZoneId::Exile, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,									// select by 
+			CZoneModifier::RoleType::PrimaryPlayer,									// reveal to
+			NULL,																	// any cards
+			ZoneId::Exile,															// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,									// select by this player
+			CardPlacement::Top,														// put selected cards on top
+			MoveType::Others,														// move type
+			CZoneModifier::RoleType::PrimaryPlayer);								// order selected cards by this player
 
 		// and finally put the last ones on the bottom of the library
 		pModifier3->SetReorderInformation(
@@ -3219,9 +3238,9 @@ void CPsychicVortexCard::OnCUSelected(const std::vector<SelectionEntry>& selecti
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s draws %d card"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s draws %d card"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s draws %d card"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s draws %d cards"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),

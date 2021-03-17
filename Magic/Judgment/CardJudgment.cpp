@@ -2131,13 +2131,15 @@ CFuneralPyreCard::CFuneralPyreCard(CGame* pGame, UINT nID)
 ////
 CCabalTherapyCard::CCabalTherapyCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Cabal Therapy"), CardType::Sorcery, nID)
+	, m_CardFilter(new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)))
 {
 	{
 		//Regular mana cost
 		counted_ptr<CTargetPlayerDiscardCardNameSpell> cpSpell(
 			::CreateObject<CTargetPlayerDiscardCardNameSpell>(this, AbilityType::Sorcery,
 				BLACK_MANA_TEXT,
-				ZoneId::Graveyard, TRUE));
+				ZoneId::Graveyard, TRUE, 
+				&m_CardFilter));
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -2146,7 +2148,8 @@ CCabalTherapyCard::CCabalTherapyCard(CGame* pGame, UINT nID)
 		counted_ptr<CTargetPlayerDiscardCardNameSpell> cpSpell(
 			::CreateObject<CTargetPlayerDiscardCardNameSpell>(this, AbilityType::Sorcery,
 				_T(""),
-				ZoneId::Graveyard, TRUE));
+				ZoneId::Graveyard, TRUE,
+				&m_CardFilter));
 
 		cpSpell->GetCost().AddSacrificeCardCost(1,CCardFilter::GetFilter(_T("creatures")));
 		
@@ -2805,7 +2808,7 @@ CKrosanReclamationCard::CKrosanReclamationCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
 				_T("1") GREEN_MANA_TEXT));
 
-			ATLASSERT(cpAbility);
+			ATLASSERT(cpSpell);
 
 			cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
@@ -2817,7 +2820,7 @@ CKrosanReclamationCard::CKrosanReclamationCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
 				_T("1") GREEN_MANA_TEXT));
 
-			ATLASSERT(cpAbility);
+			ATLASSERT(cpSpell);
 
 		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 		
@@ -3444,24 +3447,28 @@ bool CInfectiousRageCard::BeforeResolution(CAbilityAction* pAction) const
 
 void CInfectiousRageCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
 	CCountedCardContainer cards;
-	CZone* pZone;
+
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pZone, cards);
 	}
 
-	if (!cards.GetSize()) return;
+	if (!cards.GetSize()) 
+		return;
+
 	cards.Shuffle(pAbilityAction->GetController());
 	CCard* pCard = cards.GetAt(0);
 
 	for (int i = 0; i < this->GetSpells().GetSize(); ++i)
 	{
 		CEnchant* pEnchantSpell = dynamic_cast<CEnchant*>(this->GetSpells().GetAt(i));
-		if (!pEnchantSpell) continue;
+		if (!pEnchantSpell) 
+			continue;
 		pEnchantSpell->Enchant(pCard, GetController(), this->GetSpells().GetAt(i)->GetActionValue());
 	}
 }
@@ -4187,7 +4194,6 @@ CBreakingPointCard::CBreakingPointCard(CGame* pGame, UINT nID)
 bool CBreakingPointCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
-	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 	int pActivePlayerID;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		if (pActivePlayer == GetGame()->GetPlayer(ip))
@@ -4729,8 +4735,7 @@ bool CSoulgorgerOrggCard::BeforeResolution1(CAbilityAction* pAction)
 
 	if (nLife > 1)
 	{
-		Life nToLose = nLife - 1;
-
+		Life nToLose = Life(int(nLife) - 1); // To remove error when building in debug mode.  Do calculation using integers then typecast result to type Life.
 		CLifeModifier pModifier = CLifeModifier(-nToLose, this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 		pModifier.ApplyTo(pAffected);
 

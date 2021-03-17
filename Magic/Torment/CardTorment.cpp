@@ -2527,7 +2527,7 @@ CDwellOnThePastCard::CDwellOnThePastCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Sorcery,
 				GREEN_MANA_TEXT));
 
-			ATLASSERT(cpAbility);
+			ATLASSERT(cpSpell);
 
 			cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
@@ -3278,21 +3278,48 @@ CInsidiousDreamsCard::CInsidiousDreamsCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Insidious Dreams"), CardType::Instant, nID)
 	, m_CardFilter(new NegateCardComparer(new SpecificCardComparer(this)))
 {
-	counted_ptr<CSearchLibrarySpell> cpSpell(
-		::CreateObject<CSearchLibrarySpell>(this, AbilityType::Instant,
-			_T("3") BLACK_MANA_TEXT,
-			CCardFilter::GetFilter(_T("cards")),
-			ZoneId::Library,
-			true, true, false));
+	{
+		// discard X cards, where X > 0 
+		counted_ptr<CSearchLibrarySpell> cpSpell(
+			::CreateObject<CSearchLibrarySpell>(this, AbilityType::Instant,
+				_T("3") BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("cards")),
+				ZoneId::Library,
+				true, true, false)); // bToOwnersZone->true place in owners zone, bToTop->true place on top of library, 
+									 // bTapped->false not applicable
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddDiscardCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		/* 
+			Setting the MaximumValue(SpecialNumber::Any) in cpSpell->SetSearchCount causes least incorrect message to be output 
+			to the Actions Panel. The message does not contain any feedback at this point about how many cards the user will be 
+			searching for, this however is displayed later in the Select dialog.
+			Sample message: 
+				Discard Capashen Knight(1/1), Discard Diabolic Revation: Casts Insidious Dreams to search library for cards
+		*/
+		cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(SpecialNumber::Any));
+		cpSpell->SetRevealCards(false);
 
-	cpSpell->GetCost().AddDiscardCardCost(SpecialNumber::Any, &m_CardFilter);
-	
-	cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(0));
-	cpSpell->SetRevealCards(false);
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CInsidiousDreamsCard::BeforeResolution));
 
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CInsidiousDreamsCard::BeforeResolution));
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		// discard no cards, where X = 0
+		counted_ptr<CSearchLibrarySpell> cpSpell(
+			::CreateObject<CSearchLibrarySpell>(this, AbilityType::Instant,
+				_T("3") BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("cards")),
+				ZoneId::Library,
+				true, true, false)); // bToOwnersZone->true place in owners zone, bToTop->true place on top of library, bTapped->false not applicable
+		/* 
+			Actions Panel Message: 
+				Cast Insidious Dreams to search library for 0 cards
+		*/
+		cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(0));
+		cpSpell->SetRevealCards(false); // not used - no cards are searched for
+		AddSpell(cpSpell.GetPointer());
+	}
 
-	AddSpell(cpSpell.GetPointer());
 }
 
 bool CInsidiousDreamsCard::BeforeResolution(CAbilityAction* pAction) const
@@ -3312,19 +3339,48 @@ bool CInsidiousDreamsCard::BeforeResolution(CAbilityAction* pAction) const
 //____________________________________________________________________________
 //
 CSickeningDreamsCard::CSickeningDreamsCard(CGame* pGame, UINT nID)
-	: CGlobalChgLifeSpellCard(pGame, _T("Sickening Dreams"), CardType::Sorcery, nID, AbilityType::Sorcery,
-		_T("1") BLACK_MANA_TEXT,
-		Life(-0),
-		new AnyCreatureComparer,
-		true,
-		PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage)
+	: CCard(pGame, _T("Sickening Dreams"), CardType::Sorcery, nID)
 	, m_CardFilter(new NegateCardComparer(new SpecificCardComparer(this)))
 {
-	m_pGlobalChgLifeSpell->GetCost().AddDiscardCardCost(SpecialNumber::Any, &m_CardFilter);
+	{
+		/*
+			Discard X cards, where X > 0.
+			sample message: 
+				Discard Cruel Deceiver3(2/1), Discard Capashen Knight2(1/1), Casts Sickening Dreams
+		*/
+		counted_ptr<CGlobalChgLifeSpell> cpSpell(
+		::CreateObject<CGlobalChgLifeSpell>(this, AbilityType::Sorcery,
+			_T("1") BLACK_MANA_TEXT,	
+			Life(0),		
+			new AnyCreatureComparer,
+			TRUE,	                        // bAffectPlayer->TRUE affects players
+			PreventableType::Preventable,	
+			DamageType::SpellDamage | DamageType::NonCombatDamage)); 
+		
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+	    cpSpell->GetCost().AddDiscardCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSickeningDreamsCard::BeforeResolution));
 
-	m_pGlobalChgLifeSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSickeningDreamsCard::BeforeResolution));
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			Discard no cards, X = 0.
+			sample message: 
+				Discard no cards. Casts Sickening Dreams
+		*/
+		counted_ptr<CGlobalChgLifeSpell> cpSpell(
+		::CreateObject<CGlobalChgLifeSpell>(this, AbilityType::Sorcery,
+			_T("1") BLACK_MANA_TEXT,	
+			Life(0),		
+			new AnyCreatureComparer,
+			TRUE,	                        // bAffectPlayer->TRUE affects players
+			PreventableType::Preventable,	
+			DamageType::SpellDamage | DamageType::NonCombatDamage)); 
+		cpSpell->SetAbilityText(_T("Discard no cards. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
-
 bool CSickeningDreamsCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	int nCount = pAction->GetCostConfigEntry().GetDiscardCards()->GetSize();
@@ -3755,15 +3811,10 @@ void CRancidEarthCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		{
-			CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 			pCModifier.ApplyTo(GetGame()->GetPlayer(ip));
-		}
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		{
 			pPModifier.ApplyTo(GetGame()->GetPlayer(ip));
-		}
 	}
 }
 //____________________________________________________________________________
@@ -3795,14 +3846,15 @@ bool CCrazedFirecatCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 
 void CCrazedFirecatCard::FlipFunction(CPlayer* pController)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 

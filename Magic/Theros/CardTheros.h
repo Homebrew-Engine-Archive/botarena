@@ -715,13 +715,6 @@ class CBreachingHippocampCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CBronzeSableCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CBronzeSableCard);
-};
-
-//____________________________________________________________________________
-//
 class CBurnishedHartCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBurnishedHartCard);
@@ -1052,13 +1045,6 @@ class CLashOfTheWhipCard : public CCard
 class CLeoninSnarecasterCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CLeoninSnarecasterCard);
-};
-
-//____________________________________________________________________________
-//
-class CLightningStrikeCard : public CTargetChgLifeSpellCard
-{
-	DECLARE_CARD_CSTOR(CLightningStrikeCard);
 };
 
 //____________________________________________________________________________

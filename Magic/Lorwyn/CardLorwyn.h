@@ -375,13 +375,6 @@ class CKinsbaileBalloonistCard : public CFlyingCreatureCard
 
 //___________________________________________________________________________
 //
-class CKinsbaileSkirmisherCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CKinsbaileSkirmisherCard);
-};
-
-//___________________________________________________________________________
-//
 class CKithkinDaggerdareCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CKithkinDaggerdareCard);
@@ -706,13 +699,6 @@ protected:
 				CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
-};
-
-//____________________________________________________________________________
-//
-class CBattleMasteryCard : public CChgPwrTghAttrEnchantCard
-{
-	DECLARE_CARD_CSTOR(CBattleMasteryCard);
 };
 
 //___________________________________________________________________________
@@ -1954,7 +1940,7 @@ class CProfaneCommandCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CProfaneCommandCard);
 
-private:
+protected:
 	bool SetTriggerContext1(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
 						   CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 	bool BeforeResolution1(CAbilityAction* pAction) const;

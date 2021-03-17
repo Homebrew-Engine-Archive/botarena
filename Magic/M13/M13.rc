@@ -147,7 +147,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING24352         "Duty-Bound Dead\n{B}\nCreature - Skeleton\nM13,C\nExalted\r{3}{B}: Regenerate Duty-Bound Dead.\n0/2"
+    IDS_STRING24352         "Duty-Bound Dead\n{B}\nCreature - Skeleton\nM13,C\nExalted\r{3B}: Regenerate Duty-Bound Dead.\n0/2"
     IDS_STRING24353         "Harbor Bandit\n{2B}\nCreature - Human Rogue\nM13,U\nHarbor Bandit gets +1/+1 as long as you control an Island.\r{1U}: Harbor Bandit is unblockable this turn.\n2/2"
     IDS_STRING24354         "Knight of Infamy\n{1B}\nCreature - Human Knight\nM13,U\nProtection from white\rExalted\n2/1"
     IDS_STRING24355         "Liliana's Shade\n{2BB}\nCreature - Shade\nM13,C\nWhen Liliana’s Shade enters the battlefield, you may search your library for a Swamp card, reveal it, put it into your hand, then shuffle your library.\r{B}: Liliana's Shade gets +1/+1 until end of turn.\n1/1"

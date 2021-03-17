@@ -7,8 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+#include "afxres.h"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -65,8 +64,8 @@ BEGIN
     IDS_FIRST_CARD          "27000"
     IDS_TOTAL_CARD          "322"
     IDS_WHITE_BORDER        "0"
-    IDS_MODULE_ICON_ID      "27098"
-    IDS_MODULE_LARGE_ICON_ID "27099"
+    IDS_MODULE_ICON_ID      "27348"
+    IDS_MODULE_LARGE_ICON_ID "27349"
 END
 
 STRINGTABLE
@@ -226,7 +225,7 @@ BEGIN
     IDS_STRING27116         "Presence of Gond\n{2G}\nEnchantment - Aura\nC13,C\nEnchant creature\rEnchanted creature has """"{T}: Put a 1/1 green Elf Warrior creature token onto the battlefield."
     IDS_STRING27117         "Rampaging Baloths\n{4GG}\nCreature - Beast\nC13,MR\nTrample\rLandfall - Whenever a land enters the battlefield under your control, you may put a 4/4 green Beast creature token onto the battlefield.\n6/6"
     IDS_STRING27118         "Ravenous Baloth\n{2GG}\nCreature - Beast\nC13,R\nSacrifice a Beast: You gain 4 life.\n4/4"
-    IDS_STRING27119         "Reincarnation\n{1GG}\nInstant13,U\nChoose target creature. When that creature dies this turn, return a creature card from its owner's graveyard to the battlefield under the control of that creature's owner."
+    IDS_STRING27119         "Reincarnation\n{1GG}\nInstant\nC13,U\nChoose target creature. When that creature dies this turn, return a creature card from its owner's graveyard to the battlefield under the control of that creature's owner."
 END
 
 STRINGTABLE
@@ -261,7 +260,7 @@ BEGIN
     IDS_STRING27143         "Lu Xun, Scholar General\n{2UU}\nLegendary Creature - Human Soldier\nC13,R\nHorsemanship\rWhenever Lu Xun, Scholar General deals damage to an opponent, you may draw a card.\n1/3"
     IDS_STRING27144         "Mnemonic Wall\n{4U}\nCreature - Wall\nC13,C\nDefender\rWhen Mnemonic Wall enters the battlefield, you may return target instant or sorcery card from your graveyard to your hand.\n0/4"
     IDS_STRING27145         "Opportunity\n{4UU}\nInstant\nC13,U\nTarget player draws four cards."
-    IDS_STRING27146         "Propaganda\n{2U}\nEnchantment13,U\nCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
+    IDS_STRING27146         "Propaganda\n{2U}\nEnchantment\nC13,U\nCreatures can't attack you unless their controller pays {2} for each creature he or she controls that's attacking you."
     IDS_STRING27147         "Prosperity\n{XU}\nSorcery\nC13,U\nEach player draws X cards."
     IDS_STRING27148         "Raven Familiar\n{2U}\nCreature - Bird\nC13,U\nFlying\rEcho {2U}\rWhen Raven Familiar enters the battlefield, look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order.\n1/2"
     IDS_STRING27149         "Sharding Sphinx\n{4UU}\nArtifact Creature - Sphinx\nC13,R\nFlying\rWhenever an artifact creature you control deals combat damage to a player, you may put a 1/1 blue Thopter artifact creature token with flying onto the battlefield.\n4/4"
@@ -324,7 +323,7 @@ BEGIN
     IDS_STRING27194         "Sphinx of the Steel Wind\n{6WUB}\nArtifact Creature - Sphinx\nC13,MR\nFlying, first strike, vigilance, lifelink, protection from red and from green\n6/6"
     IDS_STRING27195         "Spinal Embrace\n{3UUB}\nInstant\nC13,R\nCast Spinal Embrace only during combat.\rUntap target creature you don't control and gain control of it. It gains haste until end of turn. At the beginning of the next end step, sacrifice it. If you do, you gain life equal to its toughness."
     IDS_STRING27196         "Spiteful Visions\n{2DD}\nEnchantment\nC13,R\nAt the beginning of each player's draw step, that player draws an additional card.\rWhenever a player draws a card, Spiteful Visions deals 1 damage to that player."
-    IDS_STRING27197         "Sprouting Thrinax\n{BRG}\nCreature - Lizard13,U\nWhen Sprouting Thrinax dies, put three 1/1 green Saproling creature tokens onto the battlefield.\n3/3"
+    IDS_STRING27197         "Sprouting Thrinax\n{BRG}\nCreature - Lizard\nC13,U\nWhen Sprouting Thrinax dies, put three 1/1 green Saproling creature tokens onto the battlefield.\n3/3"
     IDS_STRING27198         "Thopter Foundry\n{HU}\nArtifact\nC13,U\n{1}, Sacrifice a nontoken artifact: Put a 1/1 blue Thopter artifact creature token with flying onto the battlefield. You gain 1 life."
     IDS_STRING27199         "Thraximundar\n{4UBR}\nLegendary Creature - Zombie Assassin\nC13,MR\nHaste\rWhenever Thraximundar attacks, defending player sacrifices a creature.\rWhenever a player sacrifices a creature, you may put a +1/+1 counter on Thraximundar.\n6/6"
 END
@@ -463,6 +462,17 @@ BEGIN
     IDS_STRING27305         "Spawning Grounds\n{6GG}\nEnchantment - Aura\nC13,R\nEnchant land\rEnchanted land has ""{T}: Put a 5/5 green Beast creature token with trample onto the battlefield."""
     IDS_STRING27306         "Primal Vigor\n{4G}\nEnchantment\nC13,R\nIf one or more tokens would be put onto the battlefield, twice that many of those tokens are put onto the battlefield instead."
     IDS_STRING27307         "Restore\n{1G}\nSorcery\nC13,U\nPut target land card from a graveyard onto the battlefield under your control."
+    IDS_STRING27308         "Sydri, Galvanic Genius\n{WUB}\nLegendary Creature - Human Artificer\nC13,MR\n{U}: Target noncreature artifact becomes an artifact creature with power and toughness each equal to its converted mana cost until end of turn.\r{W}{B}: Target artifact creature gains deathtouch and lifelink until end of turn.\n2/2"
+    IDS_STRING27309         "Nekusar, the Mindrazer\n{2UBR}\nLegendary Creature - Zombie Wizard\nC13,MR\nAt the beginning of each player's draw step, that player draws an additional card.\rWhenever an opponent draws a card, Nekusar, the Mindrazer deals 1 damage to that player.\n2/4"
+    IDS_STRING27310         "Oloro, Ageless Ascetic\n{3WUB}\nLegendary Creature - Giant Soldier\nC13,MR\nAt the beginning of your upkeep, you gain 2 life.\rWhenever you gain life, you may pay {1}. If you do, draw a card and each opponent loses 1 life.\rAt the beginning of your upkeep, if Oloro, Ageless Ascetic is in the command zone, you gain 2 life.\n4/5"
+    IDS_STRING27311         "Derevi, Empyrial Tactician\n{GWU}\nLegendary Creature - Bird Wizard\nC13,MR\nFlying\rWhenever Derevi, Empyrial Tactician enters the battlefield or a creature you control deals combat damage to a player, you may tap or untap target permanent.\r{1}{G}{W}{U}: Put Derevi onto the battlefield from the command zone.\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27312         "Gahiji, Honored One\n{2RGW}\nLegendary Creature - Beast\nC13,MR\nWhenever a creature attacks one of your opponents or a planeswalker an opponent controls, that creature gets +2/+0 until end of turn.\n4/4"
+    IDS_STRING27313         "Roon of the Hidden Realm\n{2GWU}\nLegendary Creature - Rhino Soldier\nC13,MR\nVigilance, trample\r{2}, {T}: Exile another target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.\n4/4"
+    IDS_STRING27314         "Shattergang Brothers\n{1BRG}\nLegendary Creature - Goblin Artificer\nC13,MR\n{2}{B}, Sacrifice a creature: Each other player sacrifices a creature.\r{2}{R}, Sacrifice an artifact: Each other player sacrifices an artifact.\r{2}{G}, Sacrifice an enchantment: Each other player sacrifices an enchantment.\n3/3"
 END
 
 #endif    // English (United States) resources
@@ -475,8 +485,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
-
+#include "..\MagicCore\MagicCore.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

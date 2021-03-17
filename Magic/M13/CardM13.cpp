@@ -1787,8 +1787,14 @@ CBoundlessRealmsCard::CBoundlessRealmsCard(CGame* pGame, UINT nID)
 			CCardFilter::GetFilter(_T("basic lands")),
 			ZoneId::Battlefield,
 			true, false, true));
-
-	cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(0));
+	/* 
+		Setting the MaximumValue(SpecialNumber::Any) in cpSpell->SetSearchCount causes least incorrect message to be output 
+		to the Actions Panel. The message does not contain any feedback at this point about how many cards the user will be 
+		searching for, this however is displayed later in the Select dialog.
+		Sample message: 
+			Casts Boundless Realms to search library for basic lands
+	*/
+	cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(SpecialNumber::Any));
 	cpSpell->SetRevealCards(true);
 
 	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBoundlessRealmsCard::BeforeResolution));
@@ -2496,10 +2502,9 @@ void CLilianaoftheDarkRealmsCard::OnPlusMinusSelected(const std::vector<Selectio
 			}
 			
 			if ((int)it->dwContext == 2)
-			{
-
-				CPowerModifier pModifier1 = CPowerModifier(-Power(GET_INTEGER((int)dwContext2)));
-				CLifeModifier pModifier2 = CLifeModifier(-Life(GET_INTEGER((int)dwContext2)), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+			{	
+				CPowerModifier pModifier1 = CPowerModifier(-Power((int)dwContext2));
+				CLifeModifier pModifier2 = CLifeModifier(-Life((int)dwContext2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 				
 				pModifier1.ApplyTo(pCreature);
 				pModifier2.ApplyTo(pCreature);
@@ -3277,8 +3282,6 @@ CRingOfXathridCard::CRingOfXathridCard(CGame* pGame, UINT nID)
 
 bool CRingOfXathridCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	CZone* pFromZone;
-
 	CCardFilter cfilter(new EquippedByComparer(this));
 	
 	CCreatureCard* pCreature;
@@ -3286,8 +3289,8 @@ bool CRingOfXathridCard::BeforeResolution(CAbilityAction* pAction) const
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
-		if (cfilter.GetIncluded(*pFromZone, cards));
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		if (cfilter.GetIncluded(*pFromZone, cards))
 			for (int i = 0; i < cards.GetSize(); ++i)
 			{
 				pCreature = dynamic_cast<CCreatureCard*>(cards.GetAt(i));
@@ -3303,21 +3306,52 @@ bool CRingOfXathridCard::BeforeResolution(CAbilityAction* pAction) const
 CDiabolicRevelationCard::CDiabolicRevelationCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Diabolic Revelation"), CardType::Sorcery, nID)
 {
-	counted_ptr<CSearchLibrarySpell> cpSpell(
-		::CreateObject<CSearchLibrarySpell>(this, AbilityType::Sorcery,
-			_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
-			CCardFilter::GetFilter(_T("cards")),
-			ZoneId::Hand,
-			true, true, false));
+	{
+		// search for X cards, where X > 0 
+		counted_ptr<CSearchLibrarySpell> cpSpell(
+			::CreateObject<CSearchLibrarySpell>(this, AbilityType::Sorcery,
+				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("cards")),
+				ZoneId::Hand,
+				true, true, false)); // bToOwnersZone->true place in owners zone, bToTop->true place on top of library, 
+									 // bTapped->false not applicable
+		/*
+			must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+			must be bAllowZeroExtra->false so that X=0 case is not included here.  When bAllowZeroExtra was true
+			X=0 case was listed twice Actions Panel. SpecialNumber::AnyPositive was overridden by bAllowZeroExtra->true.
+		*/
+		cpSpell->GetCost().SetExtraManaCost(SpecialNumber::AnyPositive, FALSE, CManaCost::AllCostColors);
+		/* 
+			Setting the MaximumValue(SpecialNumber::Any) in cpSpell->SetSearchCount causes least incorrect message to be output 
+			to the Actions Panel. The message does not contain any feedback at this point about how many cards the user will be 
+			searching for, this however is displayed later in the Select dialog.
+			Sample messages: 
+			(X=1):Casts Diabolic Revelation to search library for cards
+		*/
+		cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(SpecialNumber::Any));
+		cpSpell->SetRevealCards(false);
 
-	cpSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDiabolicRevelationCard::BeforeResolution));
 
-	cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(0));
-	cpSpell->SetRevealCards(false);
-
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDiabolicRevelationCard::BeforeResolution));
-
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		// search for no cards, where X = 0 
+		counted_ptr<CSearchLibrarySpell> cpSpell(
+			::CreateObject<CSearchLibrarySpell>(this, AbilityType::Sorcery,
+				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("cards")),
+				ZoneId::Hand,
+				true, true, false));    // bToOwnersZone->true place in owners zone, bToTop->true place on top of library, 
+									    // bTapped->false not applicable
+		/* 
+			Actions Panel Message: 
+				Cast Diabolic Revelation to search library for 0 cards
+		*/
+		cpSpell->SetSearchCount(MinimumValue(0), MaximumValue(0));
+		cpSpell->SetRevealCards(false);	// not used - no cards are searched for
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CDiabolicRevelationCard::BeforeResolution(CAbilityAction* pAction) const
@@ -3517,12 +3551,8 @@ bool CThundermawHellkiteCard::BeforeResolution(TriggeredAbility::TriggeredAction
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
 		if (GetGame()->GetPlayer(ip) != pAction->GetController())
-		{
-			CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 			pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-		}
 	}
-
 	return true;
 }
 //____________________________________________________________________________

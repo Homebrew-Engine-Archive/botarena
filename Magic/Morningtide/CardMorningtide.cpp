@@ -92,7 +92,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(COrchardWardenCard);
 		DEFINE_CARD(COrderOfTheGoldenCricketCard);
 		DEFINE_CARD(CPacksDisdainCard);
-		DEFINE_CARD(CPreeminentCaptainCard);
 		DEFINE_CARD(CPricklyBoggartCard);
 		DEFINE_CARD(CPyroclastConsulCard);
 		DEFINE_CARD(CRageForgerCard);
@@ -113,6 +112,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CScarbladeEliteCard);
 		DEFINE_CARD(CSeethingPathblazerCard);
 		DEFINE_CARD(CSensationGorgerCard);
+		DEFINE_CARD(CSharedAnimosityCard);
 		DEFINE_CARD(CShardVolleyCard);
 		DEFINE_CARD(CShinewendCard);
 		DEFINE_CARD(CSigilTracerCard);
@@ -4926,31 +4926,6 @@ CGiltLeafArchdruidCard::CGiltLeafArchdruidCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CPreeminentCaptainCard::CPreeminentCaptainCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Preeminent Captain"), CardType::Creature, CREATURE_TYPE2(Kithkin, Soldier), nID,
-		_T("2") WHITE_MANA_TEXT, Power(2), Life(2))
-{
-	GetCreatureKeyword()->AddFirstStrike(FALSE);
-	{
-	typedef
-		TTriggeredSubjectAbility< CMoveAttackingAbility, CWhenSelfAttackedBlocked,
-								 CWhenSelfAttackedBlocked::AttackEventCallback,
-								 &CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->GetGatherer().SetSubjectZoneId(ZoneId::Hand);
-	cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Soldier),false));
-	cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetGatherer().SetDefaultCharacteristic(Characteristic::Positive);
-	cpAbility->SetFromZoneId(ZoneId::Hand);	
-
-	AddAbility(cpAbility.GetPointer());
-	}
-}
-
-//____________________________________________________________________________
-//
 CReinsOfTheVinesteedCard::CReinsOfTheVinesteedCard(CGame* pGame, UINT nID)
 	: CChgPwrTghAttrEnchantCard(pGame, _T("Reins of the Vinesteed"), nID,
 		_T("3") GREEN_MANA_TEXT,
@@ -5003,12 +4978,12 @@ void CReinsOfTheVinesteedCard::OnResolutionCompleted(const CAbilityAction* pAbil
 	pFilter->AddComparer(pComparer);
 
 	CCountedCardContainer cards;
-	CZone* pZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		pFilter->GetIncluded(*pZone, cards);
-		if (cards.GetSize() > 0) break;
+		if (cards.GetSize() > 0) 
+			break;
 	}
 	delete pFilter;
 	if (!cards.GetSize()) return;
@@ -5108,15 +5083,12 @@ void CDistantMelodyCard::OnSelectionDone(const std::vector<SelectionEntry>& sele
 		if (it->bSelected)
 		{
 			SingleCreatureType creatureType((SingleCreatureType::Enum)it->dwContext);
-
-			CCardFilter* pDiscardFilter;
-			CCardFilter pDiscardFilter_temp;
-
-			pDiscardFilter = NULL;
-
+			
+			CCardFilter  pDiscardFilter_temp;
+			
 			pDiscardFilter_temp.SetComparer(new CreatureTypeComparer(creatureType, false));
 
-			pDiscardFilter = &pDiscardFilter_temp;			
+			CCardFilter* pDiscardFilter = &pDiscardFilter_temp;			
 
 			int i = pDiscardFilter->CountIncluded(pSelectionPlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
@@ -5209,14 +5181,11 @@ void CLuminescentRainCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 		{
 			SingleCreatureType creatureType((SingleCreatureType::Enum)it->dwContext);
 
-			CCardFilter* pDiscardFilter;
 			CCardFilter pDiscardFilter_temp;
-
-			pDiscardFilter = NULL;
 
 			pDiscardFilter_temp.SetComparer(new CreatureTypeComparer(creatureType, false));
 
-			pDiscardFilter = &pDiscardFilter_temp;			
+			CCardFilter* pDiscardFilter = &pDiscardFilter_temp;			
 
 			int i = pDiscardFilter->CountIncluded(pSelectionPlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
@@ -5310,15 +5279,12 @@ void CPacksDisdainCard::OnSelectionDone(const std::vector<SelectionEntry>& selec
 		if (it->bSelected)
 		{
 			SingleCreatureType creatureType((SingleCreatureType::Enum)it->dwContext);
-
-			CCardFilter* pDiscardFilter;
+		
 			CCardFilter pDiscardFilter_temp;
-
-			pDiscardFilter = NULL;
 
 			pDiscardFilter_temp.SetComparer(new CreatureTypeComparer(creatureType, false));
 
-			pDiscardFilter = &pDiscardFilter_temp;			
+			CCardFilter* pDiscardFilter = &pDiscardFilter_temp;			
 
 			int i = pDiscardFilter->CountIncluded(pSelectionPlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
@@ -5415,23 +5381,19 @@ void CCoordinatedBarrageCard::OnSelectionDone(const std::vector<SelectionEntry>&
 		{
 			SingleCreatureType creatureType((SingleCreatureType::Enum)it->dwContext);
 
-			CCardFilter* pDiscardFilter;
 			CCardFilter pDiscardFilter_temp;
-
-			pDiscardFilter = NULL;
 
 			pDiscardFilter_temp.SetComparer(new CreatureTypeComparer(creatureType, false));
 
-			pDiscardFilter = &pDiscardFilter_temp;			
+			CCardFilter* pDiscardFilter = &pDiscardFilter_temp;			
 
 			int i = pDiscardFilter->CountIncluded(pSelectionPlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
-			CLifeModifier pmodifier1 = CLifeModifier(
-						Life(-i), // numbur on which the life will be altered
-						(CCard*)dwContext1, // sourcecard of life altering
-						PreventableType::Preventable // preventable or not prevantable
-						, DamageType::SpellDamage | DamageType::NonCombatDamage // Damage Type
-						, TRUE, FALSE);		
+			CLifeModifier pmodifier1 = CLifeModifier(Life(-i),					   // number on which the life will be altered
+													 (CCard*)dwContext1,		   // sourcecard of life altering
+													 PreventableType::Preventable, // preventable or not prevantable
+													 DamageType::SpellDamage | DamageType::NonCombatDamage, // Damage Type
+													 TRUE, FALSE);		
 
 			pmodifier1.ApplyTo((CCreatureCard*)dwContext2);			
 		}
@@ -5522,23 +5484,19 @@ void CRoaroftheCrowdCard::OnSelectionDone(const std::vector<SelectionEntry>& sel
 		{
 			SingleCreatureType creatureType((SingleCreatureType::Enum)it->dwContext);
 
-			CCardFilter* pDiscardFilter;
 			CCardFilter pDiscardFilter_temp;
-
-			pDiscardFilter = NULL;
 
 			pDiscardFilter_temp.SetComparer(new CreatureTypeComparer(creatureType, false));
 
-			pDiscardFilter = &pDiscardFilter_temp;			
+			CCardFilter* pDiscardFilter = &pDiscardFilter_temp;			
 
 			int i = pDiscardFilter->CountIncluded(pSelectionPlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
-			CLifeModifier pmodifier1 = CLifeModifier(
-						Life(-i), // numbur on which the life will be altered
-						(CCard*)dwContext1, // sourcecard of life altering
-						PreventableType::Preventable // preventable or not prevantable
-						, DamageType::SpellDamage | DamageType::NonCombatDamage // Damage Type
-						, TRUE, FALSE);		
+			CLifeModifier pmodifier1 = CLifeModifier(Life(-i),					   // number on which the life will be altered
+													 (CCard*)dwContext1,		   // sourcecard of life altering
+													 PreventableType::Preventable, // preventable or not prevantable
+													 DamageType::SpellDamage | DamageType::NonCombatDamage, // Damage Type
+													 TRUE, FALSE);		
 
 			if (dwContext2)
 				pmodifier1.ApplyTo((CCreatureCard*)dwContext2);			
@@ -5716,11 +5674,11 @@ CMaralenOfTheMornsongCard::CMaralenOfTheMornsongCard(CGame* pGame, UINT nID)
 	_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(2), Life(3))
 {
 	{
-		counted_ptr<CPlayerEffectEnchantment> cpAbility(
+		counted_ptr<CPlayerEffectEnchantment> cpEnchantment(
 			::CreateObject<CPlayerEffectEnchantment>(this,
 				PlayerEffectType::CantDrawCards));
 
-		AddAbility(cpAbility.GetPointer());
+		AddAbility(cpEnchantment.GetPointer());
 	}
 	{
 		counted_ptr<TriggeredAbility> cpAbility(
@@ -5769,7 +5727,6 @@ bool CRecrossThePathsCard::BeforeResolution(CAbilityAction* pAction)
 
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 				
 	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
 
@@ -5781,10 +5738,7 @@ bool CRecrossThePathsCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->GetCardType().IsLand())
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 		}
 	}
 
@@ -5794,14 +5748,14 @@ bool CRecrossThePathsCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			&m_CardFilter, // any cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,			 // select by 
+			CZoneModifier::RoleType::AllPlayers,			 // reveal to
+			&m_CardFilter,									 // any cards
+			ZoneId::Battlefield,							 // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,			 // select by this player
+			CardPlacement::Top,								 // put selected cards on top
+			MoveType::Others,								 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);		 // order selected cards by this player
 	pModifier.SetReorderInformation(true, ZoneId::Library, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Bottom);
 		
 	pModifier.ApplyTo(pController);
@@ -5817,22 +5771,25 @@ bool CRecrossThePathsCard::BeforeResolution(CAbilityAction* pAction)
 		CZoneModifier pmodifier = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
 			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 		pmodifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to reorder
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			NULL, // what cards
-			ZoneId::Library, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom, // put selected cards on 
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+			CZoneModifier::RoleType::AllPlayers,				 // reveal to
+			NULL,												 // what cards
+			ZoneId::Library,									 // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+			CardPlacement::Bottom,								 // put selected cards on 
+			MoveType::Others,									 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 		CMoveCardModifier cmodifier = CMoveCardModifier(ZoneId::Stack, ZoneId::Hand, TRUE, MoveType::Others);
 
-		if (!pNextDraw_con->GetCardType().IsLand()) con_score=pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-		if (!pNextDraw_opp->GetCardType().IsLand()) opp_score=pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+		if (!pNextDraw_con->GetCardType().IsLand()) 
+			con_score=pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+		if (!pNextDraw_opp->GetCardType().IsLand()) 
+			opp_score=pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
 
 		pmodifier.ApplyTo(controller);
 		pmodifier.ApplyTo(opponent);
-		if (con_score>opp_score) cmodifier.ApplyTo(this);
+		if (con_score>opp_score) 
+			cmodifier.ApplyTo(this);
 	}
 
 	return true;
@@ -6367,7 +6324,8 @@ void CKinsbaileBorderguardCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZ
 
 void CKinsbaileBorderguardCard::OnCounterMoved(CCard* pFromCard, LPCTSTR name, int old, int n_value)
 {
-	if ((pFromCard != this) || ((CString)name == _T("+1/+1")) || ((CString)name == _T("-1/-1"))) return;
+	if ((pFromCard != this) || ((CString)name == _T("+1/+1")) || ((CString)name == _T("-1/-1"))) 
+		return;
 	m_nCounterCount = GetCounterContainer()->GetTotalCount() - GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount() - GetCounterContainer()->GetCounter(_T("-1/-1"))->GetCount();
 }
 
@@ -6471,5 +6429,55 @@ bool CGracefulReprieveCard::BeforeResolution(CAbilityAction* pAction) const
 	return true;
 }
 
+//____________________________________________________________________________
+//
+CSharedAnimosityCard::CSharedAnimosityCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Shared Animosity"), CardType::GlobalEnchantment, nID,
+		_T("2") RED_MANA_TEXT, AbilityType::Enchantment)
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CSharedAnimosityCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CSharedAnimosityCard::BeforeResolution));
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CSharedAnimosityCard::SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
+										CCreatureCard* pCreature, AttackSubject attacked) const
+{
+	triggerContext.m_pCreature = pCreature;  // Each attacking creature, causes a separate trigger. 
+	return true;							 // Store triggering attacking creature to later apply modifiers to in BeforeResolution.
+}
+
+bool CSharedAnimosityCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
+{
+	CPlayer* pController             = pAction->GetController();	
+	CZone*   pBattlefieldPlayer      = pController->GetZoneById(ZoneId::Battlefield);
+	CCreatureCard* pCreatureCardCur  = (CCreatureCard*)pAction->GetTriggerContext().m_pCreature;  // creature card that caused current trigger
+	for (int j = 0; j < pBattlefieldPlayer->GetSize(); ++j)					 // find all attacking creatures that share at least one type
+																			 // with creature that caused current trigger
+	{
+		CCard* pCardTmp = pBattlefieldPlayer->GetAt(j);
+		if (pCardTmp->GetCardType().IsCreature())
+		{
+			CCreatureCard* pCreatureCardTmp = (CCreatureCard*)pCardTmp;		
+			if(pCreatureCardCur != pCreatureCardTmp)						 // do not compare current card with itself
+			{	
+				if (pCreatureCardTmp->IsAttacking()						 &&	 // creature must be attacking 
+					(pCreatureCardCur->GetCardKeyword()->HasChangeling() ||  // changeling keyword means card is all creature types 
+					 pCreatureCardTmp->GetCardKeyword()->HasChangeling() ||
+					 pCreatureCardCur->GetCreatureType().HasCommonTypes(pCreatureCardTmp->GetCreatureType())))
+				{
+					CPowerModifier powerModifier(Power(+1));				 // Found a creature that shares at least one type with creature
+					powerModifier.ApplyTo(pCreatureCardCur);				 // that caused current trigger, increment the creature that
+																			 // caused the trigger's power by +1 each time a match is found.			
+				}
+			}
+		}
+	}
+	return true;
+}
 //____________________________________________________________________________
 //

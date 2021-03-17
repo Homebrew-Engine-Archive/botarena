@@ -1,0 +1,123 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Tokens2.ico"
+IDI_LARGE_MODULE        ICON                    "Tokens2Large.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Tokens2"
+    IDS_EXPANSION_ABBREV    "TK2"
+    IDS_FIRST_CARD          "55000"
+    IDS_TOTAL_CARD          "1000"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "55000"
+    IDS_MODULE_LARGE_ICON_ID "55001"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "09-12-2014"
+    IDS_MWS_FOLDER          "MWS\\TK2\\"
+    IDS_PRODUCT_LIST        """New Expansion Starter Box"":R-3:U-10:C-32:BL-30,""New Expansion Booster Pack"":R-1:U-3:C-11"
+END
+
+
+STRINGTABLE
+BEGIN
+    IDS_STRING55000         "Sphinx (A)\n{U}\nCreature - Sphinx\nToken\nFlying\n4/4"
+    IDS_STRING55001         "Spider (D)\n{G}\nCreature - Spider\nToken\nReach\n1/3"
+    IDS_STRING55002         "Hydra (A)\n{G}\nCreature - Hydra\nToken\n\n*/*"
+    IDS_STRING55003         "Construct (A)\n{1}\nArtifact Creature - Construct\nToken\nDefender\n1/1"
+    IDS_STRING55004         "Wolf (K)\n{G}\nCreature - Wolf\nToken\n\n2/2"
+    IDS_STRING55005         "Squirrel (E)\n{G}\nCreature - Squirrel\nToken\n\n1/1"
+    IDS_STRING55006         "Ogre (A)\n{R}\nCreature - Ogre\nToken\n\n4/4"
+    IDS_STRING55007         "Demon (D)\n{B}\nCreature - Demon\nToken\nFlying\n*/*"
+    IDS_STRING55008         "Spirit (O)\n{W}\nCreature - Spirit\nToken\nFlying\n1/1"
+    IDS_STRING55009         "Zombie (P)\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING55010         "Elephant (E)\n{G}\nCreature - Elephant\nToken\n\n3/3"
+    IDS_STRING55011         "Snake (H)\n{BG}\nEnchantment Creature - Snake\nToken\nDeathtouch\n1/1"
+    IDS_STRING55012         "Bird (L)\n{W}\nCreature - Bird\nToken\nFlying\n3/4"
+    IDS_STRING55013         "Spirit (P)\n{W}\nCreature - Spirit\nToken\nFlying\n1/1"
+    IDS_STRING55014         "Warrior (A)\n{W}\nCreature - Warrior\nToken\n\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING55015         "Warrior (B)\n{W}\nCreature - Warrior\nToken\n\n1/1"
+    IDS_STRING55016         "Vampire (D)\n{B}\nCreature - Vampire\nToken\nFlying\n2/2"
+    IDS_STRING55017         "Zombie (Q)\n{B}\nCreature - Zombie\nToken\n\n2/2"
+    IDS_STRING55018         "Bear (C)\n{G}\nCreature - Bear\nToken\n\n4/4"
+    IDS_STRING55019         "Snake (I)\n{G}\nCreature - Snake\nToken\n\n1/1"
+    IDS_STRING55020         "Goblin (N)\n{R}\nCreature - Goblin\nToken\n\n1/1"
+    IDS_STRING55021         "Spirit Warrior (A)\n{BG}\nCreature - Spirit Warrior\nToken\n\n*/*"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

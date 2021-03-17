@@ -98,7 +98,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CPhyrexianDigesterCard);
 		DEFINE_CARD(CPhyrexianHydraCard);
 		DEFINE_CARD(CPhyrexianJuggernautCard);
-		DEFINE_CARD(CPhyrexianRevokerCard);
 		DEFINE_CARD(CPhyrexianVatmotherCard);
 		DEFINE_CARD(CPierceStriderCard);
 		DEFINE_CARD(CPistonSledgeCard);
@@ -782,30 +781,6 @@ bool CPhyrexianHydraCard::BeforeResolution(CPhyrexianHydraCard::TriggeredAbility
 	pAction->SetTriggerContext(triggerContext);
 	
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CPhyrexianRevokerCard::CPhyrexianRevokerCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Phyrexian Revoker"), CardType::_ArtifactCreature, CREATURE_TYPE(Horror), nID,
-		_T("2"), Power(2), Life(1))
-{
-	typedef
-		TTriggeredAbility< CTriggeredPlayerEffectAbility2, CWhenSelfInplay, 
-							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetCardFilters(CCardFilter::GetFilter(_T("non-lands")));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->SetSelectByControllerOnly(TRUE);
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToAllPlayers);
-	cpAbility->SetPlayerEffect(PlayerEffectType::CantPlayActivatedAbilities, FALSE);
-	cpAbility->SetRemoveEffectWhenLeaveInplay(TRUE);
-	cpAbility->SetSkipStack(TRUE);
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -4251,11 +4226,10 @@ CPhyrexianRebirthCard::CPhyrexianRebirthCard(CGame* pGame, UINT nID)
 
 bool CPhyrexianRebirthCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay;
 	m_nCards = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards += CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -4264,21 +4238,25 @@ bool CPhyrexianRebirthCard::BeforeResolution(CAbilityAction* pAction)
 
 void CPhyrexianRebirthCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
 	CPlayer* pController = pAbilityAction->GetController();
 
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards -= CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)

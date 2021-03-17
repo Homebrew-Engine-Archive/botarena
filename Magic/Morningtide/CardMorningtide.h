@@ -1141,16 +1141,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CPreeminentCaptainCard : public CCreatureCard
-{
-    DECLARE_CARD_CSTOR(CPreeminentCaptainCard);
-
-protected:
-    CCardFilter m_CardFilter;
-};
-
-//____________________________________________________________________________
-//
 class CReinsOfTheVinesteedCard : public CChgPwrTghAttrEnchantCard
 {
 	DECLARE_CARD_CSTOR(CReinsOfTheVinesteedCard);
@@ -1409,6 +1399,21 @@ class CGracefulReprieveCard : public CCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CSharedAnimosityCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CSharedAnimosityCard);
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenAttackedBlocked,
+						       CWhenAttackedBlocked::PlayerEventCallback,
+							   &CWhenAttackedBlocked::SetAttackingEventCallback> TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
+						   CCreatureCard* pCreature, AttackSubject attacked) const;
 };
 
 //____________________________________________________________________________

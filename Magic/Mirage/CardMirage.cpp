@@ -64,7 +64,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName,
 		DEFINE_CARD(CDirtwaterWraithCard);
 		DEFINE_CARD(CDiscordantSpiritCard);
 		DEFINE_CARD(CDisempowerCard);
-		DEFINE_CARD(CDissipateCard);
 		DEFINE_CARD(CDivineRetributionCard);
 		DEFINE_CARD(CDreadSpecterCard);
 		DEFINE_CARD(CDwarvenMinerCard);
@@ -1421,7 +1420,7 @@ bool CMisersCageCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerCont
 
 bool CMisersCageCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
 {
-	CZone* pHand = pHand = m_pGame->GetCurrentNode()->GetGraph()->GetPlayer()->GetZoneById(ZoneId::Hand);
+	CZone* pHand = m_pGame->GetCurrentNode()->GetGraph()->GetPlayer()->GetZoneById(ZoneId::Hand);
 	return pHand->GetSize() >= 5;
 }
 
@@ -1728,16 +1727,6 @@ CShadowGuildmageCard::CShadowGuildmageCard(CGame* pGame, UINT nID)
 	cpAbility->GetTargeting()->GetSubjectCardFilter().SetThisCardsControllerOnly(this);
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CDissipateCard::CDissipateCard(CGame* pGame, UINT nID)
-	: CCounterSpellCard(pGame, _T("Dissipate"), CardType::Instant, nID,
-		_T("1") BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Instant,
-		new TrueCardComparer)
-{
-	m_pCounterSpell->SetToZone(ZoneId::Exile, TRUE);
 }
 
 //____________________________________________________________________________
@@ -4751,9 +4740,12 @@ CAsmiraHolyAvengerCard::CAsmiraHolyAvengerCard(CGame* pGame, UINT nID)
 bool CAsmiraHolyAvengerCard::BeforeResolution(CAbilityAction* pAction)
 {
 	int nCreatures = pAction->GetController()->GetCertainTypeDiedCount(CardType::Creature);
-	if (nCreatures == 0) return false;
+	if (nCreatures == 0) 
+		return false;
 
 	CCardCounterModifier* pModifier = new CCardCounterModifier(_T("+1/+1"), nCreatures);
+	pModifier->ApplyTo(this);
+	
 	return true;
 }
 
@@ -5043,23 +5035,25 @@ BOOL CAleatoryCard::CanPlay(BOOL bIncludeTricks)
 	CNode* pCurrentNode = m_pGame->GetCurrentNode();
 
 	return (pCurrentNode->GetNodeId() == NodeId::DeclareBlockersStep2 ||
-			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b ||
-			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep1b   ||
+			pCurrentNode->GetNodeId() == NodeId::CombatDamageStep2b   ||
 			pCurrentNode->GetNodeId() == NodeId::EndOfCombatStep);
 }
 
-bool CAleatoryCard::BeforeResolution (CAbilityAction* pAction)
+bool CAleatoryCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
-	int Thumb = 0;
-	int Exponent = 2;
+	
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5187,14 +5181,16 @@ CFreneticEfreetCard::CFreneticEfreetCard(CGame* pGame, UINT nID)
 bool CFreneticEfreetCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
+	
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5353,10 +5349,7 @@ bool CSeedsOfInnocenceCard::BeforeResolution(CAbilityAction* pAction)
 		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration)));
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-	{
-		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-	}
 
 	CLifeModifier pModifier0 = CLifeModifier(Life(P0LifeGain), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	CLifeModifier pModifier1 = CLifeModifier(Life(P1LifeGain), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
@@ -6061,14 +6054,14 @@ void CTaintedSpecterCard::OnCardSelected(const std::vector<SelectionEntry>& sele
 				CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All , CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 				pModifier1.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::AllPlayers, // reveal to
-					CCardFilter::GetFilter(_T("cards")), // what cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on 
-					MoveType::Discard, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer,				  // select by 
+					CZoneModifier::RoleType::AllPlayers,				  // reveal to
+					CCardFilter::GetFilter(_T("cards")),				  // what cards
+					ZoneId::Graveyard,									  // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,				  // select by this player
+					CardPlacement::Top,									  // put selected cards on 
+					MoveType::Discard,									  // move type
+					CZoneModifier::RoleType::PrimaryPlayer);			  // order selected cards by this player
 				
 				pModifier1.ApplyTo(pSelectionPlayer);
 				
@@ -6077,16 +6070,10 @@ void CTaintedSpecterCard::OnCardSelected(const std::vector<SelectionEntry>& sele
 				CLifeModifier pModifier3 = CLifeModifier(Life(-1), this, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
 					pModifier3.ApplyTo(GetGame()->GetPlayer(ip));
-				}
-
 				return;
 			}
 			else
@@ -6212,8 +6199,6 @@ void CMangarasEquityCard::Move(CZone* pToZone,
 void CMangarasEquityCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {	
 	ATLASSERT(nSelectedCount == 1);
-
-	CCard* pCard = (CCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -6482,8 +6467,6 @@ void CQuirionElvesCard::OnSelectionDone(const std::vector<SelectionEntry>& selec
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -6492,31 +6475,26 @@ void CQuirionElvesCard::OnSelectionDone(const std::vector<SelectionEntry>& selec
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -6605,8 +6583,6 @@ void CRootsOfLifeCard::OnSelectionDone(const std::vector<SelectionEntry>& select
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -6615,13 +6591,11 @@ void CRootsOfLifeCard::OnSelectionDone(const std::vector<SelectionEntry>& select
 			if (nSelectedIndex == 1)
 			{
 				cIsland = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cSwamp = true;
-
 				return;
 			}
 		}
@@ -6630,8 +6604,11 @@ void CRootsOfLifeCard::OnSelectionDone(const std::vector<SelectionEntry>& select
 bool CRootsOfLifeCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
 										  CCard* pCard, Orientation fromOrientation, Orientation toOrientation)
 {
-	if ((cIsland && (pCard->GetCardType() & CardType::Island).Any()) || (cSwamp && (pCard->GetCardType() & CardType::Swamp).Any())) return true;
-	else return false;
+	if ((cIsland && (pCard->GetCardType() & CardType::Island).Any()) || 
+		(cSwamp && (pCard->GetCardType() & CardType::Swamp).Any())) 
+		return true;
+	else 
+		return false;
 }
 
 //____________________________________________________________________________
@@ -7001,7 +6978,6 @@ bool CEtherWellCard::BeforeResolution(CAbilityAction* pAction)
 void CEtherWellCard::OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)

@@ -347,13 +347,6 @@ class CLotusCobraCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CTerraStomperCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CTerraStomperCard);
-};
-
-//____________________________________________________________________________
-//
 class CZendikarFarguideCard : public CLandwalkCreatureCard
 {
 	DECLARE_CARD_CSTOR(CZendikarFarguideCard);
@@ -1527,12 +1520,11 @@ class CKhalniHeartExpeditionCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CKhalniHeartExpeditionCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
-	 typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
+	typedef
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
 	TriggeredAbility* m_pTriggeredAbility;
 };
 
@@ -1542,12 +1534,11 @@ class CIorRuinExpeditionCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CIorRuinExpeditionCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
-	 typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
+	typedef
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
 	TriggeredAbility* m_pTriggeredAbility;
 };
 
@@ -1558,12 +1549,11 @@ class CSoulStairExpeditionCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CSoulStairExpeditionCard);
 
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
-	 typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
+	typedef
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
 	TriggeredAbility* m_pTriggeredAbility;
 };
 
@@ -1573,12 +1563,11 @@ class CSunspringExpeditionCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CSunspringExpeditionCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
-	 typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
+	typedef
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
 	TriggeredAbility* m_pTriggeredAbility;
 };
 
@@ -1588,15 +1577,13 @@ class CZektarShrineExpeditionCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CZektarShrineExpeditionCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
-	 typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
+	typedef
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
 	TriggeredAbility* m_pTriggeredAbility;
-
-	bool CZektarShrineExpeditionCard::BeforeResolution(CAbilityAction* pAction) const;
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -1605,7 +1592,7 @@ class CQuestfortheGravelordCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CQuestfortheGravelordCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 
@@ -1620,7 +1607,7 @@ class CQuestforAncientSecretsCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CQuestforAncientSecretsCard);
 
-private:
+protected:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 
@@ -1824,14 +1811,10 @@ protected:
 
 	bool BeforeResolution(CAbilityAction* pAction);
 	CCard* pEquipment;
-
-private:
-
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard) const;
-
 	typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 	TriggeredAbility* m_pTriggeredAbility;
 };
 
@@ -1940,8 +1923,7 @@ class CPyromancerAscensionCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CPyromancerAscensionCard);
 
-private:
-
+protected:
 	bool SetTriggerContext1(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard) const;
 	bool SetTriggerContext2(CTriggeredCopyCastAbility1::TriggerContextType& triggerContext,

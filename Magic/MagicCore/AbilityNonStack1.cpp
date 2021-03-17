@@ -232,7 +232,6 @@ CActionContainer* CAttackAbility::GetAbilityActions(BOOL bIncludeTricks, BOOL bS
 		CAbilityAction* pAction3 = (CAbilityAction*)pActionContainer->GetAt(0).GetPointer();
 
 		counted_ptr<CAction> cpAction(pAction->Clone());
-		CAttackAction* pAction2 = (CAttackAction*)cpAction.GetPointer();
 
 		for (int i = 0; i < pBattlefield->GetSize(); ++i)
 		{
@@ -573,17 +572,16 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	          // Thi
 	if (pAttacker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::GraxiplonEffect))
 	{
 		CZone* pBattlefield       = pAttacker->GetController()->GetZoneById(ZoneId::Battlefield);
-		bool bCanBlockAttCreature = FALSE;                           // can this card pBlocker block attacking card (pAttacker)
-	    bool bTypeThreeOrMoreFnd  = FALSE;							 // whether three cards sharing a common type were found 
+		bool bCanBlockAttCreature = FALSE;											  // can this card pBlocker block attacking card (pAttacker)						
 
-		bTypeThreeOrMoreFnd = TypeThreeOrMoreExists(pBlocker->GetController());
+		bool bTypeThreeOrMoreFnd = TypeThreeOrMoreExists(pBlocker->GetController());  // whether three cards sharing a common type were found 
 		for (int i = 0; i < pBattlefield->GetSize(); ++i)
 		{
 			CCard* pCard = pBattlefield->GetAt(i);
 			if (pCard->GetPrintedCardName() == _T("Graxiplon") && 
 		       (bTypeThreeOrMoreFnd)) 
 			{
-				bCanBlockAttCreature = TRUE; 					     // can block attacking creature
+				bCanBlockAttCreature = TRUE; 										  // can block attacking creature
 			}
 		}
 		return bCanBlockAttCreature;
@@ -2117,7 +2115,6 @@ BOOL CUntapAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) 
 	{
 		if ((m_pCard->GetCardType() & CardType::Creature).Any())
 		{
-			CCreatureCard* pCreatureCard = static_cast<CCreatureCard*>(m_pCard);
 			if (pController->GetTurnUntappedCreaturesCount() >= nSmokeMinParam)
 				return FALSE;
 		}
@@ -2403,15 +2400,12 @@ BOOL CMorphAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) 
 	if (pPlayer != m_pGame->GetActivePlayer())
 		return FALSE;
 
-	CNode* pNode = pPlayer->GetGraph()->GetCurrentNode();
-
 	return TRUE;
 }
 
 BOOL CMorphAbility::ResolveImpl(const CAbilityAction* pAction)
 {
 	const CNonStackAbilityAction* pAction1 = (const CNonStackAbilityAction*)pAction;
-	const CPlayer* pCaster = pAction1->GetController();
 
 	(reinterpret_cast<CMorphCreatureCard*>(m_pCard))->UnMorph();
 

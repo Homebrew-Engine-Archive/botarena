@@ -266,7 +266,7 @@ protected:
 	bool BeforeResolution1(TriggeredAbility::TriggeredActionType* pAction);
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-	bool CSimicFluxmageCard::BeforeResolution2(CAbilityAction* pAction) const;
+	bool BeforeResolution2(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -1458,13 +1458,6 @@ protected:
 };
 
 //____________________________________________________________________________
-//
-class CFoundryStreetDenizenCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CFoundryStreetDenizenCard);
-};
-
-//______________________________________________________________________________
 //
 class CFrilledOculusCard : public CPumpCreatureCard
 {

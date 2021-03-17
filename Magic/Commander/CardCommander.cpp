@@ -37,7 +37,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 			DEFINE_CARD(CGhaveGuruOfSporesCard);
 			DEFINE_CARD(CKaaliaOfTheVastCard);
 			DEFINE_CARD(CHomewardPathCard);
-			DEFINE_CARD(CHornetQueenCard);
 			DEFINE_CARD(CHydraOmnivoreCard);
 			DEFINE_CARD(CKaradorGhostChieftainCard);
 			DEFINE_CARD(CMagmaticForceCard);
@@ -155,8 +154,6 @@ void CCommanderCard::OnCardMoved(CCard* pCard, CZone* pFromZone, CZone* pToZone,
 			CManaCost mCost;
 			mCost.AddCost(CManaCost::Color::Generic, 0);
 			mCost.AddCost(CManaCost::Color::Generic, (2*(CastingTimes)));
-
-		int time = CastingTimes*2;
 
 		m_pAbility->SetManaCost(mCost);
 
@@ -653,11 +650,8 @@ BOOL CCommandTowerCard::CanPlayWhite(BOOL bIncludeTricks)
 
 	for (int i = 0; i < pInplay->GetSize(); ++i)
 		if (pInplay->GetAt(i)->GetPrintedCardName() == _T("Commander"))
-		{
-			return ((CCommanderCard*)pInplay->GetAt(i))->IdentityWhite() == TRUE;
-		}
-
-
+			return (dynamic_cast<CCommanderCard*>(pInplay->GetAt(i))->IdentityWhite() == TRUE);
+	
 	return false;
 }
 BOOL CCommandTowerCard::CanPlayRed(BOOL bIncludeTricks)
@@ -666,10 +660,7 @@ BOOL CCommandTowerCard::CanPlayRed(BOOL bIncludeTricks)
 
 	for (int i = 0; i < pInplay->GetSize(); ++i)
 		if (pInplay->GetAt(i)->GetPrintedCardName() == _T("Commander"))
-		{
-			return ((CCommanderCard*)pInplay->GetAt(i))->IdentityRed() == TRUE;
-		}
-
+			return (dynamic_cast<CCommanderCard*>(pInplay->GetAt(i))->IdentityRed() == TRUE);
 
 	return false;
 }
@@ -679,10 +670,7 @@ BOOL CCommandTowerCard::CanPlayGreen(BOOL bIncludeTricks)
 
 	for (int i = 0; i < pInplay->GetSize(); ++i)
 		if (pInplay->GetAt(i)->GetPrintedCardName() == _T("Commander"))
-		{
-			return ((CCommanderCard*)pInplay->GetAt(i))->IdentityGreen() == TRUE;
-		}
-
+			return (dynamic_cast<CCommanderCard*>(pInplay->GetAt(i))->IdentityGreen() == TRUE);
 
 	return false;
 }
@@ -692,10 +680,7 @@ BOOL CCommandTowerCard::CanPlayBlue(BOOL bIncludeTricks)
 
 	for (int i = 0; i < pInplay->GetSize(); ++i)
 		if (pInplay->GetAt(i)->GetPrintedCardName() == _T("Commander"))
-		{
-			return ((CCommanderCard*)pInplay->GetAt(i))->IdentityBlue() == TRUE;
-		}
-
+			return (dynamic_cast<CCommanderCard*>(pInplay->GetAt(i))->IdentityBlue() == TRUE);
 
 	return false;
 }
@@ -705,10 +690,7 @@ BOOL CCommandTowerCard::CanPlayBlack(BOOL bIncludeTricks)
 
 	for (int i = 0; i < pInplay->GetSize(); ++i)
 		if (pInplay->GetAt(i)->GetPrintedCardName() == _T("Commander"))
-		{
-			return ((CCommanderCard*)pInplay->GetAt(i))->IdentityBlack() == TRUE;
-		}
-
+			return (dynamic_cast<CCommanderCard*>(pInplay->GetAt(i))->IdentityBlack() == TRUE);
 
 	return false;
 }
@@ -954,30 +936,6 @@ CHydraOmnivoreCard::CHydraOmnivoreCard(CGame* pGame, UINT nID)
 
 {
 	//NOTE: Coded as vanilla because BA doesn't support multiplayer yet. (08-Jul-2011)
-}
-
-//______________________________________________________________________________
-//
-CHornetQueenCard::CHornetQueenCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Hornet Queen"), CardType::Creature, CREATURE_TYPE(Insect), nID,
-		_T("4") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(2))
-{
-	GetCardKeyword()->AddDeathtouch(FALSE);
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Insect E"), 2926, 4);
-
-		cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
-
-		AddAbility(cpAbility.GetPointer());
-	}
 }
 
 //______________________________________________________________________________
@@ -1359,14 +1317,10 @@ bool CDreadCacodemonCard::BeforeResolution(TriggeredAbility::TriggeredActionType
 {
 	CZoneCardModifier pModifier = CZoneCardModifier(ZoneId::Battlefield, CCardFilter::GetFilter(_T("creatures")),
 					std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)));
+
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-	{
 		if (GetGame()->GetPlayer(ip) != pAction->GetController())
-		{
-			CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 			pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-		}
-	}
 
 	return true;
 }

@@ -13,8 +13,8 @@
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,47,1,0
- PRODUCTVERSION 1,47,1,0
+ FILEVERSION 1,48,1,0
+ PRODUCTVERSION 1,48,1,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -32,13 +32,13 @@ BEGIN
             VALUE "Comments", "This application is not published or endorsed by Wizards of the Coast LLC."
             VALUE "CompanyName", "EpochSoft"
             VALUE "FileDescription", "BotArena"
-            VALUE "FileVersion", "1,47,1,0"
+            VALUE "FileVersion", "1,48,1,0"
             VALUE "InternalName", "BotArena"
             VALUE "LegalCopyright", "This application is not published or endorsed by Wizards of the Coast LLC."
             VALUE "LegalTrademarks", "This application is not published or endorsed by Wizards of the Coast LLC."
             VALUE "OriginalFilename", "BotArena.exe"
             VALUE "ProductName", "BotArena"
-            VALUE "ProductVersion", "1,47,1,0"
+            VALUE "ProductVersion", "1,48,1,0"
         END
     END
     BLOCK "VarFileInfo"

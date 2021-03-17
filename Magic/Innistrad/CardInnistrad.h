@@ -636,8 +636,8 @@ protected:
 							CWhenSelfAttackedBlocked::AttackEventCallback,
 							&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
 
-	counted_ptr<CAbility> CTrepanationBladeCard::CreateEquipmentAbility(CCard* pCard);
-	bool CTrepanationBladeCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
+	counted_ptr<CAbility> CreateEquipmentAbility(CCard* pCard);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -780,13 +780,6 @@ class CRebukeCard : public CTargetMoveCardSpellCard
 };
 
 //____________________________________________________________________________
-//
-class CSelflessCatharCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CSelflessCatharCard);
-};
-
-//______________________________________________________________________________
 //
 class CSilverchaseFoxCard : public CCreatureCard
 {
@@ -1007,13 +1000,6 @@ class CBloodcrazedNeonateCard : public CCreatureCard
 
 //______________________________________________________________________________
 //
-class CTyphoidRatsCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CTyphoidRatsCard);
-};
-
-//______________________________________________________________________________
-//
 class CAshmouthHoundCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAshmouthHoundCard);
@@ -1074,7 +1060,7 @@ class CGeistflameCard : public CCard
 
 //____________________________________________________________________________
 //
-class CHarvestPyreCard : public CTargetChgLifeSpellCard
+class CHarvestPyreCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CHarvestPyreCard);
 

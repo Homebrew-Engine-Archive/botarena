@@ -57,7 +57,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CExploreCard);
 		DEFINE_CARD(CFledglingGriffinCard);
 		DEFINE_CARD(CGnarlidPackCard);
-		DEFINE_CARD(CGoblinRoughriderCard);
 		DEFINE_CARD(CGoliathSphinxCard);
 		DEFINE_CARD(CGrapplerSpiderCard);
 		DEFINE_CARD(CGraypeltHunterCard);
@@ -351,14 +350,6 @@ CBullRushCard::CBullRushCard(CGame* pGame, UINT nID)
 		Power(+2), Life(+0),
 		CreatureKeyword::Null, CreatureKeyword::Null,
 		TRUE, PreventableType::NotPreventable)
-{
-}
-
-//____________________________________________________________________________
-//
-CGoblinRoughriderCard::CGoblinRoughriderCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Goblin Roughrider"), CardType::Creature, CREATURE_TYPE2(Goblin, Knight), nID,
-		_T("2") RED_MANA_TEXT, Power(3), Life(2))
 {
 }
 
@@ -3401,9 +3392,6 @@ void CRuinGhostCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
 	m_CardFlagModifier1.ApplyTo(target);
 
 	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
@@ -3421,7 +3409,7 @@ void CRuinGhostCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction
 
 void CRuinGhostCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
 {
-	if ((GetZoneId() == ZoneId::Stack) &&
+	if ((GetZoneId() == ZoneId::Stack)			&&
 		(pToZone->GetZoneId() != ZoneId::Stack) &&
 		(GetCardKeyword()->HasFlash() == TRUE))
 		pToZone = GetOwner()->GetZoneById(ZoneId::Exile);
@@ -4281,7 +4269,6 @@ CDeadReckoningCard::CDeadReckoningCard(CGame* pGame, UINT nID)
 
 bool CDeadReckoningCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CDoubleTargetSpellAction* pDoubleTargetAction = dynamic_cast<CDoubleTargetSpellAction*>(pAction);
 
 	CCard* pTarget1 = (CCard*)pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject();
@@ -4318,9 +4305,7 @@ void CDeadReckoningCard::OnYesNoSelected(const std::vector<SelectionEntry>& sele
 		if (it->bSelected)
 		{
 			if ((int)it->dwContext == 0)
-			{
 				return;
-			}
 			if ((int)it->dwContext == 1)
 			{
 				CCreatureCard* pTarget1 = (CCreatureCard*)dwContext1;
@@ -4466,8 +4451,8 @@ bool CVastwoodAnimistCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nAllies);
-	pCreature->SetPrintedToughness(nAllies);
+	pCreature->SetPrintedPower(Power(nAllies));
+	pCreature->SetPrintedToughness(Life(nAllies));
 
 	return true;
 }

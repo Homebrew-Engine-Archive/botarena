@@ -452,7 +452,7 @@ BEGIN
     IDS_STRING7898          "Uncle Istvan\n{1BBB}\nCreature - Human\n4TH,U\nPrevent all damage that would be dealt to Uncle Istvan by creatures.\n1/3"
     IDS_STRING7899          "Holy Armor\n{W}\nEnchantment - Aura\n4TH,C\nEnchant creature\rEnchanted creature gets +0/+2.\r{W}: Enchanted creature gets +0/+1 until end of turn."
     IDS_STRING7900          "Paralyze\n{B}\nEnchantment - Aura\n4TH,C\nEnchant creature\rWhen Paralyze enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step.\rAt the beginning of the upkeep of enchanted creature's controller, that player may pay {4}. If he or she does, untap the creature."
-    IDS_STRING7901          "The Brute\n{1R}\nEnchantment - Aura\n4TH\nEnchant creature\rEnchanted creature gets +1/+0.\r{RRR}: Regenerate enchanted creature."
+    IDS_STRING7901          "The Brute\n{1R}\nEnchantment - Aura\n4TH,C\nEnchant creature\rEnchanted creature gets +1/+0.\r{RRR}: Regenerate enchanted creature."
     IDS_STRING7902          "Mana Flare\n{2R}\nEnchantment\n4TH,R\nWhenever a player taps a land for mana, that player adds one mana to his or her mana pool of any type that land produced."
     IDS_STRING7903          "White Mana Battery\n{4}\nArtifact\n4TH,R\n{2},{T}: Put a charge counter on White Mana Battery.\r{T}, Remove any number of charge counters from White Mana Battery: Add {W} to your mana pool, then add an additional {W} to your mana pool for each charge counter removed this way."
 END

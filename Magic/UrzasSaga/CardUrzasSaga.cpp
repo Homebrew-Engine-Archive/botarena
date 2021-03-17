@@ -99,7 +99,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGumaCard);
 		DEFINE_CARD(CHawkeaterMothCard);
 		DEFINE_CARD(CHeadlongRushCard);
-		DEFINE_CARD(CHeatRayCard);
 		DEFINE_CARD(CHeraldOfSerraCard);
 		DEFINE_CARD(CHermeticStudyCard);
 		DEFINE_CARD(CHoppingAutomatonCard);
@@ -2750,22 +2749,6 @@ CHeadlongRushCard::CHeadlongRushCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CHeatRayCard::CHeatRayCard(CGame* pGame, UINT nID)
-	: CTargetChgLifeSpellCard(pGame, _T("Heat Ray"), CardType::Instant, nID, AbilityType::Instant,
-		RED_MANA_TEXT,
-		new AnyCreatureComparer,
-		FALSE, // Target player?
-		Life(0), PreventableType::Preventable)
-{
-	m_pTargetChgLifeSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
-
-	m_pTargetChgLifeSpell->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
-	m_pTargetChgLifeSpell->SetExtraActionValueVector(ContextValue(-1));
-	m_pTargetChgLifeSpell->AddAbilityTag(AbilityTag::DamageSource);
-}
-
-//____________________________________________________________________________
-//
 CLullCard::CLullCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Lull"), CardType::Instant, nID)
 {
@@ -5030,6 +5013,8 @@ CSmokestackCard::CSmokestackCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Smokestack"), CardType::Artifact, nID,
 		_T("4"), AbilityType::Artifact)
 {
+	// initialize SOOT_COUNTER 
+	GetCounterContainer()->ScheduleCounter(SOOT_COUNTER, 0, false, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -6430,14 +6415,15 @@ CViashinoSandswimmerCard::CViashinoSandswimmerCard(CGame* pGame, UINT nID)
 bool CViashinoSandswimmerCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -6759,7 +6745,7 @@ void CUmbilicusCard::OnPaymentSelected(const std::vector<SelectionEntry>& select
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s returns a permanent he controls to its owner's hand"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
+					strMessage.Format(_T("%s returns a permanent he controls to its owner's hand"), pSelectionPlayer->GetPlayerName());
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -6773,14 +6759,14 @@ void CUmbilicusCard::OnPaymentSelected(const std::vector<SelectionEntry>& select
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All , CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 				pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::AllPlayers, // reveal to
-					&temp, // what cards
-					ZoneId::Hand, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on 
-					MoveType::Others, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer, 			 // select by 
+					CZoneModifier::RoleType::AllPlayers, 				 // reveal to
+					&temp, 												 // what cards
+					ZoneId::Hand, 										 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer, 			 // select by this player
+					CardPlacement::Top, 								 // put selected cards on 
+					MoveType::Others, 									 // move type
+					CZoneModifier::RoleType::PrimaryPlayer); 			 // order selected cards by this player
 
 				pModifier.ApplyTo(pSelectionPlayer);
 
@@ -7523,8 +7509,8 @@ bool CKarnSilverGolemCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nCMC);
-	pCreature->SetPrintedToughness(nCMC);
+	pCreature->SetPrintedPower(Power(nCMC));
+	pCreature->SetPrintedToughness(Life(nCMC));
 
 	return true;
 }
@@ -8113,9 +8099,12 @@ bool CPhyrexianProcessorCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Minion A"), 62028));		

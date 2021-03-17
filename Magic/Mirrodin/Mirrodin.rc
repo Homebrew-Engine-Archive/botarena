@@ -368,8 +368,8 @@ BEGIN
     IDS_STRING15030         "Promise of Power\n{2BBB}\nSorcery\nMRD,R\nChoose one - You draw five cards and you lose 5 life; or put an X/X black Demon creature token with flying onto the battlefield, where X is the number of cards in your hand as the token enters the battlefield.\rEntwine {4}"
     IDS_STRING15031         "Reiver Demon\n{4BBBB}\nCreature - Demon\nMRD,R\nFlying\rWhen Reiver Demon enters the battlefield, if you cast it from your hand, destroy all nonartifact, nonblack creatures. They can't be regenerated.\n6/6"
     IDS_STRING15032         "Brown Ouphe\n{G}\nCreature - Ouphe\nMRD,U\n{1G}, {T}: Counter target activated ability from an artifact source.\n1/1"
-    IDS_STRING15033         "Leonin Den-Guard\n{1W}\nCreature - Cat Soldier\nMRD\nAs long as Leonin Den-Guard is equipped, it gets +1/+1 and has vigilance.\n1/3"
-    IDS_STRING15034         "Skyhunter Cub\n{2W}\nCreature - Cat Knight\nMRD\nAs long as Skyhunter Cub is equipped, it gets +1/+1 and has flying.\n2/2"
+    IDS_STRING15033         "Leonin Den-Guard\n{1W}\nCreature - Cat Soldier\nMRD,C\nAs long as Leonin Den-Guard is equipped, it gets +1/+1 and has vigilance.\n1/3"
+    IDS_STRING15034         "Skyhunter Cub\n{2W}\nCreature - Cat Knight\nMRD,C\nAs long as Skyhunter Cub is equipped, it gets +1/+1 and has flying.\n2/2"
     IDS_STRING15035         "Myr Incubator\n{6}\nArtifact\nMRD,R\n{6}, {T}, Sacrifice Myr Incubator: Search your library for any number of artifact cards, exile them, then put that many 1/1 colorless Myr artifact creature tokens onto the battlefield. Then shuffle your library."
     IDS_STRING15036         "Razor Barrier\n{1W}\nInstant\nMRD,C\nTarget permanent you control gains protection from artifacts or from the color of your choice until end of turn."
     IDS_STRING15037         "Cloudpost\n\nLand - Locus\nMRD,C\nCloudpost enters the battlefield tapped.\r{T}: Add {1} to your mana pool for each Locus on the battlefield."
@@ -406,6 +406,7 @@ BEGIN
     IDS_STRING15060         "Wrench Mind\n{BB}\nSorcery\nMRD,C\nTarget player discards two cards unless he or she discards an artifact card."
     IDS_STRING15061         "Second Sunrise\n{1WW}\nInstant\nMRD,R\nEach player returns to the battlefield all artifact, creature, enchantment, and land cards in his or her graveyard that were put there from the battlefield this turn."
     IDS_STRING15062         "Blinding Beam\n{2W}\nInstant\nMRD,C\nChoose one - Tap two target creatures; or creatures don't untap during target player's next untap step.\rEntwine {1}"
+    IDS_STRING15063         "Jinxed Choker\n{3}\nArtifact\nMRD,R\nAt the beginning of your end step, target opponent gains control of Jinxed Choker and puts a charge counter on it.\rAt the beginning of your upkeep, Jinxed Choker deals damage to you equal to the number of charge counters on it.\rAt the beginning of your upkeep, Jinxed Choker deals damage to you equal to the number of charge counters on it.\r{3}: Put a charge counter on Jinxed Choker or remove one from it."
 END
 
 #endif    // English (United States) resources

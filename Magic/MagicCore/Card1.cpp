@@ -106,8 +106,6 @@ void CDoubleFacedInPlaySpellCard::SecondFace()
 
 	for (int i = 0; i < GetAbilityCount(); ++i)
 	{
-		CAbility* pAbility = GetAbility(i);
-
 		CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
 		if (!pEnchantmentAbility) 
 			continue;
@@ -130,8 +128,6 @@ void CDoubleFacedInPlaySpellCard::FirstFace()
 
 	for (int i = 0; i < GetAbilityCount(); ++i)
 	{
-		CAbility* pAbility = GetAbility(i);
-
 		CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
 		if (!pEnchantmentAbility) 
 			continue;
@@ -166,8 +162,6 @@ void CDoubleFacedInPlaySpellCard::Move(CZone* pToZone, const CPlayer* pByPlayer,
 	{
 		for (int i = 0; i < GetAbilityCount(); ++i)
 		{
-			CAbility* pAbility = GetAbility(i);
-
 			CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
 			if (!pEnchantmentAbility) 
 				continue;
@@ -183,8 +177,6 @@ void CDoubleFacedInPlaySpellCard::Move(CZone* pToZone, const CPlayer* pByPlayer,
 	{
 		for (int i = 0; i < GetAbilityCount(); ++i)
 		{
-			CAbility* pAbility = GetAbility(i);
-
 			CEnchantment* pEnchantmentAbility = dynamic_cast<CEnchantment*>(GetAbility(i));
 			if (!pEnchantmentAbility) 
 				continue;

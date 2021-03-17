@@ -28,7 +28,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAustereCommandCard);
 		DEFINE_CARD(CAvianChangelingCard);
 		DEFINE_CARD(CAxegrinderGiantCard);
-		DEFINE_CARD(CBattleMasteryCard);
 		DEFINE_CARD(CBattlewandOakCard);
 		DEFINE_CARD(CBenthicoreCard);
 		DEFINE_CARD(CBlackPoplarShamanCard);
@@ -139,7 +138,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CJaggedScarArchersCard);
 		DEFINE_CARD(CJudgeOfCurrentsCard);
 		DEFINE_CARD(CKinsbaileBalloonistCard);
-		DEFINE_CARD(CKinsbaileSkirmisherCard);
 		DEFINE_CARD(CKithkinDaggerdareCard);
 		DEFINE_CARD(CKithkinGreatheartCard);
 		DEFINE_CARD(CKithkinHarbingerCard);
@@ -1287,30 +1285,6 @@ CKinsbaileBalloonistCard::CKinsbaileBalloonistCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CKinsbaileSkirmisherCard::CKinsbaileSkirmisherCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Kinsbaile Skirmisher"), CardType::Creature, CREATURE_TYPE2(Kithkin, Soldier), nID,
-		_T("1") WHITE_MANA_TEXT, Power(2), Life(2))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay, 
-								 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
-	cpAbility->GetPowerModifier().SetPowerDelta(Power(+1));
-	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
-
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CKithkinDaggerdareCard::CKithkinDaggerdareCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Kithkin Daggerdare"), CardType::Creature, CREATURE_TYPE2(Kithkin, Soldier), nID,
 		_T("1") GREEN_MANA_TEXT, Power(1), Life(1))
@@ -2225,15 +2199,6 @@ bool CThundercloudShamanCard::BeforeResolution(CThundercloudShamanCard::Triggere
 	pAction->SetTriggerContext(triggerContext);
 
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CBattleMasteryCard::CBattleMasteryCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrEnchantCard(pGame, _T("Battle Mastery"), nID,
-		_T("2") WHITE_MANA_TEXT,
-		Power(+0), Life(+0), CreatureKeyword::DoubleStrike)
-{
 }
 
 //____________________________________________________________________________
@@ -3983,7 +3948,6 @@ bool CThievingSpriteCard::SetTriggerContext2(CTriggeredMoveCardAbility::TriggerC
 
 	for (int i = 0; i < pToZone->GetSize(); ++i)
 	{
-		CCard* pCard = pToZone->GetAt(i);
 		if ((GetCardType() & CardType::Token).Any())
 			continue;
 		++nCount;
@@ -7523,42 +7487,43 @@ CHoardersGreedCard::CHoardersGreedCard(CGame* pGame, UINT nID)
 
 void CHoardersGreedCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CPlayer* controller=GetController();
-	CPlayer* opponent=m_pGame->GetNextPlayer(GetController());
+	CPlayer* controller = GetController();
+	CPlayer* opponent = m_pGame->GetNextPlayer(GetController());
 	CCard* pNextDraw_con = controller->GetZoneById(ZoneId::Library)->GetTopCard();
 	CCard* pNextDraw_opp = opponent->GetZoneById(ZoneId::Library)->GetTopCard();
-	int opp_score = 0;
-	int con_score = 1;
 	CZoneModifier pmodifier = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pmodifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::AllPlayers, // reveal to
-		NULL, // what cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on 
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+		CZoneModifier::RoleType::AllPlayers,				 // reveal to
+		NULL,												 // what cards
+		ZoneId::Library,									 // if selected, move cards to
+		CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+		CardPlacement::Bottom,								 // put selected cards on 
+		MoveType::Others,									 // move type
+		CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 	CLifeModifier cmodifier1 = CLifeModifier(Life(-2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	CDrawCardModifier cmodifier2 = CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));
 
 	for (;;)
 	{
-	opp_score = 0;
-	con_score = 0;
-	cmodifier1.ApplyTo(controller);
-	cmodifier2.ApplyTo(controller);
-	pNextDraw_con = controller->GetZoneById(ZoneId::Library)->GetTopCard();
-	pNextDraw_opp = opponent->GetZoneById(ZoneId::Library)->GetTopCard();
+		int opp_score = 0;
+		int con_score = 0;
+		cmodifier1.ApplyTo(controller);
+		cmodifier2.ApplyTo(controller);
+		pNextDraw_con = controller->GetZoneById(ZoneId::Library)->GetTopCard();
+		pNextDraw_opp = opponent->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	if (!pNextDraw_con->GetCardType().IsLand()) con_score=pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-	if (!pNextDraw_opp->GetCardType().IsLand()) opp_score=pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+		if (!pNextDraw_con->GetCardType().IsLand()) 
+			con_score = pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+		if (!pNextDraw_opp->GetCardType().IsLand()) 
+			opp_score = pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
 
-	pmodifier.ApplyTo(controller);
-	pmodifier.ApplyTo(opponent);
+		pmodifier.ApplyTo(controller);
+		pmodifier.ApplyTo(opponent);
 
-	if ( con_score<=opp_score ) break;
+		if ( con_score<=opp_score ) 
+			break;
 	}
 }
 
@@ -8285,9 +8250,7 @@ CMakeshiftMannequinCard::CMakeshiftMannequinCard(CGame* pGame, UINT nID)
 
 bool CMakeshiftMannequinCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCard* pTarget = pAction->GetAssociatedCard();
-	
 	int nCounters = 1;
 
 	int nMultiplier = 0;
@@ -8952,13 +8915,12 @@ CGiltLeafAmbushCard::CGiltLeafAmbushCard(CGame* pGame, UINT nID)
 void CGiltLeafAmbushCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	CPlayer* controller=GetController();
-
 	CCountedCardContainer pTokens;
 
 	CTokenCreationModifier pModifierToken = CTokenCreationModifier(GetGame(), _T("Elf Warrior C"), 2715, 2, FALSE, ZoneId::Battlefield, &pTokens);
 	pModifierToken.ApplyTo(controller);
 
-	CPlayer* opponent=m_pGame->GetNextPlayer(GetController());
+	CPlayer* opponent = m_pGame->GetNextPlayer(GetController());
 	CCard* pNextDraw_con = controller->GetZoneById(ZoneId::Library)->GetTopCard();
 	CCard* pNextDraw_opp = opponent->GetZoneById(ZoneId::Library)->GetTopCard();
 	int opp_score = 0;
@@ -8975,8 +8937,10 @@ void CGiltLeafAmbushCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 		MoveType::Others, // move type
 		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
 
-	if (!pNextDraw_con->GetCardType().IsLand()) con_score=pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-	if (!pNextDraw_opp->GetCardType().IsLand()) opp_score=pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+	if (!pNextDraw_con->GetCardType().IsLand()) 
+		con_score=pNextDraw_con->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+	if (!pNextDraw_opp->GetCardType().IsLand()) 
+		opp_score=pNextDraw_opp->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
 
 	pmodifier.ApplyTo(controller);
 	pmodifier.ApplyTo(opponent);
@@ -8986,8 +8950,6 @@ void CGiltLeafAmbushCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 		cModifier.GetModifier().SetToAdd(CardKeyword::Deathtouch);
 		cModifier.GetModifier().SetOneTurnOnly(TRUE);
 		// Find the token we just created and apply power modifier
-
-		CZone* pBattlefield = pAbilityAction->GetController()->GetZoneById(ZoneId::Battlefield);
 		for (int i = 0; i < pTokens.GetSize(); ++i)
 			cModifier.ApplyTo(pTokens.GetAt(i));
 	}
@@ -10621,7 +10583,6 @@ void CSoulbrightFlamekinCard::OnResolutionCompleted(const CAbilityAction* pAbili
 void CSoulbrightFlamekinCard::OnSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -10630,16 +10591,12 @@ void CSoulbrightFlamekinCard::OnSelected(const std::vector<SelectionEntry>& sele
 			{
 				CManaPoolModifier pModifier =  CManaPoolModifier(
 					CManaPoolModifier::Operation::Add, CManaPool::CManaPool(RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT));
-
 				pModifier.ApplyTo(pSelectionPlayer);
-
 				return;
 			}
 			
 			if ((int)it->dwContext == 2)
-			{
 				return;
-			}
 		}
 }
 
@@ -10912,8 +10869,8 @@ bool CElvishBranchbenderCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nElves);
-	pCreature->SetPrintedToughness(nElves);
+	pCreature->SetPrintedPower(Power(nElves)); 
+	pCreature->SetPrintedToughness(Life(nElves));
 
 	return true;
 }

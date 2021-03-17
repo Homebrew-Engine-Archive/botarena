@@ -2796,11 +2796,8 @@ void CWuSpyCard::OnCardSelected(const std::vector<SelectionEntry>& selection, in
 		{
 			CCard* pCard = (CCard*)it->dwContext;
 			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Library, ZoneId::Graveyard, TRUE, MoveType::Others, pSelectionPlayer);
-
 			pModifier.ApplyTo(pCard);
-
 			return;
-		return;
 		}
 }
 //____________________________________________________________________________

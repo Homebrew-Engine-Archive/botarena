@@ -1063,9 +1063,59 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 	//                                                             Draw replacement effects 
 	//___________________________________________________________________________________________________________________________________________________________________
 	//
-	
-	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && pPreviousZone->GetZoneId() == ZoneId::Library && GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantDrawCards))
+	/*
+		Ref: Maralen of the Mornsong 1BB
+		Legendary Creature - Elf Wizard
+        Players can't draw cards.
+		At the beginning of each player's draw step, that player loses 3 life, 
+		searches his or her library for a card, puts it into his or her hand, then shuffles his or her library. 2/3
+		
+		Example
+		... PlayerEffectType::CantDrawCards)
+
+		Issue 9/3/2014
+		PlayerEffectType::CantDrawCards is working correctly, however has an issue with messaging.
+		Player cant draw cards when this effect is active but the botarena Message Window reports 
+		erroneously that the player did draw a card with the card name of the card that is still on the top
+		of the library.
+
+		To fix the inccorrect messages indicating a card was drawn need to be turned off so they
+		do not appear
+	*/
+
+	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
+		 pPreviousZone->GetZoneId() == ZoneId::Library                   && 
+		 GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantDrawCards))
+		return;
+	/*
+		Ref: Spirit of the Labyrinth 1W
+		Enchantment Creature - Spirit
+		Each player can't draw more than one card each turn. 3/1
+		
+		Examples
+		... PlayerEffectType::DrawCardLimit, 1) // Each player can't draw more than one card each turn
+		... PlayerEffectType::DrawCardLimit, 0) // Each player can't draw any cards each turn (could replace PlayerEffectType::CantDrawCards)
+
+		Issue 9/3/2014
+		PlayerEffectType::DrawCardLimit is working correctly, however has an issue with messaging.
+		Player cant draw cards when this effect is active but the botarena Message Window reports 
+		erroneously that the player did draw a card with the card name of the card that is still on the top
+		of the library.
+
+		To fix the inccorrect messages indicating a card was drawn need to be turned off so they
+		do not appear
+	*/
+	int nMaxParam = 0; // not used
+	int nMinParam = 0; // limit value - i.e. Each player can't draw more than nMinParam cards each turn
+
+	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && 
+		 pPreviousZone->GetZoneId() == ZoneId::Library                   && 
+		 (GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::DrawCardLimit, nMaxParam, nMinParam)))
+	{
+		
+		if (GetController()->GetTurnDrawCount() >= nMinParam)
 			return;
+	}
 
 	if ((moveType == MoveType::Draw || moveType == MoveType::NormalDraw) && pPreviousZone->GetZoneId() == ZoneId::Library && GetController()->DredgeCards().GetSize()>0 && can_dredge == TRUE)
 	{
@@ -1201,6 +1251,9 @@ void CCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, Ca
 				if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nExtraMultiplier, FALSE))
 					nExtraCount <<= nExtraMultiplier;
 				if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nExtraMultiplier, FALSE))
+					nExtraCount <<= nExtraMultiplier;
+				// for Primal Vigor
+				if (pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nExtraMultiplier, FALSE))
 					nExtraCount <<= nExtraMultiplier;
 
 				CCardCounterModifier* pModifier = new CCardCounterModifier(_T("+1/+1"), +nExtraCount);

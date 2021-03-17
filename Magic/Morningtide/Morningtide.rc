@@ -253,6 +253,7 @@ BEGIN
     IDS_STRING18435         "Feudkiller's Verdict\n{4WW}\nTribal Sorcery - Giant\nMOR,R\nYou gain 10 life. Then if you have more life than an opponent, put a 5/5 white Giant Warrior creature token onto the battlefield."
     IDS_STRING18436         "Fendeep Summoner\n{4B}\nCreature - Treefolk Shaman\nMOR,R\n{T}: Up to two target Swamps each become 3/5 Treefolk Warrior creatures in addition to their other types until end of turn.\n3/5"
     IDS_STRING18437         "Graceful Reprieve\n{1W}\nInstant\nMOR,U\nWhen target creature dies this turn, return that card to the battlefield under its owner's control."
+    IDS_STRING18438         "Shared Animosity\n{2R}\nEnchantment\nMOR,R\nWhenever a creature you control attacks, it gets +1/+0 until end of turn for each other attacking creature that shares a creature type with it."
 //    IDS_STRING18433         "Door of Destinies\n{4}\nArtifact\nMOR,R\nAs Door of Destinies enters the battlefield, choose a creature type.\rWhenever you cast a spell of the chosen type, put a charge counter on Door of Destinies.\rCreatures you control of the chosen type get +1/+1 for each charge counter on Door of Destinies."
 END
 

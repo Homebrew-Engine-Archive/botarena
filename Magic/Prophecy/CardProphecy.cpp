@@ -2568,10 +2568,9 @@ bool CDualNatureCard::BeforeResolution2(TriggeredAbility2::TriggeredActionType* 
 	m_CardFilter.AddComparer(new CardNameComparer(pCard->GetPrintedCardName()));
 	m_CardFilter.AddComparer(new CardTypeComparer(CardType::Token, false));
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, pAffectedTokens);
 	}
 
@@ -2669,15 +2668,37 @@ CCopperLeafAngelCard::CCopperLeafAngelCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Copper-Leaf Angel"), CardType::_ArtifactCreature, CREATURE_TYPE(Angel), nID,
 		_T("5"), Power(2), Life(2))
 {
-	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
-		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
-			_T("")));
+	{
+		/*
+			Sacrifice X lands, where X > 0.
+			sample message: 
+				Sacrifice Mountain6, Sacrifice Mountain2: Activates Copper-Leaf Angel
+		*/
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("")));
 
-	cpAbility->AddTapCost();
-	cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("lands")));
-	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCopperLeafAngelCard::BeforeResolution));
+		cpAbility->AddTapCost();
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpAbility->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("lands")));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCopperLeafAngelCard::BeforeResolution));
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		/*
+			Sacrifice no lands, X = 0. Copper-Leaf Angel gains no +1/+1 counters.
+			sample message: 
+				Sacrifice no lands. Activates Copper-Leaf Angel
+		*/
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("")));
+
+		cpAbility->AddTapCost();
+		cpAbility->SetAbilityText(_T("Sacrifice no lands. Activates"));
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 bool CCopperLeafAngelCard::BeforeResolution(CAbilityAction* pAction) const

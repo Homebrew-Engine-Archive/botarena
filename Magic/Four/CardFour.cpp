@@ -1281,16 +1281,17 @@ bool CManaClashCard::BeforeResolution (CAbilityAction* pAction)
 	return true;
 }
 
-void CManaClashCard::FlipFunctionController (CPlayer* pController, CPlayer* pTarget)
+void CManaClashCard::FlipFunctionController(CPlayer* pController, CPlayer* pTarget)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -1348,7 +1349,6 @@ void CManaClashCard::FlipFunctionController (CPlayer* pController, CPlayer* pTar
 void CManaClashCard::OnFlipSelectedController(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -1391,16 +1391,17 @@ void CManaClashCard::OnFlipSelectedController(const std::vector<SelectionEntry>&
 		}
 }
 
-void CManaClashCard::FlipFunctionTarget (CPlayer* pController, CPlayer* pTarget)
+void CManaClashCard::FlipFunctionTarget(CPlayer* pController, CPlayer* pTarget)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pTarget->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pTarget->GetRand() % Exponent;
 	}
 
@@ -1457,7 +1458,6 @@ void CManaClashCard::FlipFunctionTarget (CPlayer* pController, CPlayer* pTarget)
 void CManaClashCard::OnFlipSelectedTarget(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -1949,15 +1949,13 @@ CWindsofChangeCard::CWindsofChangeCard(CGame* pGame, UINT nID)
 void CWindsofChangeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	CPlayer* pPlayer;
-	int nCards;
-
 	CZoneCardModifier pDiscardModifier = CZoneCardModifier(ZoneId::Hand, CCardFilter::GetFilter(_T("cards")),
 		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Hand, ZoneId::Library, TRUE, MoveType::Others, GetController())));
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
 		pPlayer = GetGame()->GetPlayer(ip);
-		nCards = pPlayer->GetZoneById(ZoneId::Hand)->GetSize();
+		int nCards = pPlayer->GetZoneById(ZoneId::Hand)->GetSize();
 		pDiscardModifier.ApplyTo(pPlayer);
 		pPlayer->GetZoneById(ZoneId::Library)->Shuffle();
 		CDrawCardModifier pDrawModifier = CDrawCardModifier(GetGame(),  MinimumValue(nCards), MaximumValue(nCards));
@@ -2924,8 +2922,8 @@ bool CXenicPoltergeistCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nCMC);
-	pCreature->SetPrintedToughness(nCMC);
+	pCreature->SetPrintedPower(Power(nCMC));
+	pCreature->SetPrintedToughness(Life(nCMC));
 
 	return true;
 }
@@ -3198,7 +3196,11 @@ bool CTetravusCard::BeforeResolution1(CAbilityAction* pAction)
 
 	int nCount = 1;
 	int nMultiplier = 0;
-	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE));
+	// for Doubling Season, etc.
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+		nCount <<= nMultiplier;
+	// for Primal Vigor
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 		nCount <<= nMultiplier;
 	
 	if (nCounters > 0)
@@ -3471,7 +3473,7 @@ bool CClockworkAvianCard::BeforeResolution(CAbilityAction* pAction)
 	
 	int nCount = 1;
 	int nMultiplier = 0;
-	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
 		nCount <<= nMultiplier;
 	bool bMaxReached = false;
 

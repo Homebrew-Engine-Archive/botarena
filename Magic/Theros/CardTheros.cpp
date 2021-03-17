@@ -43,7 +43,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBoulderfallCard);
 		DEFINE_CARD(CBowOfNyleaCard);
 		DEFINE_CARD(CBreachingHippocampCard);
-		DEFINE_CARD(CBronzeSableCard);
 		DEFINE_CARD(CBurnishedHartCard);
 		DEFINE_CARD(CCavalryPegasusCard);
 		DEFINE_CARD(CCentaurBattlemasterCard);
@@ -102,7 +101,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLagonnaBandElderCard);
 		DEFINE_CARD(CLashOfTheWhipCard);
 		DEFINE_CARD(CLeoninSnarecasterCard);
-		DEFINE_CARD(CLightningStrikeCard);
 		DEFINE_CARD(CLostInALabyrinthCard);
 		DEFINE_CARD(CMarchOfTheReturnedCard);
 		DEFINE_CARD(CMasterOfWavesCard);
@@ -1139,7 +1137,7 @@ bool CNessianAspCard::BeforeResolution(CAbilityAction* pAction)
 //____________________________________________________________________________
 //
 CPolisCrusherCard::CPolisCrusherCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Nessian Asp"), CardType::Creature, CREATURE_TYPE(Cyclops), nID,
+	: CCreatureCard(pGame, _T("Polis Crusher"), CardType::Creature, CREATURE_TYPE(Cyclops), nID,
 		_T("2") RED_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(4))
 {
 	{
@@ -1356,7 +1354,7 @@ counted_ptr<CAbility> CSealockMonsterCard::CreateAbility(CCard* pCard)
 {
 	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
 		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, BLUE_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
+	ATLASSERT(cpBasicLandManaAbility);
 
 	cpBasicLandManaAbility->AddTapCost();
 
@@ -3579,14 +3577,6 @@ CBreachingHippocampCard::CBreachingHippocampCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CBronzeSableCard::CBronzeSableCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Bronze Sable"), CardType::_ArtifactCreature, CREATURE_TYPE(Sable), nID,
-		_T("2"), Power(2), Life(1))
-{
-}
-
-//____________________________________________________________________________
-//
 CBurnishedHartCard::CBurnishedHartCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Burnished Hart"), CardType::_ArtifactCreature, CREATURE_TYPE(Elk), nID,
 		_T("3"), Power(2), Life(2))
@@ -3933,7 +3923,6 @@ void CDiscipleOfPhenaxCard::OnCardSelected1(const std::vector<SelectionEntry>& s
 
 void CDiscipleOfPhenaxCard::PickDiscard (CPlayer* pController, CPlayer* pTarget)
 {
-	CZone* pHand = pTarget->GetZoneById(ZoneId::Hand);
 	std::vector<SelectionEntry> entries;
 	for (int i = 0; i < pPickedCards.GetSize(); ++i)
 	{
@@ -4644,19 +4633,6 @@ CLeoninSnarecasterCard::CLeoninSnarecasterCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CLightningStrikeCard::CLightningStrikeCard(CGame* pGame, UINT nID)
-	: CTargetChgLifeSpellCard(pGame, _T("Lightning Strike"), CardType::Instant, nID, AbilityType::Instant,
-		_T("1") RED_MANA_TEXT,
-		new AnyCreatureComparer,
-		TRUE,	// Target player?
-		Life(-3),		// Life delta
-		PreventableType::Preventable)	// Preventable?
-{
-	m_pTargetChgLifeSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
 }
 
 //____________________________________________________________________________
@@ -7095,16 +7071,17 @@ void CSteamAuguryCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 	m_SelectedCards1.RemoveAll();
 	m_SelectedCards2.RemoveAll();
 
-	int size = 5;
 	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);	
-
-	if (pLibrary->GetSize()<5) 
-		size = pLibrary->GetSize();
+	int iCardsToRevealCnt = 5;
+		
+	//If you have fewer than five cards in your library, reveal your entire library and opponent separates it
+	if (pLibrary->GetSize() < 5) 
+		iCardsToRevealCnt = pLibrary->GetSize();
 
 	CCountedCardContainer SelectFrom;
 	//CCardFilter::GetFilter(_T("cards"))->GetIncluded(*Battle, SelectFrom);
 
-	for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) < 6; --i)
+	for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) <= iCardsToRevealCnt; --i)
 		SelectFrom.AddCard(pLibrary->GetAt(i), CardPlacement::Top);
 
 	if(SelectFrom.GetSize())

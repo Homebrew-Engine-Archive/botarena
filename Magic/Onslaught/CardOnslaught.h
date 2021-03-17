@@ -560,16 +560,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CWallOfMulchCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CWallOfMulchCard);
-
-protected:
-	CCardFilter m_CardFilter;
-};
-
-//____________________________________________________________________________
-//
 class CWirewoodElfCard : public CManaProductionTCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWirewoodElfCard);

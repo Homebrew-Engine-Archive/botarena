@@ -1882,14 +1882,16 @@ CWinterSkyCard::CWinterSkyCard(CGame* pGame, UINT nID)
 bool CWinterSkyCard::BeforeResolution (CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
+	
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -1965,7 +1967,6 @@ bool CWinterSkyCard::BeforeResolution (CAbilityAction* pAction)
 void CWinterSkyCard::OnFlipSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -2285,7 +2286,7 @@ bool CClockworkSwarmCard::BeforeResolution(CAbilityAction* pAction)
 	
 	int nCount = 1;
 	int nMultiplier = 0;
-	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE));
+	if (pAction->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
 		nCount <<= nMultiplier;
 	bool bMaxReached = false;
 

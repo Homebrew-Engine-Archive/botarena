@@ -209,13 +209,6 @@ private:
 
 //____________________________________________________________________________
 //
-class CCrucibleOfFireCard : public CInPlaySpellCard
-{
-	DECLARE_CARD_CSTOR(CCrucibleOfFireCard);
-};
-
-//____________________________________________________________________________
-//
 class CCrumblingNecropolisCard : public CNonbasicLandCard
 {
 	DECLARE_CARD_CSTOR(CCrumblingNecropolisCard);
@@ -1547,7 +1540,7 @@ class CImmortalCoilCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CImmortalCoilCard);
 
-private:
+protected:
 	bool SetTriggerContext3(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const;
 	bool SetTriggerContext4(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, Damage damage) const;
 	bool SetTriggerContext5(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
@@ -2059,7 +2052,7 @@ class CKeeperOfProgenitusCard : public CCreatureCard
 {
     DECLARE_CARD_CSTOR(CKeeperOfProgenitusCard);
 
-private:
+protected:
 	typedef
 		TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenTappedForMana > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,

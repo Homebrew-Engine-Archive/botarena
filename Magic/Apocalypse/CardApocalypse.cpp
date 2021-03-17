@@ -4011,7 +4011,6 @@ void CWhirlpoolWarriorCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 void CWhirlpoolWarriorCard::OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	CPlayer* pPlayer;
-	int nCards;
 
 	CZoneCardModifier pDiscardModifier = CZoneCardModifier(ZoneId::Hand, CCardFilter::GetFilter(_T("cards")),
 		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Hand, ZoneId::Library, TRUE, MoveType::Others, GetController())));
@@ -4019,7 +4018,7 @@ void CWhirlpoolWarriorCard::OnResolutionCompleted2(const CAbilityAction* pAbilit
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
 		pPlayer = GetGame()->GetPlayer(ip);
-		nCards = pPlayer->GetZoneById(ZoneId::Hand)->GetSize();
+		int nCards = pPlayer->GetZoneById(ZoneId::Hand)->GetSize();
 		pDiscardModifier.ApplyTo(pPlayer);
 		pPlayer->GetZoneById(ZoneId::Library)->Shuffle();
 		CDrawCardModifier pDrawModifier = CDrawCardModifier(GetGame(),  MinimumValue(nCards), MaximumValue(nCards));
@@ -4177,13 +4176,13 @@ bool CDegaSanctuaryCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 
 	if ((nBlack > 0) & (nRed > 0))
 	{
-		triggerContext.m_LifeModifier.SetLifeDelta(+4);
+		triggerContext.m_LifeModifier.SetLifeDelta(Life(+4));
 		pAction->SetTriggerContext(triggerContext);
 		return true;
 	}
 	else if ((nBlack > 0) | (nRed > 0))
 	{
-		triggerContext.m_LifeModifier.SetLifeDelta(+2);
+		triggerContext.m_LifeModifier.SetLifeDelta(Life(+2));
 		pAction->SetTriggerContext(triggerContext);
 		return true;
 	}
@@ -4231,14 +4230,14 @@ bool CNecraSanctuaryCard::BeforeResolution(TriggeredAbility::TriggeredActionType
 
 	if ((nGreen > 0) & (nWhite > 0))
 	{
-		triggerContext.m_LifeModifier.SetLifeDelta(-3);
+		triggerContext.m_LifeModifier.SetLifeDelta(Life(-3));
 		triggerContext.m_LifeModifier.SetDamageType(DamageType::NotDealingDamage);
 		pAction->SetTriggerContext(triggerContext);
 		return true;
 	}
 	else if ((nGreen > 0) | (nWhite > 0))
 	{
-		triggerContext.m_LifeModifier.SetLifeDelta(-1);
+		triggerContext.m_LifeModifier.SetLifeDelta(Life(-1));
 		triggerContext.m_LifeModifier.SetDamageType(DamageType::NotDealingDamage);
 		pAction->SetTriggerContext(triggerContext);
 		return true;
@@ -4287,14 +4286,14 @@ bool CRakaSanctuaryCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 	
 	if ((nWhite > 0) & (nBlue > 0))
 	{
-		triggerContext.m_LifeModifier.SetLifeDelta(-3);
+		triggerContext.m_LifeModifier.SetLifeDelta(Life(-3));
 		triggerContext.m_LifeModifier.SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
 		pAction->SetTriggerContext(triggerContext);
 		return true;
 	}
 	else if ((nWhite > 0) | (nBlue > 0))
 	{
-		triggerContext.m_LifeModifier.SetLifeDelta(-1);
+		triggerContext.m_LifeModifier.SetLifeDelta(Life(-1));
 		triggerContext.m_LifeModifier.SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
 		pAction->SetTriggerContext(triggerContext);
 		return true;
@@ -4434,14 +4433,16 @@ void CSqueesRevengeCard::OnNumberSelected(const std::vector<SelectionEntry>& sel
 
 void CSqueesRevengeCard::FlipFunction (CPlayer* pController)
 {
-	int Thumb = 0;
-	int Exponent = 2;
+
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
-		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		int Thumb = 0;
+		int Exponent = 2;
+		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);	
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -4505,7 +4506,6 @@ void CSqueesRevengeCard::FlipFunction (CPlayer* pController)
 void CSqueesRevengeCard::OnFlipSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)

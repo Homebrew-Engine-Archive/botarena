@@ -2309,11 +2309,10 @@ CLilianaVessCard::CLilianaVessCard(CGame* pGame, UINT nID)
 bool CLilianaVessCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	CCountedCardContainer creatures;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 
@@ -2860,7 +2859,7 @@ CVampireNocturnusCard::CVampireNocturnusCard(CGame* pGame, UINT nID)
 		cpAbility->GetEnchantment()->GetEnchantmentCardFilter().AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Vampire),false));
 		cpAbility->GetEnchantment()->GetEnchantmentCardFilter().AddComparer(new AnyCreatureComparer());
 		cpAbility->GetEnchantment()->GetPowerModifier().SetPowerDelta(Power(+2));
-		cpAbility->GetEnchantment()->GetLifeModifier().SetLifeDelta(Power(+1));
+		cpAbility->GetEnchantment()->GetLifeModifier().SetLifeDelta(Life(+1));
 		cpAbility->GetEnchantment()->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::Flying);
 		cpAbility->GetEnchantment()->SetAffectControllerCardsOnly();
 
@@ -2924,22 +2923,20 @@ void CLurkingPredatorsCard::OnResolutionCompleted(const CAbilityAction* pAbility
 	CPlayer* pController = pAbilityAction->GetController();
 	CCard* pNextDraw = pController->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	int nCost = 0;
-
 	if (pNextDraw->GetCardType().IsCreature())
 	{
 		CZoneModifier* pModifier = new CZoneModifier(GetGame(), ZoneId::Library, 1 , CZoneModifier::RoleType::PrimaryPlayer,
 						CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 			
 		pModifier->AddSelection(MinimumValue(1), MaximumValue(1), // select 1 card
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // any cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,				  // select by 
+			CZoneModifier::RoleType::PrimaryPlayer,				  // reveal to
+			NULL,												  // any cards
+			ZoneId::Battlefield,								  // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,				  // select by this player
+			CardPlacement::Bottom,								  // put selected cards on top
+			MoveType::Others,									  // move type
+			CZoneModifier::RoleType::PrimaryPlayer);			  // order selected cards by this player
 		pModifier->ApplyTo(pController);
 	}
 	else
@@ -3095,7 +3092,6 @@ void CSphinxAmbassadorCard::OnNameSelected(const std::vector<SelectionEntry>& se
 						);
 				}
 
-				CPlayer* pController = (CPlayer*)dwContext1;
 				CCard* pSearched = (CCard*)dwContext2;
 
 				std::vector<SelectionEntry> entries;
@@ -3481,9 +3477,12 @@ bool CProteanHydraCard::BeforeResolution1(CProteanHydraCard::TriggeredAbility::T
 bool CProteanHydraCard::SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext,
 										CCard* pFromCard, LPCTSTR name, int old, int n_value)
 {
-	if (pFromCard != this) return false;
-	if ((CString)name != _T("+1/+1")) return false;
-	if (n_value >= old) return false;
+	if (pFromCard != this) 
+		return false;
+	if ((CString)name != _T("+1/+1")) 
+		return false;
+	if (n_value >= old) 
+		return false;
 
 	CSpecialEffectModifier pModifier = CSpecialEffectModifier(this, COUNTER_TRIGGER_ID);
 

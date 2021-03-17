@@ -707,11 +707,10 @@ void CAladdinCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone,
 
 	// Return stolen cards
 	CCountedCardContainer cards;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pZone, cards);
 	}
 

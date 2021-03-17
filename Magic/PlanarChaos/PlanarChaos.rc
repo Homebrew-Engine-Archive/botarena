@@ -164,7 +164,7 @@ BEGIN
     IDS_STRING2565          "Evolution Charm\n{1G}\nInstant\nPLC,C\nChoose one - Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library; or return target creature card from your graveyard to your hand; or target creature gains flying until end of turn."
     IDS_STRING2566          "Firefright Mage\n{R}\nCreature - Goblin Spellshaper\nPLC,C\n{1R}, {T}, Discard a card: Target creature can't be blocked this turn except by artifact creatures and/or red creatures.\n1/1"
     IDS_STRING2567          "Midnight Charm\n{B}\nInstant\nPLC,C\nChoose one - Midnight Charm deals 1 damage to target creature and you gain 1 life; or target creature gains first strike until end of turn; or tap target creature."
-    IDS_STRING2568          "Piracy Charm\n{U}\nInstant\nPLC\nChoose one - Target creature gains islandwalk until end of turn; or target creature gets +2/-1 until end of turn; or target player discards a card."
+    IDS_STRING2568          "Piracy Charm\n{U}\nInstant\nPLC,C\nChoose one - Target creature gains islandwalk until end of turn; or target creature gets +2/-1 until end of turn; or target player discards a card."
     IDS_STRING2569          "RoughTumble\n{1R} // {5R}\nSorcery // Sorcery\nPLC,U\nROUGH: Rough deals 2 damage to each creature without flying.\rTUMBLE: Tumble deals 6 damage to each creature with flying."
     IDS_STRING2570          "Gossamer Phantasm\n{1U}\nCreature - Illusion\nPLC,C\nFlying\rWhen Gossamer Phantasm becomes the target of a spell or ability, sacrifice it.\n2/1"
     IDS_STRING2571          "Serendib Sorcerer\n{1UU}\nCreature - Human Wizard\nPLC,R\n{T}: Target creature other than Serendib Sorcerer becomes 0/2 until end of turn.\n1/1"
@@ -238,7 +238,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING2624          "Melancholy\n{2B}\nEnchantment - Aura\nPLC,C\nEnchant creature\rWhen Melancholy enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step.\rAt the beginning of your upkeep, sacrifice Melancholy unless you pay {B}."
     IDS_STRING2625          "Akroma, Angel of Fury\n{5RRR}\nLegendary Creature - Angel\nPLC,R\nAkroma, Angel of Fury can't be countered.\rFlying, trample, protection from white and from blue\r{R}: Akroma, Angel of Fury gets +1/+0 until end of turn.\rMorph {3RRR}\n6/6"
-    IDS_STRING2626          "Riptide Pilferer\n{1U}\nCreature - Merfolk Rogue\nPLC\nWhenever Riptide Pilferer deals combat damage to a player, that player discards a card.\rMorph {U}\n1/1"
+    IDS_STRING2626          "Riptide Pilferer\n{1U}\nCreature - Merfolk Rogue\nPLC,U\nWhenever Riptide Pilferer deals combat damage to a player, that player discards a card.\rMorph {U}\n1/1"
     IDS_STRING2627          "Enslave\n{4BB}\nEnchantment - Aura\nPLC,U\nEnchant creature\rYou control enchanted creature.\rAt the beginning of your upkeep, enchanted creature deals 1 damage to its owner."
     IDS_STRING2628          "Tidewalker\n{2U}\nCreature - Elemental\nPLC,U\nTidewalker enters the battlefield with a time counter on it for each Island you control.\rVanishing\rTidewalker's power and toughness are each equal to the number of time counters on it.\n*/*"
     IDS_STRING2629          "Cradle to Grave\n{1B}\nInstant\nPLC,C\nDestroy target nonblack creature that entered the battlefield this turn."

@@ -424,7 +424,7 @@ CCascadeBluffsCard::CCascadeBluffsCard(CGame* pGame, UINT nID)
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT RED_MANA_TEXT));
-		ATLASSERT(cpAbcpNonbasicLandManaAbilityility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
 		cpNonbasicLandManaAbility->AddTapCost();
 		cpNonbasicLandManaAbility->GetCost().AddManaCost(RED_MANA_TEXT);
@@ -846,7 +846,7 @@ CFloodedGroveCard::CFloodedGroveCard(CGame* pGame, UINT nID)
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT GREEN_MANA_TEXT));
-		ATLASSERT(cpAbicpNonbasicLandManaAbilitylity);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
 		cpNonbasicLandManaAbility->AddTapCost();
 		cpNonbasicLandManaAbility->GetCost().AddManaCost(BLUE_MANA_TEXT);
@@ -1160,7 +1160,7 @@ CRuggedPrairieCard::CRuggedPrairieCard(CGame* pGame, UINT nID)
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
 			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT WHITE_MANA_TEXT));
-		ATLASSERT(cpAbility);
+		ATLASSERT(cpNonbasicLandManaAbility);
 
 		cpNonbasicLandManaAbility->AddTapCost();
 		cpNonbasicLandManaAbility->GetCost().AddManaCost(WHITE_MANA_TEXT);
@@ -5286,27 +5286,26 @@ void CUmbraStalkerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	{
 		CZone* pGrave = GetController()->GetZoneById(ZoneId::Graveyard);
 		int p = 0;
-		int max= 0;
 		int converted = 0;
 		int temp = 0;
 
 		for (int i = 0; i < pGrave->GetSize(); ++i)
 		{
-			max = 0;
 			CCard* pCard = pGrave->GetAt(i);
-			if (!pCard->GetCardType().IsLand()) {
-			converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-			for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
+			if (!pCard->GetCardType().IsLand()) 
 			{
-				if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
+				int max = 0;
+				converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+				for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
+				{
+					if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
 					{
-					temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
-					if (temp>max) 
-						max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
+						temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
+						if (temp > max) 
+							max = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
 					}
-			}
-			p = p + max;
+				}
+				p = p + max;
 			}
 		}
 
@@ -5343,27 +5342,27 @@ bool CUmbraStalkerCard::BeforeResolution(TriggeredAbility::TriggeredActionType* 
 {
 	CZone* pGrave = GetController()->GetZoneById(ZoneId::Graveyard);
 	int p = 0;
-	int max= 0;
 	int converted = 0;
 	int temp = 0;
 
 	for (int i = 0; i < pGrave->GetSize(); ++i)
 	{
-		max = 0;
 		CCard* pCard = pGrave->GetAt(i);
-		if (!pCard->GetCardType().IsLand()) {
-		converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-		for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
+		if (!pCard->GetCardType().IsLand()) 
 		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
+			int max = 0;
+			converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+
+			for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
+			{
+				if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
 				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
+					temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
+					if (temp > max) 
+						max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Black);
 				}
-		}
-		p = p + max;
+			}
+			p = p + max;
 		}
 	}
 	
@@ -5950,15 +5949,13 @@ void CFieryBombardmentCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 {
 	CCard* pCard = pAbilityAction->GetSacrificeCards()->GetAt(0);
 	CCard* target = pAbilityAction->GetAssociatedCard();
-	//start code derived from CPlayer::GetDevotion-------------------	
-	CManaCost::Color DevotionColor = CManaCost::Color::Red;
-	int SymDevotionCur = 0;						// current devotion symbol total
-	int SymDevotionTmp = 0;
-	int SymDevotionCnt = 0;						// devotion symbol count
-	//end code derived from CPlayer::GetDevotion---------------------
 	if (pCard->GetCardType().IsCreature() && bResult) 
 	{
-		//start code derived from CPlayer::GetDevotion-------------------		
+		//start code derived from CPlayer::GetDevotion-------------------	
+		CManaCost::Color DevotionColor = CManaCost::Color::Red;
+		int SymDevotionCur = 0;						// current devotion symbol total
+		int SymDevotionCnt = 0;						// devotion symbol count
+
 		if ((pCard->GetPrintedCardName() == _T("Bringer of the Blue Dawn" )) ||  // put exceptions here where devotion must be 
 			(pCard->GetPrintedCardName() == _T("Bringer of the Black Dawn")) ||  // calculated using first alternate mana cost
 			(pCard->GetPrintedCardName() == _T("Bringer of the Green Dawn")) ||	  
@@ -5979,7 +5976,7 @@ void CFieryBombardmentCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 			*/
 			for (int j = 0; j < pAbilityAction->GetSacrificeCards()->GetAt(0)->GetSpells().GetSize(); ++j) // go though card's alternate mana costs
 			{
-				SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
+				int SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
 				if (SymDevotionTmp > SymDevotionCur)
 					SymDevotionCur = SymDevotionTmp;  	
 			}
@@ -6004,15 +6001,14 @@ void CFieryBombardmentCard::OnResolutionCompleted2(const CAbilityAction* pAbilit
 {
 	CPlayer* target = pAbilityAction->GetAssociatedPlayer();
 	CCard* pCard = pAbilityAction->GetSacrificeCards()->GetAt(0);  // sacrifice creature card
-	//start code derived from CPlayer::GetDevotion-------------------	
-	CManaCost::Color DevotionColor = CManaCost::Color::Red;
-	int SymDevotionCur = 0;						// current devotion symbol total
-	int SymDevotionTmp = 0;
-	int SymDevotionCnt = 0;						// devotion symbol count
-	//end code derived from CPlayer::GetDevotion---------------------
+	
 	if (pCard->GetCardType().IsCreature() && bResult) 
 	{
-		//start code derived from CPlayer::GetDevotion-------------------		
+		//start code derived from CPlayer::GetDevotion-------------------	
+		CManaCost::Color DevotionColor = CManaCost::Color::Red;
+		int SymDevotionCur = 0;						// current devotion symbol total
+		int SymDevotionCnt = 0;						// devotion symbol count
+	
 		if ((pCard->GetPrintedCardName() == _T("Bringer of the Blue Dawn" )) ||  // put exceptions here where devotion must be 
 			(pCard->GetPrintedCardName() == _T("Bringer of the Black Dawn")) ||  // calculated using first alternate mana cost
 			(pCard->GetPrintedCardName() == _T("Bringer of the Green Dawn")) ||	  
@@ -6033,7 +6029,7 @@ void CFieryBombardmentCard::OnResolutionCompleted2(const CAbilityAction* pAbilit
 			*/
 			for (int j = 0; j < pAbilityAction->GetSacrificeCards()->GetAt(0)->GetSpells().GetSize(); ++j) // go though card's alternate mana costs
 			{
-				SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
+				int SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
 				if (SymDevotionTmp > SymDevotionCur)
 					SymDevotionCur = SymDevotionTmp;  	
 			}
@@ -6077,78 +6073,92 @@ void CSanityGrindingCard::OnResolutionCompleted1(const CAbilityAction* pAbilityA
 	int lib_cont_size = lib_cont->GetSize();
 	int lib_opp_size = lib_opp->GetSize();
 	int p = 0;
-	int max= 0;
 	int converted = 0;
-	int temp = 0;
-	int size = 0;	
+	int temp = 0;	
 
-	if (lib_cont_size>10) lib_cont_size = 10;
+	if (lib_cont_size > 10) 
+		lib_cont_size = 10;
 
 	for (int i = 0; i < lib_cont_size; ++i)
 	{
-		max = 0;
-		size = lib_cont->GetSize()-1-i;		
+		int size = lib_cont->GetSize()-1-i;		
 		CCard* pCard = lib_cont->GetAt(size);
-		if (!pCard->GetCardType().IsLand()) {
-		//if (i<lib_cont->GetSize()) {
-	//	CCard* pCard = lib_cont->GetAt(lib_cont->GetSize()-i);
-		converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-		for (int j = 0; j < pCard->GetSpells().GetSize(); ++j)
+		if (!pCard->GetCardType().IsLand()) 
 		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
+			//if (i<lib_cont->GetSize()) {
+				//	CCard* pCard = lib_cont->GetAt(lib_cont->GetSize()-i);
+			int max = 0;
+			converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+			
+			for (int j = 0; j < pCard->GetSpells().GetSize(); ++j)
+			{	
+				if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
 				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Blue);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Blue);
+					temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Blue);
+					if (temp > max) 
+						max = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Blue);
 				}
-		}
-		p = p + max;
+			}
+			p = p + max;
 
-		if (pCard->GetPrintedCardName() == _T("Advice from the Fae")) p = p + 3;
-		if (pCard->GetPrintedCardName() == _T("Reaper King")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Stand // Deliver")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Supply // Demand")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Bound // Determined")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Research // Development")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Trial // Error")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Beck // Call")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Protect // Serve")) p = p + 1;
-		if (pCard->GetPrintedCardName() == _T("Who/What/When/Where/Why")) p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Advice from the Fae")) 
+				p = p + 3;
+			if (pCard->GetPrintedCardName() == _T("Reaper King")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Stand // Deliver")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Supply // Demand")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Bound // Determined")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Research // Development")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Trial // Error")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Beck // Call")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Protect // Serve")) 
+				p = p + 1;
+			if (pCard->GetPrintedCardName() == _T("Who/What/When/Where/Why")) 
+				p = p + 1;
 		}  
 	}
 
-	if (lib_opp_size<p) p = lib_opp_size;
+	if (lib_opp_size < p) 
+		p = lib_opp_size;
 
-		CZoneModifier pmodifier_cont = CZoneModifier(GetGame(), ZoneId::Library, lib_cont_size, CZoneModifier::RoleType::PrimaryPlayer,
+	CZoneModifier pmodifier_cont = CZoneModifier(GetGame(), ZoneId::Library, lib_cont_size, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pmodifier_cont.AddSelection(MinimumValue(lib_cont_size), MaximumValue(lib_cont_size), // select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::AllPlayers, // reveal to
-		NULL, // what cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on 
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		CZoneModifier::RoleType::PrimaryPlayer,											  // select by 
+		CZoneModifier::RoleType::AllPlayers,											  // reveal to
+		NULL,																			  // what cards
+		ZoneId::Library,																  // if selected, move cards to
+		CZoneModifier::RoleType::PrimaryPlayer,											  // select by this player
+		CardPlacement::Bottom,															  // put selected cards on 
+		MoveType::Others,																  // move type
+		CZoneModifier::RoleType::PrimaryPlayer);										  // order selected cards by this player
 	
-	if (bResult) pmodifier_cont.ApplyTo(GetController());
+	if (bResult) 
+		pmodifier_cont.ApplyTo(GetController());
 
-	if (p>0) {
+	if (p > 0) 
+	{
 
 		CZoneModifier pmodifier_opp= CZoneModifier(GetGame(), ZoneId::Library, p , CZoneModifier::RoleType::PrimaryPlayer,
-		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
-	pmodifier_opp.AddSelection(MinimumValue(p), MaximumValue(p), // select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::AllPlayers, // reveal to
-		NULL, // what cards
-		ZoneId::Graveyard, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on 
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+		pmodifier_opp.AddSelection(MinimumValue(p), MaximumValue(p), // select cards to reorder
+			CZoneModifier::RoleType::PrimaryPlayer,					 // select by 
+			CZoneModifier::RoleType::AllPlayers,					 // reveal to
+			NULL,													 // what cards
+			ZoneId::Graveyard,									     // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,					 // select by this player
+			CardPlacement::Top,										 // put selected cards on 
+			MoveType::Others,										 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);				 // order selected cards by this player
 
-		if (bResult) pmodifier_opp.ApplyTo(opponent);
+		if (bResult) 
+			pmodifier_opp.ApplyTo(opponent);
 	}
 }
 
@@ -7212,25 +7222,21 @@ bool CKithkinZealotCard::BeforeResolution1(TriggeredAbility::TriggeredActionType
 CEdgeoftheDivinityCard::CEdgeoftheDivinityCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Edge of the Divinity"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				WHITE_MANA_TEXT,
-				Power(+1), Life(+2), CreatureKeyword::Null, CardType::White, 
-				Power(+2), Life(+1), CreatureKeyword::Null, CardType::Black
-				));
+				Power(+1), Life(+2), CreatureKeyword::Null, CardType::White,	// Condition 1 applies to white creatures
+				Power(+2), Life(+1), CreatureKeyword::Null, CardType::Black));	// Condition 2 applies to black creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		counted_ptr<CTargetChgLifeSpell> cpSpell(
-			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				BLACK_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE,
-				Life(0), PreventableType::NotPreventable));			
-
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+				Power(+1), Life(+2), CreatureKeyword::Null, CardType::White,	// Condition 1 applies to white creatures
+				Power(+2), Life(+1), CreatureKeyword::Null, CardType::Black));	// Condition 2 applies to black creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7241,47 +7247,59 @@ CEdgeoftheDivinityCard::CEdgeoftheDivinityCard(CGame* pGame, UINT nID)
 CScourgeoftheNobilisCard::CScourgeoftheNobilisCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Scourge of the Nobilis"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") RED_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Red,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::White
-				));
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Red,		// Condition 1 applies to red creatures
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::White));	// Condition 2 applies to white creatures
 
 		CCardAbilityModifier* pModifier = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
-			&CScourgeoftheNobilisCard::CreateAdditionalAbility1));
+			&CScourgeoftheNobilisCard::CreateAdditionalAbility1));				// Condition 1 for hybrid mana R payment for additional pump ability
 
 		CCardAbilityModifier* pModifier1 = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
-			&CScourgeoftheNobilisCard::CreateAdditionalAbility2));
+			&CScourgeoftheNobilisCard::CreateAdditionalAbility2));				// Condition 1 for hybrid mana W payment for additional pump ability
 
-		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
+		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;			// Condition 2 lifelink
 			pModifier2->GetModifier().SetToAdd(CardKeyword::Lifelink);
 			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
 
-		pModifier->LinkCardModifier(pModifier1);
+		pModifier->LinkCardModifier(pModifier1);								// link modifiers for hybrid mana R and W
 
-		cpSpell->GetCardKeywordMod().LinkCardModifier(pModifier);
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier);				// Condition 1 for hybrid mana R and W payment for additional pump ability
 
-		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier2);
+		cpSpell->GetCardKeywordMod2().LinkCardModifier(pModifier2);				// Condition 2 lifelink
 
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
 		//hybrid mana cost
-		counted_ptr<CTargetChgLifeSpell> cpSpell(
-			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") WHITE_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE,
-				Life(0), PreventableType::NotPreventable));			
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Red,		// Condition 1 applies to red creatures
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::White));	// Condition 2 applies to white creatures
 
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+		CCardAbilityModifier* pModifier = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
+			&CScourgeoftheNobilisCard::CreateAdditionalAbility1));				// Condition 1 for hybrid mana R payment for additional pump ability
+
+		CCardAbilityModifier* pModifier1 = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
+			&CScourgeoftheNobilisCard::CreateAdditionalAbility2));				// Condition 1 for hybrid mana W payment for additional pump ability
+
+		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;			// Condition 2 lifelink
+			pModifier2->GetModifier().SetToAdd(CardKeyword::Lifelink);
+			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
+
+		pModifier->LinkCardModifier(pModifier1);								// link modifiers for hybrid mana R and W
+
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier);				// Condition 1 for hybrid mana R and W payment for additional pump ability
+
+		cpSpell->GetCardKeywordMod2().LinkCardModifier(pModifier2);				// Condition 2 lifelink
 
 		AddSpell(cpSpell.GetPointer());
 	}
 }
-
+// for hybrid mana R payment for additional pump ability
 counted_ptr<CAbility> CScourgeoftheNobilisCard::CreateAdditionalAbility1(CCard* pCard)
 {
 	counted_ptr<CPumpAbility> cpAbility(
@@ -7292,7 +7310,7 @@ counted_ptr<CAbility> CScourgeoftheNobilisCard::CreateAdditionalAbility1(CCard* 
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
 }
-
+// for hybrid mana W payment for additional pump ability
 counted_ptr<CAbility> CScourgeoftheNobilisCard::CreateAdditionalAbility2(CCard* pCard)
 {
 	counted_ptr<CPumpAbility> cpAbility(
@@ -7309,29 +7327,28 @@ counted_ptr<CAbility> CScourgeoftheNobilisCard::CreateAdditionalAbility2(CCard* 
 CCloutoftheDominusCard::CCloutoftheDominusCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Clout of the Dominus"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				BLUE_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Blue, 
-				Power(+1), Life(+1), CreatureKeyword::Haste, CardType::Red
-				));
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Blue,			// Condition 1 applies to blue creatures
+				Power(+1), Life(+1), CreatureKeyword::Haste, CardType::Red));		// Condition 2 applies to red creatures
 	
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Shroud);
-		cpSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
+		cpSpell->GetCardKeywordMod1().GetModifier().SetToAdd(CardKeyword::Shroud);  // belongs to Condition 1 which applies to blue creatures
+		cpSpell->GetCardKeywordMod1().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
 	{
 		//hybrid mana cost
-		counted_ptr<CTargetChgLifeSpell> cpSpell(
-			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				RED_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE,
-				Life(0), PreventableType::NotPreventable));			
-
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Blue,			// Condition 1 applies to blue creatures
+				Power(+1), Life(+1), CreatureKeyword::Haste, CardType::Red));		// Condition 2 applies to red creatures
+	
+		cpSpell->GetCardKeywordMod1().GetModifier().SetToAdd(CardKeyword::Shroud);  // belongs to Condition 1 which applies to blue creatures
+		cpSpell->GetCardKeywordMod1().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7342,26 +7359,21 @@ CCloutoftheDominusCard::CCloutoftheDominusCard(CGame* pGame, UINT nID)
 CFavoroftheOverbeingCard::CFavoroftheOverbeingCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Favor of the Overbeing"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("1") BLUE_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Vigilance, CardType::Green, 
-				Power(+1), Life(+1), CreatureKeyword::Flying, CardType::Blue
-				));
+				Power(+1), Life(+1), CreatureKeyword::Vigilance, CardType::Green,	// Condition 1 applies to green creatures
+				Power(+1), Life(+1), CreatureKeyword::Flying,	 CardType::Blue));	// Condition 2 applies to blue creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//hybrid mana cost
-		counted_ptr<CTargetChgLifeSpell> cpSpell(
-			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("1") GREEN_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE,
-				Life(0), PreventableType::NotPreventable));			
-
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+				Power(+1), Life(+1), CreatureKeyword::Vigilance, CardType::Green,	// Condition 1 applies to green creatures
+				Power(+1), Life(+1), CreatureKeyword::Flying,	 CardType::Blue));	// Condition 2 applies to blue creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7372,32 +7384,33 @@ CFavoroftheOverbeingCard::CFavoroftheOverbeingCard(CGame* pGame, UINT nID)
 CGiftoftheDeityCard::CGiftoftheDeityCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Gift of the Deity"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("4") BLACK_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black, 
-				Power(+1), Life(+1), CreatureKeyword::Lure, CardType::Green
-				));
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black,	// Condition 1 applies to black creatures
+				Power(+1), Life(+1), CreatureKeyword::Lure, CardType::Green));	// Condition 1 applies to green creatures
 
-		CCardKeywordModifier* pModifier = new CCardKeywordModifier;
+		CCardKeywordModifier* pModifier = new CCardKeywordModifier;				// Condition 1 black creatures get deathtouch
 			pModifier->GetModifier().SetToAdd(CardKeyword::Deathtouch);
 			pModifier->GetModifier().SetOneTurnOnly(FALSE);
 
-		cpSpell->GetCardKeywordMod().LinkCardModifier(pModifier);
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier);				// Condition 1 black creatures get deathtouch
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//hybrid mana cost
-		counted_ptr<CTargetChgLifeSpell> cpSpell(
-			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("4") GREEN_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE,
-				Life(0), PreventableType::NotPreventable));			
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black,	// Condition 1 applies to black creatures
+				Power(+1), Life(+1), CreatureKeyword::Lure, CardType::Green));	// Condition 1 applies to green creatures
 
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+		CCardKeywordModifier* pModifier = new CCardKeywordModifier;				// Condition 1 black creature get deathtouch
+			pModifier->GetModifier().SetToAdd(CardKeyword::Deathtouch);
+			pModifier->GetModifier().SetOneTurnOnly(FALSE);
+
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier);				// Condition 1 black creature get deathtouch
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7817,8 +7830,6 @@ bool CSaplingOfColfenorCard::BeforeResolution(CSaplingOfColfenorCard::TriggeredA
 	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	int nCost = 0;
-
 	CCreatureCard* pCreature = (CCreatureCard*)pNextDraw;
 	int nToughness = GET_INTEGER(pCreature->GetLastKnownToughness());
 	int nPower = GET_INTEGER(pCreature->GetLastKnownPower());
@@ -7826,17 +7837,15 @@ bool CSaplingOfColfenorCard::BeforeResolution(CSaplingOfColfenorCard::TriggeredA
 	CLifeModifier pModifier1 = CLifeModifier(Life(+nToughness), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	CLifeModifier pModifier2 = CLifeModifier(Life(-nPower), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 
-	if (pNextDraw->GetCardType().IsCreature()) pModifier1.ApplyTo(GetController());
-	if (pNextDraw->GetCardType().IsCreature()) pModifier2.ApplyTo(GetController());
+	if (pNextDraw->GetCardType().IsCreature()) 
+		pModifier1.ApplyTo(GetController());
+	if (pNextDraw->GetCardType().IsCreature()) 
+		pModifier2.ApplyTo(GetController());
 
 	if (pNextDraw->GetCardType().IsCreature())
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Hand);
-	}
 	else
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Library);
-	}
 
 	return true;
 }
@@ -9232,7 +9241,7 @@ void CTalarasBaneCard::OnCardSelected(const std::vector<SelectionEntry>& selecti
 
 			if (nToughness > Life(0))
 			{
-				CLifeModifier pModifier1 = CLifeModifier(+nToughness, this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+				CLifeModifier pModifier1 = CLifeModifier(Life(+nToughness), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 				pModifier1.ApplyTo(pSelectionPlayer);
 			}
 				

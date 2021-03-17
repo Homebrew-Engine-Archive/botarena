@@ -1715,11 +1715,10 @@ bool CTimberwatchElfCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	CCardFilter cfilter(new CreatureTypeComparer(CREATURE_TYPE(Elf), false));
 
-	CZone* pInplay;
 	int nCreatures = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		nCreatures += cfilter.CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -2801,28 +2800,29 @@ CDefenderOfTheOrderCard::CDefenderOfTheOrderCard(CGame* pGame, UINT nID)
 {
 	this->AddCreatureType(SingleCreatureType::Human);
 	this->AddCreatureType(SingleCreatureType::Cleric);
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
 
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CSpecialTrigger > TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetModifyCreatureOption(TriggeredAbility::ModifyCreatureOption::ModifyTriggeredPlayersCreatures);
 
-	cpAbility->SetModifyCreatureOption(TriggeredAbility::ModifyCreatureOption::ModifyTriggeredPlayersCreatures);
-
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(+2));
-	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(+2));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
 	
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+		cpAbility->GetTrigger().SetTriggerIndex(UNMORPH_TRIGGER_ID);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
 
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
-	AddAbility(cpAbility.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 //____________________________________________________________________________
@@ -3320,21 +3320,21 @@ CGoblinAssassinCard::CGoblinAssassinCard(CGame* pGame, UINT nID)
 bool CGoblinAssassinCard::BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction)
 {
 	CPlayer* pPlayer;
-	int Thumb;
-	int Exponent;
+
 	int Flip;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		Thumb = 0;
-		Exponent = 2;
 		pPlayer = GetGame()->GetPlayer(ip);
 		if (m_pGame->IsThinking())
 			Flip = 2;
 		else
 		{
+			int Thumb    = 0;
+			int Exponent = 2;
 			pPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-			for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+			for (int i = 0; i < Thumb; ++i) 
+				Exponent = 2 * Exponent;
 			Flip = pPlayer->GetRand() % Exponent;
 		}
 
@@ -3363,14 +3363,14 @@ bool CGoblinAssassinCard::BeforeResolution1(TriggeredAbility1::TriggeredActionTy
 				CZoneModifier::RoleType::PrimaryPlayer,
 				CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 			pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-				CCardFilter::GetFilter(_T("creatures")), // what cards
-				ZoneId::Graveyard, // if selected, move cards to
-				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-				CardPlacement::Top, // put selected cards on 
-				MoveType::Sacrifice, // move type
-				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+				CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+				CZoneModifier::RoleType::PrimaryPlayer,				 // reveal to
+				CCardFilter::GetFilter(_T("creatures")),			 // what cards
+				ZoneId::Graveyard,									 // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+				CardPlacement::Top,									 // put selected cards on 
+				MoveType::Sacrifice,								 // move type
+				CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 
 			pModifier.ApplyTo(pPlayer);
 		}
@@ -3403,21 +3403,20 @@ bool CGoblinAssassinCard::BeforeResolution1(TriggeredAbility1::TriggeredActionTy
 bool CGoblinAssassinCard::BeforeResolution2(TriggeredAbility2::TriggeredActionType* pAction)
 {
 	CPlayer* pPlayer;
-	int Thumb;
-	int Exponent;
 	int Flip;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		Thumb = 0;
-		Exponent = 2;
 		pPlayer = GetGame()->GetPlayer(ip);
 		if (m_pGame->IsThinking())
 			Flip = 2;
 		else
 		{
+			int Thumb    = 0;
+			int Exponent = 2;
 			pPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-			for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+			for (int i = 0; i < Thumb; ++i) 
+				Exponent = 2 * Exponent;
 			Flip = pPlayer->GetRand() % Exponent;
 		}
 
@@ -3446,14 +3445,14 @@ bool CGoblinAssassinCard::BeforeResolution2(TriggeredAbility2::TriggeredActionTy
 				CZoneModifier::RoleType::PrimaryPlayer,
 				CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 			pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-				CCardFilter::GetFilter(_T("creatures")), // what cards
-				ZoneId::Graveyard, // if selected, move cards to
-				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-				CardPlacement::Top, // put selected cards on 
-				MoveType::Sacrifice, // move type
-				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+				CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+				CZoneModifier::RoleType::PrimaryPlayer,				 // reveal to
+				CCardFilter::GetFilter(_T("creatures")),			 // what cards
+				ZoneId::Graveyard,									 // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+				CardPlacement::Top,									 // put selected cards on 
+				MoveType::Sacrifice,								 // move type
+				CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 
 			pModifier.ApplyTo(pPlayer);
 		}
@@ -3523,14 +3522,14 @@ void CGoblinAssassinCard::OnFlipSelected(const std::vector<SelectionEntry>& sele
 					CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 				pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-					CCardFilter::GetFilter(_T("creatures")), // what cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on 
-					MoveType::Sacrifice, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+					CZoneModifier::RoleType::PrimaryPlayer,				 // reveal to
+					CCardFilter::GetFilter(_T("creatures")),			 // what cards
+					ZoneId::Graveyard,									 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+					CardPlacement::Top,									 // put selected cards on 
+					MoveType::Sacrifice,								 // move type
+					CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 
 				pModifier.ApplyTo(pSelectionPlayer);
 					

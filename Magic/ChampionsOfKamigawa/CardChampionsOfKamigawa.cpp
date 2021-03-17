@@ -2911,13 +2911,12 @@ CKeigatheTideStarCard::CKeigatheTideStarCard(CGame* pGame, UINT nID)
 
 void CKeigatheTideStarCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* getCard = pAbilityAction->GetAssociatedCard();    // getting targeted card
-	CPlayer* controller = getCard->GetController();			// getting targeted card controller
-	CZone* pOppInplay = controller->GetZoneById(ZoneId::Battlefield); // getting zone from which we remove targeted card
-	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield); // getting zone to which we add targeted card
+	CCard* getCard = pAbilityAction->GetAssociatedCard();						   // getting targeted card
+	CPlayer* controller = getCard->GetController();								   // getting targeted card controller
 	CGainControlModifier pModifier = CGainControlModifier(GetGame(),(CCard*)this);
 
-	if (getCard->GetZone()->GetZoneId() == ZoneId::Battlefield) pModifier.ApplyTo(getCard);     // Should be moved to Activated ability
+	if (getCard->GetZone()->GetZoneId() == ZoneId::Battlefield) 
+		pModifier.ApplyTo(getCard);												   // Should be moved to Activated ability
 }
 
 //____________________________________________________________________________
@@ -4270,12 +4269,14 @@ CHanabiBlastCard::CHanabiBlastCard(CGame* pGame, UINT nID)
 //
 CCranialExtractionCard::CCranialExtractionCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Cranial Extraction"), CardType::Sorcery, nID)
+	, m_CardFilter(new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)))
 {
 	counted_ptr<CTargetPlayerDiscardCardNameSpell> cpSpell(
 		::CreateObject<CTargetPlayerDiscardCardNameSpell>(this, AbilityType::Sorcery,
 			_T("3") BLACK_MANA_TEXT,
-			ZoneId::Exile, TRUE, TRUE));
-
+			ZoneId::Exile, TRUE, 
+			&m_CardFilter,
+			TRUE )); 
 	AddSpell(cpSpell.GetPointer());
 }
 
@@ -5855,10 +5856,7 @@ void CYoseiTheMorningStarCard::CTriggeredYoseiAbility::GetSelections(CActionCont
 		const TriggerInfo& info,
 		BOOL bSetNames) const
 {
-	
 	__super::GetSelections(actions, pPlayer, triggerContext, info, bSetNames);
-
-	CActionContainer& pActionContainer1 = CActionContainer();
 
 	bool add = false;
 	
@@ -6305,9 +6303,13 @@ bool CBudokaGardenerCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Elemental N"), 2933));		
@@ -6639,20 +6641,54 @@ void CStudentOfElementsCard::OnCreatureKeywordChanged(CCreatureKeyword* pCreatur
 //____________________________________________________________________________
 //
 CDevouringGreedCard::CDevouringGreedCard(CGame* pGame, UINT nID)
-	: CTargetChgLifeSpellCard(pGame, _T("Devouring Greed"), CardType::Sorcery | CardType::Arcane, nID, AbilityType::Sorcery,
-		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT,
-		FALSE_CARD_COMPARER,
-		TRUE,
-		Life(-2),
-		PreventableType::NotPreventable)
+	: CCard(pGame, _T("Devouring Greed"), CardType::Sorcery | CardType::Arcane, nID)
 	, m_CardFilter(_T("a Spirit"), _T("Spirits"), new CreatureTypeComparer(CREATURE_TYPE(Spirit), false))
 {
-	m_pTargetChgLifeSpell->SetReverseLifeDeltaToController();
-	m_pTargetChgLifeSpell->SetDamageType(DamageType::NotDealingDamage);
+	{
+		/*
+			sacrifice X spirits, where X > 0.
+			sample message: 
+				Sacrifice Cruel Deceiver3(2/1), Sacrifice Cruel Deceiver4(2/1): Casts Devouring Greed
+			The message does not mention the life loss or power gained by controller that would occur after the sacrificing 
+			the spirits because Botarena was not displaying these action options currently.  The best solution is to omit this
+			part of the message.
+		*/
 
-	m_pTargetChgLifeSpell->GetCost().AddSacrificeCardCost(SpecialNumber::Any, &m_CardFilter);
-	m_pTargetChgLifeSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDevouringGreedCard::BeforeResolution));
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+				_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				FALSE_CARD_COMPARER, TRUE,     // FALSE_CARD_COMPARER->no comparer=no creatures can be targeted, TRUE->target players
+				Life(0),					   /* Do not subtract "base" -2 here, instead subtract in BeforeResolution().
+												  Using 0 here prevents botarena incorrectly appending 
+												  (to lose 2 life) at the end of each action option string.
+												  Better to have no message about life loss than an incorrect one. */
+				PreventableType::NotPreventable));  
 
+		cpSpell->SetReverseLifeDeltaToController();
+		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDevouringGreedCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			sacrifice no spirits, X = 0. Target player loses 2 life and you gain 2 life.
+			sample message: 
+				Sacrifice no spirits. Casts Devouring Greed and targets Computer to lose 2 life
+			Mention of life gain by controller is neglected in this message.
+		*/
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Sorcery,
+				_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT,
+				FALSE_CARD_COMPARER, TRUE,
+				Life(-2), PreventableType::NotPreventable)); 
+		cpSpell->SetReverseLifeDeltaToController();
+		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
+		cpSpell->SetAbilityText(_T("Sacrifice no spirits. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CDevouringGreedCard::BeforeResolution(CAbilityAction* pAction) const
@@ -6661,7 +6697,7 @@ bool CDevouringGreedCard::BeforeResolution(CAbilityAction* pAction) const
 	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
 
 	ContextValue context(pAction->GetValue());
-	context.nValue1 += -2 * nCount;
+	context.nValue1 += -2 + -2 * nCount; // "base" (-2) + number of sacrificed spirits * (-2)
 
 	pTargetAction->GetTargetGroup().SetValue(pTargetAction->GetTargetGroup().GetFirstPlayerSubject(), context);
 
@@ -6671,16 +6707,52 @@ bool CDevouringGreedCard::BeforeResolution(CAbilityAction* pAction) const
 //____________________________________________________________________________
 //
 CDevouringRageCard::CDevouringRageCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrSpellCard(pGame, _T("Devouring Rage"), CardType::Instant | CardType::Arcane, nID, AbilityType::Instant,
-		_T("4") RED_MANA_TEXT,
-		Power(+3), Life(+0),
-		CreatureKeyword::Null, CreatureKeyword::Null,
-		true, PreventableType::NotPreventable)
+	: CCard(pGame, _T("Devouring Rage"), CardType::Instant | CardType::Arcane, nID)
 	, m_CardFilter(_T("a Spirit"), _T("Spirits"), new CreatureTypeComparer(CREATURE_TYPE(Spirit), false))
 {
-	m_pTargetChgPwrTghAttrSpell->GetCost().AddSacrificeCardCost(SpecialNumber::Any, &m_CardFilter);
-	m_pTargetChgPwrTghAttrSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDevouringRageCard::BeforeResolution));
+	{
+		/*
+			sacrifice X spirits, where X > 0.
+			sample message: 
+				Sacrifice Cruel Deceiver3(2/1), Casts Devouring Rage and targets Cruel Deceiver4(2/1)
+			The message does not mention the power that would be gained by the target after the sacrificing the spirits
+			because Botarena was not displaying these action options currently.  The best solution is to omit this
+			part of the message.
+		*/
+		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
+		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant, 
+			_T("4") RED_MANA_TEXT,
+			Power(+0), Life(+0),							 // Do not add "base" +3/+0 here, instead add in BeforeResolution().
+															 // Using +0/+0 here prevents botarena incorrectly appending 
+															 // (gets +3/+0 until end of turn) at the end of each action option string.
+															 // Better to have no message about power increase than an incorrect one.
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE,                                            // bThisTurnOnly->TRUE this turn only
+			PreventableType::NotPreventable));
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddSacrificeCardCost(SpecialNumber::AnyPositive, &m_CardFilter);
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDevouringRageCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			sacrifice no spirits, X = 0. Target creature gets +3/+0 until end of turn. 
+			sample message: 
+				Sacrifice no spirits. Casts Devouring Rage and targets Cruel Deceiver4(2/1) (gets +3/+0 until end of turn)
+		*/
+		counted_ptr<CTargetChgPwrTghAttrSpell> cpSpell(
+		::CreateObject<CTargetChgPwrTghAttrSpell>(this, AbilityType::Instant, 
+			_T("4") RED_MANA_TEXT,
+			Power(+3), Life(+0),
+			CreatureKeyword::Null, CreatureKeyword::Null,
+			TRUE,                                            // bThisTurnOnly->TRUE this turn only
+			PreventableType::NotPreventable));
+		cpSpell->SetAbilityText(_T("Sacrifice no spirits. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
+
 
 bool CDevouringRageCard::BeforeResolution(CAbilityAction* pAction) const
 {
@@ -6688,8 +6760,7 @@ bool CDevouringRageCard::BeforeResolution(CAbilityAction* pAction) const
 	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
 
 	ContextValue context(pAction->GetValue());
-	context.nValue2 += 3 * nCount;
-
+	context.nValue2 = 3 + 3 * nCount; // "base" (+3/+0) + number of sacrificed spirits * (+3/+0)
 	pTargetAction->GetTargetGroup().SetValue(pTargetAction->GetTargetGroup().GetFirstCardSubject(), context);
 
 	return true;
@@ -7508,9 +7579,7 @@ BOOL CWickedAkubaCard::CWickedAkubaTargeting::TargetAllowed(const CPlayer* pPlay
 	if (!__super::TargetAllowed(pPlayer, bIncludeTricks, bTrick))
 		return FALSE;
 
-	int PlayerID = 0;
 	const CWickedAkubaCard* pThisCard = (CWickedAkubaCard*)this->GetSourceCard();
-
 	for (int ip = 0; ip < pThisCard->GetGame()->GetPlayerCount(); ++ip)
 		if ((pThisCard->GetGame()->GetPlayer(ip) == pPlayer) && (pThisCard->pDamagedPlayers[ip] == 1))
 			return true;	
@@ -7593,8 +7662,6 @@ CTatsumasaTheDragonsFangCard::CTatsumasaTheDragonsFangCard(CGame* pGame, UINT nI
 
 bool CTatsumasaTheDragonsFangCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
-	
 	CCountedCardContainer pSubjects;
 	CCountedCardContainer pTokens;
 

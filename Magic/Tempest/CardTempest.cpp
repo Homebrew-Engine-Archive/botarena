@@ -5288,14 +5288,15 @@ CChaoticGooCard::CChaoticGooCard(CGame* pGame, UINT nID)
 bool CChaoticGooCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5419,14 +5420,15 @@ CWildWurmCard::CWildWurmCard(CGame* pGame, UINT nID)
 bool CWildWurmCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5550,7 +5552,6 @@ bool CSacredGuideCard::BeforeResolution(CAbilityAction* pAction)
 
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 				
 	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
 
@@ -5562,10 +5563,7 @@ bool CSacredGuideCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->IsColor(CManaPoolBase::Color::White))
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 		}
 	}
 
@@ -5575,14 +5573,14 @@ bool CSacredGuideCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			&m_CardFilter, // any cards
-			ZoneId::Hand, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,			 // select by 
+			CZoneModifier::RoleType::AllPlayers,			 // reveal to
+			&m_CardFilter,									 // any cards
+			ZoneId::Hand,									 // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,			 // select by this player
+			CardPlacement::Top,								 // put selected cards on top
+			MoveType::Others,								 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);		 // order selected cards by this player
 	pModifier.SetReorderInformation(true, ZoneId::Exile);
 		
 	pModifier.ApplyTo(pController);

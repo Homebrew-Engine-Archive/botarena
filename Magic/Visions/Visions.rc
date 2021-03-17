@@ -213,7 +213,7 @@ BEGIN
     IDS_STRING9707          "Juju Bubble\n{1}\nArtifact\nVIS,U\nCumulative upkeep {1}\rWhen you play a card, sacrifice Juju Bubble.\r{2}: You gain 1 life."
     IDS_STRING9708          "Firestorm Hellkite\n{4UR}\nCreature - Dragon\nVIS,R\nFlying, trample\rCumulative upkeep {UR}\n6/6"
     IDS_STRING9709          "Magma Mine\n{1}\nArtifact\nVIS,U\n{4}: Put a pressure counter on Magma Mine.\r{T}, Sacrifice Magma Mine: Magma Mine deals damage equal to the number of pressure counters on it to target creature or player."
-    IDS_STRING9710          "Dark Privilege\n{1B}\nEnchantment - Aura\nVIS\nEnchant creature\rEnchanted creature gets +1/+1.\rSacrifice a creature: Regenerate enchanted creature."
+    IDS_STRING9710          "Dark Privilege\n{1B}\nEnchantment - Aura\nVIS,C\nEnchant creature\rEnchanted creature gets +1/+1.\rSacrifice a creature: Regenerate enchanted creature."
     IDS_STRING9711          "Undiscovered Paradise\n\nLand\nVIS,R\n{T}: Add one mana of any color to your mana pool. During your next untap step, as you untap your permanents, return Undiscovered Paradise to its owner's hand."
 END
 

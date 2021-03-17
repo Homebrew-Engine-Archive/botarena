@@ -1087,6 +1087,9 @@ void CWhenCardDiscarded::OnCardDiscarded(CCard* pCard, CZone* pFromZone, CZone* 
 	if ((pFromZone->GetZoneId() != ZoneId::Hand) || (moveType != MoveType::Discard && moveType != MoveType::NormalDiscard))
 		return;
 
+	if (m_CardFilterHelper.IsCardIncluded(pCard))
+		return;
+	
 	m_Callback(pFromZone->GetPlayer(), pCard, pByPlayer);
 }
 

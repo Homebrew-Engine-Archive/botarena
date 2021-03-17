@@ -158,7 +158,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRecklessAssaultCard);
 		DEFINE_CARD(CRecoilCard);
 		DEFINE_CARD(CRepulseCard);
-		DEFINE_CARD(CRestockCard);
 		DEFINE_CARD(CRestrainCard);
 		DEFINE_CARD(CRewardsOfDiversityCard);
 		DEFINE_CARD(CRiptideCrabCard);
@@ -4521,21 +4520,6 @@ CPainSufferingCard::CPainSufferingCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CRestockCard::CRestockCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Restock"), CardType::Sorcery, nID,
-		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, AbilityType::Sorcery,
-		new TrueCardComparer,
-		ZoneId::Graveyard, ZoneId::Hand, TRUE, MoveType::Others)
-{
-	m_pTargetMoveCardSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-
-	m_pTargetMoveCardSpell->GetTargeting()->SetSubjectCount(2, 2);
-
-	m_pTargetMoveCardSpell->SetToZoneIfSuccess(ZoneId::Exile, TRUE);
-}
-
-//____________________________________________________________________________
-//
 CSaprolingSymbiosisCard::CSaprolingSymbiosisCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Saproling Symbiosis"), CardType::Sorcery, nID)
 {
@@ -6449,21 +6433,20 @@ void CFactorFictionCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 
 	if (bResult)
 	{
-		int size = 5;
 		CPlayer* target =  pAbilityAction->GetController();
 		CPlayer* opponent =  m_pGame->GetNextPlayer(target);
 		CZone* pLibrary = target->GetZoneById(ZoneId::Library);	
-
-		if (pLibrary->GetSize()<5) 
-			size=pLibrary->GetSize();
+		int iCardsToRevealCnt = 5;
+		
+		//If you have fewer than five cards in your library, reveal your entire library and opponent separates it
+		if (pLibrary->GetSize() < 5) 
+			iCardsToRevealCnt = pLibrary->GetSize();
 
 		CCountedCardContainer SelectFrom;
 		//CCardFilter::GetFilter(_T("cards"))->GetIncluded(*Battle, SelectFrom);
 
-		for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) < 6; --i)
-		{
+		for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) <= iCardsToRevealCnt; --i)
 			SelectFrom.AddCard(pLibrary->GetAt(i), CardPlacement::Top);
-		}
 
 		if(SelectFrom.GetSize())
 
@@ -7095,10 +7078,7 @@ void CDromarTheBanisherCard::OnColorSelected(const std::vector<SelectionEntry>& 
 					std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)));
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 				
 				return;
 			}
@@ -7109,10 +7089,7 @@ void CDromarTheBanisherCard::OnColorSelected(const std::vector<SelectionEntry>& 
 					std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)));
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				return;
 			}
@@ -7123,10 +7100,7 @@ void CDromarTheBanisherCard::OnColorSelected(const std::vector<SelectionEntry>& 
 					std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)));
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				return;
 			}
@@ -7137,10 +7111,7 @@ void CDromarTheBanisherCard::OnColorSelected(const std::vector<SelectionEntry>& 
 					std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)));
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				return;
 			}
@@ -7151,10 +7122,7 @@ void CDromarTheBanisherCard::OnColorSelected(const std::vector<SelectionEntry>& 
 					std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)));
 
 				for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-				{
-					CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 					pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-				}
 
 				return;
 			}
@@ -7505,14 +7473,16 @@ bool CChaoticStrikeCard::BeforeResolution (CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
-	int Thumb = 0;
-	int Exponent = 2;
+	
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -7889,7 +7859,6 @@ void CThicketElementalCard::OnYesNoSelected(const std::vector<SelectionEntry>& s
 			{
 				int n = 0;
 				bool bSearch = true;
-				CCard* pFound;
 				
 				CZone* pLibrary = pSelectionPlayer->GetZoneById(ZoneId::Library);
 
@@ -7901,10 +7870,7 @@ void CThicketElementalCard::OnYesNoSelected(const std::vector<SelectionEntry>& s
 					{
 						++n;
 						if (pLibrary->GetAt(i)->GetCardType().IsCreature())
-						{
 							bSearch = false;
-							pFound = pLibrary->GetAt(i);
-						}
 					}
 				}
 
@@ -7914,14 +7880,14 @@ void CThicketElementalCard::OnYesNoSelected(const std::vector<SelectionEntry>& s
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 				pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-						CZoneModifier::RoleType::PrimaryPlayer, // select by 
-						CZoneModifier::RoleType::AllPlayers, // reveal to
-						&m_CardFilter, // any cards
-						ZoneId::Battlefield, // if selected, move cards to
-						CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-						CardPlacement::Top, // put selected cards on top
-						MoveType::Others, // move type
-						CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+						CZoneModifier::RoleType::PrimaryPlayer,		     // select by 
+						CZoneModifier::RoleType::AllPlayers,			 // reveal to
+						&m_CardFilter,									 // any cards
+						ZoneId::Battlefield,							 // if selected, move cards to
+						CZoneModifier::RoleType::PrimaryPlayer,			 // select by this player
+						CardPlacement::Top,								 // put selected cards on top
+						MoveType::Others,								 // move type
+						CZoneModifier::RoleType::PrimaryPlayer);		 // order selected cards by this player
 		
 				pModifier.ApplyTo(pSelectionPlayer);
 				pLibrary->Shuffle();
@@ -8157,8 +8123,6 @@ void CAlloyGolemCard::Move(CZone* pToZone,
 void CAlloyGolemCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {	
 	ATLASSERT(nSelectedCount == 1);
-
-	CCard* pCard = (CCard*)dwContext1;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -9089,9 +9053,13 @@ bool CPureReflectionCard::BeforeResolution(TriggeredAbility::TriggeredActionType
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Reflection B"), 62005));		

@@ -257,6 +257,7 @@ BEGIN
 	IDS_STRING23939         "Twinstrike\n{3BR}\nInstant\nDIS,U\nTwinstrike deals 2 damage to each of two target creatures.\rHellbent - Destroy those creatures instead if you have no cards in hand."
 	IDS_STRING23940         "Ignorant Bliss\n{1R}\nInstant\nDIS,U\nExile all cards from your hand face down. At the beginning of the next end step, return those cards to your hand, then draw a card."
 	IDS_STRING23941         "Utopia Sprawl\n{G}\nEnchantment - Aura\nDIS,C\nEnchant Forest\rAs Utopia Sprawl enters the battlefield, choose a color.\rWhenever enchanted Forest is tapped for mana, its controller adds one mana of the chosen color to his or her manapool."
+	IDS_STRING23942         "Freewind Equenaut\n{2W}\nCreature - Human Archer\nDIS,C\nFlying\rAs long as Freewind Equenaut is enchanted, it has ""{T}: Freewind Equenaut deals 2 damage to target attacking or blocking creature.""\n2/2"
 END
 
 #endif    // English (United States) resources

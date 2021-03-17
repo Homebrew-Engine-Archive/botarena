@@ -55,6 +55,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CEvolutionVatCard);
 		DEFINE_CARD(CFertileImaginationCard);
 		DEFINE_CARD(CFlameKinWarScoutCard);
+		DEFINE_CARD(CFreewindEquenautCard);
 		DEFINE_CARD(CGhostQuarterCard);
 		DEFINE_CARD(CGnatAlleyCreeperCard);
 		DEFINE_CARD(CGobhobblerRatsCard);
@@ -2070,12 +2071,8 @@ bool CMomirVigSimicVisionaryCard::BeforeResolution(CMomirVigSimicVisionaryCard::
 	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	int nCost = 0;
-
 	if (pNextDraw->GetCardType().IsCreature())
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Hand);
-	}
 	else
 		m_pTriggeredAbility->SetReorder(FALSE);
 
@@ -2114,16 +2111,10 @@ bool CCoilingOracleCard::BeforeResolution(CCoilingOracleCard::TriggeredAbility::
 	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	int nCost = 0;
-
 	if (pNextDraw->GetCardType().IsLand())
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Battlefield);
-	}
 	else
-	{
 		m_pTriggeredAbility->SetReorder(TRUE, ZoneId::Hand);
-	}
 
 	return true;
 }
@@ -4693,7 +4684,6 @@ bool CFertileImaginationCard::BeforeResolution(CAbilityAction* pAction)
 void CFertileImaginationCard::OnTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -5191,7 +5181,6 @@ bool CRiseFallCard::BeforeResolution1(CAbilityAction* pAction)
 
 bool CRiseFallCard::BeforeResolution2(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 	CZone* pHand = pTarget->GetZoneById(ZoneId::Hand);
 	int nHandSize = pHand->GetSize();
@@ -5799,7 +5788,6 @@ bool CVigeanIntuitionCard::BeforeResolution(CAbilityAction* pAction)
 void CVigeanIntuitionCard::OnTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -5811,15 +5799,15 @@ void CVigeanIntuitionCard::OnTypeSelected(const std::vector<SelectionEntry>& sel
 
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, 4, CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
-				pModifier.AddSelection(MinimumValue(SpecialNumber::Any), MaximumValue(SpecialNumber::All), // select cards to 
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-					&m_CardFilter, // any cards
-					ZoneId::Hand, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on top
-					MoveType::Others, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+				pModifier.AddSelection(MinimumValue(SpecialNumber::Any), MaximumValue(SpecialNumber::All),  // select cards to 
+					CZoneModifier::RoleType::PrimaryPlayer,													// select by 
+					CZoneModifier::RoleType::PrimaryPlayer,													// reveal to
+					&m_CardFilter,																			// any cards
+					ZoneId::Hand,																			// if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,													// select by this player
+					CardPlacement::Top,																		// put selected cards on top
+					MoveType::Others,																		// move type
+					CZoneModifier::RoleType::PrimaryPlayer);												// order selected cards by this player
 				pModifier.SetReorderInformation(true, ZoneId::Graveyard);
 
 				pModifier.ApplyTo(pSelectionPlayer);
@@ -6051,11 +6039,8 @@ bool CTrialErrorCard::BeforeResolution(CAbilityAction* pAction)
 		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)));
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-	{
-		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-	}
-
+	
 	return true;
 }
 
@@ -6098,14 +6083,14 @@ bool CResearchDevelopmentCard::BeforeResolution1(CAbilityAction* pAction)
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::_Sideboard, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 	pModifier.AddSelection(MinimumValue(0), MaximumValue(4), // select cards to reorder
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::AllPlayers, // reveal to
-		NULL, // what cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on 
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		CZoneModifier::RoleType::PrimaryPlayer,				 // select by 
+		CZoneModifier::RoleType::AllPlayers,				 // reveal to
+		NULL,												 // what cards
+		ZoneId::Library,									 // if selected, move cards to
+		CZoneModifier::RoleType::PrimaryPlayer,				 // select by this player
+		CardPlacement::Top,									 // put selected cards on 
+		MoveType::Others,									 // move type
+		CZoneModifier::RoleType::PrimaryPlayer);			 // order selected cards by this player
 
 	pModifier.ApplyTo(pAction->GetController());
 	pAction->GetController()->GetZoneById(ZoneId::Library)->Shuffle();
@@ -6828,5 +6813,44 @@ bool CUtopiaSprawlCard::SetTriggerContext(CTriggeredSpecialProdManaAbility::Trig
        }
        return true;
 }
+//____________________________________________________________________________
+//
+CFreewindEquenautCard::CFreewindEquenautCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Freewind Equenaut"), CardType::Creature, CREATURE_TYPE2(Human, Archer), nID,
+		_T("2") WHITE_MANA_TEXT, Power(2), Life(2))
+{
+	{
+		// Can only use "{T}: Freewind Equenaut deals 2 damage to target attacking or blocking creature." 
+		// ability if Freewind Equenaut is enchanted.
+		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
+			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
+			_T(""),
+			new AttackingBlockingCreatureComparer, FALSE,
+			Life(-2), PreventableType::Preventable));
+		ATLASSERT(cpAbility);
+
+		cpAbility->AddTapCost();
+		cpAbility->AddAbilityTag(AbilityTag::DamageSource);
+		cpAbility->SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,		  
+				CPlayableIfTrait::PlayableCallback(this,
+				&CFreewindEquenautCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+BOOL CFreewindEquenautCard::CanPlay(BOOL bIncludeTricks)
+{
+	// Can only use "{T}: Freewind Equenaut deals 2 damage to target attacking or blocking creature." 
+	// ability if Freewind Equenaut is enchanted.
+	return this->IsEnchanted();
+}
+
 //____________________________________________________________________________
 //

@@ -1633,11 +1633,10 @@ void CMasterThiefCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 	// Return stolen cards
 	CCountedCardContainer cards;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pZone, cards);
 	}
 	if (cards.GetSize() == 0) return;
@@ -2395,13 +2394,11 @@ bool CGarrukPrimalHunterCard::BeforeResolution(CAbilityAction* pAction) const
 			}
 		}
 
-	CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
+	ContextValue Context(pAction->GetValue());
 
-		ContextValue Context(pAction->GetValue());
+	Context.nValue1 = nMaxCost;
 
-		Context.nValue1 = nMaxCost;
-
-		pAction->SetValue(Context);
+	pAction->SetValue(Context);
 
 	return true;
 }
@@ -3111,26 +3108,22 @@ bool CScrambleverseCard::BeforeResolution(CAbilityAction* pAction) const
 {
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
-	if (!cards.GetSize()) return true;
+	if (!cards.GetSize()) 
+		return true;
 
 	for (int i = 0; i < cards.GetSize(); ++i)
 	{
 		CTransferControlModifier* pModifier1 = new CTransferControlModifier(GetGame(), (CCard*)cards.GetAt(i), (CCard*)cards.GetAt(i));
 		if (GetController()->GetRand() % 2)
-		{
 			pModifier1->ApplyTo(GetController());
-		}
 		else
-		{
 			pModifier1->ApplyTo(GetGame()->GetNextPlayer(GetController()));
-		}
 	}
 
 	CZoneCardModifier pModifier2 = CZoneCardModifier(ZoneId::Battlefield, &m_CardFilter,
@@ -3171,25 +3164,25 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 	if (bResult)
 	{
-		int size = 5;
-		CPlayer* target =  pAbilityAction->GetController();
-		CPlayer* opponent =  m_pGame->GetNextPlayer(target);
-		CZone* pLibrary = target->GetZoneById(ZoneId::Library);	
-
-		if (pLibrary->GetSize()<5) 
-			size=pLibrary->GetSize();
+		CPlayer* pTarget =  pAbilityAction->GetController();
+		CPlayer* pOpponent =  m_pGame->GetNextPlayer(pTarget);
+		
+		CZone* pLibrary = pTarget->GetZoneById(ZoneId::Library);	
+		int iCardsToRevealCnt = 5;
+		
+		//If you have fewer than five cards in your library, reveal your entire library and opponent separates it
+		if (pLibrary->GetSize() < 5) 
+		iCardsToRevealCnt = pLibrary->GetSize();
 
 		CCountedCardContainer SelectFrom;
 		//CCardFilter::GetFilter(_T("cards"))->GetIncluded(*Battle, SelectFrom);
 
-		for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) < 6; --i)
-		{
+		for (int i = pLibrary->GetSize() - 1; i >= 0 && (pLibrary->GetSize() - i) <= iCardsToRevealCnt; --i)
 			SelectFrom.AddCard(pLibrary->GetAt(i), CardPlacement::Top);
-		}
 
 		if(SelectFrom.GetSize())
 
-			if (m_pGame->IsThinking() || opponent->IsComputer())
+			if (m_pGame->IsThinking() || pOpponent->IsComputer())
 			{
 				SelectFrom.Sort(TRUE);
 
@@ -3201,7 +3194,7 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 						m_SelectedCards1.AddCard(SelectFrom.GetAt(i), CardPlacement::Top);
 				}
 
-				if (!target->IsComputer() && !m_pGame->IsThinking())
+				if (!pTarget->IsComputer() && !m_pGame->IsThinking())
 				{
 						for (int i = 0; i < m_SelectedCards1.GetSize(); ++i)
 				{
@@ -3210,7 +3203,7 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 					m_pGame->Message(
 						strMessage,
-						target->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						pTarget->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
 						MessageImportance::High
 						);
 				}
@@ -3222,13 +3215,13 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 					m_pGame->Message(
 						strMessage,
-						target->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						pTarget->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
 						MessageImportance::High
 						);
 				}
 				}
 
-				ProcessPiling(target, pAbilityAction->GetController());
+				ProcessPiling(pTarget, pAbilityAction->GetController());
 			}
 			else
 			{
@@ -3239,7 +3232,7 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 				selectCardData.nMaxSelect = MaximumValue(SelectFrom.GetSize());
 				selectCardData.pCardFilter = CCardFilter::GetFilter(_T("cards"));
 
-				opponent->GetInterface()->SelectCard(&selectCardData);
+				pOpponent->GetInterface()->SelectCard(&selectCardData);
 				m_SelectedCards1 = selectCardData.SelectedCards;
 
 				for (int i = 0; i < SelectFrom.GetSize(); ++i)
@@ -3255,7 +3248,7 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 					m_pGame->Message(
 						strMessage,
-						target->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						pTarget->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
 						MessageImportance::High
 						);
 				}
@@ -3267,12 +3260,11 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 					m_pGame->Message(
 						strMessage,
-						target->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						pTarget->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
 						MessageImportance::High
 						);
 				}
-
-				ProcessPiling(target, pAbilityAction->GetController());
+				ProcessPiling(pTarget, pAbilityAction->GetController());
 			}
 
 	}
@@ -3281,7 +3273,6 @@ void CSphinxOfUthuunCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 void CSphinxOfUthuunCard::ProcessPiling(CPlayer* pPlayer1, CPlayer* pPlayer2)
 {	
 	std::vector<SelectionEntry> entries;
-
 	{
 		SelectionEntry selectionEntry;
 
@@ -3429,14 +3420,15 @@ bool CGoblinBangchuckersCard::BeforeResolution(CAbilityAction* pAction)
 	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTargetCreature = (CCreatureCard*)pAction->GetAssociatedCard();
 	CPlayer* pTargetPlayer = pAction->GetAssociatedPlayer();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -3813,9 +3805,7 @@ bool CDoublingChantCard::BeforeResolution(CAbilityAction* pAction)
 }
 
 void CDoublingChantCard::SelectCreature(CPlayer* pController)
-{
-	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
-
+{	
 	std::vector<SelectionEntry> entries;
 	{
 		SelectionEntry selectionEntry;
@@ -3936,21 +3926,16 @@ void CSundialOfTheInfiniteCard::OnResolutionCompleted(const CAbilityAction* pAbi
 	stack.ClearStack();
 	
 	CCountedCardContainer creatures;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 
 
 	for (int ic = 0; ic < creatures.GetSize(); ++ic)
-	{
 		((CCreatureCard*)creatures.GetAt(ic))->RemoveFromCombat(TRUE);
-	}
-
-
 
 	m_pGame->GetCurrentNode()->GetGraph()->SetNode(m_pGame->GetCurrentNode()->GetGraph(), m_pGame->GetCurrentNode()->GetGraph(), NodeId::CleanupStep1);
 

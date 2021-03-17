@@ -106,7 +106,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CHowlgeistCard);
 		DEFINE_CARD(CHumanFrailtyCard);
 		DEFINE_CARD(CHuntedGhoulCard);
-		DEFINE_CARD(CIntoTheVoidCard);
 		DEFINE_CARD(CKessigMalcontentsCard);
 		DEFINE_CARD(CKruinStrikerCard);
 		DEFINE_CARD(CLairDelveCard);
@@ -132,7 +131,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CNarstadScrapperCard);
 		DEFINE_CARD(CNaturalEndCard);
 		DEFINE_CARD(CNearheathPilgrimCard);
-		DEFINE_CARD(CNecrobiteCard);
 		DEFINE_CARD(CNephaliaSmugglerCard);
 		DEFINE_CARD(CNettleSwineCard);
 		DEFINE_CARD(CNightshadePeddlerCard);
@@ -356,8 +354,6 @@ void CCloudshiftCard::OnResolutionCompleted1(const CAbilityAction* pAbilityActio
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
 
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
 	m_CardFlagModifier1.ApplyTo(target);
 
 	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
@@ -417,8 +413,6 @@ void CRestorationAngelCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
 
 	m_CardFlagModifier1.ApplyTo(target);
 
@@ -992,8 +986,6 @@ void CNephaliaSmugglerCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
 
 	m_CardFlagModifier1.ApplyTo(target);
 
@@ -2075,7 +2067,7 @@ CGoldnightCommanderCard::CGoldnightCommanderCard(CGame* pGame, UINT nID)
 	cpAbility->GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
 
 	cpAbility->GetPowerModifier().SetPowerDelta(Power(+1));
-	cpAbility->GetLifeModifier().SetLifeDelta(Power(+1));
+	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
 	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
@@ -2421,17 +2413,6 @@ CGryffVanguardCard::CGryffVanguardCard(CGame* pGame, UINT nID)
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CIntoTheVoidCard::CIntoTheVoidCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Into the Void"), CardType::Sorcery, nID,
-		_T("3") BLUE_MANA_TEXT, AbilityType::Sorcery,
-		new AnyCreatureComparer,
-		ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others)
-{
-	m_pTargetMoveCardSpell->GetTargeting()->SetSubjectCount(0, 2);
 }
 
 //____________________________________________________________________________
@@ -2783,30 +2764,6 @@ void CMentalAgonyCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 	CPlayer* target=pAbilityAction->GetAssociatedPlayer();
 	CLifeModifier pModifier = CLifeModifier(Life(-2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 	if (bResult) pModifier.ApplyTo(target);
-}
-
-//____________________________________________________________________________
-//
-CNecrobiteCard::CNecrobiteCard(CGame* pGame, UINT nID)
-	: CChgPwrTghAttrSpellCard(pGame, _T("Necrobite"), CardType::Instant, nID, AbilityType::Instant,
-		_T("2") BLACK_MANA_TEXT,
-		Power(+0), Life(+0),
-		CreatureKeyword::Null, CreatureKeyword::Null,
-		TRUE, PreventableType::NotPreventable)
-	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
-			&CNecrobiteCard::OnResolutionCompleted))
-{
-	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Deathtouch);
-	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
-	m_pTargetChgPwrTghAttrSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
-}
-
-void CNecrobiteCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
-{
-	if (!bResult) return;
-
-	CCreatureCard* pCreatureCard = (CCreatureCard*)pAbilityAction->GetAssociatedCard();
-	pCreatureCard->AddRegenerationShield();
 }
 
 //____________________________________________________________________________
@@ -3600,8 +3557,6 @@ void CConjurersClosetCard::OnResolutionCompleted1(const CAbilityAction* pAbility
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
 
 	m_CardFlagModifier1.ApplyTo(target);
 
@@ -7502,8 +7457,9 @@ bool CMalignusCard::BeforeResolution1(TriggeredAbility1::TriggeredActionType* pA
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		if (GetController() != GetGame()->GetPlayer(ip))
 		{
-			Life LifeVal = GetGame()->GetPlayer(ip)->GetLife() + 1;
-			LifeVal = LifeVal / 2;
+			int iLife = int(GetGame()->GetPlayer(ip)->GetLife()) + 1;
+			iLife = iLife / 2;											// do calculations with variables of type int only
+			Life LifeVal = Life(iLife);									// type cast int to Life type
 			if (bFirst)
 			{
 				p = LifeVal;
@@ -7533,8 +7489,9 @@ bool CMalignusCard::BeforeResolution2(TriggeredAbility2::TriggeredActionType* pA
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		if (GetController() != GetGame()->GetPlayer(ip))
 		{
-			Life LifeVal = GetGame()->GetPlayer(ip)->GetLife() + 1;
-			LifeVal = LifeVal / 2;
+			int iLife = int(GetGame()->GetPlayer(ip)->GetLife()) + 1;
+			iLife = iLife / 2;											// do calculations with variables of type int only
+			Life LifeVal = Life(iLife);									// type cast int to Life type
 			if (bFirst)
 			{
 				p = LifeVal;
@@ -7569,8 +7526,9 @@ void CMalignusCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 			if (GetController() != GetGame()->GetPlayer(ip))
 			{
-				Life LifeVal = GetGame()->GetPlayer(ip)->GetLife() + 1;
-				LifeVal = LifeVal / 2;
+				int iLife = int(GetGame()->GetPlayer(ip)->GetLife()) + 1;
+				iLife = iLife / 2;											// do calculations with variables of type int only
+				Life LifeVal = Life(iLife);									// type cast int to Life type
 				if (bFirst)
 				{
 					p = LifeVal;
@@ -7796,23 +7754,44 @@ void CDescentIntoMadnessCard::OnCounterMoved(CCard* pFromCard, LPCTSTR name, int
 CBurnAtTheStakeCard::CBurnAtTheStakeCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Burn at the Stake"), CardType::Sorcery, nID)
 {
-	counted_ptr<CTargetSpell> cpSpell(
-		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+	{
+		/*
+			tap X creatures, where X > 0.
+			sample message: 
+				Tap Cruel Deceiver3(2/1), Tap Sacrifice Cruel Deceiver4(2/1): Casts Burn at the Stake and targets Computer
+		*/
+
+		counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
 			_T("2") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, 
 			new AnyCreatureComparer,
 			true));
 	
-	cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
+		cpSpell->GetTargeting()->SetDefaultCharacteristic(Characteristic::Negative);
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddTapCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("creatures")));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBurnAtTheStakeCard::BeforeResolution));
 
-	cpSpell->GetCost().AddTapCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("creatures")));
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBurnAtTheStakeCard::BeforeResolution));
-
-	AddSpell(cpSpell.GetPointer());
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			tap no creatures, X = 0.
+			sample message: 
+				Tap no creatures. Casts Burn at the Stake and targets Computer
+		*/
+		counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+			_T("2") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, 
+			new AnyCreatureComparer,
+			true));
+		cpSpell->SetAbilityText(_T("Tap no creatures. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CBurnAtTheStakeCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTargetCreature = (CCreatureCard*)pAction->GetAssociatedCard();
 	CPlayer* pTargetPlayer = pAction->GetAssociatedPlayer();
 	int nValue = pAction->GetCostConfigEntry().GetTapCards()->GetSize();

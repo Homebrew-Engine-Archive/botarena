@@ -1691,12 +1691,11 @@ class CCurseOfTheCabalCard : public CSuspendCard
 {
 	DECLARE_CARD_CSTOR(CCurseOfTheCabalCard);
 
-private:
+protected:
 	CCardFilter m_CardFilter1;
 	typedef
 		TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility3;
 	TriggeredAbility3* m_pTriggeredAbility1;
-protected:
 	bool SetTriggerContext3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
 						    CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 	typedef
@@ -1920,7 +1919,7 @@ class CRestoreBalanceCard : public CSuspendCard
 {
 	DECLARE_CARD_CSTOR(CRestoreBalanceCard);
 
-private:
+protected:
 	typedef
 		TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility3;
 	bool SetTriggerContext1(CTriggeredDiscardCardAbility::TriggerContextType& triggerContext,
@@ -2173,9 +2172,9 @@ class CWeatherseedTotemCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CWeatherseedTotemCard);
 
 protected:
-	bool CWeatherseedTotemCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
-												CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-	bool CWeatherseedTotemCard::BeforeResolution(CAbilityAction* pAction);
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+								CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //_______________________________________________________________________________________________
@@ -2292,13 +2291,12 @@ class CMishraArtificerProdigyCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMishraArtificerProdigyCard);
 
-private:
+protected:
 	typedef
-			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard) const;
-	bool CMishraArtificerProdigyCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
-
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 	bool bLibrarySearch;
 	void CardSelection(CPlayer* pController, CCard* pSelected);
 	CSelectionSupport m_CardSelection;

@@ -1,0 +1,256 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Conspiracy.ico"
+IDI_LARGE_MODULE        ICON                    "ConspiracyLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Conspiracy"
+    IDS_EXPANSION_ABBREV    "CNS"
+    IDS_FIRST_CARD          "28100"
+    IDS_TOTAL_CARD          "210"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "28310"
+    IDS_MODULE_LARGE_ICON_ID "28311"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "06-06-2014"
+    IDS_MWS_FOLDER          "MWS\\CNS\\"
+    IDS_PRODUCT_LIST        """Conspiracy Starter Box"":R-3:U-10:C-32:BL-30,""Conspiracy Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28100         "Ajani's Sunstriker\n{WW}\nCreature - Cat Cleric\nCNS,C\nLifelink\n2/2"
+    IDS_STRING28101         "Apex Hawks\n{2W}\nCreature - Bird\nCNS, C\nMultikicker {1W}\rFlying\rApex Hawks enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n2/2"
+    IDS_STRING28102         "Courier Hawk\n{1W}\nCreature - Bird\nCNS,C\nFlying, vigilance\n1/2"
+    IDS_STRING28103         "Doomed Traveler\n{W}\nCreature - Human Soldier\nCNS,C\nWhen Doomed Traveler dies, put a 1/1 white Spirit creature token with flying onto the battlefield.\n1/1"
+    IDS_STRING28104         "Glimmerpoint Stag\n{2WW}\nCreature - Elk\nCNS,U\nVigilance\rWhen Glimmerpoint Stag enters the battlefield, exile another target permanent. Return that card to the battlefield under its owner's control at the beginning of the next end step.\n3/3"
+    IDS_STRING28105         "Guardian Zendikon\n{2W}\nEnchantment - Aura\nCNS,C\nEnchant Land\rEnchanted land is a 2/6 white Wall creature with defender. It's still a land.\rWhen enchanted land dies, return that card to its owner's hand."
+    IDS_STRING28106         "Intangible Virtue\n{1W}\nEnchantment\nCNS,U\nCreature tokens you control get +1/+1 and have vigilance."
+    IDS_STRING28107         "Moment of Heroism\n{1W}\nInstant\nCNS,C\nTarget creature gets +2/+2 and gains lifelink until end of turn."
+    IDS_STRING28108         "Noble Templar\n{5W}\nCreature - Human Cleric Soldier\nCNS,C\nVigilance\rPlainscycling {2}\n3/6"
+    IDS_STRING28109         "Pillarfield Ox\n{3W}\nCreature - Ox\nCNS,C\n\n2/4"
+    IDS_STRING28110         "Pride Guardian\n{W}\nCreature - Cat Monk\nCNS,C\nDefender\rWhenever Pride Guardian blocks, you gain 3 life.\n0/3"
+    IDS_STRING28111         "Pristine Angel\n{4WW}\nCreature - Angel\nCNS,MR\nFlying\rAs long as Pristine Angel is untapped, it has protection from artifacts and from all colors.\rWhenever you cast a spell, you may untap Pristine Angel.\n4/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28112         "Reya Dawnbringer\n{6WWW}\nLegendary Creature - Angel\nCNS,R\nFlying\rAt the beginning of your upkeep, you may return target creature card from your graveyard to the battlefield.\n4/6"
+    IDS_STRING28113         "Rout\n{3WW}\nSorcery\nCNS,R\nYou may cast Rout any time you could cast an instant if you pay {2} more to cast it.\rDestroy all creatures. They can't be regenerated."
+    IDS_STRING28114         "Silverchase Fox\n{1W}\nCreature - Fox\nCNS,C\n{1W}, Sacrifice Silverchase Fox: Exile target enchantment.\n2/2"
+    IDS_STRING28115         "Soulcatcher\n{1W}\nCreature - Bird Soldier\nCNS,U\nFlying\rWhenever a creature with flying dies, put a +1/+1 counter on Soulcatcher.\n1/1"
+    IDS_STRING28116         "Stave Off\n{W}\nInstant\nCNS,C\nTarget creature gains protection from the color of your choice until end of turn."
+    IDS_STRING28117         "Swords to Plowshares\n{W}\nInstant\nCNS,U\nExile target creature. Its controller gains life equal to its power."
+    IDS_STRING28118         "Wakestone Gargoyle\n{3W}\nCreature - Gargoyle\nCNS,U\nDefender\rFlying\r{1W}: Creatures you control with defender can attack this turn as though they didn't have defender.\n3/4"
+    IDS_STRING28119         "AEther Tradewinds\n{2U}\nInstant\nCNS,C\nReturn target permanent you control and target permanent you don't control to their owners' hands."
+    IDS_STRING28120         "Air Servant\n{4U}\nCreature - Elemental\nCNS,U\nFlying\r{2U}: Tap target creature with flying.\n4/3"
+    IDS_STRING28121         "Brainstorm\n{U}\nInstant\nCNS,C\nDraw three cards, then put two cards from your hand on top of your library in any order."
+    IDS_STRING28122         "Breakthrough\n{XU}\nSorcery\nCNS,U\nDraw four cards, then choose X cards in your hand and discard the rest."
+    IDS_STRING28123         "Compulsive Research\n{2U}\nSorcery\nCNS,C\nTarget player draws three cards. Then that player discards two cards unless he or she discards a land card."
+    IDS_STRING28124         "Crookclaw Transmuter\n{3U}\nCreature - Bird Wizard\nCNS,C\nFlash\rFlying\rWhen Crookclaw Transmuter enters the battlefield, switch target creature's power and toughness until end of turn.\n3/1"
+    IDS_STRING28125         "Dream Fracture\n{1UU}\nInstant\nCNS,U\nCounter target spell. Its controller draws a card.\rDraw a card."
+    IDS_STRING28126         "Enclave Elite\n{2U}\nCreature - Merfolk Soldier\nCNS,C\nMultikicker {1U}\rIslandwalk\rEnclave Elite enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n2/2"
+    IDS_STRING28127         "Fact or Fiction\n{3U}\nInstant\nCNS,U\nReveal the top five cards of your library. An opponent separates those cards into two piles. Put one pile into your hand and the other into your graveyard."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28128         "Favorable Winds\n{1U}\nEnchantment\nCNS,U\nCreatures you control with flying get +1/+1."
+    IDS_STRING28129         "Grixis Illusionist\n{U}\nCreature - Human Wizard\nCNS,C\n{T}: Target land you control becomes the basic land type of your choice until end of turn.\n1/1"
+    IDS_STRING28130         "Minamo Scrollkeeper\n{1U}\nCreature - Human Wizard\nCNS,C\nDefender\rYour maximum hand size is increased by one.\n2/3"
+    IDS_STRING28131         "Misdirection\n{3UU}\nInstant\nCNS,R\nYou may exile a blue card from your hand rather than pay Misdirection's mana cost.\rChange the target of target spell with a single target."
+    IDS_STRING28132         "Plated Seastrider\n{UU}\nCreature - Beast\nCNS,C\n\n1/4"
+    IDS_STRING28133         "Reckless Scholar\n{2U}\nCreature - Human Wizard\nCNS,C\n{T}: Target player draws a card, then discards a card.\n2/1"
+    IDS_STRING28134         "Screaming Seahawk\n{4U}\nCreature - Bird\nCNS,C\nFlying\rWhen Screaming Seahawk enters the battlefield, you may search your library for a card named Screaming Seahawk, reveal it, and put it into your hand. If you do, shuffle your library.\n2/2"
+    IDS_STRING28135         "Shoreline Ranger\n{5U}\nCreature - Bird Soldier\nCNS,C\nFlying\rIslandcycling {2}\n3/4"
+    IDS_STRING28136         "Stifle\n{U}\nInstant\nCNS,R\nCounter target activated or triggered ability. (Mana abilities can't be targeted.)"
+    IDS_STRING28137         "Turn the Tide\n{1U}\nInstant\nCNS,C\nCreatures your opponents control get -2/-0 until end of turn."
+    IDS_STRING28138         "Wind Dancer\n{1U}\nCreature - Faerie\nCNS,U\nFlying\r{T}: Target creature gains flying until end of turn.\n1/1"
+    IDS_STRING28139         "Altar's Reap\n{1B}\nInstant\nCNS,C\nAs an additional cost to cast Altar's Reap, sacrifice a creature.\rDraw two cards."
+    IDS_STRING28140         "Assassinate\n{2B}\nSorcery\nCNS,C\nDestroy target tapped creature."
+    IDS_STRING28141         "Ill-Gotten Gains\n{2BB}\nSorcery\nCNS,R\nExile Ill-Gotten Gains. Each player discards his or her hand, then returns up to three cards from his or her graveyard to his or her hand."
+    IDS_STRING28142         "Infectious Horror\n{3B}\nCreature - Zombie Horror\nCNS,C\nWhenever Infectious Horror attacks, each opponent loses 2 life.\n2/2"
+    IDS_STRING28143         "Liliana's Specter\n{1BB}\nCreature - Specter\nCNS,C\nFlying\rWhen Liliana's Specter enters the battlefield, each opponent discards a card.\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28144         "Magus of the Mirror\n{4BB}\nCreature - Human Wizard\nCNS,R\n{T}, Sacrifice Magus of the Mirror: Exchange life totals with target opponent. Activate this ability only during your upkeep.\n4/2"
+    IDS_STRING28145         "Morkrut Banshee\n{3BB}\nCreature - Spirit\nCNS,U\nMorbid - When Morkrut Banshee enters the battlefield, if a creature died this turn, target creature gets -4/-4 until end of turn.\n4/4"
+    IDS_STRING28146         "Necromantic Thirst\n{2BB}\nEnchantment - Aura\nCNS,C\nEnchant creature\rWhenever enchanted creature deals combat damage to a player, you may return target creature card from your graveyard to your hand."
+    IDS_STRING28147         "Phage the Untouchable\n{3BBBB}\nLegendary Creature - Zombie Minion\nCNS,MR\nWhen Phage the Untouchable enters the battlefield, if you didn't cast it from your hand, you lose the game.\rWhenever Phage deals combat damage to a creature, destroy that creature. It can't be regenerated.\rWhenever Phage deals combat damage to a player, that player loses the game.\n4/4"
+    IDS_STRING28148         "Plagued Rusalka\n{B}\nCreature - Spirit\nCNS,U\n{B}, Sacrifice a creature: Target creature gets -1/-1 until end of turn.\n1/1"
+    IDS_STRING28149         "Quag Vampires\n{B}\nCreature - Vampire Rogue\nCNS,C\nMultikicker {1B}\rSwampwalk\rQuag Vampires enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n1/1"
+    IDS_STRING28150         "Reckless Spite\n{1BB}\nInstant\nCNS,U\nDestroy two target nonblack creatures. You lose 5 life."
+    IDS_STRING28151         "Smallpox\n{BB}\nSorcery\nCNS,U\nEach player loses 1 life, discards a card, sacrifices a creature, then sacrifices a land."
+    IDS_STRING28152         "Stronghold Discipline\n{2BB}\nSorcery\nCNS,U\nEach player loses 1 life for each creature he or she controls."
+    IDS_STRING28153         "Syphon Soul\n{2B}\nSorcery\nCNS,C\nSyphon Soul deals 2 damage to each other player. You gain life equal to the damage dealt this way."
+    IDS_STRING28154         "Tragic Slip\n{B}\nInstant\nCNS,C\nTarget creature gets -1/-1 until end of turn.\rMorbid - that creature gets -13/-13 instead if a creature died this turn."
+    IDS_STRING28155         "Twisted Abomination\n{5B}\nCreature - Zombie Mutant\nCNS,C\n{B}: Regenerate Twisted Abomination.\rSwampcycling {2}\n5/3"
+    IDS_STRING28156         "Typhoid Rats\n{B}\nCreature - Rat\nCNS,C\nDeathtouch\n1/1"
+    IDS_STRING28157         "Unhallowed Pact\n{2B}\nEnchantment - Aura\nCNS,C\nEnchant creature\rWhen enchanted creature dies, return that card to the battlefield under your control."
+    IDS_STRING28158         "Vampire Hexmage\n{BB}\nCreature - Vampire Shaman\nCNS,U\nFirst Strike\rSacrifice Vampire Hexmage: Remove all counters from target permanent.\n2/1"
+    IDS_STRING28159         "Victimize\n{2B}\nSorcery\nCNS,U\nAs an additional cost to cast Victimize, sacrifice a creature.\rReturn two target creature cards from your graveyard to the battlefield tapped."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28160         "Wakedancer\n{2B}\nCreature - Human Shaman\nCNS,U\nMorbid - When Wakedancer enters the battlefield, if a creature died this turn, put a 2/2 black Zombie creature token onto the battlefield.\n2/2"
+    IDS_STRING28161         "Zombie Goliath\n{4B}\nCreature - Zombie Giant\nCNS,C\n\n4/3"
+    IDS_STRING28162         "Barbed Shocker\n{3R}\nCreature - Insect\nCNS,U\nTrample, haste\rWhenever Barbed Shocker deals damage to a player, that player discards all the cards in his or her hand, then draws that many cards.\n2/2"
+    IDS_STRING28163         "Boldwyr Intimidator\n{5RR}\nCreature - Giant Warrior\nCNS,U\nCowards can't block Warriors.\r{R}: Target creature becomes a Coward until end of turn.\r{2R}: Target creature becomes a Warrior until end of turn.\n5/5"
+    IDS_STRING28164         "Brimstone Volley\n{2R}\nInstant\nCNS,C\nBrimstone Volley deals 3 damage to target creature or player.\rMorbid - Brimstone Volley deals 5 damage to that creature or player instead if a creature died this turn."
+    IDS_STRING28165         "Chartooth Cougar\n{5R}\nCreature - Cat Beast\nCNS,C\n{R}: Chartooth Cougar gets +1/+0 until end of turn.\rMountaincycling {2}\n4/4"
+    IDS_STRING28166         "Cinder Wall\n{R}\nCreature - Wall\nCNS,C\nDefender\rWhen Cinder Wall blocks, destroy it at end of combat.\n3/3"
+    IDS_STRING28167         "Flowstone Blade\n{R}\nEnchantment - Aura\nCNS,C\nEnchant creature\r{R}: Enchanted creature gets +1/-1 until end of turn."
+    IDS_STRING28168         "Heartless Hidetsugu\n{3RR}\nLegendary Creature - Ogre Shaman\nCNS,R\n{T}: Heartless Hidetsugu deals damage to each player equal to half that player's life total, rounded down.\n4/3"
+    IDS_STRING28169         "Heckling Fiends\n{2R}\nCreature - Devil\nCNS,U\n{2R}: Target creature attacks this turn if able.\n2/2"
+    IDS_STRING28170         "Lizard Warrior\n{3R}\nCreature - Lizard Warrior\nCNS,C\n\n4/2"
+    IDS_STRING28171         "Mana Geyser\n{3RR}\nSorcery\nCNS,C\nAdd {R} to your mana pool for each tapped land your opponents control."
+    IDS_STRING28172         "Orcish Cannonade\n{1RR}\nInstant\nCNS,C\nOrcish Cannonade deals 2 damage to target creature or player and 3 damage to you.\rDraw a card."
+    IDS_STRING28173         "Pitchburn Devils\n{4R}\nCreature - Devil\nCNS,C\nWhen Pitchburn Devils dies, it deals 3 damage to target creature or player.\n3/3"
+    IDS_STRING28174         "Power of Fire\n{1R}\nEnchantment - Aura\nCNS,C\nEnchant creature\rEnchanted creature has """"{T}: This creature deals 1 damage to target creature or player."""""
+    IDS_STRING28175         "Skitter of Lizards\n{R}\nCreature - Lizard\nCNS,C\nMultikicker {1R}\rHaste\rSkitter of Lizards enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n1/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28176         "Sulfuric Vortex\n{1RR}\nEnchantment\nCNS,R\nAt the beginning of each player's upkeep, Sulfuric Vortex deals 2 damage to that player.\rIf a player would gain life, that player gains no life instead."
+    IDS_STRING28177         "Torch Fiend\n{1R}\nCreature - Devil\nCNS,C\n{R}, Sacrifice Torch Fiend: Destroy target artifact.\n2/1"
+    IDS_STRING28178         "Trumpet Blast\n{2R}\nInstant\nCNS,C\nAttacking creatures get +2/+0 until end of turn."
+    IDS_STRING28179         "Uncontrollable Anger\n{2RR}\nEnchantment - Aura\nCNS,C\nFlash\rEnchant creature\rEnchanted creature gets +2/+2 and attacks each turn if able."
+    IDS_STRING28180         "Vent Sentinel\n{3R}\nCreature - Elemental\nCNS,C\nDefender\r{1R}, {T}: Vent Sentinel deals damage to target player equal to the number of creatures with defender you control.\n2/4"
+    IDS_STRING28181         "Volcanic Fallout\n{1RR}\nInstant\nCNS,U\nVolcanic Fallout can't be countered.\rVolcanic Fallout deals 2 damage to each creature and each player."
+    IDS_STRING28182         "Wrap in Flames\n{3R}\nSorcery\nCNS,C\nWrap in Flames deals 1 damage to each of up to three target creatures. Those creatures can't block this turn."
+    IDS_STRING28183         "Charging Rhino\n{3GG}\nCreature - Rhino\nCNS,C\nCharging Rhino can't be blocked by more than one creature.\n4/4"
+    IDS_STRING28184         "Copperhorn Scout\n{G}\nCreature - Elf Scout\nCNS,C\nWhenever Copperhorn Scout attacks, untap each other creature you control.\n1/1"
+    IDS_STRING28185         "Echoing Courage\n{1G}\nInstant\nCNS,C\nTarget creature and all other creatures with the same name as that creature get +2/+2 until end of turn."
+    IDS_STRING28186         "Elephant Guide\n{2G}\nEnchantment - Aura\nCNS,U\nEnchant creature\rEnchanted creature gets +3/+3.\rWhen enchanted creature dies, put a 3/3 green Elephant creature token onto the battlefield."
+    IDS_STRING28187         "Elvish Aberration\n{5G}\nCreature - Elf Mutant\nCNS,C\n{T}: Add {GGG} to your mana pool.\rForestcycling {2}\n4/5"
+    IDS_STRING28188         "Exploration\n{G}\nEnchantment\nCNS,R\nYou may play an additional land on each of your turns."
+    IDS_STRING28189         "Gamekeeper\n{3G}\nCreature - Elf\nCNS,U\nWhen Gamekeeper dies, you may exile it. If you do, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and put all other cards revealed this way into your graveyard.\n2/2"
+    IDS_STRING28190         "Gnarlid Pack\n{1G}\nCreature - Beast\nCNS,C\nMultikicker {1G}\rGnarlid Pack enters the battlefield with a +1/+1 counter on it for each time it was kicked.\n2/2"
+    IDS_STRING28191         "Howling Wolf\n{2GG}\nCreature - Wolf\nCNS,C\nWhen Howling Wolf enters the battlefield, you may search your library for up to three cards named Howling Wolf, reveal them, and put them into your hand. If you do, shuffle your library.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28192         "Hunger of the Howlpack\n{G}\nInstant\nCNS,C\nPut a +1/+1 counter on target creature.\rMorbid - Put three +1/+1 counters on that creature instead if a creature died this turn."
+    IDS_STRING28193         "Hydra Omnivore\n{4GG}\nCreature - Hydra\nCNS,MR\nWhenever Hydra Omnivore deals damage to an opponent, it deals much damage to each other opponent.\n8/8"
+    IDS_STRING28194         "Lead the Stampede\n{2G}\nSorcery\nCNS,U\nLook at the top five cards of your library. You may reveal any number of creature cards from among them and put the revealed cards into your hand. Put the rest on the bottom of your library in any order."
+    IDS_STRING28195         "Nature's Claim\n{G}\nInstant\nCNS,C\nDestroy target artifact or enchantment. Its controller gains 4 life."
+    IDS_STRING28196         "Pelakka Wurm\n{4GGG}\nCreature - Wurm\nCNS,U\nTrample\rWhen Pelakka Wurm enters the battlefield, you gain 7 life.\rWhen Pelakka Wurm dies, draw a card.\n7/7"
+    IDS_STRING28197         "Plummet\n{1G}\nInstant\nCNS,C\nDestroy target creature with flying."
+    IDS_STRING28198         "Relic Crush\n{4G}\nInstant\nCNS,C\nDestroy target artifact or enchantment and up to one other target artifact or enchantment."
+    IDS_STRING28199         "Sakura-Tribe Elder\n{1G}\nCreature - Snake Shaman\nCNS,C\nSacrifice Sakura-Tribe Elder: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library.\n1/1"
+    IDS_STRING28200         "Scaled Wurm\n{7G}\nCreature - Wurm\nCNS,C\n\n7/6"
+    IDS_STRING28201         "Sporecap Spider\n{2G}\nCreature - Spider\nCNS,C\nReach\n1/5"
+    IDS_STRING28202         "Squirrel Nest\n{1GG}\nEnchantment - Aura\nCNS,U\nEnchant land\rEnchanted land has """"{T}: Put a 1/1 green Squirrel creature token onto the battlefield."""""
+    IDS_STRING28203         "Terastodon\n{6GG}\nCreature - Elephant\nCNS,R\nWhen Terastodon enters the battlefield, you may destroy up to three target noncreature permanents. For each permanent put into a graveyard this way, its controller puts a 3/3 green Elephant creature token onto the battlefield.\n9/9"
+    IDS_STRING28204         "Wolfbriar Elemental\n{2GG}\nCreature - Elemental\nCNS,R\nMultikicker {G}\rWhen Wolfbriar Elemental enters the battlefield, put a 2/2 green Wolf creature token onto the battlefield for each time it was kicked.\n4/4"
+    IDS_STRING28205         "Wrap in Vigor\n{1G}\nInstant\nCNS,C\nRegenerate each creature you control."
+    IDS_STRING28206         "Basandra, Battle Seraph\n{3RW}\nLegendary Creature - Angel\nCNS,R\nFlying\rPlayers can't cast spells during combat.\r{R}: Target creature attacks this turn if able.\n4/4"
+    IDS_STRING28207         "Edric, Spymaster of Trest\n{1GU}\nLegendary Creature - Elf Rogue\nCNS,R\nWhenever a creature deals combat damage to one of your opponents, that creature's controller may draw a card.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28208         "Fires of Yavimaya\n{1RG}\nEnchantment\nCNS,U\nCreatures you control have haste.\rSacrifice Fires of Yavimaya: Target creature gets +2/+2 until end of turn."
+    IDS_STRING28209         "Mirari's Wake\n{3GW}\nEnchantment\nCNS,MR\nCreatures you control get +1/+1.\rWhenever you tap a land for mana, add one mana to your mana pool of any type that land produced."
+    IDS_STRING28210         "Mortify\n{1WB}\nInstant\nCNS,U\nDestroy target creature or enchantment."
+    IDS_STRING28211         "Pernicious Deed\n{1BG}\nEnchantment\nCNS,MR\n{X}, Sacrifice Pernicious Deed: Destroy each artifact, creature, and enchantment with converted mana cost X or less."
+    IDS_STRING28212         "Sky Spirit\n{1WU}\nCreature - Spirit\nCNS,U\nFlying, first strike\n2/2"
+    IDS_STRING28213         "Spiritmonger\n{3BG}\nCreature - Beast\nCNS,R\nWhenever Spiritmonger deals damage to a creature, put a +1/+1 counter on Spiritmonger.\r{B}: Regenerate Spiritmonger.\r{G}: Spiritmonger becomes the color of your choice until end of turn.\n6/6"
+    IDS_STRING28214         "Spontaneous Combustion\n{1BR}\nInstant\nCNS,U\nAs an additional cost to cast Spontaneous Combustion, sacrifice a creature.\rSpontaneous Combustion deals 3 damage to each creature."
+    IDS_STRING28215         "Wood Sage\n{GU}\nCreature - Human Druid\nCNS,U\n{T}: Name a creature card. Reveal the top four cards of your library and put all of them with that name into your hand. Put the rest into your graveyard.\n1/1"
+    IDS_STRING28216         "Altar of Dementia\n{2}\nArtifact\nCNS,R\nSacrifice a creature: Target player puts a number of cards equal to the sacrificed creature's power from the top of his or her library into his or her graveyard."
+    IDS_STRING28217         "Deathrender\n{4}\nArtifact - Equipment\nCNS,R\nEquipped creature gets +2/+2.\rWhenever equipped creature dies, you may put a creature card from your hand onto the battlefield and attach Deathrender to it.\rEquip {2}"
+    IDS_STRING28218         "Explorer's Scope\n{1}\nArtifact - Equipment\nCNS,U\nWhenever equipped creature attacks, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped.\rEquip {1}"
+    IDS_STRING28219         "Fireshrieker\n{3}\nArtifact - Equipment\nCNS,U\nEquipped creature has double strike.\rEquip {2}"
+    IDS_STRING28220         "Galvanic Juggernaut\n{4}\nArtifact Creature - Juggernaut\nCNS,U\nGalvanic Juggernaut attacks each turn if able.\rGalvanic Juggernaut doesn't untap during your untap step.\rWhenever another creature dies, untap Galvanic Juggernaut.\n5/5"
+    IDS_STRING28221         "Peace Strider\n{4}\nArtifact Creature - Construct\nCNS,U\nWhen Peace Strider enters the battlefield, you gain 3 life.\n3/3"
+    IDS_STRING28222         "Reito Lantern\n{2}\nArtifact\nCNS,U\n{3}: Put target card from a graveyard on the bottom of its owner's library."
+    IDS_STRING28223         "Runed Servitor\n{2}\nArtifact Creature - Construct\nCNS,U\nWhen Runed Servitor dies, each player draws a card.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28224         "Spectral Searchlight\n{3}\nArtifact\nCNS,U\n{T}: Choose a player. That player adds one mana of any color he or she chooses to his or her mana pool."
+    IDS_STRING28225         "Vedalken Orrery\n{4}\nArtifact\nCNS,R\nYou may cast nonland cards as though they had flash."
+    IDS_STRING28226         "Warmonger's Chariot\n{2}\nArtifact - Equipment\nCNS,U\nEquipped creature gets +2/+2.\rAs long as equipped creature has defender, it can attack as though it didn't have defender.\rEquip {3}"
+    IDS_STRING28227         "Mirrodin's Core\n\nLand\nCNS,U\n{T}: Add {1} to your mana pool.\r{T}: Put a charge counter on Mirrodin's Core.\r{T}, Remove a charge counter from Mirrodin's Core: Add one mana of any color to your mana pool."
+    IDS_STRING28228         "Quicksand\n\nLand\nCNS,U\n{T}: Add {1} to your mana pool.\r{T}, Sacrifice Quicksand: Target attacking creature without flying gets -1/-2 until end of turn."
+    IDS_STRING28229         "Reflecting Pool\n\nLand\nCNS,R\n{T}: Add to your mana pool one mana of any type that a land you control could produce."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

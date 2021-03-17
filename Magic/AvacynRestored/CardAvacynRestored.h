@@ -733,13 +733,6 @@ class CGryffVanguardCard : public CFlyingCreatureCard
 
 //____________________________________________________________________________
 //
-class CIntoTheVoidCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CIntoTheVoidCard);
-};
-
-//____________________________________________________________________________
-//
 class CLoneRevenantCard : public CCreatureCard
 {
     DECLARE_CARD_CSTOR(CLoneRevenantCard);
@@ -865,17 +858,6 @@ private:
 };
 
 //____________________________________________________________________________
-//
-class CNecrobiteCard : public CChgPwrTghAttrSpellCard
-{
-	DECLARE_CARD_CSTOR(CNecrobiteCard);
-
-private:
-	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
-};
-
-//___________________________________________________________________________
 //
 class CPollutedDeadCard : public CCreatureCard
 {

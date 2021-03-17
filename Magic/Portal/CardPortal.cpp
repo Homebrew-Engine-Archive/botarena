@@ -26,7 +26,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCapriciousSorcererCard);
 		DEFINE_CARD(CChargingBanditsCard);
 		DEFINE_CARD(CChargingPaladinCard);
-		DEFINE_CARD(CChargingRhinoCard);
 		DEFINE_CARD(CCloakOfFeathersCard);
 		DEFINE_CARD(CCloudDragonCard);
 		DEFINE_CARD(CCloudPiratesCard);
@@ -1305,15 +1304,6 @@ CChargingPaladinCard::CChargingPaladinCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CChargingRhinoCard::CChargingRhinoCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Charging Rhino"), CardType::Creature, CREATURE_TYPE(Rhino), nID,
-		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(4))
-{
-	GetCreatureKeyword()->AddCantBeBlockedByMultiple(FALSE);
 }
 
 //____________________________________________________________________________

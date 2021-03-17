@@ -2767,7 +2767,7 @@ CCephalidConstableCard::CCephalidConstableCard(CGame* pGame, UINT nID)
 bool CCephalidConstableCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
 												CPlayer* pToPlayer, Damage damage) const
 {
-	m_pTriggeredAbility->GetTargeting().SetSubjectCount(GET_INTEGER(0), GET_INTEGER(-damage.m_nLifeDelta), TRUE);
+	m_pTriggeredAbility->GetTargeting().SetSubjectCount(0, -damage.m_nLifeDelta, TRUE);
 	return true;
 }
 
@@ -3049,14 +3049,15 @@ CScoriaWurmCard::CScoriaWurmCard(CGame* pGame, UINT nID)
 bool CScoriaWurmCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -3436,8 +3437,8 @@ CSoulblastCard::CSoulblastCard(CGame* pGame, UINT nID)
 	: CTargetChgLifeSpellCard(pGame, _T("Soulblast"), CardType::Instant, nID, AbilityType::Instant,
 		_T("3") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT,
 		new AnyCreatureComparer,
-		TRUE,	// Target player?
-		Life(-0),		// Life delta
+		TRUE,							// Target player?
+		Life(-0),						// Life delta
 		PreventableType::Preventable)	// Preventable?
 {
 	m_pTargetChgLifeSpell->GetCost().AddSacrificeCardCost(SpecialNumber::All, CCardFilter::GetFilter(_T("creatures")));
@@ -3447,14 +3448,15 @@ CSoulblastCard::CSoulblastCard(CGame* pGame, UINT nID)
 
 bool CSoulblastCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	CCreatureCard* pCreature;
 	int nPower = 0;
 
 	for (int i = 0; i < pAction->GetSacrificeCards()->GetSize(); ++i)
 	{
-		pCreature = dynamic_cast<CCreatureCard*>(pAction->GetSacrificeCards()->GetAt(i));
-		if (!pCreature) continue;
-		if (pCreature) nPower += GET_INTEGER(pCreature->GetLastKnownPower());
+		CCreatureCard* pCreature = dynamic_cast<CCreatureCard*>(pAction->GetSacrificeCards()->GetAt(i));
+		if (pCreature) 
+			nPower += GET_INTEGER(pCreature->GetLastKnownPower());
+		else 
+			continue;	
 	}
 
     CTargetSpellAction* pTargetAction = dynamic_cast<CTargetSpellAction*>(pAction);
@@ -3702,15 +3704,15 @@ bool CDreambornMuseCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 	nCount = pHand->GetSize();
 
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, nCount, CZoneModifier::RoleType::PrimaryPlayer);
-	pModifier.AddSelection(MinimumValue(nCount), MaximumValue(nCount), // select cards to bootom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // any cards
-			ZoneId::Graveyard, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+	pModifier.AddSelection(MinimumValue(nCount), MaximumValue(nCount), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer,					   // select by 
+			CZoneModifier::RoleType::PrimaryPlayer,					   // reveal to
+			NULL,													   // any cards
+			ZoneId::Graveyard,										   // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,					   // select by this player
+			CardPlacement::Top,										   // put selected cards on top
+			MoveType::Others,										   // move type
+			CZoneModifier::RoleType::PrimaryPlayer);				   // order selected cards by this player
 
 	pModifier.ApplyTo(pPlayer);
 	return true;
@@ -3737,13 +3739,11 @@ void CTimeStopCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, 
 	
 	stack.ClearStack();
 
-	
 	CCountedCardContainer creatures;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 
@@ -3824,8 +3824,8 @@ bool CChimericStaffCard::BeforeResolution(CAbilityAction* pAction)
 
 	CCreatureCard* pCreature = (CCreatureCard*)GetIsAlsoA();
 
-	pCreature->SetPrintedPower(nValue);
-	pCreature->SetPrintedToughness(nValue);
+	pCreature->SetPrintedPower(Power(nValue));
+	pCreature->SetPrintedToughness(Life(nValue));
 
 	return true;
 }

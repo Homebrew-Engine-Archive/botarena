@@ -514,18 +514,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CWallOfEssenceCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CWallOfEssenceCard);
-
-private:
-	//bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const;
-	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
-						   CCard* pCard, CCreatureCard* pToCreature, Damage damage) const;
-};
-
-//____________________________________________________________________________
-//
 class CWallOfSoulsCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWallOfSoulsCard);

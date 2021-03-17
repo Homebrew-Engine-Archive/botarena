@@ -29,6 +29,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBeckCallCard);
 		DEFINE_CARD(CBeetleformMageCard);
 		DEFINE_CARD(CBlastOfGeniusCard);
+		DEFINE_CARD(CBlazeCommandoCard);
 		DEFINE_CARD(CBorosCluestoneCard);
 		DEFINE_CARD(CBorosMastiffCard);
 		DEFINE_CARD(CBreakingEnteringCard);
@@ -36,7 +37,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBronzebeakMoaCard);
 		DEFINE_CARD(CCarnageGladiatorCard);
 		DEFINE_CARD(CCatchReleaseCard);
-		DEFINE_CARD(CClearAPathCard);
 		DEFINE_CARD(CCryptIncursionCard);
 		DEFINE_CARD(CDeadbridgeChantCard);
 		DEFINE_CARD(CDebtToTheDeathlessCard);
@@ -546,12 +546,12 @@ bool CRalZarekCard::BeforeResolution2(CAbilityAction* pAction)
 
 void CRalZarekCard::FlipCoin(CPlayer* pController)
 {
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
 		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
@@ -4318,18 +4318,6 @@ CAweForTheGuildsCard::CAweForTheGuildsCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CClearAPathCard::CClearAPathCard(CGame* pGame, UINT nID)
-	: CTargetMoveCardSpellCard(pGame, _T("Clear a Path"), CardType::Sorcery, nID,
-		RED_MANA_TEXT, AbilityType::Sorcery,
-		new AnyCreatureComparer,
-		ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)
-{
-	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddComparer(
-		new CreatureKeywordComparer(CreatureKeyword::Defender, false));
-}
-
-//____________________________________________________________________________
-//
 CPunishTheEnemyCard::CPunishTheEnemyCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Punish the Enemy"), CardType::Instant, nID)
 {
@@ -4769,14 +4757,14 @@ CDebtToTheDeathlessCard::CDebtToTheDeathlessCard(CGame* pGame, UINT nID)
 
 bool CDebtToTheDeathlessCard::BeforeResolution(CAbilityAction* pAction) const
 {
-	int n = GetLastCastingExtraValue();
-	int LifeGain = 0;
-	int PrevLife = 0;
-	int NewLife = 0;
+	int n = GetLastCastingExtraValue();	
 	CPlayer* pController = pAction->GetController();
 
 	if (n > 0)
 	{
+		int LifeGain = 0;
+		int PrevLife = 0;
+		int NewLife = 0;
 		CLifeModifier pModifier1 = CLifeModifier(Life(-2*n), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 
 		for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
@@ -5555,7 +5543,7 @@ void CReapIntellectCard::SelectionLoop(CPlayer* pController, CPlayer* pTarget)
 				entry.cpAssociatedCard = pCard;
 									
 				entry.strText.Format(_T("Select %s (card %d of %d)"),
-					pCard->GetCardName(TRUE), pSelected.GetSize() + 1, GET_INTEGER(nValue));
+					pCard->GetCardName(TRUE), pSelected.GetSize() + 1, int(nValue));
 
 				entries.push_back(entry);
 			}
@@ -5891,6 +5879,29 @@ CZhurTaaDruidCard::CZhurTaaDruidCard(CGame* pGame, UINT nID)
 	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
 
     AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CBlazeCommandoCard::CBlazeCommandoCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Blaze Commando"), CardType::Creature, CREATURE_TYPE2(Minotaur, Soldier), nID,
+		_T("3") RED_MANA_TEXT WHITE_MANA_TEXT, Power(5), Life(3))
+{
+	typedef
+		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenDamageDealt,
+						   CWhenDamageDealt::DamageEventCallback,
+						   &CWhenDamageDealt::SetDamageEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);                                      // monitor damage done by controller (you)
+	cpAbility->GetTrigger().GetFromCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("instant cards or sorcery cards")));
+																								 // from instant cards or sorcery spells 
+	cpAbility->SetCreateTokenOption(TRUE, _T("Soldier C"), 2993, 2);
+	cpAbility->AddAbilityTag(AbilityTag::TokenCreation);
+
+	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

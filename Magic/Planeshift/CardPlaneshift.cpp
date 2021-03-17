@@ -2344,19 +2344,17 @@ CHobbleCard::CHobbleCard(CGame* pGame, UINT nID)
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") WHITE_MANA_TEXT,
-				Power(+0), Life(+0), CreatureKeyword::CantAttack, CardType::Creature, //any creature
-				Power(+0), Life(+0), CreatureKeyword::CantBlock, CardType::Black
-				));
-
+				Power(+0), Life(+0), CreatureKeyword::CantAttack, CardType::Creature, // Condition 1 applies to creatures
+				Power(+0), Life(+0), CreatureKeyword::CantBlock,  CardType::Black));  // Condition 2 applies to black creatures
+				
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
+	{	// Draw a card
 		typedef
 			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenSelfInplay, 
 								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 		AddAbility(cpAbility.GetPointer());
@@ -3471,7 +3469,7 @@ bool CQuestingPhelddagrifCard::BeforeResolution3(CAbilityAction* pAction) const
 	CCreatureKeywordModifier* pModifier1 = new CCreatureKeywordModifier(CreatureKeyword::Flying, true, true);
 	pModifier1->ApplyTo((CCreatureCard*)this);
 
-	CDrawCardModifier* pModifier2 = new CDrawCardModifier(GetGame(), 0, 1);
+	CDrawCardModifier* pModifier2 = new CDrawCardModifier(GetGame(), MinimumValue(0), MaximumValue(1));
 	pModifier2->ApplyTo(pTarget);
 
 	return true;
@@ -4386,11 +4384,9 @@ CMarchOfSoulsCard::CMarchOfSoulsCard(CGame* pGame, UINT nID)
 
 bool CMarchOfSoulsCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay;
-
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards[ip] = (CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer()));
 	}
 
@@ -4401,10 +4397,9 @@ void CMarchOfSoulsCard::OnResolutionCompleted(const CAbilityAction* pAbilityActi
 {
 	if (!bResult) return;
 
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 
 		int OldValue = m_nCards[ip];
 		int NewValue = CCardFilter::GetFilter(_T("creatures"))->CountIncluded(pInplay->GetCardContainer());

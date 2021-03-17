@@ -172,23 +172,23 @@ BEGIN
     IDS_STRING12074         "Off Balance\n{W}\nInstant\nNMS,C\nTarget creature can't attack or block this turn."
     IDS_STRING12075         "Mogg Alarm\n{1RR}\nSorcery\nNMS,U\nYou may sacrifice two Mountains rather than pay Mogg Alarm's mana cost.\rPut two 1/1 red Goblin creature tokens onto the battlefield."
     IDS_STRING12076         "Skyshroud Claim\n{3G}\nSorcery\nNMS,C\nSearch your library for up to two Forest cards and put them onto the battlefield. Then shuffle your library."
-    IDS_STRING12077         "Blastoderm\n{2GG}\nCreature - Beast\nNMS\nShroud\rFading 3\n5/5"
+    IDS_STRING12077         "Blastoderm\n{2GG}\nCreature - Beast\nNMS,C\nShroud\rFading 3\n5/5"
     IDS_STRING12078         "Ancient Hydra\n{4R}\nCreature - Hydra\nNMS,U\nFading 5\r{1}, Remove a fade counter from Ancient Hydra: Ancient Hydra deals 1 damage to target creature or player.\n5/1"
-    IDS_STRING12079         "Cloudskate\n{1U}\nCreature - Illusion\nNMS\nFlying\rFading 3\n2/2"
+    IDS_STRING12079         "Cloudskate\n{1U}\nCreature - Illusion\nNMS,C\nFlying\rFading 3\n2/2"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING12080         "Defender en-Vec\n{3W}\nCreature - Human Cleric\nNMS\nFading 4\rRemove a fade counter from Defender en-Vec: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n2/4"
+    IDS_STRING12080         "Defender en-Vec\n{3W}\nCreature - Human Cleric\nNMS,C\nFading 4\rRemove a fade counter from Defender en-Vec: Prevent the next 2 damage that would be dealt to target creature or player this turn.\n2/4"
     IDS_STRING12081         "Jolting Merfolk\n{2UU}\nCreature - Merfolk\nNMS,U\nFading 4\rRemove a fade counter from Jolting Merfolk: Tap target creature.\n4/4"
     IDS_STRING12082         "Phyrexian Prowler\n{3B}\nCreature - Zombie Mercenary\nNMS,U\nFading 3\rRemove a fade counter from Phyrexian Prowler: Phyrexian Prowler gets +1/+1 until end of turn.\n3/3"
     IDS_STRING12083         "Rejuvenation Chamber\n{2}\nArtifact\nNMS,U\nFading 2\r{T}: You gain 2 life."
     IDS_STRING12084         "Skyshroud Behemoth\n{5GG}\nCreature - Beast\nNMS,R\nFading 2\rSkyshroud Behemoth enters the battlefield tapped.\n10/10"
-    IDS_STRING12085         "Skyshroud Ridgeback\n{G}\nCreature - Beast\nNMS\nFading 2\n2/3"
+    IDS_STRING12085         "Skyshroud Ridgeback\n{G}\nCreature - Beast\nNMS,C\nFading 2\n2/3"
     IDS_STRING12086         "Woodripper\n{3GG}\nCreature - Beast\nNMS,U\nFading 3\r{1}, Remove a fade counter from Woodripper: Destroy target artifact.\n4/6"
     IDS_STRING12087         "Overlaid Terrain\n{2GG}\nEnchantment\nNMS,R\nAs Overlaid Terrain enters the battlefield, sacrifice all lands you control.\rLands you control have ""{T}: Add two mana of any one color to your mana pool."""
     IDS_STRING12088         "Accumulated Knowledge\n{1U}\nInstant\nNMS,C\nDraw a card, then draw cards equal to the number of cards named Accumulated Knowledge in all graveyards."
-    IDS_STRING12089         "Daze\n{1U}\nInstant\nNMS\nYou may return an Island you control to its owner's hand rather than pay Daze's mana cost.\rCounter target spell unless its controller pays {1}."
+    IDS_STRING12089         "Daze\n{1U}\nInstant\nNMS,C\nYou may return an Island you control to its owner's hand rather than pay Daze's mana cost.\rCounter target spell unless its controller pays {1}."
     IDS_STRING12090         "Ensnare\n{3U}\nInstant\nNMS,U\nYou may return two Islands you control to their owner's hand rather than pay Ensnare's mana cost.\rTap all creatures."
     IDS_STRING12091         "Angelic Favor\n{3W}\nInstant\nNMS,U\nIf you control a Plains, you may tap an untapped creature you control rather than pay Angelic Favor's mana cost.\rCast Angelic Favor only during combat.\rPut a 4/4 white Angel creature token with flying onto the battlefield. Exile it at the beginning of the next end step."
     IDS_STRING12092         "Dark Triumph\n{4B}\nInstant\nNMS,U\nIf you control a Swamp, you may sacrifice a creature rather than pay Dark Triumph's mana cost.\rCreatures you control get +2/+0 until end of turn."

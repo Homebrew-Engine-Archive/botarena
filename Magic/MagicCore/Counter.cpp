@@ -350,6 +350,9 @@ void CounterContainer::WhenCardMoved(CZone* pFromZone, CZone* pToZone, CPlayer* 
 				DoublingCount <<= nMultiplier;
 			if (i->strCounter == _T("+1/+1") && m_pCard->GetCardType().IsCreature() && pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE) && (pToZone->GetZoneId() == ZoneId::Battlefield))
 				DoublingCount <<= nMultiplier;
+			// for Primal Vigor
+			if (i->strCounter == _T("+1/+1") && m_pCard->GetCardType().IsCreature() && pToZone->GetPlayer()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE) && (pToZone->GetZoneId() == ZoneId::Battlefield))
+				DoublingCount <<= nMultiplier;
 		}
 
 		Counter* pCounter = GetCounter(i->strCounter);

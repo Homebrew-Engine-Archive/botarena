@@ -104,7 +104,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CVolrathsStrongholdCard);
 		//DEFINE_CARD(CWalkingDreamCard);
 		DEFINE_CARD(CWallOfBlossomsCard);
-		DEFINE_CARD(CWallOfEssenceCard);
 		DEFINE_CARD(CWallOfRazorsCard);
 		DEFINE_CARD(CWallOfSoulsCard);
 		DEFINE_CARD(CWallOfTearsCard);
@@ -1455,44 +1454,6 @@ bool CLowlandBasiliskCard::BeforeResolution(TriggeredAbility::TriggeredActionTyp
 
 //____________________________________________________________________________
 //
-CWallOfEssenceCard::CWallOfEssenceCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Wall of Essence"), CardType::Creature, CREATURE_TYPE(Wall), nID,
-		_T("1") WHITE_MANA_TEXT, Power(0), Life(4))
-{
-	GetCreatureKeyword()->AddDefender(FALSE);
-
-	{
-		typedef
-			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenDamageDealt,
-									 CWhenDamageDealt::CreatureEventCallback, 
-									 &CWhenDamageDealt::SetCreatureEventCallback > TriggeredAbility;
-
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetTrigger().GetToCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-		cpAbility->GetTrigger().GetToCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
-
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this,
-			&CWallOfEssenceCard::SetTriggerContext));
-
-		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-bool CWallOfEssenceCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
-										CCard* pCard, CCreatureCard* pToCreature, Damage damage) const
-
-//SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, Damage damage) const
-{
-	triggerContext.m_LifeModifier.SetLifeDelta(Life(-damage.m_nLifeDelta));
-	return true;
-}
-
-//____________________________________________________________________________
-//
 CWallOfSoulsCard::CWallOfSoulsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Wall of Souls"), CardType::Creature, CREATURE_TYPE(Wall), nID,
 		_T("1") BLACK_MANA_TEXT, Power(0), Life(4))
@@ -1547,8 +1508,6 @@ CHornetCannonCard::CHornetCannonCard(CGame* pGame, UINT nID)
 
 bool CHornetCannonCard::BeforeResolution1(CAbilityAction* pAction) const
 {
-	int nValue = pAction->GetCostConfigEntry().GetExtraValue();
-
 	CCountedCardContainer pTokens;
 
 	CTokenCreationModifier pModifier1 = CTokenCreationModifier(GetGame(), _T("Hornet"), 2827, 1, false, ZoneId::Battlefield, &pTokens);
@@ -2759,8 +2718,6 @@ void CVolrathsLaboratoryCard::OnColorSelected(const std::vector<SelectionEntry>&
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -2913,9 +2870,13 @@ bool CVolrathsLaboratoryCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, strTokenName, nUID));		

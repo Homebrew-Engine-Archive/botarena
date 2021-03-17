@@ -21,13 +21,6 @@ class CHeapDollCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CMassCalcifyCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CMassCalcifyCard);
-};
-
-//____________________________________________________________________________
-//
 class CSmashToSmithereensCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CSmashToSmithereensCard);
@@ -1420,7 +1413,7 @@ class CHelmoftheGhastlordCard : public CCard
 
 protected:
 	counted_ptr<CAbility> CreateAdditionalAbility1(CCard* pCard);
-	counted_ptr<CAbility> CreateAdditionalAbility3(CCard* pCard);	
+	counted_ptr<CAbility> CreateAdditionalAbility2(CCard* pCard);	
 };
 
 //___________________________________________________________________________
@@ -1857,8 +1850,8 @@ class CBlowflyInfestationCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CBlowflyInfestationCard);
 
 protected:
-	bool CBlowflyInfestationCard::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
-										 CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
+							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 };
 
 //____________________________________________________________________________
@@ -2136,7 +2129,7 @@ class CCurseOfChainsCard : public CEnchantCard
 {
 	DECLARE_CARD_CSTOR(CCurseOfChainsCard);
 
-private:
+protected:
 	CEnchant* pEnchantSpell2;
 	bool SetTriggerContext(CTriggeredTapCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
 };

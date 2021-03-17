@@ -332,8 +332,8 @@ BEGIN
     IDS_STRING4202          "Sunpetal Grove\n\nLand\nM10,R\nSunpetal Grove enters the battlefield tapped unless you control a Forest or a Plains.\r{T}: Add {G} or {W} to your mana pool."
     IDS_STRING4203          "Sanguine Bond\n{3BB}\nEnchantment\nM10,R\nWhenever you gain life, target opponent loses that much life."
     IDS_STRING4204          "Garruk Wildspeaker\n{2GG}\nPlaneswalker - Garruk\nM10,MR\n[+1]: Untap two target lands.\r[-1]: Put a 3/3 green Beast creature token onto the battlefield.\r[-4]: Creatures you control get +3/+3 and gain trample until end of turn.\n3"
-    IDS_STRING4205          "Burning Inquiry\n{R}\nSorcery\nM10\nEach player draws three cards, then discards three cards at random."
-    IDS_STRING4206          "Child of Night\n{1B}\nCreature - Vampire\nM10\nLifelink\n2/1"
+    IDS_STRING4205          "Burning Inquiry\n{R}\nSorcery\nM10,C\nEach player draws three cards, then discards three cards at random."
+    IDS_STRING4206          "Child of Night\n{1B}\nCreature - Vampire\nM10,C\nLifelink\n2/1"
     IDS_STRING4207          "Sleep\n{2UU}\nSorcery\nM10,U\nTap all creatures target player controls. Those creatures don't untap during that player's next untap step."
 END
 
@@ -363,7 +363,7 @@ BEGIN
     IDS_STRING4225          "Armored Ascension\n{3W}\nEnchantment - Aura\nM10,U\nEnchant creature\rEnchanted creature gets +1/+1 for each Plains you control and has flying."
     IDS_STRING4226          "Lifelink\n{W}\nEnchantment - Aura\nM10,C\nEnchant creature\rEnchanted creature has lifelink."
     IDS_STRING4227          "Bogardan Hellkite\n{6RR}\nCreature - Dragon\nM10,MR\nFlash\rFlying\rWhen Bogardan Hellkite enters the battlefield, it deals 5 damage divided as you choose among any number of target creatures and/or players.\n5/5"
-    IDS_STRING4228          "Yawning Fissure\n{4R}\nSorcery\nM10\nEach opponent sacrifices a land."
+    IDS_STRING4228          "Yawning Fissure\n{4R}\nSorcery\nM10,C\nEach opponent sacrifices a land."
     IDS_STRING4229          "Rise from the Grave\n{4B}\nSorcery\nM10,U\nPut target creature card from a graveyard onto the battlefield under your control. That creature is a black Zombie in addition to its other colors and types."
     IDS_STRING4230          "Fireball\n{XR}\nSorcery\nM10,U\nFireball deals X damage divided evenly, rounded down, among any number of target creatures and/or players.\rFireball costs {1} more to cast for each target beyond the first."
     IDS_STRING4231          "Ice Cage\n{1U}\nEnchantment - Aura\nM10,C\nEnchant creature\rEnchanted creature can't attack or block, and its activated abilities can't be activated.\rWhen enchanted creature becomes the target of a spell or ability, destroy Ice Cage."

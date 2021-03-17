@@ -5165,7 +5165,7 @@ void CBloodClockCard::OnPaymentSelected(const std::vector<SelectionEntry>& selec
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s returns a permanent he controls to its owner's hand"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
+					strMessage.Format(_T("%s returns a permanent he controls to its owner's hand"), pSelectionPlayer->GetPlayerName());
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),

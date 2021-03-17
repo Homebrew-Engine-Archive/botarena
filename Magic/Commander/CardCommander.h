@@ -208,14 +208,6 @@ class CHydraOmnivoreCard : public CCreatureCard
 
 //____________________________________________________________________________
 //
-class CHornetQueenCard : public CFlyingCreatureCard 
-{
-	DECLARE_CARD_CSTOR(CHornetQueenCard);
-
-};
-
-//____________________________________________________________________________
-//
 class CMagmaticForceCard : public CCreatureCard 
 {
 	DECLARE_CARD_CSTOR(CMagmaticForceCard);

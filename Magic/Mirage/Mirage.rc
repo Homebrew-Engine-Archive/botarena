@@ -372,9 +372,9 @@ BEGIN
     IDS_STRING9434          "Soul Rend\n{1B}\nInstant\nMRG,U\nDestroy target creature if it's white. A creature destroyed this way can't be regenerated.\rDraw a card at the beginning of the next turn's upkeep."
     IDS_STRING9435          "Crypt Cobra\n{3B}\nCreature - Snake\nMRG,U\nWhenever Crypt Cobra attacks and isn't blocked, defending player gets a poison counter.\n3/3"
     IDS_STRING9436          "Mind Harness\n{U}\nEnchantment - Aura\nMRG,U\nEnchant red or green creature\rCumulative upkeep {1}\rYou control enchanted creature."
-    IDS_STRING9437          "Prismatic Circle\n{2W}\nEnchantment\nMRG\nCumulative upkeep {1}\rAs Prismatic Circle enters the battlefield, choose a color.\r{1}: The next time a source of your choice of the chosen color would deal damage to you this turn, prevent that damage."
+    IDS_STRING9437          "Prismatic Circle\n{2W}\nEnchantment\nMRG,C\nCumulative upkeep {1}\rAs Prismatic Circle enters the battlefield, choose a color.\r{1}: The next time a source of your choice of the chosen color would deal damage to you this turn, prevent that damage."
     IDS_STRING9438          "Thirst\n{2U}\nEnchantment - Aura\nMRG,C\nEnchant creature\rWhen Thirst enters the battlefield, tap enchanted creature.\rEnchanted creature doesn't untap during its controller's untap step.\rAt the beginning of your upkeep, sacrifice Thirst unless you pay {U}."
-    IDS_STRING9439          "Urborg Panther\n{2B}\nCreature - Nightstalker Cat\nMRG\n{B}, Sacrifice Urborg Panther: Destroy target creature blocking Urborg Panther.\rSacrifice a creature named Feral Shadow, a creature named Breathstealer, and Urborg Panther: Search your library for a card named Spirit of the Night and put that card onto the battlefield. Then shuffle your library.\n2/2"
+    IDS_STRING9439          "Urborg Panther\n{2B}\nCreature - Nightstalker Cat\nMRG,C\n{B}, Sacrifice Urborg Panther: Destroy target creature blocking Urborg Panther.\rSacrifice a creature named Feral Shadow, a creature named Breathstealer, and Urborg Panther: Search your library for a card named Spirit of the Night and put that card onto the battlefield. Then shuffle your library.\n2/2"
 END
 
 STRINGTABLE

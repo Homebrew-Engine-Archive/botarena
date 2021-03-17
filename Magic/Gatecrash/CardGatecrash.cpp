@@ -83,7 +83,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CForcedAdaptationCard);
 		DEFINE_CARD(CFortressCyclopsCard);
 		DEFINE_CARD(CFoundryChampionCard);
-		DEFINE_CARD(CFoundryStreetDenizenCard);
 		DEFINE_CARD(CFrilledOculusCard);
 		DEFINE_CARD(CFrontlineMedicCard);
 		DEFINE_CARD(CFuriousResistanceCard);
@@ -2930,7 +2929,7 @@ bool CLordOfTheVoidCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 
 		pModifier.ApplyTo(pTriggered);
 
-		if (pExiledCards.GetSize() > 0);
+		if (pExiledCards.GetSize() > 0)
 		{
 			std::vector<SelectionEntry> entries;
 			for (int i = 0; i < pExiledCards.GetSize(); ++i)
@@ -3419,9 +3418,8 @@ void CVizkopaConfessorCard::OnCardSelected1(const std::vector<SelectionEntry>& s
 		}
 }
 
-void CVizkopaConfessorCard::PickExile (CPlayer* pController, CPlayer* pTarget)
+void CVizkopaConfessorCard::PickExile(CPlayer* pController, CPlayer* pTarget)
 {
-	CZone* pHand = pTarget->GetZoneById(ZoneId::Hand);
 	std::vector<SelectionEntry> entries;
 	for (int i = 0; i < pPickedCards.GetSize(); ++i)
 	{
@@ -3447,7 +3445,6 @@ void CVizkopaConfessorCard::OnCardSelected2(const std::vector<SelectionEntry>& s
 		if (it->bSelected)
 		{
 			CCard* pCard = (CCard*)it->dwContext;
-			CPlayer* pTarget = (CPlayer*)dwContext1;
 
 			if (!m_pGame->IsThinking())
 			{
@@ -3485,8 +3482,6 @@ CUndercityInformerCard::CUndercityInformerCard(CGame* pGame, UINT nID)
 
 bool CUndercityInformerCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
-	
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 
 	CZone* pLibrary = pTarget->GetZoneById(ZoneId::Library);
@@ -4952,30 +4947,29 @@ bool CDuskmantleSeerCard::BeforeResolution(CAbilityAction* pAction)
 	{
 		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
 		CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
-
-		if (pLibrary->GetSize() > 0)
+		if (pLibrary->GetSize() == 0)					// if library contains no cards
 		{
-			CCard* pCard = pLibrary->GetTopCard();
-
-			int nCMC = 0;
-			
-			if (!pCard->GetCardType().IsLand())
-				nCMC = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-			
-			CZoneModifier pModifier1 = CZoneModifier(GetGame(),
-				ZoneId::Library, 1,
-				CZoneModifier::RoleType::PrimaryPlayer,
-				CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
-			pModifier1.ApplyTo(pPlayer);
-
-			CLifeModifier pModifier2 = CLifeModifier(Life(-nCMC), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
-			pModifier2.ApplyTo(pPlayer);
-
-			CMoveCardModifier pModifier3 = CMoveCardModifier(ZoneId::Library, ZoneId::Hand, TRUE, MoveType::Others, pPlayer);
-			pModifier3.ApplyTo(pCard);
+			pPlayer->SetDrawFailed();					// can not draw a card to put into your hand, so draw has failed
+			continue;									// no point continuing with the current player move straight onto next player
 		}
-	}
+		CCard* pNextDraw = pLibrary->GetTopCard();
+		int nCost = 0;
+		if (!pNextDraw->GetCardType().IsLand())
+			nCost = pNextDraw->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
 
+		CZoneModifier pModifier1 = CZoneModifier(GetGame(),
+												 ZoneId::Library, 1,
+												 CZoneModifier::RoleType::PrimaryPlayer,
+												 CardPlacement::Top, 
+												 CZoneModifier::RoleType::AllPlayers);
+		pModifier1.ApplyTo(pPlayer);
+
+		CLifeModifier pModifier2 = CLifeModifier(Life(-nCost), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+		pModifier2.ApplyTo(pPlayer);
+
+		CMoveCardModifier pModifier3 = CMoveCardModifier(ZoneId::Library, ZoneId::Hand, TRUE, MoveType::Others, pPlayer);
+		pModifier3.ApplyTo(pNextDraw);
+	}
 	return true;
 }
 
@@ -5023,7 +5017,7 @@ bool CMimingSlimeCard::BeforeResolution(CAbilityAction* pAction) const
 	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
 
 	bool bFirst = true;
-	Power n = 0;
+	Power n = Power(0);
 
 	for (int i = 0; i < pBattlefield->GetSize(); ++i)
 	{
@@ -5046,7 +5040,11 @@ bool CMimingSlimeCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)
@@ -5166,7 +5164,7 @@ counted_ptr<CAbility> CRealmwrightCard::CreateAbility1(CCard* pCard)
 {
 	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
 		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, WHITE_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
+	ATLASSERT(cpBasicLandManaAbility);
 
 	cpBasicLandManaAbility->AddTapCost();
 
@@ -5205,7 +5203,7 @@ counted_ptr<CAbility> CRealmwrightCard::CreateAbility2(CCard* pCard)
 {
 	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
 		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, BLUE_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
+	ATLASSERT(cpBasicLandManaAbility);
 
 	cpBasicLandManaAbility->AddTapCost();
 
@@ -5243,7 +5241,7 @@ counted_ptr<CAbility> CRealmwrightCard::CreateAbility3(CCard* pCard)
 {
 	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
 		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, BLACK_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
+	ATLASSERT(cpBasicLandManaAbility);
 
 	cpBasicLandManaAbility->AddTapCost();
 
@@ -5281,7 +5279,7 @@ counted_ptr<CAbility> CRealmwrightCard::CreateAbility4(CCard* pCard)
 {
 	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
 		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, RED_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
+	ATLASSERT(cpBasicLandManaAbility);
 
 	cpBasicLandManaAbility->AddTapCost();
 
@@ -5319,7 +5317,7 @@ counted_ptr<CAbility> CRealmwrightCard::CreateAbility5(CCard* pCard)
 {
 	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
 		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, GREEN_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
+	ATLASSERT(cpBasicLandManaAbility);
 
 	cpBasicLandManaAbility->AddTapCost();
 
@@ -5598,9 +5596,13 @@ void CMysticGenesisCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Ooze D"), 2863));		
@@ -5612,7 +5614,7 @@ void CMysticGenesisCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 		
 		CCreatureCard* pCreature = (CCreatureCard*)cpToken.GetPointer();
 
-		pCreature->SetPrintedPower(nCMC);
+		pCreature->SetPrintedPower(Power(nCMC));
 		pCreature->SetPrintedToughness(Life(nCMC));		
 
 		cpToken->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
@@ -5776,7 +5778,6 @@ CBalustradeSpyCard::CBalustradeSpyCard(CGame* pGame, UINT nID)
 
 bool CBalustradeSpyCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 	
 	CZone* pLibrary = pTarget->GetZoneById(ZoneId::Library);
@@ -6983,7 +6984,6 @@ CDinrovaHorrorCard::CDinrovaHorrorCard(CGame* pGame, UINT nID)
 
 bool CDinrovaHorrorCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCard* pTarget = pAction->GetAssociatedCard();
 	
 	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others, pAction->GetController());
@@ -6992,14 +6992,14 @@ bool CDinrovaHorrorCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		CCardFilter::GetFilter(_T("cards")), // any cards
-		ZoneId::Graveyard, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on top
-		MoveType::Discard, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		CZoneModifier::RoleType::PrimaryPlayer, 			 // select by 
+		CZoneModifier::RoleType::PrimaryPlayer, 			 // reveal to
+		CCardFilter::GetFilter(_T("cards")), 				 // any cards
+		ZoneId::Graveyard, 									 // if selected, move cards to
+		CZoneModifier::RoleType::PrimaryPlayer, 			 // select by this player
+		CardPlacement::Top, 								 // put selected cards on top
+		MoveType::Discard, 									 // move type
+		CZoneModifier::RoleType::PrimaryPlayer); 			 // order selected cards by this player
 		
 	pModifier.ApplyTo(pTarget->GetOwner());
 
@@ -7167,34 +7167,6 @@ CFortressCyclopsCard::CFortressCyclopsCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CFoundryStreetDenizenCard::CFoundryStreetDenizenCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Foundry Street Denizen"), CardType::Creature, CREATURE_TYPE2(Goblin, Warrior), nID,
-		RED_MANA_TEXT, Power(1), Life(1))
-{
-	typedef
-		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenCardMoved > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::_AllZones, ZoneId::Battlefield));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new CardTypeComparer(CardType::Red, false));
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new NegateCardComparer(new SpecificCardComparer(this)));
-	cpAbility->GetTrigger().SetToControllerOnly(TRUE);
-
-	cpAbility->GetPowerModifier().SetPowerDelta(Power(+1));
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(+0));
-	cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
-
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CFrilledOculusCard::CFrilledOculusCard(CGame* pGame, UINT nID)
 	: CPumpCreatureCard(pGame, _T("Frilled Oculus"), CardType::Creature, CREATURE_TYPE(Homunculus), nID,
 		_T("1") BLUE_MANA_TEXT, Power(1), Life(3),
@@ -7333,8 +7305,6 @@ CGuardianOfTheGatelessCard::CGuardianOfTheGatelessCard(CGame* pGame, UINT nID)
 
 bool CGuardianOfTheGatelessCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
-
 	CCardFilter m_CardFilter;
 	m_CardFilter.AddComparer(new AttackingThisCreatureComparer(this));
 
@@ -7397,7 +7367,6 @@ CHomingLightningCard::CHomingLightningCard(CGame* pGame, UINT nID)
 
 bool CHomingLightningCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCreatureCard* pTarget = (CCreatureCard*)pAction->GetAssociatedCard();
 
 	CCardFilter m_CardFilter;
@@ -9593,9 +9562,12 @@ bool CFathomMageCard::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextT
 bool CFathomMageCard::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
 										CCard* pFromCard, LPCTSTR name, int old, int n_value)
 {
-	if (pFromCard != this) return false;
-	if ((CString)name != _T("+1/+1")) return false;
-	if (n_value <= old) return false;
+	if (pFromCard != this) 
+		return false;
+	if ((CString)name != _T("+1/+1")) 
+		return false;
+	if (n_value <= old) 
+		return false;
 
 	CSpecialEffectModifier pModifier = CSpecialEffectModifier(this, COUNTER_TRIGGER_ID);
 

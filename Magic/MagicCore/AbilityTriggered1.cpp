@@ -792,11 +792,14 @@ BOOL CTriggeredCreateTokenAbility::ResolveSelection(CPlayer* pTriggeredPlayer, C
 
 	CPlayer* pController = pAction1->GetController();
 
-	int nTokenCount = pAction1->GetTriggerContext().nValue1;             // Doubling Season that doubles tokens
+	int nTokenCount = pAction1->GetTriggerContext().nValue1;
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pTriggeredPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pTriggeredPlayer->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
 	if (m_bCreate)
 	{
 		if (m_CreationNodeId == NodeId::Null)

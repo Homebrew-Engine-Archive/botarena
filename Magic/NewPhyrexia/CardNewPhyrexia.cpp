@@ -4351,10 +4351,7 @@ bool CLifesFinaleCard::BeforeResolution(CAbilityAction* pAction) const
 		std::auto_ptr<CCardModifier>(new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Destroy)));
 	
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-	{
-		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		pModifier.ApplyTo(GetGame()->GetPlayer(ip));
-	}
 
 	return true;
 }
@@ -5068,11 +5065,9 @@ void CCommanderCard::OnCardMoved(CCard* pCard, CZone* pFromZone, CZone* pToZone,
 	{
 		m_pAbility->EndEnchantment();
 
-			CManaCost mCost;
-			mCost.AddCost(CManaCost::Color::Generic, 0);
-			mCost.AddCost(CManaCost::Color::Generic, (2*(CastingTimes)));
-
-		int time = CastingTimes*2;
+		CManaCost mCost;
+		mCost.AddCost(CManaCost::Color::Generic, 0);
+		mCost.AddCost(CManaCost::Color::Generic, (2*(CastingTimes)));
 
 		m_pAbility->SetManaCost(mCost);
 
@@ -5082,9 +5077,9 @@ void CCommanderCard::OnCardMoved(CCard* pCard, CZone* pFromZone, CZone* pToZone,
 	if (set == FALSE && pCard->GetReplacementKeyword()->HasCommanderFlag() && pFromZone && pToZone == GetOwner()->GetZoneById(ZoneId::_Effects))
 	{
 		if ((pCard->GetCardType() & CardType::Green).Any()) green = TRUE;
-		if ((pCard->GetCardType() & CardType::Red).Any()) red = TRUE;
+		if ((pCard->GetCardType() & CardType::Red).Any())   red   = TRUE;
 		if ((pCard->GetCardType() & CardType::White).Any()) white = TRUE;
-		if ((pCard->GetCardType() & CardType::Blue).Any()) blue = TRUE;
+		if ((pCard->GetCardType() & CardType::Blue).Any())  blue  = TRUE;
 		if ((pCard->GetCardType() & CardType::Black).Any()) black = TRUE;
 
 		for (int i=0; i<pCard->GetAbilities().GetSize(); i++)
@@ -5222,10 +5217,12 @@ CKarnLiberatedCard::CKarnLiberatedCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 }
+
 void CKarnLiberatedCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	pExiledCards.AddCard(pAbilityAction->GetAssociatedCard(), CardPlacement::Top);
 }
+
 void CKarnLiberatedCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	//	if (GetGame()->IsThinking()) return;
@@ -5235,13 +5232,11 @@ void CKarnLiberatedCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 
 	stack.ClearStack();
 
-
 	CCountedCardContainer creatures;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 
@@ -5364,7 +5359,7 @@ void CKarnLiberatedCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 				}
 			}
 
-			GetGame()->GetPlayer(ip)->SetLife(GetGame()->GetPlayer(ip)->GetDeck().GetStartingLife() + LifeModifier);
+			GetGame()->GetPlayer(ip)->SetLife(Life(GetGame()->GetPlayer(ip)->GetDeck().GetStartingLife() + LifeModifier));
 
 			for (int i = 0; i <  GetGame()->GetPlayer(ip)->GetMaxHandSize(); ++i)
 			{

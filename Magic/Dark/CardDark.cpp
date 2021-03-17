@@ -1127,7 +1127,6 @@ void CWandOfIthCard::OnPunisherSelected(const std::vector<SelectionEntry>& selec
 			}
 			if ((int)it->dwContext == 1)
 			{
-				CCard* pCard = (CCard*)dwContext1;
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
@@ -1143,17 +1142,18 @@ void CWandOfIthCard::OnPunisherSelected(const std::vector<SelectionEntry>& selec
 			}
 			if ((int)it->dwContext == 2)
 			{
+				int iLifePaid = (int)dwContext2;
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s pays %d life"), pSelectionPlayer->GetPlayerName());
+					strMessage.Format(_T("%s pays %d life"), pSelectionPlayer->GetPlayerName(), iLifePaid);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
 						MessageImportance::High
 						);
 				}
-				CLifeModifier pModifier = CLifeModifier(Life(-(int)dwContext2), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+				CLifeModifier pModifier = CLifeModifier(Life(-iLifePaid), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 
 				pModifier.ApplyTo(pSelectionPlayer);
 				
@@ -1258,8 +1258,6 @@ void CPsychicAllergyCard::OnSelectionDone(const std::vector<SelectionEntry>& sel
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -1268,31 +1266,26 @@ void CPsychicAllergyCard::OnSelectionDone(const std::vector<SelectionEntry>& sel
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}

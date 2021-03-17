@@ -899,7 +899,6 @@ void CAbility::LogIllegalResolution(LPCSTR strFunction, LPCSTR strFile, int nLin
 
 CUsageAbility* CAbility::GetPlayerUsage(const CPlayer* pPlayer) const
 {
-	CUsageAbility* pUsageAbility = NULL;
 	PlayerUsageAbilityMap::const_iterator it = m_Usages.find(pPlayer);
 	if (it != m_Usages.end())
 		return it->second;

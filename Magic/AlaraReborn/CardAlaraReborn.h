@@ -915,6 +915,8 @@ protected:
 class CThoughtHemorrhageCard : public CCard
 {
     DECLARE_CARD_CSTOR(CThoughtHemorrhageCard);
+protected:
+	CCardFilter m_CardFilter;
 };
 
 //_____________________________________________________________________________

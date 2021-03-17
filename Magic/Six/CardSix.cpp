@@ -2522,7 +2522,6 @@ bool CPolymorphCard::BeforeResolution(CAbilityAction* pAction)
 
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 				
 	CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
 
@@ -2534,10 +2533,7 @@ bool CPolymorphCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->GetCardType().IsCreature())
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 		}
 	}
 
@@ -2547,14 +2543,14 @@ bool CPolymorphCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier2 = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier2.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			&m_CardFilter, // any cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,			  // select by 
+			CZoneModifier::RoleType::AllPlayers,			  // reveal to
+			&m_CardFilter,									  // any cards
+			ZoneId::Battlefield,							  // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,			  // select by this player
+			CardPlacement::Top,								  // put selected cards on top
+			MoveType::Others,								  // move type
+			CZoneModifier::RoleType::PrimaryPlayer);		  // order selected cards by this player
 		
 	pModifier2.ApplyTo(pPlayer);
 	pLibrary->Shuffle();
@@ -2773,7 +2769,7 @@ CIllicitAuctionCard::CIllicitAuctionCard(CGame* pGame, UINT nID)
 bool CIllicitAuctionCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CCard* pTarget = pAction->GetAssociatedCard();
-	int pPlayerID;
+	int pPlayerID = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		if (GetGame()->GetPlayer(ip) == pAction->GetController())
 		{

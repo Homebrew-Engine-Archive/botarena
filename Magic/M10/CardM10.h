@@ -1057,9 +1057,9 @@ class CLurkingPredatorsCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CLurkingPredatorsCard);
 
 protected:
-		typedef
-			TTriggeredAbility< CTriggeredRevealLibraryAbility, CWhenSpellCast > TriggeredAbility;
-	void CLurkingPredatorsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	typedef
+		TTriggeredAbility< CTriggeredRevealLibraryAbility, CWhenSpellCast > TriggeredAbility;
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 };
 

@@ -236,8 +236,8 @@ class CTeysaEnvoyOfGhostsCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CTeysaEnvoyOfGhostsCard);
 
 protected:
-	bool CTeysaEnvoyOfGhostsCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
-										  CCard* pCard, CPlayer* pToPlayer, Damage pDamage);
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+						   CCard* pCard, CPlayer* pToPlayer, Damage pDamage);
 
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
@@ -843,13 +843,6 @@ class CAweForTheGuildsCard : public CCard
 
 //____________________________________________________________________________
 //
-class CClearAPathCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CClearAPathCard);
-};
-
-//____________________________________________________________________________
-//
 class CPunishTheEnemyCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CPunishTheEnemyCard);
@@ -1204,6 +1197,13 @@ class CWoodlotCrawlerCard : public CLandwalkCreatureCard
 class CZhurTaaDruidCard : public CManaProductionTCreatureCard
 {
 	DECLARE_CARD_CSTOR(CZhurTaaDruidCard);
+};
+
+//____________________________________________________________________________
+//
+class CBlazeCommandoCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBlazeCommandoCard);
 };
 
 //____________________________________________________________________________

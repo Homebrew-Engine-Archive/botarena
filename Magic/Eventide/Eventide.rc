@@ -267,7 +267,7 @@ BEGIN
     IDS_STRING19049         "Banishing Knack\n{U}\nInstant\nEVE,C\nUntil end of turn, target creature gains ""{T}: Return target nonland permanent to its owner's hand."""
     IDS_STRING19050         "Sapling of Colfenor\n{3JJ}\nLegendary Creature - Treefolk Shaman\nEVE,R\nSapling of Colfenor is indestructible.\rWhenever Sapling of Colfenor attacks, reveal the top card of your library. If it's a creature card, you gain life equal to that card's toughness, lose life equal to its power, then put it into your hand.\n2/5"
     IDS_STRING19051         "Gilder Bairn\n{1LL}\nCreature -Ouphe\nEVE,U\n{2L}, {Q}:For each counter on target permanent, put another of those counters on that permanent.\n1/3"
-    IDS_STRING19052         "Spitting Image\n{4LL}\nSorcery\nEVE,R\nPut a token that's a copy of target creature onto the battlefield.\rRetrace\n"
+    IDS_STRING19052         "Spitting Image\n{4LL}\nSorcery\nEVE,R\nPut a token that's a copy of target creature onto the battlefield.\rRetrace"
     IDS_STRING19053         "Thunderblust\n{2RRR}\nCreature - Elemental\nEVE,R\nHaste\rThunderblust has trample as long as it has a -1/-1 counter on it.\rPersist\n7/2"
     IDS_STRING19054         "Necroskitter\n{1BB}\nCreature - Elemental\nEVE,R\nWither\rWhenever a creature an opponent controls with a -1/-1 counter on it dies, you may return that card to the battlefield under your control.\n1/4"
     IDS_STRING19055         "Crackleburr\n{1II}\nCreature - Elemental\nEVE,R\n{II}, {T}, Tap two untapped red creatures you control: Crackleburr deals 3 damage to target creature or player.\r{II}, {Q}, Untap two tapped blue creatures you control: Return target creature to its owner's hand.\n2/2"
@@ -284,11 +284,11 @@ BEGIN
     IDS_STRING19062         "Dominus of Fealty\n{IIIII}\nCreature - Spirit Avatar\nEVE,R\nFlying\rAt the beginning of your upkeep, you may gain control of target permanent until end of turn. If you do, untap it and it gains haste until end of turn.\n4/4"
     IDS_STRING19063         "Shrewd Hatchling\n{3I}\nCreature - Spirit Avatar\nEVE,R\nShrewd Hatchling enters the battlefield with four -1/-1 counters on it.\r{I}: Target creature can't block Shrewd Hatchling this turn.\rWhenever you cast a blue spell, remove a -1/-1 counter from Shrewd Hatchling.\rWhenever you cast a red spell, remove a -1/-1 counter from Shrewd Hatchling.\n6/6"
     IDS_STRING19064         "Mirror Sheen\n{1II}\nEnchantment\nEVE,R\n{1II}: : Copy target instant or sorcery spell that targets you. You may choose new targets for the copy."
-	IDS_STRING19065         "Phosphorescent Feast\n{2GGG}\nSorcery\nEVE,U\nChroma - Reveal any number of cards in your hand. You gain 2 life for each green mana symbol in those cards' mana costs."
-	IDS_STRING19066         "Endless Horizons\n{3W}\nEnchantment\nEVE,R\nWhen Endless Horizons enters the battlefield, search your library for any number of Plains cards and exile them. Then shuffle your library.\rAt the beginning of your upkeep, you may put a card you own exiled with Endless Horizons into your hand."
-	IDS_STRING19067         "Springjack Pasture\n\nLand\nEVE,R\n{T}: Add {1} to your mana pool.\r{4}, {T}: Put a 0/1 white Goat creature token onto the battlefield.\r{T}, Sacrifice X Goats: Add X mana of any one color to your mana pool. You gain X life."
-	IDS_STRING19068         "Pyrrhic Revival\n{3HHH}\nSorcery\nEVE,R\nEach player returns each creature card from his or her graveyard to the battlefield with an additional -1/-1 counter on it."
-	IDS_STRING19069         "Talara's Bane\n{1B}\nSorcery\nEVE,C\nTarget opponent reveals his or her hand. You choose a green or white creature card from it. You gain life equal to that creature card's toughness, then that player discards that card."
+    IDS_STRING19065         "Phosphorescent Feast\n{2GGG}\nSorcery\nEVE,U\nChroma - Reveal any number of cards in your hand. You gain 2 life for each green mana symbol in those cards' mana costs."
+    IDS_STRING19066         "Endless Horizons\n{3W}\nEnchantment\nEVE,R\nWhen Endless Horizons enters the battlefield, search your library for any number of Plains cards and exile them. Then shuffle your library.\rAt the beginning of your upkeep, you may put a card you own exiled with Endless Horizons into your hand."
+    IDS_STRING19067         "Springjack Pasture\n\nLand\nEVE,R\n{T}: Add {1} to your mana pool.\r{4}, {T}: Put a 0/1 white Goat creature token onto the battlefield.\r{T}, Sacrifice X Goats: Add X mana of any one color to your mana pool. You gain X life."
+    IDS_STRING19068         "Pyrrhic Revival\n{3HHH}\nSorcery\nEVE,R\nEach player returns each creature card from his or her graveyard to the battlefield with an additional -1/-1 counter on it."
+    IDS_STRING19069         "Talara's Bane\n{1B}\nSorcery\nEVE,C\nTarget opponent reveals his or her hand. You choose a green or white creature card from it. You gain life equal to that creature card's toughness, then that player discards that card."
 END
 
 #endif    // English (United States) resources

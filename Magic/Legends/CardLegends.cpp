@@ -2556,22 +2556,21 @@ bool CEurekaCard::BeforeResolution(CAbilityAction* pAction) const
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
 			CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 			pModifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to reorder
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			&m_CardFilter, // what cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on 
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,					 // select by 
+			CZoneModifier::RoleType::PrimaryPlayer,					 // reveal to
+			&m_CardFilter,											 // what cards
+			ZoneId::Battlefield,									 // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,					 // select by this player
+			CardPlacement::Top,										 // put selected cards on 
+			MoveType::Others,										 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);				 // order selected cards by this player
 
 	int cont_hand = cont->GetZoneById(ZoneId::Hand)->GetSize();
 	int opp_hand = opp->GetZoneById(ZoneId::Hand)->GetSize();
-	int cont_new_hand = 0;
-	int opp_new_hand = 0;
 
 	int loop = cont_hand;
-	if (opp_hand > cont_hand) loop = opp_hand;
+	if (opp_hand > cont_hand) 
+		loop = opp_hand;
 
 	for (int i = 0; i < loop; ++i)
 	{
@@ -2581,10 +2580,11 @@ bool CEurekaCard::BeforeResolution(CAbilityAction* pAction) const
 		pModifier.ApplyTo(cont);
 		pModifier.ApplyTo(opp);
 
-		cont_new_hand = cont->GetZoneById(ZoneId::Hand)->GetSize();
-		opp_new_hand = opp->GetZoneById(ZoneId::Hand)->GetSize();
+		int cont_new_hand = cont->GetZoneById(ZoneId::Hand)->GetSize();
+		int opp_new_hand = opp->GetZoneById(ZoneId::Hand)->GetSize();
 
-		if (cont_hand == cont_new_hand && opp_hand == opp_new_hand) break;
+		if (cont_hand == cont_new_hand && opp_hand == opp_new_hand) 
+			break;
 	}
 
 	return true;
@@ -3102,10 +3102,9 @@ void CTakklemaggotCard::OnResolutionCompleted(const CAbilityAction* pAbilityActi
 	pFilter->AddComparer(pComparer);
 
 	CCountedCardContainer cards;
-	CZone* pZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		pFilter->GetIncluded(*pZone, cards);
 		if (cards.GetSize() > 0) break;
 	}
@@ -3612,9 +3611,6 @@ CPetraSphinxCard::CPetraSphinxCard(CGame* pGame, UINT nID)
 
 bool CPetraSphinxCard::BeforeResolution(CAbilityAction* pAction)
 {
-	int nCards = pAction->GetCostConfigEntry().GetExtraValue();
-	
-	CPlayer* pController = pAction->GetController();
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 	int nZoneCount = pTarget->GetZoneCount();
 

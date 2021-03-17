@@ -3570,11 +3570,11 @@ CActionContainer* CGoblinWelderCard::CGoblinWelderAbility::GetAbilityActions(BOO
 		return NULL;
 
 	// Remove actions which involve cards from different players
-	CDoubleTargetSpellAction* pDoubleTargetAction;
 	for (int ia = pActionContainer->GetSize() - 1; ia >= 0; --ia)
 	{
-		pDoubleTargetAction = dynamic_cast<CDoubleTargetSpellAction*>(pActionContainer->GetAt(ia).GetPointer());
-		if (!pDoubleTargetAction) continue;
+		CDoubleTargetSpellAction* pDoubleTargetAction = dynamic_cast<CDoubleTargetSpellAction*>(pActionContainer->GetAt(ia).GetPointer());
+		if (!pDoubleTargetAction) 
+			continue;
 
 		if (pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject()->GetController() != pDoubleTargetAction->GetTargetGroup2().GetFirstCardSubject()->GetController())
 			pActionContainer->RemoveAt(ia);

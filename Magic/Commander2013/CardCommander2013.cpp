@@ -19,15 +19,21 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CAngelOfFinalityCard);
 		DEFINE_CARD(CBalefulForceCard);
 		DEFINE_CARD(CBaneOfProgressCard);
+		DEFINE_CARD(CDereviEmpyrialTacticianCard);
 		DEFINE_CARD(CFellShepherdCard);
 		DEFINE_CARD(CFromTheAshesCard);
+		DEFINE_CARD(CGahijiHonoredOneCard);
 		DEFINE_CARD(CHoodedHorrorCard);
+		DEFINE_CARD(CNekusartheMindrazerCard);
+		DEFINE_CARD(COloroAgelessAsceticCard);
 		DEFINE_CARD(COphiomancerCard);
 		DEFINE_CARD(CPriceOfKnowledgeCard);
 		DEFINE_CARD(CPrimalVigorCard);
 		DEFINE_CARD(CRestoreCard);
+		DEFINE_CARD(CShattergangBrothersCard);
 		DEFINE_CARD(CSpawningGroundsCard);
 		DEFINE_CARD(CSuddenDemiseCard);
+		DEFINE_CARD(CSydriGalvanicGeniusCard);
 		DEFINE_CARD(CTemptWithDiscoveryCard);
 		DEFINE_CARD(CTemptWithGloryCard);
 		DEFINE_CARD(CTemptWithImmortalityCard);
@@ -1109,10 +1115,9 @@ bool CFromTheAshesCard::BeforeResolution(CAbilityAction* pAction)
 	   is done, these are used later to determine the number of basic lands
 	   each player may search for.
 	*/
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip) 
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nNonBasicLand[ip] = (CCardFilter::GetFilter(_T("nonbasic lands"))->CountIncluded(pInplay->GetCardContainer()));
 	}
 	int pActivePlayerID;
@@ -1237,7 +1242,7 @@ void CFromTheAshesCard::OnSelectionDone(const std::vector<SelectionEntry>& selec
 //____________________________________________________________________________
 //
 CSuddenDemiseCard::CSuddenDemiseCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Sudden Demise Card"), CardType::Sorcery, nID)
+	: CCard(pGame, _T("Sudden Demise"), CardType::Sorcery, nID)
 	, m_ColorSelection(pGame, CSelectionSupport::SelectionCallback(this, &CSuddenDemiseCard::OnColorSelected))
 	, nLife(0)
 {
@@ -1489,10 +1494,9 @@ bool CBaneOfProgressCard::BeforeResolution(CAbilityAction* pAction)
 	   sacrifice is done, these are used later to determine how many +1/+1 counters 
 	   Bane of Progress gains when it enters the battlefield.
 	*/
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip) 
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		nCardDestroy = (CCardFilter::GetFilter(_T("artifacts or enchantments"))->CountIncluded(pInplay->GetCardContainer())) + nCardDestroy;
 	}
 	CCardCounterModifier* pModifier = new CCardCounterModifier(_T("+1/+1"), +nCardDestroy);
@@ -1500,8 +1504,6 @@ bool CBaneOfProgressCard::BeforeResolution(CAbilityAction* pAction)
 
 	return true;
 }
-	}
-}*/
 //____________________________________________________________________________
 //
 CPrimalVigorCard::CPrimalVigorCard(CGame* pGame, UINT nID)
@@ -1570,5 +1572,505 @@ counted_ptr<CAbility> CSpawningGroundsCard::CreateEnchantAbility(CCard* pEnchant
 	return counted_ptr<CAbility>(cpEnchantAbility.GetPointer());
 }
 
+
+//_________________________________________________________________________
+//
+CSydriGalvanicGeniusCard::CSydriGalvanicGeniusCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Sydri, Galvanic Genius"), CardType::_LegendaryCreature, CREATURE_TYPE2(Human, Artificer), nID,
+		_T("") WHITE_MANA_TEXT BLUE_MANA_TEXT BLACK_MANA_TEXT, Power(2), Life(2))
+{
+	{
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				_T("") BLACK_MANA_TEXT WHITE_MANA_TEXT,
+				Power(+0), Life(+0),
+				CreatureKeyword::Null, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable,
+				new CardTypeComparer(CardType::_ArtifactCreature, true)));
+
+		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Lifelink | CardKeyword::Deathtouch);
+		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetSpell>>(this,
+				_T("") BLUE_MANA_TEXT,
+			new CardTypeComparer(CardType::Artifact, false), false));
+
+		cpAbility->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new AnyCreatureComparer);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CSydriGalvanicGeniusCard::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CSydriGalvanicGeniusCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCard* pCard = pAction->GetAssociatedCard();
+	int nCMC = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+
+	CCardIsAlsoAModifier* pModifier1 = new CCardIsAlsoAModifier( _T("Animated Artifact B"), 64058, pAction->GetController());
+	CScheduledCardModifier pModifier2 =  CScheduledCardModifier(
+			GetGame(), pModifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, true,  CScheduledCardModifier::Operation::RemoveFromLater);
+
+	pModifier1->ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
+
+	CCreatureCard* pCreature = (CCreatureCard*)pCard->GetIsAlsoA();
+
+	pCreature->SetPrintedPower(Power(nCMC));
+	pCreature->SetPrintedToughness(Life(nCMC));
+
+	return true;
+}
+
 //____________________________________________________________________________
 //
+CNekusartheMindrazerCard::CNekusartheMindrazerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Nekusar, the Mindrazer"), CardType::_LegendaryCreature, CREATURE_TYPE2(Zombie, Wizard), nID,
+		_T("2")  BLUE_MANA_TEXT BLACK_MANA_TEXT RED_MANA_TEXT, Power(2), Life(4))
+{
+	{
+		typedef
+			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::DrawStep2));
+
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenCardDrew > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(-1));
+		cpAbility->GetLifeModifier().SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+		cpAbility->AddAbilityTag(AbilityTag::DamageSource);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+//____________________________________________________________________________
+//
+COloroAgelessAsceticCard::COloroAgelessAsceticCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Oloro, Ageless Ascetic"), CardType::_LegendaryCreature, CREATURE_TYPE2(Giant, Soldier), nID,
+		_T("3")  WHITE_MANA_TEXT BLUE_MANA_TEXT BLACK_MANA_TEXT , Power(4), Life(5))
+
+{
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(+2));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+
+		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, false));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &COloroAgelessAsceticCard::SetTriggerContext));
+		//cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRoyalAssassinAvatarCard::BeforeResolution));
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(+2), this, PreventableType::NotPreventable)); // lost of life, not preventable
+
+		cpAbility->GetTargeting().SetIncludeOpponentPlayersOnly();
+		cpAbility->AddAbilityTag(AbilityTag::LifeGain);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+
+		typedef
+			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenPlayerLifeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new COpponentModifier(GetGame(), new CLifeModifier(Life(-1), this, PreventableType::NotPreventable,
+			DamageType::NotDealingDamage)));
+
+		cpAbility->SetResolutionCost(_T("1"));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &COloroAgelessAsceticCard::SetTriggerContext));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+
+}
+
+bool COloroAgelessAsceticCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode) const
+{
+	return (GetZone()->GetZoneId() == ZoneId::_Effects);
+}
+
+bool COloroAgelessAsceticCard::SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext, 
+											const CPlayer* pPlayer, Life nFromLife, Life nToLife) const
+{
+	if (nToLife > nFromLife) 
+		return true;
+
+	return false;
+}
+//____________________________________________________________________________
+//
+CDereviEmpyrialTacticianCard::CDereviEmpyrialTacticianCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Derevi, Empyrial Tactician"), CardType::_LegendaryCreature, CREATURE_TYPE2(Bird, Wizard), nID,
+		_T("") GREEN_MANA_TEXT WHITE_MANA_TEXT BLUE_MANA_TEXT, Power(2), Life(3))
+		, m_TapSelection(pGame, CSelectionSupport::SelectionCallback(this, &CDereviEmpyrialTacticianCard::OnTapSelected))
+		, m_TargetZoneSelection(pGame, CSelectionSupport::SelectionCallback(this, &CDereviEmpyrialTacticianCard::OnTargetZoneSelected))
+{
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDereviEmpyrialTacticianCard::BeforeResolution));
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+    {
+		counted_ptr<CSelfMoveCardAbility> cpAbility(
+			::CreateObject<CSelfMoveCardAbility>(this,
+				_T("1") GREEN_MANA_TEXT WHITE_MANA_TEXT BLUE_MANA_TEXT,
+				ZoneId::Battlefield, FALSE, MoveType::Others));
+
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenDamageDealt, 
+								CWhenDamageDealt::PlayerEventCallback, 
+								&CWhenDamageDealt::SetPlayerEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
+		cpAbility->GetTrigger().GetFromCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetFromCardFilterHelper().GetCustomFilter().AddComparer(new TrueCardComparer);
+		cpAbility->GetTrigger().SetCombatDamageOnly(TRUE);	
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CDereviEmpyrialTacticianCard::BeforeResolution));	
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredTapCardAbility, CSpecialTrigger > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->GetTrigger().SetTriggerIndex(1);
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this));
+
+		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
+		
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::UntapSingleCard);
+
+
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredTargetAbility< CTriggeredTapCardAbility, CSpecialTrigger > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->GetTrigger().SetTriggerIndex(2);                                                // Certain index activated by modifier
+		cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+		cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new SpecificCardComparer(this)); // Certain card activated by modifier
+
+		cpAbility->GetTargeting().SetSubjectZoneId(ZoneId::Battlefield);
+		cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
+		//cpAbility->GetTargeting().SetIncludeNonControllerCardsOnly();
+
+		cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::TapSingleCard);
+		//cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Positive);
+			
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+bool CDereviEmpyrialTacticianCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCard* pTarget = pAction->GetAssociatedCard();
+	
+	if (pTarget->GetOrientation()->IsTapped())
+	{
+		std::vector<SelectionEntry> entries;
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 0;
+			selectionEntry.strText.Format(_T("Don't untap %s"), pTarget->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("Untap %s"), pTarget->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		m_TapSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController(), 0, (DWORD)pTarget);
+	}
+	else
+	{
+		std::vector<SelectionEntry> entries;
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 0;
+			selectionEntry.strText.Format(_T("Don't tap %s"), pTarget->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("Tap %s"), pTarget->GetCardName(TRUE));
+
+			entries.push_back(selectionEntry);
+		}
+		m_TapSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController(), 1, (DWORD)pTarget);
+	}
+	return true;
+}
+
+void CDereviEmpyrialTacticianCard::OnTapSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 1)
+			{
+				CCard* pCard = (CCard*)dwContext2;
+
+				CCardOrientationModifier pModifier = CCardOrientationModifier(dwContext1);
+				pModifier.ApplyTo(pCard);
+				return;
+			}
+			return;
+		}
+}
+
+bool CDereviEmpyrialTacticianCard::BeforeResolution(CDereviEmpyrialTacticianCard::TriggeredAbility::TriggeredActionType* pAction)
+{
+	std::vector<SelectionEntry> entries;
+
+	if (pAction->GetController()->GetZoneById(ZoneId::Battlefield)->GetSize()>0)
+	{
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("Untap target permanent"));
+
+			entries.push_back(selectionEntry);
+		}
+	}
+	if (m_pGame->GetNextPlayer(GetController())->GetZoneById(ZoneId::Battlefield)->GetSize()>0 )
+	{
+		{
+			SelectionEntry selectionEntry;
+
+			selectionEntry.dwContext = 2;
+			selectionEntry.strText.Format(_T("tap target permanent"));
+
+			entries.push_back(selectionEntry);
+		}
+	}
+
+	m_TargetZoneSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	return false;
+}
+void CDereviEmpyrialTacticianCard::OnTargetZoneSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 1)
+			{
+				CSpecialEffectModifier pModifier = CSpecialEffectModifier((CCard*)this, 1);        // With this modifier we activate SpecialTrigger for certain card (this) with certain index (1)
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			if ((int)it->dwContext == 2)
+			{
+				CSpecialEffectModifier pModifier = CSpecialEffectModifier((CCard*)this, 2);
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			return;
+		}
+}
+//____________________________________________________________________________
+//
+CGahijiHonoredOneCard::CGahijiHonoredOneCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Gahiji, Honored One"), CardType::_LegendaryCreature, CREATURE_TYPE(Beast), nID,
+		_T("2") RED_MANA_TEXT GREEN_MANA_TEXT WHITE_MANA_TEXT, Power(4), Life(4))
+{
+	typedef
+		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenAttackedBlocked,
+							CWhenAttackedBlocked::PlayerEventCallback, &CWhenAttackedBlocked::SetAttackingEventCallback> TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
+	cpAbility->GetPowerModifier().SetPowerDelta(Power(+2));
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGahijiHonoredOneCard::SetTriggerContext));
+
+	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CGahijiHonoredOneCard::SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext, 
+										 CCreatureCard* pCreature,
+										 AttackSubject attacked) const
+{
+	triggerContext.m_pCreature = pCreature;
+	return (pCreature->GetAttackedPlayer() != GetController());
+	//Does the creature attack defending player (and not a planeswalker)?
+}
+//____________________________________________________________________________
+//
+
+CRoonoftheHiddenRealmCard::CRoonoftheHiddenRealmCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Roon of the Hidden Realm"), CardType::_LegendaryCreature, CREATURE_TYPE2(Rhino, Soldier), nID,
+		_T("2")  GREEN_MANA_TEXT WHITE_MANA_TEXT BLUE_MANA_TEXT, Power(4), Life(4))
+    , m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+			&CRoonoftheHiddenRealmCard::OnResolutionCompleted))
+{
+	GetCreatureKeyword()->AddVigilance(FALSE);
+	GetCreatureKeyword()->AddTrample(FALSE);
+	{
+		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
+				_T("2"),
+				new AnyCreatureComparer,
+				ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others));
+
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+		cpAbility->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new SpecificCardComparer(this)); // Not this card
+		cpAbility->AddTapCost();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+void CRoonoftheHiddenRealmCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) 
+		return;
+
+	CCountedCardContainer pSubjects;
+	CCard* pTarget = pAbilityAction->GetAssociatedCard();
+	if (pTarget->GetZoneId() == ZoneId::Exile)
+		pSubjects.AddCard(pTarget, CardPlacement::Top);
+
+	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("End Step Return from Exile Effect"), 61057, &pSubjects);
+	pModifier.ApplyTo(pAbilityAction->GetController());
+}
+//____________________________________________________________________________
+//
+CShattergangBrothersCard::CShattergangBrothersCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Shattergang Brothers"), CardType::_LegendaryCreature, CREATURE_TYPE2(Goblin, Artificer), nID,
+		_T("1")  BLACK_MANA_TEXT RED_MANA_TEXT GREEN_MANA_TEXT, Power(3), Life(3))
+{
+	{
+		counted_ptr<CActivatedAbility<CTargetPlayerSacrificeSpell2>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetPlayerSacrificeSpell2>>(this,
+				_T("2") BLACK_MANA_TEXT,
+				CCardFilter::GetFilter(_T("creatures"))));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetTargeting()->SetIncludeOpponentPlayersOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetPlayerSacrificeSpell2>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetPlayerSacrificeSpell2>>(this,
+				_T("2") RED_MANA_TEXT,
+				CCardFilter::GetFilter(_T("artifacts"))));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetTargeting()->SetIncludeOpponentPlayersOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetPlayerSacrificeSpell2>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetPlayerSacrificeSpell2>>(this,
+				_T("2") GREEN_MANA_TEXT,
+				CCardFilter::GetFilter(_T("enchantments"))));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetTargeting()->SetIncludeOpponentPlayersOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+//____________________________________________________________________________
+//
+

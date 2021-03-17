@@ -1289,16 +1289,6 @@ class CBearscapeCard : public CInPlaySpellCard
 
 //____________________________________________________________________________
 //
-class CCausticTarCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CCausticTarCard);
-
-private:
-	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
-};
-
-//____________________________________________________________________________
-//
 class CChamberOfManipulationCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CChamberOfManipulationCard);
@@ -1543,7 +1533,7 @@ class CDruidsCallCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDruidsCallCard);
 
-private:
+protected:
 	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
 	typedef 
 		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenDamageDealt,

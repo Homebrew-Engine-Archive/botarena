@@ -94,9 +94,9 @@ BEGIN
     IDS_STRING13808         "Battle Screech\n{2WW}\nSorcery\nJUD,U\nPut two 1/1 white Bird creature tokens with flying onto the battlefield.\rFlashback - Tap three untapped white creatures you control."
     IDS_STRING13809         "Canopy Claws\n{G}\nInstant\nJUD,C\nTarget creature loses flying until end of turn.\rFlashback {G}"
     IDS_STRING13810         "Crush of Wurms\n{6GGG}\nSorcery\nJUD,R\nPut three 6/6 green Wurm creature tokens onto the battlefield.\rFlashback {9GGG}"
-    IDS_STRING13811         "Folk Medicine\n{2G}\nInstant\nJUD\nYou gain 1 life for each creature you control.\rFlashback {1W}"
-    IDS_STRING13812         "Lava Dart\n{R}\nInstant\nJUD\nLava Dart deals 1 damage to target creature or player.\rFlashback - Sacrifice a Mountain."
-    IDS_STRING13813         "Ray of Revelation\n{1W}\nInstant\nJUD\nDestroy target enchantment.\rFlashback {G}"
+    IDS_STRING13811         "Folk Medicine\n{2G}\nInstant\nJUD,C\nYou gain 1 life for each creature you control.\rFlashback {1W}"
+    IDS_STRING13812         "Lava Dart\n{R}\nInstant\nJUD,C\nLava Dart deals 1 damage to target creature or player.\rFlashback - Sacrifice a Mountain."
+    IDS_STRING13813         "Ray of Revelation\n{1W}\nInstant\nJUD,C\nDestroy target enchantment.\rFlashback {G}"
     IDS_STRING13814         "Solitary Confinement\n{2W}\nEnchantment\nJUD,R\nAt the beginning of your upkeep, sacrifice Solitary Confinement unless you discard a card.\rSkip your draw step.\rYou have shroud.\rPrevent all damage that would be dealt to you."
     IDS_STRING13815         "Guided Strike\n{1W}\nInstant\nJUD,C\nTarget creature gets +1/+0 and gains first strike until end of turn.\rDraw a card."
     IDS_STRING13816         "Aven Fogbringer\n{3U}\nCreature - Bird Wizard\nJUD,C\nFlying\rWhen Aven Fogbringer enters the battlefield, return target land to its owner's hand.\n2/1"
@@ -193,9 +193,9 @@ STRINGTABLE
 BEGIN
     IDS_STRING13888         "Mirari's Wake\n{3GW}\nEnchantment\nJUD,R\nCreatures you control get +1/+1.\rWhenever you tap a land for mana, add one mana to your mana pool of any type that land produced."
     IDS_STRING13889         "Burning Wish\n{1R}\nSorcery\nJUD,R\nYou may choose a sorcery card you own from outside the game, reveal that card, and put it into your hand. Exile Burning Wish."
-    IDS_STRING13890         "Cunning Wish\n{2U}\nInstant\nJUD,R\nYou may choose an instant card you own from outside the game, reveal that card, and put it into your hand. Exile Cunning Wish.\n"
-    IDS_STRING13891         "Golden Wish\n{3WW}\nSorcery\nJUD,R\nYou may choose an artifact or enchantment card you own from outside the game, reveal that card, and put it into your hand. Exile Golden Wish.\n"
-    IDS_STRING13892         "Death Wish\n{1B}\nSorcery\nJUD,R\nYou may choose a card you own from outside the game and put it into your hand. You lose half your life, rounded up. Exile Death Wish.\n"
+    IDS_STRING13890         "Cunning Wish\n{2U}\nInstant\nJUD,R\nYou may choose an instant card you own from outside the game, reveal that card, and put it into your hand. Exile Cunning Wish."
+    IDS_STRING13891         "Golden Wish\n{3WW}\nSorcery\nJUD,R\nYou may choose an artifact or enchantment card you own from outside the game, reveal that card, and put it into your hand. Exile Golden Wish."
+    IDS_STRING13892         "Death Wish\n{1B}\nSorcery\nJUD,R\nYou may choose a card you own from outside the game and put it into your hand. You lose half your life, rounded up. Exile Death Wish."
     IDS_STRING13893         "Living Wish\n{1G}\nSorcery\nJUD,R\nYou may choose a creature or land card you own from outside the game, reveal that card, and put it into your hand. Exile Living Wish."
     IDS_STRING13894         "Erhnam Djinn\n{3G}\nCreature - Djinn\nJUD,R\nAt the beginning of your upkeep, target non-Wall creature an opponent controls gains forestwalk until your next upkeep.\n4/5"
     IDS_STRING13895         "Venomous Vines\n{2GG}\nSorcery\nJUD,C\nDestroy target enchanted permanent."
@@ -206,7 +206,7 @@ BEGIN
     IDS_STRING13900         "Infectious Rage\n{1R}\nEnchantment - Aura\nJUD,U\nEnchant creature\rEnchanted creature gets +2/-1.\rWhen enchanted creature dies, choose a creature at random Infectious Rage can enchant. Return Infectious Rage to the battlefield attached to that creature."
     IDS_STRING13901         "Stitch Together\n{BB}\nSorcery\nJUD,U\nReturn target creature card from your graveyard to your hand.\rThreshold - Return that card from your graveyard to the battlefield instead if seven or more cards are in your graveyard."
     IDS_STRING13902         "Riftstone Portal\n\nLand\nJUD,U\n{T}: Add {1} to your mana pool.\rAs long as Riftstone Portal is in your graveyard, lands you control have ""{T}: Add {G} or {W} to your mana pool."""
-	IDS_STRING13903         "Anurid Swarmsnapper\n{2G}\nCreature - Frog Beast\nJUD,U\nReach\r{1}{G}: Anurid Swarmsnapper can block an additional creature this turn.\n1/4"
+    IDS_STRING13903         "Anurid Swarmsnapper\n{2G}\nCreature - Frog Beast\nJUD,U\nReach\r{1}{G}: Anurid Swarmsnapper can block an additional creature this turn.\n1/4"
 END
 
 STRINGTABLE

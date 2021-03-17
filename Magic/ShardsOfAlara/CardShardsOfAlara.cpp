@@ -55,7 +55,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCourtArchersCard);
 		DEFINE_CARD(CCovenantOfMindsCard);
 		DEFINE_CARD(CCradleOfVitalityCard);
-		DEFINE_CARD(CCrucibleOfFireCard);
 		DEFINE_CARD(CCruelUltimatumCard);
 		DEFINE_CARD(CCrumblingNecropolisCard);
 		DEFINE_CARD(CCunningLethemancerCard);
@@ -944,24 +943,6 @@ bool CCourtArchersCard::SetTriggerContext(CTriggeredModifyCreatureAbility::Trigg
 {
 	triggerContext.m_pCreature = pCreature;
 	return true;
-}
-
-//____________________________________________________________________________
-//
-CCrucibleOfFireCard::CCrucibleOfFireCard(CGame* pGame, UINT nID)
-	: CInPlaySpellCard(pGame, _T("Crucible of Fire"), CardType::GlobalEnchantment, nID,
-		_T("3") RED_MANA_TEXT, AbilityType::Enchantment)
-{
-	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-		::CreateObject<CPwrTghAttrEnchantment>(this,
-			new CreatureTypeComparer(CREATURE_TYPE(Dragon), false),
-			Power(+3), Life(+3)));
-
-	cpAbility->GetEnchantmentCardFilter().AddComparer(new AnyCreatureComparer);
-
-	cpAbility->SetAffectControllerCardsOnly();
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -5054,9 +5035,6 @@ bool CSphinxSovereignCard::SetTriggerContext(CTriggeredModifyLifeAbility::Trigge
 
 bool CSphinxSovereignCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
 {
-		CPlayer* pController = GetController();
-		CPlayer* pOpponent = m_pGame->GetNextPlayer(GetController());
-
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 
 	if (GetOrientation()->IsTapped() == TRUE)
@@ -5380,9 +5358,13 @@ bool COozeGardenCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Ooze A"), 2772));		

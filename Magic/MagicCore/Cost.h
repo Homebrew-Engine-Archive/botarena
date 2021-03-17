@@ -228,7 +228,8 @@ public:
 			{
 				ManaPoolArray manaConfigs;
 				int nConfigCount = byPlayerManaPool.CalculateCostPermutations(manaCost, manaConfigs);
-				if(nConfigCount == 0) return false;
+				if(nConfigCount == 0) 
+					return false;
 
 				for (int i = 0; i < nConfigCount; ++i)
 				{
@@ -1718,7 +1719,7 @@ public:
 	void SetExtraManaCost(int nExtraCost = SpecialNumber::Any,
 						  BOOL bAllowZeroExtra = TRUE,
 						  const CManaCost::Colors& costColors = CManaCost::AllCostColors,
-						  BOOL bDivide = FALSE,		// Ref: Recall
+						  BOOL bDivide = FALSE,				// Ref: Recall used for {XX .. casting costs}
 						  BOOL bZeroExtraIsTrick = TRUE)
 	{
 		m_CostList->m_nExtraManaCost = nExtraCost;
@@ -2182,6 +2183,7 @@ public:
 			configurations.push_back(CCostConfigEntry());
 
 		const size_t nOptCostStart=configurations.size();
+
 		if (m_OptionalCosts.empty())
 			return nOptCostStart;
 
@@ -2213,6 +2215,7 @@ public:
 			do
 			{
 				size_t newOptCostEnd=nOptCostEnd;
+
 				if(AddOptCostConfigurations(pByPlayer, 
 								   bIncludeTricks, bSetNames,
 								   configurations,
@@ -2220,16 +2223,35 @@ public:
 								   nOptCostStart,			//end of normal costs
 								   nOptCostEnd,
 								   current))
-					newOptCostEnd=configurations.size();
+				{
+					newOptCostEnd = configurations.size();
+				}
 				else
+				{
 					if(m_bOptionalIsInfinite)
 						return configurations.size(); //breaking the infinite loop!
+				}
+				/*
+				!!!Unresolved FAULT
+				When implementing the strive ability it was discovered that strive cards with identical casting and repeatable additional 
+				casting costs that contain no colourless mana, when mana is tapped to cast these spells cause Botarena to stop 
+				responding and after 20 seconds the software crashes.
+				Example
+					Desperate Stand’s casting cost {RW} and additional target cost {RW} are identical and contain no colourless mana, 
+					so this card has the endless loop issue
+				
+				Cards affected are Blinding Flare, Desperate Stand and Kiora’s Dismissal.
+
+				nExtraOpt variable (below) keeps incrementing until game crashes.
+				The debugger revealed that there is a difference in the path of execution between strive cards that are working 
+				and cards that are entering this endless loop. 
+				*/
 				if(m_bOptionalIsInfinite)
 				{
 					for(size_t k=nOptCostEnd; k<newOptCostEnd; ++k)
 						configurations[k].SetExtraValue(nExtraOpt); //TODO:add text to print out nExtraOpt
 					nExtraOpt++;
-					j--; //infinite loop!
+					j--;			//infinite loop!
 				}
 				nOptCostEnd=newOptCostEnd;
 			} while (Permutation(bound, j, current, TRUE, TRUE));

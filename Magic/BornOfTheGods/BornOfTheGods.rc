@@ -1,0 +1,239 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "BornOfTheGods.ico"
+IDI_LARGE_MODULE        ICON                    "BornOfTheGodsLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Born of the Gods"
+    IDS_EXPANSION_ABBREV    "BNG"
+    IDS_FIRST_CARD          "27400"
+    IDS_TOTAL_CARD          "165"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "27565"
+    IDS_MODULE_LARGE_ICON_ID "27566"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "7-2-2014"
+    IDS_MWS_FOLDER          "MWS\\BNG\\"
+    IDS_PRODUCT_LIST        """Born of the Gods Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27400         "Ashiok's Adept\n{2B}\nCreature - Human Wizard\nBNG,U\nHeroic — Whenever you cast a spell that targets Ashiok's Adept, each opponent discards a card.\n1/3"
+    IDS_STRING27401         "Vanguard of Brimaz\n{WW}\nCreature - Cat Soldier\nBNG,U\nHeroic — Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.\n2/2"
+    IDS_STRING27402         "Fated Retribution\n{4WWW}\nInstant\nBNG,R\nDestroy all creatures and planeswalkers. If it's your turn, scry 2."
+    IDS_STRING27403         "Dawn to Dusk\n{2WW}\nSorcery\nBNG,U\nChoose one or both - Return target enchantment card from your graveyard to your hand; and/or destroy target enchantment."
+    IDS_STRING27404         "Vanguard of Brimaz\n{WW}\nCreature - Cat Soldier\nBNG,U\nHeroic — Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.\n2/2"
+    IDS_STRING27405         "Oreskos Sun Guide\n{1W}\nCreature - Cat Monk\nBNG,C\nInspired - Whenever Oreskos Sun Guide becomes untapped, you gain 2 life.\n2/2"
+    IDS_STRING27406         "Aspect of Hydra\n{G}\nInstant\nBNG,C\nTarget creature gets +X/+X until end of turn, where X is your devotion to green."
+    IDS_STRING27407         "Sanguimancy\n{4B}\nSorcery\nBNG,U\nYou draw X cards and you lose X life, where X is your devotion to black."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27408         "Acolyte's Reward\n{1W}\nInstant\nBNG,U\nPrevent the next X damage that would be dealt to target creature this turn where X is your devotion to white. If damage is prevented this way, Acolyte's Reward deals that much damage to target creature or player. "
+    IDS_STRING27409         "Hero of Iroas\n{1W}\nCreature - Human Soldier\nBNG,R\nAura spells you cast cost 1 less to cast. \rHeroic — Whenever you cast a spell that targets Hero of Iroas, put a +1/+1 counter on Hero of Iroas.\n2/2"
+    IDS_STRING27410         "Akroan Skyguard\n{1W}\nCreature - Human Soldier\nBNG,C\nFlying\rHeroic — Whenever you cast a spell that targets Akroan Skyguard, put a +1/+1 counter on Akroan Skyguard.\n1/1"
+    IDS_STRING27411         "Plea for Guidance\n{5W}\nSorcery\nBNG,R\nSearch your library for up to two enchantment cards and put them into your hand. Then shuffle your library."
+    IDS_STRING27412         "Silent Sentinel\n{5WW}\nCreature - Archon\nBNG,R\nWhenever Silent Sentinel attacks, you may return target enchantment card from your graveyard to your hand.\n4/6"
+    IDS_STRING27413         "Akroan Phalanx\n{3W}\nCreature - Human Soldier\nBNG,U\nVigilance\r{2R}: Creatures you control get +1/+0 until end of turn.\n3/3"
+    IDS_STRING27414         "Glimpse the Sun God\n{XW}\nInstant\nBNG,U\nTap X target creatures. Scry 1."
+    IDS_STRING27415         "God-Favored General\n{1W}\nCreature - Human Soldier\nBNG,U\nInspired - Whenever God-Favored General becomes untapped, you may pay {2W}.  If you do, put two 1/1 white Soldier enchantment creature tokens onto the battlefield.\n2/2"
+    IDS_STRING27416         "Aerie Worshippers\n{3U}\nCreature - Human Cleric\nBNG,U\nInspired - Whenever Aerie Worshippers becomes untapped, you may pay {2U}.  If you do, put a 2/2 blue Bird enchantment creature token with flying onto the battlefield.\n2/4"
+    IDS_STRING27417         "Forlorn Pseudamma\n{3B}\nCreature - Zombie\nBNG,U\nIntimidate\rInspired - Whenever Forlorn Pseudamma becomes untapped, you may pay {2B}.  If you do, put a 2/2 black Zombie enchantment creature token onto the battlefield.\n2/1"
+    IDS_STRING27418         "Satyr Nyx-Smith\n{2R}\nCreature - Satyr Shaman\nBNG,U\nHaste\rInspired - Whenever Satyr Nyx-Smith becomes untapped, you may pay {2R}.  If you do, put a 3/1 red Elemental enchantment creature token with haste onto the battlefield.\n2/1"
+    IDS_STRING27419         "Pheres-Band Raiders\n{5G}\nCreature - Centaur Warrior\nBNG,U\nInspired - Whenever Pheres-Band Raiders becomes untapped, you may pay {2G}.  If you do, put a 3/3 green Centaur enchantment creature token onto the battlefield.\n5/5"
+    IDS_STRING27420         "Deepwater Hypnotist\n{1U}\nCreature - Merfolk Wizard\nBNG,C\nInspired - Whenever Deepwater Hypnotist becomes untapped, target creature an opponent controls gets -3/-0 until end of turn.\n2/1"
+    IDS_STRING27421         "Claim of Erebos\n{1B}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature has ""{1B},{T}: Target player loses 2 life."""
+    IDS_STRING27422         "Ephara's Radiance\n{W}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature has ""{1W},{T}: You gain 3 life."""
+    IDS_STRING27423         "Epiphany Storm\n{R}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature has ""{R},{T}: Discard a card: Draw a card"""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27424         "Evanescent Intellect\n{U}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature has ""{1U},{T}: Target player puts the top three cards of his or her library into his or her graveyard."""
+    IDS_STRING27425         "Grisly Transformation\n{2B}\nEnchantment - Aura\nBNG,C\nEnchant creature\rWhen Grisly Transformation enters the battlefield, draw a card.\rEnchanted creature has intimidate."
+    IDS_STRING27426         "Karametra's Favor\n{1G}\nEnchantment - Aura\nBNG,C\nEnchant creature\rWhen Karametra's Favor enters the battlefield, draw a card.\rEnchanted creature has ""{T}: Add one mana of any color to your mana pool."""
+    IDS_STRING27427         "Oracle's Insight\n{3U}\nEnchantment - Aura\nBNG,U\nEnchant creature\rEnchanted creature has ""{T}: Scry 1, then draw a card."""
+    IDS_STRING27428         "Stratus Walk\n{1U}\nEnchantment - Aura\nBNG,C\nEnchant creature\rWhen Stratus Walk enters the battlefield, draw a card.\rEnchanted creature has flying.\rEnchanted creature can block only creatures with flying."
+    IDS_STRING27429         "Fated Infatuation\n{UUU}\nInstant\nBNG,R\nPut a token onto the battlefield that's a copy of target creature you control. If it's your turn, scry 2."
+    IDS_STRING27430         "Fated Conflagration\n{1RRR}\nInstant\nBNG,R\nFated Conflagration deals 5 damage to target creature or planeswalker.  If it's your turn, scry 2."
+    IDS_STRING27431         "Fated Return\n{4BBB}\nInstant\nBNG,R\nPut target creature card from a graveyard onto the battlefield under your control. It gains indestructible.  If it's your turn, scry 2."
+    IDS_STRING27432         "Fated Intervention\n{2GGG}\nInstant\nBNG,R\nPut two 3/3 green Centaur enchantment creature tokens onto the battlefield.  If it's your turn, scry 2."
+    IDS_STRING27433         "Spirit of the Labyrinth\n{1W}\nEnchantment Creature - Spirit\nBNG,R\nEach player can't draw more than one card each turn.\n3/1"
+    IDS_STRING27434         "Fate Unraveler\n{3B}\nEnchantment Creature - Hag\nBNG,R\nWhenever an opponent draws a card, Fate Unraveler deals 1 damage to that player.\n3/4"
+    IDS_STRING27435         "Charging Badger\n{G}\nCreature - Badger\nBNG,C\nTrample\n1/1"
+    IDS_STRING27436         "Courser of Kruphix\n{1GG}\nEnchantment Creature - Centaur\nBNG,R\nPlay with the top card of your library revealed.  You may play the top card of your library if it's a land card. Whenever a land enters the battlefield under your control, you gain 1 life.\n2/4"
+    IDS_STRING27437         "Eater of Hope\n{5BB}\nCreature - Demon\nBNG,R\nFlying.\r{B}, Sacrifice another creature: Regenerate Eater of Hope.\r{2B}, Sacrifice two other creatures: Destroy target creature.\n6/4"
+    IDS_STRING27438         "Forgestoker Dragon\n{4RR}\nCreature - Dragon\nBNG,R\nFlying\r{1R}: Forgestoker Dragon deals 1 damage to target creature. That creature can't block this combat.  Activate this ability only if Forgestoker Dragon is attacking.\n5/4"""
+    IDS_STRING27439         "Pharagax Giant\n{4R}\nCreature - Giant\nBNG,C\nTribute 2\rWhen Pharagax Giant enters the battlefield, if tribute wasn't paid, Pharagax Giant deals 5 damage to each opponent.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27440         "Fanatic of Xenagos\n{1RG}\nCreature - Centaur Warrior\nBNG,U\nTribute 1\rWhen Fanatic of Xenagos enters the battlefield, if tribute wasn't paid, it gets +1/+1 and gains haste until end of turn.\n3/3"
+    IDS_STRING27441         "Divination\n{2U}\nSorcery\nBNG,C\nDraw two cards."
+    IDS_STRING27442         "Eternity Snare\n{5U}\nEnchantment - Aura\nBNG,U\nEnchant creature\rWhen Eternity Snare enters the battlefield, draw a card.\rEnchanted creature doesn't untap during its controller's untap step."
+    IDS_STRING27443         "Necrobite\n{2B}\nInstant\nBNG,C\nTarget creature gains deathtouch until end of turn. Regenerate it."
+    IDS_STRING27444         "Revoke Existence\n{1W}\nSorcery\nBNG,C\nExile target artifact or enchantment."
+    IDS_STRING27445         "Springleaf Drum\n{1}\nArtifact\nBNG,U\n{T}, Tap an untapped creature you control: Add one mana of any color to your mana pool."
+    IDS_STRING27446         "Great Hart\n{3W}\nCreature - Elk\nBNG,C\n\n2/4"
+    IDS_STRING27447         "Reckless Reveler\n{1R}\nCreature - Satyr\nBNG,C\n{R}, Sacrifice Reckless Reveler: Destroy target artifact.\n2/1"
+    IDS_STRING27448         "Retraction Helix\n{U}\nInstant\nBNG,C\nUntil end of turn, target creature gains """"{T}: Return target nonland permanent to its owner's hand."""""
+    IDS_STRING27449         "Rise to the Challenge\n{1R}\nInstant\nBNG,C\nTarget creature gets +2/+0 and gains first strike until end of turn."
+    IDS_STRING27450         "Unravel the Aether\n{1G}\nInstant\nBNG,U\nChoose target artifact or enchantment. Its owner shuffles it into his or her library."
+    IDS_STRING27451         "Gorgon's Head\n{1}\nArtifact - Equipment\nBNG,U\nEquipped creature has deathtouch.\rEquip {2}"
+    IDS_STRING27452         "Drown in Sorrow\n{1BB}\nSorcery\nBNG,U\nAll creatures get -2/-2 until end of turn. Scry 1."
+    IDS_STRING27453         "Pain Seer\n{1B}\nCreature - Human Wizard\nBNG,R\nInspired - Whenever Pain Seer becomes untapped, reveal the top card of your library and put that card into your hand.  You lose life equal to that card's converted mana cost.\n2/2"
+    IDS_STRING27454         "Ragemonger\n{1BR}\nCreature - Minotaur Shaman\nBNG,U\nMinotaur spells you cast cost {BR} less to cast. This effect reduces only the amount of colored mana you pay.\n2/3"
+    IDS_STRING27455         "Nullify\n{UU}\nInstant\nBNG,C\nCounter target creature or Aura spell."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27456         "Peregrination\n{3G}\nSorcery\nBNG,U\nSearch your library for up to two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Shuffle your library, then scry 1."
+    IDS_STRING27457         "Temple of Enlightenment\n\nLand\nBNG,R\nTemple of Enlightenment enters the battlefield tapped.\rWhen Temple of Enlightenment enters the battlefield, scry 1.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING27458         "Temple of Malice\n\nLand\nBNG,R\nTemple of Malice enters the battlefield tapped.\rWhen Temple of Malice enters the battlefield, scry 1.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING27459         "Temple of Plenty\n\nLand\nBNG,R\nTemple of Plenty enters the battlefield tapped.\rWhen Temple of Plenty enters the battlefield, scry 1.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING27460         "Reap What Is Sown\n{1GW}\nInstant\nBNG,U\nPut a +1/+1 counter on each of up to three target creatures."
+    IDS_STRING27461         "Asphyxiate\n{1BB}\nSorcery\nBNG,C\nDestroy target untapped creature."
+    IDS_STRING27462         "Bile Blight\n{BB}\nInstant\nBNG,U\nTarget creature and all other creatures with the same name as that creature get -3/-3 until end of turn."
+    IDS_STRING27463         "Black Oak of Odunos\n{2B}\nCreature - Zombie Treefolk\nBNG,R\nDefender\r{B}, Tap another untapped creature you control: Black Oak of Odunos gets +1/+1 until end of turn.\n0/5"
+    IDS_STRING27464         "Weight of the Underworld\n{3B}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature gets -3/-2."
+    IDS_STRING27465         "Felhide Brawler\n{1B}\nCreature - Minotaur\nBNG,C\nFelhide Brawler can't block unless you control another Minotaur.\n2/2"
+    IDS_STRING27466         "Akroan Conscriptor\n{4R}\nCreature - Human Shaman\nBNG,U\nHeroic — Whenever you cast a spell that targets Akroan Conscriptor, gain control of another target creature until end of turn. Untap that creature. It gains haste until end of turn.\n3/2"
+    IDS_STRING27467         "Bolt of Keranos\n{1RR}\nSorcery\nBNG,C\nBolt of Keranos deals 3 damage to target creature or player. Scry 1."
+    IDS_STRING27468         "Cyclops of One Eyed-Pass\n{2RR}\nCreature - Cyclops\nBNG,C\n\n5/2"
+    IDS_STRING27469         "Fall of the Hammer\n{1R}\nInstant\nBNG,C\nTarget creature you control deals damage equal to its power to another target creature."
+    IDS_STRING27470         "Impetuous Sunchaser\n{1R}\nCreature - Human Soldier\nBNG,C\nFlying, Haste\rImpetuous Sunchaser attacks each turn if able.\n1/1"
+    IDS_STRING27471         "Fearsome Temper\n{2R}\nEnchantment - Aura\nBNG,C\nEnchant creature\rEnchanted creature gets +2/+2 and has ""{2R}: Target creature can't block this creature this turn."""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27472         "Kragma Butcher\n{2R}\nCreature - Minotaur Warrior\nBNG,C\nInspired - Whenever Kragma Butcher becomes untapped, it gets +2/+0 until end of turn\n2/3"
+    IDS_STRING27473         "Eye Gouge\n{B}\nInstant\nBNG,C\nTarget creature gets -1/-1 until end of turn. If it's a Cyclops, destroy it."
+    IDS_STRING27474         "Pinnacle of Rage\n{4RR}\nSorcery\nBNG,U\nPinnacle of Rage deals 3 damage to each of two target creatures and/or players."
+    IDS_STRING27475         "Scouring Sands\n{1R}\nSorcery\nBNG,C\nScouring Sands deals 1 damage to each creature your opponents control. Scry 1."
+    IDS_STRING27476         "Stormcaller of Keranos\n{2R}\nCreature - Human Shaman\nBNG,U\nHaste\r{1U}:Scry 1.\n2/2"
+    IDS_STRING27477         "Thunder Brute\n{4RR}\nCreature - Cyclops\nBNG,U\nTribute 3\rWhen Thunder Brute enters the battlefield, if tribute wasn't paid, it gains haste until end of turn.\n5/5"
+    IDS_STRING27478         "Thunderous Might\n{1R}\nEnchantment - Aura\nBNG,U\nEnchant creature\rWhenever enchanted creature attacks, it gets +X/+0 until end of turn, where X is your devotion to red."
+    IDS_STRING27479         "Forsaken Drifters\n{3B}\nCreature - Zombie\nBNG,C\nWhen Forsaken Drifters dies, put the top four cards of your library into your graveyard.\n4/2"
+    IDS_STRING27480         "Griffin Dreamfinder\n{3WW}\nCreature - Griffin\nBNG,C\nFlying\rWhen Griffin Dreamfinder enters the battlefield, return target enchantment card from your graveyard to your hand.\n1/4"
+    IDS_STRING27481         "Odunos River Trawler\n{2B}\nCreature - Zombie\nBNG,U\nWhen Odunos River Trawler enters the battlefield, return target enchantment creature card from your graveyard to your hand.\r{W}, Sacrifice Odunos River Trawler: Return target enchantment creature card from your graveyard to your hand.\n2/2"
+    IDS_STRING27482         "Servant of Tymaret\n{2B}\nCreature - Zombie\nBNG,C\nInspired - Whenever Servant of Tymaret becomes untapped, each opponent loses 1 life. You gain life equal to the life lost this way.\r{2B}: Regenerate Servant of Tymaret.\n1/3"
+    IDS_STRING27483         "Shrike Harpy\n{3BB}\nCreature - Harpy\nBNG,U\nTribute 2\rWhen Shrike Harpy enters the battlefield, if tribute wasn't paid, target opponent sacrifices a creature.\n2/2"
+    IDS_STRING27484         "Warchanter of Mogis\n{3BB}\nCreature - Minotaur Shaman\nBNG,C\nInspired - Whenever Warchanter of Mogis becomes untapped, target creature you control gains intimidate until end of turn.\n3/3"
+    IDS_STRING27485         "Graverobber Spider\n{3G}\nCreature - Spider\nBNG,U\nReach\r{3B}: Graverobber Spider gets +X/+X until end of turn, where X is the number of creature cards in your graveyard. Activate this ability only once each turn.\n2/4"
+    IDS_STRING27486         "Kiora's Follower\n{GU}\nCreature - Merfolk\nBNG,U\n{T}: Untap another target permanent.\n2/2"
+    IDS_STRING27487         "Hunter's Prowess\n{4G}\nSorcery\nBNG,R\nUntil end of turn, target creature gets +3/+3 and gains trample and ""Whenever this creature deals combat damage to a player, draw that many cards."""
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27488         "Mischief and Mayhem\n{4G}\nInstant\nBNG,U\nUp to two target creatures each get +4/+4 until end of turn."
+    IDS_STRING27489         "Mortal's Resolve\n{1G}\nInstant\nBNG,C\nTarget creature gets +1/+1 and gains indestructible until end of turn."
+    IDS_STRING27490         "Nessian Demolok\n{3GG}\nCreature - Beast\nBNG,U\nTribute 3\rWhen Nessian Demolok enters the battlefield, if tribute wasn't paid, destroy target noncreature permanent.\n3/3"
+    IDS_STRING27491         "Pheres-Band Tromper\n{3G}\nCreature - Centaur Warrior\nBNG,C\nInspired - Whenever Pheres-Band Tromper becomes untapped, put a +1/+1 counter on it.\n3/3"
+    IDS_STRING27492         "Raised by Wolves\n{3GG}\nEnchantment - Aura\nBNG,C\nEnchant creature\rWhen Raised by Wolves enters the battlefield, put two 2/2 green Wolf creature tokens onto the battlefield.\rEnchanted creature gets +1/+1 for each Wolf you control."
+    IDS_STRING27493         "Satyr Wayfinder\n{1G}\nCreature - Satyr\nBNG,C\nWhen Satyr Wayfinder enters the battlefield, reveal the top four cards of your library. You may put a land card from among them into your hand. Put the rest into your graveyard.\n1/1"
+    IDS_STRING27494         "Scourge of Skola Vale\n{2G}\nCreature - Hydra\nBNG,R\nTrample\rScourge of Skola Vale enters the battlefield with two +1/+1 counters on it.\r{T}, Sacrifice another creature: Put a number of +1/+1 counters on Scourge of Skola Vale equal to the sacrificed creature's toughness.\n0/0"
+    IDS_STRING27495         "Setessan Oathsworn\n{1GG}\nCreature - Satyr Warrior\nBNG,C\nHeroic - Whenever you cast a spell that targets Setessan Oathsworn, put two +1/+1 counters on Setessan Oathsworn.\n1/1"
+    IDS_STRING27496         "Setessan Starbreaker\n{3G}\nCreature - Human Warrior\nBNG,C\nWhen Setessan Starbreaker enters the battlefield, you may destroy target Aura.\n2/1"
+    IDS_STRING27497         "Skyreaping\n{1G}\nSorcery\nBNG,U\nSkyreaping deals damage to each creature with flying equal to your devotion to green."
+    IDS_STRING27498         "Snake of the Golden Grove\n{4G}\nCreature - Snake\nBNG,C\nTribute 3\rWhen Snake of the Golden Grove enters the battlefield, if tribute wasn't paid, you gain 4 life.\n4/4"
+    IDS_STRING27499         "Swordwise Centaur\n{GG}\nCreature - Centaur Warrior\nBNG,C\n\n3/2"
+    IDS_STRING27500         "Siren Song Lyre\n{2}\nArtifact - Equipment\nBNG,U\nEquipped creature has ""{2},{T}: Tap target creature.""\rEquip {2}"
+    IDS_STRING27501         "Chorus of the Tides\n{3U}\nCreature - Siren\nBNG,U\nHeroic - Whenever you cast a spell that targets Chorus of the Tides, scry 1.\n3/2"
+    IDS_STRING27502         "Ornitharch\n{3WW}\nCreature - Archon\nBNG,U\nTribute 2\rWhen Ornitharch enters the battlefield, if tribute wasn't paid, put two 1/1 white Bird creature tokens with flying onto the battlefield.\n3/3"
+    IDS_STRING27503         "Sphinx's Disciple\n{3UU}\nCreature - Human Wizard\nBNG,C\nFlying\rInspired - Whenever Sphinx's Disciple becomes untapped, draw a card.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING27504         "Elite Skirmisher\n{2W}\nCreature - Human Soldier\nBNG,C\nHeroic - Whenever you cast a spell that targets Elite Skirmisher, you may tap target creature.\n3/1"
+    IDS_STRING27505         "Meletis Astronomer\n{1U}\nCreature - Human Wizard\nBNG,U\nHeroic - Whenever you cast a spell that targets Meletis Astronomer, look at the top three cards of your library. You may reveal an enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\n1/3"
+    IDS_STRING27506         "Sudden Storm\n{3U}\nInstant\nBNG,C\nTap up to two target creatures. Those creatures don't untap during their controller's next untap steps. Scry 1."
+    IDS_STRING27507         "Thassa's Rebuff\n{1U}\nInstant\nBNG,U\nCounter target spell unless its controller pays {X}, where X is your devotion to blue."
+    IDS_STRING27508         "Whelming Wave\n{2UU}\nSorcery\nBNG,R\nReturn all creatures to their owners' hands except for Krakens, Leviathans, Octopuses, and Serpents."
+    IDS_STRING27509         "Excoriate\n{3W}\nSorcery\nBNG,C\nExile target tapped creature."
+    IDS_STRING27510         "Hold at Bay\n{1W}\nInstant\nBNG,C\nPrevent the next 7 damage that would be dealt to target creature or player this turn."
+    IDS_STRING27511         "Mortal's Ardor\n{W}\nInstant\nBNG,C\nTarget creature gets +1/+1 and gains lifelink until end of turn."
+    IDS_STRING27512         "Pillar of War\n{3}\nArtifact Creature - Golem\nBNG,U\nDefender\rAs long as Pillar of War is enchanted, it can attack as though it didn't have defender.\n3/3"
+    IDS_STRING27513         "Sunbond\n{3W}\nEnchantment - Aura\nBNG,U\nEnchant creature\rEnchanted creature has ""Whenever you gain life, put that many +1/+1 counters on this creature."""
+    IDS_STRING27514         "Crypsis\n{1U}\nInstant\nBNG,C\nTarget creature gains protection from creatures your opponents control until end of turn.\rUntap it."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

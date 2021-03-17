@@ -811,15 +811,6 @@ class CInfernoTitanCard : public CPumpCreatureCard
 
 //____________________________________________________________________________
 //
-//class CCaptivatingVampireCard : public CCreatureCard
-//{
-//	DECLARE_CARD_CSTOR(CCaptivatingVampireCard);
-//protected:
-//	CCardFilter m_CardFilter;
-//};
-
-//____________________________________________________________________________
-//
 class CFrostTitanCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CFrostTitanCard);

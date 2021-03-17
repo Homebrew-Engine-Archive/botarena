@@ -353,19 +353,19 @@ BEGIN
     IDS_STRING11019         "Cradle Guard\n{1GG}\nCreature - Treefolk\nUSG,U\nTrample\rEcho {1GG}\n4/4"
     IDS_STRING11020         "Crater Hellion\n{4RR}\nCreature - Hellion Beast\nUSG,R\nEcho {4RR}\rWhen Crater Hellion enters the battlefield, it deals 4 damage to each other creature.\n6/6"
     IDS_STRING11021         "Gamble\n{R}\nSorcery\nUSG,R\nSearch your library for a card, put that card into your hand, discard a card at random, then shuffle your library."
-    IDS_STRING11022         "Goblin Patrol\n{R}\nCreature - Goblin\nUSG\nEcho {R}\n2/1"
-    IDS_STRING11023         "Goblin War Buggy\n{1R}\nCreature - Goblin\nUSG\nHaste\rEcho {1R}\n2/2"
+    IDS_STRING11022         "Goblin Patrol\n{R}\nCreature - Goblin\nUSG,C\nEcho {R}\n2/1"
+    IDS_STRING11023         "Goblin War Buggy\n{1R}\nCreature - Goblin\nUSG,C\nHaste\rEcho {1R}\n2/2"
 END
 
 STRINGTABLE
 BEGIN
     IDS_STRING11024         "Herald of Serra\n{2WW}\nCreature - Angel\nUSG,R\nFlying, vigilance\rEcho {2WW}\n3/4"
     IDS_STRING11025         "Lightning Dragon\n{2RR}\nCreature - Dragon\nUSG,R\nFlying\rEcho {2RR}\r{R}: Lightning Dragon gets +1/+0 until end of turn.\n4/4"
-    IDS_STRING11026         "Pouncing Jaguar\n{G}\nCreature - Cat\nUSG\nEcho {G}\n2/2"
+    IDS_STRING11026         "Pouncing Jaguar\n{G}\nCreature - Cat\nUSG,C\nEcho {G}\n2/2"
     IDS_STRING11027         "Shivan Raptor\n{2R}\nCreature - Lizard\nUSG,U\nFirst strike, haste\rEcho {2R}\n3/1"
-    IDS_STRING11028         "Viashino Outrider\n{2R}\nCreature - Viashino\nUSG\nEcho {2R}\n4/3"
+    IDS_STRING11028         "Viashino Outrider\n{2R}\nCreature - Viashino\nUSG,C\nEcho {2R}\n4/3"
     IDS_STRING11029         "Vug Lizard\n{1RR}\nCreature - Lizard\nUSG,U\nMountainwalk\rEcho {1RR}\n3/4"
-    IDS_STRING11030         "Winding Wurm\n{4G}\nCreature - Wurm\nUSG\nEcho {4G}\n6/6"
+    IDS_STRING11030         "Winding Wurm\n{4G}\nCreature - Wurm\nUSG,C\nEcho {4G}\n6/6"
     IDS_STRING11031         "Tolarian Academy\n\nLegendary Land\nUSG,R\n{T}: Add {U} to your mana pool for each artifact you control."
     IDS_STRING11032         "Gaea's Cradle\n\nLegendary Land\nUSG,R\n{T}: Add {G} to your mana pool for each creature you control."
     IDS_STRING11033         "Serra's Sanctum\n\nLegendary Land\nUSG,R\n{T}: Add {W} to your mana pool for each enchantment you control."
@@ -389,7 +389,7 @@ BEGIN
     IDS_STRING11047         "Smokestack\n{4}\nArtifact\nUSG,R\nAt the beginning of your upkeep, you may put a soot counter on Smokestack.\rAt the beginning of each player's upkeep, that player sacrifices a permanent for each soot counter on Smokestack."
     IDS_STRING11048         "Vebulid\n{B}\nCreature - Horror\nUSG,R\nVebulid enters the battlefield with a +1/+1 counter on it.\rAt the beginning of your upkeep, you may put a +1/+1 counter on Vebulid.\rWhen Vebulid attacks or blocks, destroy it at end of combat.\n0/0"
     IDS_STRING11049         "Serra Avatar\n{4WWW}\nCreature - Avatar\nUSG,R\nSerra Avatar's power and toughness are each equal to your life total.\rWhen Serra Avatar is put into a graveyard from anywhere, shuffle it into its owner's library.\n*/*"
-    IDS_STRING11050         "Priest of Titania\n{1G}\nCreature - Elf Druid\nUSG\n{T}: Add {G} to your mana pool for each Elf on the battlefield.\n1/1"
+    IDS_STRING11050         "Priest of Titania\n{1G}\nCreature - Elf Druid\nUSG,C\n{T}: Add {G} to your mana pool for each Elf on the battlefield.\n1/1"
     IDS_STRING11051         "Sneak Attack\n{3R}\nEnchantment\nUSG,R\n{R}: You may put a creature card from your hand onto the battlefield. That creature gains haste. Sacrifice the creature at the beginning of the next end step."
     IDS_STRING11052         "Scoria Wurm\n{4R}\nCreature - Wurm\nUSG,R\nAt the beginning of your upkeep, flip a coin. If you lose the flip, return Scoria Wurm to its owner's hand.\n7/7"
     IDS_STRING11053         "Vampiric Embrace\n{2BB}\nEnchantment - Aura\nUSG,U\nEnchant creature\rEnchanted creature gets +2/+2 and has flying.\rWhenever a creature dealt damage by enchanted creature this turn dies, put a +1/+1 counter on that creature."

@@ -845,7 +845,7 @@ protected:
 	typedef
 			TTriggeredAbility< CTriggeredAbility<>,  CSpecialTrigger  > TriggeredAbility;
 		TriggeredAbility* m_pTriggeredAbility;
-	bool CKjeldoranJavelineerCard::BeforeResolution(CAbilityAction* pAction) const;
+	bool BeforeResolution(CAbilityAction* pAction) const;
 
 private:
 		ListenerPtr<CounterMovedEventSource::Listener>	m_cpAListener;

@@ -186,7 +186,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CRunechantersPikeCard);
 		DEFINE_CARD(CScourgeOfGeierReachCard);
 		DEFINE_CARD(CScreechingBatCard);
-		DEFINE_CARD(CSelflessCatharCard);
 		DEFINE_CARD(CSelhoffOccultistCard);
 		DEFINE_CARD(CSeverTheBloodlineCard);
 		DEFINE_CARD(CSilentDepartureCard);
@@ -226,7 +225,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTreeOfRedemptionCard);
 		DEFINE_CARD(CTrepanationBladeCard);
 		DEFINE_CARD(CTributetoHungerCard);
-		DEFINE_CARD(CTyphoidRatsCard);
 		DEFINE_CARD(CUnburialRitesCard);
 		DEFINE_CARD(CUnholyFiendCard);
 		DEFINE_CARD(CUnrulyMobCard);
@@ -1215,7 +1213,11 @@ bool CArmyOfTheDamnedCard::BeforeResolution(CAbilityAction* pAction) const
 	int nMultiplyBy = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nMultiplyBy <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 			nMultiplyBy <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)
@@ -3217,11 +3219,10 @@ CParaseleneCard::CParaseleneCard(CGame* pGame, UINT nID)
 
 bool CParaseleneCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay;
 	m_nEnchantments = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nEnchantments += CCardFilter::GetFilter(_T("enchantments"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -3232,10 +3233,9 @@ void CParaseleneCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction
 {
 	if (!bResult) return;
 
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nEnchantments -= CCardFilter::GetFilter(_T("enchantments"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -3325,26 +3325,6 @@ CRebukeCard::CRebukeCard(CGame* pGame, UINT nID)
 		new AttackingCreatureComparer,
 		ZoneId::Battlefield, ZoneId::Graveyard, true, MoveType::Destroy)
 {
-}
-
-//____________________________________________________________________________
-//
-CSelflessCatharCard::CSelflessCatharCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Selfless Cathar"), CardType::Creature, CREATURE_TYPE2(Human, Cleric), nID,
-		WHITE_MANA_TEXT, Power(1), Life(1))
-{
-	counted_ptr<CGlobalChgPwrTghSpell> cpAbility(
-		::CreateObject<CGlobalChgPwrTghSpell>(this, AbilityType::Activated,
-			_T("1") WHITE_MANA_TEXT,
-			Power(+1), Life(+1),
-			new AnyCreatureComparer));
-	ATLASSERT(cpAbility);
-
-	cpAbility->SetToActivatedAbility();
-	cpAbility->SetAffectControllerCardsOnly();
-	cpAbility->AddSacrificeCost();
-
-	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -3569,7 +3549,7 @@ CMemorysJourneyCard::CMemorysJourneyCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
 				_T("1") BLUE_MANA_TEXT));
 
-			ATLASSERT(cpAbility);
+			ATLASSERT(cpSpell);
 
 			cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
@@ -3581,7 +3561,7 @@ CMemorysJourneyCard::CMemorysJourneyCard(CGame* pGame, UINT nID)
 			::CreateObject<CGenericTargetPlayerSpell>(this, AbilityType::Instant,
 				GREEN_MANA_TEXT));
 
-			ATLASSERT(cpAbility);
+			ATLASSERT(cpSpell);
 
 		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 		
@@ -4000,15 +3980,6 @@ CBloodcrazedNeonateCard::CBloodcrazedNeonateCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CTyphoidRatsCard::CTyphoidRatsCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Typhoid Rats"), CardType::Creature, CREATURE_TYPE(Rat), nID,
-		BLACK_MANA_TEXT, Power(1), Life(1))
-{
-	GetCardKeyword()->AddDeathtouch(false);
-}
-
-//____________________________________________________________________________
-//
 CAshmouthHoundCard::CAshmouthHoundCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Ashmouth Hound"), CardType::Creature, CREATURE_TYPE2(Elemental, Hound), nID,
 		_T("1") RED_MANA_TEXT, Power(2), Life(1))
@@ -4236,16 +4207,43 @@ CGeistflameCard::CGeistflameCard(CGame* pGame, UINT nID)
 //____________________________________________________________________________
 //
 CHarvestPyreCard::CHarvestPyreCard(CGame* pGame, UINT nID)
-	: CTargetChgLifeSpellCard(pGame, _T("Harvest Pyre"), CardType::Instant, nID, AbilityType::Instant,
-		_T("1") RED_MANA_TEXT,
-		new AnyCreatureComparer,
-		false,
-		Life(-0),
-		PreventableType::Preventable)
+	: CCard(pGame, _T("Harvest Pyre"), CardType::Instant, nID)
 {
-	m_pTargetChgLifeSpell->GetCost().AddExileGraveyardCardCost(SpecialNumber::Any, CCardFilter::GetFilter(_T("cards")));
-	m_pTargetChgLifeSpell->SetExtraActionValueVector(ContextValue(-1));
-	m_pTargetChgLifeSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHarvestPyreCard::BeforeResolution));
+	{
+		/*
+			Exile X cards from graveyard, where X > 0.
+			sample message: 
+				Exile from graveyard Viscera Seer(1/1), Exile from graveyard Viscera Seer2(1/1): Casts Harvest Pyre and targets Soulmender3(1/1)
+		*/
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+			::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
+				_T("1") RED_MANA_TEXT,
+				new AnyCreatureComparer, FALSE,   // FALSE->don't target players, target creatures only
+				Life(-0),					   
+				PreventableType::Preventable));  
+		cpSpell->SetExtraActionValueVector(ContextValue(-1));
+		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
+		// must be SpecialNumber::AnyPositive i.e. X > 0 so that X = 0 case is not included here 
+		cpSpell->GetCost().AddExileGraveyardCardCost(SpecialNumber::AnyPositive, CCardFilter::GetFilter(_T("cards")));
+		cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHarvestPyreCard::BeforeResolution));
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		/*
+			Exile no cards from graveyard, X = 0.
+			sample message: 
+				Exile no cards from graveyard. Casts Harvest Pyre and targets Soulmender3(1/1)
+		*/
+		counted_ptr<CTargetChgLifeSpell> cpSpell(
+				::CreateObject<CTargetChgLifeSpell>(this, AbilityType::Instant,
+				_T("1") RED_MANA_TEXT,
+				new AnyCreatureComparer, FALSE,
+				Life(-0), PreventableType::Preventable)); 
+		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
+		cpSpell->SetAbilityText(_T("Exile no cards from graveyard. Casts"));
+		AddSpell(cpSpell.GetPointer());
+	}
 }
 
 bool CHarvestPyreCard::BeforeResolution(CAbilityAction* pAction) const
@@ -6768,13 +6766,13 @@ bool CFullMoonsRiseCard::BeforeResolution(CAbilityAction* pAction) const
 	CCardFilter cfilter(new CreatureTypeComparer(CREATURE_TYPE(Werewolf), false));
 	cfilter.AddComparer(new CardControllerComparer(pAction->GetController()));
 
-	CCreatureCard* pCreature;
 	CCountedCardContainer cards;
 	if (cfilter.GetIncluded(*pZone, cards))
 		for (int i = 0; i < cards.GetSize(); ++i)
 		{
-			pCreature = dynamic_cast<CCreatureCard*>(cards.GetAt(i));
-			if (!pCreature) continue;
+			CCreatureCard* pCreature = dynamic_cast<CCreatureCard*>(cards.GetAt(i));
+			if (!pCreature) 
+				continue;
 			pCreature->AddRegenerationShield();
 		}
 
@@ -7599,11 +7597,10 @@ void COliviaVoldarenCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	// Return stolen cards
 	CCountedCardContainer cards;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pZone, cards);
 	}
 
@@ -8313,14 +8310,16 @@ bool CCreepyDollCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pA
 	CPlayer* pController = pAction->GetController();
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 	CCard* pCard = triggerContext.m_pCard;
-	int Thumb = 0;
-	int Exponent = 2;
+	
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -8469,11 +8468,10 @@ bool CGrimoireOfTheDeadCard::BeforeResolution(CAbilityAction* pAction) const
 	}
 
 	CCountedCardContainer creatures;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 

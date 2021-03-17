@@ -2279,11 +2279,11 @@ void CZoneModifier::ApplyTo(CPlayer* pPlayer) const
 
 				if (nMaxSelectionCount == MaximumValue(1))
 					selectCardData.strCaption.Format(_T("Select %sone card from %s's %s"), 
-						nMinSelectionCount == MinimumValue(0) ? _T("up to") : _T(""),
+						nMinSelectionCount == MinimumValue(0) ? _T("up to ") : _T(""),
 						pZone->GetPlayer()->GetPlayerName(), pZone->GetZoneName());
 				else
 					selectCardData.strCaption.Format(_T("Select %s%d cards from %s's %s"), 
-						GET_INTEGER(nMinSelectionCount) == GET_INTEGER(nMaxSelectionCount) ? _T("") : _T("up to"),
+						GET_INTEGER(nMinSelectionCount) == GET_INTEGER(nMaxSelectionCount) ? _T("") : _T("up to "),
 						GET_INTEGER(nMaxSelectionCount), pZone->GetPlayer()->GetPlayerName(), pZone->GetZoneName());
 
 				if (pSelectToZone->HasOrdering())
@@ -2907,6 +2907,9 @@ void CCardCounterModifier::ApplyTo(CCard* pCard) const
 		
 		if (pCounter->GetName() == _T("+1/+1") && pCard->GetCardType().IsCreature() && pCard->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE) && (pCard->GetZoneId() == ZoneId::Battlefield))
 			multiplied <<= nMultiplier;
+		// for Primal Vigor
+		if (pCounter->GetName() == _T("+1/+1") && pCard->GetCardType().IsCreature() && pCard->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE) && (pCard->GetZoneId() == ZoneId::Battlefield))
+			multiplied <<= nMultiplier;
 		
 		if (m_bReplace)
 		{
@@ -2958,6 +2961,10 @@ void CCardCounterModifier::ApplyTo(CCard* pCard) const
 				multiplied <<= nMultiplier;
 			if (pCounter->GetName() == _T("+1/+1") && pCard->GetCardType().IsCreature() && pCard->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE) && m_bDoubling && (pCard->GetZoneId() == ZoneId::Battlefield))
 				multiplied <<= nMultiplier;
+			// for Primal Vigor (always doubles +1/+1 counters i.e. ignores status of m_bDoubling) 
+			if (pCounter->GetName() == _T("+1/+1") && pCard->GetCardType().IsCreature() && pCard->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE) && (pCard->GetZoneId() == ZoneId::Battlefield))
+				multiplied <<= nMultiplier;
+			
 			if (nValue)
 			{
 				pCounter2->DecreaseCount(nValue);
@@ -2977,6 +2984,10 @@ void CCardCounterModifier::ApplyTo(CCard* pCard) const
 				multiplied <<= nMultiplier;
 			if (pCounter2->GetName() == _T("+1/+1") && pCard->GetCardType().IsCreature() && pCard->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE) && m_bDoubling && (pCard->GetZoneId() == ZoneId::Battlefield))
 				multiplied <<= nMultiplier;
+			// for Primal Vigor (always doubles +1/+1 counters i.e. ignores status of m_bDoubling) 
+			if (pCounter2->GetName() == _T("+1/+1") && pCard->GetCardType().IsCreature() && pCard->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE) && (pCard->GetZoneId() == ZoneId::Battlefield))
+				multiplied <<= nMultiplier;
+
 			if (nValue)
 			{
 				pCounter->DecreaseCount(nValue);
@@ -3096,13 +3107,14 @@ void CTokenCreationModifier::ApplyTo(CPlayer* pPlayer) const
 
 	if (m_bOpp) target= m_pGame->GetNextPlayer(pPlayer);
 
-	int nTokenCount = m_TokenCount;               // Doubling Season that doubles tokens
-	if (m_bDoubling)
-	{
-		int nMultiplier = 0;
-		if (target->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE) && m_pZoneId == ZoneId::Battlefield)
+	int nTokenCount = m_TokenCount;
+	int nMultiplier = 0;
+	// for Doubling Season (doubles tokens if m_bDoubling is TRUE) 
+	if (target->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE) && m_bDoubling && m_pZoneId == ZoneId::Battlefield)
 			nTokenCount <<= nMultiplier;
-	}
+	// for Primal Vigor (always doubles tokens i.e. ignores status of m_bDoubling)  
+	if (target->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE) && m_pZoneId == ZoneId::Battlefield)
+			nTokenCount <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)
 	{
@@ -3572,7 +3584,11 @@ void CCardCopyModifier ::ApplyTo(CCard* pCard) const
 
 	int multiplied = 1;
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (m_pController->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE) && m_pZoneId == ZoneId::Battlefield)
+		multiplied <<= nMultiplier;
+	// for Primal Vigor
+	if (m_pController->GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE) && m_pZoneId == ZoneId::Battlefield)
 		multiplied <<= nMultiplier;
 
 	for (int i = 0; i < multiplied ; ++i)

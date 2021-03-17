@@ -2463,7 +2463,11 @@ bool CBaruFistOfKrosaCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)
@@ -5181,13 +5185,12 @@ void CRiftsweeperCard::OnResolutionCompleted(const CAbilityAction* pAbilityActio
 }
 
 //____________________________________________________________________________
-//Tombstalker
+//
 CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Tombstalker"), CardType::Creature, CREATURE_TYPE(Demon), nID,
 		_T("6") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(5), Life(5))
 {
-	{
-		//Delve mana cost
+	{ //delve mana cost [5BB, <exile card>]
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
 				_T("5") BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -5199,8 +5202,7 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//Delve mana cost
+	{ //delve mana cost [4BB, <exile card>, <exile card>]
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
 				_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -5212,8 +5214,7 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//Delve mana cost
+	{ //delve mana cost [3BB, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
 				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -5225,8 +5226,7 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//Delve mana cost
+	{ //delve mana cost [2BB, <exile card>, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
 				_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -5238,8 +5238,7 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//Delve mana cost
+	{ //delve mana cost [1BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
 				_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -5251,8 +5250,7 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//Delve mana cost
+	{ //delve mana cost [BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CGenericSpell> cpSpell(
 			::CreateObject<CGenericSpell>(this, AbilityType::Creature,
 				_T("") BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -5264,7 +5262,27 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
+	//delve mana cost [BB, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>], .. upto 20x<exile card>
+	/*
+		!!! NOTE messages are often too long to be displayed in Action window list and are truncated. 
+			This issue requires a fix !!!
+		
+		This code is required to correctly implement cost increase affects where colorless mana is added
+		to the casting cost of this card.  Here the player can opt to reduce the entire colorless component
+		of the casting cost.  Currently, this code allows for upto a total of 20 cards being exiled from the graveyard.
 
+		For example
+			Thorn of Amethyst is in play, now Noncreature spells cost {1} more to cast.  So the colorless cost of a 
+		noncreature delve spell increases by {1}.  Murderous Cut which normally has a casting cost of 4B now has
+		a casting cost of 5B.  The casting player can use the delve ability to reduce the colorless component of the
+		casting cost {5} to {0} by exiling 5 cards from their graveyard.
+
+		Note the Botarena code caters for colourless cost reduction affects already, so no additional code is required 
+		for this.
+	*/
+
+	// Change loop termination condition for each card.  It is dependant on the colorless component of the card's casting cost.
+	// number is calculated by (20 - colorless component of the card's casting cost) + 1
 	for (int i = 1; i < 15; ++i)
 	{
 		//Delve mana cost
@@ -5274,10 +5292,11 @@ CTombstalkerCard::CTombstalkerCard(CGame* pGame, UINT nID)
 
 		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
 		cpSpell->SetMainSpell(FALSE);
-
+		
+		// Change "magic number" below.  To the colorless component of the card's casting cost.
 		cpSpell->GetCost().AddExileGraveyardCardCost(6+i, CCardFilter::GetFilter(_T("cards")));
 
-		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic,i);
+		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -5295,14 +5314,13 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 	m_pTargetMoveCardSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
 		new CardTypeComparer(CardType::Green, false));
 
-	{ //Delve
+	{ //delve mana cost [4B, <exile card>]
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
 			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant,
 				_T("4") BLACK_MANA_TEXT,
 				new AnyCreatureComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration));
 
-	
 		cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
 			new CardTypeComparer(CardType::Green, false));
 
@@ -5311,14 +5329,13 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{ //Delve
+	{ //delve mana cost [3B, <exile card>, <exile card>]
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
 			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant,
 				_T("3") BLACK_MANA_TEXT,
 				new AnyCreatureComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration));
 
-	
 		cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
 			new CardTypeComparer(CardType::Green, false));
 
@@ -5327,14 +5344,13 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{ //Delve
+	{ //delve mana cost, [2B, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
 			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant,
 				_T("2") BLACK_MANA_TEXT,
 				new AnyCreatureComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration));
 
-	
 		cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
 			new CardTypeComparer(CardType::Green, false));
 
@@ -5343,7 +5359,7 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{ //Delve
+	{ //delve mana cost, [1B, <exile card>, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
 			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant,
 				_T("1") BLACK_MANA_TEXT,
@@ -5359,14 +5375,13 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{ //Delve
+	{ //delve mana cost, [B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>]
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
 			::CreateObject<CTargetMoveCardSpell>(this, AbilityType::Instant,
 				_T("") BLACK_MANA_TEXT,
 				new AnyCreatureComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration));
 
-	
 		cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
 			new CardTypeComparer(CardType::Green, false));
 
@@ -5375,8 +5390,28 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	
-	for (int i = 1; i < 15; ++i)
+	//delve mana cost [B, <exile card>, <exile card>, <exile card>, <exile card>, <exile card>], .. upto 20x<exile card>
+	/*
+		!!! NOTE messages are often too long to be displayed in Action window list and are truncated. 
+			This issue requires a fix !!!
+		
+		This code is required to correctly implement cost increase affects where colorless mana is added
+		to the casting cost of this card.  Here the player can opt to reduce the entire colorless component
+		of the casting cost.  Currently, this code allows for upto a total of 20 cards being exiled from the graveyard.
+
+		For example
+			Thorn of Amethyst is in play, now Noncreature spells cost {1} more to cast.  So the colorless cost of a 
+		noncreature delve spell increases by {1}.  Murderous Cut which normally has a casting cost of 4B now has
+		a casting cost of 5B.  The casting player can use the delve ability to reduce the colorless component of the
+		casting cost {5} to {0} by exiling 5 cards from their graveyard.
+
+		Note the Botarena code caters for colourless cost reduction affects already, so no additional code is required 
+		for this.
+	*/
+
+	// Change loop termination condition for each card.  It is dependant on the colorless component of the card's casting cost.
+	// number is calculated by (20 - colorless component of the card's casting cost) + 1
+	for (int i = 1; i < 16; ++i)
 	{
 		//Delve mana cost
 		counted_ptr<CTargetMoveCardSpell> cpSpell(
@@ -5385,13 +5420,12 @@ CDeathRattleCard::CDeathRattleCard(CGame* pGame, UINT nID)
 				new AnyCreatureComparer,
 				ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration));
 
-	
 		cpSpell->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(
 			new CardTypeComparer(CardType::Green, false));
 
 		cpSpell->GetCost().AddExileGraveyardCardCost(5+i, CCardFilter::GetFilter(_T("cards")));
 
-		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic,i);
+		cpSpell->GetCost().AddReductionCost(CManaCostBase::Color::Generic, i);
 
 	    cpSpell->SetMainSpell(FALSE);
 
@@ -6022,17 +6056,16 @@ void CPhosphorescentFeastCard::Finale(CPlayer* pController)
 		}
 
 		int p = 0;
-		int max;
 		int converted;
 		int temp;
 
 		for (int i = 0; i < pRevealedCards.GetSize(); ++i)
 		{		
-			max = 0;
 			CCard* pCard = pRevealedCards.GetAt(i);
 
 			if (!pCard->GetCardType().IsLand())
 			{
+				int max = 0;
 				converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
 
 				for (int j = 0; j < pCard->GetSpells().GetSize(); ++j)
@@ -6046,18 +6079,30 @@ void CPhosphorescentFeastCard::Finale(CPlayer* pController)
 				}
 				p = p + max;
 
-				if (pCard->GetPrintedCardName() == _T("Tower Above")) p = p + 3;
-				if (pCard->GetPrintedCardName() == _T("Reaper King")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Assault // Battery")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Illusion // Reality")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Bound // Determined")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Crime // Punishment")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Hit // Run")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Pure // Simple")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Armed // Dangerous")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Down // Dirty")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Flesh // Blood")) p = p + 1;
-				if (pCard->GetPrintedCardName() == _T("Who/What/When/Where/Why")) p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Tower Above")) 
+					p = p + 3;
+				if (pCard->GetPrintedCardName() == _T("Reaper King")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Assault // Battery")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Illusion // Reality")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Bound // Determined")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Crime // Punishment")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Hit // Run")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Pure // Simple")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Armed // Dangerous")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Down // Dirty")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Flesh // Blood")) 
+					p = p + 1;
+				if (pCard->GetPrintedCardName() == _T("Who/What/When/Where/Why")) 
+					p = p + 1;
 			}
 		}
 
@@ -6411,7 +6456,6 @@ bool CSehtsTigerCard::BeforeResolution(CAbilityAction* pAction)
 void CSehtsTigerCard::OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)

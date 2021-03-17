@@ -661,6 +661,9 @@ public:
 	void SetMonitorControllerOnly(BOOL bControllerOnly)	{ m_bMonitorControllerOnly = bControllerOnly; }
 	void SetMonitorOpponentsOnly(BOOL bOpponentsOnly)	{ m_bMonitorOpponentsOnly = bOpponentsOnly; }
 
+	CCardFilterHelper& GetCardFilterHelper()				{ return m_CardFilterHelper; }
+	const CCardFilterHelper& GetCardFilterHelper() const	{ return m_CardFilterHelper; }
+
 	CString GetTriggeredHint(CPlayer*, CCard* pCard, CPlayer*) const;
 
 private:
@@ -676,6 +679,8 @@ private:
 	BOOL	m_bMonitorControllerOnly;
 	BOOL	m_bMonitorOpponentsOnly;
 	BOOL	m_bThisIsUntappedOnly;
+
+	CCardFilterHelper m_CardFilterHelper;
 
 	ListenerPtr<CardMovementEventSource::Listener>	m_cpMListener;
 

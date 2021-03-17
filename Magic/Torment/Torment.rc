@@ -85,9 +85,9 @@ BEGIN
     IDS_STRING13605         "Sengir Vampire\n{3BB}\nCreature - Vampire\nTOR,R\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
     IDS_STRING13606         "Anurid Scavenger\n{2G}\nCreature - Frog Beast\nTOR,U\nProtection from black\rAt the beginning of your upkeep, sacrifice Anurid Scavenger unless you put a card from your graveyard on the bottom of your library.\n3/3"
     IDS_STRING13607         "Deep Analysis\n{3U}\nSorcery\nTOR,C\nTarget player draws two cards.\rFlashback - {1U}, Pay 3 life."
-    IDS_STRING13608         "Acorn Harvest\n{3G}\nSorcery\nTOR\nPut two 1/1 green Squirrel creature tokens onto the battlefield.\rFlashback - {1G}, Pay 3 life."
+    IDS_STRING13608         "Acorn Harvest\n{3G}\nSorcery\nTOR,C\nPut two 1/1 green Squirrel creature tokens onto the battlefield.\rFlashback - {1G}, Pay 3 life."
     IDS_STRING13609         "Chainer's Edict\n{1B}\nSorcery\nTOR,U\nTarget player sacrifices a creature.\rFlashback {5BB}"
-    IDS_STRING13610         "Crippling Fatigue\n{1BB}\nSorcery\nTOR\nTarget creature gets -2/-2 until end of turn.\rFlashback - {1B}, Pay 3 Life."
+    IDS_STRING13610         "Crippling Fatigue\n{1BB}\nSorcery\nTOR,C\nTarget creature gets -2/-2 until end of turn.\rFlashback - {1B}, Pay 3 Life."
     IDS_STRING13611         "Mind Sludge\n{4B}\nSorcery\nTOR,U\nTarget player discards a card for each Swamp you control."
     IDS_STRING13612         "Grim Lavamancer\n{R}\nCreature - Human Wizard\nTOR,R\n{R}, {T}, Exile two cards from your graveyard: Grim Lavamancer deals 2 damage to target creature or player.\n1/1"
     IDS_STRING13613         "Nantuko Shade\n{BB}\nCreature - Insect Shade\nTOR,R\n{B}: Nantuko Shade gets +1/+1 until end of turn.\n2/1"
@@ -172,14 +172,14 @@ BEGIN
     IDS_STRING13676         "Fiery Temper\n{1RR}\nInstant\nTOR,C\nFiery Temper deals 3 damage to target creature or player.\rMadness {R}"
     IDS_STRING13677         "Basking Rootwalla\n{G}\nCreature - Lizard\nTOR,C\n{1G}: Basking Rootwalla gets +2/+2 until end of turn. Activate this ability only once each turn.\rMadness{0}\n1/1"
     IDS_STRING13678         "Arrogant Wurm\n{3GG}\nCreature - Wurm\nTOR,U\nTrample\rMadness {2G}\n4/4"
-    IDS_STRING13679         "Frantic Purification\n{2W}\nInstant\nTOR\nDestroy target enchantment.\rMadness {W}"
+    IDS_STRING13679         "Frantic Purification\n{2W}\nInstant\nTOR,C\nDestroy target enchantment.\rMadness {W}"
 END
 
 STRINGTABLE
 BEGIN
     IDS_STRING13680         "Violent Eruption\n{1RRR}\nInstant\nTOR,U\nViolent Eruption deals 4 damage divided as you choose among any number of target creatures and/or players.\rMadness {1RR}"
-    IDS_STRING13681         "Obsessive Search\n{U}\nInstant\nTOR\nDraw a card\rMadness {U}"
-    IDS_STRING13682         "Psychotic Haze\n{2BB}\nInstant\nTOR\nPsychotic Haze deals 1 damage to each creature and each player.\rMadness {1B}"
+    IDS_STRING13681         "Obsessive Search\n{U}\nInstant\nTOR,C\nDraw a card\rMadness {U}"
+    IDS_STRING13682         "Psychotic Haze\n{2BB}\nInstant\nTOR,C\nPsychotic Haze deals 1 damage to each creature and each player.\rMadness {1B}"
     IDS_STRING13683         "Strength of Isolation\n{1W}\nEnchantment - Aura\nTOR,U\nEnchant creature\rEnchanted creature gets +1/+2 and has protection from black.\rMadness {W}"
     IDS_STRING13684         "Strength of Lunacy\n{1B}\nEnchantment - Aura\nTOR,U\nEnchant creature\rEnchanted creature gets +2/+1 and has protection from white.\rMadness {B}"
     IDS_STRING13685         "Insidious Dreams\n{3B}\nInstant\nTOR,R\nAs an additional cost to cast Insidious Dreams, discard X cards.\rSearch your library for X cards. Then shuffle your library and put those cards on top of it in any order."

@@ -1,0 +1,67 @@
+// Total cards in deck - 60
+
+// Planeswalkers - 1 (1.67%)
+
+Elspeth, Knight-Errant (26451)
+
+// Creatures - 5 (8.33%)
+
+2 Soul Warden (4103)
+3 Tidehollow Sculler (26585)
+
+// Instants - 10 (16.67%)
+
+3 Path to Exile (26524)
+4 Raise the Alarm (14867)
+3 Zealous Persecution (9071)
+
+// Sorceries - 10 (16.67%)
+
+2 Inquisition of Kozilek (20846)
+4 Lingering Souls (23626)
+4 Spectral Procession (18640)
+
+// Enchantments - 7 (11.67%)
+
+3 Honor of the Pure (22239)
+4 Intangible Virtue (23406)
+
+// Artifacts - 3 (5.00%)
+
+2 Shrine of Loyal Legions (22017)
+Sword of Feast and Famine (21762)
+
+// Lands - 24 (40.00%)
+
+4 Caves of Koilos (3022)
+2 City of Brass (26428)
+4 Isolated Chapel (23352)
+5 Plains (23330)
+4 Swamp (23333)
+Vault of the Archangel (23622)
+4 Windbrisk Heights (18152)
+
+#SIDEBOARD
+
+// Total cards in sideboard - 15
+
+// Creatures
+
+2 Burrenton Forge-Tender (18054)
+3 Kataki, War's Wage (26487)
+
+// Instants
+
+2 Dismember (21951)
+
+// Sorceries
+
+3 Duress (26060)
+
+// Artifacts
+
+3 Relic of Progenitus (26539)
+
+// Lands
+
+2 Ghost Quarter (23336)

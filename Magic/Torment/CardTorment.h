@@ -525,7 +525,7 @@ class CIchoridCard : public CHasteCreatureCard
 protected:
 	CCardFilter m_CardFilter;
 	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool CIchoridCard::BeforeResolution(CAbilityAction* pAction) const;
+	bool BeforeResolution(CAbilityAction* pAction) const;
 };
 
 //____________________________________________________________________________
@@ -762,7 +762,7 @@ protected:
 
 //_____________________________________________________________________________
 //
-class CSickeningDreamsCard : public CGlobalChgLifeSpellCard
+class CSickeningDreamsCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSickeningDreamsCard);
 

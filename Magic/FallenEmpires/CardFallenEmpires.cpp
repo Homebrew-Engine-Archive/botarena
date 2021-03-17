@@ -1304,11 +1304,10 @@ void CThrullChampionCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	// Return stolen cards
 	CCountedCardContainer cards;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pZone, cards);
 	}
 
@@ -1845,7 +1844,7 @@ void CDeepSpawnCard::OnSelectionDone(const std::vector<SelectionEntry>& selectio
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s puts top two cards of his library into his graveyard"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
+					strMessage.Format(_T("%s puts top two cards of his library into his graveyard"), pSelectionPlayer->GetPlayerName());
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),

@@ -806,7 +806,7 @@ class CPromiseOfBunreiCard : public CInPlaySpellCard
 	DECLARE_CARD_CSTOR(CPromiseOfBunreiCard);
 
 protected:
-	bool CPromiseOfBunreiCard::BeforeResolution(CAbilityAction* pAction);
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -1203,8 +1203,8 @@ protected:
 	typedef
 		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenSelfMoved > TriggeredAbility;
 
-	bool CBurningEyeZuberaCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
-										CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CZone* pFromZone, 
+						   CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
 };
 
 //___________________________________________________________________________

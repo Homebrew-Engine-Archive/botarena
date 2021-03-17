@@ -216,13 +216,6 @@ protected:
 
 //____________________________________________________________________________
 //
-class CPhyrexianRevokerCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CPhyrexianRevokerCard);
-};
-
-//____________________________________________________________________________
-//
 class CPhyrexianVatmotherCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CPhyrexianVatmotherCard);

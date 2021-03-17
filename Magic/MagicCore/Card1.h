@@ -192,8 +192,9 @@ protected:
 //
 /*
 	CTargetMoveCardSpellCard Example Cards
-	Raise Dead B Sorcery Return target creature card from your graveyard to your hand.
-	Disenchant 1W Instant Destroy target artifact or enchantment.
+	Raise Dead B   Sorcery Return target creature card from your graveyard to your hand.
+	Disenchant 1W  Instant Destroy target artifact or enchantment.
+	Saltblast  3WW Sorcery Destroy target nonwhite permanent.
 */
 class CORE_EXPORT CTargetMoveCardSpellCard : public CCard
 {

@@ -350,7 +350,7 @@ BEGIN
     IDS_STRING16616         "Induce Paranoia\n{2UU}\nInstant\nRAV,C\nCounter target spell. If {B} was spent to cast Induce Paranoia, that spell's controller puts the top X cards of his or her library into his or her graveyard, where X is the spell's converted mana cost."
     IDS_STRING16617         "Twisted Justice\n{4UB}\nSorcery\nRAV,U\nTarget player sacrifices a creature. You draw cards equal to that creature's power."
     IDS_STRING16618         "Drooling Groodion\n{3BBG}\nCreature - Beast\nRAV,U\n{2BG}, Sacrifice a creature: Target creature gets +2/+2 until end of turn. Another target creature gets -2/-2 until end of turn.\n4/3"
-    IDS_STRING16619         "Disembowel\n{XB}\nInstant\nRAV\nDestroy target creature with converted mana cost X."
+    IDS_STRING16619         "Disembowel\n{XB}\nInstant\nRAV,C\nDestroy target creature with converted mana cost X."
     IDS_STRING16620         "Faith's Fetters\n{3W}\nEnchantment - Aura\nRAV,C\nEnchant permanent\rWhen Faith's Fetters enters the battlefield, you gain 4 life.\rEnchanted permanent's activated abilities can't be activated unless they're mana abilities. If enchanted permanent is a creature, it can't attack or block."
     IDS_STRING16621         "Belltower Sphinx\n{4U}\nCreature - Sphinx\nRAV,U\nFlying\rWhenever a source deals damage to Belltower Sphinx, that source's controller puts that many cards from the top of his or her library into his or her graveyard.\n2/5"
     IDS_STRING16622         "Dream Leash\n{3UU}\nEnchantment - Aura\nRAV,R\nEnchant permanent\rYou can't choose an untapped permanent as Dream Leash's target as you cast Dream Leash.\rYou control enchanted permanent."

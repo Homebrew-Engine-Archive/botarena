@@ -2615,9 +2615,6 @@ void CFlickerCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, 
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
-
 	m_CardFlagModifier1.ApplyTo(target);
 
 	CardFlagComparer* pComparer = new CardFlagComparer(CardFlag::AbilityFlag, false);
@@ -3098,11 +3095,10 @@ CMultanisDecreeCard::CMultanisDecreeCard(CGame* pGame, UINT nID)
 
 bool CMultanisDecreeCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay;
 	m_nCards = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards += CCardFilter::GetFilter(_T("enchantments"))->CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -3111,12 +3107,12 @@ bool CMultanisDecreeCard::BeforeResolution(CAbilityAction* pAction)
 
 void CMultanisDecreeCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards -= CCardFilter::GetFilter(_T("enchantments"))->CountIncluded(pInplay->GetCardContainer());
 	}
 

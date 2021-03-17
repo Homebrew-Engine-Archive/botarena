@@ -147,13 +147,6 @@ class CTowerOfMurmursCard : public CInPlaySpellCard
 
 //____________________________________________________________________________
 //
-class CRaiseTheAlarmCard : public CCard
-{
-	DECLARE_CARD_CSTOR(CRaiseTheAlarmCard);
-};
-
-//____________________________________________________________________________
-//
 class CSwordOfKaldraCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CSwordOfKaldraCard);
@@ -889,13 +882,6 @@ class CPredatorsStrikeCard : public CChgPwrTghAttrSpellCard
 class CRegressCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CRegressCard);
-};
-
-//____________________________________________________________________________
-//
-class CShrapnelBlastCard : public CTargetChgLifeSpellCard
-{
-	DECLARE_CARD_CSTOR(CShrapnelBlastCard);
 };
 
 //____________________________________________________________________________
@@ -1814,6 +1800,19 @@ class CBlindingBeamCard : public CCard
 protected:
 	CManaCost	m_EntwineCost;
 	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CJinxedChokerCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CJinxedChokerCard);
+protected:
+	typedef 
+		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
+							CNode* pToNode) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
 
 //____________________________________________________________________________

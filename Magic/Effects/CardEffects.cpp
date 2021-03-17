@@ -147,6 +147,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CStoneshockGiantEffectToken);
 		DEFINE_TOKEN(CSummonersPactEffectToken);
 		DEFINE_TOKEN(CTatsumasaTheDragonsFangEffectToken);
+		DEFINE_TOKEN(CTemurCharmEffectToken);
 		DEFINE_TOKEN(CThePiecesAreComingTogetherEffectToken);
 		DEFINE_TOKEN(CTimeToFeedEffectToken);
 		DEFINE_TOKEN(CTransluminantEffectToken);
@@ -4718,14 +4719,15 @@ bool CGoblinKitesEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerCont
 bool CGoblinKitesEffectToken::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -4928,6 +4930,9 @@ bool CGraveBetrayalEffectToken::BeforeResolution(CAbilityAction* pAction) const
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleCounters, nMultiplier, FALSE))
 		nCounters <<= nMultiplier;
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE))
+		nCounters <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE))
 		nCounters <<= nMultiplier;
 
 	CCardCounterModifier pModifier1(_T("+1/+1"), +nCounters, true);
@@ -6542,7 +6547,10 @@ bool COtherworldlyJourneyEffectToken::BeforeResolution(CAbilityAction* pAction) 
 		nCounters <<= nMultiplier;
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE))
 		nCounters <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE))
+		nCounters <<= nMultiplier;
+	
 	CCardCounterModifier pModifier1(_T("+1/+1"), +nCounters, true);
 	CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Exile, ZoneId::Battlefield, true, MoveType::Others, pController);
 
@@ -7015,6 +7023,9 @@ bool CSandGolemEffectToken::BeforeResolution(CAbilityAction* pAction) const
 		nCounters <<= nMultiplier;
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE))
 		nCounters <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE))
+		nCounters <<= nMultiplier;
 
 	CCardCounterModifier pModifier1(_T("+1/+1"), +nCounters, true);
 	CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Others, pController);
@@ -7236,10 +7247,10 @@ bool CSeraphSecondEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerCon
 	
 	if (pToZone->GetZoneId() != ZoneId::Battlefield)
 	{
-		if (pCards1.HasCard(pCard));
+		if (pCards1.HasCard(pCard))
 			pCards1.RemoveCard(pCard);
 
-		if (pCards2.HasCard(pCard));
+		if (pCards2.HasCard(pCard))
 		{
 			pCards2.RemoveCard(pCard);
 
@@ -7490,7 +7501,7 @@ bool CSpinalEmbraceEffectToken::BeforeResolution(CAbilityAction* pAction) const
 
 		if (!pCard->IsInplay() && (nToughness > Life(0)))
 		{
-			CLifeModifier pModifier2 = CLifeModifier(+nToughness, this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+			CLifeModifier pModifier2 = CLifeModifier(Life(+nToughness), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 			pModifier2.ApplyTo(pController);
 		}
 	}
@@ -8694,15 +8705,16 @@ bool CFickleEfreetEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerCon
 bool CFickleEfreetEffectToken::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	
-	int Thumb = 0;
-	int Exponent = 2;
+
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -9358,10 +9370,10 @@ bool CCoffinQueenEffectToken::SetTriggerContext1(CTriggeredAbility<>::TriggerCon
 	
 	if (pToZone->GetZoneId() != ZoneId::Battlefield)
 	{
-		if (pCards1.HasCard(pCard));
+		if (pCards1.HasCard(pCard))
 			pCards1.RemoveCard(pCard);
 
-		if (pCards2.HasCard(pCard));
+		if (pCards2.HasCard(pCard))
 		{
 			pCards2.RemoveCard(pCard);
 
@@ -10066,8 +10078,7 @@ bool CScatteringStrokeEffectToken::BeforeResolution(CAbilityAction* pAction)
 		SelectionEntry selectionEntry;
 
 		selectionEntry.dwContext = 1;
-		selectionEntry.strText.Format(_T("Add %d colorless mana to your mana pool"), GET_INTEGER(nNumber));
-
+		selectionEntry.strText.Format(_T("Add %d colorless mana to your mana pool"), nNumber);
 		entries.push_back(selectionEntry);
 	}
 	m_Selection.AddSelectionRequest(entries, 1, 1, NULL, GetController());
@@ -10921,6 +10932,45 @@ bool CTimeToFeedEffectToken::SetTriggerContext(CTriggeredModifyLifeAbility::Trig
 	if (pToZone->GetZoneId() != ZoneId::Graveyard) return false;
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CTemurCharmEffectToken::CTemurCharmEffectToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Temur Charm Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0), CreatureKeyword::CantBlock));
+
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CreaturePowerComparer<std::less<int>>(4));
+		cpAbility->SetListenToKeyword();
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
 }
 
 //____________________________________________________________________________

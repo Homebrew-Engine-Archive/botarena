@@ -589,13 +589,6 @@ class CShadowGuildmageCard : public CTargetChgLifeTCreatureCard
 
 //____________________________________________________________________________
 //
-class CDissipateCard : public CCounterSpellCard
-{
-	DECLARE_CARD_CSTOR(CDissipateCard);
-};
-
-//____________________________________________________________________________
-//
 class CDivineRetributionCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDivineRetributionCard);
@@ -1804,7 +1797,7 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 
 	BOOL CanPlay(BOOL bIncludeTricks);

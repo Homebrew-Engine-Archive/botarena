@@ -213,7 +213,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CVisaraTheDreadfulCard);
 		DEFINE_CARD(CVoiceOfTheWoodsCard);
 		DEFINE_CARD(CVoidmageProdigyCard);
-		DEFINE_CARD(CWallOfMulchCard);
 		DEFINE_CARD(CWaveOfIndifferenceCard);
 		DEFINE_CARD(CWellwisherCard);
 		DEFINE_CARD(CWhipcorderCard);
@@ -1935,27 +1934,6 @@ CUndeadGladiatorCard::CUndeadGladiatorCard(CGame* pGame, UINT nID)
 BOOL CUndeadGladiatorCard::CanPlay(BOOL bIncludeTricks)
 {
 	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
-}
-
-//____________________________________________________________________________
-//
-CWallOfMulchCard::CWallOfMulchCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Wall of Mulch"), CardType::Creature, CREATURE_TYPE(Wall), nID,
-		_T("1") GREEN_MANA_TEXT, Power(0), Life(4))
-
-	, m_CardFilter(_T("a Wall"), _T("Walls"), new CreatureTypeComparer(CREATURE_TYPE(Wall), false))
-{
-	GetCreatureKeyword()->AddDefender(FALSE);
-
-	{
-		counted_ptr<CActivatedAbility<CDrawCardSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CDrawCardSpell>>(this,
-				GREEN_MANA_TEXT, 1));
-
-		cpAbility->GetCost().AddSacrificeCardCost(1, &m_CardFilter);
-
-		AddAbility(cpAbility.GetPointer());
-	}
 }
 
 //____________________________________________________________________________
@@ -5835,7 +5813,7 @@ bool CAEtherChargeCard::BeforeResolution(TriggeredAbility::TriggeredActionType* 
 {
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 	
-	triggerContext.m_LifeModifier.SetLifeDelta(-4);
+	triggerContext.m_LifeModifier.SetLifeDelta(Life(-4));
 	pAction->SetTriggerContext(triggerContext);
 
 	return true;
@@ -6397,15 +6375,15 @@ void CReadTheRunesCard::OnNumberSelected(const std::vector<SelectionEntry>& sele
 
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All , CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-				pModifier.AddSelection(MinimumValue(nDiscard), MaximumValue(nDiscard), // select cards to reorder
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::AllPlayers, // reveal to
-					&temp, // what cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on 
-					MoveType::Discard, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+				pModifier.AddSelection(MinimumValue(nDiscard), MaximumValue(nDiscard),  // select cards to reorder
+					CZoneModifier::RoleType::PrimaryPlayer,								// select by 
+					CZoneModifier::RoleType::AllPlayers,								// reveal to
+					&temp,																// what cards
+					ZoneId::Graveyard,													// if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,								// select by this player
+					CardPlacement::Top,													// put selected cards on 
+					MoveType::Discard,													// move type
+					CZoneModifier::RoleType::PrimaryPlayer);							// order selected cards by this player
 				pModifier.ApplyTo(pSelectionPlayer);
 
 				return;
@@ -6420,14 +6398,14 @@ void CReadTheRunesCard::OnNumberSelected(const std::vector<SelectionEntry>& sele
 					CString strMessage;
 					if (nValue == 1)
 						if (nDiscard == 0)
-							strMessage.Format(_T("%s sacrifices %d permanent"), pSelectionPlayer->GetPlayerName(), nValue, nDiscard);
+							strMessage.Format(_T("%s sacrifices %d permanent"), pSelectionPlayer->GetPlayerName(), nValue);
 						else if (nDiscard == 1)
 							strMessage.Format(_T("%s sacrifices %d permanent and discards %d card"), pSelectionPlayer->GetPlayerName(), nValue, nDiscard);
 						else
 							strMessage.Format(_T("%s sacrifices %d permanent and discards %d cards"), pSelectionPlayer->GetPlayerName(), nValue, nDiscard);
 					else
 						if (nDiscard == 0)
-							strMessage.Format(_T("%s sacrifices %d permanents"), pSelectionPlayer->GetPlayerName(), nValue, nDiscard);
+							strMessage.Format(_T("%s sacrifices %d permanents"), pSelectionPlayer->GetPlayerName(), nValue);
 						else if (nDiscard == 1)
 							strMessage.Format(_T("%s sacrifices %d permanents and discards %d card"), pSelectionPlayer->GetPlayerName(), nValue, nDiscard);
 						else
@@ -6805,7 +6783,6 @@ void CRiptideShapeshifterCard::OnCreatureTypeSelected(const std::vector<Selectio
 
 			int n = 0;
 			bool bSearch = true;
-			CCard* pFound;
 				
 			CZone* pLibrary = pSelectionPlayer->GetZoneById(ZoneId::Library);
 
@@ -6820,10 +6797,7 @@ void CRiptideShapeshifterCard::OnCreatureTypeSelected(const std::vector<Selectio
 					{
 						CCreatureCard* pCreature = (CCreatureCard*)pLibrary->GetAt(i);
 						if (pCreature->GetCreatureType().HasType(creatureType) || pCreature->GetCardKeyword()->HasChangeling())
-						{
 							bSearch = false;
-							pFound = pLibrary->GetAt(i);
-						}
 					}
 				}
 			}
@@ -6835,14 +6809,14 @@ void CRiptideShapeshifterCard::OnCreatureTypeSelected(const std::vector<Selectio
 			CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 				CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 			pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::AllPlayers, // reveal to
-					&m_CardFilter, // any cards
-					ZoneId::Battlefield, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on top
-					MoveType::Others, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer,			 // select by 
+					CZoneModifier::RoleType::AllPlayers,			 // reveal to
+					&m_CardFilter,									 // any cards
+					ZoneId::Battlefield,							 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,			 // select by this player
+					CardPlacement::Top,								 // put selected cards on top
+					MoveType::Others,								 // move type
+					CZoneModifier::RoleType::PrimaryPlayer);		 // order selected cards by this player
 		
 			pModifier.ApplyTo(pSelectionPlayer);
 
@@ -7316,12 +7290,10 @@ bool CThunderOfHoovesCard::BeforeResolution(CAbilityAction* pAction) const
 	m_CardFilter.SetComparer(new CreatureTypeComparer(CREATURE_TYPE(Beast), false));
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-	{
-		CZone* pGraveyard = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard);
 		nBeasts += m_CardFilter.CountIncluded(GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
-	}
 
-	if (nBeasts == 0) return false;
+	if (nBeasts == 0) 
+		return false;
 
 	ContextValue Context(pAction->GetValue());
 	Context.nValue1 = -nBeasts;
@@ -7588,8 +7560,6 @@ void CRiptideReplicatorCard::OnColorSelected(const std::vector<SelectionEntry>& 
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -7742,9 +7712,13 @@ bool CRiptideReplicatorCard::BeforeResolution(CAbilityAction* pAction) const
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, strTokenName, nUID));		

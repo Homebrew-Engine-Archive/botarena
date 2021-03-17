@@ -1664,7 +1664,7 @@ class CBalanceCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CBalanceCard);
 
-private:
+protected:
 	typedef
 		TTriggeredSubjectAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility3;
 	bool SetTriggerContext1(CTriggeredDiscardCardAbility::TriggerContextType& triggerContext,
@@ -1793,7 +1793,7 @@ class CManaFlareCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CManaFlareCard);
 
-private:
+protected:
 	typedef
 		TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenTappedForMana > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,
@@ -1925,7 +1925,7 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 
 	bool BeforeResolution(CAbilityAction* pAction) const;
@@ -1979,7 +1979,7 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 };
 

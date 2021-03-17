@@ -1843,13 +1843,13 @@ bool CMaelstromPulseCard::BeforeResolution(CAbilityAction* pAction)
 
 void CMaelstromPulseCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -2502,6 +2502,8 @@ CLightningReaverCard::CLightningReaverCard(CGame* pGame, UINT nID)
 	: CHasteCreatureCard(pGame, _T("Lightning Reaver"), CardType::Creature, CREATURE_TYPE2(Zombie, Beast), nID,
 		_T("3") BLACK_MANA_TEXT RED_MANA_TEXT, Power(3), Life(3))
 {
+	// initialize CHARGE_COUNTER 
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, false, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetCreatureKeyword()->AddFear(FALSE);
 
 	{
@@ -3799,11 +3801,14 @@ bool CSovereignsofLostAlaraCard::BeforeResolution(TriggeredAbility2::TriggeredAc
 //
 CThoughtHemorrhageCard::CThoughtHemorrhageCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Thought Hemorrhage"), CardType::Sorcery, nID)
+	, m_CardFilter(new NegateCardComparer(new CardTypeComparer(CardType::_Land, false)))
 {
 	counted_ptr<CTargetPlayerDiscardCardNameSpell> cpSpell(
 		::CreateObject<CTargetPlayerDiscardCardNameSpell>(this, AbilityType::Sorcery,
 			_T("2") RED_MANA_TEXT BLACK_MANA_TEXT,
-			ZoneId::Exile, TRUE, TRUE, TRUE));
+			ZoneId::Exile, TRUE, 
+			&m_CardFilter,
+			TRUE, TRUE)); 
 
 	AddSpell(cpSpell.GetPointer());
 }
@@ -4322,7 +4327,8 @@ bool CMaelstromNexusCard::SetTriggerContext(CTriggeredCascadeAbility::TriggerCon
 {
 	CPlayer* player = GetController();
 
-	return (player->GetCertainAntiTypeCastedCount(CardType::_Land)<1);
+	return (player->GetCertainAntiTypeCastedCount(CardType::_Land) == 1); // if first spell return true (lands are excluded 
+																		// because they are not spells)
 }
 
 
@@ -4850,14 +4856,15 @@ CSkyclawThrashCard::CSkyclawThrashCard(CGame* pGame, UINT nID)
 bool CSkyclawThrashCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 

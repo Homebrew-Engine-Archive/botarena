@@ -1,0 +1,324 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "KhansOfTarkir.ico"
+IDI_LARGE_MODULE        ICON                    "KhansOfTarkirLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Khans of Tarkir"
+    IDS_EXPANSION_ABBREV    "KTK"
+    IDS_FIRST_CARD          "28800"
+    IDS_TOTAL_CARD          "269"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "29069"
+    IDS_MODULE_LARGE_ICON_ID "29070"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "20-09-2014"
+    IDS_MWS_FOLDER          "MWS\\KTK\\"
+    IDS_PRODUCT_LIST        """Khans of Tarkir Starter Box"":R-3:U-10:C-32:BL-30,""Khans of Tarkir Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28800         "Forest\n\nBasic Land - Forest\nKTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING28801         "Forest\n\nBasic Land - Forest\nKTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING28802         "Forest\n\nBasic Land - Forest\nKTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING28803         "Forest\n\nBasic Land - Forest\nKTK,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING28804         "Island\n\nBasic Land - Island\nKTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING28805         "Island\n\nBasic Land - Island\nKTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING28806         "Island\n\nBasic Land - Island\nKTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING28807         "Island\n\nBasic Land - Island\nKTK,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING28808         "Mountain\n\nBasic Land - Mountain\nKTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING28809         "Mountain\n\nBasic Land - Mountain\nKTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING28810         "Mountain\n\nBasic Land - Mountain\nKTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING28811         "Mountain\n\nBasic Land - Mountain\nKTK,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING28812         "Plains\n\nBasic Land - Plains\nKTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING28813         "Plains\n\nBasic Land - Plains\nKTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING28814         "Plains\n\nBasic Land - Plains\nKTK,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING28815         "Plains\n\nBasic Land - Plains\nKTK,BL\n{T}: Add {W} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28816         "Swamp\n\nBasic Land - Swamp\nKTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING28817         "Swamp\n\nBasic Land - Swamp\nKTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING28818         "Swamp\n\nBasic Land - Swamp\nKTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING28819         "Swamp\n\nBasic Land - Swamp\nKTK,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING28820         "Abzan Banner\n{3}\nArtifact\nKTK,C\n{T}: Add {W}, {B} or {G} to your mana pool.\r{WBG}, {T}, Sacrifice Abzan Banner: Draw a card."
+    IDS_STRING28821         "Jeskai Banner\n{3}\nArtifact\nKTK,C\n{T}: Add {U}, {R} or {W} to your mana pool.\r{URW}, {T}, Sacrifice Jeskai Banner: Draw a card."
+    IDS_STRING28822         "Mardu Banner\n{3}\nArtifact\nKTK,C\n{T}: Add {R}, {W} or {B} to your mana pool.\r{RWB}, {T}, Sacrifice Mardu Banner: Draw a card."
+    IDS_STRING28823         "Sultai Banner\n{3}\nArtifact\nKTK,C\n{T}: Add {B}, {G} or {U} to your mana pool.\r{BGU}, {T}, Sacrifice Sultai Banner: Draw a card."
+    IDS_STRING28824         "Temur Banner\n{3}\nArtifact\nKTK,C\n{T}: Add {G}, {U} or {R} to your mana pool.\r{GUR}, {T}, Sacrifice Temur Banner: Draw a card."
+    IDS_STRING28825         "Frontier Bivouac\n\nLand\nKTK,U\nFrontier Bivouac enters the battlefield tapped.\r{T}: Add {G}, {U}, or {R} to your mana pool."
+    IDS_STRING28826         "Mystic Monastery\n\nLand\nKTK,U\nMystic Monastery enters the battlefield tapped.\r{T}: Add {U}, {R}, or {W} to your mana pool."
+    IDS_STRING28827         "Nomad Outpost\n\nLand\nKTK,U\nNomad Outpost enters the battlefield tapped.\r{T}: Add {R}, {W}, or {B} to your mana pool."
+    IDS_STRING28828         "Opulent Palace\n\nLand\nKTK,U\nOpulent Palace enters the battlefield tapped.\r{T}: Add {B}, {G}, or {U} to your mana pool."
+    IDS_STRING28829         "Sandsteppe Citadel\n\nLand\nKTK,U\nSandsteppe Citadel enters the battlefield tapped.\r{T}: Add {W}, {B}, or {G} to your mana pool."
+    IDS_STRING28830         "Polluted Delta\n\nLand\nKTK,R\n{T}, Pay 1 life, Sacrifice Polluted Delta: Search your library for an Island or Swamp card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING28831         "Flooded Strand\n\nLand\nKTK,R\n{T}, Pay 1 life, Sacrifice Flooded Strand: Search your library for a Plains or Island card and put it onto the battlefield. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28832         "Bloodstained Mire\n\nLand\nKTK,R\n{T}, Pay 1 life, Sacrifice Bloodstained Mire: Search your library for a Swamp or Mountain card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING28833         "Windswept Heath\n\nLand\nKTK,R\n{T}, Pay 1 life, Sacrifice Windswept Heath: Search your library for a Forest or Plains card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING28834         "Wooded Foothills\n\nLand\nKTK,R\n{T}, Pay 1 life, Sacrifice Wooded Foothills: Search your library for a Mountain or Forest card and put it onto the battlefield. Then shuffle your library."
+    IDS_STRING28835         "Act of Treason\n{2R}\nSorcery\nKTK,U\nGain control of target creature until end of turn. Untap that creature. It gains haste until end of turn."
+    IDS_STRING28836         "Arc Lightning\n{2R}\nSorcery\nKTK,C\nArc Lightning deals 3 damage divided as you choose among one, two, or three target creatures and/or players."
+    IDS_STRING28837         "Cancel\n{1UU}\nInstant\nKTK,C\nCounter target spell."
+    IDS_STRING28838         "Crippling Chill\n{2U}\nInstant\nKTK,C\nTap target creature. It doesn’t untap during its controller’s next untap step.\rDraw a card."
+    IDS_STRING28839         "Despise\n{B}\nSorcery\nKTK,U\nTarget opponent reveals his or her hand. You choose a creature or planeswalker card from it. That player discards that card."
+    IDS_STRING28840         "Erase\n{W}\nInstant\nKTK,C\nExile target enchantment."
+    IDS_STRING28841         "Naturalize\n{1G}\nInstant\nKTK,C\nDestroy target artifact or enchantment."
+    IDS_STRING28842         "Seek the Horizon\n{3G}\nSorcery\nKTK,U\nSearch your library for up to three basic land cards, reveal them, and put them into your hand. Then shuffle your library."
+    IDS_STRING28843         "Shatter\n{1R}\nInstant\nKTK,C\nDestroy target artifact."
+    IDS_STRING28844         "Smite the Monstrous\n{3W}\nInstant\nKTK,C\nDestroy target creature with power 4 or greater."
+    IDS_STRING28845         "Trumpet Blast\n{2R}\nInstant\nKTK,C\nAttacking creatures get +2/+0 until end of turn."
+    IDS_STRING28846         "Windstorm\n{XG}\nInstant\nKTK,U\nWindstorm deals X damage to each creature with flying."
+    IDS_STRING28847         "Alabaster Kirin\n{3W}\nCreature - Kirin\nKTK,C\nFlying, vigilance\n2/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28848         "Bloodfell Caves\n\nLand\nKTK,C\nBloodfell Caves enters the battlefield tapped.\rWhen Bloodfell Caves enters the battlefield, you gain 1 life.\r{T}: Add {B} or {R} to your mana pool."
+    IDS_STRING28849         "Blossoming Sands\n\nLand\nKTK,C\nBlossoming Sands enters the battlefield tapped.\rWhen Blossoming Sands enters the battlefield, you gain 1 life.\r{T}: Add {G} or {W} to your mana pool."
+    IDS_STRING28850         "Dismal Backwater\n\nLand\nKTK,C\nDismal Backwater enters the battlefield tapped.\rWhen Dismal Backwater enters the battlefield, you gain 1 life.\r{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING28851         "Dutiful Return\n{3B}\nSorcery\nKTK,C\nReturn up to two target creature cards from your graveyard to your hand."
+    IDS_STRING28852         "Kill Shot\n{2W}\nInstant\nKTK,C\nDestroy target attacking creature."
+    IDS_STRING28853         "Summit Prowler\n{2RR}\nCreature - Yeti\nKTK,C\n\n4/3"
+    IDS_STRING28854         "Rugged Highlands\n\nLand\nKTK,C\nRugged Highlands enters the battlefield tapped.\rWhen Rugged Highlands enters the battlefield, you gain 1 life.\r{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING28855         "Tranquil Cove\n\nLand\nKTK,C\nTranquil Cove enters the battlefield tapped.\rWhen Tranquil Cove enters the battlefield, you gain 1 life.\r{T}: Add {W} or {U} to your mana pool."
+    IDS_STRING28856         "Throttle\n{4B}\nInstant\nKTK,C\nTarget creature gets -4/-4 until end of turn."
+    IDS_STRING28857         "Weave Fate\n{3U}\nInstant\nKTK,C\nDraw two cards."
+    IDS_STRING28858         "Brave the Sands\n{1W}\nEnchantment\nKTK,U\nCreatures you control have vigilance.\rEach creature you control can block an additional creature."
+    IDS_STRING28859         "Rotting Mastodon\n{4B}\nCreature - Zombie Elephant\nKTK,C\n\n2/8"
+    IDS_STRING28860         "Tormenting Voice\n{1R}\nSorcery\nKTK,C\nAs an additional cost to cast Tormenting Voice, discard a card.\rDraw two cards."
+    IDS_STRING28861         "Awaken the Bear\n{2G}\nInstant\nKTK,C\nTarget creature gets +3/+3 and gains trample until end of turn."
+    IDS_STRING28862         "Siegecraft\n{3W}\nEnchantment - Aura\nKTK,C\nEnchant creature\rEnchanted creature gets +2/+4."
+    IDS_STRING28863         "Suspension Field\n{1W}\nEnchantment\nKTK,U\nWhen Suspension Field enters the battlefield, you may exile target creature with toughness 3 or greater until Suspension Field leaves the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28864         "Waterwhirl\n{4UU}\nInstant\nKTK,U\nReturn up to two target nonland permanents to their owners' hands."
+    IDS_STRING28865         "Debilitating Injury\n{1B}\nEnchantment - Aura\nKTK,C\nEnchant creature\rEnchanted creature gets -2/-2."
+    IDS_STRING28866         "Disowned Ancestor\n{B}\nCreature - Spirit Warrior\nKTK,C\nOutlast {1B} ({1B}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\n0/4"
+    IDS_STRING28867         "Abzan Battle Priest\n{3W}\nCreature - Human Cleric\nKTK,U\nOutlast {W} ({W}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\rEach creature you control with a +1/+1 counter on it has lifelink.\n3/2"
+    IDS_STRING28868         "Abzan Falconer\n{2W}\nCreature - Human Soldier\nKTK,U\nOutlast {W} ({W}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\rEach creature you control with a +1/+1 counter on it has flying.\n2/3"
+    IDS_STRING28869         "Ainok Bond-Kin\n{1W}\nCreature - Hound Soldier\nKTK,C\nOutlast {1W} ({1W}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\rEach creature you control with a +1/+1 counter on it has first strike.\n2/1"
+    IDS_STRING28870         "Dazzling Ramparts\n{4W}\nCreature - Wall\nKTK,U\nDefender\r{1W}, {T}: Tap target creature.\n0/7"
+    IDS_STRING28871         "Defiant Strike\n{W}\nInstant\nKTK,C\nTarget creature gets +1/+0 until end of turn.\rDraw a card."
+    IDS_STRING28872         "Firehoof Cavalry\n{W}\nCreature - Human Berserker\nKTK,C\n{3R}: Firehoof Cavalry gets +2/+0 and gains trample until end of turn.\n1/1"
+    IDS_STRING28873         "Mardu Hateblade\n{W}\nCreature - Human Warrior\nKTK,C\n{B}: Mardu Hateblade gains deathtouch until end of turn.\n1/1"
+    IDS_STRING28874         "Master of Pearls\n{1W}\nCreature - Human Monk\nKTK,R\nMorph {3WW}\rWhen Master of Pearls is turned face up, creatures you control get +2/+2 until end of turn.\n2/2"
+    IDS_STRING28875         "Sage-Eye Harrier\n{4W}\nCreature - Bird Warrior\nKTK,C\nFlying\rMorph {3W}\n1/5"
+    IDS_STRING28876         "Salt Road Patrol\n{3W}\nCreature - Human Soldier\nKTK,C\nOutlast {1W} ({1W}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\n2/5"
+    IDS_STRING28877         "Take Up Arms\n{4W}\nInstant\nKTK,U\nPut three 1/1 white Warrior creature tokens onto the battlefield."
+    IDS_STRING28878         "Venerable Lammasu\n{6W}\nCreature - Lammasu\nKTK,U\nFlying\n5/4"
+    IDS_STRING28879         "War Behemoth\n{5W}\nCreature - Beast\nKTK,C\nMorph {4W}\n3/6"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28880         "Ainok Tracker\n{5R}\nCreature - Hound Scout\nKTK,C\nFirst strike\rMorph {4R}\n3/3"
+    IDS_STRING28881         "Bloodfire Mentor\n{2R}\nCreature - Efreet Shaman\nKTK,C\n{2U},{T}: Draw a card, then discard a card.\n0/5"
+    IDS_STRING28882         "Canyon Lurkers\n{4R}\nCreature - Human Rogue\nKTK,C\nMorph {3R}\n5/2"
+    IDS_STRING28883         "Hordeling Outburst\n{1RR}\nSorcery\nKTK,U\nPut three 1/1 red Goblin creature tokens onto the battlefield."
+    IDS_STRING28884         "Leaping Master\n{1R}\nCreature - Human Monk\nKTK,C\n{2W}: Leaping Master gains flying until end of turn.\n2/1"
+    IDS_STRING28885         "Mardu Blazebringer\n{2R}\nCreature - Ogre Warrior\nKTK,U\nWhen Mardu Blazebringer attacks or blocks, sacrifice it at end of combat.\n4/4"
+    IDS_STRING28886         "Valley Dasher\n{1R}\nCreature - Human Berserker\nKTK,C\nHaste\rValley Dasher attacks each turn if able.\n2/2"
+    IDS_STRING28887         "Heir of the Wilds\n{1G}\nCreature - Human Warrior\nKTK,U\nDeathtouch\rFerocious - Whenever Heir of the Wilds attacks, if you control a creature with power 4 or greater, Heir of the Wilds gets +1/+1 until end of turn.\n2/2"
+    IDS_STRING28888         "Alpine Grizzly\n{2G}\nCreature - Bear\nKTK,C\n\n4/2"
+    IDS_STRING28889         "Archers' Parapet\n{1G}\nCreature - Wall\nKTK,C\nDefender\r{1B},{T}: Each opponent loses 1 life.\n0/5"
+    IDS_STRING28890         "Dragonscale Boon\n{3G}\nInstant\nKTK,C\nPut two +1/+1 counters on target creature and untap it."
+    IDS_STRING28891         "Highland Game\n{1G}\nCreature - Elk\nKTK,C\nWhen Highland Game dies, you gain 2 life.\n2/1"
+    IDS_STRING28892         "Kin-Tree Warden\n{G}\nCreature - Human Warrior\nKTK,C\n{2}: Regenerate Kin-Tree Warden.\rMorph {G}\n1/1"
+    IDS_STRING28893         "Longshot Squad\n{3G}\nCreature - Hound Archer\nKTK,U\nOutlast {1G} ({1G}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\rEach creature you control with a +1/+1 counter on it has reach.\n3/3"
+    IDS_STRING28894         "Rattleclaw Mystic\n{1G}\nCreature - Human Shaman\nKTK,R\n{T}: Add {G}, {U}, or {R} to your mana pool.\rMorph {2}\rWhen Rattleclaw Mystic is turned face up, add {GUR} to your mana pool.\n2/1"
+    IDS_STRING28895         "Sagu Archer\n{4G}\nCreature - Naga Archer\nKTK,C\nReach\rMorph {4G}\n2/5"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28896         "Scout the Borders\n{2G}\nSorcery\nKTK,C\nReveal the top five cards of your library. You may put a creature or land card from among them into your hand. Put the rest into your graveyard."
+    IDS_STRING28897         "Temur Charger\n{1G}\nCreature - Horse\nKTK,U\nMorph - Reveal a green card in your hand.\rWhen Temur Charger is turned face up, target creature gains trample until end of turn.\n3/1"
+    IDS_STRING28898         "Tusked Colossodon\n{4GG}\nCreature - Beast\nKTK,C\n\n6/5"
+    IDS_STRING28899         "Tuskguard Captain\n{2G}\nCreature - Human Warrior\nKTK,U\nOutlast {G} ({G}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\rEach creature you control with a +1/+1 counter on it has trample.\n2/3"
+    IDS_STRING28900         "Woolly Loxodon\n{5GG}\nCreature - Elephant Warrior\nKTK,C\nMorph {5G}\n6/7"
+    IDS_STRING28901         "Bitter Revelation\n{3B}\nSorcery\nKTK,C\nLook at the top four cards of your library. Put two of them into your hand and the rest into your graveyard. You lose 2 Life."
+    IDS_STRING28902         "Gurmag Swiftwing\n{1B}\nCreature - Bat\nKTK,U\nFlying, first strike, haste\n1/2"
+    IDS_STRING28903         "Krumar Bond-Kin\n{3BB}\nCreature - Orc Warrior\nKTK,C\nMorph {4B}\n5/3"
+    IDS_STRING28904         "Mer-Ek Nightblade\n{3B}\nCreature - Orc Assassin\nKTK,U\nOutlast {B} ({B}, {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.)\rEach creature you control with a +1/+1 counter on it has deathtouch.\n2/3"
+    IDS_STRING28905         "Molting Snakeskin\n{B}\nEnchantment - Aura\nKTK,C\nEnchant creature\rEnchanted creature gets +2/+0 and has ""{2B}: Regenerate this creature."""
+    IDS_STRING28906         "Chief of the Edge\n{WB}\nCreature - Human Warrior\nKTK,U\nOther Warrior creatures you control get +1/+0.\n3/2"
+    IDS_STRING28907         "Chief of the Scale\n{WB}\nCreature - Human Warrior\nKTK,U\nOther Warrior creatures you control get +0/+1.\n2/3"
+    IDS_STRING28908         "Utter End\n{2WB}\nInstant\nKTK,R\nExile target non land permanent."
+    IDS_STRING28909         "Blinding Spray\n{4U}\nInstant\nKTK,U\nCreatures your opponents control get -4/-0 until end of turn.\rDraw a card."
+    IDS_STRING28910         "Disdainful Stroke\n{1U}\nInstant\nKTK,C\nCounter target spell with converted mana cost 4 or greater."
+    IDS_STRING28911         "Embodiment of Spring\n{U}\nCreature - Elemental\nKTK,C\n{1G},{T}, Sacrifice Embodiment of Spring: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library.\n0/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28912         "Glacial Stalker\n{5U}\nCreature - Elemental\nKTK,C\nMorph {4U}\n4/5"
+    IDS_STRING28913         "Monastery Flock\n{2U}\nCreature - Bird\nKTK,C\nDefender, Flying\rMorph {U}\n0/5"
+    IDS_STRING28914         "Mystic of the Hidden Way\n{4U}\nCreature - Human Monk\nKTK,C\nMystic of the Hidden Way can't be blocked.\rMorph {2U}\n3/2"
+    IDS_STRING28915         "Mistfire Weaver\n{3U}\nCreature - Djinn Wizard\nKTK,U\nFlying\rMorph {2U}\rWhen Mistfire Weaver is turned face up, target creature you control gains hexproof until end of turn.\n3/1"
+    IDS_STRING28916         "Scaldkin\n{3U}\nCreature - Elemental\nKTK,C\nFlying\r{2R}, Sacrifice Scaldkin: Scaldkin deals 2 damage to target creature or player.\n2/2"
+    IDS_STRING28917         "Scion of Glaciers\n{2UU}\nCreature - Elemental\nKTK,U\n{U}: Scion of Glaciers gets +1/-1 until end of turn.\n2/5"
+    IDS_STRING28918         "Wetland Sambar\n{1U}\nCreature - Elk\nKTK,C\n\n2/1"
+    IDS_STRING28919         "Ruthless Ripper\n{B}\nCreature - Human Assassin\nKTK,U\nDeathtouch\rMorph - Reveal a black card in your hand.\rWhen Ruthless Ripper is turned face up, target player loses 2 life.\n1/1"
+    IDS_STRING28920         "Kin-Tree Invocation\n{BG}\nSorcery\nKTK,U\nPut an X/X black and green Spirit Warrior creature token onto the battlefield, where X is the greatest toughness among creatures you control."
+    IDS_STRING28921         "Rakshasa Deathdealer\n{BG}\nCreature - Cat Demon\nKTK,R\n{BG}: Rakshasa Deathdealer gets +2/+2 until end of turn.\r{BG}: Regenerate Rakshasa Deathdealer.\n2/2"
+    IDS_STRING28922         "Highspire Mantis\n{2RW}\nCreature - Insect\nKTK,U\nFlying, trample\n3/3"
+    IDS_STRING28923         "Icefeather Aven\n{GU}\nCreature - Bird Shaman\nKTK,U\nFlying\rMorph {1GU}\rWhen Icefeather Aven is turned face up, you may return another target creature to its owner's hand.\n2/2"
+    IDS_STRING28924         "Sagu Mauler\n{4GU}\nCreature - Beast\nKTK,R\nTrample, hexproof\rMorph {3GU}\n6/6"
+    IDS_STRING28925         "Wind-Scarred Crag\n\nLand\nKTK,C\nWind-Scarred Crag enters the battlefield tapped.\rWhen Wind-Scarred Crag enters the battlefield, you gain 1 life.\r{T}: Add {R} or {W} to your mana pool."
+    IDS_STRING28926         "Witness of the Ages\n{6}\nArtifact Creature - Golem\nKTK,U\nMorph {5}\n4/4"
+    IDS_STRING28927         "Abzan Ascendancy\n{WBG}\nEnchantment\nKTK,R\nWhen Abzan Ascendancy enters the battlefield, put a +1/+1 counter on each creature you control.\rWhenever a nontoken creature you control dies, put a 1/1 white Spirit creature token with flying onto the battlefield."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28928         "Abzan Charm\n{WBG}\nInstant\nKTK,U\nChoose one - Exile target creature with power 3 or greater; or You draw two cards and you lose 2 life; or Distribute two +1/+1 counters among one or two target creatures."
+    IDS_STRING28929         "Abzan Guide\n{3WBG}\nCreature - Human Warrior\nKTK,C\nLifelink\rMorph {2WGB}\n4/4"
+    IDS_STRING28930         "Feed the Clan\n{1G}\nInstant\nKTK,C\nYou gain 5 life.\rFerocious - You gain 10 life instead if you control a creature with power 4 or greater."
+    IDS_STRING28931         "Force Away\n{1U}\nInstant\nKTK,C\nReturn target creature to its owner's hand.\rFerocious - If you control a creature with power 4 or greater, you may draw a card. If you do, discard a card."
+    IDS_STRING28932         "Murderous Cut\n{4B}\nInstant\nKTK, U\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rDestroy target creature."
+    IDS_STRING28933         "Become Immense\n{5G}\nInstant\nKTK, U\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rTarget creature gets +6/+6 until end of turn."
+    IDS_STRING28934         "Dig Through Time\n{6UU}\nInstant\nKTK,R\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rLook at the top seven cards of your library. Put two of them into your hand and the rest on the bottom of your library in any order."
+    IDS_STRING28935         "Hooting Mandrills\n{5G}\nCreature - Ape\nKTK,C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rTrample\n4/4"
+    IDS_STRING28936         "Sultai Scavenger\n{5B}\nCreature - Bird Warrior\nKTK,C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rFlying\n3/3"
+    IDS_STRING28937         "Shambling Attendants\n{7B}\nCreature - Zombie\nKTK,C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rDeathtouch\n3/5"
+    IDS_STRING28938         "Treasure Cruise\n{7U}\nSorcery\nKTK,C\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rDraw three cards."
+    IDS_STRING28939         "Set Adrift\n{5U}\nSorcery\nKTK,U\nDelve (You may exile any number of cards from your graveyard as you cast this spell. It costs {1} less to cast for each card exiled this way.)\rPut target nonland permanent on top of its owner's library."
+    IDS_STRING28940         "Bloodfire Expert\n{2R}\nCreature - Efreet Monk\nKTK,C\nProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n3/5"
+    IDS_STRING28941         "Dragon-Style Twins\n{3RR}\nCreature - Human Monk\nKTK,R\nDouble strike\rProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n3/3"
+    IDS_STRING28942         "Jeskai Student\n{1W}\nCreature - Human Monk\nKTK,C\nProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n1/3"
+    IDS_STRING28943         "Jeskai Windscout\n{2U}\nCreature - Bird Scout\nKTK,C\nFlying\rProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28944         "Monastery Swiftspear\n{R}\nCreature - Human Monk\nKTK,U\nHaste\rProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n1/2"
+    IDS_STRING28945         "Mantis Rider\n{URW}\nCreature - Human Monk\nKTK,R\nFlying, vigilance, haste\n3/3"
+    IDS_STRING28946         "Riverwheel Aerialists\n{5U}\nCreature - Djinn Monk\nKTK,U\nFlying\rProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n4/5"
+    IDS_STRING28947         "Whirlwind Adept\n{4U}\nCreature - Djinn Monk\nKTK,C\nHexproof\rProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n4/2"
+    IDS_STRING28948         "Seeker of the Way\n{1W}\nCreature - Human Warrior\nKTK,U\nProwess\rWhenever you cast a noncreature spell, Seeker of the Way gains lifelink until end of turn.\n2/2"
+    IDS_STRING28949         "Jeskai Elder\n{1U}\nCreature - Human Monk\nKTK,U\nProwess\rWhenever Jeskai Elder deals combat damage to a player, you may draw a card. If you do, discard a card.\n1/2"
+    IDS_STRING28950         "Ankle Shanker\n{2RWB}\nCreature - Goblin Berserker\nKTK,R\nHaste\rWhenever Ankle Shanker attacks, creatures you control gain first strike and deathtouch until end of turn.\n2/2"
+    IDS_STRING28951         "Bear's Companion\n{2GUR}\nCreature - Human Warrior\nKTK,U\nWhen Bear's Companion enters the battlefield, put a 4/4 green Bear creature token onto the battlefield.\n2/2"
+    IDS_STRING28952         "Butcher of the Horde\n{1RWB}\nCreature - Demon\nKTK,R\nFlying\rSacrifice another creature: Butcher of the Horde gains your choice of vigilance, lifelink, or haste until end of turn.\n5/4"
+    IDS_STRING28953         "Jeskai Charm\n{URW}\nInstant\nKTK,U\nChoose one - Put target creature on top of its owner's library; or Jeskai Charm deals 4 damage to target opponent; or Creatures you control get +1/+1 and gain lifelink until end of turn."
+    IDS_STRING28954         "Mardu Charm\n{RWB}\nInstant\nKTK,U\nChoose one -  Mardu Charm deals 4 damage to target creature; or Put two 1/1 white Warrior creature tokens onto the battlefield. They gain first strike until end of turn; or Target opponent reveals his or her hand. You choose a noncreature, nonland card from it. That player discards that card. "
+    IDS_STRING28955         "Sultai Charm\n{BGU}\nInstant\nKTK,U\nChoose one - Destroy target monocolored creature; or Destroy target artifact or enchantment; or Draw two cards, then discard a card."
+    IDS_STRING28956         "Temur Charm\n{GUR}\nInstant\nKTK,U\nChoose one - Target creature you control gets +1/+1 until end of turn. It fights target creature you don't control; or Counter target spell unless its controller pays {3}; or Creatures with power 3 or less can't block this turn."
+    IDS_STRING28957         "Swift Kick\n{3R}\nInstant\nKTK,C\nTarget creature you control gets +1/+0 until end of turn. It fights target creature you don't control.."
+    IDS_STRING28958         "Pearl Lake Ancient\n{5UU}\nCreature - Leviathan\nKTK,MR\nFlash\rPearl Lake Ancient can't be countered.\rProwess\rReturn three lands you control to their owner's hand: Return Pearl Lake Ancient to its owner's hand.\n6/7"
+    IDS_STRING28959         "Mardu Roughrider\n{2RWB}\nCreature - Orc Warrior\nKTK,U\nWhenever Mardu Roughrider attacks, target creature can't block this turn.\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28960         "Sage of the Inward Eye\n{2URW}\nCreature - Djinn Wizard\nKTK,R\nFlying\rWhenever you cast a noncreature spell, creatures you control gain lifelink until end of turn.\n3/4"
+    IDS_STRING28961         "Savage Knuckleblade\n{GUR}\nCreature - Ogre Warrior\nKTK,R\n{2G}: Savage Knuckleblade gets +2/+2 until end of turn. Activate this ability only once each turn.\r{2U}: Return Savage Knuckleblade to its owner's hand.\r{R}: Savage Knuckleblade gains haste until end of turn.\n4/4"
+    IDS_STRING28962         "Snowhorn Rider\n{3GUR}\nCreature - Human Warrior\nKTK,C\nTrample\rMorph {2GUR}\n5/5"
+    IDS_STRING28963         "Sultai Soothsayer\n{2BGU}\nCreature - Naga Shaman\nKTK,U\nWhen Sultai Soothsayer enters the battlefield, look at the top four cards of your library. Put one of them into your hand and the rest into your graveyard.\n2/5"
+    IDS_STRING28964         "Temur Ascendancy\n{GUR}\nEnchantment\nKTK,R\nCreatures you control have haste.\rWhenever a creature with power 4 or greater enters the battlefield under your control, you may draw a card."
+    IDS_STRING28965         "Warden of the Eye\n{2URW}\nCreature - Djinn Wizard\nKTK,U\nWhen Warden of the Eye enters the battlefield, return target noncreature, nonland card from your graveyard to your hand.\n3/3"
+    IDS_STRING28966         "End Hostilities\n{3WW}\nSorcery\nKTK,R\nDestroy all creatures and all permanents attached to creatures."
+    IDS_STRING28967         "Feat of Resistance\n{1W}\nInstant\nKTK,C\nPut a +1/+1 counter on target creature you control. It gains protection from the color of your choice until end of turn."
+    IDS_STRING28968         "Herald of Anafenza\n{W}\nCreature - Human Soldier\nKTK,R\nOutlast {2W}\rWhenever you activate Herald of Anafenza's outlast ability, put a 1/1 white Warrior creature token onto the battlefield.\n1/2"
+    IDS_STRING28969         "High Sentinels of Arashin\n{3W}\nCreature - Bird Soldier\nKTK,R\nFlying\rHigh Sentinels of Arashin gets +1/+1 for each other creature you control with a +1/+1 counter on it.\r{3W}: Put a +1/+1 counter on target creature.\n3/4"
+    IDS_STRING28970         "Mardu Hordechief\n{2W}\nCreature - Human Warrior\nKTK,C\nRaid - When Mardu Hordechief enters the battlefield, if you attacked with a creature this turn, put a 1/1 white Warrior creature token onto the battlefield.\n2/3"
+    IDS_STRING28971         "Timely Hordemate\n{3W}\nCreature - Human Warrior\nKTK,U\nRaid - When Timely Hordemate enters the battlefield, if you attacked with a creature this turn, return target creature card with converted mana cost 2 or less from your graveyard to the battlefield.\n3/2"
+    IDS_STRING28972         "Wingmate Roc\n{3WW}\nCreature - Bird\nKTK,MR\nRaid - When Wingmate Roc enters the battlefield, if you attacked with a creature this turn, put a 3/4 white Bird creature token with flying onto the battlefield.\rWhenever Wingmate Roc attacks, you gain 1 life for each attacking creature.\n3/4"
+    IDS_STRING28973         "Arrow Storm\n{3RR}\nSorcery\nKTK,C\nArrow Storm deals 4 damage to target creature or player.\rRaid - If you attacked with a creature this turn, instead Arrow Storm deals 5 damage to that creature or player and the damage can't be prevented."
+    IDS_STRING28974         "Mardu Heart-Piercer\n{3R}\nCreature - Human Archer\nKTK,U\nRaid - When Mardu Heart-Piercer enters the battlefield, if you attacked with a creature this turn, Mardu Heart-Piercer deals 2 damage to target creature or player.\n2/3"
+    IDS_STRING28975         "Mardu Warshrieker\n{3R}\nCreature - Orc Shaman\nKTK,C\nRaid - Mardu Warshrieker enters the battlefield, if you attacked with a creature this turn, add {RWB} to your mana pool.\n3/3"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING28976         "War-Name Aspirant\n{1R}\nCreature - Human Warrior\nKTK,U\nRaid - War-Name Aspirant enters the battlefield with a +1/+1 counter on it if you attacked with a creature this turn.\rWar-Name Aspirant can't be blocked by creatures with power 1 or less.\n2/1"
+    IDS_STRING28977         "Bellowing Saddlebrute\n{3B}\nCreature - Orc Warrior\nKTK,U\nRaid - When Bellowing Saddlebrute enters the battlefield, you lose 4 life unless you attacked with a creature this turn.\n4/5"
+    IDS_STRING28978         "Bloodsoaked Champion\n{B}\nCreature - Human Warrior\nKTK,R\nBloodsoaked Champion can't block.\rRaid - {1B}: Return Bloodsoaked Champion from your graveyard to the battlefield. Activate this ability only if you attacked with a creature this turn.\n2/1"
+    IDS_STRING28979         "Mardu Skullhunter\n{1B}\nCreature - Human Warrior\nKTK,C\nMardu Skullhunter enters the battlefield tapped.\rRaid - When Mardu Skullhunter enters the battlefield, if you attacked with a creature this turn, target opponent discards a card.\n2/1"
+    IDS_STRING28980         "Rush of Battle\n{3W}\nSorcery\nKTK,C\nCreatures you control get +2/+1 until end of turn. Warrior creatures you control gain lifelink until end of turn."
+    IDS_STRING28981         "Watcher of the Roost\n{2W}\nCreature - Bird Soldier\nKTK,U\nFlying\rMorph - Reveal a white card in your hand.\rWhen Watcher of the Roost is turned face up, you gain 2 life.\n2/1"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

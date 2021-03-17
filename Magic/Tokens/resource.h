@@ -85,7 +85,20 @@
 #define IDS_STRING62066                 62066
 #define IDS_STRING62067                 62067
 #define IDS_STRING62068                 62068
-
+#define IDS_STRING62069                 62069
+#define IDS_STRING62070                 62070
+#define IDS_STRING62071                 62071
+#define IDS_STRING62072                 62072
+#define IDS_STRING62073                 62073
+#define IDS_STRING62074                 62074
+#define IDS_STRING62075                 62075
+#define IDS_STRING62076                 62076
+#define IDS_STRING62077                 62077
+#define IDS_STRING62078                 62078
+#define IDS_STRING62079                 62079
+// !!!DON'T USE IDS_STRING62080 causes ODBC (database errors)!!!
+// !!!IDs higher than 62079 where not recognised by botarena for
+// unknown reasons so decided to create tokens2
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED

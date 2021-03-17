@@ -822,7 +822,7 @@ protected:
 		TTriggeredAbility< CTriggeredCreateTokenAbility, CWhenNodeChanged > TriggeredAbility;
 
 	bool SetTriggerContext(CTriggeredCreateTokenAbility::TriggerContextType& triggerContext, CNode* pToNode);
-	bool CSpinyStarfishCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________

@@ -735,11 +735,10 @@ CSkybreenCard::CSkybreenCard(CGame* pGame, UINT nID)
 	AddAbility(cpAbility.GetPointer());
 	}
 }
+
 bool CSkybreenCard::BeforeResolution(CSkybreenCard::TriggeredAbility::TriggeredActionType* pAction) const
 {
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
-
-	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield);
 
 	triggerContext.m_LifeModifier.SetLifeDelta(-Life(pAction->GetAssociatedPlayer()->GetZoneById(ZoneId::Hand)->GetSize()));
 	triggerContext.m_LifeModifier.SetDamageType(DamageType::NotDealingDamage);
@@ -748,6 +747,7 @@ bool CSkybreenCard::BeforeResolution(CSkybreenCard::TriggeredAbility::TriggeredA
 
 	return true;
 }
+
 void CSkybreenCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
 {
 	if (pToZone->GetZoneId() == ZoneId::_Effects && GetController()->GetZoneById(ZoneId::Library)->GetSize() > 0 && !m_pGame->IsThinking())
@@ -1163,7 +1163,6 @@ void CTheAEtherFluesCard::OnCardSelected(const std::vector<SelectionEntry>& sele
 
 				int n = 0;
 				bool bSearch = true;
-				CCard* pFound;
 				CCountedCardContainer pOtherRevealed;
 				
 				CZone* pLibrary = pSelectionPlayer->GetZoneById(ZoneId::Library);
@@ -1176,10 +1175,7 @@ void CTheAEtherFluesCard::OnCardSelected(const std::vector<SelectionEntry>& sele
 					{
 						++n;
 						if (pLibrary->GetAt(i)->GetCardType().IsCreature())
-						{
 							bSearch = false;
-							pFound = pLibrary->GetAt(i);
-						}
 					}
 				}
 
@@ -1189,14 +1185,14 @@ void CTheAEtherFluesCard::OnCardSelected(const std::vector<SelectionEntry>& sele
 				CZoneModifier pModifier2 = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 				pModifier2.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-						CZoneModifier::RoleType::PrimaryPlayer, // select by 
-						CZoneModifier::RoleType::AllPlayers, // reveal to
-						&m_CardFilter, // any cards
-						ZoneId::Battlefield, // if selected, move cards to
-						CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-						CardPlacement::Top, // put selected cards on top
-						MoveType::Others, // move type
-						CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+						CZoneModifier::RoleType::PrimaryPlayer,			  // select by 
+						CZoneModifier::RoleType::AllPlayers,			  // reveal to
+						&m_CardFilter,									  // any cards
+						ZoneId::Battlefield,							  // if selected, move cards to
+						CZoneModifier::RoleType::PrimaryPlayer,			  // select by this player
+						CardPlacement::Top,								  // put selected cards on top
+						MoveType::Others,								  // move type
+						CZoneModifier::RoleType::PrimaryPlayer);		  // order selected cards by this player
 		
 				pModifier2.ApplyTo(pSelectionPlayer);
 
@@ -1283,10 +1279,9 @@ bool CIsleOfVesuvaCard::BeforeResolution2(CAbilityAction* pAction)
 
 	cards.AddCard(pTarget, CardPlacement::Top);
 	
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 

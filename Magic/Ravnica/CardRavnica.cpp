@@ -89,7 +89,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFlightOfFancyCard);
 		DEFINE_CARD(CFlowOfIdeasCard);
 		DEFINE_CARD(CFollowedFootstepsCard);
-		DEFINE_CARD(CFrenziedGoblinCard);
 		DEFINE_CARD(CGalvanicArcCard);
 		DEFINE_CARD(CGateHoundCard);
 		DEFINE_CARD(CGlareOfSubdualCard);
@@ -152,7 +151,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(COathswornGiantCard);
 		DEFINE_CARD(COrdruunCommandoCard);
 		DEFINE_CARD(COvergrownTombCard);
-		DEFINE_CARD(CPeelFromRealityCard);
 		DEFINE_CARD(CPeregrineMaskCard);
 		DEFINE_CARD(CPerilousForaysCard);
 		//DEFINE_CARD(CPhytohydraCard);
@@ -1441,31 +1439,6 @@ CFlameKinZealotCard::CFlameKinZealotCard(CGame* pGame, UINT nID)
 	cpAbility->GetLifeModifier().SetLifeDelta(Life(+1));
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::Haste);
 	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
-
-	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CFrenziedGoblinCard::CFrenziedGoblinCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Frenzied Goblin"), CardType::Creature, CREATURE_TYPE2(Goblin, Berserker), nID,
-		RED_MANA_TEXT, Power(1), Life(1))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyCreatureAbility, CWhenSelfAttackedBlocked,
-								CWhenSelfAttackedBlocked::AttackEventCallback,
-								&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-
-	cpAbility->GetCreatureKeywordMod().GetModifier().SetToAdd(CreatureKeyword::CantBlock);
-	cpAbility->GetCreatureKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
-
-	cpAbility->SetResolutionCost(RED_MANA_TEXT);
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
@@ -4343,6 +4316,28 @@ void CCircuDimirLobotomistCard::OnResolutionCompleted(const CAbilityAction* pAbi
 
 //____________________________________________________________________________
 //
+/*
+	Doubling Season {4}{G}
+	Enchantment
+	If an effect would put one or more tokens onto the battlefield under your control, 
+	it puts twice that many of those tokens onto the battlefield instead.
+	If an effect would place one or more counters on a permanent you control, 
+	it places twice that many of those counters on that permanent instead.
+
+	Doubling Season only works for EFFECTS. That means there are some cases where it won't apply.
+	
+	Planeswalkers will enter the battlefield with double the normal amount of loyalty counters. 
+	However, if a player activates an ability whose cost has them put loyalty counters on a planeswalker, 
+	the number they put on isn't doubled. This is because those counters are put on as a cost, 
+	not as an effect.
+
+	Tokens created by paying cumulative upkeep (another form of cost) of Varchild's War-Riders are also 
+	not doubled by Doubling Season.
+	
+	For these reasons we've added "doubling" variable (bDoubling) to modifiers that create tokens or counters 
+	(CCardCounterModifier, CTokenCreationModifier) to manually switch the doubling mechanisms off 
+	when needed.
+*/
 CDoublingSeasonCard::CDoublingSeasonCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Doubling Season"), CardType::GlobalEnchantment, nID,
 		_T("4") GREEN_MANA_TEXT, AbilityType::Enchantment)
@@ -4486,16 +4481,15 @@ bool CInstillFurorCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerCont
 {
 	CZone* pInplay = pToNode->GetGraph()->GetPlayer()->GetZoneById(ZoneId::Battlefield);
 	
-	int nCount = 0;
 	for (int i = 0; i < pInplay->GetSize(); ++i)
 	{
 		CCard* pCard = pInplay->GetAt(i);
-	if (!pCard->GetCardType().IsCreature())
-		return false;
+		if (!pCard->GetCardType().IsCreature())
+			return false;
 
-	CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
-	if (pCreatureCard->GetCreatureFlag()->HasAttacked() == FALSE)
-		return true;
+		CCreatureCard* pCreatureCard = (CCreatureCard*)pCard;
+		if (pCreatureCard->GetCreatureFlag()->HasAttacked() == FALSE)
+			return true;
 	}
 	return true;
 }
@@ -4830,7 +4824,6 @@ CVigorMortisCard::CVigorMortisCard(CGame* pGame, UINT nID)
 
 bool CVigorMortisCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCard* pTarget = pAction->GetAssociatedCard();
 	
 	int nColorCount = GetLastCastingManaCost().GetMana(CManaPool::Color::Green);
@@ -4844,7 +4837,9 @@ bool CVigorMortisCard::BeforeResolution(CAbilityAction* pAction)
 			nCounters <<= nMultiplier;
 		if (pTarget->GetOwner()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11Counters, nMultiplier, FALSE))
 			nCounters <<= nMultiplier;
-
+		// for Primal Vigor
+		if (pTarget->GetOwner()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::Doublep11CountersAlways, nMultiplier, FALSE))
+			nCounters <<= nMultiplier;
 		CCardCounterModifier pModifier1(_T("+1/+1"), +nCounters, true);
 
 		pModifier1.ApplyTo(pTarget);
@@ -5121,40 +5116,6 @@ bool CSzadekLordofSecretsCard::BeforeResolution(CSzadekLordofSecretsCard::Trigge
 
 	pAction->SetTriggerContext(triggerContext);
 	
-	return true;
-}
-
-//____________________________________________________________________________
-//
-CPeelFromRealityCard::CPeelFromRealityCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Peel from Reality"), CardType::Instant, nID)
-{
-	counted_ptr<CDoubleTargetSpell> cpSpell(
-		::CreateObject <CDoubleTargetSpell>(this, AbilityType::Instant,
-			_T("1") BLUE_MANA_TEXT,
-			new AnyCreatureComparer, false,
-			new AnyCreatureComparer, false,
-			_T("")));
-
-	cpSpell->GetTargeting1()->SetIncludeControllerCardsOnly();
-	cpSpell->GetTargeting1()->SetDefaultCharacteristic(Characteristic::Neutral);
-	cpSpell->GetTargeting2()->SetIncludeNonControllerCardsOnly();
-	cpSpell->GetTargeting2()->SetDefaultCharacteristic(Characteristic::Negative);
-	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CPeelFromRealityCard::BeforeResolution));
-
-	AddSpell(cpSpell.GetPointer());
-}
-
-bool CPeelFromRealityCard::BeforeResolution(CAbilityAction* pAction) const
-{
-	CDoubleTargetSpellAction* pDoubleTargetAction = dynamic_cast<CDoubleTargetSpellAction*>(pAction);
-
-	CMoveCardModifier* pModifier1 = new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others);
-	pModifier1->ApplyTo((CCard*)(pDoubleTargetAction->GetTargetGroup1().GetFirstCardSubject()));
-
-	CMoveCardModifier* pModifier2 = new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, TRUE, MoveType::Others);
-	pModifier2->ApplyTo((CCard*)(pDoubleTargetAction->GetTargetGroup2().GetFirstCardSubject()));
-
 	return true;
 }
 
@@ -5915,13 +5876,13 @@ bool CLeaveNoTraceCard::BeforeResolution(CAbilityAction* pAction)
 
 void CLeaveNoTraceCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -6154,13 +6115,13 @@ bool CCleansingBeamCard::BeforeResolution(CAbilityAction* pAction)
 
 void CCleansingBeamCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -6202,13 +6163,13 @@ bool CInciteHysteriaCard::BeforeResolution(CAbilityAction* pAction)
 
 void CInciteHysteriaCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -6252,13 +6213,13 @@ bool CSurgeOfZealCard::BeforeResolution(CAbilityAction* pAction)
 
 void CSurgeOfZealCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -6302,13 +6263,13 @@ bool CWojekEmbermageCard::BeforeResolution(CAbilityAction* pAction)
 
 void CWojekEmbermageCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -6349,17 +6310,17 @@ bool CWojekSirenCard::BeforeResolution(CAbilityAction* pAction)
 
 void CWojekSirenCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
-	CPowerModifier* modifier1 = new CPowerModifier(+1);
+	CPowerModifier* modifier1 = new CPowerModifier(Power(+1));
 	CLifeModifier* modifier2 = new CLifeModifier(Life(+1), this, PreventableType::NotPreventable, DamageType::NotDealingDamage, TRUE);
 	for (int ic = 0; ic < cards.GetSize(); ++ic)
 	{
@@ -6462,16 +6423,17 @@ bool CRallyTheRighteousCard::BeforeResolution(CAbilityAction* pAction)
 
 	return true;
 }
+
 void CRallyTheRighteousCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards1;
 	CCountedCardContainer cards2;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter1.GetIncluded(*pFromZone, cards1);
 		m_CardFilter2.GetIncluded(*pFromZone, cards2);
 	}
@@ -7666,7 +7628,6 @@ bool CTerraformerCard::BeforeResolution(CAbilityAction* pAction)
 void CTerraformerCard::OnLandTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)

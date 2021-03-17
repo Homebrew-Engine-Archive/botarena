@@ -145,7 +145,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		//DEFINE_CARD(CTimecraftingCard);
 		DEFINE_CARD(CTreacherousUrgeCard);
 		DEFINE_CARD(CUktabiDrakeCard);
-		DEFINE_CARD(CUrborgTombOfYawgmothCard);
 		DEFINE_CARD(CUtopiaVowCard);
 		DEFINE_CARD(CVampiricLinkCard);
 		DEFINE_CARD(CVeilingOddityCard);
@@ -3629,44 +3628,6 @@ counted_ptr<CAbility> CMagusoftheTabernacleCard::CreateAbility1(CCard* pCard)
 
 //____________________________________________________________________________
 //
-CUrborgTombOfYawgmothCard::CUrborgTombOfYawgmothCard(CGame* pGame, UINT nID)
-	: CNonbasicLandCard(pGame, _T("Urborg, Tomb of Yawgmoth"), nID, CardType::NonbasicLand | CardType::Legendary)
-{
-	{
-		counted_ptr<CCardTypeEnchantment> cpAbility(
-			::CreateObject<CCardTypeEnchantment>(this,
-				new CardTypeComparer(CardType::_Land, false),
-				CardType::Swamp, CardType::Null));
-
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-			::CreateObject<CPwrTghAttrEnchantment>(this,
-				new CardTypeComparer(CardType::_Land, false),	
-				Power(+0), Life(+0), CreatureKeyword::Null));
-
-		cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
-			CCardAbilityModifier::CreateAbilityCallback(this,
-				&CUrborgTombOfYawgmothCard::CreateAbility)));	
-
-		AddAbility(cpAbility.GetPointer());
-	}
-}
-
-counted_ptr<CAbility> CUrborgTombOfYawgmothCard::CreateAbility(CCard* pCard)
-{
-	counted_ptr<CManaProductionAbility> cpBasicLandManaAbility(
-		::CreateObject<CManaProductionAbility>(pCard, _T("Tap"), AbilityType::Activated, BLACK_MANA_TEXT));		
-	ATLASSERT(m_pBasicLandManaAbility);
-
-	cpBasicLandManaAbility->AddTapCost();
-
-	return counted_ptr<CAbility>(cpBasicLandManaAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CDormantSliverCard::CDormantSliverCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dormant Sliver"), CardType::Creature, CREATURE_TYPE(Sliver), nID,
 		_T("2") GREEN_MANA_TEXT BLUE_MANA_TEXT, Power(2), Life(2))
@@ -3738,13 +3699,15 @@ counted_ptr<CAbility> CDormantSliverCard::CreateAbility(CCard* pCard)
 CSerrasBoonCard::CSerrasBoonCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Serra's Boon"), CardType::EnchantCreature, nID)	
 {
-	counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
-		::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
+	counted_ptr<CDoubleChgPwrTghAttrExclusiveEnchant> cpSpell(
+		::CreateObject<CDoubleChgPwrTghAttrExclusiveEnchant>(this, 
 			_T("2") WHITE_MANA_TEXT,
-			Power(+3), Life(+3), CreatureKeyword::Null, CardType::White,
-			Power(-2), Life(-1), CreatureKeyword::Null, CardType::Creature //any creature
-			));
-
+			Power(+1), Life(+2), CreatureKeyword::Null, CardType::White,		// Option 1 applies to white creatures
+			Power(-2), Life(-1), CreatureKeyword::Null, CardType::Creature));	// Option 2 applies to non white creatures
+																				// CDoubleChgPwrTghAttrExclusiveEnchant code
+																				// The code only checks Option 2 if enchanted
+																				// creature does not satisfy Option 1.
+																				// This is how white creatures are excluded from Option 2. 									
 	AddSpell(cpSpell.GetPointer());
 }
 
@@ -4882,10 +4845,9 @@ CShivanWumpusCard::CShivanWumpusCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Shivan Wumpus"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("3") RED_MANA_TEXT, Power(6), Life(6))
 	, m_PunisherSelection(pGame, CSelectionSupport::SelectionCallback(this, &CShivanWumpusCard::OnPunisherSelected))
-	, bSomeonePaid(0)
+	, bSomeonePaid(0)	// store whether any player (including caster) has chosen to 'take the punishment'
 {
 	GetCreatureKeyword()->AddTrample(FALSE);
-
 	typedef
 		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
 							CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
@@ -4901,7 +4863,9 @@ CShivanWumpusCard::CShivanWumpusCard(CGame* pGame, UINT nID)
 
 bool CShivanWumpusCard::BeforeResolution(CAbilityAction* pAction)
 {
+	// iterate through players until the active player's ID number is found. 
 	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+	bSomeonePaid = 0;
 	int pActivePlayerID;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 		if (pActivePlayer == GetGame()->GetPlayer(ip))
@@ -4909,15 +4873,16 @@ bool CShivanWumpusCard::BeforeResolution(CAbilityAction* pAction)
 			pActivePlayerID = ip;
 			break;
 		}
-
-	bSomeonePaid = 0;
 	PunisherFunction(pActivePlayerID);
-
 	return true;
 }
 
 void CShivanWumpusCard::PunisherFunction(int PlayerID)
 {
+/*
+	Shivan Wumpus has just entered the battlefield, each player (including caster) now has the 
+	option to 'take the punishment' by sacrificing a land.
+*/
 	CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
 	CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
 	CCardFilter m_CardFilter;
@@ -4925,7 +4890,8 @@ void CShivanWumpusCard::PunisherFunction(int PlayerID)
 
 	if (m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)
 	{
-		std::vector<SelectionEntry> entries;
+		// define the selections
+		std::vector<SelectionEntry> entries;			// player chooses not to 'take the punishment'
 		{
 			SelectionEntry selectionEntry;
 
@@ -4934,7 +4900,7 @@ void CShivanWumpusCard::PunisherFunction(int PlayerID)
 
 			entries.push_back(selectionEntry);
 		}
-		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)// player chooses to 'take the punishment'
 		{
 			CCard* pCard = pBattlefield->GetAt(i);
 			if (m_CardFilter.IsCardIncluded(pCard))
@@ -4954,7 +4920,9 @@ void CShivanWumpusCard::PunisherFunction(int PlayerID)
 	else
 		Advance(PlayerID);
 }
-
+/*
+	Advance loops through players from current player.
+*/
 void CShivanWumpusCard::Advance(int PlayerID)
 {
 	int NextPlayer = PlayerID + 1;
@@ -4965,7 +4933,7 @@ void CShivanWumpusCard::Advance(int PlayerID)
 		NextPlayer -= PlayerCount;
 	if (GetGame()->GetPlayer(NextPlayer) != pActivePlayer)
 		PunisherFunction(NextPlayer);
-	else if (bSomeonePaid == 0)
+	else if (bSomeonePaid == 1)	// a player has chosen to 'take the punishment'
 	{
 		CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Library, TRUE, MoveType::Others);
 		pModifier.ApplyTo(this);
@@ -4979,7 +4947,7 @@ void CShivanWumpusCard::OnPunisherSelected(const std::vector<SelectionEntry>& se
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
-			if ((int)it->dwContext == 0)
+			if ((int)it->dwContext == 0)	//  player chooses not to 'take the punishment'
 			{
 				if (!m_pGame->IsThinking())
 				{
@@ -4995,7 +4963,7 @@ void CShivanWumpusCard::OnPunisherSelected(const std::vector<SelectionEntry>& se
 				
 				return;
 			}
-			else
+			else							//  player chooses to 'take the punishment'
 			{
 				CCard* pCard = (CCard*)it->dwContext;
 				if (!m_pGame->IsThinking())
@@ -5011,7 +4979,7 @@ void CShivanWumpusCard::OnPunisherSelected(const std::vector<SelectionEntry>& se
 				CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pSelectionPlayer);
 				pModifier.ApplyTo(pCard);
 
-				bSomeonePaid = 1;
+				bSomeonePaid = 1;		// keep track of whether any player has 'taken the punishment.'
 				Advance(dwContext1);
 				return;
 			}
@@ -5100,8 +5068,6 @@ void CCircleOfAfflictionCard::OnSelectionDone(const std::vector<SelectionEntry>&
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -5110,31 +5076,26 @@ void CCircleOfAfflictionCard::OnSelectionDone(const std::vector<SelectionEntry>&
 			if (nSelectedIndex == 1)
 			{
 				cWhite = true;
-
 				return;
 			}
 			if (nSelectedIndex == 2)
 			{
 				cBlue = true;
-
 				return;
 			}
 			if (nSelectedIndex == 3)
 			{
 				cBlack = true;
-
 				return;
 			}
 			if (nSelectedIndex == 4)
 			{
 				cRed = true;
-
 				return;
 			}
 			if (nSelectedIndex == 5)
 			{
 				cGreen = true;
-
 				return;
 			}
 		}
@@ -5143,11 +5104,16 @@ void CCircleOfAfflictionCard::OnSelectionDone(const std::vector<SelectionEntry>&
 bool CCircleOfAfflictionCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
 										  CCard* pCard, CPlayer* pToPlayer, Damage pDamage)
 {
-	if (cWhite && pCard->IsColor(CManaPoolBase::Color::White)) return true;
-	if (cBlue && pCard->IsColor(CManaPoolBase::Color::Blue)) return true;
-	if (cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) return true;
-	if (cRed && pCard->IsColor(CManaPoolBase::Color::Red)) return true;
-	if (cGreen && pCard->IsColor(CManaPoolBase::Color::Green)) return true;
+	if (cWhite && pCard->IsColor(CManaPoolBase::Color::White)) 
+		return true;
+	if (cBlue && pCard->IsColor(CManaPoolBase::Color::Blue)) 
+		return true;
+	if (cBlack && pCard->IsColor(CManaPoolBase::Color::Black)) 
+		return true;
+	if (cRed && pCard->IsColor(CManaPoolBase::Color::Red)) 
+		return true;
+	if (cGreen && pCard->IsColor(CManaPoolBase::Color::Green)) 
+		return true;
 
 	return false;
 }
@@ -5425,16 +5391,18 @@ bool CFreneticSliverCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CCard* target = (CCard*)pAction->GetOriginatingCard();
-	int Thumb = 0;
-	int Exponent = 2;
 	int Flip = 2;
 
-	if (!target->IsInplay()) return false;
+	if (!target->IsInplay()) 
+		return false;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 

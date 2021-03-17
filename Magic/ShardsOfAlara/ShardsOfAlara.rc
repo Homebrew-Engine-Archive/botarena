@@ -347,7 +347,7 @@ BEGIN
     IDS_STRING8715          "Soul's Grace\n{1W}\nInstant\nALA,C\nYou gain life equal to target creature's power."
     IDS_STRING8716          "Soul's Might\n{4G}\nSorcery\nALA,C\nPut X +1/+1 counters on target creature, where X is that creature's power."
     IDS_STRING8717          "Sarkhan Vol\n{2RG}\nPlaneswalker - Sarkhan\nALA,MR\n[+1]: Creatures you control get +1/+1 and gain haste until end of turn.\r[-2]: Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\r[-6]: Put five 4/4 red Dragon creature tokens with flying onto the battlefield.\n4"
-    IDS_STRING8718          "Oblivion Ring\n{2W}\nEnchantment\nALA\nWhen Oblivion Ring enters the battlefield, exile another target nonland permanent.\rWhen Oblivion Ring leaves the battlefield, return the exiled card to the battlefield under its owner's control."
+    IDS_STRING8718          "Oblivion Ring\n{2W}\nEnchantment\nALA,C\nWhen Oblivion Ring enters the battlefield, exile another target nonland permanent.\rWhen Oblivion Ring leaves the battlefield, return the exiled card to the battlefield under its owner's control."
     IDS_STRING8719          "Mycoloth\n{3GG}\nCreature - Fungus\nALA,R\nDevour 2\rAt the beginning of your upkeep, put a 1/1 green Saproling creature token onto the battlefield for each +1/+1 counter on Mycoloth.\n4/4"
 END
 

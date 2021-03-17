@@ -133,7 +133,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMadblindMountainCard);
 		DEFINE_CARD(CManaforgeCinderCard);
 		DEFINE_CARD(CManamorphoseCard);
-		DEFINE_CARD(CMassCalcifyCard);
 		DEFINE_CARD(CMedicineRunnerCard);
 		DEFINE_CARD(CMemoryPlunderCard);
 		DEFINE_CARD(CMemorySluiceCard);
@@ -365,22 +364,6 @@ CHeapDollCard::CHeapDollCard(CGame* pGame, UINT nID)
 	cpAbility->AddSacrificeCost();
 
 	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CMassCalcifyCard::CMassCalcifyCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Mass Calcify"), CardType::Sorcery, nID)
-{
-	counted_ptr<CGlobalMoveCardSpell> cpSpell(
-		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Sorcery,
-			_T("5") WHITE_MANA_TEXT WHITE_MANA_TEXT,
-			new AnyCreatureComparer,
-			ZoneId::Graveyard, TRUE, MoveType::Destroy));
-
-	cpSpell->GetGlobalCardFilter().AddComparer(new NegateCardComparer(new CardTypeComparer(CardType::White, false)));
-
-	AddSpell(cpSpell.GetPointer());
 }
 
 //____________________________________________________________________________
@@ -7436,37 +7419,39 @@ bool CDreamSalvageCard::BeforeResolution(CAbilityAction* pAction) const
 CHelmoftheGhastlordCard::CHelmoftheGhastlordCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Helm of the Ghastlord"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	
+		//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("3") BLUE_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Blue, 
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black
-				));
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Blue,		// Condition 1 applies to blue creatures
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black));	// Condition 2 applies to black creatures
 
-		CCardAbilityModifier* pModifier = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
+		CCardAbilityModifier* pModifier1 = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
 			&CHelmoftheGhastlordCard::CreateAdditionalAbility1));
-
-
 		CCardAbilityModifier* pModifier2 = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
-			&CHelmoftheGhastlordCard::CreateAdditionalAbility3));
+			&CHelmoftheGhastlordCard::CreateAdditionalAbility2));
 		
-
-		cpSpell->GetCardKeywordMod().LinkCardModifier(pModifier);
-
-		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier2);
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier1);	// belongs to Condition 1 which applies to blue creatures
+		cpSpell->GetCardKeywordMod2().LinkCardModifier(pModifier2);	// belongs to Condition 2 which applies to black creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
+	{	
 		//hybrid mana cost
-		counted_ptr<CTargetSpell> cpSpell(
-			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("3") BLACK_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE));			
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Blue,		// Condition 1 applies to blue creatures
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black));	// Condition 2 applies to black creatures
 
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+		CCardAbilityModifier* pModifier1 = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
+			&CHelmoftheGhastlordCard::CreateAdditionalAbility1));
+		CCardAbilityModifier* pModifier2 = new CCardAbilityModifier(CCardAbilityModifier::CreateAbilityCallback(this,
+			&CHelmoftheGhastlordCard::CreateAdditionalAbility2));
+		
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier1);	// belongs to Condition 1 which applies to blue creatures
+		cpSpell->GetCardKeywordMod2().LinkCardModifier(pModifier2);	// belongs to Condition 2 which applies to black creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7480,14 +7465,13 @@ counted_ptr<CAbility> CHelmoftheGhastlordCard::CreateAdditionalAbility1(CCard* p
 							&CWhenSelfDamageDealt::SetPlayerEventCallback > TriggeredAbility;
 
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(pCard, pCard));
-
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
 	cpAbility->GetTrigger().SetToOpponentsOnly(TRUE);
 
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
 }
-counted_ptr<CAbility> CHelmoftheGhastlordCard::CreateAdditionalAbility3(CCard* pCard)
+
+counted_ptr<CAbility> CHelmoftheGhastlordCard::CreateAdditionalAbility2(CCard* pCard)
 {
 	typedef
 		TTriggeredAbility< CTriggeredDiscardCardAbility, CWhenSelfDamageDealt,
@@ -7509,26 +7493,22 @@ counted_ptr<CAbility> CHelmoftheGhastlordCard::CreateAdditionalAbility3(CCard* p
 CRunesoftheDeusCard::CRunesoftheDeusCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Runes of the Deus"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("4") RED_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::DoubleStrike, CardType::Red, 
-				Power(+1), Life(+1), CreatureKeyword::Trample, CardType::Green
-				));
+				Power(+1), Life(+1), CreatureKeyword::DoubleStrike, CardType::Red, // Condition 1 applies to red creatures
+				Power(+1), Life(+1), CreatureKeyword::Trample, CardType::Green));  // Condition 2 applies to green creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//hybrid mana cost
-	counted_ptr<CTargetSpell> cpSpell(
-			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("4") GREEN_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE));			
-
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
-
+				Power(+1), Life(+1), CreatureKeyword::DoubleStrike, CardType::Red, // Condition 1 applies to red creatures
+				Power(+1), Life(+1), CreatureKeyword::Trample, CardType::Green));  // Condition 2 applies to green creatures
+				
 		AddSpell(cpSpell.GetPointer());
 	}
 }
@@ -7537,28 +7517,27 @@ CRunesoftheDeusCard::CRunesoftheDeusCard(CGame* pGame, UINT nID)
 CShieldoftheOversoulCard::CShieldoftheOversoulCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Shield of the Oversoul"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") GREEN_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Green, 
-				Power(+1), Life(+1), CreatureKeyword::Flying, CardType::White
-				));
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Green,		// Condition 1 applies to green creatures
+				Power(+1), Life(+1), CreatureKeyword::Flying, CardType::White));	// Condition 2 applies to white creatures
 	
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Indestructible);
-		cpSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
+		cpSpell->GetCardKeywordMod1().GetModifier().SetToAdd(CardKeyword::Indestructible);// belongs to Condition 1 which applies to green creatures
+		cpSpell->GetCardKeywordMod1().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//hybrid mana cost
-		counted_ptr<CTargetSpell> cpSpell(
-			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") WHITE_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE));			
-
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Green,		// Condition 1 applies to green creatures
+				Power(+1), Life(+1), CreatureKeyword::Flying, CardType::White));	// Condition 2 applies to white creatures
+	
+		cpSpell->GetCardKeywordMod1().GetModifier().SetToAdd(CardKeyword::Indestructible);// belongs to Condition 1 which applies to green creatures
+		cpSpell->GetCardKeywordMod1().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7568,31 +7547,33 @@ CShieldoftheOversoulCard::CShieldoftheOversoulCard(CGame* pGame, UINT nID)
 CSteeloftheGodheadCard::CSteeloftheGodheadCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Steel of the Godhead"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") BLUE_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Unblockable, CardType::Blue,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::White
-				));
+				Power(+1), Life(+1), CreatureKeyword::Unblockable, CardType::Blue,	// Condition 1 applies to blue creatures
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::White));		// Condition 2 applies to white creatures
 		
-		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
-			pModifier2->GetModifier().SetToAdd(CardKeyword::Lifelink);
-			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
+		CCardKeywordModifier* pModifier1 = new CCardKeywordModifier;
+			pModifier1->GetModifier().SetToAdd(CardKeyword::Lifelink);
+			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
 
-		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier2);
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier1);// belongs to Condition 1 which applies to blue creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//hybrid mana cost
-		counted_ptr<CTargetSpell> cpSpell(
-			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("2") WHITE_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE));				
+				Power(+1), Life(+1), CreatureKeyword::Unblockable, CardType::Blue,	// Condition 1 applies to blue creatures
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::White));		// Condition 2 applies to white creatures
+		
+		CCardKeywordModifier* pModifier1 = new CCardKeywordModifier;
+			pModifier1->GetModifier().SetToAdd(CardKeyword::Lifelink);
+			pModifier1->GetModifier().SetOneTurnOnly(FALSE);
 
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+		cpSpell->GetCardKeywordMod1().LinkCardModifier(pModifier1);// belongs to Condition 1 which applies to blue creatures
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -7922,28 +7903,27 @@ CEverlastingTormentCard::CEverlastingTormentCard(CGame* pGame, UINT nID)
 CFistsoftheDemigodCard::CFistsoftheDemigodCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Fists of the Demigod"), CardType::EnchantCreature, nID)	
 {	
-	{
+	{	//hybrid mana cost
 		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
 			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("1") BLACK_MANA_TEXT,
-				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black, 
-				Power(+1), Life(+1), CreatureKeyword::FirstStrike, CardType::Red
-				));
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black,		// Condition 1 applies to black creatures
+				Power(+1), Life(+1), CreatureKeyword::FirstStrike, CardType::Red));	// Condition 2 applies to red creatures
 	
-		cpSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Wither);
-		cpSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
+		cpSpell->GetCardKeywordMod1().GetModifier().SetToAdd(CardKeyword::Wither);  // belongs to Condition 1 which applies to black creatures
+		cpSpell->GetCardKeywordMod1().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
-	{
-		//hybrid mana cost
-		counted_ptr<CTargetSpell> cpSpell(
-			::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+	{	//hybrid mana cost
+		counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
+			::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
 				_T("1") RED_MANA_TEXT,
-				new AnyCreatureComparer,
-				FALSE));			
-
-		cpSpell->SetToZoneIfSuccess(ZoneId::Battlefield, TRUE);
+				Power(+1), Life(+1), CreatureKeyword::Null, CardType::Black,		// Condition 1 applies to black creatures
+				Power(+1), Life(+1), CreatureKeyword::FirstStrike, CardType::Red));	// Condition 2 applies to red creatures
+	
+		cpSpell->GetCardKeywordMod1().GetModifier().SetToAdd(CardKeyword::Wither);  // belongs to Condition 1 which applies to black creatures
+		cpSpell->GetCardKeywordMod1().GetModifier().SetOneTurnOnly(FALSE);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -8338,17 +8318,20 @@ void CPaintersServantCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 {	
 	m_cpSelectionListener->RemoveAllEventSources();
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
 			int nSelectedIndex = it->dwContext;
 			
-			if (nSelectedIndex == 1) m_Choice = CardType::Blue; else
-			 if (nSelectedIndex == 2) m_Choice = CardType::Black; else
-			  if (nSelectedIndex == 3) m_Choice = CardType::Red; else
-			   if (nSelectedIndex == 4) m_Choice = CardType::Green; else
+			if (nSelectedIndex == 1) 
+				m_Choice = CardType::Blue; 
+			else if (nSelectedIndex == 2) 
+				m_Choice = CardType::Black; 
+			else if (nSelectedIndex == 3) 
+				m_Choice = CardType::Red; 
+			else if (nSelectedIndex == 4) 
+				m_Choice = CardType::Green; 
+			else
 			    m_Choice = CardType::White;
 
 			CCardAbilityModifier pModifier = CCardAbilityModifier(
@@ -8365,7 +8348,6 @@ void CPaintersServantCard::OnSelectionDone(const std::vector<SelectionEntry>& se
 
 				pEnchantSpell->StartEnchantment();
 			}
-
 			break;
 		}
 }
@@ -9848,11 +9830,10 @@ CFracturingGustCard::CFracturingGustCard(CGame* pGame, UINT nID)
 
 bool CFracturingGustCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CZone* pInplay;
 	m_nCards = 0;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards += m_CardFilter.CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -9861,12 +9842,12 @@ bool CFracturingGustCard::BeforeResolution(CAbilityAction* pAction)
 
 void CFracturingGustCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
-	CZone* pInplay;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pInplay = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_nCards -= m_CardFilter.CountIncluded(pInplay->GetCardContainer());
 	}
 
@@ -9877,7 +9858,7 @@ void CFracturingGustCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 //____________________________________________________________________________
 //
 CBitingTetherCard::CBitingTetherCard(CGame* pGame, UINT nID)
-	: CCard(pGame, _T("Biting Tether"), CardType::EnchantLand, nID)
+	: CCard(pGame, _T("Biting Tether"), CardType::EnchantCreature, nID)
 {
 	{
 		counted_ptr<CControlEnchant> cpSpell(
@@ -10963,14 +10944,14 @@ void CTyrannizeCard::OnPunisherSelected(const std::vector<SelectionEntry>& selec
 				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
 					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 				pModifier.AddSelection(MinimumValue(nSize), MaximumValue(nSize), // select cards to 
-					CZoneModifier::RoleType::PrimaryPlayer, // select by 
-					CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-					CCardFilter::GetFilter(_T("cards")), // any cards
-					ZoneId::Graveyard, // if selected, move cards to
-					CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-					CardPlacement::Top, // put selected cards on top
-					MoveType::Discard, // move type
-					CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+					CZoneModifier::RoleType::PrimaryPlayer,						 // select by 
+					CZoneModifier::RoleType::PrimaryPlayer,						 // reveal to
+					CCardFilter::GetFilter(_T("cards")),						 // any cards
+					ZoneId::Graveyard,											 // if selected, move cards to
+					CZoneModifier::RoleType::PrimaryPlayer,						 // select by this player
+					CardPlacement::Top,											 // put selected cards on top
+					MoveType::Discard,											 // move type
+					CZoneModifier::RoleType::PrimaryPlayer);					 // order selected cards by this player
 		
 				pModifier.ApplyTo(pSelectionPlayer);
 
@@ -11146,7 +11127,6 @@ CMedicineRunnerCard::CMedicineRunnerCard(CGame* pGame, UINT nID)
 
 bool CMedicineRunnerCard::BeforeResolution(CAbilityAction* pAction)
 {
-	CPlayer* pController = pAction->GetController();
 	CCard* pTarget = pAction->GetAssociatedCard();
 	
 	if (!pTarget->GetCounterContainer()->HasAnyCounters())
@@ -11314,7 +11294,6 @@ void CPlagueOfVerminCard::OnControllerSelected(const std::vector<SelectionEntry>
 		if (it->bSelected)
 		{
 			int nValue = it->dwContext;
-			CPlayer* pTarget = (CPlayer*)dwContext1;
 
 			if (!m_pGame->IsThinking())
 			{
@@ -11352,7 +11331,6 @@ void CPlagueOfVerminCard::OnOpponentSelected(const std::vector<SelectionEntry>& 
 		if (it->bSelected)
 		{
 			int nValue = it->dwContext;
-			CPlayer* pTarget = (CPlayer*)dwContext1;
 
 			if (!m_pGame->IsThinking())
 			{
@@ -11842,7 +11820,6 @@ bool CElsewhereFlaskCard::BeforeResolution(CAbilityAction* pAction)
 void CElsewhereFlaskCard::OnLandTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)

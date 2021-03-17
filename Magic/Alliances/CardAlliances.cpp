@@ -2030,14 +2030,14 @@ CShelteredValleyCard::CShelteredValleyCard(CGame* pGame, UINT nID)
 bool CShelteredValleyCard::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CNode* pToNode) const
 {
 	CZone* pBattlefield = GetGame()->GetActivePlayer()->GetZoneById(ZoneId::Battlefield);
-	CCard* pCard;
 
 	int nLandsInPlay = 0;
 
 	for (int i = 0; i < pBattlefield->GetSize(); ++i)
 	{
-		pCard = pBattlefield->GetAt(i);
-		if (pCard->GetCardType().IsLand()) ++nLandsInPlay;
+		CCard* pCard = pBattlefield->GetAt(i);
+		if (pCard->GetCardType().IsLand()) 
+			++nLandsInPlay;
 	}
 
 	if (nLandsInPlay > 3) return false;
@@ -2048,14 +2048,14 @@ bool CShelteredValleyCard::SetTriggerContext(CTriggeredModifyLifeAbility::Trigge
 bool CShelteredValleyCard::BeforeResolution(CShelteredValleyCard::TriggeredAbility::TriggeredActionType* pAction)
 {
 	CZone* pBattlefield = GetGame()->GetActivePlayer()->GetZoneById(ZoneId::Battlefield);
-	CCard* pCard;
 
 	int nLandsInPlay = 0;
 
 	for (int i = 0; i < pBattlefield->GetSize(); ++i)
 	{
-		pCard = pBattlefield->GetAt(i);
-		if (pCard->GetCardType().IsLand()) ++nLandsInPlay;
+		CCard* pCard = pBattlefield->GetAt(i);
+		if (pCard->GetCardType().IsLand()) 
+			++nLandsInPlay;
 	}
 
 	if (nLandsInPlay > 3) return false;
@@ -2140,13 +2140,15 @@ bool CBurnoutCard::BeforeResolution(CAbilityAction* pAction) const
 CPhyrexianBoonCard::CPhyrexianBoonCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Phyrexian Boon"), CardType::EnchantCreature, nID)	
 {
-	counted_ptr<CDoubleChgPwrTghAttrEnchant> cpSpell(
-		::CreateObject<CDoubleChgPwrTghAttrEnchant>(this, 
+	counted_ptr<CDoubleChgPwrTghAttrExclusiveEnchant> cpSpell(
+		::CreateObject<CDoubleChgPwrTghAttrExclusiveEnchant>(this, 
 			_T("2") BLACK_MANA_TEXT,
-			Power(+3), Life(+3), CreatureKeyword::Null, CardType::Black,
-			Power(-1), Life(-2), CreatureKeyword::Null, CardType::Creature //any creature
-			));
-
+			Power(+2), Life(+1), CreatureKeyword::Null, CardType::Black,		// Option 1 applies to black creatures
+			Power(-1), Life(-2), CreatureKeyword::Null, CardType::Creature));	// Option 2 applies to non black creatures
+																				// CDoubleChgPwrTghAttrExclusiveEnchant code
+																				// The code only checks Option 2 if enchanted
+																				// creature does not satisfy Option 1.
+																				// This is how black creatures are excluded from Option 2. 									
 	AddSpell(cpSpell.GetPointer());
 }
 
@@ -2893,7 +2895,7 @@ bool CPhelddagrifCard::BeforeResolution3(CAbilityAction* pAction) const
 	CMoveCardModifier* pModifier1 = new CMoveCardModifier(ZoneId::Battlefield, ZoneId::Hand, MoveType::Others);
 	pModifier1->ApplyTo((CCard*)this);
 
-	CDrawCardModifier* pModifier2 = new CDrawCardModifier(GetGame(), 0, 1);
+	CDrawCardModifier* pModifier2 = new CDrawCardModifier(GetGame(), MinimumValue(0), MaximumValue(1));
 	pModifier2->ApplyTo(pTarget);
 
 	return true;
@@ -2970,7 +2972,6 @@ bool CVarchildsWarRidersCard::BeforeResolution2(CAbilityAction* pAction)
 		pModifier.ApplyTo(this);
 
 		int nCounters = GetCounterContainer()->GetCounter(AGE_COUNTER)->GetCount();
-		CPlayer* pController = pAction->GetController();
 
 		std::vector<SelectionEntry> entries;
 		{
@@ -3010,9 +3011,9 @@ void CVarchildsWarRidersCard::OnCUSelected(const std::vector<SelectionEntry>& se
 				{
 					CString strMessage;
 					if (dwContext1 == 1)
-						strMessage.Format(_T("%s puts %d Survivor token onto the battlefield under opponent's control"), pSelectionPlayer->GetPlayerName(), dwContext1);
+						strMessage.Format(_T("%s puts %d Survivor token onto the battlefield under opponent's control"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					else
-						strMessage.Format(_T("%s puts %d Survivor tokens onto the battlefield under opponents' control"), pSelectionPlayer->GetPlayerName(), dwContext1, GetCardName());
+						strMessage.Format(_T("%s puts %d Survivor tokens onto the battlefield under opponents' control"), pSelectionPlayer->GetPlayerName(), (int)dwContext1);
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3430,8 +3431,6 @@ void CSolGrailCard::OnSelectionDone(const std::vector<SelectionEntry>& selection
 {	
 	ATLASSERT(nSelectedCount == 1);
 
-	CCard* pCard = (CCard*)dwContext1;
-
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
 		{
@@ -3716,9 +3715,12 @@ bool CPhantasmalSphereCard::BeforeResolution2(CAbilityAction* pAction)
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pTarget->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (pTarget->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, _T("Orb"), 62026));		

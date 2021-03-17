@@ -836,13 +836,6 @@ class CHeadlongRushCard : public CCard
 
 //____________________________________________________________________________
 //
-class CHeatRayCard : public CTargetChgLifeSpellCard
-{
-	DECLARE_CARD_CSTOR(CHeatRayCard);
-};
-
-//____________________________________________________________________________
-//
 class CLullCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CLullCard);

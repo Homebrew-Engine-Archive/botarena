@@ -202,25 +202,25 @@ BEGIN
     IDS_STRING14696         "Sulfuric Vortex\n{1RR}\nEnchantment\nSCG,R\nAt the beginning of each player's upkeep, Sulfuric Vortex deals 2 damage to that player.\rIf a player would gain life, that player gains no life instead."
     IDS_STRING14697         "Titanic Bulvox\n{6GG}\nCreature - Beast\nSCG,C\nTrample\rMorph {4GGG}\n7/4"
     IDS_STRING14698         "Chill Haunting\n{1B}\nInstant\nSCG,U\nAs an additional cost to cast Chill Haunting, exile X creature cards from your graveyard.\rTarget creature gets -X/-X until end of turn."
-    IDS_STRING14699         "Putrid Raptor\n{4BB}\nCreature - Zombie Lizard Beast\nSCG\nMorph - Discard a Zombie card.\n4/4"
+    IDS_STRING14699         "Putrid Raptor\n{4BB}\nCreature - Zombie Lizard Beast\nSCG,U\nMorph - Discard a Zombie card.\n4/4"
     IDS_STRING14700         "Root Elemental\n{4GG}\nCreature - Elemental\nSCG,R\nMorph {5GG}\rWhen Root Elemental is turned face up, you may put a creature card from your hand onto the battlefield.\n6/5"
-    IDS_STRING14701         "Raven Guild Initiate\n{2U}\nCreature - Human Wizard\nSCG\nMorph - Return a Bird you control to its owner's hand.\n1/4"
-    IDS_STRING14702         "Scornful Egotist\n{7U}\nCreature - Human Wizard\nSCG\nMorph - {U}\n1/1"
-    IDS_STRING14703         "Zombie Cutthroat\n{3BB}\nCreature - Zombie\nSCG\nMorph - Pay 5 life.\n3/4"
+    IDS_STRING14701         "Raven Guild Initiate\n{2U}\nCreature - Human Wizard\nSCG,C\nMorph - Return a Bird you control to its owner's hand.\n1/4"
+    IDS_STRING14702         "Scornful Egotist\n{7U}\nCreature - Human Wizard\nSCG,C\nMorph - {U}\n1/1"
+    IDS_STRING14703         "Zombie Cutthroat\n{3BB}\nCreature - Zombie\nSCG,C\nMorph - Pay 5 life.\n3/4"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING14704         "Aven Liberator\n{2WW}\nCreature - Bird Soldier\nSCG\nFlying\rMorph {3W}\rWhen Aven Liberator is turned face up, target creature you control gains protection from the color of your choice until end of turn.\n2/3"
+    IDS_STRING14704         "Aven Liberator\n{2WW}\nCreature - Bird Soldier\nSCG,C\nFlying\rMorph {3W}\rWhen Aven Liberator is turned face up, target creature you control gains protection from the color of your choice until end of turn.\n2/3"
     IDS_STRING14705         "Skirk Volcanist\n{3R}\nCreature - Goblin\nSCG,U\nMorph - Sacrifice two Mountains.\rWhen Skirk Volcanist is turned face up, it deals 3 damage divided as you choose among one, two, or three target creatures.\n3/1"
     IDS_STRING14706         "Woodcloaker\n{5G}\nCreature - Elf\nSCG,C\nMorph {2GG}\rWhen Woodcloaker is turned face up, target creature gains trample until end of turn.\n3/3"
     IDS_STRING14707         "Daru Spiritualist\n{1W}\nCreature - Human Cleric\nSCG,C\nWhenever a Cleric creature you control becomes the target of a spell or ability, it gets +0/+2 until end of turn.\n1/1"
     IDS_STRING14708         "Decree of Pain\n{6BB}\nSorcery\nSCG,R\nDestroy all creatures. They can't be regenerated. Draw a card for each creature destroyed this way.\rCycling {3BB}\rWhen you cycle Decree of Pain, all creatures get -2/-2 until end of turn."
     IDS_STRING14709         "Forgotten Ancient\n{3G}\nCreature - Elemental\nSCG,R\nWhenever a player casts a spell, you may put a +1/+1 counter on Forgotten Ancient.\rAt the beginning of your upkeep, you may move any number of +1/+1 counters from Forgotten Ancient onto other creatures.\n0/3"
-	IDS_STRING14710         "Day of the Dragons\n{4UUU}\nEnchantment\nSCG,R\nWhen Day of the Dragons enters the battlefield, exile all creatures you control. Then put that many 5/5 red Dragon creature tokens with flying onto the battlefield.\rWhen Day of the Dragons leaves the battlefield, sacrifice all Dragons you control. Then return the exiled cards to the battlefield under your control."
-	IDS_STRING14711         "Mercurial Kite\n{3U}\nCreature - Bird\nSCG,C\nFlying\rWhenever Mercurial Kite deals combat damage to a creature, tap that creature. That creature doesn't untap during its controller's next untap step."
-	IDS_STRING14712         "Decree of Silence\n{6UU}\nEnchantment\nSCG,R\nWhenever an opponent casts a spell, counter that spell and put a depletion counter on Decree of Silence. If there are three or more depletion counters on Decree of Silence, sacrifice it.\rCycling {4UU}\rWhen you cycle Decree of Silence, you may counter target spell."
-	IDS_STRING14713         "Stabilizer\n{2}\nArtifact\nSCG,R\nPlayers can't cycle cards."
+    IDS_STRING14710         "Day of the Dragons\n{4UUU}\nEnchantment\nSCG,R\nWhen Day of the Dragons enters the battlefield, exile all creatures you control. Then put that many 5/5 red Dragon creature tokens with flying onto the battlefield.\rWhen Day of the Dragons leaves the battlefield, sacrifice all Dragons you control. Then return the exiled cards to the battlefield under your control."
+    IDS_STRING14711         "Mercurial Kite\n{3U}\nCreature - Bird\nSCG,C\nFlying\rWhenever Mercurial Kite deals combat damage to a creature, tap that creature. That creature doesn't untap during its controller's next untap step."
+    IDS_STRING14712         "Decree of Silence\n{6UU}\nEnchantment\nSCG,R\nWhenever an opponent casts a spell, counter that spell and put a depletion counter on Decree of Silence. If there are three or more depletion counters on Decree of Silence, sacrifice it.\rCycling {4UU}\rWhen you cycle Decree of Silence, you may counter target spell."
+    IDS_STRING14713         "Stabilizer\n{2}\nArtifact\nSCG,R\nPlayers can't cycle cards."
     IDS_STRING14714         "Long-Term Plans\n{2U}\nInstant\nSCG,U\nSearch your library for a card, shuffle your library, then put that card third from the top."
 END
 

@@ -19,6 +19,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBeastMToken);
 		DEFINE_TOKEN(CBeastNToken);
 		DEFINE_TOKEN(CBirdIToken);
+		DEFINE_TOKEN(CBirdJToken);
+		DEFINE_TOKEN(CBirdKToken);
 		DEFINE_TOKEN(CBlankAToken);
 		DEFINE_TOKEN(CBlankBToken);
 		DEFINE_TOKEN(CBlankCToken);
@@ -32,6 +34,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBlankKToken);
 		DEFINE_TOKEN(CBlankLToken);
 		DEFINE_TOKEN(CBoarBToken);
+		DEFINE_TOKEN(CCatSoldierAToken);
+		DEFINE_TOKEN(CCentaurDToken);
 		DEFINE_TOKEN(CDragonGToken);
 		DEFINE_TOKEN(CDragonSpiritToken);
 		DEFINE_TOKEN(CEldraziToken);
@@ -41,6 +45,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CElementalTToken);
 		DEFINE_TOKEN(CElementalUToken);
 		DEFINE_TOKEN(CElementalVToken);
+		DEFINE_TOKEN(CElementalWToken);
 		DEFINE_TOKEN(CGoblinGToken);
 		DEFINE_TOKEN(CGoblinHToken);
 		DEFINE_TOKEN(CGoblinIToken);
@@ -57,9 +62,11 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CInsectGToken);
 		DEFINE_TOKEN(CInsectHToken);
 		DEFINE_TOKEN(CKithkinSoldierBToken);
+		DEFINE_TOKEN(CKrakenAToken);
 		DEFINE_TOKEN(CLizardToken);
 		DEFINE_TOKEN(CMinionAToken);
 		DEFINE_TOKEN(CMinionBToken);
+		DEFINE_TOKEN(CMinotaurAToken);
 		DEFINE_TOKEN(CMyrBToken);
 		DEFINE_TOKEN(CMyrCToken);
 		DEFINE_TOKEN(COozeFToken);
@@ -80,11 +87,14 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSoldierNToken);
 		DEFINE_TOKEN(CSoldierOToken);
 		DEFINE_TOKEN(CSoldierPToken);
+		DEFINE_TOKEN(CSoldierQToken);
 		DEFINE_TOKEN(CTetraviteToken);
 		DEFINE_TOKEN(CTwinToken);
 		DEFINE_TOKEN(CWallBToken);
 		DEFINE_TOKEN(CWolfIToken);
-
+		DEFINE_TOKEN(CWolfJToken);
+		DEFINE_TOKEN(CZombieNToken);
+		DEFINE_TOKEN(CZombieOToken);
 	} while (false);
 
 	return cpCard;
@@ -1018,9 +1028,7 @@ CSatyrToken::CSatyrToken(CGame* pGame, UINT nID)
 		Power(2), Life(2))
 {
 	AddCardType(CardType::Red | CardType::Green, CardType::_ColorMask);
-
 	GetCreatureKeyword()->AddHaste(FALSE);
-
 // Used by Xenagos, the Reveler
 }
 
@@ -1033,9 +1041,7 @@ CSnakeGToken::CSnakeGToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Black, CardType::_ColorMask);
-
 	GetCardKeyword()->AddDeathtouch(FALSE);
-
 // Used by Ophiomancer
 }
 
@@ -1048,9 +1054,7 @@ CElementalVToken::CElementalVToken(CGame* pGame, UINT nID)
 		Power(1), Life(1))
 {
 	AddCardType(CardType::Red, CardType::_ColorMask);
-
 	GetCreatureKeyword()->AddHaste(FALSE);
-
 // Used by Tempt With Vengeance
 }
 
@@ -1063,9 +1067,145 @@ CBeastNToken::CBeastNToken(CGame* pGame, UINT nID)
         Power(5), Life(5))
 {
     AddCardType(CardType::Green, CardType::_ColorMask);
-
 	GetCreatureKeyword()->AddTrample(FALSE);
 // C13 version; used by Spawning Grounds
+}
+
+//____________________________________________________________________________
+//
+CCatSoldierAToken::CCatSoldierAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Cat Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE2(Cat, Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+	GetCreatureKeyword()->AddVigilance(FALSE);
+// BNG version: used by Vanguard of Brimaz
+}
+
+//____________________________________________________________________________
+//
+CSoldierQToken::CSoldierQToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::GlobalEnchantment | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+// BNG version: used by God-Favored General 
+}
+
+//____________________________________________________________________________
+//
+CBirdJToken::CBirdJToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Bird"), CardType::Creature | CardType::GlobalEnchantment | CardType::Token,
+		CREATURE_TYPE(Bird), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Blue, CardType::_ColorMask);
+	GetCreatureKeyword()->AddFlying(FALSE);
+// BNG version: used by Aerie Worshippers 
+}
+
+//____________________________________________________________________________
+//
+CZombieNToken::CZombieNToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::GlobalEnchantment | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+// BNG version: used by Forlorn Pseudamma 
+}
+
+//____________________________________________________________________________
+//
+CElementalWToken::CElementalWToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature | CardType::GlobalEnchantment | CardType::Token,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(3), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+	GetCreatureKeyword()->AddHaste(FALSE);
+// BNG version: used by Satyr Nyx-Smith 
+}
+
+//____________________________________________________________________________
+//
+CCentaurDToken::CCentaurDToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Centaur"), CardType::Creature | CardType::GlobalEnchantment | CardType::Token,
+		CREATURE_TYPE(Centaur), nID,
+		_T(""),
+		Power(3), Life(3))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+// BNG version: used by Pheres-Band Raiders 
+}
+
+//____________________________________________________________________________
+//
+CWolfJToken::CWolfJToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Wolf"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Wolf), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+// BNG version: 
+}
+
+//____________________________________________________________________________
+//
+CKrakenAToken::CKrakenAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Kraken"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Kraken), nID,
+		_T(""),
+		Power(9), Life(9))
+{
+	AddCardType(CardType::Blue, CardType::_ColorMask);
+// BNG version: 
+}
+
+//____________________________________________________________________________
+//
+CBirdKToken::CBirdKToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Bird"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Bird), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+	GetCreatureKeyword()->AddFlying(FALSE);
+// BNG version:
+}
+
+//____________________________________________________________________________
+//
+CZombieOToken::CZombieOToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Zombie"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Zombie), nID,
+		_T(""),
+		Power(0), Life(0))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+// JOU version:
+}
+
+//____________________________________________________________________________
+//
+CMinotaurAToken::CMinotaurAToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Minotaur"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Minotaur), nID,
+		_T(""),
+		Power(2), Life(3))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+	GetCreatureKeyword()->AddHaste(FALSE);
+// JOU version: used by Flurry of Horns
 }
 
 //____________________________________________________________________________

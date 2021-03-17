@@ -1299,8 +1299,6 @@ void CTriggeredSoulbondAbility::StartSoulbond(CCreatureCard* pCard)
 
 	for (int i = 0; i < pCard->GetAbilityCount(); ++i)
 		{
-			CAbility* pAbility = pCard->GetAbility(i);
-
 			CTriggeredSoulbondAbility* pEnchantmentAbility = dynamic_cast<CTriggeredSoulbondAbility*>(pCard->GetAbility(i));
 			if (!pEnchantmentAbility) 
 				continue;

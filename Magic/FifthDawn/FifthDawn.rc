@@ -189,8 +189,8 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING15488         "Skyreach Manta\n{5}\nArtifact Creature - Fish\n5DN, C\nSunburst\rFlying\n0/0"
-    IDS_STRING15489         "Suntouched Myr\n{3}\nArtifact Creature - Myr\n5DN, C\nSunburst\n0/0"
+    IDS_STRING15488         "Skyreach Manta\n{5}\nArtifact Creature - Fish\n5DN,C\nSunburst\rFlying\n0/0"
+    IDS_STRING15489         "Suntouched Myr\n{3}\nArtifact Creature - Myr\n5DN,C\nSunburst\n0/0"
     IDS_STRING15490         "Baton of Courage\n{3}\nArtifact\n5DN,C\nFlash\rSunburst\rRemove a charge counter from Baton of Courage: Target creature gets +1/+1 until end of turn."
     IDS_STRING15491         "Pentad Prism\n{2}\nArtifact\n5DN,C\nSunburst\rRemove a charge counter from Pentad Prism: Add one mana of any color to your mana pool."
     IDS_STRING15492         "Etched Oracle\n{4}\nArtifact Creature - Wizard\n5DN,U\nSunburst\r{1}, Remove four +1/+1 counters from Etched Oracle: Target player draws three cards.\n0/0"
@@ -237,7 +237,7 @@ BEGIN
     IDS_STRING15525         "Auriok Windwalker\n{3W}\nCreature - Human Wizard\n5DN,R\nFlying\r{T}: Attach target Equipment you control to target creature you control.\n2/3"
     IDS_STRING15526         "Magnetic Theft\n{R}\nInstant\n5DN,U\nAttach target Equipment to target creature. (Control of the Equipment doesn't change.)"
     IDS_STRING15527         "Grafted Wargear\n{3}\nArtifact - Equipment\n5DN,U\nEquipped creature gets +3/+2.\rWhenever Grafted Wargear becomes unattached from a permanent, sacrifice that permanent.\rEquip {0}"
-    IDS_STRING15528         "Heliophial\n{5}\nArtifact\n5DN\nSunburst\r{2}, Sacrifice Heliophial: Heliophial deals damage equal to the number of charge counters on it to target creature or player."
+    IDS_STRING15528         "Heliophial\n{5}\nArtifact\n5DN,C\nSunburst\r{2}, Sacrifice Heliophial: Heliophial deals damage equal to the number of charge counters on it to target creature or player."
     IDS_STRING15529         "Skullcage\n{4}\nArtifact\n5DN,U\nAt the beginning of each opponent's upkeep, Skullcage deals 2 damage to that player unless he or she has exactly three or exactly four cards in hand."
     IDS_STRING15530         "Bringer of the Red Dawn\n{7RR}\nCreature - Bringer\n5DN,R\nYou may pay {WUBRG} rather than pay Bringer of the Red Dawn's mana cost.\rTrample\rAt the beginning of your upkeep, you may untap target creature and gain control of it until end of turn. That creature gains haste until end of turn.\n5/5"
     IDS_STRING15531         "Vicious Betrayal\n{3BB}\nSorcery\n5DN,C\nAs an additional cost to cast Vicious Betrayal, sacrifice any number of creatures.\rTarget creature gets +2/+2 until end of turn for each creature sacrificed this way."

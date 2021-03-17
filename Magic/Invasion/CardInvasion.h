@@ -1334,13 +1334,6 @@ class CPainSufferingCard : public CCard
 
 //____________________________________________________________________________
 //
-class CRestockCard : public CTargetMoveCardSpellCard
-{
-	DECLARE_CARD_CSTOR(CRestockCard);
-};
-
-//____________________________________________________________________________
-//
 class CSaprolingSymbiosisCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSaprolingSymbiosisCard);
@@ -1722,7 +1715,7 @@ class COverabundanceCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(COverabundanceCard);
 
-private:
+protected:
 	typedef
 		TTriggeredAbility< CTriggeredSpecialProdManaAbility, CWhenTappedForMana > TriggeredAbility;
 	bool SetTriggerContext(CTriggeredSpecialProdManaAbility::TriggerContextType& triggerContext,
@@ -1912,7 +1905,7 @@ protected:
 	{
 	public:
 		OVERRIDE(BOOL, TargetAllowed)(const CCard* pCard, BOOL bIncludeTricks, BOOL& bTrick) const;
-		OVERRIDE(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
+		OVERRIDE2(BOOL, TargetAllowed)(const CPlayer* pPlayer, BOOL bIncludeTricks, BOOL& bTrick) const;
 	};
 
 	bool BeforeResolution(CAbilityAction* pAction);

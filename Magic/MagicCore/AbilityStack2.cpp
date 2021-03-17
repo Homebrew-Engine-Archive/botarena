@@ -3118,10 +3118,13 @@ BOOL CTokenProductionSpell::ResolveImpl(const CAbilityAction* pAction)
 	const CManaConsumptionAbilityAction* pAction1 = (const CManaConsumptionAbilityAction*)pAction;
 	int nTokenCount = pAction1->GetValue().nValue1;
 
-	int nMultiplier = 0;                              // Doubling Season that doubles tokens
+	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
-
+	// for Primal Vigor
+	if (GetController()->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
 	for (int i = 0; i < nTokenCount; ++i)
 	{
 		counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));
@@ -3278,10 +3281,14 @@ BOOL CRandomTokenProductionSpell::ResolveImpl(const CAbilityAction* pAction)
 		int nTokenCount = pAction1->GetValue().nValue1;
 
 		
-		int nMultiplier = 0;                              // Doubling Season that doubles tokens		
+		int nMultiplier = 0;
+		// for Doubling Season, etc.
 		if (pCaster->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
 				nTokenCount <<= nMultiplier;
-
+		// for Primal Vigor
+		if (pCaster->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
+				nTokenCount <<= nMultiplier;
+		
 		for (int i = 0; i < nTokenCount; ++i)
 		{
 			counted_ptr<CCard> cpToken(CCardFactory::GetInstance()->CreateToken(m_pGame, m_strTokenName, m_uID));

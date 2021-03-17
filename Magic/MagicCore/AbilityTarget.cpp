@@ -28,20 +28,47 @@ CActionContainer* CTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOOL bSet
 	for (int l = 0; l < pActionContainer->GetSize(); ++l)
 	{
 		CTargetSpellAction* pAction = (CTargetSpellAction*)pActionContainer->GetAt(l).GetPointer();
-
+		/*
+		AdjustTargetCountWithExtraCostValue() is used to implement cards which have the attribute where paying the 
+		'base' casting cost does NOT pay for any target. 
+		Example 
+			Gridlock {XU} Instant Tap X target nonland permanents.  
+		In the case of Gridlock {U} casts the spell and DOES NOT pay for the first target and {X} is paid each target 
+		(so X = target count) so AdjustTargetCountWithExtraCostValue() is used for this card. 
+		*/
 		if (m_bAdjustTargetCountWithExtraCostValue)
 		{
 			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry());
-			if (!nExtraValue)
+			if (nExtraValue <= 0)
 				continue;
 
 			GetTargeting()->SetSubjectCount(nExtraValue, nExtraValue, FALSE);
 		}
+		/*
+		AdjustTargetCountWithExtraCostValueAddOne() is used to implement cards which have the attribute where paying the 
+		'base' casting cost pays for exactly one target as in the case of the 'Strive' mechanic.  The 'AddOne' in this flag's
+		title indicates that one has been added to the target count for the 'base' casting cost paying for the first target.
+		Example 
+			Ajani's Presence {W} Instant
+			Strive - Ajani's Presence costs {2W} more to cast for each target beyond the first.
+			Any number of target creatures each get +1/+1 and gain indestructible until end of turn. 
+
+		In the case of Ajani's Presence {W} casts the spell and pays for the first target and {2W} is paid for each subsequent
+		target so AdjustTargetCountWithExtraCostValueAddOne() is used for this card.
+		*/
+		if (m_bAdjustTargetCountWithExtraCostValueAddOne)	// for strive ability
+		{
+			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry()) + 1; // additional target(s) + first target (paid for in casting cost)
+			if (nExtraValue <= 0) // nExtraValue will always be greater than one so code will always continue
+				continue;
+
+			GetTargeting()->SetSubjectCount(nExtraValue, nExtraValue, FALSE);
+		} 
 
 		if (m_bFreeAdjustTargetCountWithExtraCostValue)
 		{
 			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry());
-			if (!nExtraValue)
+			if (nExtraValue <= 0)
 				continue;
 
 			GetTargeting()->SetSubjectCount(1, nExtraValue, FALSE);
@@ -64,7 +91,7 @@ CActionContainer* CTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOOL bSet
 		}
 	}
 
-	if (m_bAdjustTargetCountWithExtraCostValue || m_bFreeAdjustTargetCountWithExtraCostValue)
+	if (m_bAdjustTargetCountWithExtraCostValue || m_bAdjustTargetCountWithExtraCostValueAddOne || m_bFreeAdjustTargetCountWithExtraCostValue)
 		GetTargeting()->SetSubjectCount(1, 1, FALSE); // reset subject count for IsPlayable()
 
 	delete pActionContainer;
@@ -7909,11 +7936,14 @@ void CTargetMoveCardSearchSpell::OnSearchSelected(const std::vector<SelectionEnt
 CTargetPlayerDiscardCardNameSpell::CTargetPlayerDiscardCardNameSpell(CCard* pCard, AbilityType abilityType,
 															   LPCTSTR strManaCost,
 															   ZoneId toZoneId,
-															   BOOL bToOwnersZone, BOOL bExileAll, BOOL bDamage,
-															   CTargeting* pTargeting)
+															   BOOL bToOwnersZone, 
+															   const CCardFilter* pCardFilter,
+															   BOOL bExileAll, BOOL bDamage,
+															   CTargeting* pTargeting ) 
 	: CTargetSpell(pCard, abilityType, strManaCost, FALSE_CARD_COMPARER, TRUE, pTargeting)
 	, m_ToZoneId(toZoneId)
 	, m_bToOwnersZone(bToOwnersZone)
+	, m_pCardFilter(pCardFilter)
 	, m_cpSelectionListener(VAR_NAME(m_cpSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CTargetPlayerDiscardCardNameSpell::OnSelectionDone))
 	, m_bExileAll(bExileAll)
 	, m_bDamage(bDamage)
@@ -7989,7 +8019,8 @@ void CTargetPlayerDiscardCardNameSpell::ResolvePlayer(const CTargetSpellAction* 
 		for (int i = 0; i < nZoneSize; ++i)
 		{
 			CCard* pCard = pZone->GetAt(i);
-			if (!pCard->GetCardType().IsToken())
+			if (!pCard->GetCardType().IsToken() &&  
+				m_pCardFilter->IsCardIncluded(pCard)) // list valid items in action list
 			{
 				bool bIncluded = false;
 				for (int j = 0; j < nCardListSize; ++j)
@@ -9001,15 +9032,22 @@ void  CGiftsUngivenSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlay
 	m_FoundCards.RemoveAll();
 	CCardFilter* CardFilterTemp = new CCardFilter(new TrueCardComparer);
 	CardFilterTemp->AddComparer(m_pComparer);
-
+	// The player has the option of selecting up to 4 cards (i.e. 0,1,2,3,4 cards), in this implementation these
+	// selected cards are 'stored' on top of the player's library during the selection process and while the opponent is choosing 
+	// which cards the player must put into the graveyard.
 	for (int i = 0; i < 4; ++i)
 	{
 		CPlayerSearchModifier modifier = CPlayerSearchModifier(const_cast<CPlayer*>(pCaster), MinimumValue(0), MaximumValue(1), const_cast<CPlayer*>(pCaster),
 															 ZoneId::Library, CardFilterTemp, ZoneId::Library, TRUE, CardPlacement::Top,
 															 FALSE, FALSE, FALSE, &m_FoundCards,FALSE);
 		modifier.ApplyTo(const_cast<CPlayer*>(pCaster));
-		if (m_FoundCards.GetSize() == i) break;
-		else CardFilterTemp->AddNegateComparer(new CardNameComparer(m_FoundCards.GetAt(i)->GetPrintedCardName()));
+		if (m_FoundCards.GetSize() == i) 
+			break;
+		else 
+			CardFilterTemp->AddNegateComparer(new CardNameComparer(m_FoundCards.GetAt(i)->GetPrintedCardName())); // ensure two cards with the same name can be
+																												  // choosen.  When the player chooses a card all
+																												  // cards with the same name are removed from the 
+																												  // 'cards available that can be chosen' list.
 	}
 
 	m_pAmount = m_FoundCards.GetSize();
@@ -9033,8 +9071,12 @@ void  CGiftsUngivenSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlay
 		const_cast<CPlayer*>(pCaster)->MemorizeCard(m_FoundCards.GetAt(i));
 		pAction->GetAssociatedPlayer()->MemorizeCard(m_FoundCards.GetAt(i));
 	}
-
-	m_pGame->GetSelection().AddSelectionRequest(m_cpSelectionListener.GetPointer(), entries, 0, 2,
+	int iToGraveyardCardCnt;         // store the number of cards out of the player selection that opponent will choose to send to the graveyard 
+	if (m_pAmount > 2)				 // player chose 3 or 4 cards so opponent will choose 2 cards to send to the graveyard
+		iToGraveyardCardCnt = 2;
+	else							 // player chose 0, 1 or 2 cards so opponent will send all chosen cards to the graveyard
+		iToGraveyardCardCnt = m_pAmount;
+	m_pGame->GetSelection().AddSelectionRequest(m_cpSelectionListener.GetPointer(), entries, iToGraveyardCardCnt, iToGraveyardCardCnt,	 
 		GetCard(), pAction->GetAssociatedPlayer());
 }
 
@@ -9043,17 +9085,8 @@ void CGiftsUngivenSpell::OnSelectionDone(const std::vector<SelectionEntry>& sele
 	m_cpSelectionListener->RemoveAllEventSources();
 	
 	CZone* pLib =  m_pGame->GetNextPlayer(pSelectionPlayer)->GetZoneById(ZoneId::Library);
-
-	// If there was nothing really to select from
-	if (m_pAmount <= 2)
-	{
-		CMoveCardModifier modifier = CMoveCardModifier(ZoneId::Library, ZoneId::Graveyard, TRUE);
-		for (int i = 0; i <  m_pAmount; ++i)
-			modifier.ApplyTo(pLib->GetTopCard());
-
-		return;
-	}
-
+	// which cards to move to the graveyard are always chosen by the opponent, even in the case where the player chose 
+	// to search for 0,1 or 2 cards and the selection of these cards to move to the graveyard is compulsary.  
 	CCard* pCard;
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)
@@ -9663,7 +9696,7 @@ void CCursedScrollSpell::ResolvePlayer(const CTargetSpellAction* pAction, CPlaye
 	__super::ResolvePlayer(pAction, pPlayer, value);
 
 	CPlayer* pCaster = pAction->GetController();
-	CZone* pHand = pAction->GetAssociatedPlayer()->GetZoneById(ZoneId::Hand);
+	CZone* pHand = pAction->GetController()->GetZoneById(ZoneId::Hand);
 
 	CCountedCardContainer pCardList;
 	pCardList.RemoveAll();
@@ -9889,7 +9922,7 @@ CActionContainer* CDoubleTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOO
 		if (m_bAdjustTargetCountWithExtraCostValue1)
 		{
 			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry());
-			if (!nExtraValue)
+			if (nExtraValue <= 0)
 				continue;
 
 			GetTargeting1()->SetSubjectCount(nExtraValue, nExtraValue, FALSE);
@@ -9898,7 +9931,23 @@ CActionContainer* CDoubleTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOO
 		if (m_bAdjustTargetCountWithExtraCostValue2)
 		{
 			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry());
-			if (!nExtraValue)
+			if (nExtraValue <= 0)
+				continue;
+
+			GetTargeting2()->SetSubjectCount(nExtraValue, nExtraValue, FALSE);
+		}
+		if (m_bAdjustTargetCountWithExtraCostValueAddOne1)								  // for strive mechanic
+		{
+			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry()) + 1; // additional target(s) + first target
+			if (nExtraValue <= 0)
+				continue;
+
+			GetTargeting1()->SetSubjectCount(nExtraValue, nExtraValue, FALSE);
+		}
+		if (m_bAdjustTargetCountWithExtraCostValueAddOne2)								  // for strive mechanic
+		{
+			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry()) + 1; // additional target(s) + first target
+			if (nExtraValue <= 0)
 				continue;
 
 			GetTargeting2()->SetSubjectCount(nExtraValue, nExtraValue, FALSE);
@@ -9907,7 +9956,7 @@ CActionContainer* CDoubleTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOO
 		if (m_bFreeAdjustTargetCountWithExtraCostValue1)
 		{
 			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry());
-			if (!nExtraValue)
+			if (nExtraValue <= 0)
 				continue;
 
 			GetTargeting1()->SetSubjectCount(1, nExtraValue, FALSE);
@@ -9916,7 +9965,7 @@ CActionContainer* CDoubleTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOO
 		if (m_bFreeAdjustTargetCountWithExtraCostValue2)
 		{
 			int nExtraValue = GetCost().GetExtraValue(pAction->GetCostConfigEntry());
-			if (!nExtraValue)
+			if (nExtraValue <= 0)
 				continue;
 
 			GetTargeting2()->SetSubjectCount(1, nExtraValue, FALSE);
@@ -9977,10 +10026,10 @@ CActionContainer* CDoubleTargetSpell::GetAbilityActions(BOOL bIncludeTricks, BOO
 		}
 	}
 
-	if (m_bAdjustTargetCountWithExtraCostValue1 || m_bFreeAdjustTargetCountWithExtraCostValue1)
+	if (m_bAdjustTargetCountWithExtraCostValue1 || m_bAdjustTargetCountWithExtraCostValueAddOne1 || m_bFreeAdjustTargetCountWithExtraCostValue1)
 		GetTargeting1()->SetSubjectCount(1, 1, FALSE); // reset subject count for IsPlayable()
 
-	if (m_bAdjustTargetCountWithExtraCostValue2 || m_bFreeAdjustTargetCountWithExtraCostValue2)
+	if (m_bAdjustTargetCountWithExtraCostValue2 ||  m_bAdjustTargetCountWithExtraCostValueAddOne2 || m_bFreeAdjustTargetCountWithExtraCostValue2)
 		GetTargeting2()->SetSubjectCount(1, 1, FALSE); // reset subject count for IsPlayable()
 
 	delete pActionContainer;

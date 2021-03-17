@@ -2967,13 +2967,12 @@ CBloodTyrantCard::CBloodTyrantCard(CGame* pGame, UINT nID)
 bool CBloodTyrantCard::BeforeResolution(CAbilityAction* pAction)
 {
 	int Counters = 0;
-	int PrevLife = 0;
-	int NewLife = 0;
-	
 	CLifeModifier pModifier1 = CLifeModifier(Life(-1), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
+		int PrevLife = 0;
+		int NewLife = 0;
 		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
 		PrevLife = (int)pPlayer->GetLife();
 		pModifier1.ApplyTo(pPlayer);

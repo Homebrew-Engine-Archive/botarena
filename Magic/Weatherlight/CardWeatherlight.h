@@ -646,9 +646,9 @@ protected:
 
 //____________________________________________________________________________
 //
-class CHauntingMiseryCard  : public CTargetChgLifeSpellCard
+class CHauntingMiseryCard : public CCard
 {
-	DECLARE_CARD_CSTOR(CHauntingMiseryCard );
+	DECLARE_CARD_CSTOR(CHauntingMiseryCard);
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;

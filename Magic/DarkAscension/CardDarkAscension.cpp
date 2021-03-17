@@ -22,7 +22,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CArchdemonOfGreedCard);
 		DEFINE_CARD(CArtfulDodgeCard);
 		DEFINE_CARD(CBarTheDoorCard);
-		DEFINE_CARD(CBlackCatCard);
 		DEFINE_CARD(CBloodFeudCard);
 		DEFINE_CARD(CBoneToAshCard);
 		DEFINE_CARD(CBreakOfDayCard);
@@ -53,7 +52,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFeedThePackCard);
 		DEFINE_CARD(CFiresOfUndeathCard);
 		DEFINE_CARD(CFlayerOfTheHateboundCard);
-		DEFINE_CARD(CForgeDevilCard);
 		DEFINE_CARD(CGatherTheTownsfolkCard);
 		DEFINE_CARD(CGavonyIronwrightCard);
 		DEFINE_CARD(CGeralfsMessengerCard);
@@ -93,7 +91,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMarkovBlademasterCard);
 		DEFINE_CARD(CMarkovsServantCard);
 		DEFINE_CARD(CMarkovWarlordCard);
-		DEFINE_CARD(CMidnightGuardCard);
 		DEFINE_CARD(CMikaeusTheUnhallowedCard);
 		DEFINE_CARD(CMondronenShamanCard);
 		DEFINE_CARD(CMoonscarredWerewolfCard);
@@ -1781,33 +1778,6 @@ void CHavengulRunebinderCard::OnResolutionCompleted(const CAbilityAction* pAbili
 
 //____________________________________________________________________________
 //
-CForgeDevilCard::CForgeDevilCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Forge Devil"), CardType::Creature, CREATURE_TYPE(Devil), nID,
-		RED_MANA_TEXT, Power(1), Life(1))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->GetLifeModifier().SetLifeDelta(Life(-1));
-	cpAbility->GetLifeModifier().SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
-	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
-
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CLifeModifier(Life(-1), this, PreventableType::Preventable,
-																   DamageType::AbilityDamage | DamageType::NonCombatDamage));
-
-	cpAbility->AddAbilityTag(AbilityTag::DamageSource);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CIncreasingDevotionCard::CIncreasingDevotionCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Increasing Devotion"), CardType::Sorcery, nID)
 {
@@ -2548,30 +2518,6 @@ CElgaudInquisitorCard::CElgaudInquisitorCard(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CMidnightGuardCard::CMidnightGuardCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Midnight Guard"), CardType::Creature, CREATURE_TYPE2(Human, Soldier), nID,
-		_T("2") WHITE_MANA_TEXT, Power(2), Life(3))
-{
-	typedef
-		TTriggeredAbility< CTriggeredTapCardAbility, CWhenCardMoved > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, ZoneId::_AllZones, ZoneId::Battlefield));
-
-	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
-	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new NegateCardComparer(new SpecificCardComparer(this)));
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::UntapSingleCard);
-
-	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
 CNiblisOfTheMistCard::CNiblisOfTheMistCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Niblis of the Mist"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
 		_T("2") WHITE_MANA_TEXT, Power(2), Life(1))
@@ -2998,31 +2944,6 @@ CTowerGeistCard::CTowerGeistCard(CGame* pGame, UINT nID)
 		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
 		CardPlacement::Top);
 	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier3);
-
-	AddAbility(cpAbility.GetPointer());
-}
-
-//____________________________________________________________________________
-//
-CBlackCatCard::CBlackCatCard(CGame* pGame, UINT nID)
-	: CCreatureCard(pGame, _T("Black Cat"), CardType::Creature, CREATURE_TYPE2(Zombie, Cat), nID,
-		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
-{
-	typedef
-		TTriggeredTargetAbility< CTriggeredDiscardCardAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetLeaveEventCallback > TriggeredAbility;
-
-	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-	cpAbility->GetTrigger().SetToThisZoneOnly(ZoneId::Graveyard);
-
-	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
-
-	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
-	cpAbility->GetTargeting().SetIncludePlayers(TRUE);
-	cpAbility->GetTargeting().SetIncludeOpponentPlayersOnly();
-	cpAbility->SetPickerIsTriggeredPlayer(FALSE);
 
 	AddAbility(cpAbility.GetPointer());
 }
@@ -5583,7 +5504,6 @@ bool CFaithsShieldCard::BeforeResolution(CAbilityAction* pAction)
 void CFaithsShieldCard::OnColorSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
 {
 	ATLASSERT(nSelectedCount == 1);
-	int nPermanents = 0;
 
 	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
 		if (it->bSelected)

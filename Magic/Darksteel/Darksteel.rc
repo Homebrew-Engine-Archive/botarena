@@ -226,7 +226,7 @@ BEGIN
     IDS_STRING15316         "Drill-Skimmer\n{4}\nArtifact Creature - Thopter\nDST,C\nFlying\rDrill-Skimmer has shroud as long as you control another artifact creature.\n2/1"
     IDS_STRING15317         "Furnace Dragon\n{6RRR}\nCreature - Dragon\nDST,R\nAffinity for artifacts\rFlying\rWhen Furnace Dragon enters the battlefield, if you cast it from your hand, exile all artifacts.\n5/5"
     IDS_STRING15318         "Drooling Ogre\n{1R}\nCreature - Ogre\nDST,C\nWhenever a player casts an artifact spell, that player gains control of Drooling Ogre.\n3/3"
-    IDS_STRING15319         "Auriok Glaivemaster\n{W}\nCreature - Human Soldier\nDST\nAs long as Auriok Glaivemaster is equipped, it gets +1/+1 and has first strike.\n1/1"
+    IDS_STRING15319         "Auriok Glaivemaster\n{W}\nCreature - Human Soldier\nDST,C\nAs long as Auriok Glaivemaster is equipped, it gets +1/+1 and has first strike.\n1/1"
     IDS_STRING15320         "Reshape\n{XUU}\nSorcery\nDST,R\nAs an additional cost to cast Reshape, sacrifice an artifact.\rSearch your library for an artifact card with converted mana cost X or less and put it onto the battlefield. Then shuffle your library."
     IDS_STRING15321         "Pristine Angel\n{4WW}\nCreature - Angel\nDST,R\nFlying\rAs long as Pristine Angel is untapped, it has protection from artifacts and from all colors.\rWhenever you cast a spell, you may untap Pristine Angel.\n4/4"
     IDS_STRING15322         "Psychic Overload\n{3U}\nEnchantment - Aura\nDST,C\nEnchant permanent\rWhen Psychic Overload enters the battlefield, tap enchanted permanent.\rEnchanted permanent doesn't untap during its controller's untap step.\rEnchanted permanent has ""Discard two artifact cards: Untap this permanent."""

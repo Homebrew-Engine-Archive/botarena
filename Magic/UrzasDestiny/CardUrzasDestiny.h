@@ -837,7 +837,7 @@ class CArcheryTrainingCard : public CCard
 
 private:
 	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
-	bool CArcheryTrainingCard::BeforeResolution(CAbilityAction* pAction);
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -919,7 +919,7 @@ protected:
 	typedef
 		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility3;
 	bool SetTriggerContext3(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, CNode* pToNode) const;
-	bool CFesteringWoundCard::BeforeResolution(TriggeredAbility3::TriggeredActionType* pAction);
+	bool BeforeResolution(TriggeredAbility3::TriggeredActionType* pAction);
 };
 
 //____________________________________________________________________________

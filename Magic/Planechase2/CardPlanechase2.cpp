@@ -30,7 +30,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGlenElendraCard);
 		DEFINE_CARD(CGroveOfTheDreampodsCard);
 		DEFINE_CARD(CHedronFieldsOfAgadeemCard);
-		DEFINE_CARD(CIllusoryAngelCard);
 		DEFINE_CARD(CIndrikUmbraCard);
 		DEFINE_CARD(CInterplanarTunnelCard);
 		DEFINE_CARD(CKrondTheDawnCladCard);
@@ -53,26 +52,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 	} while (false);
 
 	return cpCard;
-}
-
-//____________________________________________________________________________
-//
-CIllusoryAngelCard::CIllusoryAngelCard(CGame* pGame, UINT nID)
-	: CFlyingCreatureCard(pGame, _T("Illusory Angel"), CardType::Creature, CREATURE_TYPE2(Angel, Illusion), nID,
-		_T("2") BLUE_MANA_TEXT, Power(4), Life(4))
-{
-	counted_ptr<CPlayableIfTrait> cpTrait(
-		::CreateObject<CPlayableIfTrait>(
-			m_pUntapAbility,
-			CPlayableIfTrait::PlayableCallback(this,
-			&CIllusoryAngelCard::CanPlay)));
-
-	this->GetSpells().GetAt(0)->Add(cpTrait.GetPointer());
-}
-
-BOOL CIllusoryAngelCard::CanPlay(BOOL bIncludeTricks)
-{
-	return (GetController()->GetCertainAntiTypeCastedCount(CardType::_Land) > 0);
 }
 
 //____________________________________________________________________________
@@ -860,15 +839,17 @@ CInterplanarTunnelCard::CInterplanarTunnelCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 }
+
 void CInterplanarTunnelCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	
 	if (pAbilityAction->GetController()->GetZoneById(ZoneId::_Planes)->GetSize())
 	{
 		CZone* pLib = pAbilityAction->GetController()->GetZoneById(ZoneId::_Planes);
-		int reveal=1;
-		int stop=0;
+		int reveal = 1;
+		int stop = 0;
 		for (int i = 0; i < pLib->GetSize(); i++)
 
 		{
@@ -887,18 +868,18 @@ void CInterplanarTunnelCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 		CZoneModifier* planeswalkmodifier = new CZoneModifier(m_pGame, ZoneId::_Planes, reveal-1, CZoneModifier::RoleType::PrimaryPlayer,
 				CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 		planeswalkmodifier->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::AllPlayers, // reveal to
-				&m_CardFilter, // what cards
-				ZoneId::_Effects, // if selected, move cards to
-				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-				CardPlacement::Top, // put selected cards on 
-				MoveType::Others, // move type
+				CZoneModifier::RoleType::PrimaryPlayer,					   // select by 
+				CZoneModifier::RoleType::AllPlayers,					   // reveal to
+				&m_CardFilter,											   // what cards
+				ZoneId::_Effects,										   // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer,					   // select by this player
+				CardPlacement::Top,										   // put selected cards on 
+				MoveType::Others,										   // move type
 				CZoneModifier::RoleType::PrimaryPlayer);
 		planeswalkmodifier->SetReorderInformation(
 			true, 
 			ZoneId::_Tokens, 
-			CZoneModifier::RoleType::PrimaryPlayer, // this player's library
+			CZoneModifier::RoleType::PrimaryPlayer,						   // this player's library
 			CardPlacement::Bottom);
 
 		CCardPlaneswalkModifier* pModifier = new CCardPlaneswalkModifier(GetGame(), TRUE, TRUE, planeswalkmodifier);
@@ -910,18 +891,17 @@ void CInterplanarTunnelCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 
 		for (int i = pLib->GetSize() - 1 ; i > -1; i--)
 		{
-			if (pLib->GetAt(i)->GetCardType().IsPlane());
-			pLib->GetAt(i)->Move(pAbilityAction->GetController()->GetZoneById(ZoneId::_Planes),pAbilityAction->GetController(), MoveType::Others
-														, CardPlacement::Bottom);
+			if (pLib->GetAt(i)->GetCardType().IsPlane())
+				pLib->GetAt(i)->Move(pAbilityAction->GetController()->GetZoneById(ZoneId::_Planes), pAbilityAction->GetController(), 
+					MoveType::Others, CardPlacement::Bottom);
 		}
 	}
 	else
 	{
 		CZone* pLib = m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetZoneById(ZoneId::_Planes);
-		int reveal=1;
-		int stop=0;
+		int reveal = 1;
+		int stop = 0;
 		for (int i = 0; i < pLib->GetSize(); i++)
-
 		{
 			CCard* ppCard = pLib->GetAt(pLib->GetSize()-1-i);
 
@@ -941,7 +921,7 @@ void CInterplanarTunnelCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 		for (int i = pLib->GetSize() - 1 ; i > -1; i--)
 		{
 			k++;
-			if (k< reveal  )
+			if (k < reveal)
 			{
 				pLib->GetAt(i)->Move(pAbilityAction->GetController()->GetZoneById(ZoneId::_Planes),pAbilityAction->GetController(), MoveType::Others);
 			}
@@ -950,17 +930,17 @@ void CInterplanarTunnelCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 		CZoneModifier* planeswalkmodifier = new CZoneModifier(m_pGame, ZoneId::_Planes, reveal-1, CZoneModifier::RoleType::PrimaryPlayer,
 				CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 		planeswalkmodifier->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to reorder
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::AllPlayers, // reveal to
-				&m_CardFilter, // what cards
-				ZoneId::_Effects, // if selected, move cards to
-				CZoneModifier::RoleType::SecondaryPlayer, // select by this player
-				CardPlacement::Top, // put selected cards on 
-				MoveType::Others, // move type
+				CZoneModifier::RoleType::PrimaryPlayer,					   // select by 
+				CZoneModifier::RoleType::AllPlayers,					   // reveal to
+				&m_CardFilter,											   // what cards
+				ZoneId::_Effects,										   // if selected, move cards to
+				CZoneModifier::RoleType::SecondaryPlayer,				   // select by this player
+				CardPlacement::Top,										   // put selected cards on 
+				MoveType::Others,										   // move type
 				CZoneModifier::RoleType::PrimaryPlayer);
 		planeswalkmodifier->SetSecondaryPlayer(pAbilityAction->GetController());
 		//planeswalkmodifier->SetReorderInformation(
-	//		true, 
+		//	true, 
 		//	ZoneId::_Planes, 
 		//	CZoneModifier::RoleType::PrimaryPlayer, // this player's library
 		//	CardPlacement::Bottom);
@@ -971,7 +951,7 @@ void CInterplanarTunnelCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 
 		Move(m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetZoneById(ZoneId::_Planes),pAbilityAction->GetController(), MoveType::Others, CardPlacement::Bottom);
 
-	//	pLib->GetTopCard()->Move(m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetZoneById(ZoneId::_Planes),pAbilityAction->GetController(), MoveType::Others
+		//	pLib->GetTopCard()->Move(m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetZoneById(ZoneId::_Planes),pAbilityAction->GetController(), MoveType::Others
 		//												, CardPlacement::Bottom);
 		pLib->Shuffle();
 
@@ -1007,14 +987,14 @@ CPlanewideDisasterCard::CPlanewideDisasterCard(CGame* pGame, UINT nID)
 }
 void CPlanewideDisasterCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
 	CCountedCardContainer creatures;
-	CZone* pZone;
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		CCardFilter::GetFilter(_T("creatures"))->GetIncluded(*pZone, creatures);
 	}
 
@@ -1277,22 +1257,23 @@ CBloodhillBastionCard::CBloodhillBastionCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}	
 }
+
 bool CBloodhillBastionCard::SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
 											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
 {
 	triggerContext.m_pCreature = (CCreatureCard*)pCard;
 	return (GetZone()->GetZoneId() == ZoneId::_Effects);
 }
+
 void CBloodhillBastionCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 
 	CCard* target = pAbilityAction->GetAssociatedCard();
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(TRUE);
 	m_CardFlagModifier1.GetModifier().SetToAdd(CardFlag::AbilityFlag);
 	m_CardFlagModifier1.GetModifier().SetAdditionData(this->GetSpells().GetAt(0)->GetInstanceID());
-
-	CCardFlagModifier* m_CardFlagModifier3= new CCardFlagModifier();
 
 	m_CardFlagModifier1.ApplyTo(target);
 
@@ -1306,7 +1287,6 @@ void CBloodhillBastionCard::OnResolutionCompleted(const CAbilityAction* pAbility
 		std::auto_ptr<CCardModifier>(new CGainControlModifier(GetGame(), (CCard*)this)));
 
 	pModifier1->ApplyTo(target->GetOwner());
-	//pModifier2->ApplyTo(target->GetOwner());
 }
 
 //____________________________________________________________________________
@@ -1480,7 +1460,6 @@ bool CGroveOfTheDreampodsCard::BeforeResolution(CAbilityAction* pAction)
 
 	int n = 0;
 	bool bSearch = true;
-	CCard* pFound;
 	CCountedCardContainer pOtherRevealed;
 	pOtherRevealed.RemoveAll();
 				
@@ -1494,10 +1473,7 @@ bool CGroveOfTheDreampodsCard::BeforeResolution(CAbilityAction* pAction)
 		{
 			++n;
 			if (pLibrary->GetAt(i)->GetCardType().IsCreature())
-			{
 				bSearch = false;
-				pFound = pLibrary->GetAt(i);
-			}
 			else
 				pOtherRevealed.AddCard(pLibrary->GetAt(i), CardPlacement::Top);
 		}
@@ -1509,14 +1485,14 @@ bool CGroveOfTheDreampodsCard::BeforeResolution(CAbilityAction* pAction)
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::AllPlayers, // reveal to
-			&m_CardFilter, // any cards
-			ZoneId::Battlefield, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier::RoleType::PrimaryPlayer,			 // select by 
+			CZoneModifier::RoleType::AllPlayers,			 // reveal to
+			&m_CardFilter,									 // any cards
+			ZoneId::Battlefield,							 // if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer,			 // select by this player
+			CardPlacement::Top,								 // put selected cards on top
+			MoveType::Others,								 // move type
+			CZoneModifier::RoleType::PrimaryPlayer);		 // order selected cards by this player
 		
 	pModifier.ApplyTo(pController);
 

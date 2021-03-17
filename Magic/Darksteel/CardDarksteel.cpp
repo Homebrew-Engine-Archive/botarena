@@ -41,7 +41,6 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CCoretapperCard);
 		DEFINE_CARD(CCrazedGoblinCard);
 		DEFINE_CARD(CDarksteelBruteCard);
-		DEFINE_CARD(CDarksteelCitadelCard);
 		DEFINE_CARD(CDarksteelGargoyleCard);
 		DEFINE_CARD(CDarksteelPendantCard);
 		DEFINE_CARD(CDarksteelReactorCard);
@@ -309,13 +308,13 @@ bool CEchoingTruthCard::BeforeResolution(CAbilityAction* pAction)
 
 void CEchoingTruthCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -1363,13 +1362,13 @@ bool CEchoingCalmCard::BeforeResolution(CAbilityAction* pAction)
 
 void CEchoingCalmCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -1481,13 +1480,13 @@ bool CEchoingRuinCard::BeforeResolution(CAbilityAction* pAction)
 
 void CEchoingRuinCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -1647,13 +1646,13 @@ bool CEchoingCourageCard::BeforeResolution(CAbilityAction* pAction)
 
 void CEchoingCourageCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -1701,13 +1700,13 @@ bool CEchoingDecayCard::BeforeResolution(CAbilityAction* pAction)
 
 void CEchoingDecayCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	if (!bResult) return;
+	if (!bResult) 
+		return;
 	CCountedCardContainer cards;
 
-	CZone* pFromZone;
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
+		CZone* pFromZone = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Battlefield);
 		m_CardFilter.GetIncluded(*pFromZone, cards);
 	}
 
@@ -2221,23 +2220,6 @@ CDarksteelGargoyleCard::CDarksteelGargoyleCard(CGame* pGame, UINT nID)
 		_T("7"), Power(3), Life(3))
 {
 	GetCardKeyword()->AddIndestructible(FALSE);
-}
-
-//____________________________________________________________________________
-//
-CDarksteelCitadelCard::CDarksteelCitadelCard(CGame* pGame, UINT nID)
-	: CNonbasicLandCard(pGame, _T("Darksteel Citadel"), nID, CardType::NonbasicLand | CardType::Artifact)
-{
-	GetCardKeyword()->AddIndestructible(FALSE);
-
-	{
-		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
-			::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
-
-		cpNonbasicLandManaAbility->AddTapCost();
-
-		AddAbility(cpNonbasicLandManaAbility.GetPointer());
-	}
 }
 
 //____________________________________________________________________________
@@ -4738,14 +4720,16 @@ bool CGoblinArchaeologistCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
 	CCard* pTarget = pAction->GetAssociatedCard();
-	int Thumb = 0;
-	int Exponent = 2;
+
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -4871,17 +4855,19 @@ CWireflyHiveCard::CWireflyHiveCard(CGame* pGame, UINT nID)
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CWireflyHiveCard::BeforeResolution (CAbilityAction* pAction)
+bool CWireflyHiveCard::BeforeResolution(CAbilityAction* pAction)
 {
 	CPlayer* pController = pAction->GetController();
-	int Thumb = 0;
-	int Exponent = 2;
+
 	int Flip = 2;
 
 	if (!m_pGame->IsThinking())
 	{
+		int Thumb = 0;
+		int Exponent = 2;
 		pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::CoinFlipCheating, Thumb, FALSE);
-		for (int i = 0; i < Thumb; ++i) Exponent = 2 * Exponent;
+		for (int i = 0; i < Thumb; ++i) 
+			Exponent = 2 * Exponent;
 		Flip = pController->GetRand() % Exponent;
 	}
 
@@ -5439,7 +5425,11 @@ bool CGeminiEngineCard::BeforeResolution(CAbilityAction* pAction)
 	int nTokenCount = 1;
 
 	int nMultiplier = 0;
+	// for Doubling Season, etc.
 	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokens, nMultiplier, FALSE))
+			nTokenCount <<= nMultiplier;
+	// for Primal Vigor
+	if (pController->GetPlayerEffect().HasPlayerEffectSum(PlayerEffectType::DoubleTokensAlways, nMultiplier, FALSE))
 			nTokenCount <<= nMultiplier;
 
 	for (int i = 0; i < nTokenCount; ++i)

@@ -179,13 +179,6 @@ protected:
 };*/
 //____________________________________________________________________________
 //
-class CGoblinRoughriderCard : public CCreatureCard
-{
-	DECLARE_CARD_CSTOR(CGoblinRoughriderCard);
-};
-
-//____________________________________________________________________________
-//
 class CGrapplerSpiderCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGrapplerSpiderCard);
@@ -991,12 +984,9 @@ class CQuestForTheGoblinLordCard : public CInPlaySpellCard
 
 protected:
 	CCardFilter m_CardFilter;
-
-private:
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext,
 						    CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
-
-	 typedef
+	typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved  > TriggeredAbility;	
 	TriggeredAbility* m_pTriggeredAbility;
 };

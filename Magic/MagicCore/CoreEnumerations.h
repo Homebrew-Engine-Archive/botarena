@@ -502,13 +502,14 @@ struct PlayerEffectType
 		Worship,					// If you control a creature, damage that would reduce your life total to less than X reduces it to X instead
 		EnsnaringBridge,			// Creatures with power greather than the number of cards in your hand can't attack (Parameter is the player who's hand size is to be considered)
 		UntapLimit,					// Players can't untap more than X permanents during their untap steps
-		SpellCastLimit,				// Each player can't play more than X spell each turn
+		SpellCastLimit,				// Each player can't play more than X spell each turn.
+		DrawCardLimit,				// Each player can't draw more than X cards each turn. Ref: Spirit of the Labyrinth
 		NoMaximumHandSize,			// You have no maximum hand size
 		RevealHand,					// Your opponents play with their hands revealed
 		TimeWalk,					// Take an extra turn after this one.
 		InPlayTapped,				// Cards come into play tapped. [Param] is card filter index.
 		DoubleCounters,				// Doubles counters put on permanents
-		DoubleTokens,				// Doubles tokens put into play
+		DoubleTokens,				// Double tokens put into play, in accordance with setting of "doubling" parameter (bDoubling).  See Doubling Season.
 		ToughnessCombatDamage,		// Creature assigns combat damage equal to its toughness rather than its power.
 		NoLegendRule,               // The "legend rule" doesn't apply.
 		TopCardRevealed,            // Play with the top card of your library revealed.
@@ -579,11 +580,11 @@ struct PlayerEffectType
 
 		CoinFlipCheating,           // Krark's Thumb
 		GraveShroud,                // Ground Seal
-		Doublep11Counters,          // Doubles +1/+1 counters -- Corpsejack Menace
+		Doublep11Counters,          // Doubles +1/+1 counters (eg Corpsejack Menace), in accordance with setting of "doubling" parameter (bDoubling).  See Doubling Season.
 		ISExileInsteadGraveyard,    // If an instant or sorcery card would be put into your graveyard from anywhere, exile that card instead. -- Dryad Militant
 		PermanentsExileInsteadGraveyard, // If a permanent would be put into your graveyard from anywhere, exile it instead. -- Samurai of the Pale Curtain
 		TokensExileInsteadGraveyard,	 // If a token would be put into your graveyard from anywhere, exile it instead. -- part of Rest in Peace
-		CantDrawCards,				// Player can't draw cards
+		CantDrawCards,				// Player can't draw cards Ref: Maralen of the Mornsong
 		IgnoreHexproofOnCreatures,	// Player can target opponent's creatures with hexproof
 		Extrap11Counter,            // Creatures enter the battlefield with an extra +1/+1 counter
 		CreaturesCantBeTargetedBySpells, // Creatures cannot be targeted by spells with certain characteristic (Autumn's Veil)
@@ -603,7 +604,10 @@ struct PlayerEffectType
 		PreventPlayerCombatDamage,	// Prevent all combat damage that would be dealt to player
 		BasandraEffect,				// Player can't cast spells in combat
 		HandToHandEffect,			// Player can't cast instants or activate nonmana abilities in combat
-		InstantEquip				// Player can equip as instant
+		InstantEquip,				// Player can equip as instant
+
+		Doublep11CountersAlways,    // Used by Primal Vigor Double +1/+1 counters, ignoring setting "doubling" parameter (bDoubling)
+		DoubleTokensAlways          // Used by Primal Vigor Double tokens put into play, ignoring setting of "doubling" parameter (bDoubling)
 	};
 
 	DEFINE_DISTINCT_ENUM_OPS(PlayerEffectType);
@@ -638,6 +642,8 @@ public:
 		case CantLoseGame:
 		case CoinFlipCheating:
 		case Doublep11Counters:
+		case Doublep11CountersAlways:    
+		case DoubleTokensAlways:   
 			return true;
 		}
 
@@ -1397,6 +1403,7 @@ struct CORE_EXPORT SingleCreatureType
 		Kobold,
 		Kor,
 		Kraken,
+		Lamia,
 		Lammasu,
 		Leech,
 		Leviathan,
@@ -1417,6 +1424,7 @@ struct CORE_EXPORT SingleCreatureType
 		Mutant,
 		Myr,
 		Mystic,
+		Naga,
 		Nautilus,
 		Nephilim,
 		Nightmare,
