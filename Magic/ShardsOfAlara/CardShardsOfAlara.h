@@ -825,6 +825,9 @@ class CWoollyThoctarCard : public CCreatureCard
 class CAngelsongCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CAngelsongCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -899,6 +902,9 @@ protected:
 class CYokedPlowbeastCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CYokedPlowbeastCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -906,6 +912,9 @@ class CYokedPlowbeastCard : public CCreatureCard
 class CSpellSnipCard : public CCounterSpellCard
 {
 	DECLARE_CARD_CSTOR(CSpellSnipCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -923,6 +932,9 @@ protected:
 class CRidgeRannetCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CRidgeRannetCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -930,6 +942,9 @@ class CRidgeRannetCard : public CCreatureCard
 class CVolcanicSubmersionCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CVolcanicSubmersionCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -937,6 +952,9 @@ class CVolcanicSubmersionCard : public CTargetMoveCardSpellCard
 class CJungleWeaverCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CJungleWeaverCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -944,6 +962,9 @@ class CJungleWeaverCard : public CCreatureCard
 class CSavageHungerCard : public CChgPwrTghAttrEnchantCard
 {
 	DECLARE_CARD_CSTOR(CSavageHungerCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1257,6 +1278,7 @@ class CVisceraDraggerCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CVisceraDraggerCard);
 
 protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 	bool BeforeResolution(CAbilityAction* pAction);
 };
 
@@ -1364,6 +1386,9 @@ class CNecrogenesisCard : public CInPlaySpellCard
 class CResoundingSilenceCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CResoundingSilenceCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1371,6 +1396,9 @@ class CResoundingSilenceCard : public CTargetMoveCardSpellCard
 class CResoundingRoarCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CResoundingRoarCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1378,6 +1406,9 @@ class CResoundingRoarCard : public CChgPwrTghAttrSpellCard
 class CResoundingThunderCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CResoundingThunderCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1385,6 +1416,9 @@ class CResoundingThunderCard : public CTargetChgLifeSpellCard
 class CResoundingWaveCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CResoundingWaveCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1392,6 +1426,9 @@ class CResoundingWaveCard : public CTargetMoveCardSpellCard
 class CResoundingScreamCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CResoundingScreamCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________

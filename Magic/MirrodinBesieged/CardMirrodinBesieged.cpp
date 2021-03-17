@@ -893,8 +893,7 @@ CSphereOfTheSunsCard::CSphereOfTheSunsCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Sphere of the Suns"), CardType::Artifact, nID,
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	SetIntoPlayTapped();
 
 	{
@@ -1254,8 +1253,6 @@ CTitanForgeCard::CTitanForgeCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Titan Forge"), CardType::Artifact, nID, 
 		_T("3"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
@@ -2938,8 +2935,7 @@ CShriekhornCard::CShriekhornCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Shriekhorn"), CardType::Artifact, nID,
 		_T("1"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	counted_ptr<CActivatedAbility<CTargetRevealLibraryCardSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetRevealLibraryCardSpell>>(this,

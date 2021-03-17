@@ -23,6 +23,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBasalThrullCard);
 		DEFINE_CARD(CCombatMedicCard);
 		DEFINE_CARD(CConchHornCard);
+		DEFINE_CARD(CDeepSpawnCard);
 		DEFINE_CARD(CDwarvenArmorerCard);
 		DEFINE_CARD(CDwarvenLieutenantCard);
 		DEFINE_CARD(CEbonPraetorCard);
@@ -678,9 +679,6 @@ CThallidCard::CThallidCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Thallid"), CardType::Creature, CREATURE_TYPE(Fungus), nID,
 		GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -717,9 +715,6 @@ CThallidDevourerCard::CThallidDevourerCard(CGame* pGame, UINT nID)
 
 	, m_CardFilter(_T("a Saproling"), _T("Saprolings"), new CreatureTypeComparer(CREATURE_TYPE(Saproling), false))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -767,9 +762,6 @@ CElvishFarmerCard::CElvishFarmerCard(CGame* pGame, UINT nID)
 
 	, m_CardFilter(_T("a Saproling"), _T("Saprolings"), new CreatureTypeComparer(CREATURE_TYPE(Saproling), false))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -814,9 +806,6 @@ CSporeFlowerCard::CSporeFlowerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spore Flower"), CardType::Creature, CREATURE_TYPE(Fungus), nID,
 		GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -850,9 +839,6 @@ CThornThallidCard::CThornThallidCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Thorn Thallid"), CardType::Creature, CREATURE_TYPE(Fungus), nID,
 		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -891,9 +877,6 @@ CFeralThallidCard::CFeralThallidCard(CGame* pGame, UINT nID)
 		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(6), Life(3),
 		GREEN_MANA_TEXT)
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	m_pRegenerationAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(SPORE_COUNTER), -3);
 
 	{
@@ -919,8 +902,6 @@ CArmorThrullCard::CArmorThrullCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Armor Thrull"), CardType::Creature, CREATURE_TYPE(Thrull), nID,
 		_T("2") BLACK_MANA_TEXT, Power(1), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
 		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
 			_T(""),
@@ -995,8 +976,7 @@ CIcatianJavelineersCard::CIcatianJavelineersCard(CGame* pGame, UINT nID)
 		WHITE_MANA_TEXT, Power(1), Life(1))
 {
 	// Come into play with 1 javelin counter
-	GetCounterContainer()->ScheduleCounter(JAVELIN_COUNTER, 1, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(JAVELIN_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(JAVELIN_COUNTER, 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//Ping ability
@@ -1344,7 +1324,7 @@ CHomaridCard::CHomaridCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Homarid"), CardType::Creature, CREATURE_TYPE(Homarid), nID,
 		_T("2") BLUE_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(TIDE_COUNTER, 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(TIDE_COUNTER, 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -1408,7 +1388,7 @@ CTidalInfluenceCard::CTidalInfluenceCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Tidal Influence"), CardType::GlobalEnchantment, nID,
 		_T("2") BLUE_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(TIDE_COUNTER, 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(TIDE_COUNTER, 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CPlayableIfTrait> cpTrait(
@@ -1507,7 +1487,7 @@ CIcatianMoneychangerCard::CIcatianMoneychangerCard(CGame* pGame, UINT nID)
 {
 	this->GetCounterMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
-	GetCounterContainer()->ScheduleCounter(CREDIT_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CREDIT_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenSelfInplay, 
@@ -1767,6 +1747,129 @@ bool CSoulExchangeCard::BeforeResolution(CAbilityAction* pAction)
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CDeepSpawnCard::CDeepSpawnCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Deep Spawn"), CardType::Creature, CREATURE_TYPE(Homarid), nID,
+		_T("5") BLUE_MANA_TEXT BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(6), Life(6))
+	, m_Selection(pGame,CSelectionSupport::SelectionCallback(this, &CDeepSpawnCard::OnSelectionDone))
+{
+	GetCreatureKeyword()->AddTrample(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CDeepSpawnCard::BeforeResolution));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CPumpAbility> cpAbility(
+			::CreateObject<CPumpAbility>(this,
+				BLUE_MANA_TEXT,
+				Power(+0), Life(+0)));
+
+		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Shroud);
+		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
+
+		CCardKeywordModifier* pModifier2 = new CCardKeywordModifier;
+			pModifier2->GetModifier().SetToAdd(CardKeyword::NoUntapInNextContUntap);
+			pModifier2->GetModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(pModifier2);
+
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardOrientationModifier(TRUE));//To tap this card on resolution.
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CDeepSpawnCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+
+	std::vector<SelectionEntry> entries;
+	{
+		SelectionEntry entry;
+		entry.dwContext = 0;
+		entry.strText.Format(_T("Sacrifice %s"), GetCardName(TRUE));
+		entries.push_back(entry);
+	}
+	if (pController->GetZoneById(ZoneId::Library)->GetSize() > 1)
+	{
+		SelectionEntry entry;
+		entry.dwContext = 1;
+		entry.strText.Format(_T("Put top two cards of your library into your graveyard"));
+		entries.push_back(entry);
+	}
+	m_Selection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());	
+
+	return true;
+}
+
+void CDeepSpawnCard::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			if ((int)it->dwContext == 0)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s sacrifices %s"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pSelectionPlayer);
+				pModifier.ApplyTo(this);
+
+				return;
+			}
+			if ((int)it->dwContext == 1)
+			{
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s puts top two cards of his library into his graveyard"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+				CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, 2, CZoneModifier::RoleType::PrimaryPlayer,
+					CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+				pModifier.AddSelection(MinimumValue(2), MaximumValue(2), // select cards to bootom
+						CZoneModifier::RoleType::PrimaryPlayer, // select by 
+						CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+						NULL, // any cards
+						ZoneId::Graveyard, // if selected, move cards to
+						CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+						CardPlacement::Top, // put selected cards on top
+						MoveType::Others, // move type
+						CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+
+				pModifier.ApplyTo(pSelectionPlayer);
+
+
+				return;
+			}
+		}
 }
 
 //____________________________________________________________________________

@@ -2124,3 +2124,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CLoafingGiantCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CLoafingGiantCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

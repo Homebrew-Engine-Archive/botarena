@@ -2222,3 +2222,10 @@ protected:
 
 //____________________________________________________________________________
 //
+class CIlluminatedFolioCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CIlluminatedFolioCard);
+};
+
+//____________________________________________________________________________
+//

@@ -71,6 +71,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CInfestedRootholdCard);
 		DEFINE_CARD(CLastWordCard);
 		DEFINE_CARD(CLeoninBattlemageCard);
+		DEFINE_CARD(CLeoninShikariCard);
 		DEFINE_CARD(CKarstodermCard);
 		DEFINE_CARD(CKrarkClanStokerCard);
 		DEFINE_CARD(CMachinateCard);
@@ -1936,7 +1937,7 @@ CKarstodermCard::CKarstodermCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Karstoderm"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -1966,8 +1967,6 @@ CSpincrusherCard::CSpincrusherCard(CGame* pGame, UINT nID)
 		_T("2"), Power(0), Life(2),
 		_T(""), Power(+0), Life(+0), CreatureKeyword::Unblockable)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	m_pPumpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("+1/+1")), -1);
 
 	{
@@ -2148,8 +2147,6 @@ CAEtherVialCard::CAEtherVialCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Æther Vial"), CardType::Artifact, nID,
 		_T("1"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -2892,7 +2889,7 @@ CArcboundBruiserCard::CArcboundBruiserCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arcbound Bruiser"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
 		_T("5"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2935,7 +2932,7 @@ CArcboundCrusherCard::CArcboundCrusherCard(CGame* pGame, UINT nID)
 		_T("4"), Power(0), Life(0))
 {
 	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2997,7 +2994,7 @@ CArcboundHybridCard::CArcboundHybridCard(CGame* pGame, UINT nID)
 	: CHasteCreatureCard(pGame, _T("Arcbound Hybrid"), CardType::_ArtifactCreature, CREATURE_TYPE(Beast), nID,
 		_T("4"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3039,7 +3036,7 @@ CArcboundLancerCard::CArcboundLancerCard(CGame* pGame, UINT nID)
 	: CFirstStrikeCreatureCard(pGame, _T("Arcbound Lancer"), CardType::_ArtifactCreature, CREATURE_TYPE(Beast), nID,
 		_T("7"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3081,7 +3078,7 @@ CArcboundRavagerCard::CArcboundRavagerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arcbound Ravager"), CardType::_ArtifactCreature, CREATURE_TYPE(Beast), nID,
 		_T("2"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3136,7 +3133,7 @@ CArcboundReclaimerCard::CArcboundReclaimerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arcbound Reclaimer"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
 		_T("4"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3191,7 +3188,7 @@ CArcboundSlithCard::CArcboundSlithCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arcbound Slith"), CardType::_ArtifactCreature, CREATURE_TYPE(Slith), nID,
 		_T("2"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3251,7 +3248,7 @@ CArcboundStingerCard::CArcboundStingerCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Arcbound Stinger"), CardType::_ArtifactCreature, CREATURE_TYPE(Insect), nID,
 		_T("2"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3293,7 +3290,7 @@ CArcboundWorkerCard::CArcboundWorkerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arcbound Worker"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
 		_T("1"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3335,7 +3332,7 @@ CArcboundOverseerCard::CArcboundOverseerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Arcbound Overseer"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
 		_T("8"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -5053,7 +5050,7 @@ CArcboundFiendCard::CArcboundFiendCard(CGame* pGame, UINT nID)
 		_T("6"), Power(0), Life(0))
 {
 	GetCreatureKeyword()->AddFear(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -5526,6 +5523,21 @@ void CGeminiEngineCard::OnSubjectSelected(const std::vector<SelectionEntry>& sel
 				pCard->Attack(pAttackedWalker);
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CLeoninShikariCard::CLeoninShikariCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Leonin Shikari"), CardType::Creature, CREATURE_TYPE2(Cat, Soldier), nID,
+		_T("1") WHITE_MANA_TEXT, Power(2), Life(2))
+{
+	counted_ptr<CPlayerEffectEnchantment> cpAbility(
+		::CreateObject<CPlayerEffectEnchantment>(this,
+		PlayerEffectType::InstantEquip));
+
+	cpAbility->SetAffectControllerOnly();
+
+	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

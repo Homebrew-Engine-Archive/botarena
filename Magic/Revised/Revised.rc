@@ -282,7 +282,7 @@ BEGIN
     IDS_STRING7360          "Sengir Vampire\n{3BB}\nCreature - Vampire\nREV,U\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
     IDS_STRING7361          "Serendib Efreet\n{2U}\nCreature - Efreet\nREV,R\nFlying\rAt the beginning of your upkeep, Serendib Efreet deals 1 damage to you.\n3/4"
     IDS_STRING7362          "Serra Angel\n{3WW}\nCreature - Angel\nREV,U\nFlying\rVigilance\n4/4"
-    IDS_STRING7363          "Shanodin Dryads\n{G}\nCreature - Dryad\nREV,C\nForestwalk\n1/1"
+    IDS_STRING7363          "Shanodin Dryads\n{G}\nCreature - Nymph Dryad\nREV,C\nForestwalk\n1/1"
     IDS_STRING7364          "Shatter\n{1R}\nInstant\nREV,C\nDestroy target artifact."
     IDS_STRING7365          "Shatterstorm\n{2RR}\nSorcery\nREV,U\nDestroy all artifacts. They can't be regenerated."
     IDS_STRING7366          "Shivan Dragon\n{4RR}\nCreature - Dragon\nREV,R\nFlying\r{R}: Shivan Dragon gets +1/+0 until end of turn.\n5/5"

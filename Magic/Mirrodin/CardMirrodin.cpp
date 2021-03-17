@@ -29,6 +29,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CBarterInBloodCard);
 		DEFINE_CARD(CBattlegrowthCard);
 		DEFINE_CARD(CBetrayalOfFleshCard);
+		DEFINE_CARD(CBlindingBeamCard);
 		DEFINE_CARD(CBlinkmothUrnCard);
 		DEFINE_CARD(CBlinkmothWellCard);
 		DEFINE_CARD(CBloodscentCard);
@@ -368,8 +369,6 @@ CSlithAscendantCard::CSlithAscendantCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Slith Ascendant"), CardType::Creature, CREATURE_TYPE(Slith), nID,
 		_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt,
 							CWhenSelfDamageDealt::PlayerEventCallback, 
@@ -395,8 +394,6 @@ CSlithBloodletterCard::CSlithBloodletterCard(CGame* pGame, UINT nID)
 		BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(1), Life(1),
 		_T("1") BLACK_MANA_TEXT)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt,
 							CWhenSelfDamageDealt::PlayerEventCallback, 
@@ -421,9 +418,6 @@ CSlithFirewalkerCard::CSlithFirewalkerCard(CGame* pGame, UINT nID)
 	: CHasteCreatureCard(pGame, _T("Slith Firewalker"), CardType::Creature, CREATURE_TYPE(Slith), nID,
 		RED_MANA_TEXT RED_MANA_TEXT, Power(1), Life(1))
 {
-
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt,
 							CWhenSelfDamageDealt::PlayerEventCallback, 
@@ -448,8 +442,6 @@ CSlithPredatorCard::CSlithPredatorCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Slith Predator"), CardType::Creature, CREATURE_TYPE(Slith), nID,
 		GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetCreatureKeyword()->AddTrample(FALSE);
 
 	{
@@ -1042,8 +1034,6 @@ CSlithStriderCard::CSlithStriderCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Slith Strider"), CardType::Creature, CREATURE_TYPE(Slith), nID,
 		_T("1") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredDrawCardAbility, CWhenSelfAttackedBlocked,
@@ -3060,7 +3050,6 @@ void CDreamsGripCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType mo
 //
 CRoarOfTheKhaCard::CRoarOfTheKhaCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Roar of the Kha"), CardType::Instant, nID)
-
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CRoarOfTheKhaCard::OnResolutionCompleted))
 	, m_EntwineCost(_T("1") WHITE_MANA_TEXT)
@@ -3628,7 +3617,7 @@ CClockworkBeetleCard::CClockworkBeetleCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Clockwork Beetle"), CardType::_ArtifactCreature, CREATURE_TYPE(Insect), nID,
 		_T("1"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	typedef
 		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
@@ -3664,7 +3653,7 @@ CClockworkCondorCard::CClockworkCondorCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Clockwork Condor"), CardType::_ArtifactCreature, CREATURE_TYPE(Bird), nID,
 		_T("4"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	typedef
 		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
@@ -3700,7 +3689,7 @@ CClockworkDragonCard::CClockworkDragonCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Clockwork Dragon"), CardType::_ArtifactCreature, CREATURE_TYPE(Dragon), nID,
 		_T("7"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3750,7 +3739,7 @@ CClockworkVorracCard::CClockworkVorracCard(CGame* pGame, UINT nID)
 		_T("5"), Power(0), Life(0))
 {
 	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -4114,26 +4103,15 @@ CNeedlebugCard::CNeedlebugCard(CGame* pGame, UINT nID)
 CChaliceOfTheVoidCard::CChaliceOfTheVoidCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Chalice of the Void"), CardType::Artifact, nID,
 		_T("0"), AbilityType::Artifact)
+	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CChaliceOfTheVoidCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, TRUE);
 
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CChaliceOfTheVoidCard::SetTriggerContext2));
-	    cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CChaliceOfTheVoidCard::BeforeResolution));
-		cpAbility->SetSkipStack(TRUE);
-     
-		AddAbility(cpAbility.GetPointer());
-	}
-	{
-		counted_ptr<TriggeredAbility1> cpAbility(::CreateObject<TriggeredAbility1>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility1::OptionalType::Required);	
-		cpAbility->SetContextFunction(TriggeredAbility1::ContextFunction(this, &CChaliceOfTheVoidCard::SetTriggerContext1));		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CChaliceOfTheVoidCard::SetTriggerContext));		
 		
 		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("cards")));
 
@@ -4142,7 +4120,8 @@ CChaliceOfTheVoidCard::CChaliceOfTheVoidCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	}
 }
-bool CChaliceOfTheVoidCard::SetTriggerContext1(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext, 
+
+bool CChaliceOfTheVoidCard::SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext, 
 										 CCard* pCard) const
 {
 	if (pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal() == GetCounterContainer()->GetCounter(CHARGE_COUNTER)->GetCount())
@@ -4152,21 +4131,20 @@ bool CChaliceOfTheVoidCard::SetTriggerContext1(CTriggeredCounterSpellAbility::Tr
 	}
 	return false;
 }
-bool CChaliceOfTheVoidCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const
-{
-	int nColorCount = GetLastCastingExtraValue();
 
-	CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount, true);
-	pModifier.ApplyTo((CCard*)this);	
-	return true;
-}
-bool CChaliceOfTheVoidCard::SetTriggerContext2(TriggeredAbility::TriggerContextType& triggerContext,
-											  CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const
+void CChaliceOfTheVoidCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
 {
-	if (moveType != MoveType::Cast)
-		return false;
-		
-	return true;
+	if (!pFromZone || !pToZone || pCard != this)
+		return;
+
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast)
+	{
+		int nColorCount = GetLastCastingExtraValue();
+
+		CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount);
+
+		pModifier.ApplyTo(this);
+	}
 }
 
 //____________________________________________________________________________
@@ -4528,6 +4506,12 @@ CNeurokFamiliarCard::CNeurokFamiliarCard(CGame* pGame, UINT nID)
 
 bool CNeurokFamiliarCard::BeforeResolution(CNeurokFamiliarCard::TriggeredAbility::TriggeredActionType* pAction) const
 {
+	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		cont->SetDrawFailed();								 // can not draw a card, so draw has failed
+		return false;										 // no point continuing
+	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	int nCost = 0;
@@ -5693,7 +5677,6 @@ CBansheesBladeCard::CBansheesBladeCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Banshee's Blade"), CardType::Artifact | CardType::Equipment, nID, 
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		counted_ptr<CTriggeredCounterPwrTghEnchantAbility> cpAbility(
 		::CreateObject<CTriggeredCounterPwrTghEnchantAbility>(this, CHARGE_COUNTER));
@@ -7143,6 +7126,50 @@ CSecondSunriseCard::CSecondSunriseCard(CGame* pGame, UINT nID)
 	cpSpell->GetGlobalCardFilter().AddComparer(new CardTypeComparer(CardType::Artifact | CardType::Creature | CardType::_Enchantment | CardType::_Land, false));
 
 	AddSpell(cpSpell.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CBlindingBeamCard::CBlindingBeamCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Blinding Beam"), CardType::Instant, nID)
+	, m_EntwineCost(_T("1"))
+{
+	{
+		//Tap two target creatures.
+		counted_ptr<CTargetTapUntapCardSpell> cpSpell(
+			::CreateObject<CTargetTapUntapCardSpell>(this, AbilityType::Instant,
+				_T("2") WHITE_MANA_TEXT,
+				TRUE, FALSE,	// Tap, Untap
+				new AnyCreatureComparer));
+
+		cpSpell->GetTargeting()->SetSubjectCount(2,2);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//Creatures don't untap during target player's next untap step. 
+		counted_ptr<CTargetChgUntapCardTypeSpell> cpSpell(
+			::CreateObject<CTargetChgUntapCardTypeSpell>(this, AbilityType::Instant,					
+				_T("2") WHITE_MANA_TEXT,
+				CardType::Creature));
+	
+		AddSpell(cpSpell.GetPointer());
+	}
+	{
+		//Entwine: Tap two target creatures. Creatures don't untap during target player's next untap step. 
+		counted_ptr<CBlindingBeamSpell> cpSpell(
+			::CreateObject<CBlindingBeamSpell>(this, AbilityType::Instant,
+				_T("2") WHITE_MANA_TEXT));
+
+		cpSpell->GetCost().AddManaCost(m_EntwineCost);
+
+		AddSpell(cpSpell.GetPointer());
+	}
+}
+
+bool CBlindingBeamCard::BeforeResolution(CAbilityAction* pAction)
+{
+	return true;
 }
 
 //____________________________________________________________________________

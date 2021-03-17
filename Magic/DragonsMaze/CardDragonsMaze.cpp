@@ -994,7 +994,6 @@ CExavaRakdosBloodWitchCard::CExavaRakdosBloodWitchCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT RED_MANA_TEXT, Power(3), Life(3), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CExavaRakdosBloodWitchCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	
 	GetCreatureKeyword()->AddFirstStrike(FALSE);
@@ -1025,7 +1024,7 @@ void CExavaRakdosBloodWitchCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, C
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -1969,9 +1968,9 @@ bool CRenegadeKrasisCard::BeforeResolution1(TriggeredAbility::TriggeredActionTyp
 	if (!pCard->GetCardType().IsCreature()) return false;
 	CCreatureCard* pCreature = (CCreatureCard*)pCard;
 
-	if ((pCreature->GetLastKnownPower() > this->GetPower()) || (pCreature->GetLastKnownToughness() > this->GetLife())) return false;
-
-	if (!IsInplay() || !GetCardKeyword()->HasCantGetCounters()) return true;
+	if ((pCreature->GetLastKnownPower() <= this->GetPower()) && (pCreature->GetLastKnownToughness() <= this->GetLife())) return false;
+	
+	if (!IsInplay() || GetCardKeyword()->HasCantGetCounters()) return true;
 
 	CCardCounterModifier pModifier1 = CCardCounterModifier(_T("+1/+1"), +1);
 	pModifier1.ApplyTo(this);
@@ -2619,7 +2618,6 @@ CSavagebornHydraCard::CSavagebornHydraCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddDoubleStrike(FALSE);
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -2659,7 +2657,7 @@ void CSavagebornHydraCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -4248,7 +4246,6 @@ CRakdosDrakeCard::CRakdosDrakeCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT, Power(1), Life(2), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CRakdosDrakeCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddFlying(FALSE);
 	GetCreatureKeyword()->AddUnleash(FALSE);
@@ -4263,7 +4260,7 @@ void CRakdosDrakeCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }

@@ -46,6 +46,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CHammerheadSharkCard);
 		DEFINE_CARD(CHeatOfBattleCard);
 		DEFINE_CARD(CHermitDruidCard);
+		DEFINE_CARD(CHesitationCard);
 		DEFINE_CARD(CHibernationSliverCard);
 		DEFINE_CARD(CHornetCannonCard);
 		DEFINE_CARD(CHornOfGreedCard);
@@ -1673,7 +1674,7 @@ CSpikeBreederCard::CSpikeBreederCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Breeder"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("3") GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -1706,7 +1707,7 @@ CSpikeColonyCard::CSpikeColonyCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Colony"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("4") GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -1727,7 +1728,7 @@ CSpikeFeederCard::CSpikeFeederCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Feeder"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -1761,7 +1762,7 @@ CSpikeSoldierCard::CSpikeSoldierCard(CGame* pGame, UINT nID)
 {
 	m_pPumpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("+1/+1")), -1);
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -1782,7 +1783,7 @@ CSpikeWorkerCard::CSpikeWorkerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Worker"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("2") GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -1803,7 +1804,7 @@ CSpittingHydraCard::CSpittingHydraCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spitting Hydra"), CardType::Creature, CREATURE_TYPE(Hydra), nID,
 		_T("3") RED_MANA_TEXT RED_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
@@ -1829,7 +1830,7 @@ CMindwarperCard::CMindwarperCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Mindwarper"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
 		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetPlayerDiscardCardSpell>> cpAbility(
@@ -1854,7 +1855,6 @@ CShiftingWallCard::CShiftingWallCard(CGame* pGame, UINT nID)
 		_T("0"), Power(0), Life(0))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CShiftingWallCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -1871,7 +1871,7 @@ void CShiftingWallCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -2090,7 +2090,7 @@ CCrovaxTheCursedCard::CCrovaxTheCursedCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(0), Life(0),
 		BLACK_MANA_TEXT, Power(+0), Life(+0), CreatureKeyword::Flying)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2988,6 +2988,43 @@ bool CContemptCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAct
 	return true;
 }
 
+
+//____________________________________________________________________________
+//
+CHesitationCard::CHesitationCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Hesitation"), CardType::GlobalEnchantment, nID,
+		_T("1") BLUE_MANA_TEXT, AbilityType::Enchantment)
+{
+	typedef 
+		TTriggeredAbility< CTriggeredCounterSpellAbility, CWhenSpellCast >  TriggeredAbility;
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CHesitationCard::SetTriggerContext));		
+		
+	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("cards")));
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CHesitationCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag::Counterspell);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CHesitationCard::SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext, 
+										 CCard* pCard) const
+{
+	triggerContext.m_pCard = pCard;
+	
+	return true;
+}
+
+bool CHesitationCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pAction->GetController());
+	pModifier.ApplyTo(this);
+
+	return true;
+}
 
 //____________________________________________________________________________
 //

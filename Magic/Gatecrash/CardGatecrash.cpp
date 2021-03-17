@@ -2169,8 +2169,6 @@ CPrimeSpeakerZeganaCard::CPrimeSpeakerZeganaCard(CGame* pGame, UINT nID)
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(1), Life(1))
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CPrimeSpeakerZeganaCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -2208,7 +2206,7 @@ void CPrimeSpeakerZeganaCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZon
 			}
 		}
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nPower, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nPower);
 
 		pModifier.ApplyTo(this);
 	}
@@ -3339,7 +3337,7 @@ void CVizkopaConfessorCard::OnNumberSelected(const std::vector<SelectionEntry>& 
 					if (!m_pGame->IsThinking())
 					{
 						CString strMessage;
-						strMessage.Format(_T("%s reveals %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+						strMessage.Format(_T("%s reveals %s"), pTarget->GetPlayerName(), pCard->GetCardName(TRUE));
 						m_pGame->Message(
 							strMessage,
 							pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -3461,7 +3459,7 @@ void CVizkopaConfessorCard::OnCardSelected2(const std::vector<SelectionEntry>& s
 					MessageImportance::High
 					);
 			}
-			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Hand, ZoneId::Exile, TRUE, MoveType::Discard, pSelectionPlayer);
+			CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Hand, ZoneId::Exile, TRUE, MoveType::Others, pSelectionPlayer);
 			pModifier.ApplyTo(pCard);
 				
 			return;
@@ -8424,7 +8422,6 @@ CNimbusSwimmerCard::CNimbusSwimmerCard(CGame* pGame, UINT nID)
 		GREEN_MANA_TEXT BLUE_MANA_TEXT, Power(0), Life(0))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CNimbusSwimmerCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -8439,7 +8436,7 @@ void CNimbusSwimmerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}

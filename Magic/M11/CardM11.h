@@ -35,6 +35,9 @@ class CReassemblingSkeletonCard : public CCreatureCard
 class CAuguryOwlCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAuguryOwlCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -312,6 +315,9 @@ class CFlingCard : public CCard
 class CCrystalBallCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CCrystalBallCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -501,6 +507,9 @@ class CFaunaShamanCard : public CCreatureCard
 class CVisceraSeerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CVisceraSeerCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

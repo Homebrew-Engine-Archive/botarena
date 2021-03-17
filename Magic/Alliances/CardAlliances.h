@@ -862,3 +862,21 @@ protected:
 
 //____________________________________________________________________________
 //
+class COmenOfFireCard : public CCard
+{
+	DECLARE_CARD_CSTOR(COmenOfFireCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+
+	CCountedCardContainer_ pSelected;
+
+	void ChoiceFunction(int PlayerID, int nToSelect, int nTotal);
+
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//

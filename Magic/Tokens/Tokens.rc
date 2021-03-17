@@ -78,11 +78,11 @@ END
 
 STRINGTABLE
 BEGIN
-	IDS_STRING62000         "Saproling (I)\n{G}\nCreature - Saproling\nToken\n\n1/1"
-	IDS_STRING62001         "Saproling (J)\n{G}\nCreature - Saproling\nToken\n\n1/1"
-	IDS_STRING62002         "Saproling (K)\n{G}\nCreature - Saproling\nToken\n\n1/1"
-	IDS_STRING62003         "Saproling (L)\n{G}\nCreature - Saproling\nToken\n\n1/1"
-	IDS_STRING62004         "Saproling (M)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62000         "Saproling (I)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62001         "Saproling (J)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62002         "Saproling (K)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62003         "Saproling (L)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62004         "Saproling (M)\n{G}\nCreature - Saproling\nToken\n\n1/1"
     IDS_STRING62005         "Reflection (B)\n{W}\nCreature - Reflection\nToken\n\n*/*"
     IDS_STRING62006         "Sand Warrior\n{RGW}\nCreature - Sand Warrior\nToken\n\n1/1"
     IDS_STRING62007         "Pegasus (C)\n{W}\nCreature - Pegasus\nToken\nFlying\n1/1"
@@ -130,23 +130,39 @@ BEGIN
     IDS_STRING62041         "Blank (J)\n{R}\nCreature\nToken\n\n*/*"
     IDS_STRING62042         "Blank (K)\n{G}\nCreature\nToken\n\n*/*"
     IDS_STRING62043         "Blank (L)\n{1}\nCreature\nToken\n\n*/*"
-	IDS_STRING62044         "Skeleton (B)\n{B}\nCreature - Skeleton\nToken\n{B}: Regenerate this creature.\n1/1"
-	IDS_STRING62045         "Dragon Spirit\n{U}\nCreature - Dragon Spirit\nToken\nFlying\n5/5"
-	IDS_STRING62046         "Wall (B)\n{1}\nArtifact Creature - Wall\nToken\nDefender\n0/2"
-	IDS_STRING62047         "Twin\n{1}\nArtifact Creature - Construct\nToken\n\n*/*"
+    IDS_STRING62044         "Skeleton (B)\n{B}\nCreature - Skeleton\nToken\n{B}: Regenerate this creature.\n1/1"
+    IDS_STRING62045         "Dragon Spirit\n{U}\nCreature - Dragon Spirit\nToken\nFlying\n5/5"
+    IDS_STRING62046         "Wall (B)\n{1}\nArtifact Creature - Wall\nToken\nDefender\n0/2"
+    IDS_STRING62047         "Twin\n{1}\nArtifact Creature - Construct\nToken\n\n*/*"
 END
 
 STRINGTABLE
 BEGIN
-	IDS_STRING62048         "Elemental (R)\n{GW}\nCreature - Elemental\nToken\nThis creature's power and toughness are each equal to the number of creatures you control.\n*/*"
-	IDS_STRING62049         "Angel (I)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
-	IDS_STRING62050         "Sliver (C)\n{1}\nCreature - Sliver\nToken\n\n1/1"
-	IDS_STRING62051         "Wolf (I)\n{G}\nCreature - Wolf\nToken\n\n2/2"
-	IDS_STRING62052         "Elemental (S)\n{R}\nCreature - Elemental\nToken\n\n1/1"
-	IDS_STRING62053         "Beast (M)\n{G}\nCreature - Beast\nToken\n\n3/3"
-	IDS_STRING62054         "Saproling (N)\n{G}\nCreature - Saproling\nToken\n\n1/1"
-	IDS_STRING62055         "Dragon (G)\n{R}\nCreature - Dragon\nToken\nFlying\r{R}: This creature gets +1/+0 until end of turn.\n2/2"
-	IDS_STRING62056         "Elemental (T)\n{R}\nCreature - Elemental\nToken\n\n1/1"
+    IDS_STRING62048         "Elemental (R)\n{GW}\nCreature - Elemental\nToken\nThis creature's power and toughness are each equal to the number of creatures you control.\n*/*"
+    IDS_STRING62049         "Angel (I)\n{W}\nCreature - Angel\nToken\nFlying\n4/4"
+    IDS_STRING62050         "Sliver (C)\n{1}\nCreature - Sliver\nToken\n\n1/1"
+    IDS_STRING62051         "Wolf (I)\n{G}\nCreature - Wolf\nToken\n\n2/2"
+    IDS_STRING62052         "Elemental (S)\n{R}\nCreature - Elemental\nToken\n\n1/1"
+    IDS_STRING62053         "Beast (M)\n{G}\nCreature - Beast\nToken\n\n3/3"
+    IDS_STRING62054         "Saproling (N)\n{G}\nCreature - Saproling\nToken\n\n1/1"
+    IDS_STRING62055         "Dragon (G)\n{R}\nCreature - Dragon\nToken\nFlying\r{R}: This creature gets +1/+0 until end of turn.\n2/2"
+    IDS_STRING62056         "Elemental (T)\n{R}\nCreature - Elemental\nToken\n\n1/1"
+    IDS_STRING62057         "Harpy\n{B}\nCreature - Harpy\nToken\nFlying\n1/1"
+    IDS_STRING62058         "Elemental (U)\n{U}\nCreature - Elemental\nToken\n\n1/0"
+    IDS_STRING62059         "Soldier (N)\n{R}\nCreature - Soldier\nToken\nHaste\n1/1"
+    IDS_STRING62060         "Soldier (O)\n{W}\nCreature - Soldier\nToken\n\n1/1"
+    IDS_STRING62061         "Soldier (P)\n{W}\nCreature - Soldier\nToken\n\n1/1"
+    IDS_STRING62062         "Golem (E)\n{1}\nEnchantment Artifact Creature - Golem\nToken\n\n3/3"
+    IDS_STRING62063         "Boar (B)\n{G}\nCreature - Boar\nToken\n\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING62064         "Bird (I)\n{U}\nCreature - Bird\nToken\nFlying\n2/2"
+    IDS_STRING62065         "Satyr\n{RG}\nCreature - Satyr\nToken\nHaste\n2/2"
+    IDS_STRING62066         "Snake (G)\n{B}\nCreature - Snake\nToken\nDeathtouch\n1/1"
+    IDS_STRING62067         "Elemental (V)\n{R}\nCreature - Elemental\nToken\nHaste\n1/1"
+    IDS_STRING62068         "Beast (N)\n{G}\nCreature - Beast\nToken\nTrample\n5/5"
 END
 
 #endif    // English (United States) resources

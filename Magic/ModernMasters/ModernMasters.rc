@@ -337,6 +337,12 @@ BEGIN
     IDS_STRING26607         "Yosei, the Morning Star\n{4WW}\nLegendary Creature - Dragon Spirit\nMMA,MR\nFlying\rWhen Yosei, the Morning Star dies, target player skips his or her next untap step. Tap up to five target permanents that player controls.\n5/5"
 END
 
+STRINGTABLE
+BEGIN
+    IDS_STRING26608         "Blinding Beam\n{2W}\nInstant\nMMA,C\nChoose one - Tap two target creatures; or creatures don't untap during target player's next untap step.\rEntwine {1}"
+    IDS_STRING26609         "Crush Underfoot\n{1R}\nTribal Instant - Giant\nMMA,C\nChoose a Giant creature you control. It deals damage equal to its power to target creature."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

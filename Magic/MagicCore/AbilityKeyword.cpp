@@ -7,9 +7,7 @@
 CGraftKeyword::CGraftKeyword(CCard* pCard, int nValue)
 	: m_pCard(pCard)
 {
-	pCard->GetCounterContainer()->ScheduleCounter(_T("+1/+1"), nValue, true, ZoneId::_AllZones, ZoneId::Battlefield);
-
-	typedef TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
+	pCard->GetCounterContainer()->ScheduleCounter(_T("+1/+1"), nValue, false, ZoneId::_AllZones, ZoneId::Battlefield);
 
 	counted_ptr<TriggeredAbility> cpAbility(
 		::CreateObject<TriggeredAbility>(pCard, ZoneId::_AllZones, ZoneId::Battlefield));
@@ -45,7 +43,7 @@ bool CGraftKeyword::SetTriggerContext(CTriggeredModifyCardAbility::TriggerContex
 //
 CVanishingKeyword::CVanishingKeyword(CCard* pCard, int nValue)
 {
-	if (nValue != 0) pCard->GetCounterContainer()->ScheduleCounter(TIME_COUNTER, nValue, true, ZoneId::_AllZones, ZoneId::Battlefield);
+	if (nValue != 0) pCard->GetCounterContainer()->ScheduleCounter(TIME_COUNTER, nValue, false, ZoneId::_AllZones, ZoneId::Battlefield);
 
 	{
 		typedef	TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;

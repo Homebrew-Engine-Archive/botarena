@@ -279,6 +279,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING25008         "Quiet Disrepair\n{1G}\nEnchantment - Aura\nPC2,C\nEnchant artifact or enchantment\rAt the beginning of your upkeep, choose one - Destroy enchanted permanent; or you gain 2 life."
     IDS_STRING25009         "Hedron Fields of Agadeem\n\nPlane - Zendikar\nPC2,S\nCreatures with power 7 or greater can't attack or block.\rWhenever you roll {C}, put a 7/7 colorless Eldrazi creature token with annihilator 1 onto the battlefield."
+    IDS_STRING25010         "Enigma Sphinx\n{4WUB}\nArtifact Creature - Sphinx\nPC2,R\nFlying\rWhen Enigma Sphinx is put into your graveyard from the battlefield, put it into your library third from the top.\rCascade\n5/4"
 END
 
 #endif    // English (United States) resources

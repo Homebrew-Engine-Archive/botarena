@@ -1981,42 +1981,41 @@ CMacabreWaltzCard::CMacabreWaltzCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT, AbilityType::Sorcery,
 		new AnyCreatureComparer,
 		ZoneId::Graveyard, ZoneId::Hand, TRUE, MoveType::Others)
+		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+					&CMacabreWaltzCard::OnResolutionCompleted))
 {
 	m_pTargetMoveCardSpell->GetTargeting()->SetIncludeControllerCardsOnly();
-	m_pTargetMoveCardSpell->GetTargeting()->SetSubjectCount(0, 2);
-
-	m_pTargetMoveCardSpell->SetToZoneIfSuccess(ZoneId::_Tokens, TRUE);
+	m_pTargetMoveCardSpell->GetTargeting()->SetSubjectCount(1, 2);
+	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
 	{
-		typedef
-            TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
+		counted_ptr<CGenericSpell> cpSpell(
+			::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+				_T("1") BLACK_MANA_TEXT));
 
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::Stack, ZoneId::_Tokens));
+		cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-        cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Tokens);
-		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Graveyard);
-		cpAbility->SetSkipStack(TRUE);
-
-        AddAbility(cpAbility.GetPointer());
-    }
-	{
-		typedef
-			TTriggeredAbility< CTriggeredDiscardCardAbility, CWhenSelfMoved > TriggeredAbility;
-
-        counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
-			ZoneId::Stack, ZoneId::_Tokens));
-
-        cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
-
-		cpAbility->SetDiscardCount(1);
-
-		cpAbility->SetSkipStack(TRUE);
-
-		AddAbility(cpAbility.GetPointer());
+		AddSpell(cpSpell.GetPointer());
 	}
+}
+
+void CMacabreWaltzCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
+		CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
+	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to 
+		CZoneModifier::RoleType::PrimaryPlayer, // select by 
+		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+		CCardFilter::GetFilter(_T("cards")), // any cards
+		ZoneId::Graveyard, // if selected, move cards to
+		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+		CardPlacement::Top, // put selected cards on top
+		MoveType::Discard, // move type
+		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		
+	pModifier.ApplyTo(pAbilityAction->GetController());
 }
 
 //____________________________________________________________________________
@@ -2063,6 +2062,12 @@ CMomirVigSimicVisionaryCard::CMomirVigSimicVisionaryCard(CGame* pGame, UINT nID)
 
 bool CMomirVigSimicVisionaryCard::BeforeResolution(CMomirVigSimicVisionaryCard::TriggeredAbility::TriggeredActionType* pAction) const
 {
+	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		cont->SetDrawFailed();								 // can not draw a card to put into your hand, so draw has failed
+		return false;										 // no point continuing
+	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	int nCost = 0;
@@ -2101,6 +2106,12 @@ CCoilingOracleCard::CCoilingOracleCard(CGame* pGame, UINT nID)
 
 bool CCoilingOracleCard::BeforeResolution(CCoilingOracleCard::TriggeredAbility::TriggeredActionType* pAction) const
 {
+	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		cont->SetDrawFailed();								 // can not draw a card to put into your hand or battlefield, so draw has failed
+		return false;										 // no point continuing
+	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	int nCost = 0;
@@ -3146,7 +3157,7 @@ CCourtHussarCard::CCourtHussarCard(CGame* pGame, UINT nID)
 		pModifier3->GetSelection(0).nMinSelectionCount = MinimumValue(0);
 		pModifier3->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
 		pModifier3->GetSelection(0).moveType = MoveType::Others;
-		pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+		pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 			NULL, // any cards
@@ -3346,7 +3357,7 @@ CWalkingArchiveCard::CWalkingArchiveCard(CGame* pGame, UINT nID)
 		_T("3"), Power(1), Life(1))
 {
 	GetCreatureKeyword()->AddDefender(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(

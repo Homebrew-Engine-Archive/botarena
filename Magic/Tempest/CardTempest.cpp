@@ -90,6 +90,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGiantCrabCard);
 		DEFINE_CARD(CGoblinBombardmentCard);
 		DEFINE_CARD(CGrindstoneCard);
+		DEFINE_CARD(CHandToHandCard);
 		DEFINE_CARD(CHannasCustodyCard);
 		DEFINE_CARD(CHarrowCard);
 		DEFINE_CARD(CHavocCard);
@@ -684,8 +685,6 @@ CDirtcowlWurmCard::CDirtcowlWurmCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dirtcowl Wurm"), CardType::Creature, CREATURE_TYPE(Wurm), nID,
 		_T("4") GREEN_MANA_TEXT, Power(3), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	//lands played from the hand or graveyard
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
@@ -1217,8 +1216,6 @@ CSegmentedWurmCard::CSegmentedWurmCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Segmented Wurm"), CardType::Creature, CREATURE_TYPE(Wurm), nID,
 		_T("3") RED_MANA_TEXT GREEN_MANA_TEXT, Power(5), Life(5))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSubjectTargeted, 
 							CWhenSubjectTargeted::CardEventCallback, &CWhenSubjectTargeted::SetCardEventCallback > TriggeredAbility;
@@ -3488,7 +3485,7 @@ CSpikeDroneCard::CSpikeDroneCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Drone"), CardType::Creature, CREATURE_TYPE2(Spike, Drone), nID,
 		GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -3511,7 +3508,6 @@ CKrakilinCard::CKrakilinCard(CGame* pGame, UINT nID)
 		_T("1") GREEN_MANA_TEXT)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CKrakilinCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -3526,7 +3522,7 @@ void CKrakilinCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -3712,8 +3708,6 @@ CDauthiGhoulCard::CDauthiGhoulCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
 {
 	GetCreatureKeyword()->AddShadow(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
@@ -5277,7 +5271,7 @@ CChaoticGooCard::CChaoticGooCard(CGame* pGame, UINT nID)
 		_T("2") RED_MANA_TEXT RED_MANA_TEXT, Power(0), Life(0))
 	, m_FlipSelection(pGame, CSelectionSupport::SelectionCallback(this, &CChaoticGooCard::OnFlipSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	counted_ptr<TriggeredAbility> cpAbility(
 		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 	ATLASSERT(cpAbility);
@@ -6388,7 +6382,7 @@ CMagmasaurCard::CMagmasaurCard(CGame* pGame, UINT nID)
 		_T("3") RED_MANA_TEXT, Power(0), Life(0))
 	, m_Selection(pGame, CSelectionSupport::SelectionCallback(this, &CMagmasaurCard::OnSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	typedef
 		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
@@ -6531,6 +6525,19 @@ bool CCoffinQueenCard::BeforeResolution(CAbilityAction* pAction)
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CHandToHandCard::CHandToHandCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Hand to Hand"), CardType::GlobalEnchantment, nID,
+		_T("2") RED_MANA_TEXT, AbilityType::Enchantment)
+{
+	counted_ptr<CPlayerEffectEnchantment> cpAbility(
+		::CreateObject<CPlayerEffectEnchantment>(this,
+		PlayerEffectType::HandToHandEffect));
+
+	AddAbility(cpAbility.GetPointer());
 }
 
 //____________________________________________________________________________

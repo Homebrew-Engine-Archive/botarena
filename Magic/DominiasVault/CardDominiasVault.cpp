@@ -606,7 +606,7 @@ CShichifukujinDragonCard::CShichifukujinDragonCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Shichifukujin Dragon"), CardType::Creature, CREATURE_TYPE(Dragon), nID,
 		_T("6") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CGenericSpell>>(this,

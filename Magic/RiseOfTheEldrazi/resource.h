@@ -241,6 +241,7 @@
 #define IDS_STRING21024                 21024
 #define IDS_STRING21025                 21025
 #define IDS_STRING21026                 21026
+#define IDS_STRING21027                 21027
 #define IDI_MODULE                      21048
 #define IDI_LARGE_MODULE                21049
 

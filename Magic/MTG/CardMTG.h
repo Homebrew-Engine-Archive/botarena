@@ -186,9 +186,9 @@ class CBirdDToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
-class CBoarToken : public CTokenCreature
+class CBoarAToken : public CTokenCreature
 {
-    DECLARE_CARD_CSTOR(CBoarToken);
+    DECLARE_CARD_CSTOR(CBoarAToken);
 };
 
 //____________________________________________________________________________

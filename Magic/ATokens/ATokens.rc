@@ -186,6 +186,8 @@ BEGIN
     IDS_STRING64083          "Wall (AB)\n{W}\nCreature - Wall\nToken\nDefender\n*/*"
     IDS_STRING64084          "Construct (AF)\n{1}\nArtifact Creature - Construct\nToken\n\n*/*"
     IDS_STRING64085          "Giant (AB)\n{R}\nCreature - Giant\nToken\nHaste\n7/7"
+    IDS_STRING64086          "Warrior (AB)\n{1}\nCreature - Warrior\nToken\n\n2/2"
+    IDS_STRING64087          "Spirit (AI)\n{4}\nArtifact Creature - Spirit\nToken\n\n4/4"
 END    
 
 

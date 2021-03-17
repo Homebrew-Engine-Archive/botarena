@@ -10528,6 +10528,38 @@ void CVengefulRebirthSpell::ResolveGroup(const CCountedCardContainer& pContainer
 
 //____________________________________________________________________________
 //
+CBlindingBeamSpell::CBlindingBeamSpell(CCard* pCard, AbilityType abilityType,
+															   LPCTSTR strManaCost)
+: CDoubleTargetSpell(pCard, abilityType, strManaCost, new AnyCreatureComparer, FALSE,
+						FALSE_CARD_COMPARER, TRUE, _T(" to"))	
+{	
+	GetTargeting1()->SetDefaultCharacteristic(Characteristic::Negative);
+	GetTargeting1()->SetSubjectCount(2,2);
+	GetTargeting2()->SetDefaultCharacteristic(Characteristic::Negative);
+}
+
+void CBlindingBeamSpell::ResolveGroup(const CCountedCardContainer& pContainer1,const  CCountedCardContainer& pContainer2,const CPlayerContainer& pPContainer1,const CPlayerContainer& pPContainer2)
+{
+	CPlayer* pTargetPlayer = pPContainer2.GetAt(0);
+
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier(TRUE);
+	
+	for (int i = 0; i < pContainer1.GetSize(); ++i)
+		pModifier1.ApplyTo(pContainer1.GetAt(i));
+
+	std::auto_ptr<CPlayerModifier> apModifier(new CPlayerUntapCardTypeModifier(CardType::Creature, CardType::Creature, CPlayerUntapCardTypeModifier::ResetCantUntapCardType));
+	apModifier->ApplyTo(pTargetPlayer);
+
+	// Schedule a task to undo the untap card type at the beginning of next upkeep
+
+	CPlayerModifierTask* pTask = new CPlayerModifierTask(pTargetPlayer, apModifier,
+		false); // use RemoveFrom
+
+	m_pGame->GetScheduler()->ScheduleTask(pTask, pTargetPlayer, NodeId::UpkeepStep, TurnNumberDelta(-1));
+}
+
+//____________________________________________________________________________
+//
 CTargetChgLifeSpellCounter::CTargetChgLifeSpellCounter(CCard* pCard, AbilityType abilityType,
 										   LPCTSTR strManaCost,
 										   CardComparer* pComparer,
@@ -11406,6 +11438,590 @@ void CTargetCopyCastSpell::OnSelectionDone(const std::vector<SelectionEntry>& se
 
 		}
 }
+
+//____________________________________________________________________________
+//
+CTargetCopyCastTwiceSpell::CTargetCopyCastTwiceSpell(CCard* pCard, AbilityType abilityType,
+							   LPCTSTR strManaCost,
+							   CardComparer* pComparer,
+							   ZoneId fromZoneId, CTargeting* pTargeting)
+	: CTargetSpell(pCard, abilityType, strManaCost, pComparer, FALSE, pTargeting)
+	, m_cpSelectionListener(VAR_NAME(m_cpSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CTargetCopyCastTwiceSpell::OnSelectionDone))
+{
+	GetTargeting()->SetSubjectZoneId(fromZoneId);
+}
+
+
+void CTargetCopyCastTwiceSpell::ResolveCard(const CTargetSpellAction* pAction, CCard* pCard, const ContextValue& value)
+{
+	__super::ResolveCard(pAction, pCard, value);
+
+	CCard* toCast1;
+	
+	CCountedCardContainer pContainer;
+
+	CCardCopyModifier pModifier = CCardCopyModifier(GetGame(), m_pCard, NULL, NULL, &pContainer, ZoneId::_Tokens); 
+
+	pModifier.ApplyTo(pCard);
+
+	toCast1 = pContainer.GetAt(0);
+
+	m_Selection.clear();
+	int n=0;
+
+	//------------------------------------------------------------------------------------------------------------------------------------------
+
+	vector<SelectionEntry> entries;
+
+	SelectionEntry entry;
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------
+
+	const CStack& stack = m_pGame->GetStack();
+	const CStackAbilityAction* pStackAction;
+
+	for (int l = 0; l < stack.GetStackSize(); ++l)
+	{
+						pStackAction = stack.GetStackAction(l).GetPointer();
+						if (pStackAction->IsSpell() && (pStackAction->GetAbility()->GetCard() == pCard))
+						{
+							break;
+						}
+
+	}
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	bool to_add = false;
+
+	toCast1->SetLastCastingCostConfigEntry(pStackAction->GetCostConfigEntry());
+	toCast1->SetLastCastingManaCost(pStackAction->GetCostConfigEntry().GetManaPool());
+		
+
+	//if (p
+	int extra_value = 0;
+
+	if (!toCast1->GetCardType().IsLand())
+	{
+		if (toCast1->GetController() != pAction->GetController()) toCast1->SetController(pAction->GetController());
+
+		for (int i = 0; i <  toCast1->GetSpells().GetSize(); ++i)
+		{
+			to_add = true;
+			FreecastCardActionsSelection sel_entry;
+			sel_entry.SpellIndex = i;
+			sel_entry.AddReductionCost(toCast1);
+
+			if (pStackAction->GetCostConfigEntry().GetExtraValue())
+				{
+					toCast1->GetSpells().GetAt(i)->GetCost().AddReductionCost(CManaCostBase::Color::Black, pStackAction->GetCostConfigEntry().GetExtraValue());
+				}
+
+			toCast1->GetCardKeyword()->AddFreecast(TRUE);
+
+			//toCast->GetSpells().GetAt(i)->GetCost().R
+		//	else
+		
+			//	toCast->SetLastCastingExtraValue(pStackAction->GetAbility()->GetCost().GetExtraValue(pStackAction->GetCostConfigEntry()));
+			//    extra_value = (pStackAction->GetAbility()->GetCost().GetExtraValue(pStackAction->GetCostConfigEntry()));
+			
+
+			std::auto_ptr<CActionContainer> pActionContainer(toCast1->GetSpells().GetAt(i)->GetAbilityActions(TRUE,TRUE));
+
+		//	if (toCast->GetSpells().GetAt(i)->GetPlayableFrom() != ZoneId::Hand)  {continue;}
+			if (!toCast1->GetSpells().GetAt(i)->GetAbilityActions(TRUE,TRUE)) {continue;}
+
+			for (int j = 0; j < pActionContainer->GetSize(); ++j)
+			{
+				to_add = true;
+
+				sel_entry.ActionIndex = j;
+
+				m_Selection.push_back(sel_entry);
+
+				SelectionEntry entry;
+
+				entry.dwContext = n;
+				entry.strText.Format(_T("%s"), (pActionContainer->GetAt(j).GetPointer())->GetActionText());
+
+				n=n+1;
+
+				if (!HasSameSubjectCount(pStackAction, (pActionContainer->GetAt(j).GetPointer()))) 
+					to_add = false;
+
+				if (toCast1->GetSpells().GetAt(i)->GetAbilityName() != ((CSpell*)pStackAction->GetAbility())->GetAbilityName()) 
+					to_add = false; // Skipping other modes.
+
+				if (pStackAction->GetCostConfigEntry().GetExtraValue())
+				{
+					if (((CManaConsumptionAbilityAction*)(pActionContainer->GetAt(j).GetPointer()))->GetCostConfigEntry().GetExtraValue() != pStackAction->GetCostConfigEntry().GetExtraValue())
+						to_add = false;
+				}
+
+				if (to_add) entries.push_back(entry);
+			}
+		}
+	}
+
+	m_pGame->GetSelection().AddSelectionRequest(
+		m_cpSelectionListener.GetPointer(), entries, 1, 1, GetCard(), pAction->GetController(), (DWORD)toCast1, extra_value, (DWORD)pCard);
+
+	CCard* toCast2;
+
+	pContainer.RemoveAll();
+
+	pModifier.ApplyTo(pCard);
+
+	toCast2 = pContainer.GetAt(0);
+
+	m_Selection.clear();
+	n = 0;
+
+	//------------------------------------------------------------------------------------------------------------------------------------------
+
+	vector<SelectionEntry> entries2;
+
+	SelectionEntry entry2;
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------
+
+	for (int l = 0; l < stack.GetStackSize(); ++l)
+	{
+						pStackAction = stack.GetStackAction(l).GetPointer();
+						if (pStackAction->IsSpell() && (pStackAction->GetAbility()->GetCard() == pCard))
+						{
+							break;
+						}
+
+	}
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	to_add = false;
+
+	toCast2->SetLastCastingCostConfigEntry(pStackAction->GetCostConfigEntry());
+	toCast2->SetLastCastingManaCost(pStackAction->GetCostConfigEntry().GetManaPool());
+		
+
+	//if (p
+	extra_value = 0;
+
+	if (!toCast2->GetCardType().IsLand())
+	{
+		if (toCast2->GetController() != pAction->GetController()) toCast2->SetController(pAction->GetController());
+
+		for (int i = 0; i <  toCast2->GetSpells().GetSize(); ++i)
+		{
+			to_add = true;
+			FreecastCardActionsSelection sel_entry;
+			sel_entry.SpellIndex = i;
+			sel_entry.AddReductionCost(toCast2);
+
+			if (pStackAction->GetCostConfigEntry().GetExtraValue())
+				{
+					toCast2->GetSpells().GetAt(i)->GetCost().AddReductionCost(CManaCostBase::Color::Black, pStackAction->GetCostConfigEntry().GetExtraValue());
+				}
+
+			toCast2->GetCardKeyword()->AddFreecast(TRUE);
+
+			//toCast->GetSpells().GetAt(i)->GetCost().R
+		//	else
+		
+			//	toCast->SetLastCastingExtraValue(pStackAction->GetAbility()->GetCost().GetExtraValue(pStackAction->GetCostConfigEntry()));
+			//    extra_value = (pStackAction->GetAbility()->GetCost().GetExtraValue(pStackAction->GetCostConfigEntry()));
+			
+
+			std::auto_ptr<CActionContainer> pActionContainer(toCast2->GetSpells().GetAt(i)->GetAbilityActions(TRUE,TRUE));
+
+		//	if (toCast->GetSpells().GetAt(i)->GetPlayableFrom() != ZoneId::Hand)  {continue;}
+			if (!toCast2->GetSpells().GetAt(i)->GetAbilityActions(TRUE,TRUE)) {continue;}
+
+			for (int j = 0; j < pActionContainer->GetSize(); ++j)
+			{
+				to_add = true;
+
+				sel_entry.ActionIndex = j;
+
+				m_Selection.push_back(sel_entry);
+
+				SelectionEntry entry;
+
+				entry.dwContext = n;
+				entry.strText.Format(_T("%s"), (pActionContainer->GetAt(j).GetPointer())->GetActionText());
+
+				n=n+1;
+
+				if (!HasSameSubjectCount(pStackAction, (pActionContainer->GetAt(j).GetPointer()))) 
+					to_add = false;
+
+				if (toCast2->GetSpells().GetAt(i)->GetAbilityName() != ((CSpell*)pStackAction->GetAbility())->GetAbilityName()) 
+					to_add = false; // Skipping other modes.
+
+				if (pStackAction->GetCostConfigEntry().GetExtraValue())
+				{
+					if (((CManaConsumptionAbilityAction*)(pActionContainer->GetAt(j).GetPointer()))->GetCostConfigEntry().GetExtraValue() != pStackAction->GetCostConfigEntry().GetExtraValue())
+						to_add = false;
+				}
+
+				if (to_add) entries2.push_back(entry);
+			}
+		}
+	}
+
+	m_pGame->GetSelection().AddSelectionRequest(
+		m_cpSelectionListener.GetPointer(), entries2, 1, 1, GetCard(), pAction->GetController(), (DWORD)toCast2, extra_value, (DWORD)pCard);
+}
+bool CTargetCopyCastTwiceSpell::HasSameSubjectCount(const CStackAbilityAction* pStackAction, CAction* pAction)
+{
+	int subjects1 = 0;
+	int subjects2 = 0;
+	const CTargetActionCommon* pTargetAction = dynamic_cast<const CTargetActionCommon*>(pStackAction);
+			if (pTargetAction)
+			{
+				subjects1 = pTargetAction->GetTargetGroup().GetCardSubjectCount() + pTargetAction->GetTargetGroup().GetPlayerSubjectCount();
+			}
+			else
+			{ 
+				subjects1 = 0;
+			}
+
+	const CTargetActionCommon* pTargetAction1 = dynamic_cast<const CTargetActionCommon*>(pAction);
+			if (pTargetAction1)
+			{
+				subjects2 = pTargetAction1->GetTargetGroup().GetCardSubjectCount() + pTargetAction1->GetTargetGroup().GetPlayerSubjectCount();
+			}
+			else
+			{ 
+				subjects2 = 0;
+			}
+
+	if (pTargetAction && pTargetAction1)
+	{
+		if (subjects1 != subjects2) 
+			return false;
+		else 
+			return true;
+	}
+
+	const CDoubleTargetActionCommon* pDoubleTargetAction1 = dynamic_cast<const CDoubleTargetActionCommon*>(pStackAction);
+			if (pDoubleTargetAction1)
+			{
+				subjects1 = pDoubleTargetAction1->GetTargetGroup1().GetCardSubjectCount() + pDoubleTargetAction1->GetTargetGroup1().GetPlayerSubjectCount();
+				subjects2 = pDoubleTargetAction1->GetTargetGroup2().GetCardSubjectCount() + pDoubleTargetAction1->GetTargetGroup2().GetPlayerSubjectCount();
+			}
+			else
+			{ 
+				subjects1 = 0;
+				subjects2 = 0;
+			}
+
+	const CDoubleTargetActionCommon* pDoubleTargetAction2 = dynamic_cast<const CDoubleTargetActionCommon*>(pAction);
+			if (pDoubleTargetAction2)
+			{
+				if (subjects1 == pDoubleTargetAction2->GetTargetGroup1().GetCardSubjectCount() + pDoubleTargetAction2->GetTargetGroup1().GetPlayerSubjectCount() &&
+				subjects2 == pDoubleTargetAction2->GetTargetGroup2().GetCardSubjectCount() + pDoubleTargetAction2->GetTargetGroup2().GetPlayerSubjectCount())
+					return true;
+				else 
+					return false;
+			}
+			else
+			{ 
+				return true;
+			}
+	
+	return true;
+}
+void CTargetCopyCastTwiceSpell::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	m_cpSelectionListener->RemoveAllEventSources();
+
+	for (vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* toCast = (CCard*)dwContext1;
+			int j = (int)it->dwContext;
+
+			const CStack& stack = m_pGame->GetStack();
+			const CStackAbilityAction* pStackAction;
+
+			for (int l = 0; l < stack.GetStackSize(); ++l)
+			{
+				pStackAction = stack.GetStackAction(l).GetPointer();
+				if (pStackAction->IsSpell() && (pStackAction->GetAbility()->GetCard() == (CCard*)dwContext3))
+				{
+					break;
+				}
+
+			}
+
+
+			if (j == 99999) break;
+			else
+				if (j == 99998)
+				{
+					((CBasicLandCard*)toCast)->GetLandAbility()->GetAbilityActions(TRUE,TRUE)->PerformAction(0);
+					toCast->GetCardKeyword()->RemoveFreecast(TRUE);
+				}
+				else
+				{
+				//	m_Selection[j].PerformAction(toCast);
+						CManaPool PPool = pSelectionPlayer->GetManaPool();
+
+						CAction* pAction = m_Selection[j].GetAction(toCast).GetPointer();
+						((CAbilityAction*)pAction)->SetCostConfigEntry(pStackAction->GetCostConfigEntry());
+					//	if (dwContext2) pAction->SetValue(ContextValue(dwContext2));
+						pAction->PerformAction();
+
+						pSelectionPlayer->GetManaPool().SetMana(PPool);
+
+					toCast->GetCardKeyword()->AddFreecast(TRUE);
+					m_Selection[j].RemoveReductionCost(toCast);
+				}
+
+		}
+}
+
+//____________________________________________________________________________
+//
+/*
+CMeletisCharlatanSpell::CMeletisCharlatanSpell(CCard* pCard, AbilityType abilityType,
+							   LPCTSTR strManaCost,
+							   CardComparer* pComparer,
+							   ZoneId fromZoneId, CTargeting* pTargeting)
+	: CTargetSpell(pCard, abilityType, strManaCost, pComparer, FALSE, pTargeting)
+	, m_cpSelectionListener(VAR_NAME(m_cpSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CMeletisCharlatanSpell::OnSelectionDone))
+{
+	GetTargeting()->SetSubjectZoneId(fromZoneId);
+}
+
+
+void CMeletisCharlatanSpell::ResolveCard(const CTargetSpellAction* pAction, CCard* pCard, const ContextValue& value)
+{
+	__super::ResolveCard(pAction, pCard, value);
+
+	CCard* toCast;
+
+	CCountedCardContainer pContainer;
+
+	CCardCopyModifier pModifier = CCardCopyModifier(GetGame(), m_pCard, NULL, NULL, &pContainer, ZoneId::_Tokens); 
+
+	pModifier.ApplyTo(pCard);
+
+	toCast = pContainer.GetAt(0);
+
+	m_Selection.clear();
+	int n=0;
+
+	//------------------------------------------------------------------------------------------------------------------------------------------
+
+	vector<SelectionEntry> entries;
+
+	SelectionEntry entry;
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------
+
+	const CStack& stack = m_pGame->GetStack();
+	const CStackAbilityAction* pStackAction;
+
+	for (int l = 0; l < stack.GetStackSize(); ++l)
+	{
+						pStackAction = stack.GetStackAction(l).GetPointer();
+						if (pStackAction->IsSpell() && (pStackAction->GetAbility()->GetCard() == pCard))
+						{
+							break;
+						}
+
+	}
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	bool to_add = false;
+
+	toCast->SetLastCastingCostConfigEntry(pStackAction->GetCostConfigEntry());
+	toCast->SetLastCastingManaCost(pStackAction->GetCostConfigEntry().GetManaPool());
+		
+
+	//if (p
+	int extra_value = 0;
+
+	if (!toCast->GetCardType().IsLand())
+	{
+		for (int i = 0; i <  toCast->GetSpells().GetSize(); ++i)
+		{
+			to_add = true;
+			FreecastCardActionsSelection sel_entry;
+			sel_entry.SpellIndex = i;
+			sel_entry.AddReductionCost(toCast);
+
+			if (pStackAction->GetCostConfigEntry().GetExtraValue())
+				{
+					toCast->GetSpells().GetAt(i)->GetCost().AddReductionCost(CManaCostBase::Color::Black, pStackAction->GetCostConfigEntry().GetExtraValue());
+				}
+
+			toCast->GetCardKeyword()->AddFreecast(TRUE);
+
+			//toCast->GetSpells().GetAt(i)->GetCost().R
+		//	else
+		
+			//	toCast->SetLastCastingExtraValue(pStackAction->GetAbility()->GetCost().GetExtraValue(pStackAction->GetCostConfigEntry()));
+			//    extra_value = (pStackAction->GetAbility()->GetCost().GetExtraValue(pStackAction->GetCostConfigEntry()));
+			
+
+			std::auto_ptr<CActionContainer> pActionContainer(toCast->GetSpells().GetAt(i)->GetAbilityActions(TRUE,TRUE));
+
+		//	if (toCast->GetSpells().GetAt(i)->GetPlayableFrom() != ZoneId::Hand)  {continue;}
+			if (!toCast->GetSpells().GetAt(i)->GetAbilityActions(TRUE,TRUE)) {continue;}
+
+			for (int j = 0; j < pActionContainer->GetSize(); ++j)
+			{
+				to_add = true;
+
+				sel_entry.ActionIndex = j;
+
+				m_Selection.push_back(sel_entry);
+
+				SelectionEntry entry;
+
+				entry.dwContext = n;
+				entry.strText.Format(_T("%s"), (pActionContainer->GetAt(j).GetPointer())->GetActionText());
+
+				n=n+1;
+
+				if (!HasSameSubjectCount(pStackAction, (pActionContainer->GetAt(j).GetPointer()))) 
+					to_add = false;
+
+				if (toCast->GetSpells().GetAt(i)->GetAbilityName() != ((CSpell*)pStackAction->GetAbility())->GetAbilityName()) 
+					to_add = false; // Skipping other modes.
+
+				if (pStackAction->GetCostConfigEntry().GetExtraValue())
+				{
+					if (((CManaConsumptionAbilityAction*)(pActionContainer->GetAt(j).GetPointer()))->GetCostConfigEntry().GetExtraValue() != pStackAction->GetCostConfigEntry().GetExtraValue())
+						to_add = false;
+				}
+
+				if (to_add) entries.push_back(entry);
+			}
+		}
+	}
+
+	m_pGame->GetSelection().AddSelectionRequest(
+		m_cpSelectionListener.GetPointer(), entries, 1, 1, GetCard(), toCast->GetController(), (DWORD)toCast, extra_value, (DWORD)pCard);
+}
+
+bool CMeletisCharlatanSpell::HasSameSubjectCount(const CStackAbilityAction* pStackAction, CAction* pAction)
+{
+	int subjects1 = 0;
+	int subjects2 = 0;
+	const CTargetActionCommon* pTargetAction = dynamic_cast<const CTargetActionCommon*>(pStackAction);
+			if (pTargetAction)
+			{
+				subjects1 = pTargetAction->GetTargetGroup().GetCardSubjectCount() + pTargetAction->GetTargetGroup().GetPlayerSubjectCount();
+			}
+			else
+			{ 
+				subjects1 = 0;
+			}
+
+	const CTargetActionCommon* pTargetAction1 = dynamic_cast<const CTargetActionCommon*>(pAction);
+			if (pTargetAction1)
+			{
+				subjects2 = pTargetAction1->GetTargetGroup().GetCardSubjectCount() + pTargetAction1->GetTargetGroup().GetPlayerSubjectCount();
+			}
+			else
+			{ 
+				subjects2 = 0;
+			}
+
+	if (pTargetAction && pTargetAction1)
+	{
+		if (subjects1 != subjects2) 
+			return false;
+		else 
+			return true;
+	}
+
+	const CDoubleTargetActionCommon* pDoubleTargetAction1 = dynamic_cast<const CDoubleTargetActionCommon*>(pStackAction);
+			if (pDoubleTargetAction1)
+			{
+				subjects1 = pDoubleTargetAction1->GetTargetGroup1().GetCardSubjectCount() + pDoubleTargetAction1->GetTargetGroup1().GetPlayerSubjectCount();
+				subjects2 = pDoubleTargetAction1->GetTargetGroup2().GetCardSubjectCount() + pDoubleTargetAction1->GetTargetGroup2().GetPlayerSubjectCount();
+			}
+			else
+			{ 
+				subjects1 = 0;
+				subjects2 = 0;
+			}
+
+	const CDoubleTargetActionCommon* pDoubleTargetAction2 = dynamic_cast<const CDoubleTargetActionCommon*>(pAction);
+			if (pDoubleTargetAction2)
+			{
+				if (subjects1 == pDoubleTargetAction2->GetTargetGroup1().GetCardSubjectCount() + pDoubleTargetAction2->GetTargetGroup1().GetPlayerSubjectCount() &&
+				subjects2 == pDoubleTargetAction2->GetTargetGroup2().GetCardSubjectCount() + pDoubleTargetAction2->GetTargetGroup2().GetPlayerSubjectCount())
+					return true;
+				else 
+					return false;
+			}
+			else
+			{ 
+				return true;
+			}
+	
+	return true;
+}
+
+void CMeletisCharlatanSpell::OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	m_cpSelectionListener->RemoveAllEventSources();
+
+	for (vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* toCast = (CCard*)dwContext1;
+			int j = (int)it->dwContext;
+
+			const CStack& stack = m_pGame->GetStack();
+			const CStackAbilityAction* pStackAction;
+
+			for (int l = 0; l < stack.GetStackSize(); ++l)
+			{
+				pStackAction = stack.GetStackAction(l).GetPointer();
+				if (pStackAction->IsSpell() && (pStackAction->GetAbility()->GetCard() == (CCard*)dwContext3))
+				{
+					break;
+				}
+
+			}
+
+
+			if (j == 99999) break;
+			else
+				if (j == 99998)
+				{
+					((CBasicLandCard*)toCast)->GetLandAbility()->GetAbilityActions(TRUE,TRUE)->PerformAction(0);
+					toCast->GetCardKeyword()->RemoveFreecast(TRUE);
+				}
+				else
+				{
+				//	m_Selection[j].PerformAction(toCast);
+						CManaPool PPool = pSelectionPlayer->GetManaPool();
+
+						CAction* pAction = m_Selection[j].GetAction(toCast).GetPointer();
+						((CAbilityAction*)pAction)->SetCostConfigEntry(pStackAction->GetCostConfigEntry());
+					//	if (dwContext2) pAction->SetValue(ContextValue(dwContext2));
+						pAction->PerformAction();
+
+						pSelectionPlayer->GetManaPool().SetMana(PPool);
+
+					toCast->GetCardKeyword()->AddFreecast(TRUE);
+					m_Selection[j].RemoveReductionCost(toCast);
+				}
+
+		}
+}
+*/
 //____________________________________________________________________________
 //
 CForeshadowSpell::CForeshadowSpell(CCard* pCard, AbilityType abilityType,

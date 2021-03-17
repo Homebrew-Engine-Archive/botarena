@@ -83,6 +83,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKamiOfEmptyGravesCard);
 		DEFINE_CARD(CKamiOfTheCrescentMoonCard);
 		DEFINE_CARD(CKamiOfTheTendedGardenCard);
+		DEFINE_CARD(CKashiTribeEliteCard);
 		DEFINE_CARD(CKatakiWarsWageCard);
 		DEFINE_CARD(CKemuriOnnaCard);
 		DEFINE_CARD(CKikusShadowCard);
@@ -97,6 +98,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMagaTraitortoMortalsCard);
 		DEFINE_CARD(CManrikiGusariCard);
 		DEFINE_CARD(CMasumaroFirstToLiveCard);
+		DEFINE_CARD(CMatsuTribeBirdstalkerCard);
 		DEFINE_CARD(CMeasureOfWickednessCard);
 		DEFINE_CARD(CMikokoroCenterOfTheSeaCard);
 		DEFINE_CARD(CMinamoScrollkeeperCard);
@@ -1988,7 +1990,6 @@ CMagaTraitortoMortalsCard::CMagaTraitortoMortalsCard(CGame* pGame, UINT nID)
 		BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(0), Life(0))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CMagaTraitortoMortalsCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -2019,7 +2020,7 @@ void CMagaTraitortoMortalsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZ
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -5424,7 +5425,7 @@ CSekkiSeasonsGuideCard::CSekkiSeasonsGuideCard(CGame* pGame, UINT nID)
 		_T("5") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 	, m_CardFilter(_T("a Spirit"), _T("Spirits"), new CreatureTypeComparer(CREATURE_TYPE(Spirit), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 8, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 8, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
 	{
@@ -5554,6 +5555,106 @@ bool CPureIntentionsCard::BeforeResolution2(TriggeredAbility::TriggeredActionTyp
 
 		return true;
 	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CKashiTribeEliteCard::CKashiTribeEliteCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kashi-Tribe Elite"), CardType::Creature, CREATURE_TYPE2(Snake, Warrior), nID,
+		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(3))
+{
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new CreatureTypeComparer(CREATURE_TYPE(Snake), false),	
+				Power(+0), Life(+0), CreatureKeyword::Null));
+
+		cpAbility->SetAffectControllerCardsOnly();
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardTypeComparer(CardType::Legendary, false));
+		cpAbility->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Shroud);
+		cpAbility->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetCombatDamageOnly();
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKashiTribeEliteCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CKashiTribeEliteCard::BeforeResolution));
+
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CKashiTribeEliteCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool CKashiTribeEliteCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CMatsuTribeBirdstalkerCard::CMatsuTribeBirdstalkerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Matsu-Tribe Birdstalker"), CardType::Creature, CREATURE_TYPE3(Snake, Warrior, Archer), nID,
+		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(2))
+{
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetCombatDamageOnly();
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMatsuTribeBirdstalkerCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CMatsuTribeBirdstalkerCard::BeforeResolution));
+
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{			
+		counted_ptr<CPumpAbility> cpAbility(
+			::CreateObject<CPumpAbility>(this, GREEN_MANA_TEXT, Power(+0), Life(+0), CreatureKeyword::Reach));
+		ATLASSERT(cpAbility);
+
+		AddAbility(cpAbility.GetPointer());	
+	}
+}
+
+bool CMatsuTribeBirdstalkerCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool CMatsuTribeBirdstalkerCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
 
 	return true;
 }

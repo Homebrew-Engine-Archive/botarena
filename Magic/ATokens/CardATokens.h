@@ -622,3 +622,17 @@ class CGiantABToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CWarriorABToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CWarriorABToken);
+};
+
+//____________________________________________________________________________
+//
+class CSpiritAIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSpiritAIToken);
+};
+
+//____________________________________________________________________________
+//

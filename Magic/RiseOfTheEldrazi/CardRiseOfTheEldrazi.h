@@ -1881,3 +1881,15 @@ protected:
 
 //______________________________________________________________________________
 //
+class CEchoMageCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CEchoMageCard);
+
+protected:
+	counted_ptr<CAbility> LevelUpAbility1(CCard* pCard);
+	counted_ptr<CAbility> LevelUpAbility2(CCard* pCard);
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//_____________________________________________________________________________
+//

@@ -409,3 +409,10 @@ protected:
 
 //____________________________________________________________________________
 //
+class CBasandraBattleSeraphCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CBasandraBattleSeraphCard);
+};
+
+//____________________________________________________________________________
+//

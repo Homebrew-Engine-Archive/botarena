@@ -252,6 +252,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_STRING9136          "Predatory Advantage\n{3RG}\nEnchantment\nARB,R\nAt the beginning of each opponent's end step, if that player didn't cast a creature spell this turn, put a 2/2 green Lizard creature token onto the battlefield."
+    IDS_STRING9137          "Enigma Sphinx\n{4WUB}\nArtifact Creature - Sphinx\nARB,R\nFlying\rWhen Enigma Sphinx is put into your graveyard from the battlefield, put it into your library third from the top.\rCascade\n5/4"
 END
 
 #endif    // English (United States) resources

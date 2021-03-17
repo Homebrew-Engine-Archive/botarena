@@ -2693,8 +2693,6 @@ CFungusaurCard::CFungusaurCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Fungusaur"), CardType::Creature, CREATURE_TYPE2(Fungus, Lizard), nID,
 		_T("3") GREEN_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenDamageDealt,
 							CWhenDamageDealt::CreatureEventCallback, 
@@ -3536,8 +3534,6 @@ CSengirVampireCard::CSengirVampireCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Sengir Vampire"), CardType::Creature, CREATURE_TYPE(Vampire), nID,
 		_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(4), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt2 > TriggeredAbility;
 
@@ -3564,7 +3560,7 @@ CSerraAngelCard::CSerraAngelCard(CGame* pGame, UINT nID)
 //____________________________________________________________________________
 //
 CShanodinDryadsCard::CShanodinDryadsCard(CGame* pGame, UINT nID)
-	: CLandwalkCreatureCard(pGame, _T("Shanodin Dryads"), CardType::Creature, CREATURE_TYPE(Dryad), nID,
+	: CLandwalkCreatureCard(pGame, _T("Shanodin Dryads"), CardType::Creature, CREATURE_TYPE2(Nymph, Dryad), nID,
 		GREEN_MANA_TEXT, Power(1), Life(1),
 		CreatureKeyword::Forestwalk)
 {
@@ -5335,7 +5331,7 @@ CClockworkBeastCard::CClockworkBeastCard(CGame* pGame, UINT nID)
 	, bAttackedOrBlocked(FALSE)
 	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkBeastCard::OnNumberSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 7, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 7, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef

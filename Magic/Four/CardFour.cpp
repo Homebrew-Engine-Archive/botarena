@@ -1872,7 +1872,7 @@ CTriskelionCard::CTriskelionCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Triskelion"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
 		_T("6"), Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
@@ -3141,7 +3141,7 @@ CTetravusCard::CTetravusCard(CGame* pGame, UINT nID)
 	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CTetravusCard::OnNumberSelected))
 	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CTetravusCard::OnCardSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3359,7 +3359,7 @@ CClockworkAvianCard::CClockworkAvianCard(CGame* pGame, UINT nID)
 	, bAttackedOrBlocked(FALSE)
 	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkAvianCard::OnNumberSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef

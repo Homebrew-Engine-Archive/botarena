@@ -87,6 +87,8 @@ protected:
 	OVERRIDE(BOOL, ResolveImpl)(const CAbilityAction* pAction);
 };
 
+bool TypeThreeOrMoreExists(const CPlayer* pPlayer);   //Used by BOOL CBlockAbility::CanBlockImpl in Graxiplon effect.
+
 #ifdef M10_COMBAT
 //____________________________________________________________________________
 //

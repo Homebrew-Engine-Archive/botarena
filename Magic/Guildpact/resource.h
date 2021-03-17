@@ -14,6 +14,7 @@
 #define IDS_RELEASE_DATE                209
 #define IDS_MWS_FOLDER                  210
 #define IDS_PRODUCT_LIST                211
+#define IDS_STRING16765                 16765
 #define IDS_STRING16766                 16766
 #define IDS_STRING16767                 16767
 #define IDS_STRING16768                 16768

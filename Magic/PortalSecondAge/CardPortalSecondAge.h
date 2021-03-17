@@ -77,6 +77,10 @@ class CAncientCravingCard : public CCard
 class CAngelOfFuryCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CAngelOfFuryCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
 };
 
 //____________________________________________________________________________

@@ -1842,3 +1842,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CConsumingFerocityCard : public CChgPwrTghAttrEnchantCard
+{
+	DECLARE_CARD_CSTOR(CConsumingFerocityCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//

@@ -178,6 +178,10 @@ bool CKinshipCreatureCard::BeforeResolution(TriggeredKinshipAbility::TriggeredAc
 	CZoneModifier modifier = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
 												CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
 	bool success = false;
+	if (GetController()->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		return false;  // no point continuing, player does not lose game because he is looking at, not drawing the next card.
+	}	
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	if (pNextDraw->GetCardType().IsCreature())
@@ -1936,7 +1940,7 @@ CFestercreepCard::CFestercreepCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Festercreep"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("1") BLACK_MANA_TEXT, Power(0), Life(0))
 {
-	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CGlobalChgPwrTghSpell> cpAbility( //this can be activated several times and work all of their
@@ -1962,7 +1966,7 @@ CFloodchaserCard::CFloodchaserCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Floodchaser"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("5") BLUE_MANA_TEXT, Power(0), Life(0))
 {
-	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetChangeCardTypeSpell>> cpAbility(
@@ -2004,7 +2008,7 @@ CShinewendCard::CShinewendCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Shinewend"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("1") WHITE_MANA_TEXT, Power(0), Life(0))
 {
-	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
@@ -2025,7 +2029,7 @@ CStingmoggieCard::CStingmoggieCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Stingmoggie"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("3") RED_MANA_TEXT, Power(0), Life(0))
 {
-	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	 GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
@@ -2048,8 +2052,6 @@ CCountrysideCrusherCard::CCountrysideCrusherCard(CGame* pGame, UINT nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&CCountrysideCrusherCard::OnResolutionCompleted))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
@@ -2094,7 +2096,7 @@ void CCountrysideCrusherCard::OnResolutionCompleted(const CAbilityAction* pAbili
 	pModifier.GetSelection(0).nMinSelectionCount = MinimumValue(0);
 	pModifier.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
 	pModifier.GetSelection(0).moveType = MoveType::Others;
-	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 		CZoneModifier::RoleType::PrimaryPlayer, // select by 
 		CZoneModifier::RoleType::AllPlayers, // reveal to
 		NULL, // any cards
@@ -2575,8 +2577,6 @@ CTaureanMaulerCard::CTaureanMaulerCard(CGame* pGame, UINT nID)
 		_T("2") RED_MANA_TEXT, Power(2), Life(2))
 {
 	GetCardKeyword()->AddChangeling(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
@@ -3835,7 +3835,7 @@ void CWarrenWeirdingCard::OnCardSelected(const std::vector<SelectionEntry>& sele
 
 			bool bGoblin = false;
 
-			if (pCard->GetCardKeyword()->HasChangeling() | pCard->GetCreatureType().HasType(SingleCreatureType::Goblin)) bGoblin = true;
+			if (pCard->GetCardKeyword()->HasChangeling() || pCard->GetCreatureType().HasType(SingleCreatureType::Goblin)) bGoblin = true;
 
 			CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pSelectionPlayer);
 			pModifier1.ApplyTo(pCard);
@@ -4011,7 +4011,7 @@ void CInkDissolverCard::OnKinshipSelected(const std::vector<SelectionEntry>& sel
 			if ((int)it->dwContext == 1)
 			{
 				CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library,3, CZoneModifier::RoleType::PrimaryPlayer,CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-				pModifier1.AddSelection(MinimumValue(3), MaximumValue(3), // select cards to bootom
+				pModifier1.AddSelection(MinimumValue(3), MaximumValue(3), // select cards to bottom
 					CZoneModifier::RoleType::PrimaryPlayer, // select by 
 					CZoneModifier::RoleType::AllPlayers, // reveal to
 					NULL, // any cards
@@ -4141,7 +4141,7 @@ void CSqueakingPieGrubfellowsCard::OnKinshipSelected(const std::vector<Selection
 			if ((int)it->dwContext == 1)
 			{
 				CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,CardPlacement::Top, CZoneModifier::RoleType::PrimaryPlayer);
-				pModifier1.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+				pModifier1.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 					CZoneModifier::RoleType::PrimaryPlayer, // select by 
 					CZoneModifier::RoleType::AllPlayers, // reveal to
 					NULL, // any cards
@@ -4806,7 +4806,7 @@ CFertilidCard::CFertilidCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Fertilid"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("2") GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield);
 
 	counted_ptr<CActivatedAbility<CTargetPlayerSearchLibraryCardSpell>> cpAbility( 
 		::CreateObject<CActivatedAbility<CTargetPlayerSearchLibraryCardSpell>>(this,
@@ -6318,8 +6318,6 @@ CKinsbaileBorderguardCard::CKinsbaileBorderguardCard(CGame* pGame, UINT nID)
 		, m_cpAListener2(VAR_NAME(m_cpAListener), 
 			CounterMovedEventSource::Listener::EventCallback(this, &CKinsbaileBorderguardCard::OnCounterMoved))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	m_CardFilter.AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Kithkin), false));
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 

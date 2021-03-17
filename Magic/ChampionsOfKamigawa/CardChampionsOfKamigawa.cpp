@@ -114,6 +114,8 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKamiOfThePalaceFieldsCard);
 		DEFINE_CARD(CKamiOfTheWaningMoonCard);
 		DEFINE_CARD(CKamiOfTwistedReflectionCard);
+		DEFINE_CARD(CKashiTribeReaverCard);
+		DEFINE_CARD(CKashiTribeWarriorsCard);
 		DEFINE_CARD(CKeigatheTideStarCard);
 		DEFINE_CARD(CKikiJikiMirrorBreakerCard);
 		DEFINE_CARD(CKikuNightsFlowerCard);
@@ -163,6 +165,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(COrochiEggwatcherCard);
 		DEFINE_CARD(COrochiHatcheryCard);
 		DEFINE_CARD(COrochiLeafcallerCard);
+		DEFINE_CARD(COrochiRangerCard);
 		DEFINE_CARD(COrochiSustainerCard);
 		DEFINE_CARD(COtherworldlyJourneyCard);
 		DEFINE_CARD(CPainKamiCard);
@@ -4186,8 +4189,6 @@ COrochiHatcheryCard::COrochiHatcheryCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Orochi Hatchery"), CardType::Artifact, nID,
 		_T("0"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors, TRUE);
 
 	{
@@ -4223,7 +4224,7 @@ bool COrochiHatcheryCard::BeforeResolution1(TriggeredAbility::TriggeredActionTyp
 {
 	int nColorCount = GetLastCastingExtraValue();
 	
-	CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount, true);
+	CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount);
 
 	pModifier.ApplyTo(this);
 
@@ -5154,7 +5155,6 @@ CMyojinOfCleansingFireCard::CMyojinOfCleansingFireCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Myojin of Cleansing Fire"), CardType::_LegendaryCreature, CREATURE_TYPE(Spirit), nID,
 		_T("5") WHITE_MANA_TEXT WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(4), Life(6))
 {
-	GetCounterContainer()->ScheduleCounter(DIVINITY_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfMoved > TriggeredAbility;
@@ -5255,7 +5255,6 @@ CMyojinOfInfiniteRageCard::CMyojinOfInfiniteRageCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Myojin of Infinite Rage"), CardType::_LegendaryCreature, CREATURE_TYPE(Spirit), nID,
 		_T("7") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, Power(7), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(DIVINITY_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfMoved > TriggeredAbility;
@@ -5354,7 +5353,6 @@ CMyojinOfLifesWebCard::CMyojinOfLifesWebCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Myojin of Life's Web"), CardType::_LegendaryCreature, CREATURE_TYPE(Spirit), nID,
 		_T("6") GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(8), Life(8))
 {
-	GetCounterContainer()->ScheduleCounter(DIVINITY_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfMoved > TriggeredAbility;
@@ -5457,7 +5455,6 @@ CMyojinOfNightsReachCard::CMyojinOfNightsReachCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Myojin of Night's Reach"), CardType::_LegendaryCreature, CREATURE_TYPE(Spirit), nID,
 		_T("5") BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(5), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(DIVINITY_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfMoved > TriggeredAbility;
@@ -5557,7 +5554,6 @@ CMyojinOfSeeingWindsCard::CMyojinOfSeeingWindsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Myojin of Seeing Winds"), CardType::_LegendaryCreature, CREATURE_TYPE(Spirit), nID,
 		_T("7") BLUE_MANA_TEXT BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(DIVINITY_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfMoved > TriggeredAbility;
@@ -5677,7 +5673,6 @@ CShimatsuTheBloodcloakedCard::CShimatsuTheBloodcloakedCard(CGame* pGame, UINT nI
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddDevour(FALSE);
 }
@@ -5691,7 +5686,7 @@ void CShimatsuTheBloodcloakedCard::OnZoneChanged(CCard* pCard, CZone* pFromZone,
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -7611,6 +7606,121 @@ bool CTatsumasaTheDragonsFangCard::BeforeResolution(CAbilityAction* pAction)
 
 	CDoubleContainerEffectModifier pModifier2 = CDoubleContainerEffectModifier(GetGame(), _T("Tatsumasa, the Dragon's Fang Effect"), 61073, &pTokens, &pSubjects);
 	pModifier2.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CKashiTribeReaverCard::CKashiTribeReaverCard(CGame* pGame, UINT nID)
+	: CRegenerationCreatureCard(pGame, _T("Kashi-Tribe Reaver"), CardType::Creature, CREATURE_TYPE2(Snake, Warrior), nID,
+		_T("3") GREEN_MANA_TEXT, Power(3), Life(2),
+		_T("1") GREEN_MANA_TEXT)
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetCombatDamageOnly();
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKashiTribeReaverCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CKashiTribeReaverCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CKashiTribeReaverCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool CKashiTribeReaverCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CKashiTribeWarriorsCard::CKashiTribeWarriorsCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kashi-Tribe Warriors"), CardType::Creature, CREATURE_TYPE2(Snake, Warrior), nID,
+		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(4))
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetCombatDamageOnly();
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CKashiTribeWarriorsCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CKashiTribeWarriorsCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CKashiTribeWarriorsCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool CKashiTribeWarriorsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+COrochiRangerCard::COrochiRangerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Orochi Ranger"), CardType::Creature, CREATURE_TYPE2(Snake, Warrior), nID,
+		_T("1") GREEN_MANA_TEXT, Power(2), Life(1))
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetCombatDamageOnly();
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &COrochiRangerCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &COrochiRangerCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool COrochiRangerCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool COrochiRangerCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
 
 	return true;
 }

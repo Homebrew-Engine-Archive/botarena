@@ -1165,7 +1165,7 @@ protected:
 	bool BeforeResolution(CAbilityAction* pAction);
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
-	std::vector<int> nGraveyardCount;
+	std::vector<int> nDeadCount;
 };
 
 //____________________________________________________________________________

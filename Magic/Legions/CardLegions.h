@@ -117,6 +117,9 @@ class CWitheredWretchCard : public CCreatureCard
 class CScionOfDarknessCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CScionOfDarknessCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -198,6 +201,9 @@ class CFreneticRaptorCard : public CCreatureCard
 class CGempalmAvengerCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGempalmAvengerCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -205,6 +211,9 @@ class CGempalmAvengerCard : public CCreatureCard
 class CGempalmSorcererCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGempalmSorcererCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -212,6 +221,9 @@ class CGempalmSorcererCard : public CCreatureCard
 class CGempalmStriderCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGempalmStriderCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -275,6 +287,9 @@ class CHavocDemonCard : public CFlyingCreatureCard
 class CHundroogCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CHundroogCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -282,6 +297,9 @@ class CHundroogCard : public CCreatureCard
 class CKeeneyeAvenCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CKeeneyeAvenCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -299,6 +317,9 @@ protected:
 class CMacetailHystrodonCard : public CFirstStrikeCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMacetailHystrodonCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -320,6 +341,9 @@ class CNoxiousGhoulCard : public CCreatureCard
 class CPrimocEscapeeCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CPrimocEscapeeCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -452,6 +476,7 @@ class CGempalmIncineratorCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CGempalmIncineratorCard);
 
 protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 	typedef
 		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenThisCardCycled > TriggeredAbility;
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
@@ -464,6 +489,7 @@ class CGempalmPolluterCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CGempalmPolluterCard);
 
 protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 	typedef
 		TTriggeredTargetAbility< CTriggeredModifyLifeAbility, CWhenThisCardCycled > TriggeredAbility;
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
@@ -968,6 +994,19 @@ class CSkirkAlarmistCard : public CHasteCreatureCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CMistformSliverCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMistformSliverCard);
+
+protected:
+	counted_ptr<CAbility> CreateAbility(CCard* pCard);
+	bool BeforeResolution(CAbilityAction* pAction);
+	CSelectionSupport m_TypeSelection;
+	void OnTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 };
 
 //____________________________________________________________________________

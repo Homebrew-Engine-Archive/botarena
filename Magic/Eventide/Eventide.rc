@@ -288,6 +288,7 @@ BEGIN
 	IDS_STRING19066         "Endless Horizons\n{3W}\nEnchantment\nEVE,R\nWhen Endless Horizons enters the battlefield, search your library for any number of Plains cards and exile them. Then shuffle your library.\rAt the beginning of your upkeep, you may put a card you own exiled with Endless Horizons into your hand."
 	IDS_STRING19067         "Springjack Pasture\n\nLand\nEVE,R\n{T}: Add {1} to your mana pool.\r{4}, {T}: Put a 0/1 white Goat creature token onto the battlefield.\r{T}, Sacrifice X Goats: Add X mana of any one color to your mana pool. You gain X life."
 	IDS_STRING19068         "Pyrrhic Revival\n{3HHH}\nSorcery\nEVE,R\nEach player returns each creature card from his or her graveyard to the battlefield with an additional -1/-1 counter on it."
+	IDS_STRING19069         "Talara's Bane\n{1B}\nSorcery\nEVE,C\nTarget opponent reveals his or her hand. You choose a green or white creature card from it. You gain life equal to that creature card's toughness, then that player discards that card."
 END
 
 #endif    // English (United States) resources

@@ -2019,3 +2019,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CKorHookmasterCard: public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKorHookmasterCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

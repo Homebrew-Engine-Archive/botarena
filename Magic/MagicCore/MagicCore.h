@@ -207,6 +207,8 @@
 #define CHOICE_1_TRIGGER_ID 60342
 #define CHOICE_2_TRIGGER_ID 60343
 #define CHOICE_3_TRIGGER_ID 60344
+#define MONSTROUS_TRIGGER_ID 60345
+#define SCRY_TRIGGER_ID 60346
 
 //____________________________________________________________________________
 // Misc

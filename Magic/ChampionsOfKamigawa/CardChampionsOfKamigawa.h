@@ -1917,3 +1917,51 @@ protected:
 
 //____________________________________________________________________________
 //
+class CKashiTribeReaverCard : public CRegenerationCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKashiTribeReaverCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CKashiTribeWarriorsCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKashiTribeWarriorsCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class COrochiRangerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(COrochiRangerCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//

@@ -617,8 +617,6 @@ CVampiricDragonCard::CVampiricDragonCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Vampiric Dragon"), CardType::Creature, CREATURE_TYPE2(Vampire, Dragon), nID,
 		_T("6") BLACK_MANA_TEXT RED_MANA_TEXT, Power(5), Life(5))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt2 > TriggeredAbility;
@@ -3413,8 +3411,6 @@ CSoulcatcherCard::CSoulcatcherCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Soulcatcher"), CardType::Creature, CREATURE_TYPE2(Bird, Soldier), nID,
 		_T("1") WHITE_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -5496,7 +5492,7 @@ CSavageFirecatCard::CSavageFirecatCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddTrample(FALSE);
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -5524,7 +5520,6 @@ CIvyElementalCard::CIvyElementalCard(CGame* pGame, UINT nID)
 		GREEN_MANA_TEXT, Power(0), Life(0))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CIvyElementalCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -5539,7 +5534,7 @@ void CIvyElementalCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -7138,6 +7133,7 @@ counted_ptr<CAbility> CBloodcurdlerCard::CreateAdditionalAbility(CCard* pCard)
 	cpAbility->GetGatherer().GetSubjectCardFilter().AddComparer(new TrueCardComparer);
 	cpAbility->GetGatherer().SetSubjectZoneId(ZoneId::Graveyard);
 	cpAbility->GetGatherer().SetSubjectCount(2, 2, TRUE);
+	cpAbility->GetGatherer().SetIncludeControllerCardsOnly();
 	
 	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Graveyard);
 	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
@@ -7309,7 +7305,6 @@ CRepentantVampireCard::CRepentantVampireCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Repentant Vampire"), CardType::Creature, CREATURE_TYPE(Vampire), nID,
 		_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt2 > TriggeredAbility;
@@ -7477,7 +7472,7 @@ CJunkGolemCard::CJunkGolemCard(CGame* pGame, UINT nID)
 				&CJunkGolemCard::OnResolutionCompleted))
 	, m_ActionSelection(pGame,CSelectionSupport::SelectionCallback(this, &CJunkGolemCard::OnActionSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
 		typedef
 			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;

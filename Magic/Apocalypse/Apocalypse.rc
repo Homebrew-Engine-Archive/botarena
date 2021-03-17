@@ -243,6 +243,7 @@ BEGIN
     IDS_STRING13129         "Dodecapod\n{4}\nArtifact Creature - Golem\nAPC,U\nIf a spell or ability an opponent controls causes you to discard Dodecapod, put it onto the battlefield with two +1/+1 counters on it instead of putting it into your graveyard.\n3/3"
     IDS_STRING13130         "Dead Ringers\n{4B}\nSorcery\nAPC,C\nDestroy two target nonblack creatures unless either one is a color the other isn't. They can't be regenerated."
     IDS_STRING13131         "Gerrard's Verdict\n{WB}\nSorcery\nAPC,U\nTarget player discards two cards. You gain 3 life for each land card discarded this way."
+    IDS_STRING13132         "Guided Passage\n{URG}\nSorcery\nAPC,R\nReveal the cards in your library. An opponent chooses from among them a creature card, a land card, and a noncreature, nonland card. You put the chosen cards into your hand. Then shuffle your library."
     //IDS_STRING13131         "Zombie Boa\n{4B}\nCreature - Zombie Snake\nAPC,C\n{1B}: Choose a color. Whenever Zombie Boa becomes blocked by a creature of that color this turn, destroy that creature. Activate this ability only any time you could cast a sorcery.\n3/3"
 END
 

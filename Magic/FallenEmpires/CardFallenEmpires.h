@@ -436,3 +436,16 @@ protected:
 
 //____________________________________________________________________________
 //
+class CDeepSpawnCard : public CCreatureCard
+{
+    DECLARE_CARD_CSTOR(CDeepSpawnCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_Selection;
+	void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//

@@ -204,6 +204,7 @@ CGame::CGame()
 	, m_pStartWithPlayer(NULL)
 	, m_cpMulliganSelectionListener(VAR_NAME(m_cpMulliganSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CGame::OnMulliganSelectionDone))
 	//, m_cpStartWithSelectionListener(VAR_NAME(m_cpMulliganSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CGame::OnStartWithSelectionDone))
+	, m_cpLegendarySelectionListener(VAR_NAME(m_cpLegendarySelectionListener), SelectionEventSource::Listener::EventCallback(this, &CGame::OnLegendarySelectionDone))
 	, m_StartWithSelection(this, CSelectionSupport::SelectionCallback(this, &CGame::OnStartWithSelectionDone))
 	//, m_GemstoneCavernsSelection(this, CSelectionSupport::SelectionCallback(this, &CGame::OnGemstoneCavernsSelectionDone))
 	, m_cpTargetSubjectEventSource(::CreateObject<TargetSubjectEventSource>(VAR_NAME(m_cpTargetSubjectEventSource)))
@@ -1530,55 +1531,138 @@ void CGame::CheckPhenomenon(CCountedCardContainer& phenomenon)
 
 void CGame::CheckLegendaryCards(CCountedCardContainer& cardsToRemove)
 {
-	std::set<CString> legendaryCards;
-	CString strToRemove;
-
 	bool bFirstBrother = false;
 
+	//for each player
 	for (int j = 0; j < m_Players.GetSize(); ++j)
 	{
+		std::set<CString> legendaryCards;
+		CString strToRemove;
+		
+		//get player j
 		CPlayer* pPlayer = m_Players.GetAt(j);
+		//get permanents in play for player j
 		CZone* pInplay = pPlayer->GetZoneById(ZoneId::Battlefield);
+		//check if they are negating the legend rule
 		if (pPlayer->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoLegendRule)) continue;
 
+		//for each permanent
 		for (int i = 0; i < pInplay->GetSize(); ++i)
 		{
+			//get permanent i
 			CCard* pCard = pInplay->GetAt(i);
+			//if permanent is not legendary
 			if (!(pCard->GetCardType() & CardType::Legendary).Any())
 				continue;
 
-			if (!legendaryCards.count(pCard->GetPrintedCardName()))
+			//if another of the permanent doesn't exist in our set
+			CString name = pCard->GetPrintedCardName();
+			if (!legendaryCards.count(name))
 			{
-				if (pCard->GetPrintedCardName() == _T("Brothers Yamazaki") && !bFirstBrother)
+				//and it's not the second brothers yamazaki
+				if (name == _T("Brothers Yamazaki") && !bFirstBrother)
 					bFirstBrother = true;
 				else
-					legendaryCards.insert(pCard->GetPrintedCardName());
+					//add the permanent to our set
+					legendaryCards.insert(name);
 				continue;
 			}
 
 			// Remove all legendary cards with this name
-			strToRemove = pCard->GetPrintedCardName();
+			strToRemove = name;
 			break;
 		}
-	}
+	//}
 
+	//if we have permanents to remove
 	if (strToRemove.IsEmpty())
-		return;
+		continue;
 
-	for (int j = 0; j < m_Players.GetSize(); ++j)
-	{
-		CPlayer* pPlayer = m_Players.GetAt(j);
-		CZone* pInplay = pPlayer->GetZoneById(ZoneId::Battlefield);
-		if (pPlayer->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoLegendRule)) continue;
+	//for each player
+	//for (int j = 0; j < m_Players.GetSize(); ++j)
+	//{
+		//get player j
+		//CPlayer* pPlayer = m_Players.GetAt(j);
+		//get permanents in play for player j
+		//CZone* pInplay = pPlayer->GetZoneById(ZoneId::Battlefield);
+		//check if they are negating the legend rule
+		//if (pPlayer->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoLegendRule)) continue;
 
+		std::vector<SelectionEntry> entries;
+		//for each permanent
 		for (int i = 0; i < pInplay->GetSize(); ++i)
 		{
+			//get permanent i
 			CCard* pCard = pInplay->GetAt(i);
+			//if it's not legendary
 			if (!(pCard->GetCardType() & CardType::Legendary).Any())
 				continue;
 
+			//if it has name of our card marked for removal
 			if (pCard->GetPrintedCardName() == strToRemove)
-				cardsToRemove.AddCard(pCard, CardPlacement::Top);
+			{
+				//add it to cards being removed
+				//cardsToRemove.AddCard(pCard, CardPlacement::Top);				
+				{
+					//create selection entry for each card
+					SelectionEntry selectionEntry;
+					selectionEntry.dwContext = (DWORD)pCard;
+					selectionEntry.strText.Format(_T("Choose to keep %s"), pCard->GetCardName());
+					selectionEntry.cpAssociatedCard = pCard;
+					entries.push_back(selectionEntry);
+				}
+			}
+		}
+		//add selection request
+		m_Selection.AddSelectionRequest(m_cpLegendarySelectionListener.GetPointer(), entries, 1, 1, NULL, pPlayer);
+	}
+}
+
+void CGame::OnLegendarySelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	CCountedCardContainer cardsToRemove;
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+	{
+		if (it->bSelected)
+		{
+			//get the card selected
+			CCard* select = (CCard*)(it->dwContext);
+			//get all permanents in play for the player that selected
+			CZone* pInplay = pSelectionPlayer->GetZoneById(ZoneId::Battlefield);
+
+			//for each permanent
+			for (int i = 0; i < pInplay->GetSize(); ++i)
+			{
+				//get permanent i
+				CCard* pCard = pInplay->GetAt(i);
+				//if it has the same name but isn't the card chosen
+				if (pCard->GetPrintedCardName() == select->GetPrintedCardName() && pCard->GetCardName() != select->GetCardName())
+					//add it to the list of cards to remove
+					cardsToRemove.AddCard(pCard, CardPlacement::Top);
+			}
+		}
+	}
+	for (int i = 0; i < cardsToRemove.GetSize(); ++i)
+	{
+		counted_ptr<CCard> cpCard(cardsToRemove.GetAt(i));
+		if (!cpCard->IsInplay())
+			continue;
+
+		cpCard->Move(cpCard->GetOwner()->GetZoneById(ZoneId::Graveyard), NULL, MoveType::Others);
+			
+		if (!IsThinking())
+		{
+			CString strMessage;
+			strMessage.Format(_T("%s moved %s from %s to the player's %s"), 
+				cpCard->GetOwner()->GetPlayerName(),
+				cpCard->GetCardName(),
+				ZoneId::ToString(ZoneId::Battlefield),
+				ZoneId::ToString(ZoneId::Graveyard));
+			Message(
+				strMessage, 
+				cpCard->GetOwner()->IsComputer() ? GetComputerImage() : GetHumanImage(),
+				MessageImportance::High
+				);
 		}
 	}
 }

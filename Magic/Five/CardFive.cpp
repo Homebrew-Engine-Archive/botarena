@@ -5103,7 +5103,7 @@ CClockworkSteedCard::CClockworkSteedCard(CGame* pGame, UINT nID)
 	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkSteedCard::OnNumberSelected))
 	, m_CardFilter(new NegateCardComparer(new CardTypeComparer(CardType::Artifact, false)))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	GetCreatureKeyword()->AddUnblockable(FALSE, &m_CardFilter);
 
 	{

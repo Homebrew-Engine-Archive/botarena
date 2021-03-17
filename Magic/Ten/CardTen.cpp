@@ -429,8 +429,6 @@ CQuirionDryadCard::CQuirionDryadCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Quirion Dryad"), CardType::Creature, CREATURE_TYPE(Dryad), nID,
 		_T("1") GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 

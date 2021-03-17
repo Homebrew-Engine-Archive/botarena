@@ -93,6 +93,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSpiritAFToken);
 		DEFINE_TOKEN(CSpiritAGToken);
 		DEFINE_TOKEN(CSpiritAHToken);
+		DEFINE_TOKEN(CSpiritAIToken);
 		DEFINE_TOKEN(CThrullAAToken);
 		DEFINE_TOKEN(CTreefolkAAToken);
 		DEFINE_TOKEN(CTreefolkABToken);
@@ -102,6 +103,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CWallAAToken);
 		DEFINE_TOKEN(CWallABToken);
 		DEFINE_TOKEN(CWarriorAAToken);
+		DEFINE_TOKEN(CWarriorABToken);
 		DEFINE_TOKEN(CWolfAAToken);
 						
 	} while (false);
@@ -1357,6 +1359,28 @@ CGiantABToken::CGiantABToken(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddHaste(FALSE);
 
 // Used by Awaken the Ancient
+}
+
+//____________________________________________________________________________
+//
+CWarriorABToken::CWarriorABToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Warrior"), CardType::Creature/* | CardType::Token*/,
+		CREATURE_TYPE(Warrior), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+// Used by Anthousa, Setessan Hero
+}
+
+//____________________________________________________________________________
+//
+CSpiritAIToken::CSpiritAIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Spirit"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Spirit), nID,
+		_T("4"),
+		Power(4), Life(4))
+{
+// Animation of Haunted Plate Mail
 }
 
 //____________________________________________________________________________

@@ -125,7 +125,6 @@ CGarzaZolPlagueQueenCard::CGarzaZolPlagueQueenCard(CGame* pGame, UINT nID)
 		_T("4") BLUE_MANA_TEXT BLACK_MANA_TEXT RED_MANA_TEXT, Power(5), Life(5))
 {
 	GetCreatureKeyword()->AddHaste(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 
 	{
 		typedef
@@ -1002,8 +1001,7 @@ CUrsineFylgjaCard::CUrsineFylgjaCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Ursine Fylgja"), CardType::Creature, CREATURE_TYPE2(Spirit, Bear), nID,
 		_T("4") WHITE_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(HEALING_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(HEALING_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(HEALING_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 	    counted_ptr<CActivatedAbility<CDamagePreventionSpell>> cpAbility(
@@ -2030,7 +2028,7 @@ bool CIcefallCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pActi
 CDarkDepthsCard::CDarkDepthsCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Dark Depths"), nID, CardType::NonbasicLand | CardType::Snow | CardType::Legendary)
 {
-	GetCounterContainer()->ScheduleCounter(ICE_COUNTER, 10, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(ICE_COUNTER, 10, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
@@ -3032,12 +3030,20 @@ bool CHeraldOfLeshracCard::BeforeResolution2(CAbilityAction* pAction)
 	CPlayer* pController = pAction->GetController();
 	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
 
+	CCountedCardContainer pToMove;
+
 	for (int i = 0; i < pBattlefield->GetSize(); ++i)
 	{
 		CCard* pCard = pBattlefield->GetAt(i);
 		CPlayer *pOwner = pCard->GetOwner();
 		if (pCard->GetCardType().IsLand() && (pOwner != pController))
-			pCard->Move(pOwner->GetZoneById(ZoneId::Battlefield), pOwner, MoveType::Others);
+			pToMove.AddCard(pCard, CardPlacement::Top);
+	}
+
+	for (int i = 0; i < pToMove.GetSize(); ++i)
+	{
+		CCard* pCard = pToMove.GetAt(i);
+		pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Battlefield), pCard->GetOwner(), MoveType::Others);
 	}
 
 	return true;
@@ -4907,6 +4913,8 @@ CBroodingSaurianCard::CBroodingSaurianCard(CGame* pGame, UINT nID)
 
 bool CBroodingSaurianCard::BeforeResolution(CAbilityAction* pAction) const
 {
+	CCountedCardContainer pToMove;
+
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
 		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
@@ -4916,12 +4924,18 @@ bool CBroodingSaurianCard::BeforeResolution(CAbilityAction* pAction) const
 		{
 			CCard* pCard = pBattlefield->GetAt(i);
 			if (!pCard->GetCardType().IsToken() && (pCard->GetOwner() != pPlayer))
-				pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Battlefield), pCard->GetOwner(), MoveType::Others);
+				pToMove.AddCard(pCard, CardPlacement::Top);
 		}
 	}
 
+	for (int i = 0; i < pToMove.GetSize(); ++i)
+	{
+		CCard* pCard = pToMove.GetAt(i);
+		pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Battlefield), pCard->GetOwner(), MoveType::Others);
+	}
 	return true;
 }
+
 //____________________________________________________________________________
 //
 CAdarkarValkyrieCard::CAdarkarValkyrieCard(CGame* pGame, UINT nID)

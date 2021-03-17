@@ -1174,16 +1174,12 @@ class CChaliceOfTheVoidCard : public CInPlaySpellCard
 
 protected:
 	typedef 
-		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-						   CWhenSelfInplay::EventCallback,
-						   &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
-	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
-	typedef 
-	TTriggeredAbility< CTriggeredCounterSpellAbility, CWhenSpellCast >  TriggeredAbility1;
-	bool SetTriggerContext1(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext,
+		TTriggeredAbility< CTriggeredCounterSpellAbility, CWhenSpellCast >  TriggeredAbility;
+	bool SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext,
 							CCard* pCard) const;
-	bool SetTriggerContext2(TriggeredAbility::TriggerContextType& triggerContext,
-						   CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+
+	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpAListener;	// Listen to this card's zone changes
 };
 
 //____________________________________________________________________________
@@ -1807,6 +1803,17 @@ protected:
 class CSecondSunriseCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSecondSunriseCard);
+};
+
+//____________________________________________________________________________
+//
+class CBlindingBeamCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CBlindingBeamCard);
+
+protected:
+	CManaCost	m_EntwineCost;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

@@ -55,7 +55,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CFlowstoneEmbraceCard);
 		DEFINE_CARD(CFomoriNomadCard);
 		DEFINE_CARD(CForceOfSavageryCard);
-		//DEFINE_CARD(CFrenzySliverCard);
+		DEFINE_CARD(CFrenzySliverCard);
 		DEFINE_CARD(CGhostfireCard);
 		DEFINE_CARD(CGiftOfGraniteCard);
 		DEFINE_CARD(CGlitteringWishCard);
@@ -83,6 +83,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLlanowarMentorCard);
 		DEFINE_CARD(CLlanowarRebornCard);
 		DEFINE_CARD(CLostAuramancersCard);
+		DEFINE_CARD(CLostHoursCard);
 		DEFINE_CARD(CLucentLiminidCard);
 		DEFINE_CARD(CLymphSliverCard);
 		DEFINE_CARD(CMagusOfTheAbyssCard);
@@ -91,6 +92,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CMagusOfTheMoonCard);
 		DEFINE_CARD(CMagusOfTheVineyardCard);
 		DEFINE_CARD(CMarshalingCryCard);
+		DEFINE_CARD(CMesmericSliverCard);
 		DEFINE_CARD(CMinionsMurmursCard);
 		DEFINE_CARD(CMistmeadowSkulkCard);
 		//DEFINE_CARD(CMoltenDisasterCard);
@@ -132,6 +134,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSnakeCultInitiationCard);
 		DEFINE_CARD(CSoultetherGolemCard);
 		DEFINE_CARD(CSparkspitterCard);
+		DEFINE_CARD(CSpinIntoMythCard);
 		DEFINE_CARD(CSpiritenDalCard);
 		DEFINE_CARD(CSporolothAncientCard);
 		DEFINE_CARD(CSteamfloggerBossCard);
@@ -702,7 +705,7 @@ CEdgeOfAutumnCard::CEdgeOfAutumnCard(CGame* pGame, UINT nID)
 		::CreateObject<CPlayableIfTrait>(
 			m_pUntapAbility,
 			CPlayableIfTrait::PlayableCallback(this,
-			&CEdgeOfAutumnCard::CanPlay)));
+			&CEdgeOfAutumnCard::CanPlay1)));
 
 	m_pSearchLibrarySpell->Add(cpTrait.GetPointer());
 
@@ -712,6 +715,13 @@ CEdgeOfAutumnCard::CEdgeOfAutumnCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CEdgeOfAutumnCard::CanPlay2)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 		cpAbility->GetCost().AddSacrificeCardCost(1, CCardFilter::GetFilter(_T("lands")));
@@ -720,7 +730,7 @@ CEdgeOfAutumnCard::CEdgeOfAutumnCard(CGame* pGame, UINT nID)
 	}
 }
 
-BOOL CEdgeOfAutumnCard::CanPlay(BOOL bIncludeTricks)
+BOOL CEdgeOfAutumnCard::CanPlay1(BOOL bIncludeTricks)
 {
 	CZone* pInplay = GetController()->GetZoneById(ZoneId::Battlefield);
 
@@ -728,6 +738,11 @@ BOOL CEdgeOfAutumnCard::CanPlay(BOOL bIncludeTricks)
 		return true;
 
 	return false;
+}
+
+BOOL CEdgeOfAutumnCard::CanPlay2(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1355,11 +1370,23 @@ CStreetWraithCard::CStreetWraithCard(CGame* pGame, UINT nID)
 		::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 			_T("")));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CStreetWraithCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 	cpAbility->AddPayLifeDeltaCost(Life(-2));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CStreetWraithCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1461,12 +1488,24 @@ CVedalkenAEthermageCard::CVedalkenAEthermageCard(CGame* pGame, UINT nID)
 				_T("3"),
 				&m_CardFilter));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CVedalkenAEthermageCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CVedalkenAEthermageCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1507,6 +1546,13 @@ CMarshalingCryCard::CMarshalingCryCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CMarshalingCryCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -1542,6 +1588,11 @@ CMarshalingCryCard::CMarshalingCryCard(CGame* pGame, UINT nID)
 		cpSpell->SetMainSpell(FALSE);
 		AddSpell(cpSpell.GetPointer());
 	}
+}
+
+BOOL CMarshalingCryCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1982,57 +2033,6 @@ void CLostAuramancersCard::OnCounterMoved(CCard* pFromCard, LPCTSTR name, int ol
 
 //____________________________________________________________________________
 //
-//
-//"Frenzy Sliver\n{1B}\nCreature - Sliver\nFUT,C\nAll Sliver creatures have frenzy 1.\n1/1"
-//(Whenever a Sliver attacks and isn't blocked, it gets +1/+0 until end of turn.)
-//It triggeres when Frenzy Sliver attacks and isn't blocked, and not if another sliver does so.
-//
-//CFrenzySliverCard::CFrenzySliverCard(CGame* pGame, UINT nID)
-//	: CCreatureCard(pGame, _T("Frenzy Sliver"), CardType::Creature, CREATURE_TYPE(Sliver), nID,
-//		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
-//{
-//	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
-//		::CreateObject<CPwrTghAttrEnchantment>(this,
-//			new CreatureTypeComparer(CREATURE_TYPE(Sliver), false),	
-//			Power(+0), Life(+0), CreatureKeyword::Null));
-//
-//	cpAbility->GetEnchantmentCardFilter().AddComparer(new AnyCreatureComparer);
-//
-//	cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
-//		CCardAbilityModifier::CreateAbilityCallback(this,
-//			&CFrenzySliverCard::CreateAbility)));
-//
-//	AddAbility(cpAbility.GetPointer());
-//}
-//
-//counted_ptr<CAbility> CFrenzySliverCard::CreateAbility(CCard* pCard)
-//{
-//	typedef
-//		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenNodeChanged > TriggeredAbility;
-//
-//	counted_ptr<TriggeredAbility> cpAbility(
-//		::CreateObject<TriggeredAbility>(pCard, NodeId::DeclareBlockersStep2));
-//
-//	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-//
-//	cpAbility->GetPowerModifier().SetPowerDelta(Power(+1));
-//	cpAbility->GetLifeModifier().SetLifeDelta(Life(+0));
-//
-//	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CFrenzySliverCard::SetTriggerContext));
-//
-//	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
-//	
-//	return counted_ptr<CAbility>(cpAbility.GetPointer());
-//}
-//
-//bool CFrenzySliverCard::SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
-//												 CNode* pToNode) const
-//{
-//	return (IsAttacking() == TRUE && IsBlocked() == FALSE);
-//}
-//
-////____________________________________________________________________________
-////
 COblivionCrownCard::COblivionCrownCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Oblivion Crown"), CardType::EnchantCreature, nID)
 {
@@ -2129,77 +2129,93 @@ CCrypticAnnelidCard::CCrypticAnnelidCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-
-	//Scry 1.
-	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
-	pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier->GetSelection(0).moveType = MoveType::Others;
-	pModifier->AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	// and finally put the last ones on top of the library
-	pModifier->SetReorderInformation(
-		true, 
-		ZoneId::Library,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier);
-
-	//Scry 2.
-	CZoneModifier* pModifier2 = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
-	pModifier2->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier2->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier2->GetSelection(0).moveType = MoveType::Others;
-	pModifier2->AddSelection(MinimumValue(0), MaximumValue(2), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	// and finally put the last ones on top of the library
-	pModifier2->SetReorderInformation(
-		true, 
-		ZoneId::Library,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier2);
-
-	//Scry 3.
-	CZoneModifier* pModifier3 = new CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
-	pModifier3->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier3->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier3->GetSelection(0).moveType = MoveType::Others;
-	pModifier3->AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	// and finally put the last ones on top of the library
-	pModifier3->SetReorderInformation(
-		true, 
-		ZoneId::Library,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier3);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCrypticAnnelidCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CCrypticAnnelidCard::BeforeResolution(CAbilityAction* pAction)
+{
+	//Scry 1 start----------------------
+	CZoneModifier* pModifier1 = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
+		pModifier1->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier1->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier1->GetSelection(0).moveType = MoveType::Others;
+		pModifier1->AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
+
+		// and finally put the last ones on top of the library
+		pModifier1->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 1 end--------------------------
+	pModifier1->ApplyTo(pAction->GetController());
+
+	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+	pScryModifier.ApplyTo(this);
+
+	//Scry 2 start----------------------
+	CZoneModifier* pModifier2 = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
+		pModifier2->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier2->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier2->GetSelection(0).moveType = MoveType::Others;
+		pModifier2->AddSelection(MinimumValue(0), MaximumValue(2), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
+
+		// and finally put the last ones on top of the library
+		pModifier2->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 2 end--------------------------
+	pModifier2->ApplyTo(pAction->GetController());
+
+	pScryModifier.ApplyTo(this);
+
+	//Scry 3 start----------------------
+	CZoneModifier* pModifier3 = new CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
+		pModifier3->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier3->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier3->GetSelection(0).moveType = MoveType::Others;
+		pModifier3->AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
+
+		// and finally put the last ones on top of the library
+		pModifier3->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 3 end--------------------------
+	pModifier3->ApplyTo(pAction->GetController());
+
+	pScryModifier.ApplyTo(this);
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -2218,28 +2234,7 @@ CNewBenaliaCard::CNewBenaliaCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
-		//Scry 1.
-		CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
-		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-		pModifier->GetSelection(0).moveType = MoveType::Others;
-		pModifier->AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bootom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // any cards
-			ZoneId::Library, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-		// and finally put the last ones on top of the library
-		pModifier->SetReorderInformation(
-			true, 
-			ZoneId::Library,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier);
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CNewBenaliaCard::BeforeResolution));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -2253,6 +2248,38 @@ CNewBenaliaCard::CNewBenaliaCard(CGame* pGame, UINT nID)
 	}
 }
 
+bool CNewBenaliaCard::BeforeResolution(CAbilityAction* pAction)
+{
+	//Scry 1 start----------------------
+	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
+		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier->GetSelection(0).moveType = MoveType::Others;
+		pModifier->AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
+
+		// and finally put the last ones on top of the library
+		pModifier->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 1 end--------------------------
+	pModifier->ApplyTo(pAction->GetController());
+
+	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+	pScryModifier.ApplyTo(this);
+
+	return true;
+}
+
 //____________________________________________________________________________
 //
 CMysticSpeculationCard::CMysticSpeculationCard(CGame* pGame, UINT nID)
@@ -2260,36 +2287,46 @@ CMysticSpeculationCard::CMysticSpeculationCard(CGame* pGame, UINT nID)
 
 	, m_BuybackCost(_T("2"))
 {
-	counted_ptr<CDrawCardSpellEx> cpSpell(
-		::CreateObject<CDrawCardSpellEx>(this, AbilityType::Sorcery,
-			BLUE_MANA_TEXT,
-			3)); // Get 3 cards
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			BLUE_MANA_TEXT)); // Get 3 cards
 
-	cpSpell->GetZoneModifier().GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	cpSpell->GetZoneModifier().GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	cpSpell->GetZoneModifier().GetSelection(0).moveType = MoveType::Others;
-
-	// and 1 to the top of library, ...
-	cpSpell->GetZoneModifier().AddSelection(MinimumValue(0), MaximumValue(3), // select 1 card
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	// and finally reorder the last one to the bottom of library
-	cpSpell->GetZoneModifier().SetReorderInformation(
-		true, 
-		ZoneId::Library,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-		
 	cpSpell->GetCost().AddOptionalManaCost(m_BuybackCost);
 
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMysticSpeculationCard::BeforeResolution));
 	AddSpell(cpSpell.GetPointer());
+}
+
+bool CMysticSpeculationCard::BeforeResolution(CAbilityAction* pAction)
+{
+	//Scry 3 start----------------------
+	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
+		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier->GetSelection(0).moveType = MoveType::Others;
+		pModifier->AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
+
+		// and finally put the last ones on top of the library
+		pModifier->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 3 end--------------------------
+	pModifier->ApplyTo(pAction->GetController());
+
+	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+	pScryModifier.ApplyTo(this);
+
+	return true;
 }
 
 void CMysticSpeculationCard::Move(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement, BOOL can_dredge)
@@ -2319,49 +2356,58 @@ CLlanowarEmpathCard::CLlanowarEmpathCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	
-
-	//Scry 2.
-	CZoneModifier* pModifier2 = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
-	pModifier2->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier2->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier2->GetSelection(0).moveType = MoveType::Others;
-	pModifier2->AddSelection(MinimumValue(0), MaximumValue(2), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	// and finally put the last ones on top of the library
-	pModifier2->SetReorderInformation(
-		true, 
-		ZoneId::Library,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier2);
-
-	//Reveal the top card of your library. If it's a creature card, put it into your hand.
-	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
-	pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier->GetSelection(0).moveType = MoveType::Others;
-	pModifier->GetSelection(0).revealTo = CZoneModifier::RoleType::AllPlayers;
-	pModifier->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::AllPlayers, // reveal to
-		CCardFilter::GetFilter(_T("creatures")), // any cards
-		ZoneId::Hand, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
-	cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(pModifier);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLlanowarEmpathCard::BeforeResolution));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CLlanowarEmpathCard::BeforeResolution(CAbilityAction* pAction)
+{
+	//Scry 2 start----------------------
+	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(2), MaximumValue(2));	
+		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier->GetSelection(0).moveType = MoveType::Others;
+		pModifier->AddSelection(MinimumValue(0), MaximumValue(2), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
+
+		// and finally put the last ones on top of the library
+		pModifier->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 2 end--------------------------
+	pModifier->ApplyTo(pAction->GetController());
+
+	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+	pScryModifier.ApplyTo(this);
+
+	CZone* lib = pAction->GetController()->GetZoneById(ZoneId::Library);
+	if (lib->GetSize()>0)
+	{
+		CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+
+		pModifier1.ApplyTo(pAction->GetController());
+
+		CCard* pNextDraw = pAction->GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
+	
+		if (pNextDraw->GetCardType().IsCreature())
+		{
+			CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Library, ZoneId::Hand, TRUE, MoveType::Others, pAction->GetController());
+			pModifier2.ApplyTo(pNextDraw);
+		}
+	}
+
+	return true;
 }
 
 //____________________________________________________________________________
@@ -2963,7 +3009,7 @@ CBridgeFromBelowCard::CBridgeFromBelowCard(CGame* pGame, UINT nID)
 		cpAbility->GetTrigger().SetToControllerOnly(TRUE);
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie"), 2724, 1);
+		cpAbility->SetCreateTokenOption(TRUE, _T("Zombie A"), 2724, 1);
 
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CBridgeFromBelowCard::SetTriggerContext1));
 		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CBridgeFromBelowCard::BeforeResolution));
@@ -3372,7 +3418,6 @@ CHeartwoodStorytellerCard::CHeartwoodStorytellerCard(CGame* pGame, UINT nID)
 CPutridCyclopsCard::CPutridCyclopsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Putrid Cyclops"), CardType::Creature, CREATURE_TYPE2(Zombie, Cyclops), nID,
 		_T("2") BLACK_MANA_TEXT, Power(3), Life(3))
-
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			   &CPutridCyclopsCard::OnResolutionCompleted))
 {
@@ -3388,29 +3433,32 @@ CPutridCyclopsCard::CPutridCyclopsCard(CGame* pGame, UINT nID)
 
 bool CPutridCyclopsCard::BeforeResolution(CPutridCyclopsCard::TriggeredAbility::TriggeredActionType* pAction)
 {
-	//Scry 1.
-	CZoneModifier pModifier = CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
-	pModifier.GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier.GetSelection(0).moveType = MoveType::Others;
-	pModifier.AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Bottom, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+	//Scry 1 start----------------------
+	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));	
+		pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+		pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+		pModifier->GetSelection(0).moveType = MoveType::Others;
+		pModifier->AddSelection(MinimumValue(0), MaximumValue(1), // select cards to bottom
+			CZoneModifier::RoleType::PrimaryPlayer, // select by 
+			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+			NULL,									// any cards
+			ZoneId::Library,						// if selected, move cards to
+			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+			CardPlacement::Bottom,					// put selected cards on top
+			MoveType::Others,						// move type
+			CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
 
-	// and finally put the last ones on top of the library
-	pModifier.SetReorderInformation(
-		true, 
-		ZoneId::Library,	
-		CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-		CardPlacement::Top);
-	
-	pModifier.ApplyTo(GetController());
+		// and finally put the last ones on top of the library
+		pModifier->SetReorderInformation(
+			true, 
+			ZoneId::Library,	
+			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+			CardPlacement::Top);
+//Scry 1 end--------------------------
+	pModifier->ApplyTo(pAction->GetController());
+
+	CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+	pScryModifier.ApplyTo(this);
 	return true;
 }
 
@@ -3419,36 +3467,25 @@ void CPutridCyclopsCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 	CZone* lib=GetController()->GetZoneById(ZoneId::Library);
 	if (lib->GetSize()>0)
 	{
-	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
+		CCard* pNextDraw = pAbilityAction->GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-	CZoneModifier pModifier = CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));		
-	pModifier.GetSelection(0).nMinSelectionCount = MinimumValue(0);
-	pModifier.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-	pModifier.GetSelection(0).moveType = MoveType::Others;
-	pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
-		CZoneModifier::RoleType::PrimaryPlayer, // select by 
-		CZoneModifier::RoleType::AllPlayers, // reveal to
-		NULL, // any cards
-		ZoneId::Library, // if selected, move cards to
-		CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-		CardPlacement::Top, // put selected cards on top
-		MoveType::Others, // move type
-		CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 
-	pModifier.ApplyTo(GetController());
+		pModifier.ApplyTo(pAbilityAction->GetController());
+	
+		int nCost = 0;
 
-	int nCost = 0;
+		if (!pNextDraw->GetCardType().IsLand())
+		{
+			nCost = pNextDraw->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+		}
 
-	if (!pNextDraw->GetCardType().IsLand())
-	{
-		nCost = pNextDraw->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-	}
+		CPowerModifier pModifier1 = CPowerModifier(Power(-nCost), TRUE);
+		CLifeModifier pModifier2 = CLifeModifier(Life(-nCost), this, PreventableType::NotPreventable, DamageType::NotDealingDamage, TRUE);
 
-	CPowerModifier pModifier1 = CPowerModifier(Power(-nCost), TRUE);
-	CLifeModifier pModifier2 = CLifeModifier(Life(-nCost), this, PreventableType::NotPreventable, DamageType::NotDealingDamage, TRUE);
-
-	pModifier1.ApplyTo(this);
-	pModifier2.ApplyTo(this);
+		pModifier1.ApplyTo(this);
+		pModifier2.ApplyTo(this);
 	}
 }
 
@@ -3573,7 +3610,6 @@ BOOL CEvenTheOddsCard::CanPlay(BOOL bIncludeTricks)
 //
 CJudgeUnworthyCard::CJudgeUnworthyCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Judge Unworthy"), CardType::Instant, nID)
-
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			   &CJudgeUnworthyCard::OnResolutionCompleted))
 {
@@ -3596,50 +3632,42 @@ void CJudgeUnworthyCard::OnResolutionCompleted(const CAbilityAction* pAbilityAct
 {
 	if (bResult)
 	{
-		//Scry 3.
-		CZoneModifier pModifier = CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
-		pModifier.GetSelection(0).nMinSelectionCount = MinimumValue(0);
-		pModifier.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-		pModifier.GetSelection(0).moveType = MoveType::Others;
-		pModifier.AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bootom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // any cards
-			ZoneId::Library, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		//Scry 3 start----------------------
+		CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
+			pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+			pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+			pModifier->GetSelection(0).moveType = MoveType::Others;
+			pModifier->AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bottom
+				CZoneModifier::RoleType::PrimaryPlayer, // select by 
+				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+				NULL,									// any cards
+				ZoneId::Library,						// if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+				CardPlacement::Bottom,					// put selected cards on top
+				MoveType::Others,						// move type
+				CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
 
-		// and finally put the last ones on top of the library
-		pModifier.SetReorderInformation(
-			true, 
-			ZoneId::Library,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-		
-		pModifier.ApplyTo(GetController());
+			// and finally put the last ones on top of the library
+			pModifier->SetReorderInformation(
+				true, 
+				ZoneId::Library,	
+				CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+				CardPlacement::Top);
+	//Scry 3 end--------------------------
+		pModifier->ApplyTo(pAbilityAction->GetController());
 
-		CZone* lib=GetController()->GetZoneById(ZoneId::Library);
+		CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+		pScryModifier.ApplyTo(this);
+
+		CZone* lib = pAbilityAction->GetController()->GetZoneById(ZoneId::Library);
 		if (lib->GetSize()>0)
 		{
 			CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-			CZoneModifier pModifier1 = CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));		
-			pModifier1.GetSelection(0).nMinSelectionCount = MinimumValue(0);
-			pModifier1.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-			pModifier1.GetSelection(0).moveType = MoveType::Others;
-			pModifier1.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::AllPlayers, // reveal to
-				NULL, // any cards
-				ZoneId::Library, // if selected, move cards to
-				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-				CardPlacement::Top, // put selected cards on top
-				MoveType::Others, // move type
-				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+				CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 
-			pModifier1.ApplyTo(GetController());
+			pModifier1.ApplyTo(pAbilityAction->GetController());
 
 			int nCost = 0;
 
@@ -3700,7 +3728,6 @@ BOOL CPatriciansScornCard::CanPlay(BOOL bIncludeTricks)
 //
 CRiddleOfLightningCard::CRiddleOfLightningCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Riddle of Lightning"), CardType::Instant, nID)
-
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			   &CRiddleOfLightningCard::OnResolutionCompleted))
 {
@@ -3720,50 +3747,42 @@ void CRiddleOfLightningCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 {
 	if (bResult)
 	{
-		//Scry 3.
-		CZoneModifier pModifier = CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
-		pModifier.GetSelection(0).nMinSelectionCount = MinimumValue(0);
-		pModifier.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-		pModifier.GetSelection(0).moveType = MoveType::Others;
-		pModifier.AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bootom
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			NULL, // any cards
-			ZoneId::Library, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Bottom, // put selected cards on top
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+		//Scry 3 start----------------------
+		CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(3), MaximumValue(3));	
+			pModifier->GetSelection(0).nMinSelectionCount = MinimumValue(0);
+			pModifier->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
+			pModifier->GetSelection(0).moveType = MoveType::Others;
+			pModifier->AddSelection(MinimumValue(0), MaximumValue(3), // select cards to bottom
+				CZoneModifier::RoleType::PrimaryPlayer, // select by 
+				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+				NULL,									// any cards
+				ZoneId::Library,						// if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+				CardPlacement::Bottom,					// put selected cards on top
+				MoveType::Others,						// move type
+				CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
 
-		// and finally put the last ones on top of the library
-		pModifier.SetReorderInformation(
-			true, 
-			ZoneId::Library,	
-			CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
-			CardPlacement::Top);
-		
-		pModifier.ApplyTo(GetController());
+			// and finally put the last ones on top of the library
+			pModifier->SetReorderInformation(
+				true, 
+				ZoneId::Library,	
+				CZoneModifier::RoleType::PrimaryPlayer,	// this player's library
+				CardPlacement::Top);
+	//Scry 3 end--------------------------
+		pModifier->ApplyTo(pAbilityAction->GetController());
 
-		CZone* lib=GetController()->GetZoneById(ZoneId::Library);
+		CSpecialEffectModifier pScryModifier = CSpecialEffectModifier(this, SCRY_TRIGGER_ID);
+		pScryModifier.ApplyTo(this);
+
+		CZone* lib=pAbilityAction->GetController()->GetZoneById(ZoneId::Library);
 		if (lib->GetSize()>0 && bResult)
 		{
-			CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
+			CCard* pNextDraw = pAbilityAction->GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
-			CZoneModifier pModifier = CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));		
-			pModifier.GetSelection(0).nMinSelectionCount = MinimumValue(0);
-			pModifier.GetSelection(0).nMaxSelectionCount = MaximumValue(0);
-			pModifier.GetSelection(0).moveType = MoveType::Others;
-			pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
-				CZoneModifier::RoleType::PrimaryPlayer, // select by 
-				CZoneModifier::RoleType::AllPlayers, // reveal to
-				NULL, // any cards
-				ZoneId::Library, // if selected, move cards to
-				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-				CardPlacement::Top, // put selected cards on top
-				MoveType::Others, // move type
-				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+			CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+				CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 
-			pModifier.ApplyTo(GetController());
+			pModifier1.ApplyTo(pAbilityAction->GetController());
 
 			int nCost = 0;
 
@@ -3772,21 +3791,21 @@ void CRiddleOfLightningCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 				nCost = pNextDraw->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
 			}
 
-			CLifeModifier pModifier1 = CLifeModifier(Life(-nCost), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage, TRUE);
+			CLifeModifier pModifier2 = CLifeModifier(Life(-nCost), this, PreventableType::Preventable, DamageType::SpellDamage | DamageType::NonCombatDamage, TRUE);
 
 			if (pAbilityAction->GetAssociatedCard())
 			{
 				CCard* target = pAbilityAction->GetAssociatedCard();
 				CCreatureCard* pCreature = (CCreatureCard*)target;
 
-				pModifier1.ApplyTo(pCreature);
+				pModifier2.ApplyTo(pCreature);
 			}
 
 			if (pAbilityAction->GetAssociatedPlayer())
 			{
 				CPlayer* target = pAbilityAction->GetAssociatedPlayer();
 
-				pModifier1.ApplyTo(target);
+				pModifier2.ApplyTo(target);
 			}
 		}
 	}
@@ -3915,6 +3934,13 @@ CHomingSliverCard::CHomingSliverCard(CGame* pGame, UINT nID)
 				_T("3"),
 				&m_CardFilter));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CHomingSliverCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
@@ -3931,11 +3957,23 @@ counted_ptr<CAbility> CHomingSliverCard::CreateAbility(CCard* pCard)
 			_T("3"),
 			&m_CardFilter));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CHomingSliverCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 	
 	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+BOOL CHomingSliverCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -4517,7 +4555,6 @@ CEpochrasiteCard::CEpochrasiteCard(CGame* pGame, UINT nID)
 				   &CEpochrasiteCard::OnResolutionCompleted))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CEpochrasiteCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	m_CardFlagModifier1.GetModifier().SetOneTurnOnly(FALSE);
@@ -4647,7 +4684,7 @@ void CEpochrasiteCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 		(GetCardFlag()->GetData(CardFlag::AbilityFlag) != m_CardFlagModifier2.GetModifier().GetAdditionData()))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +3, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +3);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -4830,7 +4867,6 @@ CStormEntityCard::CStormEntityCard(CGame* pGame, UINT nID)
 
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CStormEntityCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -4845,7 +4881,7 @@ void CStormEntityCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 		if (moveType == MoveType::Cast) p--;
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +p, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +p);
 
 		pModifier.ApplyTo(this);
 	}
@@ -5051,7 +5087,7 @@ CLinessaZephyrMageCard::CLinessaZephyrMageCard(CGame* pGame, UINT nID)
 		cpAbility->GetTargeting()->SetDefaultCharacteristic(Characteristic::Neutral);
 
 		CZoneModifier* pModifier1 =new CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer);
-		pModifier1->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+		pModifier1->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 			CCardFilter::GetFilter(_T("creatures")), // any cards
@@ -5062,7 +5098,7 @@ CLinessaZephyrMageCard::CLinessaZephyrMageCard(CGame* pGame, UINT nID)
 			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
 
 		CZoneModifier* pModifier2 =new CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer);
-		pModifier2->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+		pModifier2->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 			CCardFilter::GetFilter(_T("artifact cards")), // any cards
@@ -5073,7 +5109,7 @@ CLinessaZephyrMageCard::CLinessaZephyrMageCard(CGame* pGame, UINT nID)
 			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
 
 		CZoneModifier* pModifier3 =new CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer);
-		pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+		pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 			CCardFilter::GetFilter(_T("enchantments")), // any cards
@@ -5084,7 +5120,7 @@ CLinessaZephyrMageCard::CLinessaZephyrMageCard(CGame* pGame, UINT nID)
 			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
 
 		CZoneModifier* pModifier4 =new CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer);
-		pModifier4->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+		pModifier4->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 			CCardFilter::GetFilter(_T("lands")), // any cards
@@ -6495,6 +6531,304 @@ void CSehtsTigerCard::OnColorSelected(const std::vector<SelectionEntry>& selecti
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CLostHoursCard::CLostHoursCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Lost Hours"), CardType::Sorcery, nID)
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CLostHoursCard::OnCardSelected))
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+			_T("1") BLACK_MANA_TEXT,
+			FALSE_CARD_COMPARER, true));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLostHoursCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CLostHoursCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CPlayer* pTarget = pAction->GetAssociatedPlayer();
+	CZone* pHand = pTarget->GetZoneById(ZoneId::Hand);
+	
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddNegateComparer(new CardTypeComparer(CardType::_Land, false));
+
+	CZoneModifier* pModifier1 = new CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+	pModifier1->ApplyTo(pTarget);
+	
+	if (m_CardFilter.CountIncluded(pHand->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < pHand->GetSize(); ++i)
+		{
+			CCard* pCard = pHand->GetAt(i);
+
+			if (!pCard->GetCardType().IsLand())
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Choose %s"),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pController);
+	}
+
+	return true;
+}
+
+void CLostHoursCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)it->dwContext;
+			CPlayer* pPlayer = pCard->GetOwner();
+			CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s chooses %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+			pCard->Move(pLibrary, pPlayer, MoveType::Others, CardPlacement::Top);
+
+			int nSize = pLibrary->GetSize();
+
+			if (nSize > 2)
+			{
+				pLibrary->GetAt(nSize - 3)->Move(pLibrary, pPlayer, MoveType::Others, CardPlacement::Top);
+				pLibrary->GetAt(nSize - 3)->Move(pLibrary, pPlayer, MoveType::Others, CardPlacement::Top);
+			}
+			else if (nSize == 2)
+				pLibrary->GetAt(1)->Move(pLibrary, pPlayer, MoveType::Others, CardPlacement::Top);
+
+			return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CSpinIntoMythCard::CSpinIntoMythCard(CGame* pGame, UINT nID)
+	: CTargetMoveCardSpellCard(pGame, _T("Spin into Myth"), CardType::Instant, nID,
+		_T("4") BLUE_MANA_TEXT, AbilityType::Instant,
+		new AnyCreatureComparer,
+		ZoneId::Battlefield, ZoneId::Library, TRUE, MoveType::Others)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CSpinIntoMythCard::OnResolutionCompleted))
+	, m_OpponentSelection(pGame,CSelectionSupport::SelectionCallback(this, &CSpinIntoMythCard::OnOpponentSelected))
+{
+	m_pTargetMoveCardSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+}
+
+void CSpinIntoMythCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!bResult) return;
+
+	std::vector<SelectionEntry> entries;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (pAbilityAction->GetController() != GetGame()->GetPlayer(ip))
+		{
+			SelectionEntry entry;
+			entry.dwContext = ip;
+			entry.strText.Format(_T("choose %s"), GetGame()->GetPlayer(ip)->GetPlayerName());
+			entries.push_back(entry);
+		}
+	m_OpponentSelection.AddSelectionRequest(entries, 1, 1, NULL, pAbilityAction->GetController());	
+}
+
+void CSpinIntoMythCard::OnOpponentSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CPlayer* pPlayer = GetGame()->GetPlayer(it->dwContext);
+			CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
+
+			CDrawCardCommon::ResolveRevealZone(
+				pPlayer, pSelectionPlayer, 2, FALSE,
+				TRUE,
+				ZoneId::Library,
+				CardPlacement::Top,
+				NULL,
+				MaximumValue(2),
+				MinimumValue(0),
+				ZoneId::Library,
+				ZoneId::Library,
+				CardPlacement::Bottom,
+				FALSE);
+		
+			return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CMesmericSliverCard::CMesmericSliverCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Mesmeric Sliver"), CardType::Creature, CREATURE_TYPE(Sliver), nID,
+		_T("3") BLUE_MANA_TEXT, Power(2), Life(2))
+	, m_OpponentSelection(pGame,CSelectionSupport::SelectionCallback(this, &CMesmericSliverCard::OnOpponentSelected))
+{
+	{
+		//"All Slivers"
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new CreatureTypeComparer(CREATURE_TYPE(Sliver), false),	
+				Power(+0), Life(+0), CreatureKeyword::Null));
+
+		cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
+			CCardAbilityModifier::CreateAbilityCallback(this,
+				&CMesmericSliverCard::CreateAbility)));
+
+		cpAbility->SetAffectCardsInTheseZones(ZoneId::Graveyard | ZoneId::Hand | ZoneId::Library | ZoneId::Stack | ZoneId::Exile | ZoneId::_Tokens);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+									 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMesmericSliverCard::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMesmericSliverCard::BeforeResolution));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CMesmericSliverCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const
+{
+	if (GetCardKeyword()->HasChangeling() || GetCreatureType().HasType(SingleCreatureType::Sliver)) return true;
+	else return false;
+}
+
+counted_ptr<CAbility> CMesmericSliverCard::CreateAbility(CCard* pCard)
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+								 CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(pCard));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMesmericSliverCard::BeforeResolution));
+
+	cpAbility->SetAbilityName(_T("Battlefield ability"));
+
+	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+bool CMesmericSliverCard::BeforeResolution(CAbilityAction* pAction)
+{
+	std::vector<SelectionEntry> entries;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (pAction->GetController() != GetGame()->GetPlayer(ip))
+		{
+			SelectionEntry entry;
+			entry.dwContext = ip;
+			entry.strText.Format(_T("choose %s"), GetGame()->GetPlayer(ip)->GetPlayerName());
+			entries.push_back(entry);
+		}
+	m_OpponentSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());	
+
+	return true;
+}
+
+void CMesmericSliverCard::OnOpponentSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CPlayer* pPlayer = GetGame()->GetPlayer(it->dwContext);
+			CZone* pLibrary = pPlayer->GetZoneById(ZoneId::Library);
+
+			CDrawCardCommon::ResolveRevealZone(
+				pPlayer, pSelectionPlayer, 1, FALSE,
+				TRUE,
+				ZoneId::Library,
+				CardPlacement::Top,
+				NULL,
+				MaximumValue(1),
+				MinimumValue(0),
+				ZoneId::Library,
+				ZoneId::Library,
+				CardPlacement::Bottom,
+				FALSE);
+		
+			return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CFrenzySliverCard::CFrenzySliverCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Frenzy Sliver"), CardType::Creature, CREATURE_TYPE(Sliver), nID,
+		_T("1") BLACK_MANA_TEXT, Power(1), Life(1))
+{
+	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+		::CreateObject<CPwrTghAttrEnchantment>(this,
+			new CreatureTypeComparer(CREATURE_TYPE(Sliver), false),	
+			Power(+0), Life(+0), CreatureKeyword::Null));
+
+	cpAbility->GetEnchantmentCardFilter().AddComparer(new AnyCreatureComparer);
+
+	cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
+		CCardAbilityModifier::CreateAbilityCallback(this,
+			&CFrenzySliverCard::CreateAbility)));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+counted_ptr<CAbility> CFrenzySliverCard::CreateAbility(CCard* pCard)
+{
+	typedef
+		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenNodeChanged > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(
+		::CreateObject<TriggeredAbility>(pCard, NodeId::DeclareBlockersStep2));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->GetPowerModifier().SetPowerDelta(Power(+1));
+	cpAbility->GetLifeModifier().SetLifeDelta(Life(+0));
+
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CFrenzySliverCard::SetTriggerContext));
+
+	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+	
+	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+bool CFrenzySliverCard::SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
+												 CNode* pToNode) const
+{
+	return (triggerContext.m_pCreature->IsAttacking() == TRUE && triggerContext.m_pCreature->IsBlocked() == FALSE);
 }
 
 //____________________________________________________________________________

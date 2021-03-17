@@ -255,6 +255,8 @@ BEGIN
     IDS_STRING16337         "Oppressive Will\n{2U}\nInstant\nSOK,C\nCounter target spell unless its controller pays {1} for each card in your hand."
     IDS_STRING16338         "Sekki, Seasons' Guide\n{5GGG}\nLegendary Creature - Spirit\nSOK,R\nSekki, Seasons' Guide enters the battlefield with eight +1/+1 counters on it.\rIf damage would be dealt to Sekki, prevent that damage, remove that many +1/+1 counters from Sekki, and put that many 1/1 colorless Spirit creature tokens onto the battlefield.\rSacrifice eight Spirits: Return Sekki from your graveyard to the battlefield.\n0/0"
     IDS_STRING16339         "Pure Intentions\n{W}\nInstant - Arcane\nSOK,R\nWhenever a spell or ability an opponent controls causes you to discard cards this turn, return those cards from your graveyard to your hand.\rWhen a spell or ability an opponent controls causes you to discard Pure Intentions, return Pure Intentions from your graveyard to your hand at the beginning of the next end step."
+    IDS_STRING16340         "Kashi-Tribe Elite\n{1GG}\nCreature - Snake Warrior\nSOK,U\nLegendary Snakes you control have shroud.\rWhenever Kashi-Tribe Elite deals combat damage to a creature, tap that creature and it doesn't untap during its controller's next untap step.\n2/3"
+    IDS_STRING16341         "Matsu-Tribe Birdstalker\n{2GG}\nCreature - Snake Warrior Archer\nSOK,C\nWhenever Matsu-Tribe Birdstalker deals combat damage to a creature, tap that creature and it doesn't untap during its controller's next untap step.\r{G}: Matsu-Tribe Birdstalker gains reach until end of turn.\n2/2"
 END
 
 #endif    // English (United States) resources

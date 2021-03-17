@@ -17,6 +17,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		// Add new card class names here:
 		DEFINE_TOKEN(CAngelIToken);
 		DEFINE_TOKEN(CBeastMToken);
+		DEFINE_TOKEN(CBeastNToken);
+		DEFINE_TOKEN(CBirdIToken);
 		DEFINE_TOKEN(CBlankAToken);
 		DEFINE_TOKEN(CBlankBToken);
 		DEFINE_TOKEN(CBlankCToken);
@@ -29,6 +31,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBlankJToken);
 		DEFINE_TOKEN(CBlankKToken);
 		DEFINE_TOKEN(CBlankLToken);
+		DEFINE_TOKEN(CBoarBToken);
 		DEFINE_TOKEN(CDragonGToken);
 		DEFINE_TOKEN(CDragonSpiritToken);
 		DEFINE_TOKEN(CEldraziToken);
@@ -36,6 +39,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CElementalRToken);
 		DEFINE_TOKEN(CElementalSToken);
 		DEFINE_TOKEN(CElementalTToken);
+		DEFINE_TOKEN(CElementalUToken);
+		DEFINE_TOKEN(CElementalVToken);
 		DEFINE_TOKEN(CGoblinGToken);
 		DEFINE_TOKEN(CGoblinHToken);
 		DEFINE_TOKEN(CGoblinIToken);
@@ -44,6 +49,8 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CGoblinLToken);
 		DEFINE_TOKEN(CGoblinMToken);
 		DEFINE_TOKEN(CGoblinSoldierBToken);
+		DEFINE_TOKEN(CGolemEToken);
+		DEFINE_TOKEN(CHarpyToken);
 		DEFINE_TOKEN(CHippoBToken);
 		DEFINE_TOKEN(CHorrorCToken);
 		DEFINE_TOKEN(CHumanCToken);
@@ -66,8 +73,13 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSaprolingLToken);
 		DEFINE_TOKEN(CSaprolingMToken);
 		DEFINE_TOKEN(CSaprolingNToken);
+		DEFINE_TOKEN(CSatyrToken);
 		DEFINE_TOKEN(CSkeletonBToken);
 		DEFINE_TOKEN(CSliverCToken);
+		DEFINE_TOKEN(CSnakeGToken);
+		DEFINE_TOKEN(CSoldierNToken);
+		DEFINE_TOKEN(CSoldierOToken);
+		DEFINE_TOKEN(CSoldierPToken);
 		DEFINE_TOKEN(CTetraviteToken);
 		DEFINE_TOKEN(CTwinToken);
 		DEFINE_TOKEN(CWallBToken);
@@ -887,6 +899,173 @@ CElementalTToken::CElementalTToken(CGame* pGame, UINT nID)
 	AddCardType(CardType::Red, CardType::_ColorMask);
 
 // Used by Molten Birth
+}
+
+//____________________________________________________________________________
+//
+CHarpyToken::CHarpyToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Harpy"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Harpy), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+// Used by Abhorrent Overloard
+}
+
+//____________________________________________________________________________
+//
+CElementalUToken::CElementalUToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(1), Life(0))
+{
+	AddCardType(CardType::Blue, CardType::_ColorMask);
+
+// Used by Master of Waves
+}
+
+//____________________________________________________________________________
+//
+CSoldierNToken::CSoldierNToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddHaste(FALSE);
+
+// Used by Akroan Crusader
+}
+
+//____________________________________________________________________________
+//
+CSoldierOToken::CSoldierOToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// THS version: used by Akroan Horse
+}
+
+//____________________________________________________________________________
+//
+CSoldierPToken::CSoldierPToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Soldier"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Soldier), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::White, CardType::_ColorMask);
+
+// THS version: used by Elspeth, Sun's Champion; Evangel of Heliod
+}
+
+//____________________________________________________________________________
+//
+CGolemEToken::CGolemEToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Golem"), CardType::GlobalEnchantment| CardType::Artifact | CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Golem), nID,
+		_T(""),
+		Power(3), Life(3))
+{
+
+// Used by Hammer of Purphoros
+}
+
+//____________________________________________________________________________
+//
+CBoarBToken::CBoarBToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Boar"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Boar), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Green, CardType::_ColorMask);
+
+// Used by Curse of the Swine
+}
+
+//____________________________________________________________________________
+//
+CBirdIToken::CBirdIToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Bird"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Bird), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Blue, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddFlying(FALSE);
+
+// Used by Swan Song
+}
+
+//____________________________________________________________________________
+//
+CSatyrToken::CSatyrToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Satyr"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Satyr), nID,
+		_T(""),
+		Power(2), Life(2))
+{
+	AddCardType(CardType::Red | CardType::Green, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddHaste(FALSE);
+
+// Used by Xenagos, the Reveler
+}
+
+//____________________________________________________________________________
+//
+CSnakeGToken::CSnakeGToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Snake"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Snake), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Black, CardType::_ColorMask);
+
+	GetCardKeyword()->AddDeathtouch(FALSE);
+
+// Used by Ophiomancer
+}
+
+//____________________________________________________________________________
+//
+CElementalVToken::CElementalVToken(CGame* pGame, UINT nID)
+	: CTokenCreature(pGame, _T("Elemental"), CardType::Creature | CardType::Token,
+		CREATURE_TYPE(Elemental), nID,
+		_T(""),
+		Power(1), Life(1))
+{
+	AddCardType(CardType::Red, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddHaste(FALSE);
+
+// Used by Tempt With Vengeance
+}
+
+//____________________________________________________________________________
+//
+CBeastNToken::CBeastNToken(CGame* pGame, UINT nID)
+    : CTokenCreature(pGame, _T("Beast"), CardType::Creature | CardType::Token,
+        CREATURE_TYPE(Beast), nID,
+        _T(""),
+        Power(5), Life(5))
+{
+    AddCardType(CardType::Green, CardType::_ColorMask);
+
+	GetCreatureKeyword()->AddTrample(FALSE);
+// C13 version; used by Spawning Grounds
 }
 
 //____________________________________________________________________________

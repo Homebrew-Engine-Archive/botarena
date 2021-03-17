@@ -951,6 +951,8 @@ class CDormantSliverCard : public CCreatureCard
 	DECLARE_CARD_CSTOR(CDormantSliverCard);
 
 protected:
+	bool SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
 	counted_ptr<CAbility> CreateAbility(CCard* pCard);
 };
 

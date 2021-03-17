@@ -58,6 +58,9 @@ private:
 class CBloatedToadCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBloatedToadCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -65,6 +68,9 @@ class CBloatedToadCard : public CCreatureCard
 class CDarkwatchElvesCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDarkwatchElvesCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -329,6 +335,9 @@ class CHopeAndGloryCard : public CCard
 class CIronWillCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CIronWillCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -336,6 +345,9 @@ class CIronWillCard : public CChgPwrTghAttrSpellCard
 class CMiscalculationCard : public CCounterSpellCard
 {
 	DECLARE_CARD_CSTOR(CMiscalculationCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -364,6 +376,9 @@ class CRackAndRuinCard : public CTargetMoveCardSpellCard
 class CRadiantsJudgmentCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CRadiantsJudgmentCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -371,6 +386,9 @@ class CRadiantsJudgmentCard : public CCard
 class CRebuildCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CRebuildCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -392,6 +410,9 @@ class CSilkNetCard : public CChgPwrTghAttrSpellCard
 class CSwatCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CSwatCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -399,6 +420,9 @@ class CSwatCard : public CTargetMoveCardSpellCard
 class CUnearthCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CUnearthCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -419,6 +443,9 @@ private:
 class CCloudOfFaeriesCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCloudOfFaeriesCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -703,6 +730,9 @@ class CThranLensCard : public CCard
 class CRepopulateCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CRepopulateCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________

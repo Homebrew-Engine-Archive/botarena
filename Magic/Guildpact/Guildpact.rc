@@ -62,7 +62,7 @@ STRINGTABLE
 BEGIN
     IDS_EXPANSION           "Guildpact"
     IDS_EXPANSION_ABBREV    "GPT"
-    IDS_FIRST_CARD          "16766"
+    IDS_FIRST_CARD          "16765"
     IDS_TOTAL_CARD          "165"
     IDS_WHITE_BORDER        "0"
     IDS_MODULE_ICON_ID      "16965"
@@ -247,6 +247,7 @@ END
 
 STRINGTABLE
 BEGIN
+    IDS_STRING16765         "Vertigo Spawn\n{1U}\nCreature - Illusion\nGPT,U\nDefender\rWhenever Vertigo Spawn blocks a creature, tap that creature. That creature doesn't untap during its controller's next untap step.\n0/3"
     IDS_STRING16766         "Killer Instinct\n{4RG}\nEnchantment\nGPT,R\nAt the beginning of your upkeep, reveal the top card of your library. If it's a creature card, put it onto the battlefield. That creature gains haste until end of turn. Sacrifice it at the beginning of the next end step."
     IDS_STRING16767         "Ghostway\n{2W}\nInstant\nGPT,R\nExile each creature you control. Return those cards to the battlefield under their owner's control at the beginning of the next end step."
 END

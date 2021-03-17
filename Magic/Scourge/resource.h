@@ -125,6 +125,10 @@
 #define IDS_STRING14708                 14708
 #define IDS_STRING14709                 14709
 #define IDS_STRING14710                 14710
+#define IDS_STRING14711                 14711
+#define IDS_STRING14712                 14712
+#define IDS_STRING14713                 14713
+#define IDS_STRING14714                 14714
 #define IDI_MODULE                      14743
 #define IDI_LARGE_MODULE                14744
 

@@ -112,6 +112,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CHollowsageCard);
 		DEFINE_CARD(CHordeOfBoggartsCard);
 		DEFINE_CARD(CHungrySprigganCard);
+		DEFINE_CARD(CIlluminatedFolioCard);
 		DEFINE_CARD(CImpromptuRaidCard);
 		DEFINE_CARD(CInkfathomInfiltratorCard);
 		DEFINE_CARD(CInquisitorsSnareCard);
@@ -5218,6 +5219,13 @@ bool CAuguryAdeptCard::SetTriggerContext1(CTriggeredRevealLibraryAbility::Trigge
 bool CAuguryAdeptCard::SetTriggerContext2(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
 											 CPlayer* pByPlayer, Damage damage) const
 {
+	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		cont->SetDrawFailed();								 // can not draw a card to put into your hand, so draw has failed
+		return false;										 // no point continuing
+	}
+
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	int nCost = 0;
@@ -5496,8 +5504,6 @@ CBarrentonMedicCard::CBarrentonMedicCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Barrenton Medic"), CardType::Creature, CREATURE_TYPE2(Kithkin, Cleric), nID,
 		_T("4") WHITE_MANA_TEXT, Power(0), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		counted_ptr<CActivatedAbility<CTargetDamagePreventionSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetDamagePreventionSpell>>(this,
@@ -5527,7 +5533,7 @@ CChainbreakerCard::CChainbreakerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Chainbreaker"), CardType::_ArtifactCreature, CREATURE_TYPE(Scarecrow), nID,
 		_T("2"), Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -5548,7 +5554,7 @@ CGrimPoppetCard::CGrimPoppetCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Grim Poppet"), CardType::_ArtifactCreature, CREATURE_TYPE(Scarecrow), nID,
 		_T("7"), Power(4), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -5573,7 +5579,7 @@ CMorselhoarderCard::CMorselhoarderCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Morselhoarder"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("4") RED_MANA_TEXT RED_MANA_TEXT, Power(6), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//hybrid mana cost
@@ -5827,8 +5833,6 @@ CBoggartRamGangCard::CBoggartRamGangCard(CGame* pGame, UINT nID)
 	//, m_cpEventListener(VAR_NAME(m_cpListener), DamageDealEventSource::Listener::EventCallback(this,
 		//		&CBoggartRamGangCard::DamageDealEventSource))
 {
-	//GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	//Wither
 	//this->GetDealDamageEventSource()->AddListener(m_cpEventListener.GetPointer());
 	GetCardKeyword()->AddWither(FALSE);
@@ -8106,8 +8110,6 @@ CDuskUrchinsCard::CDuskUrchinsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dusk Urchins"), CardType::Creature, CREATURE_TYPE(Ouphe), nID,
 		_T("2") BLACK_MANA_TEXT, Power(4), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked,
@@ -11062,7 +11064,7 @@ CGriefTyrantCard::CGriefTyrantCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Grief Tyrant"), CardType::Creature, CREATURE_TYPE(Horror), nID,
 		_T("5") BLACK_MANA_TEXT, Power(8), Life(8))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//hybrid mana cost
@@ -11891,6 +11893,64 @@ void CElsewhereFlaskCard::OnLandTypeSelected(const std::vector<SelectionEntry>& 
 			}
 		}
 	
+}
+
+//____________________________________________________________________________
+//
+CIlluminatedFolioCard::CIlluminatedFolioCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Illuminated Folio"), CardType::Artifact, nID,
+		_T("5"), AbilityType::Artifact)
+{
+	{
+		counted_ptr<CActivatedAbility<CDrawCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CDrawCardSpell>>(this,
+				_T("1"), 1));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetCost().AddRevealCardCost(2, CCardFilter::GetFilter(_T("white cards")));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CDrawCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CDrawCardSpell>>(this,
+				_T("1"), 1));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetCost().AddRevealCardCost(2, CCardFilter::GetFilter(_T("blue cards")));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CDrawCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CDrawCardSpell>>(this,
+				_T("1"), 1));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetCost().AddRevealCardCost(2, CCardFilter::GetFilter(_T("black cards")));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CDrawCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CDrawCardSpell>>(this,
+				_T("1"), 1));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetCost().AddRevealCardCost(2, CCardFilter::GetFilter(_T("red cards")));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CDrawCardSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CDrawCardSpell>>(this,
+				_T("1"), 1));
+
+		cpAbility->AddTapCost();
+		cpAbility->GetCost().AddRevealCardCost(2, CCardFilter::GetFilter(_T("green cards")));
+
+		AddAbility(cpAbility.GetPointer());
+	}
 }
 
 //____________________________________________________________________________

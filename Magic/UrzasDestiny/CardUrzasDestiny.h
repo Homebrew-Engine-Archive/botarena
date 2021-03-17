@@ -377,6 +377,9 @@ class CTwistedExperimentCard : public CChgPwrTghAttrEnchantCard
 class CFendOffCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CFendOffCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -391,6 +394,9 @@ class CMagnifyCard : public CCard
 class CRapidDecayCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CRapidDecayCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -422,6 +428,9 @@ protected:
 class CFlameJetCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CFlameJetCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________

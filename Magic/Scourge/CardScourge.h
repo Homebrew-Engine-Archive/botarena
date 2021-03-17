@@ -62,6 +62,9 @@ class CDeathsHeadBuzzardCard : public CFlyingCreatureCard
 class CElvishAberrationCard : public CManaProductionTCreatureCard
 {
 	DECLARE_CARD_CSTOR(CElvishAberrationCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -69,6 +72,9 @@ class CElvishAberrationCard : public CManaProductionTCreatureCard
 class CNobleTemplarCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CNobleTemplarCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -76,6 +82,9 @@ class CNobleTemplarCard : public CCreatureCard
 class CShorelineRangerCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CShorelineRangerCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -97,6 +106,9 @@ class CTreetopScoutCard : public CCreatureCard
 class CTwistedAbominationCard : public CRegenerationCreatureCard
 {
 	DECLARE_CARD_CSTOR(CTwistedAbominationCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -104,6 +116,9 @@ class CTwistedAbominationCard : public CRegenerationCreatureCard
 class CWirewoodGuardianCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CWirewoodGuardianCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -118,6 +133,9 @@ class CUnspeakableSymbolCard : public CInPlaySpellCard
 class CChartoothCougarCard : public CPumpCreatureCard
 {
 	DECLARE_CARD_CSTOR(CChartoothCougarCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -125,6 +143,9 @@ class CChartoothCougarCard : public CPumpCreatureCard
 class CEternalDragonCard : public CFlyingCreatureCard
 {
 	DECLARE_CARD_CSTOR(CEternalDragonCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -177,6 +198,7 @@ class CDecreeOfSavageryCard : public CCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -184,6 +206,9 @@ protected:
 class CGildedLightCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CGildedLightCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -198,6 +223,9 @@ class CRecuperateCard : public CCard
 class CSparkSprayCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSparkSprayCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -205,6 +233,9 @@ class CSparkSprayCard : public CCard
 class CWipeCleanCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CWipeCleanCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -212,6 +243,9 @@ class CWipeCleanCard : public CCard
 class CBreakAsunderCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CBreakAsunderCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -219,6 +253,9 @@ class CBreakAsunderCard : public CTargetMoveCardSpellCard
 class CClawsOfWirewoodCard : public CGlobalChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CClawsOfWirewoodCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -240,6 +277,9 @@ class CSkulltapCard : public CCard
 class CUnburdenCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CUnburdenCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -299,6 +339,9 @@ class CPyrostaticPillarCard : public CInPlaySpellCard
 class CDecreeOfJusticeCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CDecreeOfJusticeCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -308,7 +351,9 @@ class CDecreeOfAnnihilationCard : public CCard
 	DECLARE_CARD_CSTOR(CDecreeOfAnnihilationCard);
 protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
-	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;};
+	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
 
 //____________________________________________________________________________
 //
@@ -521,6 +566,7 @@ protected:
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
 							CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -941,6 +987,7 @@ protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 	ListenerPtr<ResolutionCompletedEventSource::Listener> m_cpEventListener;
 	int_ m_nCards;
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -979,6 +1026,54 @@ protected:
 	bool SetTriggerContextAux(CTriggeredAbility<>::TriggerContextType& triggerContext, 
 										CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 	bool BeforeResolutionAux(TriggeredAbilityAux::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CMercurialKiteCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMercurialKiteCard);
+
+protected:
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfDamageDealt,
+							CWhenSelfDamageDealt::CreatureEventCallback, &CWhenSelfDamageDealt::SetCreatureEventCallback> TriggeredAbility;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CDecreeOfSilenceCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CDecreeOfSilenceCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext,
+							CCard* pCard) const;
+
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+	BOOL CanPlay(BOOL bIncludeTricks);
+};
+
+//____________________________________________________________________________
+//
+class CStabilizerCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CStabilizerCard);
+};
+
+//____________________________________________________________________________
+//
+class CLongTermPlansCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CLongTermPlansCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________

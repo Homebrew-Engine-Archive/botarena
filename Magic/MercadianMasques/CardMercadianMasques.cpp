@@ -2035,8 +2035,6 @@ CRushwoodElementalCard::CRushwoodElementalCard(CGame* pGame, UINT nID)
 		GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(4))
 {
 	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;
@@ -4306,9 +4304,7 @@ CHickoryWoodlotCard::CHickoryWoodlotCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Hickory Woodlot"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
+	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
         counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
             ::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, GREEN_MANA_TEXT GREEN_MANA_TEXT));
@@ -4348,9 +4344,7 @@ CPeatBogCard::CPeatBogCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Peat Bog"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
+	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
         counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
             ::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLACK_MANA_TEXT BLACK_MANA_TEXT));
@@ -4390,9 +4384,7 @@ CRemoteFarmCard::CRemoteFarmCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Remote Farm"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
+	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
         counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
             ::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, WHITE_MANA_TEXT WHITE_MANA_TEXT));
@@ -4432,9 +4424,7 @@ CSandstoneNeedleCard::CSandstoneNeedleCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Sandstone Needle"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
+	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
         counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
             ::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, RED_MANA_TEXT RED_MANA_TEXT));
@@ -4474,9 +4464,7 @@ CSaprazzanSkerryCard::CSaprazzanSkerryCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Saprazzan Skerry"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
+	GetCounterContainer()->ScheduleCounter(DEPLETION_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
         counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
             ::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, BLUE_MANA_TEXT BLUE_MANA_TEXT));

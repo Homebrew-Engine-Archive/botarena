@@ -3376,6 +3376,56 @@ void CCreatureTypeModifier::RemoveFrom(CCreatureCard* pCard) const
 
 //____________________________________________________________________________
 //
+void CCreatureTypeModifierNeo::ApplyTo(CCard* pCard) const
+{
+	__super::ApplyTo(pCard);
+	
+	if (pCard->GetCardType().IsCreature())
+	{
+		CCreatureCard* pCreature = (CCreatureCard*)pCard;
+		if (m_pAdd == TRUE)
+			pCreature->GetCreatureType().AddType(m_pType);
+		else
+			pCreature->GetCreatureType().RemoveType(m_pType);
+
+		pCreature->GetCreatureTypeEventSource()->FireEvent(pCard);
+	}
+	else if (pCard->GetCardType().IsTribal())
+	{
+		CTribalCard* pTribal = (CTribalCard*)pCard;
+		if (m_pAdd == TRUE)
+			pTribal->GetCreatureType().AddType(m_pType);
+		else
+			pTribal->GetCreatureType().RemoveType(m_pType);
+	}
+}
+
+void CCreatureTypeModifierNeo::RemoveFrom(CCard* pCard) const
+{
+	__super::RemoveFrom(pCard);
+	
+	if (pCard->GetCardType().IsCreature())
+	{
+		CCreatureCard* pCreature = (CCreatureCard*)pCard;
+		if (m_pAdd != TRUE)
+			pCreature->GetCreatureType().AddType(m_pType);
+		else
+			pCreature->GetCreatureType().RemoveType(m_pType);
+
+		pCreature->GetCreatureTypeEventSource()->FireEvent(pCard);
+	}
+	else if (pCard->GetCardType().IsTribal())
+	{
+		CTribalCard* pTribal = (CTribalCard*)pCard;
+		if (m_pAdd != TRUE)
+			pTribal->GetCreatureType().AddType(m_pType);
+		else
+			pTribal->GetCreatureType().RemoveType(m_pType);
+	}
+}
+
+//____________________________________________________________________________
+//
 void CReplaceCreatureTypeModifier::ApplyTo(CCreatureCard* pCard)
 {
 	__super::ApplyTo(pCard);

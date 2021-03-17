@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -221,6 +222,7 @@ BEGIN
     IDS_STRING14512         "Caller of the Claw\n{2G}\nCreature - Elf\nLGN,R\nFlash\rWhen Caller of the Claw enters the battlefield, put a 2/2 green Bear creature token onto the battlefield for each nontoken creature put into your graveyard from the battlefield this turn.\n2/2"
     IDS_STRING14513         "Planar Guide\n{W}\nCreature - Human Cleric\nLGN,R\n{3W}, Exile Planar Guide: Exile all creatures. At the beginning of the next end step, return those cards to the battlefield under their owners' control."
     IDS_STRING14514         "Skirk Alarmist\n{1R}\nCreature - Human Wizard\nLGN,R\nHaste\r{T}: Turn target face-down creature you control face up. At the beginning of the next end step, sacrifice it.\n1/2"
+    IDS_STRING14515         "Mistform Sliver\n{1U}\nCreature - Illusion Sliver\nLGN,C\nAll Slivers have ""{1}: This permanent becomes the creature type of your choice in addition to its other types until end of turn.""\n1/1"
 END
 
 #endif    // English (United States) resources
@@ -233,7 +235,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

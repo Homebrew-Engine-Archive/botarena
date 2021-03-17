@@ -2168,7 +2168,7 @@ CPhantomCentaurCard::CPhantomCentaurCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
 	GetCardKeyword()->AddProtection(CardKeyword::ProtectionFromBlack, FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2214,7 +2214,7 @@ CPhantomFlockCard::CPhantomFlockCard(CGame* pGame, UINT nID)
 		_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(0), Life(0))
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2261,7 +2261,7 @@ CPhantomNantukoCard::CPhantomNantukoCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
 	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2321,7 +2321,7 @@ CPhantomNishobaCard::CPhantomNishobaCard(CGame* pGame, UINT nID)
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
 	GetCreatureKeyword()->AddTrample(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 7, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2388,7 +2388,7 @@ CPhantomNomadCard::CPhantomNomadCard(CGame* pGame, UINT nID)
 		_T("1") WHITE_MANA_TEXT, Power(0), Life(0))
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -2434,7 +2434,7 @@ CPhantomTigerCard::CPhantomTigerCard(CGame* pGame, UINT nID)
 		_T("2") GREEN_MANA_TEXT, Power(1), Life(0))
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -3005,6 +3005,7 @@ CMirarisWakeCard::CMirarisWakeCard(CGame* pGame, UINT nID)
 
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("lands")));
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
 	
 		cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToParameter1);
 		cpAbility->SetSkipStack(TRUE);

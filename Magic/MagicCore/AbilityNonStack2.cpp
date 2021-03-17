@@ -356,6 +356,14 @@ BOOL CSuspendAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana
 			(m_pGame->GetStack().GetStackSize() || !(m_pGame->GetActivePlayer() == pPlayer && m_pGame->GetCurrentNode()->GetNodeId() == NodeId::MainPhaseStep)))
 		return FALSE;
 
+	if (pPlayer->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::BasandraEffect) && 
+		(m_pGame->GetCurrentNode()->GetNodeId() & NodeId::_CombatPhase).Any())
+		return FALSE;
+
+	if (pPlayer->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HandToHandEffect) && 
+		m_pCard->GetCardType().IsInstant() && (m_pGame->GetCurrentNode()->GetNodeId() & NodeId::_CombatPhase).Any())
+		return FALSE;
+
 	if (!m_Cost.IsPlayable(pPlayer, bIncludeTricks, bAssumeSufficientMana))
 		return FALSE;
 

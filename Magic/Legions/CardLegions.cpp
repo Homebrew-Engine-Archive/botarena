@@ -79,6 +79,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLiegeOfTheAxeCard);
 		DEFINE_CARD(CMacetailHystrodonCard);
 		DEFINE_CARD(CMagmaSliverCard);
+		DEFINE_CARD(CMistformSliverCard);
 		DEFINE_CARD(CMistformUltimusCard);
 		DEFINE_CARD(CNantukoVigilanteCard);
 		DEFINE_CARD(CNeedleshotGournaCard);
@@ -436,11 +437,23 @@ CScionOfDarknessCard::CScionOfDarknessCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("3")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CScionOfDarknessCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CScionOfDarknessCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -627,6 +640,13 @@ CGempalmAvengerCard::CGempalmAvengerCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2") WHITE_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CGempalmAvengerCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -656,6 +676,11 @@ CGempalmAvengerCard::CGempalmAvengerCard(CGame* pGame, UINT nID)
 	}
 }
 
+BOOL CGempalmAvengerCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
+}
+
 //____________________________________________________________________________
 //
 CGempalmSorcererCard::CGempalmSorcererCard(CGame* pGame, UINT nID)
@@ -668,6 +693,13 @@ CGempalmSorcererCard::CGempalmSorcererCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2") BLUE_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CGempalmSorcererCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -696,6 +728,11 @@ CGempalmSorcererCard::CGempalmSorcererCard(CGame* pGame, UINT nID)
 	}
 }
 
+BOOL CGempalmSorcererCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
+}
+
 //____________________________________________________________________________
 //
 CGempalmStriderCard::CGempalmStriderCard(CGame* pGame, UINT nID)
@@ -708,6 +745,13 @@ CGempalmStriderCard::CGempalmStriderCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CGempalmStriderCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -734,6 +778,11 @@ CGempalmStriderCard::CGempalmStriderCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CGempalmStriderCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -935,10 +984,22 @@ CHundroogCard::CHundroogCard(CGame* pGame, UINT nID)
 		::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 			_T("3")));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CHundroogCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CHundroogCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -952,10 +1013,22 @@ CKeeneyeAvenCard::CKeeneyeAvenCard(CGame* pGame, UINT nID)
 		::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 			_T("2")));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CKeeneyeAvenCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CKeeneyeAvenCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -992,11 +1065,23 @@ CMacetailHystrodonCard::CMacetailHystrodonCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("3")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CMacetailHystrodonCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CMacetailHystrodonCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1054,10 +1139,22 @@ CPrimocEscapeeCard::CPrimocEscapeeCard(CGame* pGame, UINT nID)
 		::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 			_T("2")));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CPrimocEscapeeCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CPrimocEscapeeCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1473,6 +1570,13 @@ CGempalmIncineratorCard::CGempalmIncineratorCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("1") RED_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CGempalmIncineratorCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -1518,6 +1622,11 @@ bool CGempalmIncineratorCard::BeforeResolution(TriggeredAbility::TriggeredAction
 	return true;
 }
 
+BOOL CGempalmIncineratorCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
+}
+
 //____________________________________________________________________________
 //
 CGempalmPolluterCard::CGempalmPolluterCard(CGame* pGame, UINT nID)
@@ -1530,6 +1639,13 @@ CGempalmPolluterCard::CGempalmPolluterCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				BLACK_MANA_TEXT BLACK_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CGempalmPolluterCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -1547,6 +1663,11 @@ CGempalmPolluterCard::CGempalmPolluterCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CGempalmPolluterCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 bool CGempalmPolluterCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
@@ -2077,7 +2198,6 @@ CAvenWarhawkCard::CAvenWarhawkCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 	GetCreatureKeyword()->AddFlying(FALSE);
@@ -2092,7 +2212,7 @@ void CAvenWarhawkCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2109,7 +2229,6 @@ CCanopyCrawlerCard::CCanopyCrawlerCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 
@@ -2138,7 +2257,7 @@ void CCanopyCrawlerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2178,7 +2297,6 @@ CDaruStingerCard::CDaruStingerCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 
@@ -2208,7 +2326,7 @@ void CDaruStingerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2247,7 +2365,6 @@ CEmbalmedBrawlerCard::CEmbalmedBrawlerCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 
@@ -2276,7 +2393,7 @@ void CEmbalmedBrawlerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2304,7 +2421,6 @@ CGhastlyRemainsCard::CGhastlyRemainsCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 
@@ -2335,7 +2451,7 @@ void CGhastlyRemainsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2362,7 +2478,6 @@ CGloweringRogonCard::CGloweringRogonCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 }
@@ -2376,7 +2491,7 @@ void CGloweringRogonCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2393,7 +2508,6 @@ CZombieBruteCard::CZombieBruteCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 	GetCreatureKeyword()->AddTrample(FALSE);
@@ -2408,7 +2522,7 @@ void CZombieBruteCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -2425,7 +2539,6 @@ CKilnmouthDragonCard::CKilnmouthDragonCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddAmplify(FALSE);
 	GetCreatureKeyword()->AddFlying(FALSE);
@@ -2471,7 +2584,7 @@ void CKilnmouthDragonCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -3821,6 +3934,76 @@ bool CSkirkAlarmistCard::BeforeResolution(CAbilityAction* pAction) const
 	pModifier2.ApplyTo(pAction->GetController());
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CMistformSliverCard::CMistformSliverCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Mistform Sliver"), CardType::Creature, CREATURE_TYPE2(Illusion, Sliver), nID,
+		_T("1") BLUE_MANA_TEXT, Power(1), Life(1))
+	, m_TypeSelection(pGame,CSelectionSupport::SelectionCallback(this, &CMistformSliverCard::OnTypeSelected))
+{
+	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+		::CreateObject<CPwrTghAttrEnchantment>(this,
+			new CreatureTypeComparer(CREATURE_TYPE(Sliver), false),	
+			Power(+0), Life(+0), CreatureKeyword::Null));
+
+	cpAbility->GetOtherCardModifiers().push_back(new CCardAbilityModifier(
+		CCardAbilityModifier::CreateAbilityCallback(this,
+			&CMistformSliverCard::CreateAbility)));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+counted_ptr<CAbility> CMistformSliverCard::CreateAbility(CCard* pCard)
+{
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(pCard,
+			_T("1")));
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CMistformSliverCard::BeforeResolution));
+	cpAbility->SetAbilityText(_T("add creature type to"));
+
+	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+bool CMistformSliverCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCard* pCard = pAction->GetOriginatingCard();
+
+	std::vector<SelectionEntry> entries;
+
+	for (int i = 1; i < SingleCreatureType::_SingleTypeCount; ++i)
+	{
+		SingleCreatureType::Enum creatureType = (SingleCreatureType::Enum)i;
+
+		SelectionEntry entry;
+		entry.dwContext = creatureType;
+		entry.strText.Format(_T("select %s for %s"),SingleCreatureType(creatureType).ToString(), pCard->GetCardName(TRUE));		
+		entries.push_back(entry);
+	}
+
+	m_TypeSelection.AddSelectionRequest(entries, 1, 1, NULL, GetController(), (DWORD)pCard);	
+
+	return true;
+}
+
+void CMistformSliverCard::OnTypeSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{ 
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			SingleCreatureType creatureType((SingleCreatureType::Enum)it->dwContext);
+			CCard* pCard = (CCard*)dwContext1;
+
+			CScheduledCardModifier* pModifier = new CScheduledCardModifier(GetGame(),
+				new CCreatureTypeModifierNeo(creatureType, true),
+				TurnNumberDelta(-1), NodeId::CleanupStep2, true, CScheduledCardModifier::Operation::ApplyToNowRemoveLater);
+
+			pModifier->ApplyTo(pCard);
+
+			break;
+		}
 }
 
 //____________________________________________________________________________

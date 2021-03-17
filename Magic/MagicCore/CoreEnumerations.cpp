@@ -8,6 +8,9 @@ CString CreatureKeyword::ToString(CreatureKeyword creatureKeyword)
 {
 	CString strText;
 
+	if ((creatureKeyword & Monstrous).Any())
+		strText += _T("monstrous, ");
+
 	if ((creatureKeyword & CreatureKeyword::FirstStrike).Any())
 		strText += _T("first strike, ");
 
@@ -187,6 +190,8 @@ CString CardKeyword::ToString(CardKeyword cardKeyword)
 	if ((cardKeyword & CantBeCountered).Any())
 		strText += _T("can't be countered, ");
 
+	if ((cardKeyword & CantBeEnchanted).Any())
+		strText += _T("can't be enchanted, ");
 
 	if ((cardKeyword & Vanishing).Any())
 		strText += _T("vanishing, ");
@@ -383,6 +388,7 @@ const LPCTSTR SingleCreatureType::s_Text[SingleCreatureType::_SingleTypeCount] =
 	_T("Gnome"),
 	_T("Goat"),
 	_T("Goblin"),
+	_T("God"),
 	_T("Golem"),
 	_T("Gorgon"),
 	_T("Graveborn"),
@@ -441,6 +447,7 @@ const LPCTSTR SingleCreatureType::s_Text[SingleCreatureType::_SingleTypeCount] =
 	_T("Ninja"),
 	_T("Noggle"),
 	_T("Nomad"),
+	_T("Nymph"),
 	_T("Octopus"),
 	_T("Ogre"),
 	_T("Ooze"),
@@ -467,6 +474,7 @@ const LPCTSTR SingleCreatureType::s_Text[SingleCreatureType::_SingleTypeCount] =
 	_T("Rhino"),
 	_T("Rigger"),
 	_T("Rogue"),
+	_T("Sable"),
 	_T("Salamander"),
 	_T("Samurai"),
 	_T("Sand"),
@@ -539,6 +547,7 @@ const LPCTSTR PlaneswalkerType::s_Text[PlaneswalkerType::_SubtypeCount] =
 {
 	_T("Invalid"),
 	_T("Ajani"),
+	_T("Ashiok"),
 	_T("Bolas"),
 	_T("Chandra"),
 	_T("Domri"),
@@ -546,13 +555,20 @@ const LPCTSTR PlaneswalkerType::s_Text[PlaneswalkerType::_SubtypeCount] =
 	_T("Garruk"),
 	_T("Gideon"),
 	_T("Jace"),
+	_T("Karn"),
+	_T("Koth"),
 	_T("Liliana"),
 	_T("Nissa"),
 	_T("Ral"),
 	_T("Sarkhan"),
 	_T("Sheila"),
 	_T("Sorin"),
-	_T("Tezzeret")
+	_T("Tamiyo"),
+	_T("Tezzeret"),
+	_T("Tibalt"),
+	_T("Venser"),
+	_T("Vraska"),
+	_T("Xenagos")
 };
 //____________________________________________________________________________
 //

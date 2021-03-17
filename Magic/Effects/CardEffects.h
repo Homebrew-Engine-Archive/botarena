@@ -1860,3 +1860,80 @@ protected:
 
 //____________________________________________________________________________
 //
+class CSeismicStompEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CSeismicStompEffectToken);
+};
+
+//____________________________________________________________________________
+//
+class CStoneshockGiantEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CStoneshockGiantEffectToken);
+};
+
+//____________________________________________________________________________
+//
+class CElspethSunsChampionEmblemToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CElspethSunsChampionEmblemToken);
+};
+
+//____________________________________________________________________________
+//
+class CBidentOfThassaEffectToken : public CEffectCard
+{
+	DECLARE_CARD_CSTOR(CBidentOfThassaEffectToken);
+};
+
+//____________________________________________________________________________
+//
+class CGiftOfImmortalityEffectToken : public CDoubleContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CGiftOfImmortalityEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CRescueFromTheUnderworldEffectToken : public CDoubleContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CRescueFromTheUnderworldEffectToken);
+
+protected:
+	BOOL_ bFired;
+
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode);
+	bool BeforeResolution(CAbilityAction* pAction) const;
+
+	bool SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	bool SetTriggerContextAux3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode);
+};
+
+//____________________________________________________________________________
+//
+class CTimeToFeedEffectToken : public CContainerEffectCard
+{
+	DECLARE_CARD_CSTOR(CTimeToFeedEffectToken);
+
+protected:
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+};
+
+//____________________________________________________________________________
+//

@@ -385,6 +385,9 @@ public:
 	CCountedCardContainer GetCardsDrawnThisTurn() const					{ return m_pCardsDrawnThisTurn; }
 	CCard* GetLastDraw()						{ return m_pLastDrawThisTurn; }
 
+	void AddToDamageSourcesThisTurn(CCard* pCard)		{ m_pDamageSourcesThisTurn.AddCard(pCard, CardPlacement::Top); }
+	void RemoveFromDamageSourcesThisTurn (CCard* pCard)	{ m_pDamageSourcesThisTurn.RemoveCard(pCard); }
+	CCountedCardContainer GetDamageSourcesThisTurn() const					{ return m_pDamageSourcesThisTurn; }
 
 	void IncreaseTurnDiscardCount()					{ ++m_nTurnDiscardCount; }
 	int GetTurnDiscardCount() const					{ return m_nTurnDiscardCount; }
@@ -527,6 +530,7 @@ public:
 	BOOL GetFinishedMulligan() const { return m_bFinishedMulligan; }
 	void SetFinishedMulligan(BOOL bFinishedMulligan) { m_bFinishedMulligan = bFinishedMulligan; }
 
+	int GetDevotion(CManaCost::Color DevotionColor);
 protected:
 	void OnDamageRedirectionSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	void OnPlaneswalkerSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
@@ -595,6 +599,8 @@ protected:
 	int_	m_nTurnDrawCount;
 	CCountedCardContainer_ m_pCardsDrawnThisTurn;
 	CCard* m_pLastDrawThisTurn;
+
+	CCountedCardContainer_ m_pDamageSourcesThisTurn;
 
 	int_	m_nTurnAttackCount;
 

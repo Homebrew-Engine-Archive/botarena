@@ -163,6 +163,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSmolderingButcherCard);
 		DEFINE_CARD(CSwirlingSprigganCard);
 		DEFINE_CARD(CSyphonLifeCard);
+		DEFINE_CARD(CTalarasBaneCard);
 		DEFINE_CARD(CTalarasBattalionCard);
 		DEFINE_CARD(CTalonrendCard);
 		DEFINE_CARD(CThunderblustCard);
@@ -4583,7 +4584,7 @@ CBelligerentHatchlingCard::CBelligerentHatchlingCard(CGame* pGame, UINT nID)
 	: CFirstStrikeCreatureCard(pGame, _T("Belligerent Hatchling"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("3") RED_MANA_TEXT, Power(6), Life(6))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//hybrid mana cost
@@ -4752,7 +4753,7 @@ CSturdyHatchlingCard::CSturdyHatchlingCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Sturdy Hatchling"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("3") GREEN_MANA_TEXT, Power(6), Life(6))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//hybrid mana cost
@@ -4832,7 +4833,7 @@ CVoraciousHatchlingCard::CVoraciousHatchlingCard(CGame* pGame, UINT nID)
 		_T("3") WHITE_MANA_TEXT, Power(6), Life(6))
 {
 	GetCardKeyword()->AddLifelink(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//hybrid mana cost
@@ -4889,7 +4890,7 @@ CBloodiedGhostCard::CBloodiedGhostCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Bloodied Ghost"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
 		_T("1") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(3), Life(3))
 {
-	 GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	 GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		//hybrid mana cost
@@ -4922,7 +4923,7 @@ CDeityofScarsCard::CDeityofScarsCard(CGame* pGame, UINT nID)
 {
 	m_pRegenerationAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("-1/-1")), -1);
 
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	GetCreatureKeyword()->AddTrample(FALSE);
 
 	{
@@ -5026,7 +5027,7 @@ CWickerboughElderCard::CWickerboughElderCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Wickerbough Elder"), CardType::Creature, CREATURE_TYPE2(Treefolk, Shaman), nID,
 		_T("3") GREEN_MANA_TEXT, Power(4), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
@@ -5231,42 +5232,13 @@ CSpringjackShepherdCard::CSpringjackShepherdCard(CGame* pGame, UINT nID)
 
 bool CSpringjackShepherdCard::BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction) 
 {
-	CZone* pBattle = GetController()->GetZoneById(ZoneId::Battlefield);
-	int p = 0;
-	int max= 0;
-	int converted = 0;
-	int temp = 0;
-
-	for (int i = 0; i < pBattle->GetSize(); ++i)
-	{
-		max = 0;
-		CCard* pCard = pBattle->GetAt(i);
-		if (!pCard->GetCardType().IsLand()) {
-		converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-		for (int j = 0; j < pBattle->GetAt(i)->GetSpells().GetSize(); ++j)
-		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::White);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::White);
-				}
-		}
-		p = p + max;
-		}
-	}
-
-	CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.SetComparer(new CardNameComparer(_T("Reaper King")));
-
-	p = p + m_CardFilter_temp.CountIncluded(pBattle->GetCardContainer());
-
 	TriggeredAbility1::TriggerContextType triggerContext(pAction->GetTriggerContext());
-	triggerContext.nValue1 = p;
-	pAction->SetTriggerContext(triggerContext);
 
-	return p>0;
+	triggerContext.nValue1 = GetController()->GetDevotion(CManaCost::Color::White);
+	
+	pAction->SetTriggerContext(triggerContext);
+	
+	return true;
 }
 
 //____________________________________________________________________________
@@ -5469,7 +5441,7 @@ CNoxiousHatchlingCard::CNoxiousHatchlingCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Noxious Hatchling"), CardType::Creature, CREATURE_TYPE(Elemental), nID,
 		_T("3") BLACK_MANA_TEXT, Power(6), Life(6))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	GetCardKeyword()->AddWither(FALSE);
 
 	{
@@ -5827,45 +5799,17 @@ void CPrimalcruxCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZo
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield)
 	{
-		CZone* pGrave = GetController()->GetZoneById(ZoneId::Battlefield);
-		int p = 0;
-		int max= 0;
-		int converted = 0;
-		int temp = 0;
+		CPlayer* pController = GetController();
 
-		for (int i = 0; i < pGrave->GetSize(); ++i)
-		{
-			max = 0;
-			CCard* pCard = pGrave->GetAt(i);
-			if (!pCard->GetCardType().IsLand()) {
-			//converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-		/*	for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
-			{
-				if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-					{
-					temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Green);
-					if (temp>max) */
-					max = pCard->GetManaCost(CManaCost::Color::Green);
-				//max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Green);
-					//}
-			}
-			p = p + max;
-		}
-	
-
-		CCardFilter m_CardFilter_temp;
-		m_CardFilter_temp.SetComparer(new CardNameComparer(_T("Reaper King")));
-
-		p = p + m_CardFilter_temp.CountIncluded(pGrave->GetCardContainer());
+		int SymDevotionCnt = pController->GetDevotion(CManaCost::Color::Green); // power and toughness
 
 		CPowerModifier* pPowerModifier = new CPowerModifier;
-		pPowerModifier->SetPowerDelta(Power(p));
+		pPowerModifier->SetPowerDelta(Power(SymDevotionCnt));
 		pPowerModifier->SetToBase(TRUE);
 		pPowerModifier->SetOneTurnOnly(FALSE);
 
 		CLifeModifier* pLifeModifier = new CLifeModifier;
-		pLifeModifier->SetLifeDelta(Life(p));
+		pLifeModifier->SetLifeDelta(Life(SymDevotionCnt));
 		pLifeModifier->SetToBase(TRUE);
 		pLifeModifier->SetOneTurnOnly(FALSE);
 		pLifeModifier->SetReplacement(TRUE);
@@ -5875,52 +5819,23 @@ void CPrimalcruxCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZo
 	}
 }
 
+
 bool CPrimalcruxCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
 {
-	CZone* pGrave = GetController()->GetZoneById(ZoneId::Battlefield);
-	int p = 0;
-	int max= 0;
-	int converted = 0;
-	int temp = 0;
+	CPlayer* pController = pAction->GetController();
 
-	for (int i = 0; i < pGrave->GetSize(); ++i)
-	{
-		max = 0;
-		CCard* pCard = pGrave->GetAt(i);
-		if (!pCard->GetCardType().IsLand()) {
-		//converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-		//for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
-		//{
-			//if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-				//{
-			//	temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Green);
-				//if (temp>max) 
-					//max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Green);
-			max = pCard->GetManaCost(CManaCost::Color::Green);
-				//}
-		
-		p = p + max;
-		}
-	}
-
-	CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.SetComparer(new CardNameComparer(_T("Reaper King")));
-
-	p = p + m_CardFilter_temp.CountIncluded(pGrave->GetCardContainer());
-
+	int SymDevotionCnt = pController->GetDevotion(CManaCost::Color::Green); // power and toughness
 	Power startpower = GetPower();
 	Life startlife = GetLife();
 	Power startpermanentpower = GetPermanentPower();
 	Life startpermanentlife = GetPermanentLife();
-	SetPower(Power(p)-(startpermanentpower-startpower), true);
-	SetLife(NULL,Life(p)-(startpermanentlife-startlife));
-	SetPermanentPower(Power(p), true);
-	SetPermanentLife(Life(p), true);
+	SetPower(Power(SymDevotionCnt)-(startpermanentpower-startpower), true);
+	SetLife(NULL,Life(SymDevotionCnt)-(startpermanentlife-startlife));
+	SetPermanentPower(Power(SymDevotionCnt), true);
+	SetPermanentLife(Life(SymDevotionCnt), true);
 
 	return true;
 }
-
 //____________________________________________________________________________
 //
 CHeartlashCinderCard::CHeartlashCinderCard(CGame* pGame, UINT nID)
@@ -5935,52 +5850,25 @@ CHeartlashCinderCard::CHeartlashCinderCard(CGame* pGame, UINT nID)
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);		
 
-	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CHeartlashCinderCard::BeforeResolution1));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CHeartlashCinderCard::BeforeResolution));
 
 	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
 
 	AddAbility(cpAbility.GetPointer());
 }
 
-bool CHeartlashCinderCard::BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction) 
+bool CHeartlashCinderCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) 
 {
-	CZone* pGrave = GetController()->GetZoneById(ZoneId::Battlefield);
-	int p = 0;
-	int max= 0;
-	int converted = 0;
-	int temp = 0;
+	CPlayer* pController = pAction->GetController();
 
-	for (int i = 0; i < pGrave->GetSize(); ++i)
-	{
-		max = 0;
-		CCard* pCard = pGrave->GetAt(i);
-		if (!pCard->GetCardType().IsLand()) {
-		converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
+	int SymDevotionCnt = pController->GetDevotion(CManaCost::Color::Red); // +X/+0
 
-		for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
-		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				}
-		}
-		p = p + max;
-		}
-	}
-
-	CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.SetComparer(new CardNameComparer(_T("Reaper King")));
-
-	p = p + m_CardFilter_temp.CountIncluded(pGrave->GetCardContainer());
-
-	TriggeredAbility1::TriggerContextType triggerContext(pAction->GetTriggerContext());
-	triggerContext.m_PowerModifier.SetPowerDelta(Power(+p));
+	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
+	triggerContext.m_PowerModifier.SetPowerDelta(Power(+SymDevotionCnt));
 
 	pAction->SetTriggerContext(triggerContext);
 
-	return p>0;
+	return true;
 }
 
 //____________________________________________________________________________
@@ -6010,43 +5898,13 @@ COutrageShamanCard::COutrageShamanCard(CGame* pGame, UINT nID)
 
 bool COutrageShamanCard::BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction) 
 {
-	CZone* pGrave = GetController()->GetZoneById(ZoneId::Battlefield);
-	int p = 0;
-	int max= 0;
-	int converted = 0;
-	int temp = 0;
-
-	for (int i = 0; i < pGrave->GetSize(); ++i)
-	{
-		max = 0;
-		CCard* pCard = pGrave->GetAt(i);
-		if (!pCard->GetCardType().IsLand()) {
-		converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-
-		for (int j = 0; j < pGrave->GetAt(i)->GetSpells().GetSize(); ++j)
-		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				}
-		}
-		p = p + max;
-		}
-	}
-
-	CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.SetComparer(new CardNameComparer(_T("Reaper King")));
-
-	p = p + m_CardFilter_temp.CountIncluded(pGrave->GetCardContainer());
-
+	int SymDevotionCnt = GetController()->GetDevotion(CManaCost::Color::Red);
 	TriggeredAbility1::TriggerContextType triggerContext(pAction->GetTriggerContext());
-	triggerContext.m_LifeModifier.SetLifeDelta(-Life(p));
 
+	triggerContext.m_LifeModifier.SetLifeDelta(Life(-SymDevotionCnt));
 	pAction->SetTriggerContext(triggerContext);
-
-	return p>0;
+	
+	return true;
 }
 
 //____________________________________________________________________________
@@ -6092,75 +5950,101 @@ void CFieryBombardmentCard::OnResolutionCompleted1(const CAbilityAction* pAbilit
 {
 	CCard* pCard = pAbilityAction->GetSacrificeCards()->GetAt(0);
 	CCard* target = pAbilityAction->GetAssociatedCard();
-
-	int max= 0;
-	int converted = 0;
-	int temp = 0;
-
+	//start code derived from CPlayer::GetDevotion-------------------	
+	CManaCost::Color DevotionColor = CManaCost::Color::Red;
+	int SymDevotionCur = 0;						// current devotion symbol total
+	int SymDevotionTmp = 0;
+	int SymDevotionCnt = 0;						// devotion symbol count
+	//end code derived from CPlayer::GetDevotion---------------------
 	if (pCard->GetCardType().IsCreature() && bResult) 
 	{
-	CCreatureCard* pCreature = (CCreatureCard*)pCard;
-
-	converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-	for (int j = 0; j < pCard->GetSpells().GetSize(); ++j)
+		//start code derived from CPlayer::GetDevotion-------------------		
+		if ((pCard->GetPrintedCardName() == _T("Bringer of the Blue Dawn" )) ||  // put exceptions here where devotion must be 
+			(pCard->GetPrintedCardName() == _T("Bringer of the Black Dawn")) ||  // calculated using first alternate mana cost
+			(pCard->GetPrintedCardName() == _T("Bringer of the Green Dawn")) ||	  
+			(pCard->GetPrintedCardName() == _T("Bringer of the Red Dawn"  )) ||
+			(pCard->GetPrintedCardName() == _T("Bringer of the White Dawn")))
 		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				}
+			/*
+				Mana symbols in the text boxes of permanents you control don’t count toward your devotion to any color.
+				So in this case use first alternative mana cost to calculate devotion. 
+			*/
+			SymDevotionCur = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);  	
 		}
-
-		if (pCard->GetPrintedCardName() == _T("Reaper King")) max = 1;
-		
+		else
+		{
+			/*
+				Supports normal, hybred, phyrexian mana cases - use the mana cost with highest 
+				number of mana symbols of the devotion color.
+			*/
+			for (int j = 0; j < pAbilityAction->GetSacrificeCards()->GetAt(0)->GetSpells().GetSize(); ++j) // go though card's alternate mana costs
+			{
+				SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
+				if (SymDevotionTmp > SymDevotionCur)
+					SymDevotionCur = SymDevotionTmp;  	
+			}
+		}
+		SymDevotionCnt = SymDevotionCnt + SymDevotionCur;	
+		//end code derived from CPlayer::GetDevotion---------------------
 		CLifeModifier pmodifier1 = CLifeModifier(
-			Life(-max), // number on which the life will be altered
-		this, // sourcecard of life altering
-		PreventableType::Preventable // preventable or not prevantable
-		, DamageType::AbilityDamage | DamageType::NonCombatDamage, // Damage Type
-		TRUE , FALSE);
+			Life(-SymDevotionCnt),									  // number on which the life will be altered
+			this,													  // sourcecard of life altering
+			PreventableType::Preventable,							  // preventable or not prevantable
+			DamageType::AbilityDamage | DamageType::NonCombatDamage); // Damage Type
 
 		if (target->GetCardType().IsCreature()) 
-		{ CCreatureCard* pTargetCreature = (CCreatureCard*)target;
+		{ 
+		  CCreatureCard* pTargetCreature = (CCreatureCard*)target;
 		  pmodifier1.ApplyTo(pTargetCreature);
 		}
-		//pmodifier1.ApplyTo(target);
 	}
 }
 
 void CFieryBombardmentCard::OnResolutionCompleted2(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CCard* pCard = pAbilityAction->GetSacrificeCards()->GetAt(0);
 	CPlayer* target = pAbilityAction->GetAssociatedPlayer();
-
-	int max= 0;
-	int converted = 0;
-	int temp = 0;
-
+	CCard* pCard = pAbilityAction->GetSacrificeCards()->GetAt(0);  // sacrifice creature card
+	//start code derived from CPlayer::GetDevotion-------------------	
+	CManaCost::Color DevotionColor = CManaCost::Color::Red;
+	int SymDevotionCur = 0;						// current devotion symbol total
+	int SymDevotionTmp = 0;
+	int SymDevotionCnt = 0;						// devotion symbol count
+	//end code derived from CPlayer::GetDevotion---------------------
 	if (pCard->GetCardType().IsCreature() && bResult) 
 	{
-	CCreatureCard* pCreature = (CCreatureCard*)pCard;
-
-	converted = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetTotal();
-	for (int j = 0; j < pCard->GetSpells().GetSize(); ++j)
+		//start code derived from CPlayer::GetDevotion-------------------		
+		if ((pCard->GetPrintedCardName() == _T("Bringer of the Blue Dawn" )) ||  // put exceptions here where devotion must be 
+			(pCard->GetPrintedCardName() == _T("Bringer of the Black Dawn")) ||  // calculated using first alternate mana cost
+			(pCard->GetPrintedCardName() == _T("Bringer of the Green Dawn")) ||	  
+			(pCard->GetPrintedCardName() == _T("Bringer of the Red Dawn"  )) ||
+			(pCard->GetPrintedCardName() == _T("Bringer of the White Dawn")))
 		{
-			if (pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetTotal() == converted) 
-				{
-				temp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				if (temp>max) 
-					max=pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(CManaCost::Color::Red);
-				}
+			/*
+				Mana symbols in the text boxes of permanents you control don’t count toward your devotion to any color.
+				So in this case use first alternative mana cost to calculate devotion. 
+			*/
+			SymDevotionCur = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);  	
 		}
-
-		if (pCard->GetPrintedCardName() == _T("Reaper King")) max = 1;
-		
+		else
+		{
+			/*
+				Supports normal, hybred, phyrexian mana cases - use the mana cost with highest 
+				number of mana symbols of the devotion color.
+			*/
+			for (int j = 0; j < pAbilityAction->GetSacrificeCards()->GetAt(0)->GetSpells().GetSize(); ++j) // go though card's alternate mana costs
+			{
+				SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
+				if (SymDevotionTmp > SymDevotionCur)
+					SymDevotionCur = SymDevotionTmp;  	
+			}
+		}
+		SymDevotionCnt = SymDevotionCnt + SymDevotionCur;	
+		//end code derived from CPlayer::GetDevotion---------------------
 		CLifeModifier pmodifier1 = CLifeModifier(
-			Life(-max), // number on which the life will be altered
-		this, // sourcecard of life altering
-		PreventableType::Preventable // preventable or not prevantable
-		, DamageType::AbilityDamage | DamageType::NonCombatDamage // Damage Type
-		);
+			Life(-SymDevotionCnt),									  // number on which the life will be altered
+			this,													  // sourcecard of life altering
+			PreventableType::Preventable,							  // preventable or not prevantable
+			DamageType::AbilityDamage | DamageType::NonCombatDamage); // Damage Type
 		pmodifier1.ApplyTo(target);
 	}
 }
@@ -7925,6 +7809,12 @@ CSaplingOfColfenorCard::CSaplingOfColfenorCard(CGame* pGame, UINT nID)
 
 bool CSaplingOfColfenorCard::BeforeResolution(CSaplingOfColfenorCard::TriggeredAbility::TriggeredActionType* pAction) const
 {
+	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		cont->SetDrawFailed();								 // can not draw a card to put into your hand, so draw has failed
+		return false;										 // no point continuing
+	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	int nCost = 0;
@@ -8683,7 +8573,7 @@ CShrewdHatchlingCard::CShrewdHatchlingCard(CGame* pGame, UINT nID)
 	//, m_CardFilter(_T("card that can't block this hatchling"), _T("cards which can't block this hatchling"), new  ContainedinComparer(&m_AffectedCards))
 	,m_WhenNodeChanged(this, NodeId::CleanupStep1, FALSE)
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	m_WhenNodeChanged.SetEventCallback(CWhenNodeChanged::EventCallback(this, &CShrewdHatchlingCard::OnNodeChanged));
 	m_CardFilter.AddNegateComparer(new  ContainedinComparer(&m_AffectedCards));
 
@@ -9261,6 +9151,96 @@ bool CPyrrhicRevivalCard::BeforeResolution(CAbilityAction* pAction) const
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CTalarasBaneCard::CTalarasBaneCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Talara's Bane"), CardType::Sorcery, nID)
+	, m_CardSelection(pGame,CSelectionSupport::SelectionCallback(this, &CTalarasBaneCard::OnCardSelected))
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+			_T("1") BLACK_MANA_TEXT,
+			FALSE_CARD_COMPARER, true));
+
+	cpSpell->GetTargeting()->SetIncludeOpponentPlayersOnly();
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CTalarasBaneCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CTalarasBaneCard::BeforeResolution(CAbilityAction* pAction)
+{
+	
+	CPlayer* pPlayer = pAction->GetAssociatedPlayer();
+	CZone* pHand = pPlayer->GetZoneById(ZoneId::Hand);
+
+	CZoneModifier* pModifier1 = new CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+	pModifier1->ApplyTo(pPlayer);
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new AnyCreatureComparer);
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::Green | CardType::White, false));
+
+	if (m_CardFilter.CountIncluded(pHand->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < pHand->GetSize(); ++i)
+		{
+			CCard* pCard = pHand->GetAt(i);
+
+			if (m_CardFilter.IsCardIncluded(pCard))
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Choose %s (and gain %d life)"),
+					pCard->GetCardName(TRUE), ((CCreatureCard*)pCard)->GetLife());
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pAction->GetController());
+	}
+
+	return true;
+}
+
+void CTalarasBaneCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCreatureCard* pCard = (CCreatureCard*)it->dwContext;
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s makes %s discard %s"), pSelectionPlayer->GetPlayerName(), pCard->GetOwner()->GetPlayerName(), pCard->GetCardName(TRUE));
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+			Life nToughness = pCard->GetLife();
+
+			if (nToughness > Life(0))
+			{
+				CLifeModifier pModifier1 = CLifeModifier(+nToughness, this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+				pModifier1.ApplyTo(pSelectionPlayer);
+			}
+				
+			CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Hand, ZoneId::Graveyard, TRUE, MoveType::Discard, pSelectionPlayer);
+			pModifier2.ApplyTo(pCard);
+
+			return;
+		}
 }
 
 //____________________________________________________________________________

@@ -140,6 +140,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CTorchDrakeCard);
 		DEFINE_CARD(CUlashttheHateSeedCard);
 		DEFINE_CARD(CVedalkenPlotterCard);
+		DEFINE_CARD(CVertigoSpawnCard);
 		DEFINE_CARD(CWeeDragonautsCard);
 		DEFINE_CARD(CWildCantorCard);
 		DEFINE_CARD(CWildsizeCard);
@@ -2057,8 +2058,6 @@ CWitchMawNephilimCard::CWitchMawNephilimCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Witch-Maw Nephilim"), CardType::Creature, CREATURE_TYPE(Nephilim), nID,
 		GREEN_MANA_TEXT WHITE_MANA_TEXT BLUE_MANA_TEXT BLACK_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
@@ -2516,7 +2515,6 @@ CUlashttheHateSeedCard::CUlashttheHateSeedCard(CGame* pGame, UINT nID)
 	, m_CardFilter1(_T("a red creature"), _T("red creatures"), new CardTypeComparer(CardType::Red | CardType::Creature, true))
 	, m_CardFilter2(_T("a green creature"), _T("green creatures"), new CardTypeComparer(CardType::Green | CardType::Creature, true))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	m_CardFilter1.AddComparer(new NegateCardComparer(new SpecificCardComparer(this)));
@@ -2560,7 +2558,7 @@ void CUlashttheHateSeedCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone
 		int green = m_CardFilter2.CountIncluded(pBat->GetCardContainer());
 		int summ = red+green;
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +summ, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +summ);
 
 		pModifier.ApplyTo(this);
 	}
@@ -5603,6 +5601,47 @@ bool CKillerInstinctCard::BeforeResolution(CAbilityAction* pAction)
 		CContainerEffectModifier pModifier3 = CContainerEffectModifier(GetGame(), _T("End Step Sacrifice Effect"), 61058, &pSubjects);
 		pModifier3.ApplyTo(pController);
 	}
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CVertigoSpawnCard::CVertigoSpawnCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Vertigo Spawn"), CardType::Creature, CREATURE_TYPE(Illusion), nID,
+		_T("1") BLUE_MANA_TEXT, Power(0), Life(3))
+{
+	GetCreatureKeyword()->AddDefender(FALSE);
+
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CVertigoSpawnCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CVertigoSpawnCard::BeforeResolution));
+
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CVertigoSpawnCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCreatureCard* pCreature, BOOL bBlocked, CCreatureCard* pCreature2, int nCount, int nIndex) const
+{
+	triggerContext.nValue1 = (DWORD)pCreature2;
+	return (IsBlocking() == TRUE);
+}
+
+bool CVertigoSpawnCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
 
 	return true;
 }

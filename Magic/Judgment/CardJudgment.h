@@ -1131,3 +1131,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CMaskedGorgonCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMaskedGorgonCard);
+
+protected:
+	CCardFilter m_CardFilter;
+};
+
+//____________________________________________________________________________
+//

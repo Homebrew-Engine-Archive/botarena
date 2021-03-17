@@ -410,3 +410,87 @@ class CElementalTToken : public CTokenCreature
 
 //____________________________________________________________________________
 //
+class CHarpyToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CHarpyToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalUToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalUToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierNToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierNToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierOToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierOToken);
+};
+
+//____________________________________________________________________________
+//
+class CSoldierPToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSoldierPToken);
+};
+
+//____________________________________________________________________________
+//
+class CGolemEToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CGolemEToken);
+};
+
+//____________________________________________________________________________
+//
+class CBoarBToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CBoarBToken);
+};
+
+//____________________________________________________________________________
+//
+class CBirdIToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CBirdIToken);
+};
+
+//____________________________________________________________________________
+//
+class CSatyrToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSatyrToken);
+};
+
+//____________________________________________________________________________
+//
+class CSnakeGToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CSnakeGToken);
+};
+
+//____________________________________________________________________________
+//
+class CElementalVToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CElementalVToken);
+};
+
+//____________________________________________________________________________
+//
+class CBeastNToken : public CTokenCreature
+{
+	DECLARE_CARD_CSTOR(CBeastNToken);
+};
+
+//____________________________________________________________________________
+//

@@ -3158,7 +3158,6 @@ CDeadRevelerCard::CDeadRevelerCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT, Power(2), Life(3), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CDeadRevelerCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddUnleash(FALSE);
 }
@@ -3172,7 +3171,7 @@ void CDeadRevelerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZ
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -3184,7 +3183,6 @@ CGrimRoustaboutCard::CGrimRoustaboutCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT, Power(1), Life(1), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CGrimRoustaboutCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddUnleash(FALSE);
 
@@ -3204,7 +3202,7 @@ void CGrimRoustaboutCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -3245,7 +3243,6 @@ CChaosImpsCard::CChaosImpsCard(CGame* pGame, UINT nID)
 		_T("4") RED_MANA_TEXT RED_MANA_TEXT, Power(6), Life(5), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CChaosImpsCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddFlying(FALSE);
 	GetCreatureKeyword()->AddUnleash(FALSE);
@@ -3274,7 +3271,7 @@ void CChaosImpsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZon
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -3308,7 +3305,7 @@ bool CSearchWarrantCard::BeforeResolution(CAbilityAction* pAction)
 	CPlayer* pController = pAction->GetController();
 	CPlayer* pTarget = pAction->GetAssociatedPlayer();
 	CZone* pHand = pTarget->GetZoneById(ZoneId::Hand);
-	int nCount = CCardFilter::GetFilter(_T("cards"))->CountIncluded(pHand->GetCardContainer());
+	int nCount = pHand->GetSize();
 
 	CZoneModifier* pModifier1 = new CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
 	pModifier1->ApplyTo(pTarget);
@@ -3822,7 +3819,6 @@ CGoreHouseChainwalkerCard::CGoreHouseChainwalkerCard(CGame* pGame, UINT nID)
 		_T("1") RED_MANA_TEXT, Power(2), Life(1), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CGoreHouseChainwalkerCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddUnleash(FALSE);
 }
@@ -3836,7 +3832,7 @@ void CGoreHouseChainwalkerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZ
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -4083,7 +4079,6 @@ CThrillKillAssassinCard::CThrillKillAssassinCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT, Power(1), Life(2), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CThrillKillAssassinCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCardKeyword()->AddDeathtouch(FALSE);
 	GetCreatureKeyword()->AddUnleash(FALSE);
@@ -4098,7 +4093,7 @@ void CThrillKillAssassinCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZon
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -4675,7 +4670,6 @@ CCarnivalHellsteedCard::CCarnivalHellsteedCard(CGame* pGame, UINT nID)
 		_T("4") BLACK_MANA_TEXT RED_MANA_TEXT, Power(5), Life(4), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CCarnivalHellsteedCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddFirstStrike(FALSE);
 	GetCreatureKeyword()->AddHaste(FALSE);
@@ -4691,7 +4685,7 @@ void CCarnivalHellsteedCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -4703,7 +4697,6 @@ CSpawnOfRixMaadiCard::CSpawnOfRixMaadiCard(CGame* pGame, UINT nID)
 		_T("3") BLACK_MANA_TEXT RED_MANA_TEXT, Power(5), Life(3), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CSpawnOfRixMaadiCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddUnleash(FALSE);
 }
@@ -4717,7 +4710,7 @@ void CSpawnOfRixMaadiCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -4738,7 +4731,6 @@ CHellholeFlailerCard::CHellholeFlailerCard(CGame* pGame, UINT nID)
 		_T("1") BLACK_MANA_TEXT RED_MANA_TEXT, Power(3), Life(2), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CHellholeFlailerCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddUnleash(FALSE);
 
@@ -4763,7 +4755,7 @@ void CHellholeFlailerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -5072,7 +5064,6 @@ CManaBloomCard::CManaBloomCard(CGame* pGame, UINT nID)
 		GREEN_MANA_TEXT, AbilityType::Enchantment)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CManaBloomCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -5192,7 +5183,7 @@ void CManaBloomCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZon
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -6037,7 +6028,6 @@ CBloodfrayGiantCard::CBloodfrayGiantCard(CGame* pGame, UINT nID)
 		_T("2") RED_MANA_TEXT RED_MANA_TEXT, Power(4), Life(3), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CBloodfrayGiantCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddTrample(FALSE);
 	GetCreatureKeyword()->AddUnleash(FALSE);
@@ -6052,7 +6042,7 @@ void CBloodfrayGiantCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -6248,7 +6238,6 @@ CSplatterThugCard::CSplatterThugCard(CGame* pGame, UINT nID)
 		_T("2") RED_MANA_TEXT, Power(2), Life(2), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CSplatterThugCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddFirstStrike(FALSE);
 	GetCreatureKeyword()->AddUnleash(FALSE);
@@ -6263,7 +6252,7 @@ void CSplatterThugCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -6313,7 +6302,6 @@ CRakdosCacklerCard::CRakdosCacklerCard(CGame* pGame, UINT nID)
 		BLACK_MANA_TEXT, Power(1), Life(1), NULL)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CRakdosCacklerCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddUnleash(FALSE);
 
@@ -6336,7 +6324,7 @@ void CRakdosCacklerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }

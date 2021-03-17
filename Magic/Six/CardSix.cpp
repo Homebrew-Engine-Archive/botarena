@@ -85,6 +85,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CHiddenHorrorCard);
 		DEFINE_CARD(CHornedTurtleCard);
 		DEFINE_CARD(CHulkingCyclopsCard);
+		DEFINE_CARD(CIllicitAuctionCard);
 		DEFINE_CARD(CInfantryVeteranCard);
 		DEFINE_CARD(CInfernalContractCard);
 		DEFINE_CARD(CInsightCard);
@@ -2748,6 +2749,135 @@ void CWandOfDenialCard::OnPaymentSelected(const std::vector<SelectionEntry>& sel
 				return;
 			}
 		return;
+		}
+}
+
+//____________________________________________________________________________
+//
+CIllicitAuctionCard::CIllicitAuctionCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Illicit Auction"), CardType::Sorcery, nID)
+	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CIllicitAuctionCard::OnNumberSelected))
+	, nHighBid(0)
+	, HighBidderID(0)
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Sorcery,
+			_T("3") RED_MANA_TEXT RED_MANA_TEXT,
+			new AnyCreatureComparer, FALSE));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CIllicitAuctionCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CIllicitAuctionCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCard* pTarget = pAction->GetAssociatedCard();
+	int pPlayerID;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (GetGame()->GetPlayer(ip) == pAction->GetController())
+		{
+			pPlayerID = ip;
+			break;
+		}
+
+	nHighBid = 0;
+	HighBidderID = pPlayerID;
+
+	pPlayerID++;
+
+	if (pPlayerID >= GetGame()->GetPlayerCount())
+		pPlayerID = 0;
+
+	BidFunction(pPlayerID, pTarget, nHighBid);
+
+	return true;
+}
+
+void CIllicitAuctionCard::BidFunction(int PlayerID, CCard* pTarget, int Base)
+{
+	CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
+	
+	std::vector<SelectionEntry> entries;
+	if (Base == nHighBid)
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 0;
+		selectionEntry.strText.Format(_T("Keep high bid"));
+
+		entries.push_back(selectionEntry);
+	}
+	for (int i = Base + 1; i <= Base + 10; i++)
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = i - Base;
+		selectionEntry.strText.Format(_T("Bid %d life (topping high bid by %d)"), i, i - nHighBid);
+
+		entries.push_back(selectionEntry);
+	}
+	if (!pPlayer->IsComputer() || Base < (int)pPlayer->GetLife() + 20)
+	{
+		SelectionEntry selectionEntry;
+
+		selectionEntry.dwContext = 11;
+		selectionEntry.strText.Format(_T("More numbers"));
+
+		entries.push_back(selectionEntry);
+	}
+	m_NumberSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID, (DWORD)pTarget, (DWORD)Base);
+}
+
+void CIllicitAuctionCard::OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+	
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			int n = (int)it->dwContext;
+			int PlayerID = dwContext1;
+			CCard* pTarget = (CCard*)dwContext2;
+			int Base = dwContext3;
+			
+			if (n == 11)
+				BidFunction(PlayerID, pTarget, Base + 10);
+			else if (n == 0)
+			{
+				PlayerID++;
+
+				if (PlayerID >= GetGame()->GetPlayerCount())
+					PlayerID = 0;
+
+				if (PlayerID == HighBidderID)
+				{
+					CPlayer* pPlayer = GetGame()->GetPlayer(HighBidderID);
+
+					if (nHighBid > 0)
+					{
+						CLifeModifier pModifier = CLifeModifier(Life(-nHighBid), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
+						pModifier.ApplyTo(pPlayer);
+					}
+
+					if (pTarget->GetController() != pPlayer)
+						pTarget->Move(pPlayer->GetZoneById(ZoneId::Battlefield), pPlayer, MoveType::Others);
+				}
+				else
+					BidFunction(PlayerID, pTarget, nHighBid);
+			}
+			else
+			{
+				nHighBid = Base + n;
+				HighBidderID = PlayerID;
+
+				PlayerID++;
+
+				if (PlayerID >= GetGame()->GetPlayerCount())
+					PlayerID = 0;
+
+				BidFunction(PlayerID, pTarget, nHighBid);
+			}
 		}
 }
 

@@ -59,6 +59,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CColfenorsUrnCard);
 		DEFINE_CARD(CConsumingBonfireCard);
 		DEFINE_CARD(CCribSwapCard);
+		DEFINE_CARD(CCrushUnderfootCard);
 		DEFINE_CARD(CCrypticCommandCard);
 		DEFINE_CARD(CDauntlessDourbarkCard);
 		DEFINE_CARD(CDeathrenderCard);
@@ -611,9 +612,6 @@ CElvishHandservantCard::CElvishHandservantCard(CGame* pGame, UINT nID)
 
 	, m_CardFilter(_T("a Giant"), _T("Giants"), new CreatureTypeComparer(CREATURE_TYPE(Giant), false))
 {
-
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 
@@ -2037,9 +2035,6 @@ CVeteranOfTheDepthsCard::CVeteranOfTheDepthsCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Veteran of the Depths"), CardType::Creature, CREATURE_TYPE2(Merfolk, Soldier), nID,
 		_T("3") WHITE_MANA_TEXT, Power(2), Life(2))
 {
-
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfOrientationChanged, 
 							CWhenSelfOrientationChanged::EventCallback, &CWhenSelfOrientationChanged::SetTapEventCallback> TriggeredAbility;
@@ -2965,9 +2960,6 @@ CKnuckleboneWitchCard::CKnuckleboneWitchCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Knucklebone Witch"), CardType::Creature, CREATURE_TYPE2(Goblin, Shaman), nID,
 		BLACK_MANA_TEXT, Power(1), Life(1))
 {
-
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -3495,8 +3487,7 @@ CVividCragCard::CVividCragCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Vivid Crag"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -3559,8 +3550,7 @@ CVividCreekCard::CVividCreekCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Vivid Creek"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -3623,8 +3613,7 @@ CVividGroveCard::CVividGroveCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Vivid Grove"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -3687,8 +3676,7 @@ CVividMarshCard::CVividMarshCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Vivid Marsh"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -3751,8 +3739,7 @@ CVividMeadowCard::CVividMeadowCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Vivid Meadow"), nID)
 {
 	SetIntoPlayTapped();
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -3815,8 +3802,6 @@ CHoofprintsoftheStagCard::CHoofprintsoftheStagCard(CGame* pGame, UINT nID)
 	: CInPlayTribalSpellCard(pGame, _T("Hoofprints of the Stag"), CardType::GlobalEnchantment, nID,
 		_T("1") WHITE_MANA_TEXT, AbilityType::Enchantment, CREATURE_TYPE(Elemental))
 {
-	GetCounterContainer()->ScheduleCounter(HOOFPRINT_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardDrew > TriggeredAbility;
@@ -4829,22 +4814,18 @@ CAdderStaffBoggartCard::CAdderStaffBoggartCard(CGame* pGame, UINT nID)
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&CAdderStaffBoggartCard::OnResolutionCompleted1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	typedef 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+						CWhenSelfInplay::EventCallback,
+						&CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
-	{
-		typedef 
-			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-						   CWhenSelfInplay::EventCallback,
-						   &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		
-		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
 void CAdderStaffBoggartCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
@@ -4952,7 +4933,6 @@ CBogHoodlumsCard::CBogHoodlumsCard(CGame* pGame, UINT nID)
 			&CBogHoodlumsCard::OnResolutionCompleted1))
 {
 	GetCreatureKeyword()->AddCantBlock(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 
 	{
 		typedef 
@@ -5009,7 +4989,6 @@ CNathsEliteCard::CNathsEliteCard(CGame* pGame, UINT nID)
 			&CNathsEliteCard::OnResolutionCompleted1))
 {
 	GetCreatureKeyword()->AddLure(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 
 	{
 		typedef 
@@ -5065,22 +5044,18 @@ COakenBrawlerCard::COakenBrawlerCard(CGame* pGame, UINT nID)
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&COakenBrawlerCard::OnResolutionCompleted1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	typedef 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+						CWhenSelfInplay::EventCallback,
+						&CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
-	{
-		typedef 
-			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-						   CWhenSelfInplay::EventCallback,
-						   &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		
-		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
 void COakenBrawlerCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
@@ -5121,22 +5096,18 @@ CPaperfinRascalCard::CPaperfinRascalCard(CGame* pGame, UINT nID)
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&CPaperfinRascalCard::OnResolutionCompleted1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	typedef 
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
+						CWhenSelfInplay::EventCallback,
+						&CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
 
-	{
-		typedef 
-			TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 
-						   CWhenSelfInplay::EventCallback,
-						   &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
-		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
-
-		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		
-		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener1.GetPointer());
 
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
 void CPaperfinRascalCard::OnResolutionCompleted1(const CAbilityAction* pAbilityAction, BOOL bResult)
@@ -5638,20 +5609,16 @@ CAshlingthePilgrimCard::CAshlingthePilgrimCard(CGame* pGame, UINT nID)
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			   &CAshlingthePilgrimCard::OnResolutionCompleted))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+		::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+			_T("1") RED_MANA_TEXT));
 
-	{		
-		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
-			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
-				_T("1") RED_MANA_TEXT));
+	cpAbility->SetAbilityText(_T("Put a +1/+1 counter on"));	
+	cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 
-		cpAbility->SetAbilityText(_T("Put a +1/+1 counter on"));	
-		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+	cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(_T("+1/+1"), +1, false));
 
-		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(_T("+1/+1"), +1, false));
-
-		AddAbility(cpAbility.GetPointer());
-	}
+	AddAbility(cpAbility.GetPointer());
 }
 
 void CAshlingthePilgrimCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
@@ -7397,11 +7364,11 @@ void CGoatnapperCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction
 {
 	CCard* target=pAbilityAction->GetAssociatedCard();
 
-	CCreatureKeywordModifier pModifier;
-	pModifier.GetModifier().SetToAdd(CreatureKeyword::Haste);
+	CCardKeywordModifier pModifier;
+	pModifier.GetModifier().SetToAdd(CardKeyword::CardHaste);
 	pModifier.GetModifier().SetOneTurnOnly(TRUE);
 
-	if (target->GetCardType().IsCreature()) pModifier.ApplyTo((CCreatureCard*)target);
+	pModifier.ApplyTo(target);
 }
 
 //____________________________________________________________________________
@@ -10085,7 +10052,7 @@ CThousandYearElixirCard::CThousandYearElixirCard(CGame* pGame, UINT nID)
 		counted_ptr<CActivatedAbility<CTargetTapUntapCardSpell>> cpAbility(
 			::CreateObject<CActivatedAbility<CTargetTapUntapCardSpell>>(this,
 				_T("1"),
-				TRUE, FALSE,
+				FALSE, TRUE,
 				new AnyCreatureComparer));
 		ATLASSERT(cpAbility);
 
@@ -10994,6 +10961,95 @@ bool CScatteringStrokeCard::BeforeResolution(CAbilityAction* pAction) const
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CCrushUnderfootCard::CCrushUnderfootCard(CGame* pGame, UINT nID)
+	: CTribalCard(pGame, _T("Crush Underfoot"), CardType::Instant, nID, CREATURE_TYPE(Giant))
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &CCrushUnderfootCard::OnCardSelected))
+{
+	counted_ptr<CTargetSpell> cpSpell(
+		::CreateObject<CTargetSpell>(this, AbilityType::Instant,
+			_T("1") RED_MANA_TEXT,
+			new AnyCreatureComparer, false));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CCrushUnderfootCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CCrushUnderfootCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
+	CCard* pTarget = pAction->GetAssociatedCard();
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new AnyCreatureComparer);
+	m_CardFilter.AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Giant), false));
+
+	if (m_CardFilter.CountIncluded(pBattlefield->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+
+			if (m_CardFilter.IsCardIncluded(pCard))
+			{
+				SelectionEntry entry;
+
+				int nPower = ((CCreatureCard*)pCard)->GetPower();
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				if (nPower > 0)
+					entry.strText.Format(_T("Choose %s (%d damage)"),
+						pCard->GetCardName(TRUE), nPower);
+				else
+					entry.strText.Format(_T("Choose %s (no damage)"),
+						pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pController, (DWORD)pTarget);
+	}
+
+	return true;
+}
+
+void CCrushUnderfootCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCreatureCard* pGiant = (CCreatureCard*)it->dwContext;
+			CCreatureCard* pTarget = (CCreatureCard*)dwContext1;
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s chooses %s"), pSelectionPlayer->GetPlayerName(), pGiant->GetCardName(TRUE));
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+			int nPower = pGiant->GetPower();
+
+			if (nPower > 0)
+			{
+				CLifeModifier pModifier = CLifeModifier(Life(-nPower), pGiant, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+				pModifier.ApplyTo(pTarget);
+			}
+				
+			return;
+		}
 }
 
 //____________________________________________________________________________

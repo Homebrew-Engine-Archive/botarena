@@ -193,7 +193,7 @@ BEGIN
     IDS_STRING1188          "Scathe Zombies\n{2B}\nCreature - Zombie\nUTD,C\n\n2/2"
     IDS_STRING1189          "Sengir Vampire\n{3BB}\nCreature - Vampire\nUTD,U\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
     IDS_STRING1190          "Serra Angel\n{3WW}\nCreature - Angel\nUTD,U\nFlying\rVigilance\n4/4"
-    IDS_STRING1191          "Shanodin Dryads\n{G}\nCreature - Dryad\nUTD,C\nForestwalk\n1/1"
+    IDS_STRING1191          "Shanodin Dryads\n{G}\nCreature - Nymph Dryad\nUTD,C\nForestwalk\n1/1"
     IDS_STRING1192          "Shivan Dragon\n{4RR}\nCreature - Dragon\nUTD,R\nFlying\r{R}: Shivan Dragon gets +1/+0 until end of turn.\n5/5"
     IDS_STRING1193          "Thicket Basilisk\n{3GG}\nCreature - Basilisk\nUTD,U\nWhenever Thicket Basilisk blocks or becomes blocked by a non-Wall creature, destroy that creature at end of combat.\n2/4"
     IDS_STRING1194          "Verduran Enchantress\n{1GG}\nCreature - Human Druid\nUTD,R\nWhenever you cast an enchantment spell, you may draw a card.\n0/2"

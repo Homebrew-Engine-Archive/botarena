@@ -434,6 +434,7 @@ BEGIN
 	IDS_STRING23280         "Archangel of Strife\n{5WW}\nCreature - Angel\nCMD,R\nFlying\rAs Archangel of Strife enters the battlefield, each player chooses war or peace.\rCreatures controlled by players who chose war get +3/+0.\rCreatures controlled by players who chose peace get +0/+3.\n6/6"
 	IDS_STRING23281         "Nemesis Trap\n{4BB}\nInstant - Trap\nCMD,U\nIf a white creature is attacking, you may pay {B}{B} rather than pay Nemesis Trap's mana cost.\rExile target attacking creature. Put a token that's a copy of that creature onto the battlefield. Exile it at the beginning of the next end step."
     IDS_STRING23282         "Scattering Stroke\n{2UU}\nInstant\nCMD,U\nCounter target spell. Clash with an opponent. If you win, at the beginning of your next main phase, you may add {X} to your mana pool, where X is that spell's converted mana cost."
+    IDS_STRING23283         "Basandra, Battle Seraph\n{3RW}\nLegendary Creature - Angel\nCMD,R\nFlying\rPlayers can't cast spells during combat.\r{R}: Target creature attacks this turn if able.\n4/4"
 END
 
 #endif    // English (United States) resources

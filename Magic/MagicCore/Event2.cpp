@@ -443,6 +443,12 @@ BOOL CCreatureKeyword::LandwalkReach() const
 	return (m_Bitflag & CreatureKeyword::LandwalkReach).Any();
 }
 
+BOOL CCreatureKeyword::HasMonstrous() const
+{
+	return (m_Bitflag & CreatureKeyword::Monstrous).Any();
+}
+
+
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 //
 void CCreatureKeyword::AddFirstStrike(BOOL bThisTurnOnly)
@@ -690,6 +696,11 @@ void CCreatureKeyword::AddLandwalkReach(BOOL bThisTurnOnly)
 	AddEntry(BitflagEntry(CreatureKeyword::LandwalkReach, bThisTurnOnly));
 }
 
+void CCreatureKeyword::AddMonstrous(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::Monstrous, bThisTurnOnly));
+}
+
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 //
 void CCreatureKeyword::RemoveFirstStrike(BOOL bThisTurnOnly)
@@ -935,6 +946,11 @@ void CCreatureKeyword::RemoveUnblockableWalk(BOOL bThisTurnOnly, const CCardFilt
 void CCreatureKeyword::RemoveLandwalkReach(BOOL bThisTurnOnly)
 {
 	AddEntry(BitflagEntry(CreatureKeyword::LandwalkReach, bThisTurnOnly, EntryType::Removal));
+}
+
+void CCreatureKeyword::RemoveMonstrous(BOOL bThisTurnOnly)
+{
+	AddEntry(BitflagEntry(CreatureKeyword::Monstrous, bThisTurnOnly, EntryType::Removal));
 }
 
 //____________________________________________________________________________

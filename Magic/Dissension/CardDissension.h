@@ -471,6 +471,10 @@ class CAzoriusPloyCard : public CChgPwrTghAttrSpellCard
 class CMacabreWaltzCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CMacabreWaltzCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________

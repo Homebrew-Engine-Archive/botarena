@@ -276,7 +276,7 @@ BEGIN
     IDS_STRING855           "Sabretooth Tiger\n{2R}\nCreature - Cat\n7TH,C\nFirst strike\n2/1"
     IDS_STRING856           "Scathe Zombies\n{2B}\nCreature - Zombie\n7TH,C\n\n2/2"
     IDS_STRING857           "Sea Monster\n{4UU}\nCreature - Serpent\n7TH,C\nSea Monster can't attack unless defending player controls an Island.\n6/6"
-    IDS_STRING858           "Shanodin Dryads\n{G}\nCreature - Dryad\n7TH,C\nForestwalk\n1/1"
+    IDS_STRING858           "Shanodin Dryads\n{G}\nCreature - Nymph Dryad\n7TH,C\nForestwalk\n1/1"
     IDS_STRING859           "Shatter\n{1R}\nInstant\n7TH,C\nDestroy target artifact."
     IDS_STRING860           "Staunch Defenders\n{3WW}\nCreature - Human Soldier\n7TH,U\nWhen Staunch Defenders enters the battlefield, you gain 4 life.\n3/4"
     IDS_STRING861           "Stone Rain\n{2R}\nSorcery\n7TH,C\nDestroy target land."

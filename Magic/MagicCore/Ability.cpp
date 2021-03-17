@@ -328,6 +328,9 @@ BOOL CAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) const
 	if (IsSpell() && (m_pCard->GetCardKeyword()->HasFlash() || m_pCard->GetCardKeyword()->HasPflash()))
 		abilityType |= AbilityType::Instant;
 
+	if (pController->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::InstantEquip) && ((m_AbilityType & AbilityType::Equipment) == AbilityType::Equipment))
+		abilityType |= AbilityType::Instant;
+
 	if (!m_pGame->GetStack().IsValidAbilityType(abilityType, true) && !(m_pCard->GetCardKeyword()->HasFreecast() && IsSpell()))
 		return FALSE;
 
@@ -344,7 +347,15 @@ BOOL CAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) const
 		return FALSE;
 
 	if (IsSpell() && pController->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::TeferiEffect) && !m_pCard->GetCardKeyword()->HasStormCopy() && 
-			(m_pGame->GetStack().GetStackSize() || !(m_pGame->GetActivePlayer() == pController && m_pGame->GetCurrentNode()->GetNodeId() == NodeId::MainPhaseStep)))
+		(m_pGame->GetStack().GetStackSize() || !(m_pGame->GetActivePlayer() == pController && m_pGame->GetCurrentNode()->GetNodeId() == NodeId::MainPhaseStep)))
+		return FALSE;
+
+	if (IsSpell() && pController->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::BasandraEffect) && !m_pCard->GetCardKeyword()->HasStormCopy() && 
+		(m_pGame->GetCurrentNode()->GetNodeId() & NodeId::_CombatPhase).Any())
+		return FALSE;
+
+	if (IsSpell() && pController->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HandToHandEffect) && !m_pCard->GetCardKeyword()->HasStormCopy() && 
+		m_pCard->GetCardType().IsInstant() && (m_pGame->GetCurrentNode()->GetNodeId() & NodeId::_CombatPhase).Any())
 		return FALSE;
 
 	if ((m_AbilityType & AbilityType::Activated) == AbilityType::Activated)
@@ -376,6 +387,8 @@ BOOL CAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) const
 					if ((*i)->IsCardIncluded(m_pCard))
 						return FALSE;
 			}
+			if (pController->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HandToHandEffect) && (m_pGame->GetCurrentNode()->GetNodeId() & NodeId::_CombatPhase).Any())
+				return FALSE;
 		}
 	}
 

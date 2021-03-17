@@ -5422,6 +5422,7 @@ CCyclingSpell::CCyclingSpell(CCard* pCard, AbilityType abilityType,
 	AddAbilityTag(AbilityTag::Cycling);
 	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
 }
+
 BOOL CCyclingSpell::ResolveImpl(const CAbilityAction* pAction)
 {
 		//const_cast<CCard*>(this->GetCard())->CardCycled(this->GetCard(), this->GetCard()->GetController());
@@ -5442,6 +5443,7 @@ CSearchCyclingSpell::CSearchCyclingSpell(CCard* pCard, AbilityType abilityType,
 	AddAbilityTag(AbilityTag::Cycling);
 	AddAbilityTag(AbilityTag(ZoneId::Library, ZoneId::Hand));
 }
+
 BOOL CSearchCyclingSpell::ResolveImpl(const CAbilityAction* pAction)
 {
 		//const_cast<CCard*>(this->GetCard())->CardCycled(this->GetCard(), this->GetCard()->GetController());

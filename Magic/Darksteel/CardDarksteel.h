@@ -1190,3 +1190,10 @@ protected:
 
 //____________________________________________________________________________
 //
+class CLeoninShikariCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CLeoninShikariCard);
+};
+
+//____________________________________________________________________________
+//

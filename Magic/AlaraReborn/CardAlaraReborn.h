@@ -231,6 +231,9 @@ class CLavalancheCard : public CTargetChgLifeSpellCard
 class CBantSojournersCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CBantSojournersCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -238,6 +241,9 @@ class CBantSojournersCard : public CCreatureCard
 class CGrixisSojournersCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGrixisSojournersCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -245,6 +251,9 @@ class CGrixisSojournersCard : public CCreatureCard
 class CJundSojournersCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CJundSojournersCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -252,6 +261,9 @@ class CJundSojournersCard : public CCreatureCard
 class CDeadshotMinotaurCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CDeadshotMinotaurCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -259,6 +271,9 @@ class CDeadshotMinotaurCard : public CCreatureCard
 class CGlassdustHulkCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGlassdustHulkCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -266,6 +281,9 @@ class CGlassdustHulkCard : public CCreatureCard
 class CSanctumPlowbeastCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CSanctumPlowbeastCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -280,6 +298,9 @@ class CIllusoryDemonCard : public CFlyingCreatureCard
 class CJhessianZombiesCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CJhessianZombiesCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -294,6 +315,9 @@ class CMaskOfRiddlesCard : public CInPlaySpellCard
 class CIgneousPouncerCard : public CHasteCreatureCard
 {
 	DECLARE_CARD_CSTOR(CIgneousPouncerCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -301,6 +325,9 @@ class CIgneousPouncerCard : public CHasteCreatureCard
 class CMonstrousCarabidCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CMonstrousCarabidCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -325,6 +352,9 @@ protected:
 class CValleyRannetCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CValleyRannetCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -339,6 +369,9 @@ class CMycoidShepherdCard : public CCreatureCard
 class CPaleRecluseCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CPaleRecluseCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -482,6 +515,9 @@ protected:
 class CArchitectsOfWillCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CArchitectsOfWillCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -535,6 +571,9 @@ class CMarisisTwinclawsCard : public CCreatureCard
 class CNayaSojournersCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CNayaSojournersCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -546,6 +585,7 @@ class CSigilOfTheNayanGodsCard : public CCard
 protected:
 	counted_ptr<CAbility> CreateEnchantAbility(CCard* pEnchantedCard, CCard* pEnchantCard, ContextValue_& contextValue);
 	void PostEnchant(CAbility* pAbility);
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -589,7 +629,7 @@ class CLightningReaverCard : public CHasteCreatureCard
 protected:
 	typedef 
 		TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenNodeChanged > TriggeredAbility;
-	bool SetTriggerContextU(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
+	bool SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext, 
 							CNode* pToNode) const;
 	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction) const;
 };
@@ -809,6 +849,9 @@ private:
 class CEsperSojournersCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CEsperSojournersCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1224,4 +1267,16 @@ protected:
 };
 	
 //____________________________________________________________________________
+//
+class CEnigmaSphinxCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CEnigmaSphinxCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//_____________________________________________________________________________
 //

@@ -691,6 +691,11 @@ class CEyesOfTheWatcherCard : public CInPlaySpellCard
 class CCondescendCard : public CCounterSpellCard
 {
 	DECLARE_CARD_CSTOR(CCondescendCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -698,6 +703,11 @@ class CCondescendCard : public CCounterSpellCard
 class CFerociousChargeCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CFerociousChargeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -705,6 +715,11 @@ class CFerociousChargeCard : public CChgPwrTghAttrSpellCard
 class CLoseHopeCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CLoseHopeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -712,6 +727,11 @@ class CLoseHopeCard : public CChgPwrTghAttrSpellCard
 class CMagmaJetCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CMagmaJetCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -719,6 +739,11 @@ class CMagmaJetCard : public CTargetChgLifeSpellCard
 class CStandFirmCard : public CChgPwrTghAttrSpellCard
 {
 	DECLARE_CARD_CSTOR(CStandFirmCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -726,6 +751,11 @@ class CStandFirmCard : public CChgPwrTghAttrSpellCard
 class CTelJiladJusticeCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CTelJiladJusticeCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -733,6 +763,11 @@ class CTelJiladJusticeCard : public CTargetMoveCardSpellCard
 class CFillWithFrightCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CFillWithFrightCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
 };
 
 //____________________________________________________________________________
@@ -741,7 +776,7 @@ class CSerumVisionsCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CSerumVisionsCard);
 
-private:
+protected:
 	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
 
 	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
@@ -941,9 +976,6 @@ class CVedalkenOrreryCard : public CInPlaySpellCard
 class CEnsouledScimitarCard : public CInPlaySpellCard
 {
 	DECLARE_CARD_CSTOR(CEnsouledScimitarCard);
-
-protected:
-	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________

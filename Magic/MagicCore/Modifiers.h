@@ -2455,6 +2455,46 @@ protected:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CCreatureTypeModifierNeo
+	: public CCardModifier
+{
+public:
+	CCreatureTypeModifierNeo(SingleCreatureType pType, BOOL pAdd = TRUE)		
+		: m_pType(pType)
+		, m_pAdd(pAdd)
+	{}
+
+	virtual void ApplyTo(CCard* pCard) const;
+	virtual void RemoveFrom(CCard* pCard) const;
+
+	virtual CCardModifier* CloneCardModifier() const
+	{
+		CCreatureTypeModifierNeo* pModifier = new CCreatureTypeModifierNeo(m_pType, m_pAdd);
+		return pModifier;
+	}
+
+	virtual bool Equals(const CCardModifier& rhs) const
+	{
+		const CCreatureTypeModifierNeo* pThis = dynamic_cast<const CCreatureTypeModifierNeo*>(&rhs);
+		if (!pThis)
+			return false;
+
+		if (pThis == this)
+			return true;		
+
+		return
+			__super::Equals(rhs) &&	
+			m_pType == pThis->m_pType && 
+			m_pAdd == pThis->m_pAdd;
+	}
+
+protected:	
+	SingleCreatureType m_pType;
+	BOOL m_pAdd;
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CReplaceCreatureTypeModifier
 	: public CCreatureModifier
 {

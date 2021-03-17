@@ -402,10 +402,26 @@ BOOL CBlockAbility::CanBlockInGeneral(const CCreatureCard* pAttacker) const
 
 	return CanBlockImpl(pBlocker, pPlayer, pAttribute, bWall, pAttacker);
 }
+/*
+	CBlockAbility::CanBlockImpl
+	Purpose:
+		This function determines whether creature attempting to block (pBlocker) can block attacking creature 
+		(pAttacker) by applying checks based on card keywords and player effects.
+	Inputs:
+		CCreatureCard*    pBlocker         - creature attempting to block
+		CPlayer*          pPlayer          - creature attempting to block's controller
+		CCreatureKeyword* pBlockerKeyword  - creature attempting to block's keywords (attributes)
+		BOOL              bWall            - TRUE->creature type is Wall, FALSE->Creature type is not Wall
+											 Currently not used in this function.
+		CCreatureCard*    pAttacker        - creature attacking 
+	Returns:
+		returns TRUE  if creature blocking (pBlocker) can block attacking creature (pAttacker)
+		returns FALSE if creature blocking (pBlocker) can't block attacking creature (pAttacker)
 
-BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
-								 const CPlayer* pPlayer,				// This card's controller
-								 const CCreatureKeyword* pBlockerKeyword,	// This card's attribute
+*/
+BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	          // This card
+								 const CPlayer* pPlayer,				  // This card's controller
+								 const CCreatureKeyword* pBlockerKeyword, // This card's attribute
 								 BOOL bWall,
 								 const CCreatureCard* pAttacker) const
 {
@@ -454,9 +470,9 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
 
 	if (pAttackerKeyword->Intimidate() && !pBlocker->GetCardType().IsArtifact()
 		&& (!pAttacker->IsColor(CManaPool::Color::White) || !pBlocker->IsColor(CManaPool::Color::White))
-		&& (!pAttacker->IsColor(CManaPool::Color::Blue) || !pBlocker->IsColor(CManaPool::Color::Blue))
+		&& (!pAttacker->IsColor(CManaPool::Color::Blue)  || !pBlocker->IsColor(CManaPool::Color::Blue))
 		&& (!pAttacker->IsColor(CManaPool::Color::Black) || !pBlocker->IsColor(CManaPool::Color::Black))
-		&& (!pAttacker->IsColor(CManaPool::Color::Red) || !pBlocker->IsColor(CManaPool::Color::Red))
+		&& (!pAttacker->IsColor(CManaPool::Color::Red)   || !pBlocker->IsColor(CManaPool::Color::Red))
 		&& (!pAttacker->IsColor(CManaPool::Color::Green) || !pBlocker->IsColor(CManaPool::Color::Green)))
 		return FALSE;
 
@@ -514,7 +530,64 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
 		if (pBlocker->GetLastKnownPower() < nMaxPower)
 			return FALSE;
 	}
-	
+	/*
+		HoodedHorrorEffect - Creature can't be blocked if defending player controls the most creatures 
+		or is tied for the most
+	*/
+	if (pAttacker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HoodedHorrorEffect))
+	{
+		CZone* pBattlefield       = pAttacker->GetController()->GetZoneById(ZoneId::Battlefield);
+		bool bCanBlockAttCreature = TRUE;                        // can this card pBlocker block attacking card (pAttacker)
+		int  nCreaturePlayerAtt   = 0;							 // number of creatures player attacking controls
+		int  nCreaturePlayerBlk   = 0;							 // number of creatures player blocking controls
+		/* get number of creatures player attacking controls */
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)        
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+			if (pCard->GetCardType().IsCreature())
+				nCreaturePlayerAtt++;
+		}
+		/* get number of creatures player blocking controls */
+		CZone* pBattlefieldBlocker = pBlocker->GetController()->GetZoneById(ZoneId::Battlefield);
+		for (int i = 0; i < pBattlefieldBlocker->GetSize(); ++i) 
+		{
+			CCard* pCard = pBattlefieldBlocker->GetAt(i);
+			if (pCard->GetCardType().IsCreature())
+				nCreaturePlayerBlk++;
+		}
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+			if (pCard->GetPrintedCardName() == _T("Hooded Horror") && 
+			  (nCreaturePlayerBlk >= nCreaturePlayerAtt)) 
+			{
+				bCanBlockAttCreature = FALSE; 					 // can't block attacking creature
+			}
+		}
+		return bCanBlockAttCreature;
+	}
+	/*
+		GraxiplonEffect - Graxiplon can't be blocked unless defending player controls three or more creatures 
+		that share a creature type.
+	*/
+	if (pAttacker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::GraxiplonEffect))
+	{
+		CZone* pBattlefield       = pAttacker->GetController()->GetZoneById(ZoneId::Battlefield);
+		bool bCanBlockAttCreature = FALSE;                           // can this card pBlocker block attacking card (pAttacker)
+	    bool bTypeThreeOrMoreFnd  = FALSE;							 // whether three cards sharing a common type were found 
+
+		bTypeThreeOrMoreFnd = TypeThreeOrMoreExists(pBlocker->GetController());
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+			if (pCard->GetPrintedCardName() == _T("Graxiplon") && 
+		       (bTypeThreeOrMoreFnd)) 
+			{
+				bCanBlockAttCreature = TRUE; 					     // can block attacking creature
+			}
+		}
+		return bCanBlockAttCreature;
+	}
 	if (pBlocker->GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::HedronFields) && (pBlocker->GetLastKnownPower() > 6))
 		return FALSE;
 
@@ -525,6 +598,56 @@ BOOL CBlockAbility::CanBlockImpl(const CCreatureCard* pBlocker,	// This card
 		return FALSE;
 
 	return TRUE;
+}
+/*
+	Used by BOOL CBlockAbility::CanBlockImpl for Graxiplon effect.
+	This function returns TRUE when player (eg blocker) controls three or more creatures that share a
+	common creature type and FALSE when this condition is not met.
+	Put code in separate function so when three or more creatures that share a common creature type are found 
+	function is exited to improve performance.
+	Note **This function is very processor intensive** 
+*/
+bool TypeThreeOrMoreExists(const CPlayer* pPlayer)
+{
+	    bool bTypeThreeOrMoreFnd  = FALSE;							 // whether three cards sharing a common type were found 
+		int  iTypeCommonCnt       = 0;								 // current common type count
+        /*
+			Check all blocker's creature cards for common types and find first occurance where three cards
+			share a common type.
+		*/
+		CZone* pBattlefieldPlayer = pPlayer->GetZoneById(ZoneId::Battlefield);
+		for (int i = 0; i < pBattlefieldPlayer->GetSize(); ++i) 
+		{
+			CCard* pCardCur = pBattlefieldPlayer->GetAt(i);
+			if (pCardCur->GetCardType().IsCreature())
+			{
+				iTypeCommonCnt = 1;
+				CCreatureCard* pCreatureCardCur = (CCreatureCard*)pCardCur;
+				for (int j = 0; j < pBattlefieldPlayer->GetSize(); ++j) 
+				{
+					if (i != j) // do not compare current card with itself
+					{
+						CCard* pCardTmp = pBattlefieldPlayer->GetAt(j);
+						if (pCardTmp->GetCardType().IsCreature())
+						{
+							CCreatureCard* pCreatureCardTmp = (CCreatureCard*)pCardTmp;
+							if (pCreatureCardCur->GetCardKeyword()->HasChangeling() ||  // changeling keyword means card is all creature types 
+								pCreatureCardTmp->GetCardKeyword()->HasChangeling() ||
+								pCreatureCardCur->GetCreatureType().HasCommonTypes(pCreatureCardTmp->GetCreatureType()))
+							{
+								iTypeCommonCnt++;
+								if (iTypeCommonCnt >= 3)
+								{
+									bTypeThreeOrMoreFnd = TRUE;
+									return bTypeThreeOrMoreFnd;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	return bTypeThreeOrMoreFnd;
 }
 
 BOOL CBlockAbility::IsPlayable(BOOL bIncludeTricks, BOOL bAssumeSufficientMana) const

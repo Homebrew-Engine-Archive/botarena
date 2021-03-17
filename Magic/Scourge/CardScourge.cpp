@@ -1,4 +1,4 @@
-#include "stdafx.h"
+	#include "stdafx.h"
 #include "CardScourge.h"
 
 #define new DEBUG_NEW
@@ -45,6 +45,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDecreeOfJusticeCard);
 		DEFINE_CARD(CDecreeOfPainCard);
 		DEFINE_CARD(CDecreeOfSavageryCard);
+		DEFINE_CARD(CDecreeOfSilenceCard);
 		DEFINE_CARD(CDispersalShieldCard);
 		DEFINE_CARD(CDivergentGrowthCard);
 		DEFINE_CARD(CDragonBreathCard);
@@ -72,7 +73,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKrosanWarchiefCard);
 		DEFINE_CARD(CKurgadonCard);
 		DEFINE_CARD(CLingeringDeathCard);
+		DEFINE_CARD(CLongTermPlansCard);
 		DEFINE_CARD(CMetamorphoseCard);
+		DEFINE_CARD(CMercurialKiteCard);
 		DEFINE_CARD(CMisguidedRageCard);
 		DEFINE_CARD(CNefashuCard);
 		DEFINE_CARD(CNobleTemplarCard);
@@ -96,6 +99,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CSliverOverlordCard);
 		DEFINE_CARD(CSparkSprayCard);
 		DEFINE_CARD(CSproutingVinesCard);
+		DEFINE_CARD(CStabilizerCard);
 		DEFINE_CARD(CSulfuricVortexCard);
 		DEFINE_CARD(CStifleCard);
 		DEFINE_CARD(CTempleOfTheFalseGodCard);
@@ -301,11 +305,23 @@ CElvishAberrationCard::CElvishAberrationCard(CGame* pGame, UINT nID)
 			_T("2"),
 			CCardFilter::GetFilter(_T("Forests"))));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CElvishAberrationCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CElvishAberrationCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -322,11 +338,23 @@ CNobleTemplarCard::CNobleTemplarCard(CGame* pGame, UINT nID)
 			_T("2"),
 			CCardFilter::GetFilter(_T("Plains"))));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CNobleTemplarCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CNobleTemplarCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -341,11 +369,23 @@ CShorelineRangerCard::CShorelineRangerCard(CGame* pGame, UINT nID)
 			_T("2"),
 			CCardFilter::GetFilter(_T("Islands"))));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CShorelineRangerCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CShorelineRangerCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -379,11 +419,23 @@ CTwistedAbominationCard::CTwistedAbominationCard(CGame* pGame, UINT nID)
 			_T("2"),
 			CCardFilter::GetFilter(_T("Swamps"))));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CTwistedAbominationCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CTwistedAbominationCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -398,11 +450,23 @@ CWirewoodGuardianCard::CWirewoodGuardianCard(CGame* pGame, UINT nID)
 			_T("2"),
 			CCardFilter::GetFilter(_T("Forests"))));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CWirewoodGuardianCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CWirewoodGuardianCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -437,11 +501,23 @@ CChartoothCougarCard::CChartoothCougarCard(CGame* pGame, UINT nID)
 			_T("2"),
 			CCardFilter::GetFilter(_T("Mountains"))));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CChartoothCougarCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CChartoothCougarCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -468,12 +544,24 @@ CEternalDragonCard::CEternalDragonCard(CGame* pGame, UINT nID)
 				_T("2"),
 				CCardFilter::GetFilter(_T("Plains"))));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CEternalDragonCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(1));
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CEternalDragonCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -632,6 +720,13 @@ CDecreeOfSavageryCard::CDecreeOfSavageryCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("4") GREEN_MANA_TEXT GREEN_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfSavageryCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -669,6 +764,11 @@ bool CDecreeOfSavageryCard::BeforeResolution(CAbilityAction* pAction) const
 	return true;
 }
 
+BOOL CDecreeOfSavageryCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
+}
+
 //____________________________________________________________________________
 //
 CGildedLightCard::CGildedLightCard(CGame* pGame, UINT nID)
@@ -690,11 +790,23 @@ CGildedLightCard::CGildedLightCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CGildedLightCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CGildedLightCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -745,11 +857,23 @@ CSparkSprayCard::CSparkSprayCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				RED_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CSparkSprayCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CSparkSprayCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -775,11 +899,23 @@ CWipeCleanCard::CWipeCleanCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("3")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CWipeCleanCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CWipeCleanCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -795,10 +931,22 @@ CBreakAsunderCard::CBreakAsunderCard(CGame* pGame, UINT nID)
 		::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 			_T("2")));
 
+	counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility,
+			CPlayableIfTrait::PlayableCallback(this,
+			&CBreakAsunderCard::CanPlay)));
+
+	cpAbility->Add(cpTrait.GetPointer());
 	cpAbility->SetHandOnly();
 	cpAbility->AddDiscardCost();
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+BOOL CBreakAsunderCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -819,11 +967,23 @@ CClawsOfWirewoodCard::CClawsOfWirewoodCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CClawsOfWirewoodCard::CanPlay)));
+		
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CClawsOfWirewoodCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -874,11 +1034,23 @@ CUnburdenCard::CUnburdenCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2")));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CUnburdenCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CUnburdenCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -961,8 +1133,6 @@ CKurgadonCard::CKurgadonCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Kurgadon"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("4") GREEN_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSpellCast > TriggeredAbility;
 
@@ -1093,6 +1263,13 @@ CDecreeOfJusticeCard::CDecreeOfJusticeCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("2") WHITE_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfJusticeCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -1109,6 +1286,13 @@ CDecreeOfJusticeCard::CDecreeOfJusticeCard(CGame* pGame, UINT nID)
 		cpAbility->GetCost().SetExtraManaCost(SpecialNumber::Any, TRUE, CManaCost::AllCostColors);
 		cpAbility->SetExtraActionValueVector();
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfJusticeCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -1118,6 +1302,11 @@ CDecreeOfJusticeCard::CDecreeOfJusticeCard(CGame* pGame, UINT nID)
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+BOOL CDecreeOfJusticeCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -1144,6 +1333,13 @@ CDecreeOfAnnihilationCard::CDecreeOfAnnihilationCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("5") RED_MANA_TEXT RED_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfAnnihilationCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -1187,6 +1383,12 @@ void CDecreeOfAnnihilationCard::OnResolutionCompleted(const CAbilityAction* pAbi
 		pModifier2.ApplyTo(GetGame()->GetPlayer(ip));
 	}
 }
+
+BOOL CDecreeOfAnnihilationCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
+}
+
 //____________________________________________________________________________
 //
 CXantidSwarmCard::CXantidSwarmCard(CGame* pGame, UINT nID)
@@ -1771,7 +1973,6 @@ bool CDragonShadowCard::BeforeResolution(TriggeredAbility::TriggeredActionType* 
 
 	pModifier.ApplyTo((CCard*)this);
 
-
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 
 	for (int i = 0; i < GetSpells().GetSize(); ++i)
@@ -1892,7 +2093,6 @@ bool CDragonFangsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* p
 
 	pModifier.ApplyTo((CCard*)this);
 
-
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 
 	for (int i = 0; i < GetSpells().GetSize(); ++i)
@@ -1959,7 +2159,6 @@ bool CDragonScalesCard::BeforeResolution(TriggeredAbility::TriggeredActionType* 
 
 	pModifier.ApplyTo((CCard*)this);
 
-
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 
 	for (int i = 0; i < GetSpells().GetSize(); ++i)
@@ -2012,6 +2211,13 @@ CDragonWingsCard::CDragonWingsCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("1") BLUE_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDragonWingsCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -2039,7 +2245,6 @@ bool CDragonWingsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* p
 
 	pModifier.ApplyTo((CCard*)this);
 
-
 	TriggeredAbility::TriggerContextType triggerContext(pAction->GetTriggerContext());
 
 	for (int i = 0; i < GetSpells().GetSize(); ++i)
@@ -2053,6 +2258,11 @@ bool CDragonWingsCard::BeforeResolution(TriggeredAbility::TriggeredActionType* p
 	}
 
 	return true;
+}
+
+BOOL CDragonWingsCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -3673,14 +3883,17 @@ CCarbonizeCard::CCarbonizeCard(CGame* pGame, UINT nID)
 				new AnyCreatureComparer, TRUE,
 				Life(-3), PreventableType::Preventable));
 
-		CReplacementKeywordModifier* pModifier = new CReplacementKeywordModifier();
+		CReplacementKeywordModifier* pModifier1 = new CReplacementKeywordModifier();
 
-		pModifier->GetModifier().SetOneTurnOnly(TRUE);
-		pModifier->GetModifier().SetToAdd(ReplacementKeyword::GraveyardToExile);
+		pModifier1->GetModifier().SetOneTurnOnly(TRUE);
+		pModifier1->GetModifier().SetToAdd(ReplacementKeyword::GraveyardToExile);
 		
-		cpSpell->GetTargetModifier().CCardModifiers::push_back(pModifier);
+		cpSpell->GetTargetModifier().CCardModifiers::push_back(pModifier1);
 
-		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage | DamageType::NoRegeneration);
+		CCreatureKeywordModifier* pModifier2 = new CCreatureKeywordModifier(CreatureKeyword::CantRegenerate, TRUE);
+		cpSpell->GetTargetModifier().CCreatureModifiers::push_back(pModifier2);
+
+		cpSpell->SetDamageType(DamageType::SpellDamage | DamageType::NonCombatDamage);
 
 		AddSpell(cpSpell.GetPointer());
 	}
@@ -3976,6 +4189,13 @@ CDecreeOfPainCard::CDecreeOfPainCard(CGame* pGame, UINT nID)
 			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
 				_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT));
 
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfPainCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
 		cpAbility->SetHandOnly();
 		cpAbility->AddDiscardCost();
 
@@ -4030,6 +4250,11 @@ void CDecreeOfPainCard::OnResolutionCompleted(const CAbilityAction* pAbilityActi
 
 	CDrawCardModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(m_nCards), MaximumValue(m_nCards));
 	pModifier->ApplyTo(pAbilityAction->GetController());
+}
+
+BOOL CDecreeOfPainCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
 }
 
 //____________________________________________________________________________
@@ -4345,6 +4570,189 @@ void CDayOfTheDragonsCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 	{
 		pExiled.RemoveAll();
 	}
+}
+
+//____________________________________________________________________________
+//
+CMercurialKiteCard::CMercurialKiteCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Mercurial Kite"), CardType::Creature, CREATURE_TYPE(Bird), nID,
+		_T("3") BLUE_MANA_TEXT, Power(2), Life(2))
+{
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetCombatDamageOnly();
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMercurialKiteCard::SetTriggerContext));
+	cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CMercurialKiteCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CMercurialKiteCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool CMercurialKiteCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CDecreeOfSilenceCard::CDecreeOfSilenceCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Decree of Silence"), CardType::GlobalEnchantment, nID,
+		_T("6") BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Enchantment)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&CDecreeOfSilenceCard::OnResolutionCompleted))
+{
+	{
+		typedef 
+			TTriggeredAbility< CTriggeredCounterSpellAbility, CWhenSpellCast >  TriggeredAbility;
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDecreeOfSilenceCard::SetTriggerContext));		
+		
+		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("cards")));
+		cpAbility->GetTrigger().SetMonitorOpponentsOnly(TRUE);
+
+		cpAbility->AddAbilityTag(AbilityTag::Counterspell);
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		//Cycle ability
+		 counted_ptr<CActivatedAbility<CCyclingSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CCyclingSpell>>(this,
+				_T("4") BLUE_MANA_TEXT BLUE_MANA_TEXT));
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfSilenceCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
+		cpAbility->SetHandOnly();
+		cpAbility->AddDiscardCost();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		//Cycle ability and counter target spell
+		counted_ptr<CActivatedAbility<CCounterSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CCounterSpell>>(this,
+				_T("4") BLUE_MANA_TEXT BLUE_MANA_TEXT,
+				new TrueCardComparer));
+		ATLASSERT(cpAbility);
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(this,
+				&CDecreeOfSilenceCard::CanPlay)));
+
+		cpAbility->SetHandOnly();
+		cpAbility->AddDiscardCost();
+
+		cpAbility->GetResolutionModifier().CPlayerModifiers::push_back(new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1)));
+
+		cpAbility->AddAbilityTag(AbilityTag::Cycling);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CDecreeOfSilenceCard::SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext, 
+										 CCard* pCard) const
+{
+	triggerContext.m_pCard = pCard;
+	
+	return true;
+}
+
+void CDecreeOfSilenceCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!IsInplay()) return;
+
+	CCardCounterModifier pModifier1 = CCardCounterModifier(DEPLETION_COUNTER, +1);
+	pModifier1.ApplyTo(this);
+
+	if (GetCounterContainer()->GetCounter(DEPLETION_COUNTER)->GetCount() > 2)
+	{
+		CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pAbilityAction->GetController());
+		pModifier2.ApplyTo(this);
+	}
+}
+
+BOOL CDecreeOfSilenceCard::CanPlay(BOOL bIncludeTricks)
+{
+	return (!GetController()->GetPlayerEffect().HasPlayerEffect(PlayerEffectType::NoCycling));
+}
+
+//____________________________________________________________________________
+//
+CStabilizerCard::CStabilizerCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Stabilizer"), CardType::Artifact, nID,
+		_T("2"), AbilityType::Artifact)
+{
+	counted_ptr<CPlayerEffectEnchantment> cpAbility(
+		::CreateObject<CPlayerEffectEnchantment>(this,
+			PlayerEffectType::NoCycling));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CLongTermPlansCard::CLongTermPlansCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Long-Term Plans"), CardType::Instant, nID)
+{	
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			_T("2") BLUE_MANA_TEXT));
+
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLongTermPlansCard::BeforeResolution));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CLongTermPlansCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+
+	CCountedCardContainer pFound;
+	CPlayerSearchModifier pModifier = CPlayerSearchModifier(pController, MinimumValue(1), MaximumValue(1), pController, 
+															ZoneId::Library, CCardFilter::GetFilter(_T("cards")), ZoneId::Library, TRUE, CardPlacement::Top, FALSE, FALSE, FALSE, &pFound);
+	pModifier.ApplyTo(pController);
+
+	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
+
+	int nSize = pLibrary->GetSize();
+
+	if (nSize > 2)
+	{
+		pLibrary->GetAt(nSize - 3)->Move(pLibrary, pController, MoveType::Others, CardPlacement::Top);
+		pLibrary->GetAt(nSize - 3)->Move(pLibrary, pController, MoveType::Others, CardPlacement::Top);
+	}
+	else if (nSize == 2)
+		pLibrary->GetAt(1)->Move(pLibrary, pController, MoveType::Others, CardPlacement::Top);
+
+	return true;
 }
 
 //____________________________________________________________________________

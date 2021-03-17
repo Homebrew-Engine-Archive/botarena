@@ -156,7 +156,8 @@ class CEdgeOfAutumnCard : public CSearchLibrarySpellCard
 	DECLARE_CARD_CSTOR(CEdgeOfAutumnCard);
 
 protected:
-	BOOL CanPlay(BOOL bIncludeTricks);
+	BOOL CanPlay1(BOOL bIncludeTricks);
+	BOOL CanPlay2(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -384,6 +385,9 @@ class CSteamfloggerBossCard : public CCreatureCard
 class CStreetWraithCard : public CLandwalkCreatureCard
 {
 	DECLARE_CARD_CSTOR(CStreetWraithCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //___________________________________________________________________________
@@ -418,6 +422,7 @@ class CVedalkenAEthermageCard : public CCreatureCard
 
 protected:
 	CCardFilter m_CardFilter;
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -439,6 +444,9 @@ class CCharRumblerCard : public CPumpCreatureCard
 class CMarshalingCryCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CMarshalingCryCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //_____________________________________________________________________________
@@ -531,18 +539,6 @@ class CSoultetherGolemCard : public CCreatureCard, public CVanishingKeyword
 
 //____________________________________________________________________________
 //
-//class CFrenzySliverCard : public CCreatureCard
-//{
-//	DECLARE_CARD_CSTOR(CFrenzySliverCard);
-//
-//protected:
-//	counted_ptr<CAbility> CreateAbility(CCard* pCard);
-//	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
-//							CNode* pToNode) const;
-//};
-//
-////_______________________________________________________________________________________________
-////
 class COblivionCrownCard : public CCard
 {
 	DECLARE_CARD_CSTOR(COblivionCrownCard);
@@ -566,6 +562,9 @@ protected:
 class CCrypticAnnelidCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CCrypticAnnelidCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -573,6 +572,9 @@ class CCrypticAnnelidCard : public CCreatureCard
 class CNewBenaliaCard : public CNonbasicLandCard
 {
 	DECLARE_CARD_CSTOR(CNewBenaliaCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -583,8 +585,9 @@ class CMysticSpeculationCard : public CCard
 
 public:
 	OVERRIDE(void, Move)(CZone* pToZone, const CPlayer* pByPlayer, MoveType moveType, CardPlacement cardPlacement = CardPlacement::Top, BOOL can_dredge = TRUE);
-private: 
+protected:
 	CManaCost	m_BuybackCost;
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -592,6 +595,9 @@ private:
 class CLlanowarEmpathCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CLlanowarEmpathCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
 };
 
 //____________________________________________________________________________
@@ -962,6 +968,7 @@ class CHomingSliverCard : public CCreatureCard
 protected:
 	CCardFilter m_CardFilter;
 	counted_ptr<CAbility> CreateAbility(CCard* pCard);
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -1445,4 +1452,58 @@ protected:
 };
 
 //____________________________________________________________________________
+//
+class CLostHoursCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CLostHoursCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CSpinIntoMythCard : public CTargetMoveCardSpellCard
+{
+	DECLARE_CARD_CSTOR(CSpinIntoMythCard);
+
+protected:
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+
+	CSelectionSupport m_OpponentSelection;
+	void OnOpponentSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CMesmericSliverCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CMesmericSliverCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
+	bool BeforeResolution(CAbilityAction* pAction);
+	counted_ptr<CAbility> CreateAbility(CCard* pCard);
+
+	CSelectionSupport m_OpponentSelection;
+	void OnOpponentSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//
+class CFrenzySliverCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CFrenzySliverCard);
+
+protected:
+	counted_ptr<CAbility> CreateAbility(CCard* pCard);
+	bool SetTriggerContext(CTriggeredModifyCreatureAbility::TriggerContextType& triggerContext,
+							CNode* pToNode) const;
+};
+
+//_______________________________________________________________________________________________
 //

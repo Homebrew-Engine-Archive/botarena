@@ -357,6 +357,11 @@ BEGIN
     IDS_STRING26119         "Illusionary Armor\n{4U}\nEnchantment - Aura\nM14,U\nEnchant creature\rEnchanted creature gets +4/+4.\rWhen enchanted creature becomes the target of a spell or ability, sacrifice Illusionary Armor."
     IDS_STRING26120         "Burning Earth\n{3R}\nEnchantment\nM14,R\nWhenever a player taps a nonbasic land for mana, Burning Earth deals 1 damage to that player."
     IDS_STRING26121         "Celestial Flare\n{WW}\nInstant\nM14,C\nTarget player sacrifices an attacking or blocking creature."
+    IDS_STRING26122         "Witchstalker\n{1GG}\nCreature - Wolf\nM14,R\nHexproof\rWhenever an opponent casts a blue or black spell during your turn, put a +1/+1 counter on Witchstalker.\n3/3"
+    IDS_STRING26123         "Voracious Wurm\n{1G}\nCreature - Wurm\nM14,U\nVoracious Wurm enters the battlefield with X +1/+1 counters on it, where X is the amount of life you've gained this turn.\n2/2"
+    IDS_STRING26124         "Kalonian Hydra\n{3GG}\nCreature - Hydra\nM14,MR\nTrample\rKalonian Hydra enters the battlefield with four +1/+1 counters on it. Whenever Kalonian Hydra attacks, double the number of +1/+1 counters on each creature you control.\n0/0"
+    IDS_STRING26125         "Seismic Stomp\n{1R}\nSorcery\nM14,C\nCreatures without flying can't block this turn."
+    IDS_STRING26126         "Haunted Plate Mail\n{4}\nArtifact - Equipment\nM14,R\nEquipped creature gets +4/+4.\r{0}: Until end of turn, Haunted Plate Mail becomes a 4/4 Spirit artifact creature that's no longer an Equipment. Activate this ability only if you control no creatures.\rEquip {4}"
 END
 
 #endif    // English (United States) resources

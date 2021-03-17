@@ -2548,3 +2548,16 @@ protected:
 
 //____________________________________________________________________________
 //
+class CCrushUnderfootCard : public CTribalCard
+{
+	DECLARE_CARD_CSTOR(CCrushUnderfootCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+
+	CSelectionSupport m_CardSelection;
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+};
+
+//____________________________________________________________________________
+//

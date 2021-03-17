@@ -256,6 +256,7 @@ BEGIN
     IDS_STRING6838          "Mishra's Groundbreaker\n{4}\nArtifact\nALL,U\n{T}, Sacrifice Mishra's Groundbreaker: Target land becomes a 3/3 artifact creature that's still a land."
     IDS_STRING6839          "Helm of Obedience\n{4}\nArtifact\nALL,R\n{X}, {T}: Target opponent puts cards from the top of his or her library into his or her graveyard until a creature card or X cards are put into that graveyard this way, whichever comes first. If a creature card is put into that graveyard this way, sacrifice Helm of Obedience and put that card onto the battlefield under your control. X can't be 0."
     IDS_STRING6840          "Phantasmal Sphere\n{1U}\nCreature - Illusion\nALL,R\nFlying\rAt the beginning of your upkeep, put a +1/+1 counter on Phantasmal Sphere, then sacrifice Phantasmal Sphere unless you pay {1} for each +1/+1 counter on it.\rWhen Phantasmal Sphere leaves the battlefield, put a blue Orb creature token with flying onto the battlefield under target opponent's control. That creature's power and toughness are each equal to the number of +1/+1 counters on Phantasmal Sphere.\n0/1"
+    IDS_STRING6841          "Omen of Fire\n{3RR}\nInstant\nALL,R\nReturn all Islands to their owners' hands.\rEach player sacrifices a Plains or a white permanent for each white permanent he or she controls."
 END
 
 #endif    // English (United States) resources

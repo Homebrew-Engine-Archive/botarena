@@ -282,9 +282,16 @@ CAngelOfFuryCard::CAngelOfFuryCard(CGame* pGame, UINT nID)
 	cpAbility->GetMoveCardModifier().SetShuffle(TRUE);
 	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
 
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CAngelOfFuryCard::SetTriggerContext));
 	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Library));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CAngelOfFuryCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const
+{
+	return (pFromZone->GetPlayer() == GetOwner());
 }
 
 //____________________________________________________________________________

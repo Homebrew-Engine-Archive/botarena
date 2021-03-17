@@ -151,6 +151,7 @@
 #define IDS_STRING9134                  9134
 #define IDS_STRING9135                  9135
 #define IDS_STRING9136                  9136
+#define IDS_STRING9137                  9137
 #define IDI_MODULE                      9145
 #define IDI_LARGE_MODULE                9146
 

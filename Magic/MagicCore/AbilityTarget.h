@@ -2308,6 +2308,21 @@ protected:
 
 //____________________________________________________________________________
 //
+class CORE_EXPORT CBlindingBeamSpell: public CDoubleTargetSpell	
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CBlindingBeamSpell(CCard* pCard, AbilityType abilityType,
+								   LPCTSTR strManaCost);
+	virtual ~CBlindingBeamSpell() {}
+
+protected:
+	OVERRIDE(void, ResolveGroup)(const CCountedCardContainer& pContainer1,const  CCountedCardContainer& pContainer2,const CPlayerContainer& pPContainer1,const CPlayerContainer& pPContainer2);
+};
+
+//____________________________________________________________________________
+//
 class CORE_EXPORT CTargetChgLifeSpellCounter : public CTargetSpell					
 // Ref: Shrine of Rage
 {
@@ -2491,6 +2506,57 @@ protected:
 	bool HasSameSubjectCount(const CStackAbilityAction* pStackAction, CAction* pAction);
 };
 
+//____________________________________________________________________________
+//
+class CORE_EXPORT CTargetCopyCastTwiceSpell : public CTargetSpell
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CTargetCopyCastTwiceSpell(CCard* pCard, AbilityType abilityType,
+						 LPCTSTR strManaCost,
+						 CardComparer* pComparer,
+						 ZoneId fromZoneId, CTargeting* pTargeting = new CTargeting);
+	virtual ~CTargetCopyCastTwiceSpell() {}
+
+protected:
+	OVERRIDE(void, ResolveCard)(const CTargetSpellAction* pAction, CCard* pCard, const ContextValue& value);		
+
+	void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	
+	ListenerPtr<SelectionEventSource::Listener>	m_cpSelectionListener;
+
+	vector<FreecastCardActionsSelection>	m_Selection;
+
+	bool HasSameSubjectCount(const CStackAbilityAction* pStackAction, CAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+/*
+class CORE_EXPORT CMeletisCharlatanSpell : public CTargetSpell
+{
+	DEFINE_CREATE_TO_CPTR_ONLY;
+
+protected:
+	CMeletisCharlatanSpell(CCard* pCard, AbilityType abilityType,
+						 LPCTSTR strManaCost,
+						 CardComparer* pComparer,
+						 ZoneId fromZoneId, CTargeting* pTargeting = new CTargeting);
+	virtual ~CMeletisCharlatanSpell() {}
+
+protected:
+	OVERRIDE(void, ResolveCard)(const CTargetSpellAction* pAction, CCard* pCard, const ContextValue& value);		
+
+		void OnSelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	
+	ListenerPtr<SelectionEventSource::Listener>	m_cpSelectionListener;
+
+	vector<FreecastCardActionsSelection>	m_Selection;
+
+	bool HasSameSubjectCount(const CStackAbilityAction* pStackAction, CAction* pAction);
+};
+*/
 //____________________________________________________________________________
 //
 class CORE_EXPORT CForeshadowSpell: public CTargetSpell	// Ref: Cabal Therapy, Cranial Extraction, Thought Hemorrhage

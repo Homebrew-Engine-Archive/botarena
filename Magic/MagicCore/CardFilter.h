@@ -1218,6 +1218,22 @@ struct CORE_EXPORT LastCardDrawnThisTurnComparer : public CardComparer
 
 //____________________________________________________________________________
 //
+struct CORE_EXPORT DamagedPlayerThisTurnComparer : public CardComparer
+{
+	DamagedPlayerThisTurnComparer(const CCard* pCard1);
+	virtual bool operator()(const CCard* pCard) const;
+
+	virtual DamagedPlayerThisTurnComparer* Clone() const
+	{
+		return new DamagedPlayerThisTurnComparer(m_pCard1);
+	}
+
+protected:
+	const CCard* m_pCard1;
+};
+
+//____________________________________________________________________________
+//
 struct CORE_EXPORT AttackedLastTurnComparer : public CardComparer
 {
 	AttackedLastTurnComparer(const CPlayer* pPlayer); // This player

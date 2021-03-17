@@ -75,7 +75,7 @@ CRealmsBefittingMyMajestyCard::CRealmsBefittingMyMajestyCard(CGame* pGame, UINT 
 
 	cpAbility->SetSearchCount(MinimumValue(0), MaximumValue(2));
 	cpAbility->SetToZone(ZoneId::Battlefield);
-	cpAbility->SetToOwnersZone(FALSE);
+	cpAbility->SetToOwnersZone(TRUE);
 	cpAbility->SetTapped(TRUE);
 
 	AddAbility(cpAbility.GetPointer());

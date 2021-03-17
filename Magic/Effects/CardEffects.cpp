@@ -19,6 +19,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		// 	DEFINE_CARD(CDefenderEnVecCard);
 
 		DEFINE_TOKEN(CDomriRadeEmblemToken);
+		DEFINE_TOKEN(CElspethSunsChampionEmblemToken);
 		DEFINE_TOKEN(CKothOfTheHammerEmblemToken);
 		DEFINE_TOKEN(CLilianaOfTheDarkRealmsEmblemToken);
 		DEFINE_TOKEN(CSorinLordOfInnistradEmblemToken);
@@ -38,6 +39,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBattleCryEffectToken);
 		DEFINE_TOKEN(CBeckEffectToken);
 		DEFINE_TOKEN(CBerserkEffectToken);
+		DEFINE_TOKEN(CBidentOfThassaEffectToken);
 		DEFINE_TOKEN(CBloodlordOfVaasgothEffectToken);
 		DEFINE_TOKEN(CBroodOfCockroachesEffectToken);
 		DEFINE_TOKEN(CBubblingMuckEffectToken);
@@ -78,6 +80,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CGenericContainerBattlefieldToken);
 		DEFINE_TOKEN(CGenericContainerExileToken);
 		DEFINE_TOKEN(CGiantCaterpillarPupaToken);
+		DEFINE_TOKEN(CGiftOfImmortalityEffectToken);
 		DEFINE_TOKEN(CGlimpseofNatureEffectToken);
 		DEFINE_TOKEN(CGlyphOfLifeEffectToken);
 		DEFINE_TOKEN(CGoblinDiplomatsEffectToken);
@@ -118,6 +121,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CQuickenEffectToken);
 		DEFINE_TOKEN(CRainbowValeEffectToken);
 		DEFINE_TOKEN(CReincarnationEffectToken);
+		DEFINE_TOKEN(CRescueFromTheUnderworldEffectToken);
 		DEFINE_TOKEN(CRukhEggEffectToken);
 		DEFINE_TOKEN(CRuneswordEffectToken);
 		DEFINE_TOKEN(CRuthlessInvasionEffectToken);
@@ -127,6 +131,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSavageSummoningFirstEffectToken);
 		DEFINE_TOKEN(CSavageSummoningSecondEffectToken);
 		DEFINE_TOKEN(CSawtoothOgreEffectToken);
+		DEFINE_TOKEN(CSeismicStompEffectToken);
 		DEFINE_TOKEN(CSeraphFirstEffectToken);
 		DEFINE_TOKEN(CSeraphSecondEffectToken);
 		DEFINE_TOKEN(CScatteringStrokeEffectToken);
@@ -139,9 +144,11 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CSlaughterPactEffectToken);
 		DEFINE_TOKEN(CSlowtripEffectToken);
 		DEFINE_TOKEN(CSpinalEmbraceEffectToken);
+		DEFINE_TOKEN(CStoneshockGiantEffectToken);
 		DEFINE_TOKEN(CSummonersPactEffectToken);
 		DEFINE_TOKEN(CTatsumasaTheDragonsFangEffectToken);
 		DEFINE_TOKEN(CThePiecesAreComingTogetherEffectToken);
+		DEFINE_TOKEN(CTimeToFeedEffectToken);
 		DEFINE_TOKEN(CTransluminantEffectToken);
 		DEFINE_TOKEN(CVanishIntoMemoryEffectToken);
 		DEFINE_TOKEN(CVirulentWoundEffectToken);
@@ -3097,7 +3104,7 @@ CGracefulReprieveEffectToken::CGracefulReprieveEffectToken(CGame* pGame, UINT nI
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 		
 		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGracefulReprieveEffectToken::SetTriggerContext));
-		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Battlefield));
 
 		AddAbility(cpAbility.GetPointer());
 	}
@@ -3698,7 +3705,7 @@ CEndStepReturnFromExileEffectToken::CEndStepReturnFromExileEffectToken(CGame* pG
 		AddAbility(cpAbility.GetPointer());
     }
 
-	// Generic effect used by: AEtherling, Anurid Brushhopper, Argent Sphinx, Astral Slide, Flickerform, Flickerwisp, Frenetic Sliver,
+	// Generic effect used by: AEtherling, Anurid Brushhopper, Argent Sphinx, Astral Slide, Flickerwisp, Frenetic Sliver,
 	// Galepowder Mage, Ghost Council of Orzhova, Ghostway, Glimmerpoint Stag, Hikari, Twilight Guardian; Liberate, Mistmeadow Witch,
 	// Norin the Wary, Planar Guide, Saltskitter, Sudden Disappearance, Turn to Mist, Venser, the Sojourner; Voidwalk, Voyager Staff
 }
@@ -4528,7 +4535,6 @@ bool CFlickerformEffectToken::BeforeResolution(CAbilityAction* pAction) const
 		for (int i = pCards2.GetSize() - 1; i >= 0; --i)
 		{
 			CCard* pAura = pCards2.GetAt(i);
-			pModifier.ApplyTo(pAura);
 
 			bool bValidAura = true;
 
@@ -4541,12 +4547,16 @@ bool CFlickerformEffectToken::BeforeResolution(CAbilityAction* pAction) const
 			}
 
 			if (bValidAura)
+			{
+				pModifier.ApplyTo(pAura);
+
 				for (int j = 0; j < pAura->GetSpells().GetSize(); ++j)
 				{
 					CEnchant* pEnchantSpell = dynamic_cast<CEnchant*>(pAura->GetSpells().GetAt(j));
 					if (!pEnchantSpell) continue;
 					pEnchantSpell->Enchant(pCard, GetController(), pAura->GetSpells().GetAt(j)->GetActionValue());
 				}
+			}
 		}
 
 	return true;
@@ -10436,8 +10446,481 @@ bool CGenericContainerBattlefieldToken::SetTriggerContextAux(CTriggeredAbility<>
 	if (!pCards.HasCard(pCard)) return false;
 	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
 	
-	pCards.RemoveCard(pCard);
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::_Effects, ZoneId::Exile, TRUE, MoveType::Others, GetController());
+	pModifier.ApplyTo(this);
+	
 	return false;
+}
+
+//____________________________________________________________________________
+//
+CSeismicStompEffectToken::CSeismicStompEffectToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Seismic Stomp Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0), CreatureKeyword::CantBlock));
+
+		cpAbility->GetEnchantmentCardFilter().AddNegateComparer(new CreatureKeywordComparer(CreatureKeyword::Flying, false));
+
+		cpAbility->SetListenToKeyword();
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+//____________________________________________________________________________
+//
+CStoneshockGiantEffectToken::CStoneshockGiantEffectToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Stoneshock Giant Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0), CreatureKeyword::CantBlock));
+
+		cpAbility->GetEnchantmentCardFilter().AddNegateComparer(new CreatureKeywordComparer(CreatureKeyword::Flying, false));
+		cpAbility->SetAffectOpponentCardsOnly();
+
+		cpAbility->SetListenToKeyword();
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+//____________________________________________________________________________
+//
+CElspethSunsChampionEmblemToken::CElspethSunsChampionEmblemToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Elspeth, Sun's Champion Emblem"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+		::CreateObject<CPwrTghAttrEnchantment>(this,
+			new AnyCreatureComparer, 
+			Power(+2), Life(+2),
+			CreatureKeyword::Flying));
+
+	cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+	cpAbility->SetAffectControllerCardsOnly();
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CBidentOfThassaEffectToken::CBidentOfThassaEffectToken(CGame* pGame, UINT nID)
+	: CEffectCard(pGame, _T("Bident of Thassa Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new AnyCreatureComparer,
+				Power(+0), Life(+0), CreatureKeyword::MustAttack));
+
+		cpAbility->SetAffectOpponentCardsOnly();
+		cpAbility->SetEnchantmentActiveIn(ZoneId::_Effects);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+//____________________________________________________________________________
+//
+CGiftOfImmortalityEffectToken::CGiftOfImmortalityEffectToken(CGame* pGame, UINT nID)
+	: CDoubleContainerEffectCard(pGame, _T("Gift of Immortality Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::EndStep, FALSE));
+		
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGiftOfImmortalityEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGiftOfImmortalityEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Graveyard, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGiftOfImmortalityEffectToken::SetTriggerContextAux1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGiftOfImmortalityEffectToken::SetTriggerContextAux2));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGiftOfImmortalityEffectToken::SetTriggerContextAux3));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CGiftOfImmortalityEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CGiftOfImmortalityEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	if ((pCards1.GetSize() == 0) || (pCards2.GetSize() == 0)) return true;
+	CCard* pCard1 = pCards1.GetAt(0);
+	CCard* pCard2 = pCards2.GetAt(0);
+
+	bool bValidAura = true;
+
+	for (int j = 0; j < pCard1->GetSpells().GetSize(); ++j)
+	{
+		CEnchant* pEnchantSpell = dynamic_cast<CEnchant*>(pCard1->GetSpells().GetAt(j));
+		if (!pEnchantSpell) continue;
+		if (!pEnchantSpell->GetTargeting()->GetSubjectCardFilter().IsCardIncluded(pCard2))
+			bValidAura = false;
+	}
+
+	if (bValidAura)
+	{
+		CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Graveyard, ZoneId::Battlefield, true, MoveType::Others, pAction->GetController());
+		pModifier.ApplyTo(pCard1);
+
+		for (int j = 0; j < pCard1->GetSpells().GetSize(); ++j)
+		{
+			CEnchant* pEnchantSpell = dynamic_cast<CEnchant*>(pCard1->GetSpells().GetAt(j));
+			if (!pEnchantSpell) continue;
+			pEnchantSpell->Enchant(pCard2, GetController(), pCard1->GetSpells().GetAt(j)->GetActionValue());
+		}
+	}
+
+	return true;
+}
+
+bool CGiftOfImmortalityEffectToken::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	if (pCards1.HasCard(pCard))
+		pCards1.RemoveCard(pCard);
+
+	return false;
+}
+
+bool CGiftOfImmortalityEffectToken::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	if (pCards2.HasCard(pCard))
+		pCards2.RemoveCard(pCard);
+
+	return false;
+}
+
+bool CGiftOfImmortalityEffectToken::SetTriggerContextAux3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CRescueFromTheUnderworldEffectToken::CRescueFromTheUnderworldEffectToken(CGame* pGame, UINT nID)
+	: CDoubleContainerEffectCard(pGame, _T("Rescue from the Underworld Effect"), CardType::GlobalEnchantment, nID)	
+	, bFired(FALSE)
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep, FALSE));
+		
+		cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRescueFromTheUnderworldEffectToken::SetTriggerContext));
+		cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CRescueFromTheUnderworldEffectToken::BeforeResolution));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Graveyard, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRescueFromTheUnderworldEffectToken::SetTriggerContextAux1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Exile, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRescueFromTheUnderworldEffectToken::SetTriggerContextAux2));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredAbility<>, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::_Effects, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRescueFromTheUnderworldEffectToken::SetTriggerContextAux2));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CRescueFromTheUnderworldEffectToken::SetTriggerContextAux3));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CRescueFromTheUnderworldEffectToken::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (bFired || (GetZone()->GetZoneId() != ZoneId::_Effects)) return false;
+
+	bFired = TRUE;
+
+	return true;
+}
+
+bool CRescueFromTheUnderworldEffectToken::BeforeResolution(CAbilityAction* pAction) const
+{
+	CPlayer* pController = pAction->GetController();
+
+	if (pCards1.GetSize() > 0)
+		pCards1.GetAt(0)->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+
+	if (pCards2.GetSize() > 0)
+		pCards2.GetAt(0)->Move(pController->GetZoneById(ZoneId::Battlefield), pController, MoveType::Others);
+
+	return true;
+}
+
+bool CRescueFromTheUnderworldEffectToken::SetTriggerContextAux1(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	if (pCards1.HasCard(pCard))
+		pCards1.RemoveCard(pCard);
+	if (pCards2.HasCard(pCard))
+		pCards2.RemoveCard(pCard);
+
+	return false;
+}
+
+bool CRescueFromTheUnderworldEffectToken::SetTriggerContextAux2(CTriggeredAbility<>::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	if (pCards2.HasCard(pCard))
+		pCards2.RemoveCard(pCard);
+
+	return false;
+}
+
+bool CRescueFromTheUnderworldEffectToken::SetTriggerContextAux3(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, CNode* pToNode)
+{
+	if (!bFired) return false;
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CTimeToFeedEffectToken::CTimeToFeedEffectToken(CGame* pGame, UINT nID)
+	: CContainerEffectCard(pGame, _T("Time to Feed Effect"), CardType::GlobalEnchantment, nID)	
+{
+	GetCardKeyword()->AddEmblem(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyLifeAbility, CWhenCardMoved > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this,
+			ZoneId::Battlefield, ZoneId::_AllZones, TRUE, FALSE, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(+3));
+
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CTimeToFeedEffectToken::SetTriggerContext));
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Graveyard));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		typedef
+			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenNodeChanged > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(
+			::CreateObject<TriggeredAbility>(this, NodeId::CleanupStep2, FALSE));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+		cpAbility->SetSkipStack(TRUE);
+
+		cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::_Effects);
+		cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Exile);
+		cpAbility->SetPlayableFrom(ZoneId::_Effects);
+		cpAbility->AddAbilityTag(AbilityTag(ZoneId::_Effects, ZoneId::Exile));
+
+		AddAbility(cpAbility.GetPointer());
+    }
+}
+
+bool CTimeToFeedEffectToken::SetTriggerContext(CTriggeredModifyLifeAbility::TriggerContextType& triggerContext,
+											CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pCards.HasCard(pCard)) return false;
+	if (GetZone()->GetZoneId() != ZoneId::_Effects) return false;
+	
+	pCards.RemoveCard(pCard);
+
+	if (pToZone->GetZoneId() != ZoneId::Graveyard) return false;
+
+	return true;
 }
 
 //____________________________________________________________________________

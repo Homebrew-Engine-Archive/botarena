@@ -739,6 +739,7 @@ protected:
 	void StatebasedCheck();
 	void CheckPlayersLost();
 	void CheckLegendaryCards(CCountedCardContainer& cardsToRemove);
+	void OnLegendarySelectionDone(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
 	void CheckWorldCards(CCountedCardContainer& cardsToRemove);
 	void CheckPlaneswalkerCards(CCountedCardContainer& cardsToRemove);
 	void CheckMisplacedTokens(CCountedCardContainer& cardsToRemove);
@@ -890,6 +891,7 @@ protected:
 	CStateSupportPtrType<CPlayer>	m_pStartWithPlayer;
 	ListenerPtr<SelectionEventSource::Listener>	m_cpMulliganSelectionListener;
 	//ListenerPtr<SelectionEventSource::Listener>	m_cpStartWithSelectionListener;
+	ListenerPtr<SelectionEventSource::Listener>	m_cpLegendarySelectionListener;
 	CSelectionSupport		m_StartWithSelection;
 	//CSelectionSupport		m_GemstoneCavernsSelection;
 

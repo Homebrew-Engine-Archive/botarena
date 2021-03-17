@@ -1594,8 +1594,6 @@ CFungusSliverCard::CFungusSliverCard(CGame* pGame, UINT nID)
 
 counted_ptr<CAbility> CFungusSliverCard::CreateAbility(CCard* pCard)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenDamageDealt,
 							CWhenDamageDealt::CreatureEventCallback, 
@@ -2885,8 +2883,6 @@ CVampiricSliverCard::CVampiricSliverCard(CGame* pGame, UINT nID)
 
 counted_ptr<CAbility> CVampiricSliverCard::CreateAbility(CCard* pCard)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt2 > TriggeredAbility;
 
@@ -4056,7 +4052,7 @@ CTriskelavusCard::CTriskelavusCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Triskelavus"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
 		_T("7"), Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
@@ -4128,7 +4124,6 @@ CDrainingWhelkCard::CDrainingWhelkCard(CGame* pGame, UINT nID)
 						&CDrainingWhelkCard::OnResolutionCompleted1))
 {
 	GetCardKeyword()->AddFlash(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -5085,7 +5080,7 @@ CPhantomWurmCard::CPhantomWurmCard(CGame* pGame, UINT nID)
 		_T("4") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(2), Life(0))
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -10822,7 +10817,7 @@ CClockworkHydraCard::CClockworkHydraCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Clockwork Hydra"), CardType::_ArtifactCreature, CREATURE_TYPE(Hydra), nID,
 		_T("5"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -11096,7 +11091,7 @@ CSpikeTillerCard::CSpikeTillerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Tiller"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 

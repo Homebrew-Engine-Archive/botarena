@@ -486,8 +486,6 @@ CDruidsRepositoryCard::CDruidsRepositoryCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Druids' Repository"), CardType::GlobalEnchantment, nID,
 		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenAttackedBlocked,
@@ -885,8 +883,6 @@ CHeraldOfWarCard::CHeraldOfWarCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Herald of War"), CardType::Creature, CREATURE_TYPE(Angel), nID,
 		_T("3") WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
 	{
 		counted_ptr<CTriggeredCounterAffinityAbility> cpAbility(
 			::CreateObject<CTriggeredCounterAffinityAbility>(this,
@@ -2801,7 +2797,7 @@ CNecrobiteCard::CNecrobiteCard(CGame* pGame, UINT nID)
 			&CNecrobiteCard::OnResolutionCompleted))
 {
 	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetToAdd(CardKeyword::Deathtouch);
-	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(FALSE);
+	m_pTargetChgPwrTghAttrSpell->GetCardKeywordMod().GetModifier().SetOneTurnOnly(TRUE);
 	m_pTargetChgPwrTghAttrSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
 }
 
@@ -3668,8 +3664,6 @@ COtherworldAtlasCard::COtherworldAtlasCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Otherworld Atlas"), CardType::Artifact, nID,
 		_T("4"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CGenericSpell>>(this,

@@ -2509,7 +2509,7 @@ CEtchedMonstrosityCard::CEtchedMonstrosityCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Etched Monstrosity"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
 		_T("5") , Power(10), Life(10))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 5, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetDrawCardSpell>> cpAbility(
@@ -2814,8 +2814,7 @@ CSurgeNodeCard::CSurgeNodeCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Surge Node"), CardType::Artifact, nID,
 		_T("1"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 6, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 6, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -3665,7 +3664,10 @@ CVorinclexVoiceofHungerCard::CVorinclexVoiceofHungerCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("lands")));
+
+	CCardFilter * a = CCardFilter::GetFilter(_T("lands"))->Clone();
+	a->SetThisCardsControllerOnly(this);
+	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(a);
 	
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToController);
 
@@ -3683,7 +3685,10 @@ CVorinclexVoiceofHungerCard::CVorinclexVoiceofHungerCard(CGame* pGame, UINT nID)
 	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("lands")));
+
+	CCardFilter * a = CCardFilter::GetFilter(_T("lands"))->Clone();
+	a->SetNotThisCardsControllerOnly(this);
+	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(a);
 	
 	cpAbility->SetTriggerToPlayerOption(TriggerToPlayerOption::TriggerToOpponents);
 

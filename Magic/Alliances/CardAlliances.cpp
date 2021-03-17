@@ -68,6 +68,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CNaturesChosenCard);
 		DEFINE_CARD(CNaturesWrathCard);
 		DEFINE_CARD(CNobleSteedsCard);
+		DEFINE_CARD(COmenOfFireCard);
 		DEFINE_CARD(CPhantasmalFiendCard);
 		DEFINE_CARD(CPhantasmalSphereCard);
 		DEFINE_CARD(CPhelddagrifCard);
@@ -483,7 +484,6 @@ CShieldSphereCard::CShieldSphereCard(CGame* pGame, UINT nID)
 		_T("0"), Power(0), Life(6))
 {
 	GetCreatureKeyword()->AddDefender(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	
 	{
 		typedef
@@ -3737,6 +3737,129 @@ bool CPhantasmalSphereCard::BeforeResolution2(CAbilityAction* pAction)
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+COmenOfFireCard::COmenOfFireCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Omen of Fire"), CardType::Instant, nID)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				&COmenOfFireCard::OnResolutionCompleted))
+	, m_CardSelection(pGame, CSelectionSupport::SelectionCallback(this, &COmenOfFireCard::OnCardSelected))
+{
+	counted_ptr<CGlobalMoveCardSpell> cpSpell(
+		::CreateObject<CGlobalMoveCardSpell>(this, AbilityType::Instant,
+			_T("3") RED_MANA_TEXT RED_MANA_TEXT,
+			new CardTypeComparer(CardType::Island, false),
+			ZoneId::Hand, TRUE, MoveType::Others));
+
+	cpSpell->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+void COmenOfFireCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+
+	int pActivePlayerID;
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (pActivePlayer == GetGame()->GetPlayer(ip))
+		{
+			pActivePlayerID = ip;
+			break;
+		}
+
+	pSelected.RemoveAll();
+
+	CCardFilter m_CardFilter;
+	m_CardFilter.SetComparer(new CardTypeComparer(CardType::White, false));
+
+	int nWhite = m_CardFilter.CountIncluded(pActivePlayer->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
+
+	ChoiceFunction(pActivePlayerID, nWhite, nWhite);
+}
+
+void COmenOfFireCard::ChoiceFunction(int PlayerID, int nToSelect, int nTotal)
+{
+	if (nToSelect == 0)
+	{
+		int NextPlayer = PlayerID + 1;
+		int PlayerCount = GetGame()->GetPlayerCount();
+		CPlayer* pActivePlayer = GetGame()->GetActivePlayer();
+
+		if (NextPlayer >= PlayerCount)
+			NextPlayer -= PlayerCount;
+		if (GetGame()->GetPlayer(NextPlayer) != pActivePlayer)
+		{
+			CCardFilter m_CardFilter;
+			m_CardFilter.SetComparer(new CardTypeComparer(CardType::White, false));
+
+			int nWhite = m_CardFilter.CountIncluded(GetGame()->GetPlayer(NextPlayer)->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
+
+			ChoiceFunction(NextPlayer, nWhite, nWhite);
+		}
+		else
+			for (int i = 0; i < pSelected.GetSize(); ++i)
+			{
+				CCard* pCard = pSelected.GetAt(i);
+				CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::Sacrifice, pCard->GetController());
+				pModifier.ApplyTo(pCard);
+			}
+	}
+	else
+	{
+		CPlayer* pPlayer = GetGame()->GetPlayer(PlayerID);
+		CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+	
+		std::vector<SelectionEntry> entries;
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
+		{
+			CCard* pCard = pBattlefield->GetAt(i);
+
+			if (!pSelected.HasCard(pCard) && ((pCard->GetCardType() & CardType::Plains).Any() || pCard->IsColor(CManaPool::Color::White)))
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Sacrifice %s (card %d of %d)"),
+					pCard->GetCardName(TRUE), nTotal - nToSelect + 1, nTotal);
+
+				entries.push_back(entry);
+			}
+		}
+		m_CardSelection.AddSelectionRequest(entries, 1, 1, NULL, pPlayer, PlayerID, nToSelect, nTotal);
+	}
+}
+
+
+void COmenOfFireCard::OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CCard* pCard = (CCard*)it->dwContext;
+
+			if (!m_pGame->IsThinking())
+			{
+				CString strMessage;
+				strMessage.Format(_T("%s selects %s to sacrifice"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+				m_pGame->Message(
+					strMessage,
+					pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+					MessageImportance::High
+					);
+			}
+			pSelected.AddCard(pCard, CardPlacement::Top);
+				
+			ChoiceFunction(dwContext1, dwContext2 - 1, dwContext3);
+
+			return;
+		}
 }
 
 //____________________________________________________________________________

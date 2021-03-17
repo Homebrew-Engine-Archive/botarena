@@ -355,6 +355,7 @@
 #define IDS_STRING640                   640
 #define IDS_STRING641                   641
 #define IDS_STRING642                   642
+#define IDS_STRING643                   643
 #define IDI_MODULE                      650
 #define IDI_LARGE_MODULE                651
 

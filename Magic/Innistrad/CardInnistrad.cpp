@@ -333,7 +333,9 @@ CMurderOfCrowsCard::CMurderOfCrowsCard(CGame* pGame, UINT nID)
 	ATLASSERT(cpAbility);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Optional);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new SpecificCardComparer(this));
 
 	cpAbility->SetDiscard(1, FALSE, MoveType::Discard);
 
@@ -2994,7 +2996,7 @@ void CMirrorMadPhantasmCard::OnResolutionCompleted(const CAbilityAction* pAbilit
 
 	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n-1, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,
 		CZoneModifier::RoleType::AllPlayers);			
-		pModifier.AddSelection(MinimumValue(n), MaximumValue(n), // select cards to bootom
+		pModifier.AddSelection(MinimumValue(n), MaximumValue(n), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::AllPlayers, // reveal to
 			NULL, // any cards
@@ -3604,23 +3606,26 @@ void CMemorysJourneyCard::OnResolutionCompleted(const CAbilityAction* pAbilityAc
 
 	m_CardFilter_temp.SetComparer(new NegateCardComparer(new SpecificCardComparer(this)));	
 	if (m_CardFilter_temp.CountIncluded(pGraveyard->GetCardContainer())>0)
-
 	{
-		CZoneModifier pmodifier2 = CZoneModifier(GetGame(), ZoneId::Graveyard, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
-			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
-		pmodifier2.AddSelection(MinimumValue(1), MaximumValue(3), // select cards to reorder
-			CZoneModifier::RoleType::PrimaryPlayer, // select by 
-			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
-			&m_CardFilter_temp, // what cards
-			ZoneId::Library, // if selected, move cards to
-			CZoneModifier::RoleType::PrimaryPlayer, // select by this player
-			CardPlacement::Top, // put selected cards on 
-			MoveType::Others, // move type
-			CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
-
+		CZoneModifier pmodifier2 = CZoneModifier(GetGame(), ZoneId::Graveyard, SpecialNumber::All, 
+			                                     CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top, 
+												 CZoneModifier::RoleType::AllPlayers);
+		pmodifier2.AddSelection(MinimumValue(0), MaximumValue(3),       // select cards to reorder (target player may
+			                                                            // target 0..3 cards)
+		                        CZoneModifier::RoleType::PrimaryPlayer, // select by 
+		                        CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+							    &m_CardFilter_temp,                     // what cards
+							    ZoneId::Library,                        // if selected, move cards to
+							    CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+								CardPlacement::Top,                     // put selected cards on 
+								MoveType::Others,                       // move type
+							    CZoneModifier::RoleType::PrimaryPlayer);// order selected cards by this player
 		pmodifier2.ApplyTo(target);
 
-		pLibrary->Shuffle(); 
+		pLibrary->Shuffle();                                            // If no cards were targeted by Memory's Journey or if all 
+		                                                                // the targeted cards are illegal targets by the time 
+		                                                                // Memory's Journey resolves, the targeted player will still 
+		                                                                // shuffle his or her library.
 	}
 }
 
@@ -4407,7 +4412,9 @@ CRageThrowerCard::CRageThrowerCard(CGame* pGame, UINT nID)
 			ZoneId::Battlefield, ZoneId::Graveyard));
 	ATLASSERT(cpAbility);
 
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new SpecificCardComparer(this));
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 	cpAbility->GetLifeModifier().SetLifeDelta(Life(-2));
@@ -4858,7 +4865,7 @@ CCellarDoorCard::CCellarDoorCard(CGame* pGame, UINT nID)
 
 		CZoneModifier* pModifier = new CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
 		CardPlacement::Bottom, CZoneModifier::RoleType::AllPlayers);				
-		pModifier->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+		pModifier->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 			CZoneModifier::RoleType::PrimaryPlayer, // select by 
 			CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 			NULL, // any cards
@@ -4977,7 +4984,9 @@ CGalvanicJuggernautCard::CGalvanicJuggernautCard(CGame* pGame, UINT nID)
 	ATLASSERT(cpAbility);
 
 	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
-	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("creatures")));
+	cpAbility->GetTrigger().GetCardFilterHelper().SetFilterType(CCardFilterHelper::FilterType::Custom);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTrigger().GetCardFilterHelper().GetCustomFilter().AddNegateComparer(new SpecificCardComparer(this));
 
 	cpAbility->SetTapCardOption(CTriggeredTapCardAbility::TapCardOption::UntapSingleCard);
 	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
@@ -8657,7 +8666,6 @@ CUnbreathingHordeCard::CUnbreathingHordeCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CUnbreathingHordeCard::OnZoneChanged))
 {
 	GetCreatureKeyword()->AddFullReplacedDamage(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 
 	m_CardFilter1.AddComparer(new CreatureTypeComparer(CREATURE_TYPE(Zombie), false));
 	m_CardFilter1.AddComparer(new NegateCardComparer(new SpecificCardComparer(this)));
@@ -8699,7 +8707,7 @@ void CUnbreathingHordeCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone*
 	
 		int nZombies = m_CardFilter1.CountIncluded(pBattlefield->GetCardContainer()) + m_CardFilter2.CountIncluded(pGraveyard->GetCardContainer());
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nZombies, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nZombies);
 
 		pModifier.ApplyTo(this);
 	}

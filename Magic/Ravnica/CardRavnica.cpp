@@ -148,6 +148,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CNightguardPatrolCard);
 		DEFINE_CARD(CNightmareVoidCard);
 		DEFINE_CARD(CNullmageShepherdCard);
+		DEFINE_CARD(CNullstoneGargoyleCard);
 		DEFINE_CARD(COathswornGiantCard);
 		DEFINE_CARD(COrdruunCommandoCard);
 		DEFINE_CARD(COvergrownTombCard);
@@ -596,7 +597,6 @@ CWateryGraveCard::CWateryGraveCard(CGame* pGame, UINT nID)
 CDarkConfidantCard::CDarkConfidantCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dark Confidant"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
 		_T("1") BLACK_MANA_TEXT, Power(2), Life(1))
-
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 				   &CDarkConfidantCard::OnResolutionCompleted))
 {
@@ -615,6 +615,11 @@ CDarkConfidantCard::CDarkConfidantCard(CGame* pGame, UINT nID)
 void CDarkConfidantCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
 	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		cont->SetDrawFailed();								 // can not draw a card to put into your hand, so draw has failed
+		return;												 // no point continuing
+	}
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 	int nCost = 0;
 	CZoneModifier* pModifier = new CDrawCardModifier(GetGame(), MinimumValue(1), MaximumValue(1));		
@@ -2476,8 +2481,6 @@ CVinelasherKudzuCard::CVinelasherKudzuCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Vinelasher Kudzu"), CardType::Creature, CREATURE_TYPE(Plant), nID,
 		_T("1") GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -2512,8 +2515,6 @@ CVulturousZombieCard::CVulturousZombieCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Vulturous Zombie"), CardType::Creature, CREATURE_TYPE2(Plant, Zombie), nID,
 		_T("3") BLACK_MANA_TEXT GREEN_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -3882,8 +3883,7 @@ bool CNetherbornPhalanxCard::BeforeResolution(TriggeredAbility::TriggeredActionT
             ++nOppCount;
 	}
 
-	triggerContext.m_LifeModifier = Life(-nOppCount);
-
+	triggerContext.m_LifeModifier.SetLifeDelta(Life(-nOppCount));
 	pAction->SetTriggerContext(triggerContext);
 
 	return nOppCount >= Life(1);
@@ -4184,8 +4184,6 @@ CTwilightDroverCard::CTwilightDroverCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Twilight Drover"), CardType::Creature, CREATURE_TYPE(Spirit), nID,
 		_T("2") WHITE_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
@@ -4538,7 +4536,6 @@ CGolgariGraveTrollCard::CGolgariGraveTrollCard(CGame* pGame, UINT nID)
 	m_pRegenerationAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("+1/+1")), -1);
 	
 	GetCardKeyword()->AddDredge(FALSE, 6);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 
 	m_CardFilter.AddComparer(new AnyCreatureComparer);
 
@@ -4556,7 +4553,7 @@ void CGolgariGraveTrollCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone
 	
 	int creature = m_CardFilter.CountIncluded(pGrave->GetCardContainer());
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +creature, true);
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +creature);
 
 	pModifier.ApplyTo(this);
 	}
@@ -5064,8 +5061,6 @@ CSzadekLordofSecretsCard::CSzadekLordofSecretsCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Szadek, Lord of Secrets"), CardType::_LegendaryCreature, CREATURE_TYPE(Vampire), nID,
 		_T("3") BLACK_MANA_TEXT BLACK_MANA_TEXT BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(5), Life(5))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyLifeAbility, CBeforeDamageDealt,
@@ -5283,8 +5278,6 @@ CNecroplasmCard::CNecroplasmCard(CGame* pGame, UINT nID)
 		&CNecroplasmCard::OnResolutionCompleted))
 {
 	GetCardKeyword()->AddDredge(FALSE, 2);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -5434,8 +5427,6 @@ CPlagueBoilerCard::CPlagueBoilerCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Plague Boiler"), CardType::Artifact, nID,
 		_T("3"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(PLAGUE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -7843,6 +7834,37 @@ void CSpectralSearchlightCard::OnColorSelected(const std::vector<SelectionEntry>
 	);
 	//Add the Mana to the chosen player
 	pModifier.ApplyTo(pSelectionPlayer);
+}
+
+//____________________________________________________________________________
+//
+CNullstoneGargoyleCard::CNullstoneGargoyleCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Nullstone Gargoyle"), CardType::_ArtifactCreature, CREATURE_TYPE(Gargoyle), nID,
+		_T("9"), Power(4), Life(5))
+{
+	typedef 
+		TTriggeredAbility< CTriggeredCounterSpellAbility, CWhenSpellCast >  TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(CCardFilter::GetFilter(_T("non-creatures")));
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CNullstoneGargoyleCard::SetTriggerContext));
+	cpAbility->AddAbilityTag(AbilityTag::Counterspell);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CNullstoneGargoyleCard::SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext, CCard* pCard) const
+{
+	triggerContext.m_pCard = pCard;
+
+	int nNonCreatureSpells = 0;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		nNonCreatureSpells += GetGame()->GetPlayer(ip)->GetCertainAntiTypeCastedCount(CardType::Creature);
+	
+	return (nNonCreatureSpells == 1);
 }
 
 //____________________________________________________________________________

@@ -2160,7 +2160,6 @@ CBalduvianHydraCard::CBalduvianHydraCard(CGame* pGame, UINT nID)
 		RED_MANA_TEXT RED_MANA_TEXT, Power(0), Life(1))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CBalduvianHydraCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -2200,7 +2199,7 @@ void CBalduvianHydraCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+0"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+0"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -2996,8 +2995,7 @@ CFumaroleCard::CFumaroleCard(CGame* pGame, UINT nID)
 CFylgjaCard::CFylgjaCard(CGame* pGame, UINT nID)
 	: CCard(pGame, _T("Fylgja"), CardType::EnchantCreature, nID)
 {
-	GetCounterContainer()->ScheduleCounter(HEALING_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(HEALING_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(HEALING_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CCreatureAbilityEnchant> cpSpell(

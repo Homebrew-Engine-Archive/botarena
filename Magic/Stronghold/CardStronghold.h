@@ -849,3 +849,15 @@ protected:
 
 //____________________________________________________________________________
 //
+class CHesitationCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CHesitationCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext,
+							CCard* pCard) const;
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//

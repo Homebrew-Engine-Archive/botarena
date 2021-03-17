@@ -297,6 +297,8 @@
 #define IDS_STRING9480                  9480
 #define IDS_STRING9481                  9481
 #define IDS_STRING9482                  9482
+#define IDS_STRING9483                  9483
+#define IDS_STRING9484                  9484
 #define IDI_MODULE                      9550
 #define IDI_LARGE_MODULE                9551
 

@@ -80,7 +80,7 @@ counted_ptr<CCard> CreateToken(CGame* pGame, LPCTSTR strTokenName, UINT uID)
 		DEFINE_TOKEN(CBirdGToken);
 		DEFINE_TOKEN(CBirdHToken);
 		DEFINE_TOKEN(CBirdSoldierToken);
-		DEFINE_TOKEN(CBoarToken);
+		DEFINE_TOKEN(CBoarAToken);
 		DEFINE_TOKEN(CButterflyToken);
 		DEFINE_TOKEN(CCamaridAToken);
 		DEFINE_TOKEN(CCamaridBToken);
@@ -953,7 +953,6 @@ CDragonBToken::CDragonBToken(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 	GetCreatureKeyword()->AddDevour(FALSE);
 
@@ -973,7 +972,7 @@ void CDragonBToken::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone
 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && nColorCount > 0)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 		pModifier.ApplyTo(this);
 	}
 }
@@ -3150,7 +3149,7 @@ CDrakeBToken::CDrakeBToken(CGame* pGame, UINT nID)
 
 //____________________________________________________________________________
 //
-CBoarToken::CBoarToken(CGame* pGame, UINT nID)
+CBoarAToken::CBoarAToken(CGame* pGame, UINT nID)
 	: CTokenCreature(pGame, _T("Boar"), CardType::Creature | CardType::Token,
 		CREATURE_TYPE(Boar), nID,
 		_T(""),

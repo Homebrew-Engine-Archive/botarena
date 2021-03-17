@@ -2371,7 +2371,6 @@ CPouncingWurmCard::CPouncingWurmCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CPouncingWurmCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2383,7 +2382,7 @@ void CPouncingWurmCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +3, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +3);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::Haste);
@@ -2770,9 +2769,6 @@ CMycologistCard::CMycologistCard(CGame* pGame, UINT nID)
 
 	, m_CardFilter(_T("a Saproling"), _T("Saprolings"), new CreatureTypeComparer(CREATURE_TYPE(Saproling), false))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -2819,9 +2815,6 @@ CPallidMycodermCard::CPallidMycodermCard(CGame* pGame, UINT nID)
 
 		, m_CardFilter(_T("a Saproling"), _T("Saprolings"), new CreatureTypeComparer(CREATURE_TYPE(Saproling), false))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -2873,9 +2866,6 @@ CPsychotropeThallidCard::CPsychotropeThallidCard(CGame* pGame, UINT nID)
 
 		, m_CardFilter(_T("a Saproling"), _T("Saprolings"), new CreatureTypeComparer(CREATURE_TYPE(Saproling), false))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -2921,9 +2911,6 @@ CVitasporeThallidCard::CVitasporeThallidCard(CGame* pGame, UINT nID)
 
 		, m_CardFilter(_T("a Saproling"), _T("Saprolings"), new CreatureTypeComparer(CREATURE_TYPE(Saproling), false))
 {
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(SPORE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -3717,10 +3704,18 @@ CDormantSliverCard::CDormantSliverCard(CGame* pGame, UINT nID)
 
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
 
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CDormantSliverCard::SetTriggerContext));
 		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+bool CDormantSliverCard::SetTriggerContext(CTriggeredDrawCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const
+{
+	if (GetCardKeyword()->HasChangeling() || GetCreatureType().HasType(SingleCreatureType::Sliver)) return true;
+	else return false;
 }
 
 counted_ptr<CAbility> CDormantSliverCard::CreateAbility(CCard* pCard)
@@ -4846,7 +4841,7 @@ void CTidewalkerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZo
 	{
 		int nCount = CCardFilter::GetFilter(_T("Islands"))->CountIncluded(pToZone->GetCardContainer());
 
-		CCardCounterModifier modifier(TIME_COUNTER, nCount, true);
+		CCardCounterModifier modifier(TIME_COUNTER, nCount);
 		modifier.ApplyTo(this);
 	}
 }

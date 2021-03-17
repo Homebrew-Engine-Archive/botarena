@@ -406,6 +406,7 @@ BEGIN
     IDS_STRING14260         "Riptide Replicator\n{X4}\nArtifact\nONS,R\nAs Riptide Replicator enters the battlefield, choose a color and a creature type.\rRiptide Replicator enters the battlefield with X charge counters on it.\r{4}, {T}: Put an X/X creature token of the chosen color and type onto the battlefield, where X is the number of charge counters on Riptide Replicator."
     IDS_STRING14261         "Animal Magnetism\n{4G}\nSorcery\nONS,R\nReveal the top five cards of your library. An opponent chooses a creature card from among them. Put that card onto the battlefield and the rest into your graveyard."
     IDS_STRING14262         "Mana Echoes\n{2RR}\nEnchantment\nONS,R\nWhenever a creature enters the battlefield, you may add {X} to your mana pool, where X is the number of creatures you control that share a creature type with it."
+    IDS_STRING14263         "Graxiplon\n{5U}\nCreature - Beast\nONS,U\nGraxiplon is unblockable unless defending player controls three or more creatures that share a creature type.\n3/4"
 END
 
 #endif    // English (United States) resources

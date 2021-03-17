@@ -1586,7 +1586,7 @@ void CCard::OnDredgeSelected(const std::vector<SelectionEntry>& selection, int n
 			if (pCard->GetZone()->GetZoneId() == ZoneId::Graveyard)
 			{
 			CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, n, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-			pModifier.AddSelection(MinimumValue(0), MaximumValue(0), // select cards to bootom
+			pModifier.AddSelection(MinimumValue(0), MaximumValue(0), // select cards to bottom
 					CZoneModifier::RoleType::PrimaryPlayer, // select by 
 					CZoneModifier::RoleType::AllPlayers, // reveal to
 					NULL, // any cards
@@ -1641,7 +1641,7 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						int nPrevGoblins = m_GoblinFilter.CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer());
 
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bootom
+						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
 							CZoneModifier::RoleType::PrimaryPlayer, // select by 
 							CZoneModifier::RoleType::AllPlayers, // reveal to
 							pCardFilter , // any cards
@@ -1661,7 +1661,7 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 					else
 					{
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bootom
+						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
 							CZoneModifier::RoleType::PrimaryPlayer, // select by 
 							CZoneModifier::RoleType::AllPlayers, // reveal to
 							pCardFilter , // any cards
@@ -1692,7 +1692,7 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						int value = it->dwContext;
 
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bootom
+						pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
 							CZoneModifier::RoleType::PrimaryPlayer, // select by 
 							CZoneModifier::RoleType::AllPlayers, // reveal to
 							pCardFilter , // any cards
@@ -1759,7 +1759,7 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						GetPrintedCardName() == _T("Wanderwine Hub"))
 					{
 						CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+						pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 								CZoneModifier::RoleType::PrimaryPlayer, // select by 
 								CZoneModifier::RoleType::AllPlayers, // reveal to
 								pCardFilter , // any cards
@@ -1778,7 +1778,7 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 						if (GetPrintedCardName() == _T("Mox Diamond") &&  pCardFilter->CountIncluded(GetController()->GetZoneById(ZoneId::Hand)->GetCardContainer()) > 0)
 						{			
 							CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Hand, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-						pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+						pModifier.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 								CZoneModifier::RoleType::PrimaryPlayer, // select by 
 								CZoneModifier::RoleType::AllPlayers, // reveal to
 								pCardFilter , // any cards
@@ -1797,7 +1797,7 @@ void CCard::OnToBattlefieldSelected(const std::vector<SelectionEntry>& selection
 							if (pCardFilter->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) >= value)
 							{
 									CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Battlefield, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer, CardPlacement::Top,CZoneModifier::RoleType::PrimaryPlayer);
-							pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bootom
+							pModifier.AddSelection(MinimumValue(value), MaximumValue(value), // select cards to bottom
 								CZoneModifier::RoleType::PrimaryPlayer, // select by 
 								CZoneModifier::RoleType::AllPlayers, // reveal to
 								pCardFilter , // any cards

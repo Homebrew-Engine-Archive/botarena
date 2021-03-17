@@ -80,6 +80,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLoamDwellerCard);
 		DEFINE_CARD(CMannichiTheFeveredDreamCard);
 		DEFINE_CARD(CMarkOfTheOniCard);
+		DEFINE_CARD(CMatsuTribeSniperCard);
 		DEFINE_CARD(CMinamoSightbenderCard);
 		DEFINE_CARD(CMirrorGalleryCard);
 		DEFINE_CARD(CMistbladeShinobiCard);
@@ -445,8 +446,6 @@ CIndebtedSamuraiCard::CIndebtedSamuraiCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Indebted Samurai"), CardType::Creature, CREATURE_TYPE2(Human, Samurai), nID,
 		_T("3") WHITE_MANA_TEXT, Power(2), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		//Bushido 1
 		typedef
@@ -1469,8 +1468,7 @@ CUmezawasJitteCard::CUmezawasJitteCard(CGame* pGame, UINT nID)
 CTendoIceBridgeCard::CTendoIceBridgeCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Tendo Ice Bridge"), nID)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 1, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -4675,6 +4673,62 @@ bool CShireiShizosCaretakerCard::BeforeResolution(TriggeredAbility::TriggeredAct
 
 	CDoubleContainerEffectModifier pModifier = CDoubleContainerEffectModifier(GetGame(), _T("Shirei, Shizo's Caretaker Effect"), 61077, &pSubjects1, &pSubjects2);
 	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CMatsuTribeSniperCard::CMatsuTribeSniperCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Matsu-Tribe Sniper"), CardType::Creature, CREATURE_TYPE3(Snake, Warrior, Archer), nID,
+		_T("1") GREEN_MANA_TEXT, Power(1), Life(1))
+{
+	{
+		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgLifeSpell>>(this,
+				_T(""),
+				new AnyCreatureComparer, FALSE,
+				Life(-1),	// life delta
+				PreventableType::Preventable));
+		ATLASSERT(cpAbility);
+
+		cpAbility->AddTapCost();
+		cpAbility->GetTargeting()->GetSubjectCardFilter().AddComparer(
+			new CreatureKeywordComparer(CreatureKeyword::Flying, false));
+
+		cpAbility->SetDamageType(DamageType::AbilityDamage | DamageType::NonCombatDamage);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CMatsuTribeSniperCard::SetTriggerContext));
+		cpAbility->SetBeforeResolveSelectionCallback(TriggeredAbility::BeforeResolveSelectionCallback(this, &CMatsuTribeSniperCard::BeforeResolution));
+
+		cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CMatsuTribeSniperCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, 
+													CCreatureCard* pToCreature, Damage damage) const
+{
+	triggerContext.nValue1 = (DWORD)pToCreature;
+	return true;
+}
+
+bool CMatsuTribeSniperCard::BeforeResolution(TriggeredAbility::TriggeredActionType* pAction)
+{
+	CCard* pCard = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pCard);
+	pModifier2.ApplyTo(pCard);
 
 	return true;
 }

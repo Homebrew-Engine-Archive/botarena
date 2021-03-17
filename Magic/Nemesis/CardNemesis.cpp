@@ -1461,7 +1461,7 @@ CBlastodermCard::CBlastodermCard(CGame* pGame, UINT nID)
 {
 	GetCardKeyword()->AddShroud(FALSE);
 
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 		{
 		typedef
@@ -1505,7 +1505,7 @@ CAncientHydraCard::CAncientHydraCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Ancient Hydra"), CardType::Creature, CREATURE_TYPE(Hydra), nID,
 		_T("4") RED_MANA_TEXT, Power(5), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
@@ -1563,7 +1563,7 @@ CCloudskateCard::CCloudskateCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Cloudskate"), CardType::Creature, CREATURE_TYPE(Illusion), nID,
 		_T("1") BLUE_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -1607,7 +1607,7 @@ CDefenderEnVecCard::CDefenderEnVecCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Defender en-Vec"), CardType::Creature, CREATURE_TYPE2(Human, Cleric), nID,
 		_T("3") WHITE_MANA_TEXT, Power(2), Life(4))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetDamagePreventionSpell>> cpAbility(
@@ -1662,7 +1662,7 @@ CJoltingMerfolkCard::CJoltingMerfolkCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Jolting Merfolk"), CardType::Creature, CREATURE_TYPE(Merfolk), nID,
 		_T("2") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetTapUntapCardSpell>> cpAbility(
@@ -1720,7 +1720,7 @@ CPhyrexianProwlerCard::CPhyrexianProwlerCard(CGame* pGame, UINT nID)
 {
 	m_pPumpAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(FADE_COUNTER), -1);
 
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -1764,7 +1764,7 @@ CRejuvenationChamberCard::CRejuvenationChamberCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Rejuvenation Chamber"), CardType::Artifact, nID,
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CChgLifeSpell>> cpAbility(
@@ -1820,7 +1820,7 @@ CSkyshroudBehemothCard::CSkyshroudBehemothCard(CGame* pGame, UINT nID)
 {
 	SetIntoPlayTapped();
 
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -1864,7 +1864,7 @@ CSkyshroudRidgebackCard::CSkyshroudRidgebackCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Skyshroud Ridgeback"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		GREEN_MANA_TEXT, Power(2), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef
@@ -1908,7 +1908,7 @@ CWoodripperCard::CWoodripperCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Woodripper"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(4), Life(6))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
@@ -2962,7 +2962,7 @@ CTangleWireCard::CTangleWireCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Tangle Wire"), CardType::Artifact, nID,
 		_T("3"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
@@ -3066,7 +3066,7 @@ CRustingGolemCard::CRustingGolemCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Rusting Golem"), CardType::_ArtifactCreature, CREATURE_TYPE(Golem), nID,
 		_T("4"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
 		counted_ptr<CCounterPwrTghAbility> cpAbility(
 			::CreateObject<CCounterPwrTghAbility>(this, FADE_COUNTER));
@@ -3117,7 +3117,7 @@ CSaprolingBurstCard::CSaprolingBurstCard(CGame* pGame, UINT nID)
 	, m_cpEventListener1(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 		&CSaprolingBurstCard::OnResolutionCompleted1))
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 7, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 7, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
@@ -3729,7 +3729,7 @@ CParallaxWaveCard::CParallaxWaveCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Paralax Wave"), CardType::GlobalEnchantment, nID,
 		_T("2") WHITE_MANA_TEXT WHITE_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{//exile target creature
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
@@ -3819,7 +3819,7 @@ CParallaxTideCard::CParallaxTideCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Paralax Tide"), CardType::GlobalEnchantment, nID,
 		_T("2") BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{//exile target land
 		counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
@@ -3911,7 +3911,7 @@ bool CParallaxTideCard::BeforeResolution(CAbilityAction* pAction)
 	: CInPlaySpellCard(pGame, _T("Paralax Nexus"), CardType::GlobalEnchantment, nID,
 		_T("2") BLACK_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
+	GetCounterContainer()->ScheduleCounter(FADE_COUNTER, 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	
 	{//exile target card

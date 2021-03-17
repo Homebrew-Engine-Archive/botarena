@@ -506,8 +506,7 @@ CBuriedAliveCard::CBuriedAliveCard(CGame* pGame, UINT nID)
 CGemstoneMineCard::CGemstoneMineCard(CGame* pGame, UINT nID)
 	: CNonbasicLandCard(pGame, _T("Gemstone Mine"), nID)
 {
-	GetCounterContainer()->ScheduleCounter(MINING_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(MINING_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(MINING_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CManaProductionAbility> cpNonbasicLandManaAbility(
@@ -2612,7 +2611,7 @@ CRocHatchlingCard::CRocHatchlingCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Roc Hatchling"), CardType::Creature, CREATURE_TYPE(Bird), nID,
 		RED_MANA_TEXT, Power(0), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(SHELL_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(SHELL_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		typedef

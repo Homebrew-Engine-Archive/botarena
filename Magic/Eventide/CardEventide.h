@@ -960,8 +960,8 @@ class CHeartlashCinderCard : public CHasteCreatureCard
 protected:
 	typedef
 		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfInplay,
-			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility1;
-	bool BeforeResolution1(TriggeredAbility1::TriggeredActionType* pAction);	
+			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+	bool BeforeResolution(TriggeredAbility::TriggeredActionType* pAction);	
 };
 
 //____________________________________________________________________________
@@ -1602,6 +1602,18 @@ class CPyrrhicRevivalCard : public CCard
 
 protected:
 	bool BeforeResolution(CAbilityAction* pAction) const;
+};
+
+//____________________________________________________________________________
+//
+class CTalarasBaneCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CTalarasBaneCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+	void OnCardSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	CSelectionSupport m_CardSelection;
 };
 
 //____________________________________________________________________________

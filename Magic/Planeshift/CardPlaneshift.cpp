@@ -270,7 +270,6 @@ CPhyrexianScutaCard::CPhyrexianScutaCard(CGame* pGame, UINT nID)
 		_T("3") BLACK_MANA_TEXT, Power(3), Life(3))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CPhyrexianScutaCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	{
@@ -311,7 +310,7 @@ void CPhyrexianScutaCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 
 	if (pFromZone->GetZoneId() == ZoneId::_Tokens && pToZone->GetZoneId() == ZoneId::Battlefield)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2);
 
 		pModifier.ApplyTo(this);
 	}
@@ -2158,7 +2157,6 @@ CArcticMerfolkCard::CArcticMerfolkCard(CGame* pGame, UINT nID)
 		_T("1") BLUE_MANA_TEXT, Power(1), Life(1))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CArcticMerfolkCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	{
@@ -2198,7 +2196,7 @@ void CArcticMerfolkCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 
 	if (pFromZone->GetZoneId() == ZoneId::_Tokens && pToZone->GetZoneId() == ZoneId::Battlefield)
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
 
 		pModifier.ApplyTo(this);
 	}

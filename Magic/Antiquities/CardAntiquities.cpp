@@ -140,8 +140,6 @@ CCitanulDruidCard::CCitanulDruidCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Citanul Druid"), CardType::Creature, CREATURE_TYPE2(Human, Druid), nID,
 		_T("1") GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSpellCast > TriggeredAbility;
 

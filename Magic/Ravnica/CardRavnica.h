@@ -1962,3 +1962,13 @@ protected:
 
 //____________________________________________________________________________
 //
+class CNullstoneGargoyleCard : public CFlyingCreatureCard
+{
+	DECLARE_CARD_CSTOR(CNullstoneGargoyleCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredCounterSpellAbility::TriggerContextType& triggerContext, CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//

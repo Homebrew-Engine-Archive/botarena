@@ -98,6 +98,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CKorAeronautCard);
 		DEFINE_CARD(CKorCartographerCard);
 		DEFINE_CARD(CKorDuelistCard);
+		DEFINE_CARD(CKorHookmasterCard);
 		DEFINE_CARD(CKorOutfitterCard);
 		DEFINE_CARD(CKorSanctifiersCard);
 		DEFINE_CARD(CKorSkyfisherCard);
@@ -712,8 +713,6 @@ CScuteMobCard::CScuteMobCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Scute Mob"), CardType::Creature, CREATURE_TYPE(Insect), nID,
 		 GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	counted_ptr<TriggeredAbility> cpAbility(
 		::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
 
@@ -2275,7 +2274,6 @@ CAEtherFigmentCard::CAEtherFigmentCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CAEtherFigmentCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2287,7 +2285,7 @@ void CAEtherFigmentCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2);
 
 		pModifier.ApplyTo(this);
 	}
@@ -2825,6 +2823,12 @@ CExplorersScopeCard::CExplorersScopeCard(CGame* pGame, UINT nID)
 bool CExplorersScopeCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext, 
 											CCard* pCard, CardKeyword fromCardKeyword, CardKeyword toCardKeyword) const
 {
+	CPlayer* cont = GetController();
+	if (cont->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+	{
+		return false;  // no point continuing, player does not lose game because he is looking at, not drawing the next card.
+					   // The next card is only drawn if it is a land.  No card is not a land.
+	}
 	CCard* pTopCard = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 	m_pTriggeredAbility->GetGatherer().GetSubjectCardFilter().SetComparer(new SpecificCardComparer(pTopCard)); 
 
@@ -3648,7 +3652,6 @@ CKazanduBlademasterCard::CKazanduBlademasterCard(CGame* pGame, UINT nID)
 		WHITE_MANA_TEXT WHITE_MANA_TEXT, Power(1), Life(1))
 	, m_CardFilter(_T("an Ally"), _T("Allies"), new CreatureTypeComparer(CREATURE_TYPE(Ally), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetCreatureKeyword()->AddVigilance(FALSE);
 
 	{
@@ -3994,7 +3997,6 @@ CMakindiShieldmateCard::CMakindiShieldmateCard(CGame* pGame, UINT nID)
 		_T("2") WHITE_MANA_TEXT, Power(0), Life(3))
 	, m_CardFilter(_T("an Ally"), _T("Allies"), new CreatureTypeComparer(CREATURE_TYPE(Ally), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetCreatureKeyword()->AddDefender(FALSE);
 
 	{
@@ -4114,8 +4116,6 @@ CNimanaSellSwordCard::CNimanaSellSwordCard(CGame* pGame, UINT nID)
 		_T("3") BLACK_MANA_TEXT, Power(2), Life(2))
 	, m_CardFilter(_T("an Ally"), _T("Allies"), new CreatureTypeComparer(CREATURE_TYPE(Ally), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -4170,8 +4170,6 @@ COranRiefSurvivalistCard::COranRiefSurvivalistCard(CGame* pGame, UINT nID)
 		_T("1") GREEN_MANA_TEXT, Power(1), Life(1))
 	, m_CardFilter(_T("an Ally"), _T("Allies"), new CreatureTypeComparer(CREATURE_TYPE(Ally), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -4450,8 +4448,6 @@ CTuktukGruntsCard::CTuktukGruntsCard(CGame* pGame, UINT nID)
 		_T("4") RED_MANA_TEXT, Power(2), Life(2))
 	, m_CardFilter(_T("an Ally"), _T("Allies"), new CreatureTypeComparer(CREATURE_TYPE(Ally), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -6407,8 +6403,6 @@ CBeastmasterAscensionCard::CBeastmasterAscensionCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Beastmaster Ascension"), CardType::GlobalEnchantment, nID,
 		_T("2") GREEN_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(QUEST_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	
 	{
 	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 		::CreateObject<CPwrTghAttrEnchantment>(this,
@@ -6449,8 +6443,6 @@ CQuestfortheHolyRelicCard::CQuestfortheHolyRelicCard(CGame* pGame, UINT nID)
 		, pEquipment(NULL)
 		, m_cpSelectionListener(VAR_NAME(m_cpSelectionListener), SelectionEventSource::Listener::EventCallback(this, &CQuestfortheHolyRelicCard::OnSelectionDone))
 {
-	GetCounterContainer()->ScheduleCounter(QUEST_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
@@ -6975,8 +6967,7 @@ CPyromancerAscensionCard::CPyromancerAscensionCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Pyromancer Ascension"), CardType::GlobalEnchantment, nID,
 		_T("1") RED_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(QUEST_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true); // it's needed here to initialize Quest_couners if yremoved - game crashes
-		{
+	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 
@@ -7458,6 +7449,44 @@ BOOL CNeedlebiteTrapCard::CanPlay(BOOL bIncludeTricks)
 		}
 
 	return LifeGained;
+}
+
+//____________________________________________________________________________
+//
+CKorHookmasterCard::CKorHookmasterCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kor Hookmaster"), CardType::Creature, CREATURE_TYPE2(Kor, Soldier), nID,
+		_T("2") WHITE_MANA_TEXT, Power(2), Life(2))
+{
+	typedef
+		TTriggeredTargetAbility< CTriggeredAbility<>, CWhenSelfInplay,
+			CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
+		
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->GetTargeting().GetSubjectCardFilter().AddComparer(new AnyCreatureComparer);
+	cpAbility->GetTargeting().SetDefaultCharacteristic(Characteristic::Negative);
+	cpAbility->GetTargeting().SetIncludeNonControllerCardsOnly();
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKorHookmasterCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::OrientationChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CKorHookmasterCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CCard* pTarget = pAction->GetAssociatedCard();
+
+	CCardOrientationModifier pModifier1 = CCardOrientationModifier();
+	CCardKeywordModifier pModifier2 = CCardKeywordModifier(CardKeyword::NoUntapInNextContUntap, TRUE, FALSE);
+
+	pModifier1.ApplyTo(pTarget);
+	pModifier2.ApplyTo(pTarget);
+
+	return true;
 }
 
 //____________________________________________________________________________

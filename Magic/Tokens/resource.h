@@ -14,6 +14,8 @@
 #define IDS_RELEASE_DATE                209
 #define IDS_MWS_FOLDER                  210
 #define IDS_PRODUCT_LIST                211
+#define IDI_MODULE                      20300
+#define IDI_LARGE_MODULE                20301
 #define IDS_STRING62000                 62000
 #define IDS_STRING62001                 62001
 #define IDS_STRING62002                 62002
@@ -71,8 +73,18 @@
 #define IDS_STRING62054                 62054
 #define IDS_STRING62055                 62055
 #define IDS_STRING62056                 62056
-#define IDI_MODULE                      20300
-#define IDI_LARGE_MODULE                20301
+#define IDS_STRING62057                 62057
+#define IDS_STRING62058                 62058
+#define IDS_STRING62059                 62059
+#define IDS_STRING62060                 62060
+#define IDS_STRING62061                 62061
+#define IDS_STRING62062                 62062
+#define IDS_STRING62063                 62063
+#define IDS_STRING62064                 62064
+#define IDS_STRING62065                 62065
+#define IDS_STRING62066                 62066
+#define IDS_STRING62067                 62067
+#define IDS_STRING62068                 62068
 
 // Next default values for new objects
 // 

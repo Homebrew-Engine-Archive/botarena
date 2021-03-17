@@ -269,6 +269,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING6048          "Goblin Kites\n{1R}\nEnchantment\nFEM,U\n{R}: Target creature you control with toughness 2 or less gains flying until end of turn. Flip a coin at the beginning of the next end step. If you lose the flip, sacrifice that creature."
     IDS_STRING6049          "Soul Exchange\n{BB}\nSorcery\nFEM,U\nAs an additional cost to cast Soul Exchange, exile a creature you control.\rReturn target creature card from your graveyard to the battlefield. Put a +2/+2 counter on that creature if the exiled creature was a Thrull."
+    IDS_STRING6050          "Deep Spawn\n{5UUU}\nCreature - Homarid\nFEM,U\nTrample\rAt the beginning of your upkeep, sacrifice Deep Spawn unless you put the top two cards of your library into your graveyard.\r{U}: Deep Spawn gains shroud until end of turn and doesn't untap during your next untap step. Tap Deep Spawn.\n6/6"
 END
 
 #endif    // English (United States) resources

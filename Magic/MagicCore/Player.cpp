@@ -140,6 +140,85 @@ CZone* CPlayer::GetZoneById(ZoneId zoneId) const
 
 	return &m_OwnedCards;
 }
+/* 
+This function calculates and returns devotion to a single color of a player who is casting card 
+with devotion mechanic.
+
+Calculate devotion to green 
+	int SymDevotionGCnt = GetDevotion(CManaCost::Green);
+Calculate devotion to blue and black requires two calls to function
+	int SymDevotionUCnt = GetDevotion(CManaCost::Blue);
+	int SymDevotionBCnt = GetDevotion(CManaCost::Black);
+
+The devotion mechanic was introduced in Theros. A player’s devotion to [color] is equal to 
+the number of mana symbols of that color among the mana costs of permanents that player controls.
+Example
+	A permanent that costs RRR adds three to your devotion to red. 
+Some cards have more than one way to pay the mana cost, eg hybrid, phyrexian mana, etc.
+The count obtained from the mana cost with highest number of mana symbols of the devotion 
+color is returned.
+Example 1 - hybrid mana cost
+	Card Jund Hackblade costs B/G R, cost is BR or GR, if GetDevotion(CManaCost::Green) was
+	called, this card will contribute 1 to the devotion count for green.  This is the highest
+	devotion count for green obtainable from BR or GR.
+Example 2 - phyrexian mana	
+	Card Birthing Pod costs 3G or 3 + player pays 2 life, if GetDevotion(CManaCost::Green) was
+	called, this card will contribute 1 to the devotion count for green.  This is the highest
+	devotion count for green obtainable from 3G or 3.
+Example 3 - Fifth Dawn Bringers, etc
+	Card Bringer of the Black Dawn costs 7BB or you may pay WUBRG as indicated in card's text box.
+	Devotion rules state "symbols in the text boxes of permanents you control don’t count toward 
+	your devotion to any color" so always the first alternate mana cost must be used NOT the 
+	highest mana cost.
+
+Reaper King is supported and covered by Example 1.
+Chroma (Eventide) is a early version of Devotion where instead of just number of mana 
+symbols of that color in the mana costs of permanents you control, variations exist such as
+number of R symbols in sacrificed creature's mana cost, number of G symbols in revealed cards 
+from hand mana cost, etc.  These versions of mana cost symbol counting are too diverse and are
+not supported in this function.  Since there are only a few cards, duplicate and modify this 
+function and include in the card level code.
+*/
+int CPlayer::GetDevotion(CManaCost::Color DevotionColor)
+{	
+	CZone* pBattlefield = m_pGame->GetActivePlayer()->GetZoneById(ZoneId::Battlefield);
+	int nCardCount = pBattlefield->GetSize();
+	int SymDevotionCur = 0;						// current devotion symbol total
+	int SymDevotionTmp = 0;
+	int SymDevotionCnt = 0;						// devotion symbol count
+	for (int i = 0; i < nCardCount; ++i)
+	{
+		SymDevotionCur = 0;						
+		CCard* pCard = pBattlefield->GetAt(i);  // each card
+		if ((pCard->GetPrintedCardName() == _T("Bringer of the Blue Dawn" )) ||  // put exceptions here where devotion must be 
+			(pCard->GetPrintedCardName() == _T("Bringer of the Black Dawn")) ||  // calculated using first alternate mana cost
+			(pCard->GetPrintedCardName() == _T("Bringer of the Green Dawn")) ||	  
+			(pCard->GetPrintedCardName() == _T("Bringer of the Red Dawn"  )) ||
+			(pCard->GetPrintedCardName() == _T("Bringer of the White Dawn")))
+		{
+			/*
+				Mana symbols in the text boxes of permanents you control don’t count toward your devotion to any color.
+				So in this case use first alternative mana cost to calculate devotion. 
+			*/
+			SymDevotionCur = pCard->GetSpells().GetAt(0)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);  	
+		}
+		else
+		{
+			/*
+				Supports normal, hybred, phyrexian mana cases - use the mana cost with highest 
+				number of mana symbols of the devotion color.
+			*/
+			for (int j = 0; j < pBattlefield->GetAt(i)->GetSpells().GetSize(); ++j) // go though card's alternate mana costs
+			{
+				SymDevotionTmp = pCard->GetSpells().GetAt(j)->GetCost().GetOriginalManaCost().GetCost(DevotionColor);
+				if (SymDevotionTmp > SymDevotionCur)
+					SymDevotionCur = SymDevotionTmp;  	
+			}
+		}
+		SymDevotionCnt = SymDevotionCnt + SymDevotionCur;	
+	}
+	return SymDevotionCnt;
+}
 
 void CPlayer::SetSeed(unsigned uSeed)
 {
@@ -229,7 +308,11 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 	if (GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage))
 		damage.m_Preventable = PreventableType::NotPreventable;
 
-	if ((damage.m_DamageType & DamageType::CombatDamage).Any() || (damage.m_DamageType & DamageType::NonCombatDamage).Any())
+	if ((damage.m_DamageType & DamageType::CombatDamage).Any())
+		if ((GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllPlayerDamage) || GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventPlayerCombatDamage)) && damage.m_Preventable == PreventableType::Preventable &&
+			!GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage)) n = n+1;
+
+	if ((damage.m_DamageType & DamageType::NonCombatDamage).Any())
 		if (GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllPlayerDamage) && damage.m_Preventable == PreventableType::Preventable &&
 			!GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage)) n = n+1;
 
@@ -300,10 +383,16 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 		return;
 	}
 
-	if ((damage.m_DamageType & DamageType::CombatDamage).Any() || (damage.m_DamageType & DamageType::NonCombatDamage).Any())
+	if ((damage.m_DamageType & DamageType::CombatDamage).Any())
+		if ((GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllPlayerDamage) || GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventPlayerCombatDamage)) && damage.m_Preventable == PreventableType::Preventable &&
+			!GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage) && n < 2)
+			return;
+
+	if ((damage.m_DamageType & DamageType::NonCombatDamage).Any())
 		if (GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllPlayerDamage) && damage.m_Preventable == PreventableType::Preventable &&
 			!GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage) && n < 2)
 			return;
+
 
 	//std::set<const CCardFilter*> cardFilters;
 	if (GetPlayerEffect().HasPlayerEffect(PlayerEffectType::Protection, cardFilters) && ((damage.m_DamageType & DamageType::CombatDamage).Any() || (damage.m_DamageType & DamageType::NonCombatDamage).Any())
@@ -432,10 +521,19 @@ void CPlayer::ChangeLife(Damage damage, int rep_index)
 	{
 		std::vector<SelectionEntry> entries;
 
-		if (((damage.m_DamageType & DamageType::CombatDamage).Any() || (damage.m_DamageType & DamageType::NonCombatDamage).Any()) && 
+		if ((damage.m_DamageType & DamageType::CombatDamage).Any() && 
+			((GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllPlayerDamage) || GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventPlayerCombatDamage)) && damage.m_Preventable == PreventableType::Preventable &&
+			!GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage)))
+		{			
+			SelectionEntry selectionEntry;
+			selectionEntry.dwContext = 1;
+			selectionEntry.strText.Format(_T("selects %s to prevent damage due to global prevention effect"), m_strPlayerName);
+			entries.push_back(selectionEntry);
+		}
+
+		if ((damage.m_DamageType & DamageType::NonCombatDamage).Any() && 
 			(GetPlayerEffect().HasPlayerEffect(PlayerEffectType::PreventAllPlayerDamage) && damage.m_Preventable == PreventableType::Preventable &&
 			!GetPlayerEffect().HasPlayerEffect(PlayerEffectType::CantPreventDamage)))
-
 		{			
 			SelectionEntry selectionEntry;
 			selectionEntry.dwContext = 1;
@@ -893,9 +991,11 @@ void CPlayer::ChangeLifeImpl2(Damage damage)
 	SetLife(m_nLife + damage.m_nLifeDelta);
 
 	if ((damage.m_DamageType & DamageType::CombatDamage).Any())
-		m_nTurnCombatDamageTaken += previousLife - m_nLife;
+		m_nTurnCombatDamageTaken -= damage.m_nLifeDelta;
 	if ((damage.m_DamageType & DamageType::NonCombatDamage).Any())
-		m_nTurnNoncombatDamageTaken += previousLife - m_nLife;
+		m_nTurnNoncombatDamageTaken -= damage.m_nLifeDelta;
+	if (!GetDamageSourcesThisTurn().HasCard(damage.m_pSourceCard))
+		AddToDamageSourcesThisTurn((CCard*)damage.m_pSourceCard);
 	if ((damage.m_DamageType & DamageType::CombatDamage).Any() && damage.m_pSourceCard->GetCardType().IsCreature())
 		{
 			const CCreatureCard* pCreatureCard = (const CCreatureCard*)damage.m_pSourceCard;
@@ -1645,6 +1745,8 @@ void CPlayer::ResetTurnInfo()
 	m_nTurnDrawCount = 0;
 	m_pCardsDrawnThisTurn.RemoveAll();
 	m_pLastDrawThisTurn = NULL;
+
+	m_pDamageSourcesThisTurn.RemoveAll();
 
 	m_nTurnDiscardCount = 0;
 	m_nTurnAttackCount = 0;

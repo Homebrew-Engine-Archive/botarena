@@ -780,8 +780,6 @@ CDwarvenWeaponsmithCard::CDwarvenWeaponsmithCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Dwarven Weaponsmith"), CardType::Creature, CREATURE_TYPE2(Dwarf, Artificer), nID,
 		_T("1") RED_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
 		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
 			_T(""),

@@ -117,6 +117,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CLlanowarEliteCard);
 		DEFINE_CARD(CLlanowarKnightCard);
 		DEFINE_CARD(CLlanowarVanguardCard);
+		DEFINE_CARD(CLoafingGiantCard);
 		DEFINE_CARD(CLotusGuardianCard);
 		DEFINE_CARD(CManipulateFateCard);
 		DEFINE_CARD(CMaraudingKnightCard);
@@ -862,7 +863,6 @@ CArdentSoldierCard::CArdentSoldierCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CArdentSoldierCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetCreatureKeyword()->AddVigilance(FALSE);
@@ -876,7 +876,7 @@ void CArdentSoldierCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
 
 		pModifier.ApplyTo(this);
 	}
@@ -978,7 +978,6 @@ CBenalishLancerCard::CBenalishLancerCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CBenalishLancerCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -990,7 +989,7 @@ void CBenalishLancerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::FirstStrike);
@@ -1281,7 +1280,6 @@ CDuskwalkerCard::CDuskwalkerCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CDuskwalkerCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -1293,7 +1291,7 @@ void CDuskwalkerCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZo
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::Fear);
@@ -1329,7 +1327,6 @@ CFaerieSquadronCard::CFaerieSquadronCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CFaerieSquadronCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -1341,7 +1338,7 @@ void CFaerieSquadronCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::Flying);
@@ -1495,7 +1492,6 @@ CKavuAggressorCard::CKavuAggressorCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CKavuAggressorCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetCreatureKeyword()->AddCantBlock(FALSE);
@@ -1509,7 +1505,7 @@ void CKavuAggressorCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
 
 		pModifier.ApplyTo(this);
 	}
@@ -1545,8 +1541,6 @@ CKavuMonarchCard::CKavuMonarchCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Kavu Monarch"), CardType::Creature, CREATURE_TYPE(Kavu), nID,
 		_T("2") RED_MANA_TEXT RED_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 			::CreateObject<CPwrTghAttrEnchantment>(this,
@@ -1672,7 +1666,6 @@ CKavuTitanCard::CKavuTitanCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CKavuTitanCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -1684,7 +1677,7 @@ void CKavuTitanCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZon
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +3, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +3);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::Trample);
@@ -1712,7 +1705,6 @@ CLlanowarEliteCard::CLlanowarEliteCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CLlanowarEliteCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetCreatureKeyword()->AddTrample(FALSE);
@@ -1726,7 +1718,7 @@ void CLlanowarEliteCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pT
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +5, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +5);
 
 		pModifier.ApplyTo(this);
 	}
@@ -1962,7 +1954,6 @@ CPincerSpiderCard::CPincerSpiderCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CPincerSpiderCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetCreatureKeyword()->AddReach(FALSE);
@@ -1976,7 +1967,7 @@ void CPincerSpiderCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
 
 		pModifier.ApplyTo(this);
 	}
@@ -1991,7 +1982,6 @@ CPouncingKavuCard::CPouncingKavuCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CPouncingKavuCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2003,7 +1993,7 @@ void CPouncingKavuCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +2);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::Haste);
@@ -2022,7 +2012,6 @@ CPrisonBarricadeCard::CPrisonBarricadeCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CPrisonBarricadeCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetCreatureKeyword()->AddDefender(FALSE);
@@ -2036,7 +2025,7 @@ void CPrisonBarricadeCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
 
 		CCreatureKeywordModifier* pmodifierUp = new CCreatureKeywordModifier;
 		pmodifierUp->GetModifier().SetToAdd(CreatureKeyword::DefenderMayAttack);
@@ -2613,7 +2602,6 @@ CUrborgSkeletonCard::CUrborgSkeletonCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CUrborgSkeletonCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2625,7 +2613,7 @@ void CUrborgSkeletonCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* p
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +1);
 
 		pModifier.ApplyTo(this);
 	}
@@ -2727,7 +2715,6 @@ CVodalianSerpentCard::CVodalianSerpentCard(CGame* pGame, UINT nID)
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CVodalianSerpentCard::OnZoneChanged))
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	{
@@ -2760,7 +2747,7 @@ void CVodalianSerpentCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast &&
 			GetLastCastingCostConfigEntry().HasOptionalManaCost(m_KickerCost))
 	{
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +4, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +4);
 
 		pModifier.ApplyTo(this);
 	}
@@ -9403,6 +9390,62 @@ bool CSpinalEmbraceCard::BeforeResolution(CAbilityAction* pAction) const
 
 	CContainerEffectModifier pModifier3 = CContainerEffectModifier(GetGame(), _T("Spinal Embrace Effect"), 61094, &pSubjects);
 	pModifier3.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CLoafingGiantCard::CLoafingGiantCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Loafing Giant"), CardType::Creature, CREATURE_TYPE(Giant), nID,
+		_T("4") RED_MANA_TEXT, Power(4), Life(6))
+{
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfAttackedBlocked, 
+							CWhenSelfAttackedBlocked::EventCallback, 
+							&CWhenSelfAttackedBlocked::SetAttackingOrBlockingEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CLoafingGiantCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Battlefield, ZoneId::Hand));
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CLoafingGiantCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
+
+	if (pLibrary->GetSize() > 0)
+	{
+		bool bLand = false;
+
+		if (pLibrary->GetTopCard()->GetCardType().IsLand()) bLand = true;
+
+		CZoneModifier pModifier1 = CZoneModifier(GetGame(), ZoneId::Library, 1, CZoneModifier::RoleType::PrimaryPlayer,
+			CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+		pModifier1.AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+				CZoneModifier::RoleType::PrimaryPlayer, // select by 
+				CZoneModifier::RoleType::PrimaryPlayer, // reveal to
+				NULL, // any cards
+				ZoneId::Graveyard, // if selected, move cards to
+				CZoneModifier::RoleType::PrimaryPlayer, // select by this player
+				CardPlacement::Top, // put selected cards on top
+				MoveType::Others, // move type
+				CZoneModifier::RoleType::PrimaryPlayer); // order selected cards by this player
+
+		pModifier1.ApplyTo(pController);
+
+		if (bLand)
+		{
+			CCreatureKeywordModifier pModifier2 = CCreatureKeywordModifier(CreatureKeyword::DealNoCombatDamage, TRUE);
+			pModifier2.ApplyTo(this);
+		}
+	}
 
 	return true;
 }

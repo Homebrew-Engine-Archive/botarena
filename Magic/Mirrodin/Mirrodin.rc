@@ -7,7 +7,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -404,6 +405,7 @@ BEGIN
     IDS_STRING15059         "Override\n{2U}\nInstant\nMRD,C\nCounter target spell unless its controller pays {1} for each artifact you control."
     IDS_STRING15060         "Wrench Mind\n{BB}\nSorcery\nMRD,C\nTarget player discards two cards unless he or she discards an artifact card."
     IDS_STRING15061         "Second Sunrise\n{1WW}\nInstant\nMRD,R\nEach player returns to the battlefield all artifact, creature, enchantment, and land cards in his or her graveyard that were put there from the battlefield this turn."
+    IDS_STRING15062         "Blinding Beam\n{2W}\nInstant\nMRD,C\nChoose one - Tap two target creatures; or creatures don't untap during target player's next untap step.\rEntwine {1}"
 END
 
 #endif    // English (United States) resources
@@ -416,7 +418,8 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "..\MagicCore\MagicCore.rc2"
+#include "..\MagicCore\MagicCore.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

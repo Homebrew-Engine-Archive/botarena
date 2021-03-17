@@ -1710,7 +1710,7 @@ CSpikeWeaverCard::CSpikeWeaverCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Weaver"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("2") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -1744,7 +1744,7 @@ CSpikeHatcherCard::CSpikeHatcherCard(CGame* pGame, UINT nID)
 {
 	m_pRegenerationAbility->GetCost().AddCounterCost(GetCounterContainer()->GetCounter(_T("+1/+1")), -1);
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 6, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
 		::CreateObject<CActivatedAbility<CTargetSpell>>(this,
@@ -1763,7 +1763,7 @@ CWorkhorseCard::CWorkhorseCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Workhorse"), CardType::_ArtifactCreature, CREATURE_TYPE(Horse), nID,
 		_T("6"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	counted_ptr<CManaProductionAbility> cpAbility(
 		::CreateObject<CManaProductionAbility>(this, _T(""), AbilityType::Activated, _T("1")));
@@ -2037,7 +2037,7 @@ BOOL COathOfGhoulsCard::COathOfGhoulsTargeting::TargetAllowed(const CCard* pCard
 //
 COathOfLiegesCard::COathOfLiegesCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Oath of Lieges"), CardType::GlobalEnchantment, nID,
-		_T("1") GREEN_MANA_TEXT, AbilityType::Enchantment)
+		_T("1") WHITE_MANA_TEXT, AbilityType::Enchantment)
 {
 	typedef 
 		TTriggeredTargetAbility<CTriggeredOathOfLiegesAbility, CWhenNodeChanged,
@@ -2308,7 +2308,7 @@ CMindlessAutomatonCard::CMindlessAutomatonCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Mindless Automaton"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
 		_T("4"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
@@ -2342,7 +2342,7 @@ CThopterSquadronCard::CThopterSquadronCard(CGame* pGame, UINT nID)
 {
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
@@ -2472,7 +2472,7 @@ CSpikeRogueCard::CSpikeRogueCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Rogue"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetSpell>> cpAbility( 
@@ -3112,7 +3112,7 @@ CSpikeCannibalCard::CSpikeCannibalCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Spike Cannibal"), CardType::Creature, CREATURE_TYPE(Spike), nID,
 		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 1, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	typedef
 		TTriggeredAbility< CTriggeredAbility<>, CWhenSelfInplay, 

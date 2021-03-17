@@ -1654,8 +1654,6 @@ CBogardanPhoenixCard::CBogardanPhoenixCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Bogardan Phoenix"), CardType::Creature, CREATURE_TYPE(Phoenix), nID,
 		_T("2") RED_MANA_TEXT RED_MANA_TEXT RED_MANA_TEXT, Power(3), Life(3))
 {
-	GetCounterContainer()->ScheduleCounter(DEATH_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredMoveCardAbility, CWhenSelfMoved > TriggeredAbility;
@@ -1770,7 +1768,7 @@ CBroodOfCockroachesCard::CBroodOfCockroachesCard(CGame* pGame, UINT nID)
 
 bool CBroodOfCockroachesCard::SetTriggerContext(CTriggeredAbility<>::TriggerContextType& triggerContext, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
 {
-	return (GetController() == GetOwner());
+	return (pFromZone->GetPlayer() == GetOwner());
 }
 
 bool CBroodOfCockroachesCard::BeforeResolution(CAbilityAction* pAction)

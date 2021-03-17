@@ -465,6 +465,9 @@ class CPaleolothCard : public CCreatureCard
 class CGleamOfResistanceCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CGleamOfResistanceCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -495,6 +498,9 @@ protected:
 class CConstrictingTendrilsCard : public CCard
 {
 	DECLARE_CARD_CSTOR(CConstrictingTendrilsCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -502,6 +508,9 @@ class CConstrictingTendrilsCard : public CCard
 class CTraumaticVisionsCard : public CCounterSpellCard
 {
 	DECLARE_CARD_CSTOR(CTraumaticVisionsCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -509,6 +518,9 @@ class CTraumaticVisionsCard : public CCounterSpellCard
 class CAbsorbVisCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CAbsorbVisCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -551,6 +563,9 @@ protected:
 class CFieryFallCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CFieryFallCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -558,6 +573,9 @@ class CFieryFallCard : public CTargetChgLifeSpellCard
 class CMoltenFrameCard : public CTargetMoveCardSpellCard
 {
 	DECLARE_CARD_CSTOR(CMoltenFrameCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________
@@ -565,6 +583,9 @@ class CMoltenFrameCard : public CTargetMoveCardSpellCard
 class CSylvanBountyCard : public CTargetChgLifeSpellCard
 {
 	DECLARE_CARD_CSTOR(CSylvanBountyCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
 };
 
 //____________________________________________________________________________

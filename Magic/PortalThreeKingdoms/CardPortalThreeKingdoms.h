@@ -544,6 +544,10 @@ class CZodiacDogCard : public CLandwalkCreatureCard
 class CZodiacDragonCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CZodiacDragonCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
 };
 
 //____________________________________________________________________________
@@ -755,6 +759,10 @@ class CCaoRenWeiCommanderCard : public CCreatureCard
 class CGuanYuSaintedWarriorCard : public CCreatureCard
 {
 	DECLARE_CARD_CSTOR(CGuanYuSaintedWarriorCard);
+
+protected:
+	bool SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const;
 };
 
 //____________________________________________________________________________

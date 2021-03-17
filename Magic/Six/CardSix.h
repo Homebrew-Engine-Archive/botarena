@@ -1140,3 +1140,18 @@ protected:
 
 //______________________________________________________________________________
 //
+class CIllicitAuctionCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CIllicitAuctionCard);
+
+protected:
+	CSelectionSupport m_NumberSelection;
+	bool BeforeResolution(CAbilityAction* pAction);
+	void BidFunction(int PlayerID, CCard* pTarget, int Base);
+	void OnNumberSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5);
+	int_ nHighBid;
+	int_ HighBidderID;
+};
+
+//______________________________________________________________________________
+//

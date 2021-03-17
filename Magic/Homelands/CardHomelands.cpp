@@ -98,8 +98,6 @@ CBaronSengirCard::CBaronSengirCard(CGame* pGame, UINT nID)
 		_T("5") BLACK_MANA_TEXT BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(5), Life(5))
 {
 	{
-		GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt2 > TriggeredAbility;
 
@@ -912,8 +910,6 @@ CSengirBatsCard::CSengirBatsCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Sengir Bats"), CardType::Creature, CREATURE_TYPE(Bat), nID,
 		_T("1") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(1), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCreatureAbility, CWhenSelfDamageDealt2 > TriggeredAbility;
 
@@ -1216,8 +1212,7 @@ CSerratedArrowsCard::CSerratedArrowsCard(CGame* pGame, UINT nID)
 		_T("4"), AbilityType::Artifact)
 {
 	// Come into play with 3 arrowhead counters
-	GetCounterContainer()->ScheduleCounter(ARROWHEAD_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(ARROWHEAD_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(ARROWHEAD_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		// -1/-1 counters ability
@@ -1314,8 +1309,7 @@ CCoralReefCard::CCoralReefCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Coral Reef"), CardType::GlobalEnchantment, nID,
 		BLUE_MANA_TEXT BLUE_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(POLYP_COUNTER, 4, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(POLYP_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(POLYP_COUNTER, 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
@@ -1576,9 +1570,6 @@ CTradeCaravanCard::CTradeCaravanCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Trade Caravan"), CardType::Creature, CREATURE_TYPE2(Human, Nomad), nID,
 		WHITE_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(CURRENCY_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CURRENCY_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged  > TriggeredAbility;
@@ -2181,7 +2172,7 @@ CClockworkSwarmCard::CClockworkSwarmCard(CGame* pGame, UINT nID)
 	, bAttackedOrBlocked(FALSE)
 	, m_NumberSelection(pGame, CSelectionSupport::SelectionCallback(this, &CClockworkSwarmCard::OnNumberSelected))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+0"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	GetCreatureKeyword()->AddUnblockable(FALSE, CCardFilter::GetFilter(_T("non-Walls")));
 
 	{

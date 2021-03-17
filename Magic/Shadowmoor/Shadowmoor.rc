@@ -417,6 +417,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING18768         "Cragganwick Cremator\n{2RR}\nCreature - Giant Shaman\nSHM,R\nWhen Cragganwick Cremator enters the battlefield, discard a card at random. If you discard a creature card this way, Cragganwick Cremator deals damage equal to that card's power to target player.\n5/4"
     IDS_STRING18769         "Elsewhere Flask\n{2}\nArtifact\nSHM,C\nWhen Elsewhere Flask enters the battlefield, draw a card.\rSacrifice Elsewhere Flask: Choose a basic land type. Each land you control becomes that type until end of turn."
+    IDS_STRING18770         "Illuminated Folio\n{5}\nArtifact\nSHM,R\n{1}, {T}, Reveal two cards from your hand that share a color: Draw a card."
 END
 
 #endif    // English (United States) resources

@@ -63,6 +63,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGoblinRingleaderCard);
 		DEFINE_CARD(CGoblinTrenchesCard);
 		DEFINE_CARD(CGraveDefilerCard);
+		DEFINE_CARD(CGuidedPassageCard);
 		DEFINE_CARD(CHauntedAngelCard);
 		DEFINE_CARD(CHelionautCard);
 		DEFINE_CARD(CIlluminateCard);
@@ -224,8 +225,6 @@ CSpiritmongerCard::CSpiritmongerCard(CGame* pGame, UINT nID)
 		_T("3") BLACK_MANA_TEXT GREEN_MANA_TEXT, Power(6), Life(6),
 		BLACK_MANA_TEXT)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfDamageDealt,
@@ -2595,7 +2594,6 @@ CRakavolverCard::CRakavolverCard(CGame* pGame, UINT nID)
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost1);
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost2);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2661,7 +2659,6 @@ CAnavolverCard::CAnavolverCard(CGame* pGame, UINT nID)
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost1);
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost2);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2711,7 +2708,6 @@ CCetavolverCard::CCetavolverCard(CGame* pGame, UINT nID)
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost1);
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost2);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -2754,7 +2750,6 @@ CNecravolverCard::CNecravolverCard(CGame* pGame, UINT nID)
 {
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost1);
 	this->GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(m_KickerCost2);
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 }
 
@@ -4559,6 +4554,7 @@ void CSqueesRevengeCard::OnFlipSelected(const std::vector<SelectionEntry>& selec
 			}
 		}
 }
+
 //____________________________________________________________________________
 //
 CPowerstoneMinefieldCard::CPowerstoneMinefieldCard(CGame* pGame, UINT nID)
@@ -4899,7 +4895,7 @@ CDodecapodCard::CDodecapodCard(CGame* pGame, UINT nID)
 	{
 		cardPlacement = CardPlacement::Top;
 		pToZone = GetOwner()->GetZoneById(ZoneId::Battlefield);
-		GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, true, ZoneId::Hand, ZoneId::Battlefield, false);
+		GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 2, false, ZoneId::Hand, ZoneId::Battlefield, false);
 	}
 
 	__super::Move(pToZone, pByPlayer, moveType, cardPlacement, can_dredge);
@@ -5202,6 +5198,263 @@ void CGerrardsVerdictCard::OnResolutionCompleted(const CAbilityAction* pAbilityA
 		CLifeModifier pModifier = CLifeModifier(Life(3*(nLands - nNewLands)), this, PreventableType::NotPreventable, DamageType::NotDealingDamage);
 		pModifier.ApplyTo(pAbilityAction->GetController());
 	}
+}
+
+//____________________________________________________________________________
+//
+CGuidedPassageCard::CGuidedPassageCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Guided Passage"), CardType::Sorcery, nID)
+	, m_OpponentSelection(pGame, CSelectionSupport::SelectionCallback(this, &CGuidedPassageCard::OnOpponentSelected))
+	, m_CardSelection1(pGame, CSelectionSupport::SelectionCallback(this, &CGuidedPassageCard::OnCardSelected1))
+	, m_CardSelection2(pGame, CSelectionSupport::SelectionCallback(this, &CGuidedPassageCard::OnCardSelected2))
+	, m_CardSelection3(pGame, CSelectionSupport::SelectionCallback(this, &CGuidedPassageCard::OnCardSelected3))
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			BLUE_MANA_TEXT RED_MANA_TEXT GREEN_MANA_TEXT));
+	
+	cpSpell->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CGuidedPassageCard::BeforeResolution));
+	AddSpell(cpSpell.GetPointer());
+}
+
+bool CGuidedPassageCard::BeforeResolution (CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+
+	CZoneModifier pModifier = CZoneModifier(GetGame(), ZoneId::Library, SpecialNumber::All, CZoneModifier::RoleType::PrimaryPlayer,
+		CardPlacement::Top, CZoneModifier::RoleType::AllPlayers);
+	pModifier.ApplyTo(pController);
+
+	pSelected.RemoveAll();
+
+	std::vector<SelectionEntry> entries;
+
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
+		if (GetController() != GetGame()->GetPlayer(ip))
+		{
+			SelectionEntry entry;
+			entry.dwContext = ip;
+			entry.strText.Format(_T("choose %s"), GetGame()->GetPlayer(ip)->GetPlayerName());
+			entries.push_back(entry);
+		}
+
+	m_OpponentSelection.AddSelectionRequest(entries, 1, 1, NULL, pController);	
+
+	return true;
+}
+
+void CGuidedPassageCard::OnOpponentSelected(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+			CPlayer* pPlayer = GetGame()->GetPlayer(it->dwContext);
+
+			CardSelection1(pSelectionPlayer, pPlayer);
+		
+			return;
+		}
+}
+
+void CGuidedPassageCard::CardSelection1 (CPlayer* pController, CPlayer* pPlayer)
+{
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new AnyCreatureComparer);
+
+	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
+
+	if (m_CardFilter.CountIncluded(pLibrary->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+
+		for (int i = 0; i < pLibrary->GetSize(); i++)
+		{
+			CCard* pCard = pLibrary->GetAt(i);
+
+			if (pCard->GetCardType().IsCreature())
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Select %s as the creature card."),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+
+		m_CardSelection1.AddSelectionRequest(entries, 1, 1, NULL, pPlayer);
+	}
+	else
+		CardSelection2(pController, pPlayer);
+}
+
+void CGuidedPassageCard::OnCardSelected1(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+				CCard* pCard = (CCard*)it->dwContext;
+
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects a creature card: %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+
+				pSelected.AddCard(pCard, CardPlacement::Top);
+
+				CardSelection2(pCard->GetOwner(), pSelectionPlayer);
+
+				return;
+		}
+}
+
+void CGuidedPassageCard::CardSelection2 (CPlayer* pController, CPlayer* pPlayer)
+{
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddComparer(new CardTypeComparer(CardType::_Land, false));
+
+	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
+
+	if (m_CardFilter.CountIncluded(pLibrary->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+
+		for (int i = 0; i < pLibrary->GetSize(); i++)
+		{
+			CCard* pCard = pLibrary->GetAt(i);
+
+			if (pCard->GetCardType().IsLand())
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Select %s as the land card."),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+
+		m_CardSelection2.AddSelectionRequest(entries, 1, 1, NULL, pPlayer);
+	}
+	else
+		CardSelection3(pController, pPlayer);
+}
+
+void CGuidedPassageCard::OnCardSelected2(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+				CCard* pCard = (CCard*)it->dwContext;
+
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects a land card: %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+
+				pSelected.AddCard(pCard, CardPlacement::Top);
+
+				CardSelection3(pCard->GetOwner(), pSelectionPlayer);
+
+				return;
+		}
+}
+
+void CGuidedPassageCard::CardSelection3 (CPlayer* pController, CPlayer* pPlayer)
+{
+	CCardFilter m_CardFilter;
+	m_CardFilter.AddNegateComparer(new CardTypeComparer(CardType::Creature | CardType::_Land, false));
+
+	CZone* pLibrary = pController->GetZoneById(ZoneId::Library);
+
+	if (m_CardFilter.CountIncluded(pLibrary->GetCardContainer()) > 0)
+	{
+		std::vector<SelectionEntry> entries;
+
+		for (int i = 0; i < pLibrary->GetSize(); i++)
+		{
+			CCard* pCard = pLibrary->GetAt(i);
+
+			if (!pCard->GetCardType().IsCreature() && !pCard->GetCardType().IsLand())
+			{
+				SelectionEntry entry;
+
+				entry.dwContext = (DWORD)pCard;
+				entry.cpAssociatedCard = pCard;
+									
+				entry.strText.Format(_T("Select %s as the noncreature, nonland card."),
+					pCard->GetCardName(TRUE));
+
+				entries.push_back(entry);
+			}
+		}
+
+		m_CardSelection3.AddSelectionRequest(entries, 1, 1, NULL, pPlayer);
+	}
+	else
+		Finale(pController);
+}
+
+void CGuidedPassageCard::OnCardSelected3(const std::vector<SelectionEntry>& selection, int nSelectedCount, CPlayer* pSelectionPlayer, DWORD dwContext1, DWORD dwContext2, DWORD dwContext3, DWORD dwContext4, DWORD dwContext5)
+{
+	ATLASSERT(nSelectedCount == 1);
+
+	for (std::vector<SelectionEntry>::const_iterator it = selection.begin(); it != selection.end(); ++it)
+		if (it->bSelected)
+		{
+				CCard* pCard = (CCard*)it->dwContext;
+
+				if (!m_pGame->IsThinking())
+				{
+					CString strMessage;
+					strMessage.Format(_T("%s selects a noncreature, nonland card: %s"), pSelectionPlayer->GetPlayerName(), pCard->GetCardName(TRUE));
+					m_pGame->Message(
+						strMessage,
+						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
+						MessageImportance::High
+						);
+				}
+
+				pSelected.AddCard(pCard, CardPlacement::Top);
+
+				Finale(pCard->GetOwner());
+
+				return;
+		}
+}
+
+void CGuidedPassageCard::Finale (CPlayer* pController)
+{
+	CMoveCardModifier pModifier = CMoveCardModifier(ZoneId::Library, ZoneId::Hand, TRUE, MoveType::Others, pController);
+
+	for (int i = 0; i < pSelected.GetSize(); ++i)
+		pModifier.ApplyTo(pSelected.GetAt(i));
+
+	pController->GetZoneById(ZoneId::Library)->Shuffle();
 }
 
 //____________________________________________________________________________

@@ -250,6 +250,7 @@ BEGIN
     IDS_STRING15336         "Savage Beating\n{3RR}\nInstant\nDST,R\nCast Savage Beating only during your turn and only during combat.\rChoose one - Creatures you control gain double strike until end of turn; or untap all creatures you control and after this phase, there is an additional combat phase.\rEntwine {1R}"
     IDS_STRING15337         "Tears of Rage\n{2RR}\nInstant\nDST,U\nCast Tears of Rage only during the declare attackers step.\rAttacking creatures you control get +X/+0 until end of turn, where X is the number of attacking creatures. Sacrifice those creatures at the beginning of the next end step."
     IDS_STRING15338         "Gemini Engine\n{6}\nArtifact Creature - Construct\nDST,R\nWhenever Gemini Engine attacks, put a colorless Construct artifact creature token named Twin onto the battlefield attacking. Its power is equal to Gemini Engine's power and its toughness is equal to Gemini Engine's toughness. Sacrifice the token at end of combat.\n3/4"
+    IDS_STRING15339         "Leonin Shikari\n{1W}\nCreature - Cat Soldier\nDST,R\nYou may activate equip abilities any time you could cast an instant.\n2/2"
 END
 
 #endif    // English (United States) resources

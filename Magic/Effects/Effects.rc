@@ -233,8 +233,19 @@ BEGIN
 	IDS_STRING61124          "Savage Summoning Second Effect\n\nEffect\nToken\nThe subject will enter the battlefield with an additional +1/+1 counter on it."
 	IDS_STRING61125          "Insist Effect\n\nEffect\nToken\nThe next creature spell you cast this turn can't be countered by spells or abilities."
 	IDS_STRING61126          "Overmaster Effect\n\nEffect\nToken\nThe next instant or sorcery spell you cast this turn can't be countered by spells or abilities."
+END
+
+STRINGTABLE
+BEGIN
     IDS_STRING61127          "Goblin Diplomats Effect\n\nEffect\nToken\nEach creature must attack this turn if able."
 	IDS_STRING61128          "Generic Container - Battlefield\n\nEffect\nToken\nThis effect stores cards for another card's ability."
+	IDS_STRING61129          "Seismic Stomp Effect\n\nEffect\nToken\nCreatures without flying can't block."
+	IDS_STRING61130          "Stoneshock Giant Effect\n\nEffect\nToken\nCreatures without flying your opponents control can't block."
+	IDS_STRING61131          "Elspeth, Sun's Champion Emblem\n\nEmblem\nToken\nCreatures you control get +2/+2 and have flying."
+    IDS_STRING61132          "Bident of Thassa Effect\n\nEffect\nToken\nCreatures your opponents control attack this turn if able."
+    IDS_STRING61133          "Gift of Immortality Effect\n\nEffect\nToken\nReturn Gift of Immortality to the battlefield attached to the subject at the beginning of the next end step."
+    IDS_STRING61134          "Rescue from the Underworld Effect\n\nEffect\nToken\nReturn target creature card and sacrificed card to the battlefield under your control at the beginning of your next upkeep."
+    IDS_STRING61135          "Time to Feed Effect\n\nEffect\nToken\nWhen the subject dies this turn, you gain 3 life."
 //	IDS_STRING61040          "Chancellor of the Annex Effect\n\nEffect\nToken\nWhen each opponent casts his or her first spell of the game, counter that spell unless that player pays {1}."
 END
 #endif    // English (United States) resources

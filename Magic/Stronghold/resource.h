@@ -136,6 +136,7 @@
 #define IDS_STRING10519                 10519
 #define IDS_STRING10520                 10520
 #define IDS_STRING10521                 10521
+#define IDS_STRING10522                 10522
 #define IDI_MODULE                      10543
 #define IDI_LARGE_MODULE                10544
 

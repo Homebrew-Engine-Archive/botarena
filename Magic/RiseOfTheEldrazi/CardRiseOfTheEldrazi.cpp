@@ -60,6 +60,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CDranaKalastriaBloodchiefCard);
 		DEFINE_CARD(CDreadDroneCard);
 		DEFINE_CARD(CDreamstoneHedronCard);
+		DEFINE_CARD(CEchoMageCard);
 		DEFINE_CARD(CEelUmbraCard);
 		DEFINE_CARD(CElandUmbraCard);
 		DEFINE_CARD(CEldraziConscriptionCard);
@@ -998,7 +999,7 @@ CSeaGateOracleCard::CSeaGateOracleCard(CGame* pGame, UINT nID)
 	pModifier3->GetSelection(0).nMinSelectionCount = MinimumValue(0);
 	pModifier3->GetSelection(0).nMaxSelectionCount = MaximumValue(0);
 	pModifier3->GetSelection(0).moveType = MoveType::Others;
-	pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bootom
+	pModifier3->AddSelection(MinimumValue(1), MaximumValue(1), // select cards to bottom
 		CZoneModifier::RoleType::PrimaryPlayer, // select by 
 		CZoneModifier::RoleType::PrimaryPlayer, // reveal to
 		NULL, // any cards
@@ -3128,7 +3129,9 @@ BOOL CCaravanEscortCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 7; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 7; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -3294,7 +3297,9 @@ BOOL CJoragaTreespeakerCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 7; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 7; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -3400,7 +3405,9 @@ BOOL CBeastbreakerOfBalaGedCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 6; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -3546,7 +3553,9 @@ BOOL CBrimstoneMageCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 5; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 5; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -3668,7 +3677,9 @@ BOOL CCoralhelmCommanderCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 6; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -3805,7 +3816,9 @@ BOOL CEnclaveCryptologistCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 5; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 5; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -3948,7 +3961,9 @@ BOOL CGuulDrazAssassinCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 6; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -4057,7 +4072,9 @@ BOOL CHadaSpyPatrolCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 5; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 5; //set max level counter count = max level up + 2
+	else return true;
 }
 //____________________________________________________________________________
 //
@@ -4162,7 +4179,9 @@ BOOL CHalimarWavewatchCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 7; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 7; //set max level counter count = max level up + 2
+	else return true;
 }
 //____________________________________________________________________________
 //
@@ -4267,7 +4286,9 @@ BOOL CIkiralOutriderCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 6; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 //____________________________________________________________________________
 //
@@ -4403,7 +4424,9 @@ BOOL CKabiraVindicatorCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 7; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 7; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -4523,7 +4546,9 @@ BOOL CKarganDragonlordCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 10; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 10; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -4663,7 +4688,9 @@ BOOL CKazanduTuskcallerCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 8; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 8; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -4769,7 +4796,9 @@ BOOL CKnightOfCliffhavenCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 6; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -4905,7 +4934,9 @@ BOOL CLighthouseChronologistCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 9; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 9; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5046,7 +5077,9 @@ BOOL CLordOfShatterskullPassCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 8; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 8; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5158,7 +5191,9 @@ BOOL CNirkanaCutthroatCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 5; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 5; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5277,7 +5312,9 @@ BOOL CNullChampionCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 6; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5384,7 +5421,9 @@ BOOL CSkywatcherAdeptCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 5; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 5; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5490,7 +5529,9 @@ BOOL CStudentOfWarfareCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 9; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 9; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5617,7 +5658,9 @@ BOOL CTranscendentMasterCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 14; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 14; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5727,7 +5770,9 @@ BOOL CZulaportEnforcerCard::CanPlay(BOOL bIncludeTricks)
 {
 	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
 
-	return nCounterCount < 5; //set max level counter count = max level up + 2
+	if (GetController()->IsComputer())
+		return nCounterCount < 5; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________
@@ -5966,6 +6011,10 @@ CBanefulOmenCard::CBanefulOmenCard(CGame* pGame, UINT nID)
 
 bool CBanefulOmenCard::BeforeResolution(CBanefulOmenCard::TriggeredAbility::TriggeredActionType* pAction) const
 {
+	if (GetController()->GetZoneById(ZoneId::Library)->GetSize() == 0)  // if library contains no cards
+		return false;													// no point continuing, (not a card draw 
+																		// so just need to return)
+																		
 	CCard* pNextDraw = GetController()->GetZoneById(ZoneId::Library)->GetTopCard();
 
 	int converted = 0;
@@ -8668,7 +8717,7 @@ void CSphinxBoneWandCard::OnSelected(const std::vector<SelectionEntry>& selectio
 				if (!m_pGame->IsThinking())
 				{
 					CString strMessage;
-					strMessage.Format(_T("%s doesn't search his library"), pSelectionPlayer->GetPlayerName());
+					strMessage.Format(_T("%s doesn't put a charge counter on %s"), pSelectionPlayer->GetPlayerName(), GetCardName(TRUE));
 					m_pGame->Message(
 						strMessage,
 						pSelectionPlayer->IsComputer() ? m_pGame->GetComputerImage() : m_pGame->GetHumanImage(),
@@ -8850,6 +8899,151 @@ bool CGelatinousGenesisCard::BeforeResolution(CAbilityAction* pAction) const
 	}
 
 	return true;
+}
+
+//____________________________________________________________________________
+//
+CEchoMageCard::CEchoMageCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Echo Mage"), CardType::Creature, CREATURE_TYPE2(Human, Wizard), nID,
+		_T("1") BLUE_MANA_TEXT BLUE_MANA_TEXT, Power(2), Life(3))
+{
+	{
+		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CGenericSpell>>(this,
+				_T("1") BLUE_MANA_TEXT));
+
+		cpAbility->SetAbilityName(_T("Level Up"));
+		cpAbility->SetAbilityText(_T("Level Up"));
+
+		cpAbility->SetAbilityType((cpAbility->GetAbilityType() & ~AbilityType::Activated) | AbilityType::AsSorcery);
+
+		cpAbility->GetResolutionModifier().CCardModifiers::push_back(new CCardCounterModifier(LEVEL_COUNTER, +1, false));
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+			::CreateObject<CPlayableIfTrait>(
+				m_pUntapAbility,
+				CPlayableIfTrait::PlayableCallback(
+				this, &CEchoMageCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new SpecificCardComparer(this),
+				Power(+0), Life(+0), CreatureKeyword::Null));
+
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardCounterComparer<std::less_equal<int>>(LEVEL_COUNTER, 0));
+
+		cpAbility->GetPowerModifier().SetPowerDelta(Power(2));
+		cpAbility->GetPowerModifier().SetToBase(TRUE);
+		cpAbility->GetPowerModifier().SetReplacement(TRUE);
+		cpAbility->GetPowerModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(3));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->GetLifeModifier().SetToBase(TRUE);
+		cpAbility->GetLifeModifier().SetReplacement(TRUE);
+		cpAbility->GetLifeModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->SetAffectControllerCardsOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new SpecificCardComparer(this),
+				Power(+0), Life(+0), CreatureKeyword::Null));
+		
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardCounterComparer<std::greater_equal<int>>(LEVEL_COUNTER, 2));
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardCounterComparer<std::less_equal<int>>(LEVEL_COUNTER, 3));
+
+		cpAbility->GetPowerModifier().SetPowerDelta(Power(2));
+		cpAbility->GetPowerModifier().SetToBase(TRUE);
+		cpAbility->GetPowerModifier().SetReplacement(TRUE);
+		cpAbility->GetPowerModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(4));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->GetLifeModifier().SetToBase(TRUE);
+		cpAbility->GetLifeModifier().SetReplacement(TRUE);
+		cpAbility->GetLifeModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->GetOtherCardModifiers().Add(new CCardAbilityModifier(
+			CCardAbilityModifier::CreateAbilityCallback(this,
+				&CEchoMageCard::LevelUpAbility1)));
+
+		cpAbility->SetAffectControllerCardsOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CPwrTghAttrEnchantment> cpAbility(
+			::CreateObject<CPwrTghAttrEnchantment>(this,
+				new SpecificCardComparer(this),
+				Power(+0), Life(+0), CreatureKeyword::Null));
+		
+		cpAbility->GetEnchantmentCardFilter().AddComparer(new CardCounterComparer<std::greater_equal<int>>(LEVEL_COUNTER, 4));
+
+		cpAbility->GetPowerModifier().SetPowerDelta(Power(2));
+		cpAbility->GetPowerModifier().SetToBase(TRUE);
+		cpAbility->GetPowerModifier().SetReplacement(TRUE);
+		cpAbility->GetPowerModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->GetLifeModifier().SetLifeDelta(Life(5));
+		cpAbility->GetLifeModifier().SetPreventable(PreventableType::NotPreventable);
+		cpAbility->GetLifeModifier().SetToBase(TRUE);
+		cpAbility->GetLifeModifier().SetReplacement(TRUE);
+		cpAbility->GetLifeModifier().SetOneTurnOnly(FALSE);
+
+		cpAbility->GetOtherCardModifiers().Add(new CCardAbilityModifier(
+			CCardAbilityModifier::CreateAbilityCallback(this,
+				&CEchoMageCard::LevelUpAbility2)));
+
+		cpAbility->SetAffectControllerCardsOnly();
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+counted_ptr<CAbility> CEchoMageCard::LevelUpAbility1(CCard* pCard)
+{
+	counted_ptr<CActivatedAbility<CTargetCopyCastSpell>> cpAbility( 
+		::CreateObject<CActivatedAbility<CTargetCopyCastSpell>>(this,
+			BLUE_MANA_TEXT BLUE_MANA_TEXT,
+			new CardTypeComparer(CardType::Instant | CardType::Sorcery, false),
+			ZoneId::Stack));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddTapCost();
+
+	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+counted_ptr<CAbility> CEchoMageCard::LevelUpAbility2(CCard* pCard)
+{
+	counted_ptr<CActivatedAbility<CTargetCopyCastTwiceSpell>> cpAbility( 
+		::CreateObject<CActivatedAbility<CTargetCopyCastTwiceSpell>>(this,
+			BLUE_MANA_TEXT BLUE_MANA_TEXT,
+			new CardTypeComparer(CardType::Instant | CardType::Sorcery, false),
+			ZoneId::Stack));
+	ATLASSERT(cpAbility);
+
+	cpAbility->AddTapCost();
+
+	return counted_ptr<CAbility>(cpAbility.GetPointer());
+}
+
+BOOL CEchoMageCard::CanPlay(BOOL bIncludeTricks)
+{
+	int nCounterCount = GetCounterContainer()->GetCounter(LEVEL_COUNTER)->GetCount();
+
+	if (GetController()->IsComputer())
+		return nCounterCount < 6; //set max level counter count = max level up + 2
+	else return true;
 }
 
 //____________________________________________________________________________

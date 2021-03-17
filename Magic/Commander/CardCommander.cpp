@@ -23,6 +23,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 			DEFINE_CARD(CAnimarSoulofElementsCard);
 			DEFINE_CARD(CArchangelOfStrifeCard);
 			DEFINE_CARD(CAvatarOfSlaughterCard);
+			DEFINE_CARD(CBasandraBattleSeraphCard);
 			DEFINE_CARD(CCelestialForceCard);
 		 	DEFINE_CARD(CChaosWarpCard);
 		 	DEFINE_CARD(CCommanderCard);
@@ -383,8 +384,6 @@ CAnimarSoulofElementsCard::CAnimarSoulofElementsCard(CGame* pGame, UINT nID)
 	GetCardKeyword()->AddProtection(CardKeyword::ProtectionFromWhite, FALSE);
 	GetCardKeyword()->AddProtection(CardKeyword::ProtectionFromBlack, FALSE);
 
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
 	{
 	counted_ptr<CTriggeredCounterAffinityAbility> cpAbility(
 		::CreateObject<CTriggeredCounterAffinityAbility>(this,
@@ -742,32 +741,27 @@ CHomewardPathCard::CHomewardPathCard(CGame* pGame, UINT nID)
 
 void CHomewardPathCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
 {
-	CZone* pOppInplay = m_pGame->GetNextPlayer(pAbilityAction->GetController())->GetZoneById(ZoneId::Battlefield);
-	CZone* pInplay = pAbilityAction->GetController()->GetZoneById(ZoneId::Battlefield);
+	CCountedCardContainer pToMove;
 
-	CCardFilter m_CardFilter_temp;
-	m_CardFilter_temp.AddComparer(new AnyCreatureComparer);
-
-	CCountedCardContainer pCreatures;
-
-	if (m_CardFilter_temp.GetIncluded(*pOppInplay, pCreatures))			
+	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		for (int i = 0; i < pCreatures.GetSize(); ++i)
+		CPlayer* pPlayer = GetGame()->GetPlayer(ip);
+
+		CZone* pBattlefield = pPlayer->GetZoneById(ZoneId::Battlefield);
+
+		for (int i = 0; i < pBattlefield->GetSize(); ++i)
 		{
-			CTransferControlModifier* pModifier = new CTransferControlModifier(GetGame(), (CCard*)pCreatures.GetAt(i), (CCard*)pCreatures.GetAt(i));
-			pModifier->ApplyTo(pCreatures.GetAt(i)->GetOwner());
+			CCard* pCard = pBattlefield->GetAt(i);
+
+			if (pCard->GetCardType().IsCreature() && (pCard->GetOwner() != pCard->GetController()))
+				pToMove.AddCard(pCard, CardPlacement::Top);
 		}
 	}
 
-	CCountedCardContainer pCreatures1;
-	
-	if (m_CardFilter_temp.GetIncluded(*pInplay, pCreatures1))			
+	for (int i = 0; i < pToMove.GetSize(); ++i)
 	{
-		for (int i = 0; i < pCreatures1.GetSize(); ++i)
-		{
-			CTransferControlModifier* pModifier = new CTransferControlModifier(GetGame(), (CCard*)pCreatures1.GetAt(i), (CCard*)pCreatures1.GetAt(i));
-			pModifier->ApplyTo(pCreatures1.GetAt(i)->GetOwner());
-		}
+		CCard* pCard = pToMove.GetAt(i);
+		pCard->Move(pCard->GetOwner()->GetZoneById(ZoneId::Battlefield), pCard->GetOwner(), MoveType::Others);
 	}
 }
 
@@ -777,7 +771,7 @@ CGhaveGuruOfSporesCard::CGhaveGuruOfSporesCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Ghave, Guru of Spores"), CardType::_LegendaryCreature, CREATURE_TYPE2(Fungus, Shaman), nID,
 		_T("2") WHITE_MANA_TEXT BLACK_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
@@ -1943,6 +1937,31 @@ void CArchangelOfStrifeCard::OnSelectionDone(const std::vector<SelectionEntry>& 
 				return;
 			}
 		}
+}
+
+//____________________________________________________________________________
+//
+CBasandraBattleSeraphCard::CBasandraBattleSeraphCard(CGame* pGame, UINT nID)
+	: CFlyingCreatureCard(pGame, _T("Basandra, Battle SEraph"), CardType::_LegendaryCreature, CREATURE_TYPE(Angel), nID,
+		_T("3") RED_MANA_TEXT WHITE_MANA_TEXT, Power(4), Life(4))
+{
+	{
+		counted_ptr<CPlayerEffectEnchantment> cpAbility(
+			::CreateObject<CPlayerEffectEnchantment>(this,
+				PlayerEffectType::BasandraEffect));
+
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CActivatedAbility<CTargetChgPwrTghAttrSpell>> cpAbility(
+			::CreateObject<CActivatedAbility<CTargetChgPwrTghAttrSpell>>(this,
+				RED_MANA_TEXT,	// No mana cost
+				Power(+0), Life(+0),
+				CreatureKeyword::MustAttack, CreatureKeyword::Null,
+				TRUE, PreventableType::NotPreventable));
+
+		AddAbility(cpAbility.GetPointer());	
+	}
 }
 
 //____________________________________________________________________________

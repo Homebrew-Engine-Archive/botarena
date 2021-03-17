@@ -1095,8 +1095,6 @@ CMoldAdderCard::CMoldAdderCard(CGame* pGame, UINT nID)
 
 	, m_CardFilter(_T("a blue or black card"), _T("blue or black cards"), new CardTypeComparer(CardType::Blue | CardType::Black, false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 
@@ -2525,12 +2523,12 @@ CSafePassageCard::CSafePassageCard(CGame* pGame, UINT nID)
 	CPlayerEffectModifier* pmodifier1 = new CPlayerEffectModifier(PlayerEffectType::PreventAllPlayerDamage);	
 
 	CScheduledPlayerModifier* pModifier2 = new CScheduledPlayerModifier(
-		GetGame(), pmodifier1, TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);
+		GetGame(), pmodifier1, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
 
 	CPlayerEffectModifier* pmodifier3 = new CPlayerEffectModifier(PlayerEffectType::PreventAllDamageToCreatures);	
 
 	CScheduledPlayerModifier* pModifier4 = new CScheduledPlayerModifier(
-		GetGame(), pmodifier3, TurnNumberDelta(-1), NodeId::EndStep, CScheduledPlayerModifier::Operation::RemoveFromLater);
+		GetGame(), pmodifier3, TurnNumberDelta(-1), NodeId::CleanupStep2, CScheduledPlayerModifier::Operation::RemoveFromLater);
 
 	pmodifier3->LinkPlayerModifier(pModifier4);
 	pModifier2->LinkPlayerModifier(pmodifier3);
@@ -3387,7 +3385,6 @@ CProteanHydraCard::CProteanHydraCard(CGame* pGame, UINT nID)
 		GREEN_MANA_TEXT, Power(0), Life(0))
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CProteanHydraCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -3457,7 +3454,7 @@ void CProteanHydraCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}

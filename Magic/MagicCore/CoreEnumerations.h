@@ -541,7 +541,7 @@ struct PlayerEffectType
 
 		MustAttackGideon,           // Creatures that player controls attack Gideon Jura if able.
 		PreventDamagetoGideon,      // Prevent all damage that would be dealt to gideon this turn/
-		PreventDamagetoGideon2,      // Prevent all damage that would be dealt to Gideon, Champion of Justice this turn/
+		PreventDamagetoGideon2,     // Prevent all damage that would be dealt to Gideon, Champion of Justice this turn/
 		
 		SkipNextTurn,				// player skips his or her next turn
 		SkipNextCombatPhase,		// player skips his or her next combat phase
@@ -554,7 +554,7 @@ struct PlayerEffectType
 		CantBeTargetedBySpells,		// Player can't be the targets of spells. ref: Ivory Mask
 		CantBeTargetedByAbilities,	// Player can't be the targets of abilities. ref: Ivory Mask
 		CantBeTargeted,				// Known as 'shroud' in 10TH; Note: can only be used in AddPlayerEffect or RemovePlayerEffect and none of the other APIs
-		CantBeTargetedByOpponentsSpells, //Same as Ivory Mask, but applied on Leyline of Sanctity
+		CantBeTargetedByOpponentsSpells,    //Same as Ivory Mask, but applied on Leyline of Sanctity
 		CantBeTargetedByOpponentsAbilities, //Same as Ivory Mask, but applied on Leyline of Sanctity
 
 		CantPlayActivatedAbilities,	// Players can't play activated abilities (mana abilities not okay) (Parameter is card filter pointer)
@@ -573,30 +573,37 @@ struct PlayerEffectType
 		WinInsteadTopDeck,			// Ref: Laboratory Maniac
 		CantGetPoisonCounters,      // Player can't get poison counters
 
-		EachBlankRollisChaosRoll,      // Each blank roll of planar die counts as Chaos roll
+		EachBlankRollisChaosRoll,   // Each blank roll of planar die counts as Chaos roll
 
-		SuppressedLandwalk,			// Ref: Great Wall
+		SuppressedLandwalk,		    // Ref: Great Wall
 
 		CoinFlipCheating,           // Krark's Thumb
-		GraveShroud,               // Ground Seal
-		Doublep11Counters,         // Doubles +1/+1 counters -- Corpsejack Menace
-		ISExileInsteadGraveyard,   // If an instant or sorcery card would be put into your graveyard from anywhere, exile that card instead. -- Dryad Militant
-		PermanentsExileInsteadGraveyard,    // If a permanent would be put into your graveyard from anywhere, exile it instead. -- Samurai of the Pale Curtain
-		TokensExileInsteadGraveyard,	// If a token would be put into your graveyard from anywhere, exile it instead. -- part of Rest in Peace
+		GraveShroud,                // Ground Seal
+		Doublep11Counters,          // Doubles +1/+1 counters -- Corpsejack Menace
+		ISExileInsteadGraveyard,    // If an instant or sorcery card would be put into your graveyard from anywhere, exile that card instead. -- Dryad Militant
+		PermanentsExileInsteadGraveyard, // If a permanent would be put into your graveyard from anywhere, exile it instead. -- Samurai of the Pale Curtain
+		TokensExileInsteadGraveyard,	 // If a token would be put into your graveyard from anywhere, exile it instead. -- part of Rest in Peace
 		CantDrawCards,				// Player can't draw cards
 		IgnoreHexproofOnCreatures,	// Player can target opponent's creatures with hexproof
 		Extrap11Counter,            // Creatures enter the battlefield with an extra +1/+1 counter
-		CreaturesCantBeTargetedBySpells,	// Creatures cannot be targeted by spells with certain characteristic (Autumn's Veil)
-		SpellsCantBeCounteredBySpells,	// Spells cannot be countered by spells with certain characteristic (Autumn's Veil)
+		CreaturesCantBeTargetedBySpells, // Creatures cannot be targeted by spells with certain characteristic (Autumn's Veil)
+		SpellsCantBeCounteredBySpells,	 // Spells cannot be countered by spells with certain characteristic (Autumn's Veil)
 		ZombieMill,					// Zombies mill instead of combat damage (Undead Alchemist)
 		Power1OrLessCantBlock,		// Hero of Oxid Ridge
 		ChampionOfLambholtEffect,	// Champion of Lambholt
+		HoodedHorrorEffect,	        // Creature (Hooded Horror) can't be blocked if defending player controls the most creatures or is tied for the most.
+		GraxiplonEffect,            // Creature (Graxiplon) can't be blocked unless defending player controls three or more creatures that share a creature type.
 		HedronFields,				// Hedron Fields of Agadeem -- creatures with power 7 or more can't attack or block.
 
 		CounterCastReplacement,     // If a spell or ability you control would counter a spell, instead exile that spell and you may play that card without paying its mana cost.
 	
-		WinterOrb,					//Player can only untap one land
-		Smoke						//Player can only untap one creature
+		WinterOrb,					// Player can only untap one land
+		Smoke,						// Player can only untap one creature
+		NoCycling,					// Player can't activate cycling abilities
+		PreventPlayerCombatDamage,	// Prevent all combat damage that would be dealt to player
+		BasandraEffect,				// Player can't cast spells in combat
+		HandToHandEffect,			// Player can't cast instants or activate nonmana abilities in combat
+		InstantEquip				// Player can equip as instant
 	};
 
 	DEFINE_DISTINCT_ENUM_OPS(PlayerEffectType);
@@ -849,6 +856,7 @@ struct CreatureKeyword
 		Soulbond							= 0x0008000000000000,	// For use with Flowering Lumberknot
 
 		MustAttackEachCombat				= 0x0010000000000000,	// Ref: Hellraiser Goblin
+		Monstrous							= 0x0020000000000000,
 
 		_All								= 0xffffffffffffffff,
 
@@ -1357,6 +1365,7 @@ struct CORE_EXPORT SingleCreatureType
 		Gnome,
 		Goat,
 		Goblin,
+		God,
 		Golem,
 		Gorgon,
 		Graveborn,
@@ -1415,6 +1424,7 @@ struct CORE_EXPORT SingleCreatureType
 		Ninja,
 		Noggle,
 		Nomad,
+		Nymph,
 		Octopus,
 		Ogre,
 		Ooze,
@@ -1441,6 +1451,7 @@ struct CORE_EXPORT SingleCreatureType
 		Rhino,
 		Rigger,
 		Rogue,
+		Sable,
 		Salamander,
 		Samurai,
 		Sand,
@@ -1532,6 +1543,7 @@ struct CORE_EXPORT PlaneswalkerType
 	{
 		Null = 0,
 		Ajani,
+		Ashiok,
 		Bolas,
 		Chandra,
 		Domri,
@@ -1552,6 +1564,7 @@ struct CORE_EXPORT PlaneswalkerType
 		Tibalt,
 		Venser,
 		Vraska,
+		Xenagos,
 
 		_SubtypeCount,
 	};

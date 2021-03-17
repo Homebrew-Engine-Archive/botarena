@@ -1293,12 +1293,21 @@ CZodiacDragonCard::CZodiacDragonCard(CGame* pGame, UINT nID)
 
 	cpAbility->GetMoveCardModifier().SetMoveType(MoveType::Others);
 	cpAbility->GetMoveCardModifier().SetFromZone(ZoneId::Graveyard);
-	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Hand);
+	cpAbility->GetMoveCardModifier().SetToZone(ZoneId::Library);
+	cpAbility->GetMoveCardModifier().SetToTop(TRUE);
+	cpAbility->GetMoveCardModifier().SetShuffle(TRUE);
 	cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
 
-	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Hand));
+	cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CZodiacDragonCard::SetTriggerContext));
+	cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Library));
 
 	AddAbility(cpAbility.GetPointer());
+}
+
+bool CZodiacDragonCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const
+{
+	return (pFromZone->GetPlayer() == GetOwner());
 }
 
 //____________________________________________________________________________
@@ -1849,10 +1858,17 @@ CGuanYuSaintedWarriorCard::CGuanYuSaintedWarriorCard(CGame* pGame, UINT nID)
 		cpAbility->GetMoveCardModifier().SetShuffle(TRUE);
 		cpAbility->GetMoveCardModifier().SetToOwnersZone(TRUE);
 
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CGuanYuSaintedWarriorCard::SetTriggerContext));
 		cpAbility->AddAbilityTag(AbilityTag(ZoneId::Graveyard, ZoneId::Library));
 
 		AddAbility(cpAbility.GetPointer());
 	}
+}
+
+bool CGuanYuSaintedWarriorCard::SetTriggerContext(CTriggeredMoveCardAbility::TriggerContextType& triggerContext,
+													CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType) const
+{
+	return (pFromZone->GetPlayer() == GetOwner());
 }
 
 //____________________________________________________________________________

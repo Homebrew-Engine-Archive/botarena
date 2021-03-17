@@ -8,6 +8,8 @@ public:
 	CGraftKeyword(CCard* pCard, int nValue);
 
 protected:
+	typedef TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
+
 	bool SetTriggerContext(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, 
 						   CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType) const;
 

@@ -218,6 +218,10 @@ BEGIN
     IDS_STRING14708         "Decree of Pain\n{6BB}\nSorcery\nSCG,R\nDestroy all creatures. They can't be regenerated. Draw a card for each creature destroyed this way.\rCycling {3BB}\rWhen you cycle Decree of Pain, all creatures get -2/-2 until end of turn."
     IDS_STRING14709         "Forgotten Ancient\n{3G}\nCreature - Elemental\nSCG,R\nWhenever a player casts a spell, you may put a +1/+1 counter on Forgotten Ancient.\rAt the beginning of your upkeep, you may move any number of +1/+1 counters from Forgotten Ancient onto other creatures.\n0/3"
 	IDS_STRING14710         "Day of the Dragons\n{4UUU}\nEnchantment\nSCG,R\nWhen Day of the Dragons enters the battlefield, exile all creatures you control. Then put that many 5/5 red Dragon creature tokens with flying onto the battlefield.\rWhen Day of the Dragons leaves the battlefield, sacrifice all Dragons you control. Then return the exiled cards to the battlefield under your control."
+	IDS_STRING14711         "Mercurial Kite\n{3U}\nCreature - Bird\nSCG,C\nFlying\rWhenever Mercurial Kite deals combat damage to a creature, tap that creature. That creature doesn't untap during its controller's next untap step."
+	IDS_STRING14712         "Decree of Silence\n{6UU}\nEnchantment\nSCG,R\nWhenever an opponent casts a spell, counter that spell and put a depletion counter on Decree of Silence. If there are three or more depletion counters on Decree of Silence, sacrifice it.\rCycling {4UU}\rWhen you cycle Decree of Silence, you may counter target spell."
+	IDS_STRING14713         "Stabilizer\n{2}\nArtifact\nSCG,R\nPlayers can't cycle cards."
+    IDS_STRING14714         "Long-Term Plans\n{2U}\nInstant\nSCG,U\nSearch your library for a card, shuffle your library, then put that card third from the top."
 END
 
 #endif    // English (United States) resources

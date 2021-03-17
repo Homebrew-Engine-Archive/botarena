@@ -56,6 +56,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName,
 		DEFINE_CARD(CChokingSandsCard);
 		DEFINE_CARD(CCircleOfDespairCard);
 		DEFINE_CARD(CCivicGuildmageCard);
+		DEFINE_CARD(CConsumingFerocityCard);
 		DEFINE_CARD(CCrashOfRhinosCard);
 		DEFINE_CARD(CCrimsonRocCard);
 		DEFINE_CARD(CCryptCobraCard);
@@ -1946,8 +1947,6 @@ CWallOfResistanceCard::CWallOfResistanceCard(CGame* pGame, UINT nID)
 		_T("1") WHITE_MANA_TEXT, Power(0), Life(3))
 {
 	GetCreatureKeyword()->AddDefender(FALSE);
-	GetCounterContainer()->ScheduleCounter(_T("+0/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	{
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenNodeChanged > TriggeredAbility;
@@ -2539,8 +2538,6 @@ CPurrajOfUrborgCard::CPurrajOfUrborgCard(CGame* pGame, UINT nID)
 		AddAbility(cpAbility.GetPointer());
 	} */
 	{
-		GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
 
@@ -5423,7 +5420,7 @@ CAfiyaGroveCard::CAfiyaGroveCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Afiya Grove"), CardType::GlobalEnchantment,	nID,
 		_T("1") GREEN_MANA_TEXT, AbilityType::Enchantment)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	
 	{
 		typedef
@@ -5714,7 +5711,6 @@ CMalignantGrowthCard::CMalignantGrowthCard(CGame* pGame, UINT nID)
 	m_CardFlagModifier2.GetModifier().SetOneTurnOnly(FALSE);
 	m_CardFlagModifier2.GetModifier().SetToRemove(CardFlag::AbilityFlag);
 	m_CardFlagModifier2.GetModifier().SetRemovalData(m_CardFlagModifier1.GetModifier().GetAdditionData());
-	GetCounterContainer()->ScheduleCounter(GROWTH_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 
 	{
 		typedef
@@ -6909,8 +6905,6 @@ CZombieMobCard::CZombieMobCard(CGame* pGame, UINT nID)
 		_T("2") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(2), Life(0))
 		, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CZombieMobCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	m_CardFilter.AddComparer(new AnyCreatureComparer);
 
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
@@ -6948,7 +6942,7 @@ void CZombieMobCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZon
 	
 		int nCreatures = m_CardFilter.CountIncluded(pGraveyard->GetCardContainer());
 
-		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nCreatures, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nCreatures);
 
 		pModifier.ApplyTo(this);
 	}
@@ -7523,6 +7517,55 @@ bool CBasaltGolemCard::BeforeResolution(TriggeredAbility::TriggeredActionType* p
 
 	CContainerEffectModifier pModifier = CContainerEffectModifier(GetGame(), _T("Basalt Golem Effect"), 61103, &pSubjects);
 	pModifier.ApplyTo(pAction->GetController());
+
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CConsumingFerocityCard::CConsumingFerocityCard(CGame* pGame, UINT nID)
+	: CChgPwrTghAttrEnchantCard(pGame, _T("Consuming Ferocity"), nID,
+		_T("1") RED_MANA_TEXT,
+		Power(+1), Life(+0))
+{
+	m_pChgPwrTghAttrEnchant->GetTargeting()->GetSubjectCardFilter().AddNegateComparer(new CreatureTypeComparer(CREATURE_TYPE(Wall), false));
+
+	typedef
+		TTriggeredAbility< CTriggeredAbility<>, CWhenNodeChanged > TriggeredAbility;
+		
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this, NodeId::UpkeepStep));
+		
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+	cpAbility->GetTrigger().SetMonitorControllerOnly(TRUE);
+
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CConsumingFerocityCard::BeforeResolution));
+	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CConsumingFerocityCard::BeforeResolution(CAbilityAction* pAction) const
+{
+	CCreatureCard* pEnchanted = (CCreatureCard*)m_pChgPwrTghAttrEnchant->GetEnchantedOnCard();
+
+	if (!pEnchanted) return true;
+
+	CCardCounterModifier pModifier1 = CCardCounterModifier(_T("+1/+0"), +1);
+	pModifier1.ApplyTo(pEnchanted);
+
+	if (pEnchanted->GetCounterContainer()->GetCounter(_T("+1/+0"))->GetCount() > 2)
+	{
+		int nPower = pEnchanted->GetPower();
+
+		if (nPower > 0)
+		{
+			CLifeModifier pModifier2 = CLifeModifier(Life(-nPower), pEnchanted, PreventableType::Preventable, DamageType::AbilityDamage | DamageType::NonCombatDamage);
+			pModifier2.ApplyTo(pEnchanted->GetController());
+		}
+
+		CMoveCardModifier pModifier3 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Graveyard, TRUE, MoveType::DestroyWithoutRegeneration, pAction->GetController());
+		pModifier3.ApplyTo(pEnchanted);
+	}
 
 	return true;
 }

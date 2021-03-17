@@ -318,8 +318,6 @@ CBojukaBrigandCard::CBojukaBrigandCard(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddCantBlock(FALSE);
 
 	{
-		GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -661,8 +659,6 @@ CHadaFreebladeCard::CHadaFreebladeCard(CGame* pGame, UINT nID)
 
 	, m_CardFilter(_T("an Ally"), _T("Allies"), new CreatureTypeComparer(CREATURE_TYPE(Ally), false))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	typedef
 		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -736,8 +732,6 @@ CGraypeltHunterCard::CGraypeltHunterCard(CGame* pGame, UINT nID)
 	GetCreatureKeyword()->AddTrample(FALSE);
 
 	{
-		GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 		typedef
 			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenCardMoved > TriggeredAbility;
 
@@ -2431,8 +2425,6 @@ CEverflowingChaliceCard::CEverflowingChaliceCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Everflowing Chalice"), CardType::Artifact, nID,
 		_T("0"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("2"),true);
 
 	{
@@ -2473,7 +2465,7 @@ bool CEverflowingChaliceCard::BeforeResolution1(TriggeredAbility::TriggeredActio
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3330,8 +3322,6 @@ CQuestForTheGoblinLordCard::CQuestForTheGoblinLordCard(CGame* pGame, UINT nID)
 		_T("") RED_MANA_TEXT, AbilityType::Enchantment)
 		, m_CardFilter(_T("a Goblin"), _T("Goblins"), new CreatureTypeComparer(CREATURE_TYPE(Goblin), false))
 {
-	GetCounterContainer()->ScheduleCounter(QUEST_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	
 	{
 	counted_ptr<CPwrTghAttrEnchantment> cpAbility(
 		::CreateObject<CPwrTghAttrEnchantment>(this,
@@ -3468,8 +3458,6 @@ CApexHawksCard::CApexHawksCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Apex Hawks"), CardType::Creature, CREATURE_TYPE(Bird), nID,
 		_T("2") WHITE_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("1") WHITE_MANA_TEXT,true);
 
 	{
@@ -3499,7 +3487,7 @@ bool CApexHawksCard::BeforeResolution1(TriggeredAbility::TriggeredActionType* pA
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3513,8 +3501,6 @@ CEnclaveEliteCard::CEnclaveEliteCard(CGame* pGame, UINT nID)
 		_T("2") BLUE_MANA_TEXT, Power(2), Life(2),
 		CreatureKeyword::Islandwalk)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("1") BLUE_MANA_TEXT,true);
 
 	{
@@ -3544,7 +3530,7 @@ bool CEnclaveEliteCard::BeforeResolution1(TriggeredAbility::TriggeredActionType*
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3557,8 +3543,6 @@ CGnarlidPackCard::CGnarlidPackCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Gnarlid Pack"), CardType::Creature, CREATURE_TYPE(Beast), nID,
 		_T("1") GREEN_MANA_TEXT, Power(2), Life(2))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("1") GREEN_MANA_TEXT,true);
 
 	{
@@ -3588,7 +3572,7 @@ bool CGnarlidPackCard::BeforeResolution1(TriggeredAbility::TriggeredActionType* 
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3602,8 +3586,6 @@ CQuagVampiresCard::CQuagVampiresCard(CGame* pGame, UINT nID)
 		_T("") BLACK_MANA_TEXT, Power(1), Life(1),
 		CreatureKeyword::Swampwalk)
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("1") BLACK_MANA_TEXT,true);
 
 	{
@@ -3633,7 +3615,7 @@ bool CQuagVampiresCard::BeforeResolution1(TriggeredAbility::TriggeredActionType*
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3646,8 +3628,6 @@ CSkitterOfLizardsCard::CSkitterOfLizardsCard(CGame* pGame, UINT nID)
 	: CHasteCreatureCard(pGame, _T("Skitter of Lizards"), CardType::Creature, CREATURE_TYPE(Lizard), nID,
 		RED_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("1") RED_MANA_TEXT,true);
 
 	{
@@ -3677,7 +3657,7 @@ bool CSkitterOfLizardsCard::BeforeResolution1(TriggeredAbility::TriggeredActionT
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3690,8 +3670,6 @@ CJoragaWarcallerCard::CJoragaWarcallerCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Joraga Warcaller"), CardType::Creature, CREATURE_TYPE2(Elf, Warrior), nID,
 		GREEN_MANA_TEXT, Power(1), Life(1))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-
 	GetSpells().GetAt(0)->GetCost().AddOptionalManaCost(_T("1") GREEN_MANA_TEXT,true);
 
 	{
@@ -3734,7 +3712,7 @@ bool CJoragaWarcallerCard::BeforeResolution1(TriggeredAbility::TriggeredActionTy
 {
 	int nColorCount = GetLastCastingExtraValue();   
 
-	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount, true); 
+	CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nColorCount); 
 
 	pModifier.ApplyTo(this);
 	
@@ -3815,7 +3793,7 @@ CTerastodonCard::CTerastodonCard(CGame* pGame, UINT nID)
 		_T("6") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(9), Life(9))
 	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&CTerastodonCard::OnResolutionCompleted))
-	, nGraveyardCount(2)
+	, nDeadCount(2)
 {
 	typedef	TTriggeredTargetAbility< CTriggeredMoveCardAbility, CWhenSelfInplay, 
 								CWhenSelfInplay::EventCallback, &CWhenSelfInplay::SetEnterEventCallback > TriggeredAbility;
@@ -3838,10 +3816,10 @@ CTerastodonCard::CTerastodonCard(CGame* pGame, UINT nID)
 
 bool CTerastodonCard::BeforeResolution(CAbilityAction* pAction)
 {
-	nGraveyardCount.reserve(GetGame()->GetPlayerCount());
+	nDeadCount.reserve(GetGame()->GetPlayerCount());
 
 	for (int ip = 0; ip < GetGame()->GetPlayerCount(); ++ip)
-		nGraveyardCount[ip] = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard)->GetSize();
+		nDeadCount[ip] = GetGame()->GetPlayer(ip)->GetCertainTypeDiedCount(CardType::_Permanent);
 
 	return true;
 }
@@ -3852,7 +3830,7 @@ void CTerastodonCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction
 
 	for (int ip = 0, nDelta; ip < GetGame()->GetPlayerCount(); ++ip)
 	{
-		nDelta = GetGame()->GetPlayer(ip)->GetZoneById(ZoneId::Graveyard)->GetSize() - nGraveyardCount[ip];
+		nDelta = GetGame()->GetPlayer(ip)->GetCertainTypeDiedCount(CardType::_Permanent) - nDeadCount[ip];
 		if (nDelta > 0)
 		{
 			CTokenCreationModifier* pModifier = new CTokenCreationModifier(GetGame(), _T("Elephant A"), 2771, nDelta, false);

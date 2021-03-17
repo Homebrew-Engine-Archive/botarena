@@ -1023,3 +1023,54 @@ protected:
 
 //____________________________________________________________________________
 //
+class CWitchstalkerCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CWitchstalkerCard);
+
+private:
+	CCardFilter m_CardFilter;
+	bool SetTriggerContext1(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CCard* pCard) const;
+};
+
+//____________________________________________________________________________
+//
+class CVoraciousWurmCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CVoraciousWurmCard);
+
+protected:
+	void OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType);
+	ListenerPtr<CardMovementEventSource::Listener>	m_cpAListener;	// Listen to this card's zone changes
+};
+
+//____________________________________________________________________________
+//
+class CKalonianHydraCard : public CCreatureCard
+{
+	DECLARE_CARD_CSTOR(CKalonianHydraCard);
+
+protected:
+	bool BeforeResolution(CAbilityAction* pAction);
+};
+
+//____________________________________________________________________________
+//
+class CSeismicStompCard : public CCard
+{
+	DECLARE_CARD_CSTOR(CSeismicStompCard);
+};
+
+//____________________________________________________________________________
+//
+class CHauntedPlateMailCard : public CInPlaySpellCard
+{
+	DECLARE_CARD_CSTOR(CHauntedPlateMailCard);
+
+protected:
+	BOOL CanPlay(BOOL bIncludeTricks);
+	void OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult);
+	ListenerPtr<ResolutionCompletedEventSource::Listener>	m_cpEventListener;
+};
+
+//____________________________________________________________________________
+//

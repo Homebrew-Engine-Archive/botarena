@@ -382,7 +382,7 @@ BEGIN
     IDS_STRING13440         "Wild Mongrel\n{1G}\nCreature - Hound\nODY,C\nDiscard a card: Wild Mongrel gets +1/+1 and becomes the color of your choice until end of turn.\n2/2"
     IDS_STRING13441         "Aboshan, Cephalid Emperor\n{4UU}\nLegendary Creature - Cephalid\nODY,R\nTap an untapped Cephalid you control: Tap target permanent.\r{UUU}: Tap all creatures without flying.\n3/3"
     IDS_STRING13442         "Kirtar's Wrath\n{4WW}\nSorcery\nODY,R\nDestroy all creatures. They can't be regenerated.\rThreshold - If seven or more cards are in your graveyard, instead destroy all creatures, then put two 1/1 white Spirit creature tokens with flying onto the battlefield. Creatures destroyed this way can't be regenerated."
-    IDS_STRING13443         "Animal Boneyard\n{2W}\nEnchantment - Aura\nODY,U\nEnchant land\rEnchanted land has ""{T}, Sacrifice a creature: You gain life equal to that creature's toughness."""
+    IDS_STRING13443         "Animal Boneyard\n{2W}\nEnchantment - Aura\nODY,U\nEnchant land\rEnchanted land has ""{T}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness."""
     IDS_STRING13444         "Atogatog\n{WUBRG}\nLegendary Creature - Atog\nODY,R\nSacrifice an Atog creature: Atogatog gets +X/+X until end of turn, where X is the sacrificed creature's power.\n5/5"
     IDS_STRING13445         "Nantuko Mentor\n{2G}\nCreature - Insect Druid\nODY,R\n{2G}, {T}: Target creature gets +X/+X until end of turn, where X is that creature's power.\n1/1"
     IDS_STRING13446         "Rotting Giant\n{1B}\nCreature - Zombie Giant\nODY,U\nWhenever Rotting Giant attacks or blocks, sacrifice it unless you exile a card from your graveyard.\n3/3"

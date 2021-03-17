@@ -324,7 +324,7 @@ BEGIN
     IDS_STRING7794          "Segovian Leviathan\n{4U}\nCreature - Leviathan\n4TH,U\nIslandwalk\n3/3"
     IDS_STRING7795          "Sengir Vampire\n{3BB}\nCreature - Vampire\n4TH,U\nFlying\rWhenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.\n4/4"
     IDS_STRING7796          "Serra Angel\n{3WW}\nCreature - Angel\n4TH,U\nFlying\rVigilance\n4/4"
-    IDS_STRING7797          "Shanodin Dryads\n{G}\nCreature - Dryad\n4TH,C\nForestwalk\n1/1"
+    IDS_STRING7797          "Shanodin Dryads\n{G}\nCreature - Nymph Dryad\n4TH,C\nForestwalk\n1/1"
     IDS_STRING7798          "Shatter\n{1R}\nInstant\n4TH,C\nDestroy target artifact."
     IDS_STRING7799          "Shivan Dragon\n{4RR}\nCreature - Dragon\n4TH,R\nFlying\r{R}: Shivan Dragon gets +1/+0 until end of turn.\n5/5"
     IDS_STRING7800          "Sindbad\n{1U}\nCreature - Human\n4TH,U\n{T}: Draw a card and reveal it. If it isn't a land card, discard it.\n1/1"

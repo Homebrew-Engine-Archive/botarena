@@ -1038,6 +1038,17 @@ bool LastCardDrawnThisTurnComparer::operator()(const CCard* pCard) const
 
 //____________________________________________________________________________
 //
+DamagedPlayerThisTurnComparer::DamagedPlayerThisTurnComparer(const CCard* pCard1)
+{
+}
+
+bool DamagedPlayerThisTurnComparer::operator()(const CCard* pCard) const
+{
+	return (m_pCard1->GetController()->GetDamageSourcesThisTurn().HasCard(pCard) == TRUE);
+}
+
+//____________________________________________________________________________
+//
 AttackedLastTurnComparer::AttackedLastTurnComparer(const CPlayer* pPlayer)
 	: m_pPlayer(pPlayer)
 	, m_pCard(NULL)

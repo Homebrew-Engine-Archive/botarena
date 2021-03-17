@@ -2,6 +2,10 @@
 
 //____________________________________________________________________________
 //
+/*
+	CTargetChgLifeSpellCard Example Card
+	Lava Axe 4R Sorcery Lava Axe deals 5 damage to target player.
+*/
 class CORE_EXPORT CTargetChgLifeSpellCard : public CCard
 {
 protected:
@@ -20,6 +24,10 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CChgPwrTghAttrSpellCard Example Card
+	Giant Growth G Target creature gets +3/+3 until end of turn.
+*/
 class CORE_EXPORT CChgPwrTghAttrSpellCard : public CCard
 {
 protected:
@@ -40,6 +48,10 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CGlobalChgLifeSpellCard Example Card
+	Pyroclasm 1R Pyroclasm deals 2 damage to each creature.
+*/
 class CORE_EXPORT CGlobalChgLifeSpellCard : public CCard
 {
 protected:
@@ -59,6 +71,16 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	Used to implement Global Enchantments, Artifacts, Equipment.
+	
+	CInPlaySpellCard Example Cards
+	Sol Ring 1 Artifact Tap: Add 2 to your mana pool.
+	
+	Pestilence 2BB Enchantment At the beginning of the end step, if no creatures are on the battlefield, sacrifice Pestilence.
+	B: Pestilence deals 1 damage to each creature and each player.
+
+*/
 class CORE_EXPORT CInPlaySpellCard : public CCard
 {
 protected:
@@ -70,6 +92,14 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CDoubleFacedInPlaySpellCard Example Card
+	This code is currently the basis for Chalice of Life / Chalice of Death a double faced card.
+	Face A - Chalice of Life 3 Artifact Tap: You gain 1 life. Then if you have at least 10 life more than 
+	         your starting life total, transform Chalice of Life.
+	Face B - Chalice of Death Artifact Tap: Target player loses 5 life.
+
+*/
 class CORE_EXPORT CDoubleFacedInPlaySpellCard : public CInPlaySpellCard
 {
 protected:
@@ -107,6 +137,10 @@ private:
 
 //____________________________________________________________________________
 //
+/*
+	CBasicLandCard Example Card
+	Forest Basic Land — Forest G
+*/
 class CORE_EXPORT CBasicLandCard : public CCard
 {
 protected:
@@ -126,6 +160,10 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CNonbasicLandCard Example Card
+	Strip Mine Land Tap: Add 1 to your mana pool. Tap, Sacrifice Strip Mine: Destroy target land.
+*/
 class CORE_EXPORT CNonbasicLandCard : public CBasicLandCard
 {
 protected:
@@ -134,6 +172,10 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CDualLandCard Example Card
+	Bayou (0) Land — Swamp Forest 
+*/
 class CORE_EXPORT CDualLandCard : public CNonbasicLandCard
 {
 protected:
@@ -147,6 +189,12 @@ protected:
 
 //____________________________________________________________________________
 //
+//
+/*
+	CTargetMoveCardSpellCard Example Cards
+	Raise Dead B Sorcery Return target creature card from your graveyard to your hand.
+	Disenchant 1W Instant Destroy target artifact or enchantment.
+*/
 class CORE_EXPORT CTargetMoveCardSpellCard : public CCard
 {
 protected:
@@ -163,6 +211,11 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CSearchLibrarySpellCard Example Card
+	Demonic Tutor 1B Sorcery Search your library for a card and put that card into your hand. 
+	shuffle your library.
+*/
 class CORE_EXPORT CSearchLibrarySpellCard : public CCard
 {
 protected:
@@ -179,6 +232,10 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CChgPwrTghAttrEnchantCard Example Card
+	Unholy Strength B Enchantment - Aura Enchant creature Enchanted creature gets +2/+1.
+*/
 class CORE_EXPORT CChgPwrTghAttrEnchantCard : public CCard
 {
 protected:
@@ -195,6 +252,11 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CEnchantCard Example Card
+	Cursed Land 2BB Enchantment - Aura Enchant land At the beginning of the 
+	upkeep of enchanted land's controller, Cursed Land deals 1 damage to that player.
+*/
 class CORE_EXPORT CEnchantCard : public CCard
 {
 protected:
@@ -210,6 +272,10 @@ protected:
 
 //____________________________________________________________________________
 //
+/*
+	CCounterSpellCard Example Card
+	Counterspell UU Instant Counter target spell. 
+*/
 class CORE_EXPORT CCounterSpellCard : public CCard
 {
 protected:
@@ -224,6 +290,14 @@ protected:
 };
 //____________________________________________________________________________
 //
+/*
+	Tribal cards are from mainly the Lorwyn Block.
+	CTribalCard Example Card
+	Summon the School 3W Tribal Sorcery Merfolk
+	Put two 1/1 blue Merfolk Wizard creature tokens onto the battlefield.
+	Tap four untapped Merfolk you control: Return Summon the School from 
+	your graveyard to your hand.
+*/
 class CORE_EXPORT CTribalCard : public CCard
 {
 protected:
@@ -241,6 +315,14 @@ public:
 
 //____________________________________________________________________________
 //
+/*
+	Tribal cards are mostly from the Lorwyn Block.
+	CInPlayTribalSpellCard Example Card
+	Militia's Pride 1W Tribal Enchantment Kithkin
+	Whenever a nontoken creature you control attacks, you may pay W. If you do, 
+	put a 1/1 white Kithkin Soldier creature token onto the battlefield tapped 
+	and attacking.
+*/
 class CORE_EXPORT CInPlayTribalSpellCard : public CTribalCard
 {
 protected:
@@ -252,6 +334,15 @@ protected:
 
 //____________________________________________________________________________
 //
+/*	
+	Vanguard is a card type. Vanguard cards are a 4-series 8-card set of oversized cards that were used 
+	to supplement Magic games.  These cards change the players' starting life total and cards in hand,
+	and have additional effects as well.  Only four sets of avatar cards were made before the product 
+	was discontinued. 
+	All cards descended from CVanguardCard are located in CardVanguard.cpp, CardVanguard.h
+	CVanguardCard Example Card
+	Gerrard Vanguard At the beginning of your draw step, draw an additional card.
+*/
 class CORE_EXPORT CVanguardCard : public CCard
 {
 protected:
@@ -270,6 +361,19 @@ public:
 
 //____________________________________________________________________________
 //
+/*	
+	Archenemy is a new casual variant. In an Archenemy game, one player—the archenemy—takes 
+	on the role of a merciless tyrant bent on total domination. The other players form a team 
+	dedicated to stopping the archenemy at any cost, taking a shared turn Two-Headed Giant–style.
+	
+	The archenemy comes to the fight armed not only with a normal 60-card deck, but also with a 
+	deck of 20 oversized scheme cards. 
+	
+	All cards descended from CSchemeCard are located in CardArchenemy.cpp, CardArchenemy.h
+	CSchemeCard Example Card
+	Approach My Molten Realm Scheme When you set this scheme in motion, until your next turn, 
+	if a source would deal damage, it deals double that damage instead.
+*/
 class CORE_EXPORT CSchemeCard : public CCard
 {
 protected:
@@ -286,6 +390,16 @@ public:
 
 //____________________________________________________________________________
 //
+/*	
+	Not an actual card but is used when implementing some "effects" from cards.
+	Example
+		Pact of Negation 0 Instant Counter target spell. At the beginning of your next upkeep, 
+		pay 3UU. If you don't, you lose the game.
+	For this card the counterspell part of the card is implemented by using CCounterSpellCard
+	and the effect "At the beginning of your next upkeep, pay 3UU. If you don't, you lose the game"
+	uses a token derived from CEffectCard.
+
+*/
 class CEffectCard : public CCard
 {
 protected:
@@ -311,6 +425,17 @@ protected:
 
 //____________________________________________________________________________
 //
+/*	
+	Not an actual card but is used when implementing some "effects" from cards.
+	Example 
+	AEther Membrane 1RR Creature Wall 
+	Defender; reach (This creature can block creatures with flying.)
+	Whenever Æther Membrane blocks a creature, return that creature to its owner's 
+	hand at end of combat. 0/5
+	The Wall part of the card uses CCreatureCard, this card creates a token, 
+	CEndOfCombatBounceEffectToken derived from CContainerEffectCard which is used to 
+	implement the return that creature to its owner's hand at end of combat part.
+*/
 class CContainerEffectCard : public CEffectCard
 {
 protected:
@@ -351,6 +476,19 @@ public:
 
 //____________________________________________________________________________
 //
+/*	
+	Not an actual card but is used when implementing some "effects" from cards.
+	Example 
+	Acidic Dagger 4 Artifact 4,Tap: Whenever target creature deals combat damage 
+	to a non-Wall creature this turn, destroy that non-Wall creature. When the targeted 
+	creature leaves the battlefield this turn, sacrifice Acidic Dagger. Activate this 
+	ability only before blockers are declared.
+
+	The main part of the card uses CInPlaySpellCard, this card creates a token, 
+	AcidicDaggerEffectToken derived from CDoubleContainerEffectCard which is used to 
+	implement the destroy creature ability and sacrifice acidic dagger ability.
+
+*/
 class CDoubleContainerEffectCard : public CEffectCard
 {
 protected:
@@ -408,6 +546,17 @@ public:
 
 //____________________________________________________________________________
 //
+/*	
+	Not an actual card but is used when implementing some "effects" from cards.
+	Example 
+	Mana Drain UU Interrupt Counter target spell. At the beginning of your next main phase, 
+	add Variable Colorless to your mana pool, where X is that spell's converted mana cost.
+
+	For this card the counterspell part of the card is implemented by using CCounterSpellCard
+	and the effect "At the beginning of your next main phase, add Variable Colorless to your 
+	mana pool, where X is that spell's converted mana cost." uses a token derived from 
+	CNumberEffectCard.
+*/
 class CNumberEffectCard : public CEffectCard
 {
 protected:
@@ -436,6 +585,16 @@ public:
 
 //____________________________________________________________________________
 //
+/*	
+	Planechase decks contains ten unique Plane cards, these use CPlaneCard
+	as their basis.
+	Cards that are derived from CPlaneCard are all located in CardPlanechase.cpp
+	CardPlanechase.h, CardPlanechase2.cpp and CardPlanechase2.h
+	Example 
+	Academy at Tolaria West Plane — Dominaria 
+	At the beginning of your end step, if you have no cards in hand, draw seven cards.
+	Whenever you roll [chaos], discard your hand.
+*/
 class CORE_EXPORT CPlaneCard : public CCard
 {
 protected:

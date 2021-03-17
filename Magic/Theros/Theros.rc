@@ -1,0 +1,364 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""..\\MagicCore\\MagicCore.rc2""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MODULE              ICON                    "Theros.ico"
+IDI_LARGE_MODULE        ICON                    "TherosLarge.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_EXPANSION           "Theros"
+    IDS_EXPANSION_ABBREV    "THS"
+    IDS_FIRST_CARD          "26700"
+    IDS_TOTAL_CARD          "249"
+    IDS_WHITE_BORDER        "0"
+    IDS_MODULE_ICON_ID      "26698"
+    IDS_MODULE_LARGE_ICON_ID "26699"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ALT_IMG_METHOD      "0"
+    IDS_RELEASE_DATE        "27-09-2013"
+    IDS_MWS_FOLDER          "MWS\\THS\\"
+    IDS_PRODUCT_LIST        """Theros Starter Box"":R-3:U-10:C-32:BL-30,""Theros Booster Pack"":R-1:U-3:C-11"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26700         "Forest\n\nBasic Land - Forest\nTHS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING26701         "Forest\n\nBasic Land - Forest\nTHS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING26702         "Forest\n\nBasic Land - Forest\nTHS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING26703         "Forest\n\nBasic Land - Forest\nTHS,BL\n{T}: Add {G} to your mana pool."
+    IDS_STRING26704         "Island\n\nBasic Land - Island\nTHS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING26705         "Island\n\nBasic Land - Island\nTHS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING26706         "Island\n\nBasic Land - Island\nTHS,BL\n{T}: Add {U} to your mana pool."
+    IDS_STRING26707         "Island\n\nBasic Land - Island\nTHS,BL\n{T}: Add {U} to your mana pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26708         "Mountain\n\nBasic Land - Mountain\nTHS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING26709         "Mountain\n\nBasic Land - Mountain\nTHS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING26710         "Mountain\n\nBasic Land - Mountain\nTHS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING26711         "Mountain\n\nBasic Land - Mountain\nTHS,BL\n{T}: Add {R} to your mana pool."
+    IDS_STRING26712         "Plains\n\nBasic Land - Plains\nTHS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING26713         "Plains\n\nBasic Land - Plains\nTHS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING26714         "Plains\n\nBasic Land - Plains\nTHS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING26715         "Plains\n\nBasic Land - Plains\nTHS,BL\n{T}: Add {W} to your mana pool."
+    IDS_STRING26716         "Swamp\n\nBasic Land - Swamp\nTHS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING26717         "Swamp\n\nBasic Land - Swamp\nTHS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING26718         "Swamp\n\nBasic Land - Swamp\nTHS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING26719         "Swamp\n\nBasic Land - Swamp\nTHS,BL\n{T}: Add {B} to your mana pool."
+    IDS_STRING26720         "Cavalry Pegasus\n{1W}\nCreature - Pegasus\nTHS,C\nFlying\rWhenever Cavalry Pegasus attacks, each attacking Human gains flying until end of turn.\n1/1"
+    IDS_STRING26721         "Abhorrent Overlord\n{5BB}\nCreature - Demon\nTHS,R\nFlying\rWhen Abhorrent Overlord enters the battlefield, put a number of 1/1 black Harpy creature tokens with flying onto the battlefield equal to your devotion to black.\rAt the beginning of your upkeep, sacrifice a creature.\n6/6"
+    IDS_STRING26722         "Master of Waves\n{3U}\nCreature - Merfolk Wizard\nTHS,MR\nProtection from red\rElemental creatures you control get +1/+1.\rWhen Master of Waves enters the battlefield, put a number of 1/0 blue Elemental creature tokens onto the battlefield equal to your devotion to blue.\n2/1"
+    IDS_STRING26723         "Gray Merchant of Asphodel\n{3BB}\nCreature - Zombie\nTHS,C\nWhen Gray Merchant of Asphodel enters the battlefield, each opponent loses X life, where X is your devotion to black. You gain life equal to the life lost this way.\n2/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26724         "Fanatic of Mogis\n{3R}\nCreature - Minotaur Shaman\nTHS,U\nWhen Fanatic of Mogis enters the battlefield, it deals damage to each opponent equal to your devotion to red.\n4/2"
+    IDS_STRING26725         "Karametra's Acolyte\n{3G}\nCreature - Human Druid\nTHS,U\n{T}: Add an amount of {G} to your mana pool equal to your devotion to green.\n1/4"
+    IDS_STRING26726         "Reverent Hunter\n{2G}\nCreature - Human Archer\nTHS,R\nWhen Reverent Hunter enters the battle field, put a number of +1/+1 counters on it equal to your devotion to green.\n1/1"
+    IDS_STRING26727         "Vanquish the Foul\n{5W}\nSorcery\nTHS,U\nDestroy target creature with power 4 or greater. Scry 1."
+    IDS_STRING26728         "Wingsteed Rider\n{1WW}\nCreature - Human Knight\nTHS,C\nFlying\rHeroic - Whenever you cast a spell that targets Wingsteed Rider, put a +1/+1 counter on Wingsteed Rider.\n2/2"
+    IDS_STRING26729         "Ill-Tempered Cyclops\n{3R}\nCreature - Cyclops\nTHS,C\nTrample\r{5R}: Monstrosity 3.\n3/3"
+    IDS_STRING26730         "Arbor Colossus\n{2GGG}\nCreature - Giant\nTHS,R\n{3GGG}: Monstrosity 3.\rWhen Arbor Colossus becomes monstrous, destroy target creature with flying an opponent controls.\n6/6"
+    IDS_STRING26731         "Colossus of Akros\n{8}\nArtifact Creature - Golem\nTHS,R\nDefender, indestructible\r{10}: Monstrosity 10.\rAs long as Colossus of Akros is monstrous, it has trample and can attack as though it didn't have defender.\n10/10"
+    IDS_STRING26732         "Ember Swallower\n{2RR}\nCreature - Elemental\nTHS,R\n{5RR}: Monstrosity 3.\rWhen Ember Swallower becomes monstrous, each player sacrifices three lands.\n4/5"
+    IDS_STRING26733         "Fleecemane Lion\n{GW}\nCreature - Cat\nTHS,R\n{3GW}: Monstrosity 1.\rAs long as Fleecemane Lion is monstrous, it has hexproof and indestructible.\n3/3"
+    IDS_STRING26734         "Hundred-Handed One\n{2WW}\nCreature - Giant\nTHS,R\n{3WWW}: Monstrosity 3.\rAs long as Hundred-Handed One is monstrous, it has reach and can block an additional ninety-nine creatures each combat.\n3/5"
+    IDS_STRING26735         "Hythonia the Cruel\n{4BB}\nLegendary Creature - Gorgon\nTHS,MR\nDeathtouch\r{6BB}: Monstrosity 3.\rWhen Hythonia the Cruel becomes monstrous, destroy all non-Gorgon creatures.\n4/6"
+    IDS_STRING26736         "Keepsake Gorgon\n{3BB}\nCreature - Gorgon\nTHS,U\nDeathtouch\r{5BB}: Monstrosity 1.\rWhen Keepsake Gorgon becomes monstrous, destroy target non-Gorgon creature an opponent controls.\n2/5"
+    IDS_STRING26737         "Nessian Asp\n{4G}\nCreature - Snake\nTHS,C\nReach\r{6G}: Monstrosity 4.\n4/5"
+    IDS_STRING26738         "Polis Crusher\n{2RG}\nCreature - Cyclops\nTHS,R\nTrample, protection from enchantments\r{4RG}: Monstrosity 3.\rWhenever Polis Crusher deals combat damage to a player, if Polis Crusher is monstrous, destroy target enchantment that player controls.\n4/4"
+    IDS_STRING26739         "Stoneshock Giant\n{3RR}\nCreature - Giant\nTHS,U\n{6RR}: Monstrosity 3.\rWhen Stoneshock Giant becomes monstrous, creatures without flying your opponents control can't block this turn.\n5/4"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26740         "Sealock Monster\n{3UU}\nCreature - Octopus\nTHS,U\nSealock Monster can't attack unless defending player controls an Island.\r{5UU}: Monstrosity 3.\rWhen Sealock Monster becomes monstrous, target land becomes an Island in addition to its other types.\n5/5"
+    IDS_STRING26741         "Stormbreath Dragon\n{3RR}\nCreature - Dragon\nTHS,MR\nFlying, haste, protection from white\r{5RR}: Monstrosity 3.\rWhen Stormbreath Dragon becomes monstrous, it deals damage to each opponent equal to the number of cards in that player's hand.\n4/4"
+    IDS_STRING26742         "Agent of the Fates\n{1BB}\nCreature - Human Assassin\nTHS,R\nDeathtouch\rHeroic — Whenever you cast a spell that targets Agent of the Fates, each opponent sacrifices a creature.\n3/2"
+    IDS_STRING26743         "Akroan Crusader\n{R}\nCreature - Human Soldier\nTHS,C\nHeroic — Whenever you cast a spell that targets Akroan Crusader, put a 1/1 red Soldier creature token with haste onto the battlefield.\n1/1"
+    IDS_STRING26744         "Anax and Cymede\n{1RW}\nLegendary Creature - Human Soldier\nTHS,R\nFirst strike, vigilance\rHeroic — Whenever you cast a spell that targets Anax and Cymede, creatures you control get +1/+1 and gain trample until end of turn.\n3/2"
+    IDS_STRING26745         "Anthousa, Setessan Hero\n{3GG}\nLegendary Creature - Human Warrior\nTHS,R\nHeroic — Whenever you cast a spell that targets Anthousa, Setessan Hero, up to three target lands you control each become 2/2 Warrior creatures until end of turn. They're still lands.\n4/5"
+    IDS_STRING26746         "Arena Athlete\n{1R}\nCreature - Human\nTHS,U\nHeroic — Whenever you cast a spell that targets Arena Athlete, target creature an opponent controls can't block this turn.\n2/1"
+    IDS_STRING26747         "Flamespeaker Adept\n{2R}\nCreature - Human Shaman\nTHS,U\nWhenever you scry, Flamespeaker Adept gets +2/+0 and gains first strike until end of turn.\n2/3"
+    IDS_STRING26748         "Battlewise Hoplite\n{WU}\nCreature - Human Soldier\nTHS,U\nHeroic — Whenever you cast a spell that targets Battlewise Hoplite, put a +1/+1 counter on Battlewise Hoplite, then scry 1.\n2/2"
+    IDS_STRING26749         "Centaur Battlemaster\n{3GG}\nCreature - Centaur Warrior\nTHS,U\nHeroic — Whenever you cast a spell that targets Centaur Battlemaster, put three +1/+1 counters on Centaur Battlemaster.\n3/3"
+    IDS_STRING26750         "Fabled Hero\n{1WW}\nCreature - Human Soldier\nTHS,R\nDouble strike\rHeroic — Whenever you cast a spell that targets Fabled Hero, put a +1/+1 counter on Fabled Hero.\n2/2"
+    IDS_STRING26751         "Favored Hoplite\n{W}\nCreature - Human Soldier\nTHS,U\nHeroic — Whenever you cast a spell that targets Favored Hoplite, put a +1/+1 counter on Favored Hoplite and prevent all damage that would be dealt to it this turn.\n1/2"
+    IDS_STRING26752         "Labyrinth Champion\n{3R}\nCreature - Human Warrior\nTHS,R\nHeroic — Whenever you cast a spell that targets Labyrinth Champion, Labyrinth Champion deals 2 damage to target creature or player.\n2/2"
+    IDS_STRING26753         "Phalanx Leader\n{WW}\nCreature - Human Soldier\nTHS,U\nHeroic — Whenever you cast a spell that targets Phalanx Leader, put a +1/+1 counter on each creature you control.\n1/1"
+    IDS_STRING26754         "Setessan Battle Priest\n{1W}\nCreature - Human Cleric\nTHS,C\nHeroic — Whenever you cast a spell that targets Setessan Battle Priest, you gain 2 life.\n1/3"
+    IDS_STRING26755         "Staunch-Hearted Warrior\n{3G}\nCreature - Human Warrior\nTHS,C\nHeroic — Whenever you cast a spell that targets Staunch-Hearted Warrior, put two +1/+1 counters on Staunch-Hearted Warrior.\n2/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26756         "Tormented Hero\n{B}\nCreature - Human Warrior\nTHS,U\nTormented Hero enters the battlefield tapped.\rHeroic — Whenever you cast a spell that targets Tormented Hero, each opponent loses 1 life. You gain life equal to the life lost this way.\n2/1"
+    IDS_STRING26757         "Triton Fortune Hunter\n{2U}\nCreature - Merfolk Soldier\nTHS,U\nHeroic — Whenever you cast a spell that targets Triton Fortune Hunter, draw a card.\n2/2"
+    IDS_STRING26758         "Wavecrash Triton\n{2U}\nCreature - Merfolk Wizard\nTHS,C\nHeroic — Whenever you cast a spell that targets Wavecrash Triton, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.\n1/4"
+    IDS_STRING26759         "Akroan Horse\n{4}\nArtifact Creature - Horse\nTHS,R\nDefender\rWhen Akroan Horse enters the battlefield, an opponent gains control of it.\rAt the beginning of your upkeep, each opponent puts a 1/1 white Soldier creature token onto the battlefield.\n0/4"
+    IDS_STRING26760         "Elspeth, Sun's Champion\n{4WW}\nPlaneswalker - Elspeth\nTHS,MR\n[+1]: Put three 1/1 white Soldier creature tokens onto the battlefield.\r[-3]: Destroy all creatures with power 4 or greater.\r[-7]: You get an emblem with ""Creatures you control get +2/+2 and have flying.""\n4"
+    IDS_STRING26761         "Evangel of Heliod\n{4WW}\nCreature - Human Cleric\nTHS,U\nWhen Evangel of Heliod enters the battlefield, put a number of 1/1 white Soldier creature tokens onto the battlefield equal to your devotion to white.\n1/3"
+    IDS_STRING26762         "Bident of Thassa\n{2UU}\nLegendary Enchantment Artifact\nTHS,R\nWhenever a creature you control deals combat damage to a player, you may draw a card.\r{1U}, {T}: Creatures your opponents control attack this turn if able."
+    IDS_STRING26763         "Whip of Erebos\n{2BB}\nLegendary Enchantment Artifact\nTHS,R\nCreatures you control have lifelink.\r{2BB}, {T}: Return target creature card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step. If it would leave the battlefield, exile it instead of putting it anywhere else. Activate this ability only any time you could cast a sorcery."
+    IDS_STRING26764         "Hammer of Purphoros\n{1RR}\nLegendary Enchantment Artifact\nTHS,R\nCreatures you control have haste.\r{2R}, {T}, Sacrifice a land: Put a 3/3 colorless Golem enchantment artifact creature token onto the battlefield."
+    IDS_STRING26765         "Bow of Nylea\n{1GG}\nLegendary Enchantment Artifact\nTHS,R\nAttacking creatures you control have deathtouch.\r{1G}, {T}: Choose one — Put a +1/+1 counter on target creature; or Bow of Nylea deals 2 damage to target creature with flying; or you gain 3 life; or put up to four target cards from your graveyard on the bottom of your library in any order."
+    IDS_STRING26766         "Curse of the Swine\n{XUU}\nSorcery\nTHS,R\nExile X target creatures. For each creature exiled this way, its controller puts a 2/2 green Boar creature token onto the battlefield."
+    IDS_STRING26767         "Swan Song\n{U}\nInstant\nTHS,R\nCounter target enchantment, instant, or sorcery spell. Its controller puts a 2/2 blue Bird creature token with flying onto the battlefield."
+    IDS_STRING26768         "Xenagos, the Reveler\n{2RG}\nPlaneswalker - Xenagos\nTHS,MR\n[+1]: Add X mana in any combination of {R} and/or {G} to your mana pool, where X is the number of creatures you control.\r[0]: Put a 2/2 red and green Satyr creature token with haste onto the battlefield.\r[-6]: Exile the top seven cards of your library. You may put any number of creature and/or land cards from among them onto the battlefield.\n3"
+    IDS_STRING26769         "Agent of Horizons\n{2G}\nCreature - Human Rogue\nTHS,C\n{2U}: Agent of Horizons can't be blocked this turn.\n3/2"
+    IDS_STRING26770         "Akroan Hoplite\n{RW}\nCreature - Human Soldier\nTHS,U\nWhenever Akroan Hoplite attacks, it gets +X/+0 until end of turn, where X is the number of attacking creatures you control.\n1/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26771         "Anger of the Gods\n{1RR}\nSorcery\nTHS,R\nAnger of the Gods deals 3 damage to each creature. If a creature dealt damage this way would die this turn, exile it instead."
+    IDS_STRING26772         "Annul\n{U}\nInstant\nTHS,C\nCounter target artifact or enchantment spell."
+    IDS_STRING26773         "Anvilwrought Raptor\n{4}\nArtifact Creature - Bird\nTHS,U\nFlying, first strike\n2/1"
+    IDS_STRING26774         "Aqueous Form\n{U}\nEnchantment - Aura\nTHS,C\nEnchant creature\rEnchanted creature can't be blocked.\rWhenever enchanted creature attacks, scry 1."
+    IDS_STRING26775         "Artisan's Sorrow\n{3G}\nInstant\nTHS,U\nDestroy target artifact or enchantment. Scry 2."
+    IDS_STRING26776         "Ashen Rider\n{4WWBB}\nCreature - Archon\nTHS,MR\nFlying\rWhen Ashen Rider enters the battlefield or dies, exile target permanent.\n5/5"
+    IDS_STRING26777         "Ashiok, Nightmare Weaver\n{1UB}\nPlaneswalker - Ashiok\nTHS,MR\n[+2]: Exile the top three cards of target opponent's library.\r[-X]: Put a creature card with converted mana cost X exiled with Ashiok, Nightmare Weaver onto the battlefield under your control. That creature is a Nightmare in addition to its other types.\r[-10]: Exile all cards from all opponents' hands and graveyards.\n3"
+    IDS_STRING26778         "Asphodel Wanderer\n{B}\nCreature - Skeleton Soldier\nTHS,C\n{2B}: Regenerate Asphodel Wanderer.\n1/1"
+    IDS_STRING26779         "Battlewise Valor\n{1W}\nInstant\nTHS,C\nTarget creature gets +2/+2 until end of turn. Scry 1."
+    IDS_STRING26780         "Benthic Giant\n{5U}\nCreature - Giant\nTHS,C\nHexproof\n4/5"
+    IDS_STRING26781         "Blood-Toll Harpy\n{2B}\nCreature - Harpy\nTHS,C\nFlying\rWhen Blood-Toll Harpy enters the battlefield, each player loses 1 life.\n2/1"
+    IDS_STRING26782         "Boon of Erebos\n{B}\nInstant\nTHS,C\nTarget creature gets +2/+0 until end of turn. Regenerate it. You lose 2 life."
+    IDS_STRING26783         "Borderland Minotaur\n{2RR}\nCreature - Minotaur Warrior\nTHS,C\n\n4/3"
+    IDS_STRING26784         "Boulderfall\n{6RR}\nInstant\nTHS,C\nBoulderfall deals 5 damage divided as you choose among any number of target creatures and/or players."
+    IDS_STRING26785         "Breaching Hippocamp\n{3U}\nCreature - Horse Fish\nTHS,C\nFlash\rWhen Breaching Hippocamp enters the battlefield, untap another target creature you control.\n3/2"
+    IDS_STRING26786         "Bronze Sable\n{2}\nArtifact Creature - Sable\nTHS,C\n\n2/1"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26787	    "Burnished Hart\n{3}\nArtifact Creature - Elk\nTHS,U\n{3}, Sacrifice Burnished Hart: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle your library.\n2/2"
+    IDS_STRING26788	    "Chosen by Heliod\n{1W}\nEnchantment - Aura\nTHS,C\nEnchant creature\rWhen Chosen by Heliod enters the battlefield, draw a card.\rEnchanted creature gets +0/+2."
+    IDS_STRING26789	    "Chronicler of Heroes\n{1GW}\nCreature - Centaur Wizard\nTHS,U\nWhen Chronicler of Heroes enters the battlefield, draw a card if you control a creature with a +1/+1 counter on it.\n3/3"
+    IDS_STRING26790	    "Coastline Chimera\n{3U}\nCreature - Chimera\nTHS,C\nFlying\r{1W}: Coastline Chimera can block an additional creature this turn.\n1/5"
+    IDS_STRING26791         "Commune with the Gods\n{1G}\nSorcery\nTHS,C\nReveal the top five cards of your library. You may put a creature or enchantment card from among them into your hand. Put the rest into your graveyard."
+    IDS_STRING26792         "Coordinated Assault\n{R}\nInstant\nTHS,U\nUp to two target creatures each get +1/+0 and gain first strike until end of turn."
+    IDS_STRING26793	    "Crackling Triton\n{2U}\nCreature - Merfolk Wizard\nTHS,C\n{2R}, Sacrifice Crackling Triton: Crackling Triton deals 2 damage to target creature or player.\n2/3"
+    IDS_STRING26794         "Cutthroat Maneuver\n{3B}\nInstant\nTHS,U\nUp to two target creatures each get +1/+1 and gain lifelink until end of turn."
+    IDS_STRING26795         "Dark Betrayal\n{B}\nInstant\nTHS,U\nDestroy target black creature."
+    IDS_STRING26796         "Dauntless Onslaught\n{2W}\nInstant\nTHS,U\nUp to two target creatures each get +2/+2 until end of turn."
+    IDS_STRING26797	    "Deathbellow Raider\n{1R}\nCreature - Minotaur Berserker\nTHS,C\nDeathbellow Raider attacks each turn if able.\r{2B}: Regenerate Deathbellow Raider.\n2/3"
+    IDS_STRING26798         "Defend the Hearth\n{1G}\nInstant\nTHS,C\nPrevent all combat damage that would be dealt to players this turn."
+    IDS_STRING26799         "Demolish\n{3R}\nSorcery\nTHS,C\nDestroy target artifact or land."
+    IDS_STRING26800         "Destructive Revelry\n{RG}\nInstant\nTHS,U\nDestroy target artifact or enchantment. Destructive Revelry deals 2 damage to that permanent's controller."
+    IDS_STRING26801         "Disciple of Phenax\n{2BB}\nCreature - Human Cleric\nTHS,C\nWhen Disciple of Phenax enters the battlefield, target player reveals a number of cards from his or her hand equal to your devotion to black. You choose one of them. That player discards that card.\n1/3"
+    IDS_STRING26802         "Dissolve\n{1UU}\nInstant\nTHS,U\nCounter target spell. Scry 1."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26803         "Divine Verdict\n{3W}\nInstant\nTHS,C\nDestroy target attacking or blocking creature."
+    IDS_STRING26804	    "Dragon Mantle\n{R}\nEnchantment - Aura\nTHS,C\nEnchant creature\rWhen Dragon Mantle enters the battlefield, draw a card.\rEnchanted creature has ""{R}: This creature gets +1/+0 until end of turn."""
+    IDS_STRING26805         "Ephara's Warden\n{3W}\nCreature - Human Cleric\nTHS,C\n{T}: Tap target creature with power 3 or less.\n1/2"
+    IDS_STRING26806         "Fade into Antiquity\n{2G}\nSorcery\nTHS,C\nExile target artifact or enchantment."
+    IDS_STRING26807	    "Fate Foretold\n{1U}\nEnchantment - Aura\nTHS,C\nEnchant creature\rWhen Fate Foretold enters the battlefield, draw a card.\rWhen enchanted creature dies, its controller draws a card."
+    IDS_STRING26808         "Felhide Minotaur\n{2B}\nCreature - Minotaur\nTHS,C\n\n2/3"
+    IDS_STRING26809         "Feral Invocation\n{2G}\nEnchantment - Aura\nTHS,C\nFlash\rEnchant creature\rEnchanted creature gets +2/+2."
+    IDS_STRING26810         "Firedrinker Satyr\n{R}\nCreature - Satyr Shaman\nTHS,R\nWhenever Firedrinker Satyr is dealt damage, it deals that much damage to you.\r{1R}: Firedrinker Satyr gets +1/+0 until end of turn and deals 1 damage to you.\n2/1"
+    IDS_STRING26811         "Flamecast Wheel\n{1}\nArtifact\nTHS,U\n{5}, {T}, Sacrifice Flamecast Wheel: Flamecast Wheel deals 3 damage to target creature."
+    IDS_STRING26812         "Fleetfeather Sandals\n{2}\nArtifact - Equipment\nTHS,C\nEquipped creature has flying and haste.\rEquip {2}"
+    IDS_STRING26813         "Fleshmad Steed\n{1B}\nCreature - Horse\nTHS,C\nWhenever another creature dies, tap Fleshmad Steed.\n2/2"
+    IDS_STRING26814         "Gainsay\n{1U}\nInstant\nTHS,U\nCounter target blue spell."
+    IDS_STRING26815         "Gift of Immortality\n{2W}\nEnchantment - Aura\nTHS,R\nEnchant creature\rWhen enchanted creature dies, return that card to the battlefield under its owner's control. Return Gift of Immortality to the battlefield attached to that creature at the beginning of the next end step."
+    IDS_STRING26816         "Glare of Heresy\n{1W}\nSorcery\nTHS,U\nExile target white permanent."
+    IDS_STRING26817         "Gods Willing\n{W}\nInstant\nTHS,C\nTarget creature you control gains protection from the color of your choice until end of turn. Scry 1."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26818         "Griptide\n{3U}\nInstant\nTHS,C\nPut target creature on top of its owner's library."
+    IDS_STRING26819         "Guardians of Meletis\n{3}\nArtifact Creature - Golem\nTHS,C\nDefender\n0/6"
+    IDS_STRING26820         "Hero's Downfall\n{1BB}\nInstant\nTHS,R\nDestroy target creature or planeswalker."
+    IDS_STRING26821         "Horizon Chimera\n{2GU}\nCreature - Chimera\nTHS,U\nFlash\rFlying, trample\rWhenever you draw a card, you gain 1 life.\n3/2"
+    IDS_STRING26822         "Horizon Scholar\n{5U}\nCreature - Sphinx\nTHS,U\nFlying\rWhen Horizon Scholar enters the battlefield, scry 2.\n4/4"
+    IDS_STRING26823         "Hunt the Hunter\n{G}\nSorcery\nTHS,U\nTarget green creature you control gets +2/+2 until end of turn. It fights target green creature an opponent controls."
+    IDS_STRING26824         "Insatiable Harpy\n{2BB}\nCreature - Harpy\nTHS,U\nFlying, lifelink\n2/2"
+    IDS_STRING26825         "Kragma Warcaller\n{3BR}\nCreature - Minotaur Warrior\nTHS,U\nMinotaur creatures you control have haste.\rWhenever a Minotaur you control attacks, it gets +2/+0 until end of turn.\n2/3"
+    IDS_STRING26826         "Lagonna-Band Elder\n{2W}\nCreature - Centaur Advisor\nTHS,C\nWhen Lagonna-Band Elder enters the battlefield, if you control an enchantment, you gain 3 life.\n3/2"
+    IDS_STRING26827         "Lash of the Whip\n{4B}\nInstant\nTHS,C\nTarget creature gets -4/-4 until end of turn."
+    IDS_STRING26828         "Last Breath\n{1W}\nInstant\nTHS,C\nExile target creature with power 2 or less. Its controller gains 4 life."
+    IDS_STRING26829         "Leonin Snarecaster\n{1W}\nCreature - Cat Soldier\nTHS,C\nWhen Leonin Snarecaster enters the battlefield, you may tap target creature.\n2/1"
+    IDS_STRING26830         "Lightning Strike\n{1R}\nInstant\nTHS,C\nLightning Strike deals 3 damage to target creature or player."
+    IDS_STRING26831         "Lost in a Labyrinth\n{U}\nInstant\nTHS,C\nTarget creature gets -3/-0 until end of turn. Scry 1."
+    IDS_STRING26832         "Magma Jet\n{1R}\nInstant\nTHS,U\nMagma Jet deals 2 damage to target creature or player.\rScry 2."
+    IDS_STRING26833         "March of the Returned\n{3B}\nSorcery\nTHS,C\nReturn up to two target creature cards from your graveyard to your hand."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26834    	    "Temple of Silence\n\nLand\nTHS,R\nTemple of Silence enters the battlefield tapped.\nWhen Temple of Silence enters the battlefield, scry 1.\n{T}: Add {W} or {B} to your mana pool."
+    IDS_STRING26835         "Temple of Abandon\n\nLand\nTHS,R\nTemple of Abandon enters the battlefield tapped.\nWhen Temple of Abandon enters the battlefield, scry 1.\n{T}: Add {R} or {G} to your mana pool."
+    IDS_STRING26836         "Temple of Deceit\n\nLand\nTHS,R\nTemple of Deceit enters the battlefield tapped.\nWhen Temple of Deceit enters the battlefield, scry 1.\n{T}: Add {U} or {B} to your mana pool."
+    IDS_STRING26837         "Temple of Mystery\n\nLand\nTHS,R\nTemple of Mystery enters the battlefield tapped.\nWhen Temple of Mystery enters the battlefield, scry 1.\n{T}: Add {G} or {U} to your mana pool."
+    IDS_STRING26838         "Temple of Triumph\n\nLand\nTHS,R\nTemple of Triumph enters the battlefield tapped.\nWhen Temple of Triumph enters the battlefield, scry 1.\n{T}: Add {R} or {W} to your mana pool."   
+    IDS_STRING26839         "Unknown Shores\n\nLand\nTHS,C\n{T}: Add {1} to your mana pool.\r{1}, {T}: Add one mana of any color to your mana pool."
+    IDS_STRING26840         "Messenger's Speed\n{R}\nEnchantment - Aura\nTHS,C\nEnchant creature\rEnchanted creature has trample and haste."
+    IDS_STRING26841         "Minotaur Skullcleaver\n{2R}\nCreature - Minotaur Berserker\nTHS,C\nHaste\rWhen Minotaur Skullcleaver enters the battlefield, it gets +2/+0 until end of turn.\n2/2"
+    IDS_STRING26842         "Mistcutter Hydra\n{XG}\nCreature - Hydra\nTHS,R\nMistcutter Hydra can't be countered.\rHaste, protection from blue\rMistcutter Hydra enters the battlefield with X +1/+1 counters on it.\n0/0"
+    IDS_STRING26843         "Mnemonic Wall\n{4U}\nCreature - Wall\nTHS,C\nDefender\rWhen Mnemonic Wall enters the battlefield, you may return target instant or sorcery card from your graveyard to your hand.\n0/4"
+    IDS_STRING26844         "Nessian Courser\n{2G}\nCreature - Centaur Warrior\nTHS,C\n\n3/3"
+    IDS_STRING26845         "Nykthos, Shrine to Nyx\n\nLegendary Land\nTHS,R\n{T}: Add {1} to your mana pool.\r{2}, {T}: Choose a color. Add to your mana pool an amount of mana of that color equal to your devotion to that color."
+    IDS_STRING26846         "Nylea's Disciple\n{2GG}\nCreature - Centaur Archer\nTHS,C\nWhen Nylea's Disciple enters the battlefield, you gain life equal to your devotion to green.\n3/3"
+    IDS_STRING26847         "Omenspeaker\n{1U}\nCreature - Human Wizard\nTHS,C\nWhen Omenspeaker enters the battlefield, scry 2.\n1/3"
+    IDS_STRING26848         "Opaline Unicorn\n{3}\nArtifact Creature - Unicorn\nTHS,C\n{T}: Add one mana of any color to your mana pool.\n1/2"
+    IDS_STRING26849         "Ordeal of Erebos\n{1B}\nEnchantment - Aura\nTHS,U\nEnchant creature\rWhenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, sacrifice Ordeal of Erebos.\rWhen you sacrifice Ordeal of Erebos, target player discards two cards."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26850         "Ordeal of Heliod\n{1W}\nEnchantment - Aura\nTHS,U\nEnchant creature\rWhenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, sacrifice Ordeal of Heliod.\rWhen you sacrifice Ordeal of Heliod, you gain 10 life."
+    IDS_STRING26851         "Ordeal of Nylea\n{1G}\nEnchantment - Aura\nTHS,U\nEnchant creature\rWhenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, sacrifice Ordeal of Nylea.\rWhen you sacrifice Ordeal of Nylea, search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle your library."
+    IDS_STRING26852         "Ordeal of Purphoros\n{1R}\nEnchantment - Aura\nTHS,U\nEnchant creature\rWhenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, sacrifice Ordeal of Purphoros.\rWhen you sacrifice Ordeal of Purphoros, it deals 3 damage to target creature or player."
+    IDS_STRING26853         "Ordeal of Thassa\n{1U}\nEnchantment - Aura\nTHS,U\nEnchant creature\rWhenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, sacrifice Ordeal of Thassa.\rWhen you sacrifice Ordeal of Thassa, draw two cards."
+    IDS_STRING26854         "Peak Eruption\n{2R}\nSorcery\nTHS,U\nDestroy target Mountain. Peak Eruption deals 3 damage to that land's controller."
+    IDS_STRING26855         "Pharika's Cure\n{BB}\nInstant\nTHS,C\nPharika's Cure deals 2 damage to target creature and you gain 2 life."
+    IDS_STRING26856         "Pharika's Mender\n{3BG}\nCreature - Gorgon\nTHS,U\nWhen Pharika's Mender enters the battlefield, you may return target creature or enchantment card from your graveyard to your hand.\n4/3"
+    IDS_STRING26857         "Pheres-Band Centaurs\n{4G}\nCreature - Centaur Warrior\nTHS,C\n\n3/7"
+    IDS_STRING26858         "Portent of Betrayal\n{3R}\nSorcery\nTHS,C\nGain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. Scry 1."
+    IDS_STRING26859         "Prescient Chimera\n{3UU}\nCreature - Chimera\nTHS,C\nFlying\rWhenever you cast an instant or sorcery spell, scry 1.\n3/4"
+    IDS_STRING26860         "Priest of Iroas\n{R}\nCreature - Human Cleric\nTHS,C\n{3W}, Sacrifice Priest of Iroas: Destroy target enchantment.\n1/1"
+    IDS_STRING26861         "Prognostic Sphinx\n{3UU}\nCreature - Sphinx\nTHS,R\nFlying\rDiscard a card: Prognostic Sphinx gains hexproof until end of turn. Tap it.\rWhenever Prognostic Sphinx attacks, scry 3.\n3/5"
+    IDS_STRING26862         "Prophet of Kruphix\n{3GU}\nCreature - Human Wizard\nTHS,R\nUntap all creatures and lands you control during each other player's untap step.\rYou may cast creature cards as though they had flash.\n2/3"
+    IDS_STRING26863         "Prowler's Helm\n{2}\nArtifact - Equipment\nTHS,U\nEquipped creature can't be blocked except by Walls.\rEquip {2}"
+    IDS_STRING26864         "Pyxis of Pandemonium\n{1}\nArtifact\nTHS,R\n{T}: Each player exiles the top card of his or her library face down.\r{7}, {T}, Sacrifice Pyxis of Pandemonium: Each player turns face up all cards he or she owns exiled with Pyxis of Pandemonium, then puts all permanent cards among them onto the battlefield."
+    IDS_STRING26865         "Rage of Purphoros\n{4R}\nSorcery\nTHS,C\nRage of Purphoros deals 4 damage to target creature. It can't be regenerated this turn. Scry 1."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26866         "Rageblood Shaman\n{1RR}\nCreature - Minotaur Shaman\nTHS,R\nTrample\rOther Minotaur creatures you control get +1/+1 and have trample.\n2/3"
+    IDS_STRING26867         "Ray of Dissolution\n{2W}\nInstant\nTHS,C\nDestroy target enchantment. You gain 3 life."
+    IDS_STRING26868         "Read the Bones\n{2B}\nSorcery\nTHS,C\nScry 2, then draw two cards. You lose 2 life."
+    IDS_STRING26869         "Reaper of the Wilds\n{2BG}\nCreature - Gorgon\nTHS,R\nWhenever another creature dies, scry 1.\r{B}: Reaper of the Wilds gains deathtouch until end of turn.\r{1G}: Reaper of the Wilds gains hexproof until end of turn.\n4/5"
+    IDS_STRING26870         "Rescue from the Underworld\n{4B}\nInstant\nTHS,U\nAs an additional cost to cast Rescue from the Underworld, sacrifice a creature.\rChoose target creature card in your graveyard. Return that card and the sacrificed card to the battlefield under your control at the beginning of your next upkeep. Exile Rescue from the Underworld."
+    IDS_STRING26871         "Returned Centaur\n{3B}\nCreature - Zombie Centaur\nTHS,C\nWhen Returned Centaur enters the battlefield, target player puts the top four cards of his or her library into his or her graveyard.\n2/4"
+    IDS_STRING26872         "Returned Phalanx\n{1B}\nCreature - Zombie Soldier\nTHS,C\nDefender\r{1U}: Returned Phalanx can attack this turn as though it didn't have defender.\n3/3"
+    IDS_STRING26873         "Satyr Hedonist\n{1G}\nCreature - Satyr\nTHS,C\n{R}, Sacrifice Satyr Hedonist: Add {RRR} to your mana pool.\n2/1"
+    IDS_STRING26874         "Satyr Rambler\n{1R}\nCreature - Satyr\nTHS,C\nTrample\n2/1"
+    IDS_STRING26875         "Savage Surge\n{1G}\nInstant\nTHS,C\nTarget creature gets +2/+2 until end of turn. Untap that creature."
+    IDS_STRING26876         "Scholar of Athreos\n{2W}\nCreature - Human Cleric\nTHS,C\n{2B}: Each opponent loses 1 life. You gain life equal to the life lost this way.\n1/4"
+    IDS_STRING26877         "Scourgemark\n{1B}\nEnchantment - Aura\nTHS,C\nEnchant creature\rWhen Scourgemark enters the battlefield, draw a card.\rEnchanted creature gets +1/+0."
+    IDS_STRING26878         "Sea God's Revenge\n{5U}\nSorcery\nTHS,U\nReturn up to three target creatures your opponents control to their owners' hands. Scry 1."
+    IDS_STRING26879         "Sedge Scorpion\n{G}\nCreature - Scorpion\nTHS,C\nDeathtouch\n1/1"
+    IDS_STRING26880         "Sentry of the Underworld\n{3WB}\nCreature - Griffin Skeleton\nTHS,U\nFlying, vigilance\r{WB}, Pay 3 life: Regenerate Sentry of the Underworld.\n3/3"
+    IDS_STRING26881         "Setessan Griffin\n{4W}\nCreature - Griffin\nTHS,C\nFlying\r{2GG}: Setessan Griffin gets +2/+2 until end of turn. Activate this ability only once each turn.\n3/2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26882         "Shipwreck Singer\n{UB}\nCreature - Siren\nTHS,U\nFlying\r{1U}: Target creature an opponent controls attacks this turn if able.\r{1B}, {T}: Attacking creatures get -1/-1 until end of turn.\n1/2"
+    IDS_STRING26883         "Shredding Winds\n{2G}\nInstant\nTHS,C\nShredding Winds deals 7 damage to target creature with flying."
+    IDS_STRING26884         "Silent Artisan\n{3WW}\nCreature - Giant\nTHS,C\n\n3/5"
+    IDS_STRING26885         "Sip of Hemlock\n{4BB}\nSorcery\nTHS,C\nDestroy target creature. Its controller loses 2 life."
+    IDS_STRING26886         "Soldier of the Pantheon\n{W}\nCreature - Human Soldier\nTHS,R\nProtection from multicolored\rWhenever an opponent casts a multicolored spell, you gain 1 life.\n2/1"
+    IDS_STRING26887         "Spark Jolt\n{R}\nInstant\nTHS,C\nSpark Jolt deals 1 damage to target creature or player. Scry 1."
+    IDS_STRING26888         "Spellheart Chimera\n{1UR}\nCreature - Chimera\nTHS,U\nFlying, trample\rSpellheart Chimera's power is equal to the number of instant and sorcery cards in your graveyard.\n*/3"
+    IDS_STRING26889         "Steam Augury\n{2UR}\nInstant\nTHS,R\nReveal the top five cards of your library and separate them into two piles. An opponent chooses one of those piles. Put that pile into your hand and the other into your graveyard."
+    IDS_STRING26890         "Stymied Hopes\n{1U}\nInstant\nTHS,C\nCounter target spell unless its controller pays {1}. Scry 1."
+    IDS_STRING26891         "Sylvan Caryatid\n{1G}\nCreature - Plant\nTHS,R\nDefender, hexproof\r{T}: Add one mana of any color to your mana pool.\n0/3"
+    IDS_STRING26892         "Thassa's Bounty\n{5U}\nSorcery\nTHS,C\nDraw three cards. Target player puts the top three cards of his or her library into his or her graveyard."
+    IDS_STRING26893         "Thoughtseize\n{B}\nSorcery\nTHS,R\nTarget player reveals his or her hand. You choose a nonland card from it. That player discards that card. You lose 2 life."
+    IDS_STRING26894         "Time to Feed\n{2G}\nSorcery\nTHS,C\nChoose target creature an opponent controls. When that creature dies this turn, you gain 3 life. Target creature you control fights that creature."
+    IDS_STRING26895         "Titan of Eternal Fire\n{5R}\nCreature - Giant\nTHS,R\nEach Human creature you control has ""{R}, {T}: This creature deals 1 damage to target creature or player.""\n5/6"
+    IDS_STRING26896         "Titan's Strength\n{R}\nInstant\nTHS,C\nTarget creature gets +3/+1 until end of turn. Scry 1."
+    IDS_STRING26897         "Traveler's Amulet\n{1}\nArtifact\nTHS,C\n{1}, Sacrifice Traveler's Amulet: Search your library for a basic land card, reveal it, and put it into your hand. Then shuffle your library."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING26898         "Traveling Philosopher\n{1W}\nCreature - Human Advisor\nTHS,C\n\n2/2"
+    IDS_STRING26899         "Triad of Fates\n{2WB}\nLegendary Creature - Human Wizard\nTHS,R\n{1}, {T}: Put a fate counter on another target creature.\r{W}, {T}: Exile target creature that has a fate counter on it, then return it to the battlefield under its owner's control.\r{B}, {T}: Exile target creature that has a fate counter on it. Its controller draws two cards.\n3/3"
+    IDS_STRING26900         "Triton Shorethief\n{U}\nCreature - Merfolk Rogue\nTHS,C\n\n1/2"
+    IDS_STRING26901         "Two-Headed Cerberus\n{1RR}\nCreature - Hound\nTHS,C\nDouble strike\n1/2"
+    IDS_STRING26902         "Tymaret, the Murder King\n{BR}\nLegendary Creature - Zombie Warrior\nTHS,R\n{1R}, Sacrifice another creature: Tymaret, the Murder King deals 2 damage to target player.\r{1B}, Sacrifice a creature: Return Tymaret from your graveyard to your hand.\n2/2"
+    IDS_STRING26903         "Underworld Cerberus\n{3BR}\nCreature - Hound\nTHS.MR\nUnderworld Cerberus can't be blocked except by three or more creatures.\rCards in graveyards can't be the targets of spells or abilities.\rWhen Underworld Cerberus dies, exile it and each player returns all creature cards from his or her graveyard to his or her hand.\n6/6"
+    IDS_STRING26904         "Vaporkin\n{1U}\nCreature - Elemental\nTHS,C\nFlying\rVaporkin can block only creatures with flying.\n2/1"
+    IDS_STRING26905         "Viper's Kiss\n{B}\nEnchantment - Aura\nTHS,C\nEnchant creature\rEnchanted creature gets -1/-1, and its activated abilities can't be activated."
+    IDS_STRING26906         "Voyage's End\n{1U}\nInstant\nTHS,C\nReturn target creature to its owner's hand. Scry 1."
+    IDS_STRING26907         "Voyaging Satyr\n{1G}\nCreature - Satyr Druid\nTHS,C\n{T}: Untap target land.\n1/2"
+    IDS_STRING26908         "Vulpine Goliath\n{4GG}\nCreature - Fox\nTHS,C\n\n6/5"
+    IDS_STRING26909         "Wild Celebrants\n{3RR}\nCreature - Satyr\nTHS,C\nWhen Wild Celebrants enters the battlefield, you may destroy target artifact.\n5/3"
+    IDS_STRING26910         "Witches' Eye\n{1}\nArtifact - Equipment\nTHS,U\nEquipped creature has ""{1}, {T}: Scry 1.""\rEquip {1}"
+    IDS_STRING26911         "Yoked Ox\n{W}\nCreature - Ox\nTHS,C\n\n0/4"
+//  IDS_STRING26840         "Meletis Charlatan\n{2U}\nCreature - Human Wizard\nTHS,R\n{2U}, {T}: The controller of target instant or sorcery spell copies it. That player may choose new targets for the copy.\n2/3"
+//	IDS_STRING26847         "Nylea's Presence\n{1G}\nEnchantment - Aura\nTHS,C\nEnchant land\rWhen Nylea's Presence enters the battlefield, draw a card.\rEnchanted land is every basic land type in addition to its other types."
+//  IDS_STRING26889         "Spear of Heliod\n{1WW}\nLegendary Enchantment Artifact\nTHS,R\nCreatures you control get +1/+1.\r{1WW}, {T}: Destroy target creature that dealt damage to you this turn."
+END
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "..\MagicCore\MagicCore.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

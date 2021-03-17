@@ -398,6 +398,7 @@ BEGIN
     IDS_STRING19552         "Lavaball Trap\n{6RR}\nInstant - Trap\nZEN,R\nIf an opponent had two or more lands enter the battlefield under his or her control this turn, you may pay {3}{R}{R} rather than pay Lavaball Trap's mana cost.\rDestroy two target lands. Lavaball Trap deals 4 damage to each creature."
     IDS_STRING19553         "Whiplash Trap\n{3UU}\nInstant - Trap\nZEN,C\nIf an opponent had two or more creatures enter the battlefield under his or her control this turn, you may pay {U} rather than pay Whiplash Trap's mana cost.\rReturn two target creatures to their owners' hands."
     IDS_STRING19554         "Needlebite Trap\n{5BB}\nInstant - Trap\nZEN,U\nIf an opponent gained life this turn, you may pay {B} rather than pay Needlebite Trap's mana cost.\rTarget player loses 5 life and you gain 5 life."
+    IDS_STRING19555         "Kor Hookmaster\n{2W}\nCreature - Kor Soldier\nZEN,C\nWhen Kor Hookmaster enters the battlefield, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.\n2/2"
 END
 
 #endif    // English (United States) resources

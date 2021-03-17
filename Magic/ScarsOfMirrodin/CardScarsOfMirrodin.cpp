@@ -1242,8 +1242,7 @@ CTumbleMagnetCard::CTumbleMagnetCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Tumble Magnet"), CardType::Artifact, nID,
 		_T("3"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 	counted_ptr<CActivatedAbility<CTargetTapUntapCardSpell>> cpAbility(
@@ -1267,8 +1266,7 @@ CTrigonofInfestationCard::CTrigonofInfestationCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Trigon of Infestation"), CardType::Artifact, nID,
 		_T("4"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::Battlefield, ~ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 	
@@ -2701,7 +2699,7 @@ CCarnifexDemonCard::CCarnifexDemonCard(CGame* pGame, UINT nID)
 	: CFlyingCreatureCard(pGame, _T("Carnifex Demon"), CardType::Creature, CREATURE_TYPE(Demon), nID,
 		_T("4") BLACK_MANA_TEXT BLACK_MANA_TEXT, Power(6), Life(6))
 {
-	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("-1/-1"), 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	m_CardFilter.SetComparer(new AnyCreatureComparer);
 	m_CardFilter.AddNegateComparer(new SpecificCardComparer(this));
@@ -3284,7 +3282,7 @@ CNecrogenCenserCard::CNecrogenCenserCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Necrogen Censer"), CardType::Artifact, nID, 
 		_T("3"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 2, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTargetChgLifeSpell>> cpAbility( 
@@ -4029,7 +4027,7 @@ CTrigonofThoughtCard::CTrigonofThoughtCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Trigon of Thought"), CardType::Artifact, nID,
 		_T("5"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);	
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);	
 
 	{
 	
@@ -4061,7 +4059,7 @@ CTrigonofRageCard::CTrigonofRageCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Trigon of Rage"), CardType::Artifact, nID,
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);	
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);	
 
 	{
 	
@@ -4096,7 +4094,7 @@ CTrigonofMendingCard::CTrigonofMendingCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Trigon of Mending"), CardType::Artifact, nID,
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);	
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);	
 
 	{
 	
@@ -4131,7 +4129,7 @@ CTrigonofCorruptionCard::CTrigonofCorruptionCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Trigon of Corruption"), CardType::Artifact, nID,
 		_T("4"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, true);	
+	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);	
 
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
@@ -4313,7 +4311,6 @@ CChimericMassCard::CChimericMassCard(CGame* pGame, UINT nID)
 		_T(""), AbilityType::Artifact)
 	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CChimericMassCard::OnZoneChanged))
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, true);
 	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
 
 	GetSpells().GetAt(0)->GetCost().SetExtraManaCost();
@@ -4336,7 +4333,7 @@ void CChimericMassCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 	{
 		int nColorCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount, true);
+		CCardCounterModifier pModifier = CCardCounterModifier(CHARGE_COUNTER, +nColorCount);
 
 		pModifier.ApplyTo(this);
 	}
@@ -4528,8 +4525,6 @@ CGrindclockCard::CGrindclockCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Grindclock"), CardType::Artifact, nID,
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
 	{
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CGenericSpell>>(this,

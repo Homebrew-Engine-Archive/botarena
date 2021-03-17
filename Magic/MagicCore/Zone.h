@@ -91,6 +91,32 @@ public:
 	BOOL AddCard(CCard* pCard, const CPlayer* pByPlayer = NULL, MoveType moveType = MoveType::Others, CardPlacement placement = CardPlacement::Top, BOOL bTapped = FALSE);
 	void AddCards(const CCountedCardContainer& cards, const CPlayer* pByPlayer = NULL, MoveType moveType = MoveType::Others, CardPlacement placement = CardPlacement::Top, BOOL bTapped = FALSE);
 
+	/*
+	void BuryTop(int nPosition)
+	{
+		int nSize = GetSize();
+
+		if (nSize <= 1) return;
+
+		int nFinalPosition = nSize - nPosition;
+		if (nFinalPosition < 0) nFinalPosition = 0;
+
+		counted_ptr<CCard> cpCard(__super::GetAt(nSize));
+
+		int nCurrentPosition = nSize - 1;
+
+		while (nCurrentPosition > nFinalPosition)
+		{
+			counted_ptr<CCard> cpAux(__super::GetAt(nCurrentPosition - 1));
+
+			__super::SetAt(nCurrentPosition - 1, cpCard.GetPointer());
+			__super::SetAt(nCurrentPosition, cpAux.GetPointer());
+
+			nCurrentPosition--;
+		}
+	}
+	*/
+
 protected:
 	void OnOrientationChanged(COrientation* pOrientation, Orientation fromOrientation, Orientation toOrientation);
 	void OnCardTappedForMana(const CManaProductionAbilityAction* pAction, BOOL bResult);

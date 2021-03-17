@@ -186,7 +186,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING384           "Shanodin Dryads\n{G}\nCreature - Dryad\n6TH,C\nForestwalk\n1/1"
+    IDS_STRING384           "Shanodin Dryads\n{G}\nCreature - Nymph Dryad\n6TH,C\nForestwalk\n1/1"
     IDS_STRING385           "Grizzly Bears\n{1G}\nCreature - Bear\n6TH,C\n\n2/2"
     IDS_STRING386           "Cat Warriors\n{1GG}\nCreature - Cat Warrior\n6TH,C\nForestwalk\n2/2"
     IDS_STRING387           "Moss Diamond\n{2}\nArtifact\n6TH,U\nMoss Diamond enters the battlefield tapped.\r{T}: Add {G} to your mana pool."
@@ -509,6 +509,7 @@ BEGIN
     IDS_STRING640           "Juxtapose\n{3U}\nSorcery\n6TH,R\nYou and target player exchange control of the creature you each control with the highest converted mana cost. Then exchange control of artifacts the same way. If two or more permanents a player controls are tied for highest cost, their controller chooses one of them."
     IDS_STRING641           "Zombie Master\n{1BB}\nCreature - Zombie\n6TH,R\nOther Zombie creatures have swampwalk.\rOther Zombies have ""{B}: Regenerate this permanent.""\n2/3"
     IDS_STRING642           "Wand of Denial\n{2}\nArtifact\n6TH,R\n{T}: Look at the top card of target player's library. If it's a nonland card, you may pay 2 life. If you do, put it into that player's graveyard."
+    IDS_STRING643           "Illicit Auction\n{3RR}\nSorcery\n6TH,R\nEach player may bid life for control of target creature. You start the bidding with a bid of 0. In turn order, each player may top the high bid. The bidding ends if the high bid stands. The high bidder loses life equal to the high bid and gains control of the creature."
 END
 
 #endif    // English (United States) resources

@@ -65,11 +65,13 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CGrimReturnCard);
 		DEFINE_CARD(CGroundshakerSliverCard);
 		DEFINE_CARD(CGuardianOfTheAgesCard);
+		DEFINE_CARD(CHauntedPlateMailCard);
 		DEFINE_CARD(CHiveStirringsCard);
 		DEFINE_CARD(CHuntTheWeakCard);
 		DEFINE_CARD(CIllusionaryArmorCard);
 		DEFINE_CARD(CImposingSovereignCard);
 		DEFINE_CARD(CIntoTheWildsCard);
+		DEFINE_CARD(CKalonianHydraCard);
 		DEFINE_CARD(CKalonianTuskerCard);
 		DEFINE_CARD(CLayOfTheLandCard);
 		DEFINE_CARD(CLifebaneZombieCard);
@@ -102,6 +104,7 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CScavengingOozeCard);
 		DEFINE_CARD(CScourgeOfValkasCard);
 		DEFINE_CARD(CSeacoastDrakeCard);
+		DEFINE_CARD(CSeismicStompCard);
 		DEFINE_CARD(CSensoryDeprivationCard);
 		DEFINE_CARD(CSentinelSliverCard);
 		DEFINE_CARD(CSeraphOfTheSwordCard);
@@ -128,7 +131,9 @@ counted_ptr<CCard> CreateCard(CGame* pGame, LPCTSTR strCardName, StringArray& ca
 		DEFINE_CARD(CVastwoodHydraCard);
 		DEFINE_CARD(CVerdantHavenCard);
 		DEFINE_CARD(CVialOfPoisonCard);
+		DEFINE_CARD(CVoraciousWurmCard);
 		DEFINE_CARD(CWindreaderSphinxCard);
+		DEFINE_CARD(CWitchstalkerCard);
 		DEFINE_CARD(CWoodbornBehemothCard);
 		DEFINE_CARD(CXathridNecromancerCard);
 		DEFINE_CARD(CYoungPyromancerCard);
@@ -768,8 +773,6 @@ CScavengingOozeCard::CScavengingOozeCard(CGame* pGame, UINT nID)
 		, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
 			&CScavengingOozeCard::OnResolutionCompleted))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
-
 	counted_ptr<CActivatedAbility<CTargetMoveCardSpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CTargetMoveCardSpell>>(this,
 			_T("") GREEN_MANA_TEXT,
@@ -1529,7 +1532,7 @@ CRingOfThreeWishesCard::CRingOfThreeWishesCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Ring of Three Wishes"), CardType::Artifact, nID,
 		_T("5"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(WISH_COUNTER, 3, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(WISH_COUNTER, 3, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	counted_ptr<CActivatedAbility<CSearchLibrarySpell>> cpAbility(
 		::CreateObject<CActivatedAbility<CSearchLibrarySpell>>(this,
@@ -1945,21 +1948,19 @@ bool CColossalWhaleCard::BeforeResolution(TriggeredAbility::TriggeredActionType*
 {
 	CCard* pTarget = pAction->GetAssociatedCard();
 
-	CContainerEffectCard* pContainer = (CContainerEffectCard*)pAction->GetTriggerContext().nValue1;
-	CCountedCardContainer pStored;
+	CCard* pContainer = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	if (pContainer->GetZoneId() == ZoneId::_Effects)
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::_Effects, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
+		pModifier1.ApplyTo(pContainer);
 
-	pContainer->WriteData(&pStored);
+		CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
+		pModifier2.ApplyTo(pTarget);
 
-	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::_Effects, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
-	pModifier1.ApplyTo(pContainer);
-
-	if (!pStored.HasCard(this)) return true;
-
-	CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
-	pModifier2.ApplyTo(pTarget);
-
-	if (pTarget->GetZoneId() == ZoneId::Exile)
-		pExiled.AddCard(pTarget, CardPlacement::Top);
+		if (pTarget->GetZoneId() == ZoneId::Exile)
+			pExiled.AddCard(pTarget, CardPlacement::Top);
+	}
 
 	return true;
 }
@@ -2001,7 +2002,6 @@ CRatchetBombCard::CRatchetBombCard(CGame* pGame, UINT nID)
 	: CInPlaySpellCard(pGame, _T("Ratchet Bomb"), CardType::Artifact, nID, 
 		_T("2"), AbilityType::Artifact)
 {
-	GetCounterContainer()->ScheduleCounter(CHARGE_COUNTER, 0, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
 	{
 	
 		counted_ptr<CActivatedAbility<CGenericSpell>> cpAbility(
@@ -2569,22 +2569,19 @@ bool CBanisherPriestCard::BeforeResolution(TriggeredAbility::TriggeredActionType
 {
 	CCard* pTarget = pAction->GetAssociatedCard();
 
-	CContainerEffectCard* pContainer = (CContainerEffectCard*)pAction->GetTriggerContext().nValue1;
-	CCountedCardContainer pStored;
+	CCard* pContainer = (CCard*)pAction->GetTriggerContext().nValue1;
+	
+	if (pContainer->GetZoneId() == ZoneId::_Effects)
+	{
+		CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::_Effects, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
+		pModifier1.ApplyTo(pContainer);
 
-	pContainer->WriteData(&pStored);
+		CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
+		pModifier2.ApplyTo(pTarget);
 
-	CMoveCardModifier pModifier1 = CMoveCardModifier(ZoneId::_Effects, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
-	pModifier1.ApplyTo(pContainer);
-
-	if (!pStored.HasCard(this)) return true;
-
-	CMoveCardModifier pModifier2 = CMoveCardModifier(ZoneId::Battlefield, ZoneId::Exile, TRUE, MoveType::Others, pAction->GetController());
-	pModifier2.ApplyTo(pTarget);
-
-	if (pTarget->GetZoneId() == ZoneId::Exile)
-		pExiled.AddCard(pTarget, CardPlacement::Top);
-
+		if (pTarget->GetZoneId() == ZoneId::Exile)
+			pExiled.AddCard(pTarget, CardPlacement::Top);
+	}
 	return true;
 }
 
@@ -4007,3 +4004,171 @@ CCelestialFlareCard::CCelestialFlareCard(CGame* pGame, UINT nID)
 }
 
 //____________________________________________________________________________
+//
+CWitchstalkerCard::CWitchstalkerCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Witchstalker"), CardType::Creature, CREATURE_TYPE(Wolf), nID,
+		_T("1") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(3), Life(3))
+	, m_CardFilter(_T("a blue or black card"), _T("blue or black cards"), new CardTypeComparer(CardType::Blue | CardType::Black, false))
+{
+	GetCardKeyword()->AddHexproof(FALSE);
+
+	{
+		typedef
+			TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSpellCast > TriggeredAbility;
+
+		counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+		cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+		cpAbility->GetTrigger().SetMonitorOpponentsOnly(TRUE);
+		
+		cpAbility->GetTrigger().GetCardFilterHelper().SetPredefinedFilter(&m_CardFilter);
+		
+		cpAbility->GetTriggeredCardModifiers().push_back(new CCardCounterModifier(_T("+1/+1"), +1));
+		
+		cpAbility->SetContextFunction(TriggeredAbility::ContextFunction(this, &CWitchstalkerCard::SetTriggerContext1));
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+bool CWitchstalkerCard::SetTriggerContext1(CTriggeredModifyCardAbility::TriggerContextType& triggerContext, CCard* pCard) const
+{
+	return (m_pGame->GetActivePlayer() == GetController());
+}
+
+//____________________________________________________________________________
+//
+CVoraciousWurmCard::CVoraciousWurmCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Voracious Wurm"), CardType::Creature, CREATURE_TYPE(Wurm), nID,
+		_T("1") GREEN_MANA_TEXT, Power(2), Life(2))
+	, m_cpAListener(VAR_NAME(m_cpAListener), CardMovementEventSource::Listener::EventCallback(this, &CVoraciousWurmCard::OnZoneChanged))
+{
+	GetMovedEventSource()->AddListener(m_cpAListener.GetPointer());
+}
+
+void CVoraciousWurmCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pToZone, CPlayer* pByPlayer, MoveType moveType)
+{
+	if (!pFromZone || !pToZone || pCard != this)
+		return;
+	int nControllerLifeGainCount = GetController()->GetLifeGainThisTurn();
+	
+	if (pFromZone->GetZoneId() != ZoneId::Battlefield && pToZone->GetZoneId() == ZoneId::Battlefield && moveType == MoveType::Cast)
+	{
+		CCardCounterModifier pModifier = CCardCounterModifier(_T("+1/+1"), +nControllerLifeGainCount);
+		pModifier.ApplyTo(this);
+	}
+}
+
+//____________________________________________________________________________
+//
+CKalonianHydraCard::CKalonianHydraCard(CGame* pGame, UINT nID)
+	: CCreatureCard(pGame, _T("Kalonian Hydra"), CardType::Creature, CREATURE_TYPE(Hydra), nID,
+		_T("3") GREEN_MANA_TEXT GREEN_MANA_TEXT, Power(0), Life(0))
+{
+	GetCreatureKeyword()->AddTrample(FALSE);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 4, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	typedef
+		TTriggeredAbility< CTriggeredModifyCardAbility, CWhenSelfAttackedBlocked,
+								CWhenSelfAttackedBlocked::AttackEventCallback,
+								&CWhenSelfAttackedBlocked::SetAttackingEventCallback > TriggeredAbility;
+
+	counted_ptr<TriggeredAbility> cpAbility(::CreateObject<TriggeredAbility>(this));
+
+	cpAbility->SetOptionalType(TriggeredAbility::OptionalType::Required);
+
+	cpAbility->SetModifyCardOption(TriggeredAbility::ModifyCardOption::ModifyTriggeredPlayersCards);
+	
+	cpAbility->SetResolutionStartedCallback(CAbility::ResolutionStartedCallback(this, &CKalonianHydraCard::BeforeResolution));
+
+	cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+	AddAbility(cpAbility.GetPointer());
+}
+
+bool CKalonianHydraCard::BeforeResolution(CAbilityAction* pAction)
+{
+	CPlayer* pController = pAction->GetController();
+	CZone* pBattlefield = pController->GetZoneById(ZoneId::Battlefield);
+
+	for (int i = 0; i < pBattlefield->GetSize(); ++i)
+	{
+		CCard* pCard = pBattlefield->GetAt(i);
+
+		if (pCard->GetCardType().IsCreature())
+		{
+			int nCounterCount = pCard->GetCounterContainer()->GetCounter(_T("+1/+1"))->GetCount();
+			CCardCounterModifier modifier(_T("+1/+1"), nCounterCount); // double the number of counters
+			modifier.ApplyTo((CCreatureCard*)pCard);
+		}
+	}
+	return true;
+}
+
+//____________________________________________________________________________
+//
+CSeismicStompCard::CSeismicStompCard(CGame* pGame, UINT nID)
+	: CCard(pGame, _T("Seismic Stomp"), CardType::Sorcery, nID)
+{
+	counted_ptr<CGenericSpell> cpSpell(
+		::CreateObject<CGenericSpell>(this, AbilityType::Sorcery,
+			_T("1") RED_MANA_TEXT));
+
+	cpSpell->GetResolutionModifier().CPlayerModifiers::push_back(new CTokenCreationModifier(GetGame(), _T("Seismic Stomp Effect"), 61129, 1, FALSE, ZoneId::_Effects));
+
+	AddSpell(cpSpell.GetPointer());
+}
+
+//____________________________________________________________________________
+//
+CHauntedPlateMailCard::CHauntedPlateMailCard(CGame* pGame, UINT nID)
+	: CInPlaySpellCard(pGame, _T("Haunted Plate Mail"), CardType::Artifact | CardType::Equipment, nID, 
+		_T("4"), AbilityType::Artifact)
+	, m_cpEventListener(VAR_NAME(m_cpListener), ResolutionCompletedEventSource::Listener::EventCallback(this,
+				   &CHauntedPlateMailCard::OnResolutionCompleted))
+{
+	{
+		counted_ptr<CIsAlsoAAbility> cpAbility(
+			::CreateObject<CIsAlsoAAbility>(this,
+				_T("0"),
+				_T("Spirit AI"), 64087));
+
+		counted_ptr<CPlayableIfTrait> cpTrait(
+		::CreateObject<CPlayableIfTrait>(
+			m_pUntapAbility, CPlayableIfTrait::PlayableCallback(this,
+				&CHauntedPlateMailCard::CanPlay)));
+
+		cpAbility->Add(cpTrait.GetPointer());
+
+		cpAbility->GetResolutionCompletedEventSource()->AddListener(m_cpEventListener.GetPointer());
+		AddAbility(cpAbility.GetPointer());
+	}
+	{
+		counted_ptr<CEquipAbility> cpAbility(
+			::CreateObject<CEquipAbility>(this, _T("4")));
+
+		cpAbility->AddCreatureModifier(new CLifeModifier(Life(+4), this, 
+			PreventableType::NotPreventable, DamageType::NotDealingDamage, FALSE));
+
+		cpAbility->AddCreatureModifier(new CPowerModifier(Power(+4), FALSE));
+
+		cpAbility->AddAbilityTag(AbilityTag::CreatureChange);
+
+		AddAbility(cpAbility.GetPointer());
+	}
+}
+
+BOOL CHauntedPlateMailCard::CanPlay(BOOL bIncludeTricks)
+{
+	return CCardFilter::GetFilter(_T("creatures"))->CountIncluded(GetController()->GetZoneById(ZoneId::Battlefield)->GetCardContainer()) == 0;
+}
+
+void CHauntedPlateMailCard::OnResolutionCompleted(const CAbilityAction* pAbilityAction, BOOL bResult)
+{
+	if (!IsInplay()) return;
+
+	CCardTypeModifier pModifier = CCardTypeModifier(CardType::Null, TRUE, CardType::Equipment);
+	pModifier.ApplyTo(this);
+}
+
+//____________________________________________________________________________
+//

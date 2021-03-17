@@ -980,7 +980,7 @@ CPentavusCard::CPentavusCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Pentavus"), CardType::_ArtifactCreature, CREATURE_TYPE(Construct), nID,
 		_T("7"), Power(0), Life(0))
 {
-	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, true, ZoneId::_AllZones, ZoneId::Battlefield, false);
+	GetCounterContainer()->ScheduleCounter(_T("+1/+1"), 5, false, ZoneId::_AllZones, ZoneId::Battlefield, false);
 
 	{
 		counted_ptr<CActivatedAbility<CTokenProductionSpell>> cpAbility(
@@ -2183,7 +2183,7 @@ void CGarruksHordeCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* pTo
 //
 CGladecoverScoutCard::CGladecoverScoutCard(CGame* pGame, UINT nID)
 	: CCreatureCard(pGame, _T("Gladecover Scout"), CardType::Creature, CREATURE_TYPE2(Elf, Scout), nID,
-		_T("") GREEN_MANA_TEXT, Power(1), Life(1))
+		GREEN_MANA_TEXT, Power(1), Life(1))
 {
 	GetCardKeyword()->AddHexproof(FALSE);
 }
@@ -2951,7 +2951,7 @@ void CPrimordialHydraCard::OnZoneChanged(CCard* pCard, CZone* pFromZone, CZone* 
 	{
 		int nCount = GetLastCastingExtraValue();
 
-		CCardCounterModifier modifier = CCardCounterModifier(_T("+1/+1"), nCount, true);
+		CCardCounterModifier modifier = CCardCounterModifier(_T("+1/+1"), nCount);
 		modifier.ApplyTo(this);
 	}
 }

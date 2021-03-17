@@ -430,6 +430,8 @@ BEGIN
     IDS_STRING9480          "Delirium\n{1BR}\nInstant\nMRG,U\nCast Delirium only during an opponent's turn.\rTap target creature that player controls. That creature deals damage equal to its power to the player. Prevent all combat damage that would be dealt to and dealt by the creature this turn."
     IDS_STRING9481          "Zirilan of the Claw\n{3RR}\nLegendary Creature - Viashino Shaman\nMRG,R\n{1RR}, {T}: Search your library for a Dragon permanent card and put that card onto the battlefield. Then shuffle your library. That Dragon gains haste until end of turn. Exile it at the beginning of the next end step.\n3/4"
     IDS_STRING9482          "Basalt Golem\n{5}\nCreature - Golem\nMRG,U\nBasalt Golem can't be blocked by artifact creatures.\rWhenever Basalt Golem becomes blocked by a creature, that creature's controller sacrifices it at end of combat. If the player does, he or she puts a 0/2 colorless Wall artifact creature token with defender onto the battlefield.\n2/4"
+    IDS_STRING9483          "Illicit Auction\n{3RR}\nSorcery\nMRG,R\nEach player may bid life for control of target creature. You start the bidding with a bid of 0. In turn order, each player may top the high bid. The bidding ends if the high bid stands. The high bidder loses life equal to the high bid and gains control of the creature."
+    IDS_STRING9484          "Consuming Ferocity\n{1R}\nEnchantment - Aura\nMRG,U\nEnchant non-Wall creature\rEnchanted creature gets +1/+0.\rAt the beginning of your upkeep, put a +1/+0 counter on enchanted creature. If that creature has three or more +1/+0 counters on it, it deals damage equal to its power to its controller, then destroy that creature and it can't be regenerated."
 END
 
 #endif    // English (United States) resources
